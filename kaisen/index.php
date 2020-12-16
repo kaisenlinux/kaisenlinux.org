@@ -12,7 +12,6 @@
 </div>
 </div>
 
-
 <!-- Project Detail Section START -->
 <div class="section-block slider-home">
   <div class="container">
@@ -32,14 +31,10 @@
                   </video>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
-
-
 
       <div class="widget-description col-sm-12 col-md-3">
 

@@ -9,7 +9,7 @@
 		switch ($file) {
 		    
 		    case 'index.php':
-		        return [t_s('Home'),'index'];
+		        return [t_s(''),'index'];
 		        break;
 
 		    case 'downloads.php':

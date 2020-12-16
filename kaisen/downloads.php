@@ -84,7 +84,6 @@
     </div>
 </div>
 
-
 <!-- Slider END -->
 
 <!-- Projects Section START -->
@@ -101,7 +100,7 @@
           Default desktop environment: MATE<br>
           Others desktop environments: KDE, LXDE, XFCE<br>
           Latest version: <?php echo $release_version; ?><br>
-          Live credentials: kaisen/kaisen<br>
+          Live credentials: <span>kaisen/kaisen</span><br>
           Old versions: <a href="https://kaisen.lf.je/index.html" target="_blank">here</a><br>
           All checksums <a href="https://kaisen-linux.org/kaisen/checksums.txt" target="_blank">here</a><br>
           Last changelog <a href="https://blog.kaisen-linux.org/blog/articles/kaisenlinuxrolling1.5.html" target="_blank">here</a><br>

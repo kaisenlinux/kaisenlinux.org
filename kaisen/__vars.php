@@ -5,8 +5,8 @@
 	
 	$description = "Kaisen Linux is a complete operating system whose originality is to provide a set of tools dedicated to system administration and covering all the needs for diagnosing and dealing with faults or failures of an installed system and its components. The most important system tools are available.";
 
-	$image = 'https://'.$_SERVER['HTTP_HOST'].'/img/kaisen-social.jpg';
-	$url = 'https://'.$_SERVER['HTTP_HOST'];
+	$image = 'https://'.$_SERVER['HTTP_HOST'].'/kaisen/img/kaisen-social.png';
+	$url = 'https://'.$_SERVER['HTTP_HOST'].'/kaisen';
 
 
 	$release_version = 'Rolling 1.5';
