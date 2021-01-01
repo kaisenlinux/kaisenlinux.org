@@ -98,7 +98,7 @@
         <div class="text-content-big mt-20">
           <p>Architecture: amd64 (Intel and AMD processors)<br>
           Default desktop environment: MATE<br>
-          Others desktop environments: KDE, LXDE, XFCE<br>
+          Others desktop environments: KDE, XFCE, LXDE<br>
           Latest version: <?php echo $release_version; ?><br>
           Live credentials: <span>kaisen/kaisen</span><br>
           Old versions: <a href="https://kaisen.lf.je/index.html" target="_blank">here</a><br>

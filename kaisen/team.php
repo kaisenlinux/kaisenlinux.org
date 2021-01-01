@@ -18,7 +18,7 @@
           <div class="team-member-text">
             <h4>Kevin Chevreuil<br><small>Kaisen</small></h4>
             <span>Founder & team leader</span>
-            <p>Now a Linux systems administrator, he is the developer of the distribution, blog and documentation editor. 
+            <p>Linux sysadmin, he is the developer of the distribution, blog and documentation editor. 
                He also takes care of the putting into production of updates of packages and repositories.</p>
             <ul>
               <li><a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
@@ -58,6 +58,23 @@
 
             <ul>
               <li><a href="https://www.linkedin.com/in/tomibequet/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+            <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
+            <img src="img/contributors/kaisen.jpg" alt="img">
+          </div>
+          <div class="team-member-text">
+            <h4>Arnaud Cormier<br><small>Magiknono</small></h4>
+            <span>Manpages maintainer</span>
+            <p>Freelance Linux sysadmin and webdev. He is lot of contributed at Kaisen Linux
+               with videos and documentation. Today, he is maintainer of <a href="https://manpages.kaisen-linux.org" target="_blank">manpages</a> documentation.</p>
+
+            <ul>
+              <li><a href="https://www.linkedin.com/in/arnaudcormier/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
