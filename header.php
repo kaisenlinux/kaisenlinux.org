@@ -79,12 +79,10 @@
         </li>
         <li><a href="https://blog.kaisen-linux.org" target="_blank">Blog</a>
         </li>
-        <li><a href="#">Documentation</a>
-        <ul class="nav-dropdown">
-        <li><a href="https://docs.kaisen-linux.org" target="_blank">General docs</a></li>
-        <li><a href="https://manpages.kaisen-linux.org" target="_blank">Manpages</a></li>
-        </ul>
-        </li>
+        <li><a href="https://docs.kaisen-linux.org" target="_blank">Documentation</a>
+	</li>
+        <li><a href="https://manpages.kaisen-linux.org" target="_blank">Manpages</a>
+	</li>
         <li><a href="#">About</a>
           <ul class="nav-dropdown">
             <li><a href="team.php">Team</a></li>
