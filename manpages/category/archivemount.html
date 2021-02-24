@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>archivemount — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>ARCHIVEMOUNT(1)                                                             User Commands                                                            ARCHIVEMOUNT(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">archivemount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">archivemount</span><span class="w"> </span><span class="p" data-group-id="3541594910-1">[</span><span class="o">-</span><span class="n">hVdfs</span><span class="p" data-group-id="3541594910-1">]</span><span class="w"> </span><span class="p" data-group-id="3541594910-2">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="3541594910-2">]</span><span class="w"> </span><span class="n">archivepath</span><span class="w"> </span><span class="n">mountpoint</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">archivemount</span><span class="w">  </span><span class="n">command</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">archivepath</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">mountpoint</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">archive</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">subsequently</span><span class="w"> </span><span class="n">be</span><span class="w">
+   </span><span class="n">accessed</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">mountpoint</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">umount</span><span class="p" data-group-id="4189260333-1">(</span><span class="mi">8</span><span class="p" data-group-id="4189260333-1">)</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">performs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">unmount</span><span class="w"> </span><span class="n">operation</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">archivemount</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Mac</span><span class="w"> </span><span class="nc">OS</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p" data-group-id="4189260333-2">(</span><span class="n">via</span><span class="w"> </span><span class="nc">MacFUSE</span><span class="p" data-group-id="4189260333-2">)</span><span class="o">.</span></code></pre><p>EXAMPLE SESSION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Consider</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">gzipped</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">files</span><span class="o">.</span><span class="n">tgz</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">file1</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">file2</span><span class="sc">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">mnt</span><span class="sc">&#39;&#39;</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w">
+   </span><span class="n">files</span><span class="o">.</span><span class="n">tgz</span><span class="w">    </span><span class="n">mnt</span><span class="o">/</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">archivemount</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="n">tgz</span><span class="w"> </span><span class="n">mnt</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="n">mnt</span><span class="w">
+   </span><span class="n">file1</span><span class="w">    </span><span class="n">file2</span><span class="w">
+
+   </span><span class="p" data-group-id="5906856291-1">[</span><span class="n">...</span><span class="w"> </span><span class="nc">Perform</span><span class="w"> </span><span class="n">desired</span><span class="w"> </span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">mnt</span><span class="o">/</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="5906856291-1">]</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">umount</span><span class="w"> </span><span class="n">mnt</span><span class="w">
+
+   </span><span class="p" data-group-id="5906856291-2">[</span><span class="n">...</span><span class="w"> </span><span class="nc">Any</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="5906856291-2">]</span></code></pre><p>ARCHIVE FORMATS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Archive</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">libarchive</span><span class="p" data-group-id="3919733831-1">(</span><span class="mi">3</span><span class="p" data-group-id="3919733831-1">)</span><span class="w"> </span><span class="n">library</span><span class="o">.</span><span class="w">  </span><span class="nc">Read</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="ss">for</span><span class="p">:</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="n">old</span><span class="o">-</span><span class="n">style</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="n">most</span><span class="w"> </span><span class="n">variants</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">ustar</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="n">the</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">pax</span><span class="w"> </span><span class="n">interchange</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">GNU</span><span class="o">-</span><span class="n">format</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="n">most</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">cpio</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">formats</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">ISO9660</span><span class="w"> </span><span class="nc">CD</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="p" data-group-id="3919733831-2">(</span><span class="k">with</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="nc">RockRidge</span><span class="w"> </span><span class="n">extensions</span><span class="p" data-group-id="3919733831-2">)</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">Zip</span><span class="w"> </span><span class="n">archives</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Archives</span><span class="w"> </span><span class="n">compressed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">gzip</span><span class="p" data-group-id="3919733831-3">(</span><span class="mi">1</span><span class="p" data-group-id="3919733831-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">bzip2</span><span class="p" data-group-id="3919733831-4">(</span><span class="mi">1</span><span class="p" data-group-id="3919733831-4">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">compress</span><span class="p" data-group-id="3919733831-5">(</span><span class="mi">1</span><span class="p" data-group-id="3919733831-5">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">transparently</span><span class="w"> </span><span class="n">decompressed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ss">written</span><span class="p">:</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">POSIX</span><span class="o">-</span><span class="n">standard</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">ustar</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">POSIX</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">pax</span><span class="w"> </span><span class="n">interchange</span><span class="w"> </span><span class="n">format</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">octet</span><span class="o">-</span><span class="n">oriented</span><span class="w"> </span><span class="n">cpio</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w">
+
+          </span><span class="err">•</span><span class="w">      </span><span class="n">two</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">variants</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">shar</span><span class="w"> </span><span class="n">archives</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Before</span><span class="w"> </span><span class="n">writing</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">renamed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="o">.</span><span class="n">orig</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">appended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">  </span><span class="nc">More</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">read</span><span class="o">/</span><span class="n">write</span><span class="w"> </span><span class="n">support</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">found</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="n">the</span><span class="w">
+   </span><span class="n">libarchive</span><span class="p" data-group-id="3919733831-6">(</span><span class="mi">3</span><span class="p" data-group-id="3919733831-6">)</span><span class="w"> </span><span class="n">documentation</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">archivemount</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">built</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FUSE</span><span class="w"> </span><span class="p" data-group-id="4010626910-1">(</span><span class="nc">Filesystem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Userspace</span><span class="p" data-group-id="4010626910-1">)</span><span class="w"> </span><span class="n">library</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">FUSE</span><span class="w"> </span><span class="n">implementa</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tion</span><span class="o">.</span><span class="w">  </span><span class="nc">Execute</span><span class="w"> </span><span class="n">archivemount</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">retrieve</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">definitive</span><span class="w"> </span><span class="n">list</span><span class="o">.</span></code></pre><p>   general options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">opt</span><span class="p">,</span><span class="p" data-group-id="6415405970-1">[</span><span class="n">opt</span><span class="n">...</span><span class="p" data-group-id="6415405970-1">]</span><span class="w">
+          </span><span class="n">mount</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="n">print</span><span class="w"> </span><span class="n">help</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="w">   </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="n">print</span><span class="w"> </span><span class="n">version</span></code></pre><p>   archivemount mount options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">readonly</span><span class="w">
+          </span><span class="n">disable</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">support</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">nobackup</span><span class="w">
+          </span><span class="n">remove</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">backups</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">subtree</span><span class="o">=</span><span class="o">&lt;</span><span class="n">regex</span><span class="o">&gt;</span><span class="w">
+          </span><span class="n">mount</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">archive</span><span class="p">,</span><span class="w"> </span><span class="n">strip</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">path</span></code></pre><p>   FUSE mount options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="nc">FUSE</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w">   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">debug</span><span class="w">
+          </span><span class="n">enable</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="p" data-group-id="2832667863-1">(</span><span class="n">implies</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="2832667863-1">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="w">     </span><span class="n">foreground</span><span class="w"> </span><span class="n">operation</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="w">     </span><span class="n">disable</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">threaded</span><span class="w"> </span><span class="n">operation</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">allow_other</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">users</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">allow_root</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">root</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">nonempty</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">empty</span><span class="w"> </span><span class="n">file</span><span class="o">/</span><span class="n">dir</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">default_permissions</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">kernel</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">fsname</span><span class="o">=</span><span class="nc">NAME</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">subtype</span><span class="o">=</span><span class="nc">NAME</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">large_read</span><span class="w">
+          </span><span class="n">issue</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="p" data-group-id="2832667863-2">(</span><span class="mf">2.4</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2832667863-2">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">max_read</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">requests</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">hard_remove</span><span class="w">
+          </span><span class="n">immediate</span><span class="w"> </span><span class="n">removal</span><span class="w"> </span><span class="p" data-group-id="2832667863-3">(</span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">hide</span><span class="w"> </span><span class="n">files</span><span class="p" data-group-id="2832667863-3">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">use_ino</span><span class="w">
+          </span><span class="n">let</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">inode</span><span class="w"> </span><span class="n">numbers</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">readdir_ino</span><span class="w">
+          </span><span class="k">try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">d_ino</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">readdir</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">direct_io</span><span class="w">
+          </span><span class="kn">use</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">kernel_cache</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kernel</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="p" data-group-id="2832667863-4">[</span><span class="n">no</span><span class="p" data-group-id="2832667863-4">]</span><span class="n">auto_cache</span><span class="w">
+          </span><span class="n">enable</span><span class="w"> </span><span class="n">caching</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">modification</span><span class="w"> </span><span class="n">times</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">umask</span><span class="o">=</span><span class="nc">M</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">permissions</span><span class="w"> </span><span class="p" data-group-id="2832667863-5">(</span><span class="n">octal</span><span class="p" data-group-id="2832667863-5">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">uid</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">owner</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">gid</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">group</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">entry_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="2832667863-6">(</span><span class="mf">1.0</span><span class="n">s</span><span class="p" data-group-id="2832667863-6">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">negative_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="2832667863-7">(</span><span class="mf">0.0</span><span class="n">s</span><span class="p" data-group-id="2832667863-7">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">attr_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="p" data-group-id="2832667863-8">(</span><span class="mf">1.0</span><span class="n">s</span><span class="p" data-group-id="2832667863-8">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">ac_attr_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">auto</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="p" data-group-id="2832667863-9">(</span><span class="n">attr_timeout</span><span class="p" data-group-id="2832667863-9">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">intr</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">interrupted</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">intr_signal</span><span class="o">=</span><span class="nc">NUM</span><span class="w">
+          </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">interrupt</span><span class="w"> </span><span class="p" data-group-id="2832667863-10">(</span><span class="mi">10</span><span class="p" data-group-id="2832667863-10">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">modules</span><span class="o">=</span><span class="nc">M1</span><span class="p" data-group-id="2832667863-11">[</span><span class="ss">:M2</span><span class="n">...</span><span class="p" data-group-id="2832667863-11">]</span><span class="w">
+          </span><span class="n">names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">onto</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">stack</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">max_write</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">requests</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">max_readahead</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">readahead</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">async_read</span><span class="w">
+          </span><span class="n">perform</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">asynchronously</span><span class="w"> </span><span class="p" data-group-id="2832667863-12">(</span><span class="n">default</span><span class="p" data-group-id="2832667863-12">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">sync_read</span><span class="w">
+          </span><span class="n">perform</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">synchronously</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">atomic_o_trunc</span><span class="w">
+          </span><span class="n">enable</span><span class="w"> </span><span class="n">atomic</span><span class="w"> </span><span class="n">open</span><span class="o">+</span><span class="n">truncate</span><span class="w"> </span><span class="n">support</span></code></pre><p>   MacFUSE mount options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Mac</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">MacFUSE</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">allow_other</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">others</span><span class="w"> </span><span class="n">besides</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">mounted</span><span class="w">                             </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">allow_recursion</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">resides</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">MacFUSE</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="p" data-group-id="9937969735-1">(</span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">mounting</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">disallowed</span><span class="p" data-group-id="9937969735-1">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">allow_root</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="p" data-group-id="9937969735-2">(</span><span class="n">can</span><span class="sc">&#39;t be used with allow_other)
+
+   -o auto_xattr
+          handle extended attributes entirely through ._ files
+
+   -o blocksize=SIZE
+          specify block size in bytes of &quot;storage&quot;
+
+   -o case_insensitive
+          enable case-insensitive mode
+
+   -o daemon_timeout=T
+          timeout in seconds for kernel calls to daemon
+
+   -o debug
+          turn on debug information printing
+
+   -o default_permissions
+          let the kernel handle permission checks locally
+
+   -o defer_permissions
+          defer permission checks to file operations themselves
+
+   -o direct_io
+          use alternative (direct) path for kernel-user I/O
+
+   -o extended_security
+          turn on Mac OS X extended security (ACLs)
+
+   -o fsid=FSID
+          set the second 32-bit component of the fsid
+
+   -o fsname=NAME
+          set the file system&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">fssubtype</span><span class="o">=</span><span class="nc">NUM</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="sc">&#39;s fssubtype identifier
+
+   -o fstypename=NAME
+          set the file system&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">iosize</span><span class="o">=</span><span class="nc">SIZE</span><span class="w">
+          </span><span class="n">specify</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">jail_symlinks</span><span class="w">
+          </span><span class="n">contain</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mount</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">kill_on_unmount</span><span class="w">
+          </span><span class="n">kernel</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="p" data-group-id="9937969735-3">(</span><span class="nc">SIGKILL</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p" data-group-id="9937969735-3">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">unmount</span><span class="w"> </span><span class="n">finishes</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">local</span><span class="w">
+          </span><span class="n">mark</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">local</span><span class="sc">&#39;&#39;</span><span class="w"> </span><span class="p" data-group-id="9937969735-4">(</span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">`</span><span class="err">`</span><span class="n">nonlocal</span><span class="sc">&#39;&#39;</span><span class="p" data-group-id="9937969735-4">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">negative_vncache</span><span class="w">
+          </span><span class="n">enable</span><span class="w"> </span><span class="n">vnode</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">caching</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">existent</span><span class="w"> </span><span class="n">objects</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">volname</span><span class="o">=</span><span class="nc">NAME</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="sc">&#39;s volume name
+
+   -o noalerts
+          disable all graphical alerts (if any) in MacFUSE Core
+
+   -o noappledouble
+          ignore Apple Double (._) and .DS_Store files entirely
+
+   -o noapplexattr
+          ignore all ``com.apple.*&#39;</span><span class="sc">&#39; extended attributes
+
+   -o nobrowse
+          mark the volume as non-browsable by the Finder
+
+   -o nolocalcaches
+          meta option equivalent to noreadahead,noubc,novncache
+
+   -o noping_diskarb
+          do not ping Disk Arbitration (pings by default)
+
+   -o noreadahead
+          disable I/O read-ahead behavior for this file system
+
+   -o nosynconclose
+          disable sync-on-close behavior (enabled by default)
+
+   -o nosyncwrites
+          disable synchronous-writes behavior (dangerous)
+
+   -o noubc
+          disable the unified buffer cache for this file system
+
+   -o novncache
+          disable the vnode name cache for this file system
+
+   -o hard_remove
+          immediate removal (don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">hide</span><span class="w"> </span><span class="n">files</span><span class="p" data-group-id="9937969735-2">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">use_ino</span><span class="w">
+          </span><span class="n">let</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">inode</span><span class="w"> </span><span class="n">numbers</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">readdir_ino</span><span class="w">
+          </span><span class="k">try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">d_ino</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">readdir</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">direct_io</span><span class="w">
+          </span><span class="kn">use</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">kernel_cache</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kernel</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="p" data-group-id="9937969735-5">[</span><span class="n">no</span><span class="p" data-group-id="9937969735-5">]</span><span class="n">auto_cache</span><span class="w">
+          </span><span class="n">enable</span><span class="w"> </span><span class="n">caching</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">modification</span><span class="w"> </span><span class="n">times</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">umask</span><span class="o">=</span><span class="nc">M</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">permissions</span><span class="w"> </span><span class="p" data-group-id="9937969735-6">(</span><span class="n">octal</span><span class="p" data-group-id="9937969735-6">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">uid</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">owner</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">gid</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">group</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">entry_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="9937969735-7">(</span><span class="mf">1.0</span><span class="n">s</span><span class="p" data-group-id="9937969735-7">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">negative_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="9937969735-8">(</span><span class="mf">0.0</span><span class="n">s</span><span class="p" data-group-id="9937969735-8">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">attr_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="p" data-group-id="9937969735-9">(</span><span class="mf">1.0</span><span class="n">s</span><span class="p" data-group-id="9937969735-9">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">ac_attr_timeout</span><span class="o">=</span><span class="nc">T</span><span class="w">
+          </span><span class="n">auto</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="p" data-group-id="9937969735-10">(</span><span class="n">attr_timeout</span><span class="p" data-group-id="9937969735-10">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">intr</span><span class="w">
+          </span><span class="n">allow</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">interrupted</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">intr_signal</span><span class="o">=</span><span class="nc">NUM</span><span class="w">
+          </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">interrupt</span><span class="w"> </span><span class="p" data-group-id="9937969735-11">(</span><span class="mi">30</span><span class="p" data-group-id="9937969735-11">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">modules</span><span class="o">=</span><span class="nc">M1</span><span class="p" data-group-id="9937969735-12">[</span><span class="ss">:M2</span><span class="n">...</span><span class="p" data-group-id="9937969735-12">]</span><span class="w">
+          </span><span class="n">names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">onto</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">stack</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">max_write</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">requests</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">max_readahead</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">readahead</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">async_read</span><span class="w">
+          </span><span class="n">perform</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">asynchronously</span><span class="w"> </span><span class="p" data-group-id="9937969735-13">(</span><span class="n">default</span><span class="p" data-group-id="9937969735-13">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">sync_read</span><span class="w">
+          </span><span class="n">perform</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">synchronously</span></code></pre><p>   Module options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="p" data-group-id="9062653628-1">[</span><span class="n">subdir</span><span class="p" data-group-id="9062653628-1">]</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">subdir</span><span class="o">=</span><span class="nc">DIR</span><span class="w">
+          </span><span class="n">prepend</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="p" data-group-id="9062653628-2">(</span><span class="n">mandatory</span><span class="p" data-group-id="9062653628-2">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="p" data-group-id="9062653628-3">[</span><span class="n">no</span><span class="p" data-group-id="9062653628-3">]</span><span class="n">rellinks</span><span class="w">
+          </span><span class="n">transform</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">symlinks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">relative</span><span class="w">
+
+   </span><span class="p" data-group-id="9062653628-4">[</span><span class="n">iconv</span><span class="p" data-group-id="9062653628-4">]</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">from_code</span><span class="o">=</span><span class="nc">CHARSET</span><span class="w">
+          </span><span class="n">original</span><span class="w"> </span><span class="n">encoding</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="9062653628-5">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p" data-group-id="9062653628-5">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">to_code</span><span class="o">=</span><span class="nc">CHARSET</span><span class="w">
+          </span><span class="n">new</span><span class="w"> </span><span class="n">encoding</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="9062653628-6">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="nc">ISO</span><span class="o">-</span><span class="mi">8859</span><span class="o">-</span><span class="mi">2</span><span class="p" data-group-id="9062653628-6">)</span></code></pre><p>LICENSE</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">sofware</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">software</span><span class="p">;</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">redistribute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">Library</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">published</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="nc">Free</span><span class="w">
+   </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="p">;</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p" data-group-id="0260914712-1">(</span><span class="n">at</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">option</span><span class="p" data-group-id="0260914712-1">)</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w">  </span><span class="n">software</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">distributed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hope</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">useful</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="nc">WITHOUT</span><span class="w"> </span><span class="nc">ANY</span><span class="w"> </span><span class="nc">WARRANTY</span><span class="p">;</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">implied</span><span class="w"> </span><span class="n">warranty</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">MERCHANTABILITY</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">FITNESS</span><span class="w">
+   </span><span class="nc">FOR</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="nc">PARTICULAR</span><span class="w"> </span><span class="nc">PURPOSE</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">Library</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">Library</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">software</span><span class="p">;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="p">,</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="p">,</span><span class="w">  </span><span class="nc">Inc</span><span class="o">.</span><span class="p">,</span><span class="w">  </span><span class="mi">59</span><span class="w">
+   </span><span class="nc">Temple</span><span class="w"> </span><span class="nc">Place</span><span class="p">,</span><span class="w"> </span><span class="nc">Suite</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w"> </span><span class="nc">Boston</span><span class="p">,</span><span class="w"> </span><span class="nc">MA</span><span class="w">  </span><span class="mi">02111</span><span class="o">-</span><span class="mi">1307</span><span class="w">  </span><span class="nc">USA</span></code></pre><p>KNOWN BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="n">software</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">such</span><span class="o">.</span><span class="w">  </span><span class="nc">Bug</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">AUTHORS</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">appreciated</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">archivemount</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">forced</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="n">thread</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">now</span><span class="o">.</span><span class="w"> </span><span class="nc">Support</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">stable</span><span class="w"> </span><span class="n">multithreading</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">planned</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="n">release</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">bzip2</span><span class="p" data-group-id="6863782858-1">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">compress</span><span class="p" data-group-id="6863782858-2">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">cpio</span><span class="p" data-group-id="6863782858-3">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">gzip</span><span class="p" data-group-id="6863782858-4">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">libarchive</span><span class="p" data-group-id="6863782858-5">(</span><span class="mi">3</span><span class="p" data-group-id="6863782858-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">pax</span><span class="p" data-group-id="6863782858-6">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">tar</span><span class="p" data-group-id="6863782858-7">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">umount</span><span class="p" data-group-id="6863782858-8">(</span><span class="mi">8</span><span class="p" data-group-id="6863782858-8">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">zip</span><span class="p" data-group-id="6863782858-9">(</span><span class="mi">1</span><span class="p" data-group-id="6863782858-9">)</span><span class="w">
+
+   </span><span class="err">`</span><span class="err">`</span><span class="nc">Filesystem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Userspace</span><span class="ss">&#39;&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">fuse</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="w">
+
+   </span><span class="err">`</span><span class="err">`</span><span class="nc">MacFUSE</span><span class="ss">&#39;&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">code</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">macfuse</span><span class="o">/</span></code></pre><p>AUTHORS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Archivemount</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">maintained</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Andre</span><span class="w"> </span><span class="nc">Landwehr</span><span class="w"> </span><span class="o">&lt;</span><span class="n">andrel</span><span class="na">@cybernoia</span><span class="o">.</span><span class="n">de</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Tom</span><span class="w"> </span><span class="nc">Duck</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tom</span><span class="o">.</span><span class="n">duck</span><span class="na">@dal</span><span class="o">.</span><span class="n">ca</span><span class="o">&gt;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">drawn</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">libarchive</span><span class="p" data-group-id="6596056596-1">(</span><span class="mi">3</span><span class="p" data-group-id="6596056596-1">)</span><span class="o">.</span></code></pre><p>ARCHIVEMOUNT version 0.8.7                                                 15 August 2013                                                            ARCHIVEMOUNT(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

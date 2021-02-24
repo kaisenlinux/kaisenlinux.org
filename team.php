@@ -71,7 +71,7 @@
             <h4>Arnaud Cormier<br><small>Magiknono</small></h4>
             <span>Manpages maintainer</span>
             <p>Freelance Linux sysadmin and webdev. He is lot of contributed at Kaisen Linux
-               with videos and documentation. Today, he is maintainer of <a href="https://manpages.kaisen-linux.org" target="_blank">manpages</a> documentation.</p>
+               with videos and documentation. Today, he is maintainer of <a href="manpages/">manpages</a> documentation.</p>
 
             <ul>
               <li><a href="https://www.linkedin.com/in/arnaudcormier/" target="_blank"><i class="fab fa-linkedin"></i></a></li>

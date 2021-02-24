@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>wakeonlan — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>WAKEONLAN(1)                                                     User Contributed Perl Documentation                                                    WAKEONLAN(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wakeonlan</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Perl</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wake</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">computers</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wakeonlan</span><span class="w"> </span><span class="p" data-group-id="4459862166-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="4459862166-1">]</span><span class="w"> </span><span class="p" data-group-id="4459862166-2">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="4459862166-2">]</span><span class="w"> </span><span class="p" data-group-id="4459862166-3">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="nc">IP_address</span><span class="p" data-group-id="4459862166-3">]</span><span class="w"> </span><span class="p" data-group-id="4459862166-4">[</span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">port</span><span class="p" data-group-id="4459862166-4">]</span><span class="w"> </span><span class="p" data-group-id="4459862166-5">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="4459862166-5">]</span><span class="w"> </span><span class="p" data-group-id="4459862166-6">[</span><span class="p" data-group-id="4459862166-7">[</span><span class="n">hardware_address</span><span class="p" data-group-id="4459862166-7">]</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4459862166-6">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="sc">&#39;magic packets&#39;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wake</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">lan</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">ethernet</span><span class="w"> </span><span class="n">adapters</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">motherboards</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="nc">PC</span><span class="o">.</span><span class="w"> </span><span class="nc">Be</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NIC</span><span class="w">
+   </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">motherboard</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">neccesary</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WOL</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">BIOS</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="sc">&#39;magic packet&#39;</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="mh">0xFF</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NIC</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">encapsulated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">packet</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="nc">UDP</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="w">  </span><span class="nc">Displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="w">  </span><span class="nc">Displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">ip_address</span><span class="w">
+       </span><span class="nc">Destination</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w"> </span><span class="nc">Unless</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="5033552207-1">(</span><span class="n">the</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w">
+       </span><span class="n">computer</span><span class="w"> </span><span class="n">resides</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="n">address</span><span class="p" data-group-id="5033552207-1">)</span><span class="o">.</span><span class="w"> </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span><span class="w"> </span><span class="p" data-group-id="5033552207-2">(</span><span class="n">the</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="n">address</span><span class="p" data-group-id="5033552207-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">port</span><span class="w">
+       </span><span class="nc">Destination</span><span class="w"> </span><span class="n">port</span><span class="o">.</span><span class="w"> </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p" data-group-id="5033552207-3">(</span><span class="n">the</span><span class="w"> </span><span class="n">discard</span><span class="w"> </span><span class="n">port</span><span class="p" data-group-id="5033552207-3">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">file</span><span class="w">
+       </span><span class="nc">File</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">wakeable</span><span class="w"> </span><span class="n">computers</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">lab001</span><span class="o">.</span><span class="n">wol</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">subdirectory</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="9108866854-1">(</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span><span class="p" data-group-id="9108866854-1">)</span><span class="p">:</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="w">
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">07</span><span class="w">
+
+   </span><span class="nc">Using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">subnet</span><span class="w"> </span><span class="n">broadcast</span><span class="w"> </span><span class="ss">address</span><span class="p">:</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.255</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="w">
+
+   </span><span class="nc">Using</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="ss">port</span><span class="p">:</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.255</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="w">
+
+   </span><span class="nc">Using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="ss">addresses</span><span class="p">:</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lab001</span><span class="o">.</span><span class="n">wol</span><span class="w">
+       </span><span class="err">$</span><span class="w"> </span><span class="n">wakeonlan</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lab001</span><span class="o">.</span><span class="n">wol</span><span class="w"> </span><span class="mi">01</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">06</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Jos</span><span class="n">é</span><span class="w"> </span><span class="nc">Pedro</span><span class="w"> </span><span class="nc">Oliveira</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jpo</span><span class="na">@di</span><span class="o">.</span><span class="n">uminho</span><span class="o">.</span><span class="n">pt</span><span class="o">&gt;</span><span class="w"> </span><span class="n">maintaining</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">expanding</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Ico</span><span class="w"> </span><span class="nc">Doornekamp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ico</span><span class="na">@edd</span><span class="o">.</span><span class="n">dhs</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Copyright</span><span class="w"> </span><span class="p" data-group-id="7092168036-1">(</span><span class="n">c</span><span class="p" data-group-id="7092168036-1">)</span><span class="w"> </span><span class="mi">2000</span><span class="o">-</span><span class="mi">2005</span><span class="w"> </span><span class="nc">Jos</span><span class="n">é</span><span class="w"> </span><span class="nc">Pedro</span><span class="w"> </span><span class="nc">Oliveira</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">software</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">distribute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="nc">Perl</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">Artistic</span><span class="w"> </span><span class="nc">Licence</span><span class="o">.</span><span class="w">  </span><span class="nc">Modified</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="n">indicated</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">regarding</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Wakeonlan</span><span class="w"> </span><span class="n">technology</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">gsd</span><span class="o">.</span><span class="n">di</span><span class="o">.</span><span class="n">uminho</span><span class="o">.</span><span class="n">pt</span><span class="o">/</span><span class="n">jpo</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">wakeonlan</span><span class="o">/</span><span class="o">.</span></code></pre><p>POD ERRORS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Hey</span><span class="o">!</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">had</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">coding</span><span class="w"> </span><span class="n">errors</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">explained</span><span class="w"> </span><span class="ss">below</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">Around</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="mi">250</span><span class="p">:</span><span class="w">
+       </span><span class="nc">Non</span><span class="o">-</span><span class="nc">ASCII</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">seen</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="o">=</span><span class="n">encoding</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="sc">&#39;José&#39;</span><span class="o">.</span><span class="w"> </span><span class="nc">Assuming</span><span class="w"> </span><span class="nc">CP1252</span></code></pre><p>perl v5.32.0                                                                 2021-01-01                                                                 WAKEONLAN(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

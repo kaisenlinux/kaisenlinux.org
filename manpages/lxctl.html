@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>lxctl — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  VERSION:</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">lxctl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">manage</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="nc">Containers</span><span class="w"> </span><span class="p" data-group-id="2273695206-1">(</span><span class="nc">LXC</span><span class="p" data-group-id="2273695206-1">)</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="ss">Usage</span><span class="p">:</span><span class="w">
+           </span><span class="n">lxctl</span><span class="w"> </span><span class="p" data-group-id="7538967995-1">[</span><span class="n">action</span><span class="p" data-group-id="7538967995-1">]</span><span class="w"> </span><span class="p" data-group-id="7538967995-2">[</span><span class="n">vmname</span><span class="p" data-group-id="7538967995-2">]</span><span class="w"> </span><span class="p" data-group-id="7538967995-3">[</span><span class="n">options</span><span class="p" data-group-id="7538967995-3">]</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="nc">Print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">breif</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exists</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">man</span><span class="w">  </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">start</span><span class="w">  </span><span class="nc">Starts</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="n">st</span><span class="w"> </span><span class="n">argument</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+    </span><span class="n">stop</span><span class="w">   </span><span class="nc">Stops</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="n">st</span><span class="w"> </span><span class="n">argument</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+    </span><span class="n">create</span><span class="w"> </span><span class="nc">Creates</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="nc">Optional</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">ipaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mask</span><span class="o">/</span><span class="n">netmask</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">defgw</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">gateway</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">dns</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">ostemplate</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="sc">&#39;lucid_amd64&#39;</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">config</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lxc</span><span class="o">/</span><span class="o">&lt;</span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">lxctl</span><span class="o">/</span><span class="o">&lt;</span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">addpkg</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">packages</span><span class="w"> </span><span class="p" data-group-id="5962748708-1">(</span><span class="n">comma</span><span class="o">-</span><span class="n">separated</span><span class="p" data-group-id="5962748708-1">)</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">pkgopt</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="5962748708-2">(</span><span class="n">space</span><span class="o">-</span><span class="n">separated</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">argument</span><span class="p" data-group-id="5962748708-2">)</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">rootsz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">logical</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nc">FS</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">10</span><span class="nc">G</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">hostname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">&lt;</span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">searchdomain</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">searchdomain</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">macaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">autostart</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">autostart</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">reboot</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">save</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k" data-group-id="5962748708-3">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">yaml</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="err">$</span><span class="nc">CONF_PATH</span><span class="o">/</span><span class="n">vmname</span><span class="o">.</span><span class="n">yaml</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">load</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">yaml</span><span class="w"> </span><span class="n">config</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">process</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">tz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">timezone</span><span class="w"> </span><span class="p" data-group-id="5962748708-4">(</span><span class="nc">Europe</span><span class="o">/</span><span class="nc">Moscow</span><span class="p">,</span><span class="w"> </span><span class="nc">UTC</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="p" data-group-id="5962748708-4">)</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">empty</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="n">here</span><span class="w">
+
+    </span><span class="n">set</span><span class="w">    </span><span class="nc">Changes</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="nc">Optional</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">rootsz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">logical</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nc">FS</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">ipaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mask</span><span class="o">/</span><span class="n">netmask</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">defgw</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">gateway</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">dns</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">hostname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">searchdomain</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">searchdomain</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="o">.</span><span class="n">conf</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">macaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">userpasswd</span><span class="w"> </span><span class="n">user</span><span class="ss">:passwd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">user</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">onboot</span><span class="w"> </span><span class="p" data-group-id="5962748708-5">{</span><span class="n">yes</span><span class="p">,</span><span class="n">no</span><span class="p" data-group-id="5962748708-5">}</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">containet</span><span class="w"> </span><span class="p" data-group-id="5962748708-6">[</span><span class="k" data-group-id="5962748708-7">do</span><span class="w"> </span><span class="ow">not</span><span class="p">]</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">boot</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">tz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">timezone</span><span class="w"> </span><span class="p" data-group-id="5962748708-8">(</span><span class="nc">Europe</span><span class="o">/</span><span class="nc">Moscow</span><span class="p">,</span><span class="w"> </span><span class="nc">UTC</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="p" data-group-id="5962748708-8">)</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpu</span><span class="o">-</span><span class="n">shares</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpus</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">cores</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mem</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="p" data-group-id="5962748708-9">(</span><span class="ow">in</span><span class="w"> </span><span class="n">bytes!</span><span class="p" data-group-id="5962748708-9">)</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">io</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+    </span><span class="n">freeze</span><span class="w"> </span><span class="nc">Freezes</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="n">unfreeze</span><span class="w">
+
+           </span><span class="nc">Unfreezes</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+    </span><span class="n">list</span><span class="w">   </span><span class="nc">Lists</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="w">
+
+           </span><span class="nc">Optional</span><span class="w"> </span><span class="ss">arguments</span><span class="p">:</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">ipaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">addr</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">hostname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hostname</span><span class="o">.</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cgroup</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">cgroup</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rootfs</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">diskspace</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">free</span><span class="o">/</span><span class="n">full</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">information</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">raw</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">vmnames</span><span class="w">
+
+           </span><span class="n">migrate</span><span class="w"> </span><span class="nc">Migrate</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">localhost</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="n">arguments</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">tohost</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">migrate</span><span class="w">
+
+           </span><span class="nc">Optional</span><span class="w"> </span><span class="n">arguments</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remuser</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ssh</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remport</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ssh</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">onboot</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">boot?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">userpasswd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;user:password&#39;</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">clone</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cloning</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">little</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">faster</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">softer</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">migration</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">rootsz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">afterstart</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">again</span><span class="w"> </span><span class="k" data-group-id="5962748708-7">after</span><span class="w"> </span><span class="n">migration</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpus</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cpus</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpu</span><span class="o">-</span><span class="n">shares</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mem</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">io</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">throughput</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">ipaddr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">searchdomain</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">domain</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">netmask</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">mask</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">defgw</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">gateway</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">dns</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+    </span><span class="n">vz2lxc</span><span class="w"> </span><span class="nc">Migrate</span><span class="w"> </span><span class="nc">VZ</span><span class="o">-</span><span class="n">container</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="nc">LXC</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">Required</span><span class="w"> </span><span class="n">arguments</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">vmname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">fromhost</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">migrate</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remname</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+           </span><span class="nc">Optional</span><span class="w"> </span><span class="n">arguments</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remuser</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ssh</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">remport</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ssh</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">onboot</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">boot?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">rootsz</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">afterstart</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">again</span><span class="w"> </span><span class="k" data-group-id="5962748708-7">after</span><span class="w"> </span><span class="n">migration</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpus</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cpus</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">cpu</span><span class="o">-</span><span class="n">shares</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">mem</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+           </span><span class="o">--</span><span class="n">io</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">throughput</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">The</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">Version</span><span class="p">:</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">maintained</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Texinfo</span><span class="w"> </span><span class="n">manual</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">Version</span><span class="p">:</span><span class="w"> </span><span class="n">programs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">properly</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">site</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w">
+
+           </span><span class="n">info</span><span class="w"> </span><span class="ss">Version</span><span class="p">:</span><span class="w">
+
+    </span><span class="n">should</span><span class="w"> </span><span class="n">give</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">manual</span><span class="o">.</span></code></pre><p> Version: 0.3.0                                                                June 2012                                                                  VERSION:(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

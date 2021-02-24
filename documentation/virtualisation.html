@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="KaisenLinux v1.5.0">
+
+    <title>Using Virtualisation — KaisenLinux v1.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-9f40bfafb3.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+KaisenLinux
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.5.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="KaisenLinux" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Guides</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Virtualisation</h1><p>In a nutshell, here's how to virtualize Kaisen Linux.<br></br>We assume here that you know what a hypervisor is, as well as creating a virtual machine.<br></br>We recommends use VirtualBox or VMWare Workstation.<br></br>The VMWare guests daemon as activated by default when Kaisen Linux is executed with VMWare Workstation.  </p><h2 id="virtualbox" class="section-heading">
+  <a href="#virtualbox" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  VirtualBox
+</h2>
+<p>You can virtualize Kaisen Linux with VirtualBox hypervisor.<br></br>Following this step:</p><h3 id="minimal-configuration" class="section-heading">
+  <a href="#minimal-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Minimal Configuration
+</h3>
+<pre><code class="bash">1)  New virtual machine
+2)  Name: Your choice
+3)  Folder: Your choice
+4)  Type: Linux
+5)  System: Debian 10 (64 bits)
+6)  RAM: 1Go
+7)  Create Virtual Disk
+8)  Disk type : VDI (or VMDK)
+9)  Dynamic allocated
+10) Hard Drive: 10Go
+11) Click at : Configuration =&gt; Network =&gt; Adapter1
+12) Network configuration: NAT, Bridge, Host-only, NAT network, or not (the installer not using network and all tools are included) (optional parameter)
+13) System =&gt; Processor =&gt; CPU: 1 core
+14) You can use EFI (optional parameter)
+15) Leave the other default settings (except if you have specific needs)</code></pre><p>Then start your virtual machine on the ISO.
+After starting the virtual machine, via the menu:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable</code></pre><h3 id="recommend-configuration" class="section-heading">
+  <a href="#recommend-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Recommend configuration
+</h3>
+<pre><code class="bash">1)  New virtual machine
+2)  Name: Your choice
+3)  Folder: Your choice
+4)  Type: Linux
+5)  System: Debian 10 (64 bits)
+6)  RAM: 4Go
+7)  Create Virtual Disk
+8)  Disk type : VDI (or VMDK)
+9)  Dynamic allocated
+10) Hard Drive: 30Go
+11) Click at : Configuration =&gt; Network =&gt; Adapter1
+12) Network configuration: NAT, Bridge, Host-only, NAT network, or not (the installer not using network and all tools are included) (optional parameter)
+13) System =&gt; Processor =&gt; CPU: 2 core
+14) You can use EFI (optional parameter)
+15) Leave the other default settings (except if you have specific needs)</code></pre><p>Then start your virtual machine on the ISO.
+After starting the virtual machine, via the menu:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable</code></pre><h2 id="vmware-workstation" class="section-heading">
+  <a href="#vmware-workstation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  VMWare Workstation
+</h2>
+<p>You can virtualize Kaisen Linux with VMWare Workstation hypervisor.
+Following this step:</p><h3 id="minimal-configuration-1" class="section-heading">
+  <a href="#minimal-configuration-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Minimal configuration
+</h3>
+<pre><code class="bash">1)  New Vitual Machine
+2)  Typical
+3)  Use ISO image (select your ISO with browse button)
+4)  Guest Operating System: Debian 10 64 bits
+5)  Name: Your choice
+6)  Location: Your choice
+7)  Disk Size: 10Go
+8)  Select: &quot;Store virtual disk as a single file&quot;
+9)  Select: &quot;Customize hardware&quot;
+10) RAM: 1Go
+11) CPU: 1 core and 1 CPU
+12) Network: NAT, Bridge, LAN segment, Host-Only or not (the installer not using network and all tools are included) (optional parameter)
+13) Leave the other default settings (except if you have specific needs)
+14) Click in: Finish
+15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI</code></pre><p>Then start your virtual machine on the ISO.
+After starting the virtual machine, via the menu:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable</code></pre><h3 id="recommend-configuration-1" class="section-heading">
+  <a href="#recommend-configuration-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Recommend configuration
+</h3>
+<pre><code class="bash">1)  New Vitual Machine
+2)  Typical
+3)  Use ISO image (select your ISO with browse button)
+4)  Guest Operating System: Debian 10 64 bits
+5)  Name: Your choice
+6)  Location: Your choice
+7)  Disk Size: 30Go
+8)  Select: &quot;Store virtual disk as a single file&quot;
+9)  Select: &quot;Customize hardware&quot;
+10) RAM: 4Go
+11) CPU: 2 core and 1 CPU
+12) Network: NAT, Bridge, LAN segment, Host-Only or not (the installer not using network and all tools are included) (optional parameter)
+13) Leave the other default settings (except if you have specific needs)
+14) Click in: Finish
+15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI</code></pre><p>Then start your virtual machine on the ISO.
+After starting the virtual machine, via the menu:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable</code></pre><h2 id="informations-for-qemu-kvm" class="section-heading">
+  <a href="#informations-for-qemu-kvm" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Informations for QEMU/KVM
+</h2>
+<h3 id="tools-and-daemons" class="section-heading">
+  <a href="#tools-and-daemons" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Tools and daemons
+</h3>
+<p>To facilitate the creation of a virtualized virtual machine with QEMU/KVM, all virtual machines can be created through virt-manager. Full support for different agents like QEMU agent, SPICE, are integrated by default but disabled.<br></br>SPICE agents allow you to activate the shared clipboard, put the virtual machine in full screen when viewing it via the console. This is the equivalent of the virtualbox and vmware agents.<br></br>SPICE agents are managed by a systemd service.<br></br>The integrated services are named <strong>spice-vdagent</strong> as well as <strong>spice-webdavd</strong>.
+The <strong>spice-vdagent</strong> daemon allows you to enable copy and paste as well as to adjust the resolution of the virtual machine screen in relation to the resolution of the host. This daemon is useful for guest guests (using a graphical interface).<br></br>The <strong>spice-webdavd</strong> daemon is used to support file sharing between the host and the virtual machine.  </p><h3 id="daemons-gestion" class="section-heading">
+  <a href="#daemons-gestion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Daemons gestion
+</h3>
+<p>The spice-webdavd daemon can be easily enabled and disabled here:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-webdavd-enable
+Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-webdavd-disable</code></pre><p>The spice-vdagent daemon can be easily enabled and disabled here:</p><pre><code class="bash">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-vdagent-enable
+Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-vdagent-disable</code></pre><p><strong>Warning:</strong>
+After the activation of the spice-vdagent daemon on your virtual machine, you need to make the SPICE window full screen and manually run the &quot;spice-vdagent&quot; command and then disconnect your graphical session to make the virtual machine fully full screen.</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

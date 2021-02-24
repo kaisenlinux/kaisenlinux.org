@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>tcptrace — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  tcptrace</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">tcptrace</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">tool</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">tcptrace</span><span class="w"> </span><span class="p" data-group-id="2776551957-1">[</span><span class="n">options</span><span class="p" data-group-id="2776551957-1">]</span><span class="w"> </span><span class="n">filename</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">tcptrace</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p" data-group-id="3724798050-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">input</span><span class="p" data-group-id="3724798050-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">produces</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">summarization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">connections</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">b</span><span class="w">   </span><span class="n">brief</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">l</span><span class="w">   </span><span class="n">long</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">r</span><span class="w">   </span><span class="n">print</span><span class="w"> </span><span class="n">rtt</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="p" data-group-id="1514375933-1">(</span><span class="n">slower</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">files</span><span class="p" data-group-id="1514375933-1">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">W</span><span class="w">   </span><span class="n">report</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">estimated</span><span class="w"> </span><span class="n">congestion</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="p" data-group-id="1514375933-2">(</span><span class="ow">not</span><span class="w"> </span><span class="n">generally</span><span class="w"> </span><span class="n">useful</span><span class="p" data-group-id="1514375933-2">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">q</span><span class="w">   </span><span class="n">no</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="p" data-group-id="1514375933-3">(</span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="n">output</span><span class="p" data-group-id="1514375933-3">)</span><span class="w">
+
+    </span><span class="nc">Graphing</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">T</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="n">throughput</span><span class="w"> </span><span class="n">graph</span><span class="p" data-group-id="1514375933-4">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-4">]</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1514375933-5">(</span><span class="n">average</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">segments</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="p" data-group-id="1514375933-5">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">R</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="n">rtt</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">graph</span><span class="p" data-group-id="1514375933-6">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-6">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">S</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graph</span><span class="p" data-group-id="1514375933-7">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-7">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">N</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="n">owin</span><span class="w"> </span><span class="n">graph</span><span class="p" data-group-id="1514375933-8">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-8">]</span><span class="w"> </span><span class="p" data-group-id="1514375933-9">(</span><span class="c">_o_utstanding</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="c">_N_etwork</span><span class="p" data-group-id="1514375933-9">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">F</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="n">segsize</span><span class="w"> </span><span class="n">graph</span><span class="p" data-group-id="1514375933-10">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-10">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">G</span><span class="w">   </span><span class="n">create</span><span class="w"> </span><span class="nc">ALL</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="nc">Output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">D</span><span class="w">   </span><span class="n">print</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">decimal</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">X</span><span class="w">   </span><span class="n">print</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">n</span><span class="w">   </span><span class="n">don</span><span class="sc">&#39;t resolve host or service names (much faster)
+
+    -s   use short names (list &quot;picard.cs.ohiou.edu&quot; as just &quot;picard&quot;)
+
+    Connection filtering options
+
+    -iN  ignore connection N (can use multiple times)
+
+    -oN[-M]
+         only connection N (or N through M).  Arg can be used many times.  In N is a file rather than a number, read list from file instead.
+
+    -c   ignore non-complete connections (didn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">syn</span><span class="sc">&#39;s and fin&#39;</span><span class="n">s</span><span class="p">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">BN</span><span class="w">  </span><span class="n">first</span><span class="w"> </span><span class="n">segment</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">analyze</span><span class="w"> </span><span class="p" data-group-id="1514375933-11">(</span><span class="n">default</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="1514375933-11">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">EN</span><span class="w">  </span><span class="n">last</span><span class="w"> </span><span class="n">segment</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">analyze</span><span class="w"> </span><span class="p" data-group-id="1514375933-12">(</span><span class="n">default</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="1514375933-12">)</span><span class="w">
+
+    </span><span class="nc">Graphing</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">C</span><span class="w">   </span><span class="n">produce</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="n">plot</span><span class="p" data-group-id="1514375933-13">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-13">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">M</span><span class="w">   </span><span class="n">produce</span><span class="w"> </span><span class="n">monochrome</span><span class="w"> </span><span class="p" data-group-id="1514375933-14">(</span><span class="n">b</span><span class="o">/</span><span class="n">w</span><span class="p" data-group-id="1514375933-14">)</span><span class="w"> </span><span class="n">plot</span><span class="p" data-group-id="1514375933-15">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-15">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">AN</span><span class="w">  </span><span class="nc">Average</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">segments</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">throughput</span><span class="w"> </span><span class="n">graphs</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">10</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">z</span><span class="w">   </span><span class="n">zero</span><span class="w"> </span><span class="n">axis</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">z</span><span class="w">   </span><span class="n">plot</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">axis</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">wall</span><span class="w"> </span><span class="n">clock</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="1514375933-16">(</span><span class="n">backward</span><span class="w"> </span><span class="n">compat</span><span class="p" data-group-id="1514375933-16">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">zx</span><span class="w">  </span><span class="n">plot</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">axis</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">wall</span><span class="w"> </span><span class="n">clock</span><span class="w"> </span><span class="n">time</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">zy</span><span class="w">  </span><span class="n">plot</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p" data-group-id="1514375933-17">(</span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="1514375933-17">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">zxy</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">y</span><span class="w">   </span><span class="n">omit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p" data-group-id="1514375933-18">(</span><span class="n">yellow</span><span class="p" data-group-id="1514375933-18">)</span><span class="w"> </span><span class="n">instantaneous</span><span class="w"> </span><span class="n">throughput</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tput</span><span class="w"> </span><span class="n">graph</span><span class="w">
+
+    </span><span class="nc">Misc</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">Z</span><span class="w">   </span><span class="n">dump</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">rtt</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="1514375933-19">[</span><span class="n">s</span><span class="p" data-group-id="1514375933-19">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">p</span><span class="w">   </span><span class="n">print</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="p" data-group-id="1514375933-20">(</span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">long</span><span class="p" data-group-id="1514375933-20">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">P</span><span class="w">   </span><span class="n">print</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">connections</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">t</span><span class="w">   </span><span class="err">´</span><span class="n">tick</span><span class="sc">&#39; off the packet numbers as a progress indication
+
+    -v   print version information and exit
+
+    -w   print various warning messages
+
+    -d   whistle while you work (enable debug, use -d -d for more output)
+
+    -e   extract contents of each TCP stream into file
+
+    -h   print help messages
+
+    -u   print minimal UDP information too
+
+    -Ofile
+         dump matched packets to tcpdump file &#39;</span><span class="n">file</span><span class="sc">&#39;
+
+    +[v] reverse the setting of the -[v] flag (for booleans)
+
+    Extended boolean options (unambiguous prefixes also work)
+
+    --showsacks
+         show SACK blocks on time sequence graphs (default)
+
+    --noshowsacks
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="nc">SACK</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showrexmit</span><span class="w">
+         </span><span class="n">mark</span><span class="w"> </span><span class="n">retransmits</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w"> </span><span class="p" data-group-id="1514375933-21">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-21">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noshowrexmit</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T mark retransmits on time sequence graphs
+
+    --showoutorder
+         mark out-of-order on time sequence graphs (default)
+
+    --noshowoutorder
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">mark</span><span class="w"> </span><span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">order</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showzerowindow</span><span class="w">
+         </span><span class="n">mark</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">windows</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w"> </span><span class="p" data-group-id="1514375933-22">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-22">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noshowzerowindow</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T mark zero windows on time sequence graphs
+
+    --showurg
+         mark packets with URGENT bit set on the time sequence graphs (default)
+
+    --noshowurg
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">mark</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">URGENT</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showrttdongles</span><span class="w">
+         </span><span class="n">mark</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="nc">RTT</span><span class="o">-</span><span class="n">generating</span><span class="w"> </span><span class="nc">ACKs</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">symbols</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noshowrttdongles</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T mark non-RTT-generating ACKs with special symbols (default)
+
+    --showdupack3
+         mark triple dupacks on time sequence graphs (default)
+
+    --noshowdupack3
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">mark</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">dupacks</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showzerolensegs</span><span class="w">
+         </span><span class="n">show</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w"> </span><span class="p" data-group-id="1514375933-23">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-23">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noshowzerolensegs</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T show zero length packets on time sequence graphs
+
+    --showzwndprobes
+         show zero window probe packets on time sequence graphs (default)
+
+    --noshowzwndprobes
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">probe</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showtitle</span><span class="w">
+         </span><span class="n">show</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">graphs</span><span class="w"> </span><span class="p" data-group-id="1514375933-24">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-24">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noshowtitle</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T show title on the graphs
+
+    --res_addr
+         resolve IP addresses into names (may be slow) (default)
+
+    --nores_addr
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">resolve</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="1514375933-25">(</span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">slow</span><span class="p" data-group-id="1514375933-25">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">res_port</span><span class="w">
+         </span><span class="n">resolve</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="1514375933-26">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-26">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nores_port</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T resolve port numbers into names
+
+    --checksum
+         verify IP and TCP checksums
+
+    --nochecksum
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">checksums</span><span class="w"> </span><span class="p" data-group-id="1514375933-27">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-27">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">dupack3_data</span><span class="w">
+         </span><span class="n">count</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">duplicate</span><span class="w"> </span><span class="nc">ACK</span><span class="w"> </span><span class="n">carrying</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">dupack</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nodupack3_data</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T count a duplicate ACK carrying data as a triple dupack (default)
+
+    --check_hwdups
+         check for &#39;</span><span class="n">hardware</span><span class="sc">&#39; dups (default)
+
+    --nocheck_hwdups
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="sc">&#39;hardware&#39;</span><span class="w"> </span><span class="n">dups</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">warn_ooo</span><span class="w">
+         </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">timestamps</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">order</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nowarn_ooo</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T print warnings when packets timestamps are out of order (default)
+
+    --warn_printtrunc
+         print warnings when packets are too short to analyze
+
+    --nowarn_printtrunc
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">analyze</span><span class="w"> </span><span class="p" data-group-id="1514375933-28">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-28">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">warn_printbadmbz</span><span class="w">
+         </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="nc">MustBeZero</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="mi">0</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nowarn_printbadmbz</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T print warnings when MustBeZero TCP fields are NOT 0 (default)
+
+    --warn_printhwdups
+         print warnings for hardware duplicates
+
+    --nowarn_printhwdups
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">duplicates</span><span class="w"> </span><span class="p" data-group-id="1514375933-29">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-29">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">warn_printbadcsum</span><span class="w">
+         </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="n">checksums</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nowarn_printbadcsum</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T print warnings when packets with bad checksums (default)
+
+    --warn_printbad_syn_fin_seq
+         print warnings when SYNs or FINs rexmitted with different sequence numbers
+
+    --nowarn_printbad_syn_fin_seq
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="nc">SYNs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">FINs</span><span class="w"> </span><span class="n">rexmitted</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="p" data-group-id="1514375933-30">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-30">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">dump_packet_data</span><span class="w">
+         </span><span class="n">print</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="nc">AND</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">TCP</span><span class="o">/</span><span class="nc">UDP</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nodump_packet_data</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T print all packets AND dump the TCP/UDP data (default)
+
+    --continuous
+         run continuously and don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">summary</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nocontinuous</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T run continuously and don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="p" data-group-id="1514375933-31">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-31">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">print_seq_zero</span><span class="w">
+         </span><span class="n">print</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">number</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noprint_seq_zero</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T print sequence numbers as offset from initial sequence number (default)
+
+    --limit_conn_num
+         limit the maximum number of connections kept at a time in real-time mode
+
+    --nolimit_conn_num
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">kept</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1514375933-32">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-32">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">xplot_all_files</span><span class="w">
+         </span><span class="n">display</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">xplot</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">noxplot_all_files</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T display all generated xplot files at the end (default)
+
+    --ns_hdrs
+         assume that ns has the useHeaders_flag true (uses IP+TCP headers) (default)
+
+    --nons_hdrs
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">assume</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">useHeaders_flag</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="p" data-group-id="1514375933-33">(</span><span class="n">uses</span><span class="w"> </span><span class="nc">IP</span><span class="o">+</span><span class="nc">TCP</span><span class="w"> </span><span class="n">headers</span><span class="p" data-group-id="1514375933-33">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">csv</span><span class="w">
+         </span><span class="n">display</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">comma</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">values</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">nocsv</span><span class="w">
+         </span><span class="nc">DON</span><span class="sc">&#39;T display the long output as comma separated values (default)
+
+    --tsv
+         display the long output as tab separated values
+
+    --notsv
+         DON&#39;</span><span class="nc">T</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">tab</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p" data-group-id="1514375933-34">(</span><span class="n">default</span><span class="p" data-group-id="1514375933-34">)</span><span class="w">
+
+    </span><span class="nc">Extended</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="1514375933-35">(</span><span class="n">unambiguous</span><span class="w"> </span><span class="n">prefixes</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">work</span><span class="p" data-group-id="1514375933-35">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">output_dir</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">directory</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">placed</span><span class="w"> </span><span class="p" data-group-id="1514375933-36">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-36">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">output_prefix</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">prefix</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p" data-group-id="1514375933-37">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-37">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">xplot_title_prefix</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">prefix</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">place</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">titles</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">xplot</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="1514375933-38">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-38">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">update_interval</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">time</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1514375933-39">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-39">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">max_conn_num</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1514375933-40">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-40">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">remove_live_conn_interval</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">idle</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1514375933-41">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-41">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">remove_closed_conn_interval</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">time</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1514375933-42">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-42">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">xplot_args</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">arguments</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">xplot</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">calling</span><span class="w"> </span><span class="n">xplot</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="p" data-group-id="1514375933-43">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-43">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">sv</span><span class="o">=</span><span class="err">`</span><span class="err">`</span><span class="nc">STR</span><span class="sc">&#39;&#39;</span><span class="w">
+         </span><span class="n">separator</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">STR</span><span class="o">&gt;</span><span class="o">-</span><span class="n">separated</span><span class="o">-</span><span class="n">values</span><span class="w"> </span><span class="p" data-group-id="1514375933-44">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;&lt;NULL&gt;&#39;</span><span class="p" data-group-id="1514375933-44">)</span><span class="w">
+
+    </span><span class="nc">Included</span><span class="w"> </span><span class="nc">Modules</span><span class="w">
+
+      </span><span class="n">http</span><span class="w">             </span><span class="nc">Http</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">package</span><span class="w">
+
+      </span><span class="n">tcplib</span><span class="w">           </span><span class="nc">TCPLib</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">package</span><span class="w">
+
+      </span><span class="n">traffic</span><span class="w">          </span><span class="n">traffic</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">package</span><span class="w">
+
+      </span><span class="n">slice</span><span class="w">            </span><span class="n">traffic</span><span class="w"> </span><span class="n">efficiency</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">slices</span><span class="w">
+
+      </span><span class="n">rttgraph</span><span class="w">         </span><span class="n">round</span><span class="w"> </span><span class="n">trip</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">graphs</span><span class="w">
+
+      </span><span class="n">collie</span><span class="w">           </span><span class="n">connection</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">package</span><span class="w">
+
+      </span><span class="n">realtime</span><span class="w">         </span><span class="n">example</span><span class="w"> </span><span class="n">real</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">package</span><span class="w">
+
+    </span><span class="nc">For</span><span class="w"> </span><span class="n">module</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="err">`</span><span class="n">tcptrace</span><span class="w"> </span><span class="o">-</span><span class="n">hxargs</span><span class="err">`</span><span class="w">
+
+    </span><span class="nc">Filter</span><span class="w"> </span><span class="ss">Variables</span><span class="p">:</span><span class="w">
+
+    </span><span class="nc">Please</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="sc">&#39;tcptrace -hfilter&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Filter</span><span class="w"> </span><span class="ss">Syntax</span><span class="p">:</span><span class="w">
+
+    </span><span class="nc">Please</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="sc">&#39;tcptrace -hfilter&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">syntax</span><span class="o">.</span></code></pre><h2 id="environment" class="section-heading">
+  <a href="#environment" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ENVIRONMENT
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Options</span><span class="w">  </span><span class="n">are</span><span class="w">  </span><span class="n">first</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="err">$</span><span class="nc">HOME</span><span class="o">/</span><span class="o">.</span><span class="n">tcptracerc</span><span class="w"> </span><span class="p" data-group-id="4512179537-1">(</span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">exists</span><span class="p" data-group-id="4512179537-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">TCPTRACEOPTS</span><span class="w"> </span><span class="p" data-group-id="4512179537-2">(</span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">exists</span><span class="p" data-group-id="4512179537-2">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">finally</span><span class="w"> </span><span class="n">from</span><span class="w">
+    </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="o">.</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Shawn</span><span class="w"> </span><span class="nc">Ostermann</span><span class="w"> </span><span class="p" data-group-id="2071032069-1">(</span><span class="n">ostermann</span><span class="na">@cs</span><span class="o">.</span><span class="n">ohiou</span><span class="o">.</span><span class="n">edu</span><span class="p" data-group-id="2071032069-1">)</span></code></pre><p> CREDITS</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Thanks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Mark</span><span class="w"> </span><span class="nc">Foster</span><span class="w"> </span><span class="p" data-group-id="2122393570-1">(</span><span class="n">mafoster</span><span class="na">@george</span><span class="o">.</span><span class="n">arc</span><span class="o">.</span><span class="n">nasa</span><span class="o">.</span><span class="n">gov</span><span class="p" data-group-id="2122393570-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="o">.</span><span class="w"> </span><span class="nc">Thanks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Avinash</span><span class="w"> </span><span class="nc">Lakhiani</span><span class="w"> </span><span class="p" data-group-id="2122393570-2">(</span><span class="n">alakhian</span><span class="na">@irg</span><span class="o">.</span><span class="n">cs</span><span class="o">.</span><span class="n">ohiou</span><span class="o">.</span><span class="n">edu</span><span class="p" data-group-id="2122393570-2">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">updating</span><span class="w"> </span><span class="n">it</span><span class="o">.</span></code></pre><h2 id="files" class="section-heading">
+  <a href="#files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  FILES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Dump</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="nc">Names</span><span class="w">
+    </span><span class="nc">Trailing</span><span class="w"> </span><span class="p" data-group-id="5256767864-1">(</span><span class="n">unrecognized</span><span class="p" data-group-id="5256767864-1">)</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">taken</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">filenames</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">compressed</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">compress</span><span class="o">.</span><span class="n">h</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">configuration</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">dump</span><span class="w">  </span><span class="n">file</span><span class="w">
+    </span><span class="n">name</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="sc">&#39;stdin&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xplot</span><span class="w">   </span><span class="n">an</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">examining</span><span class="w"> </span><span class="o">.</span><span class="n">xpl</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">tcptrace</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">jPlot</span><span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="nc">Java</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">xplot</span><span class="o">.</span><span class="w">
+
+                                                                          </span><span class="mi">14</span><span class="w"> </span><span class="nc">Oct</span><span class="w"> </span><span class="mi">2002</span><span class="w">                                                                 </span><span class="n">tcptrace</span><span class="p" data-group-id="6058260657-1">(</span><span class="mi">1</span><span class="p" data-group-id="6058260657-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

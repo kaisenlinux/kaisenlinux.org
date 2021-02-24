@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>gFTP — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>GFTP(1)                                                                General Commands Manual                                                               GFTP(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">gftp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">*</span><span class="nc">NIX</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">machines</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">gftp</span><span class="w"> </span><span class="p" data-group-id="8727917448-1">[</span><span class="n">options</span><span class="p" data-group-id="8727917448-1">]</span><span class="w"> </span><span class="p" data-group-id="8727917448-2">[</span><span class="p" data-group-id="8727917448-3">[</span><span class="n">proto</span><span class="ss">:/</span><span class="o">/</span><span class="p" data-group-id="8727917448-3">]</span><span class="p" data-group-id="8727917448-4">[</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8727917448-5">[</span><span class="n">pass</span><span class="p" data-group-id="8727917448-5">]</span><span class="w"> </span><span class="err">@</span><span class="p" data-group-id="8727917448-4">]</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p" data-group-id="8727917448-6">[</span><span class="p">:</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="p" data-group-id="8727917448-6">]</span><span class="p" data-group-id="8727917448-7">[</span><span class="o">/</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="8727917448-7">]</span><span class="p" data-group-id="8727917448-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">gFTP</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">*</span><span class="nc">NIX</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">machines</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">GTK</span><span class="w"> </span><span class="n">graphical</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FTP</span><span class="p">,</span><span class="w"> </span><span class="nc">FTPS</span><span class="w">
+   </span><span class="p" data-group-id="4891950907-1">(</span><span class="n">control</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4891950907-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SSH</span><span class="w"> </span><span class="n">protocols</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">You</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">gFTP</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">up</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w">
+          </span><span class="nc">Display</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">usage</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">info</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">gFTP</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">built</span><span class="o">.</span><span class="w"> </span><span class="nc">Please</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">submitting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">report</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w">
+          </span><span class="nc">Display</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">gFTP</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">proto</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w"> </span><span class="n">ftp</span><span class="p">,</span><span class="w"> </span><span class="n">ftps</span><span class="p">,</span><span class="w"> </span><span class="n">ssh</span><span class="p">,</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">bookmark</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">omitted</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w">
+          </span><span class="n">protocol</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default_protocol</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">user</span><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">omitted</span><span class="p">,</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">protocols</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FTP</span><span class="w"> </span><span class="n">protocol</span><span class="p">,</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">pass</span><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">omitted</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">prompted</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">using</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="nc">FTP</span><span class="w">  </span><span class="n">protocol</span><span class="p">,</span><span class="w">
+          </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">anonymous</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">server</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">port</span><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">omitted</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">looked</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">services</span><span class="p" data-group-id="3097493775-1">(</span><span class="mi">5</span><span class="p" data-group-id="3097493775-1">)</span><span class="w">
+          </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">directory</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">connected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">server</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">gftp</span><span class="o">/</span><span class="n">gftprc</span><span class="w">
+          </span><span class="nc">Per</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">Most</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">edited</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">gFTP</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">commented</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">well</span><span class="o">.</span><span class="w">  </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">gftp</span><span class="o">/</span><span class="n">bookmarks</span><span class="w">
+                 </span><span class="nc">Per</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">bookmarks</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><p>BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">masneyb</span><span class="o">/</span><span class="n">gftp</span><span class="o">/</span><span class="n">issues</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Brian</span><span class="w"> </span><span class="nc">Masney</span><span class="w"> </span><span class="o">&lt;</span><span class="n">masneyb</span><span class="na">@gftp</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">gftp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="w">
+
+                                                                          </span><span class="nc">JUNE</span><span class="w"> </span><span class="mi">2020</span><span class="w">                                                                      </span><span class="nc">GFTP</span><span class="p" data-group-id="4457420001-1">(</span><span class="mi">1</span><span class="p" data-group-id="4457420001-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

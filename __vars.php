@@ -5,8 +5,8 @@
 	
 	$description = "Kaisen Linux is a complete operating system whose originality is to provide a set of tools dedicated to system administration and covering all the needs for diagnosing and dealing with faults or failures of an installed system and its components. The most important system tools are available.";
 
-	$image = 'https://'.$_SERVER['HTTP_HOST'].'/kaisen/img/kaisen-social.png';
-	$url = 'https://'.$_SERVER['HTTP_HOST'].'/kaisen';
+	$image = 'https://kaisenlinux.org/img/kaisen-social.png';
+	$url = 'https://kaisenlinux.org';
 
 
 	$release_version = 'Rolling 1.5';
@@ -22,7 +22,11 @@
 
 			'links' => [
 				[
-					'name' => 'Download',
+                                        'name' => 'Mirror 1',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-MATE.iso',
+                                ],
+				[
+					'name' => 'Mirror 2',
 					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-MATE.iso',
 				],
 
@@ -38,7 +42,11 @@
 
 			'links' => [
 				[
-					'name' => 'Download',
+                                        'name' => 'Mirror 1',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-KDE.iso',
+                                ],
+				[
+					'name' => 'Mirror 2',
 					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-KDE.iso',
 				],
 
@@ -54,7 +62,11 @@
 
 			'links' => [
 				[
-					'name' => 'Download',
+                                        'name' => 'Mirror 1',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-XFCE.iso',
+                                ],
+				[
+					'name' => 'Mirror 2',
 					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-XFCE.iso',
 				],
 
@@ -70,7 +82,11 @@
 
 			'links' => [
 				[
-					'name' => 'Download',
+                                        'name' => 'Mirror 1',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-LXDE.iso',
+                                ],
+				[
+					'name' => 'Mirror 2',
 					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-LXDE.iso',
 				],
 
@@ -86,7 +102,11 @@
 
 			'links' => [
 				[
-					'name' => 'Download',
+                                        'name' => 'Mirror 1',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinux1.5-amd64-SR.iso',
+                                ],
+				[
+					'name' => 'Mirror 2',
 					'link' => 'https://kaisen.lf.je/rolling/kaisenlinux1.5-amd64-SR.iso',
 				],
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>btrfs-select-super — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>BTRFS-SELECT-SUPER(8)                                                       Btrfs Manual                                                       BTRFS-SELECT-SUPER(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">select</span><span class="o">-</span><span class="k">super</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">copy</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">select</span><span class="o">-</span><span class="k">super</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Destructively</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">copies</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">copy</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">helps</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">barriers</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="n">during</span><span class="w">
+   </span><span class="n">a</span><span class="w"> </span><span class="n">power</span><span class="w"> </span><span class="n">failure</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">superblocks</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">written</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">damaged</span><span class="p">,</span><span class="w"> </span><span class="n">eg</span><span class="o">.</span><span class="w"> </span><span class="n">accidentally</span><span class="w"> </span><span class="n">overwritten</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Note</span><span class="w">
+       </span><span class="nc">Prior</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">overwriting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">superblock</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">copies</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">valid!</span><span class="w">
+
+   </span><span class="nc">To</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">inspect</span><span class="o">-</span><span class="n">internal</span><span class="w"> </span><span class="n">dump</span><span class="o">-</span><span class="k">super</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Then</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="p" data-group-id="0269488884-1">(</span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">repair</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="0269488884-1">)</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Superblock</span><span class="w"> </span><span class="n">copies</span><span class="w"> </span><span class="n">exist</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">offsets</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">device</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">primary</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="nc">KiB</span><span class="w"> </span><span class="p" data-group-id="0269488884-2">(</span><span class="mi">65536</span><span class="p" data-group-id="0269488884-2">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="mi">1</span><span class="n">st</span><span class="w"> </span><span class="ss">copy</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="nc">MiB</span><span class="w"> </span><span class="p" data-group-id="0269488884-3">(</span><span class="mi">67108864</span><span class="p" data-group-id="0269488884-3">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="mi">2</span><span class="n">nd</span><span class="w"> </span><span class="ss">copy</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="nc">GiB</span><span class="w"> </span><span class="p" data-group-id="0269488884-4">(</span><span class="mi">274877906944</span><span class="p" data-group-id="0269488884-4">)</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">4</span><span class="nc">KiB</span><span class="w"> </span><span class="p" data-group-id="0269488884-5">(</span><span class="mi">4096</span><span class="p" data-group-id="0269488884-5">)</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">s</span><span class="o">|</span><span class="o">--</span><span class="k">super</span><span class="w"> </span><span class="o">&lt;</span><span class="n">superblock</span><span class="o">&gt;</span><span class="w">
+       </span><span class="kn">use</span><span class="w"> </span><span class="err">&#39;</span><span class="n">superblock</span><span class="err">’</span><span class="n">th</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="n">copy</span><span class="p">,</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">respective</span><span class="w"> </span><span class="n">superblock</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">size</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">inspect</span><span class="o">-</span><span class="n">internal</span><span class="p" data-group-id="1324543513-1">(</span><span class="mi">8</span><span class="p" data-group-id="1324543513-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">btrfsck</span><span class="w"> </span><span class="n">check</span><span class="p" data-group-id="1324543513-2">(</span><span class="mi">8</span><span class="p" data-group-id="1324543513-2">)</span></code></pre><p>Btrfs v5.10                                                                  01/18/2021                                                        BTRFS-SELECT-SUPER(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

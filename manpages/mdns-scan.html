@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>mdns-scan — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  MDNS-SCAN</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Scan</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">mDNS</span><span class="o">/</span><span class="nc">DNS</span><span class="o">-</span><span class="nc">SD</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">network</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">tool</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">scanning</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">mDNS</span><span class="o">/</span><span class="nc">DNS</span><span class="o">-</span><span class="nc">SD</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="nc">PTR</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="nc">RR</span><span class="w"> </span><span class="c">_services</span><span class="o">.</span><span class="c">_dns</span><span class="o">-</span><span class="w">
+    </span><span class="n">sd</span><span class="o">.</span><span class="c">_udp</span><span class="o">.</span><span class="n">local</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">retrieving</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">link</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">commandline</span><span class="w"> </span><span class="n">options</span><span class="o">.</span></code></pre><h2 id="notes" class="section-heading">
+  <a href="#notes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NOTES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="n">citizen</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="n">continuously</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t implement features like Duplicate Suppression. It is intended for
+    usage as a debugging tool only.
+
+    mdns-scan  is incomplete since it doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">resolve</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="nc">PTR</span><span class="w"> </span><span class="nc">RRs</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">minimal</span><span class="w"> </span><span class="n">knowledge</span><span class="w">
+    </span><span class="n">of</span><span class="w"> </span><span class="nc">DNS</span><span class="o">-</span><span class="nc">SD</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">works</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">terminate</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">behalf</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">scans</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">continuously</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">kills</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pressing</span><span class="w"> </span><span class="nc">C</span><span class="o">-</span><span class="n">c</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">rely</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="n">responder</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">besides</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="n">libc</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">tested</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">A</span><span class="o">/</span><span class="nc">AAAA</span><span class="w"> </span><span class="nc">RRs</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">scans</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">DNS</span><span class="o">-</span><span class="nc">SD</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="n">services</span><span class="p">,</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="k">else</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mDNSResponder</span><span class="p" data-group-id="5995619276-1">(</span><span class="mi">8</span><span class="p" data-group-id="5995619276-1">)</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mdns</span><span class="o">-</span><span class="n">scan</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Lennart</span><span class="w"> </span><span class="nc">Poettering</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mzqrovna</span><span class="err">@</span><span class="mi">0</span><span class="n">pointer</span><span class="o">.</span><span class="n">de</span><span class="o">&gt;</span></code></pre><p> 0.4                                                                         Jan 21, 2004                                                                MDNS-SCAN(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

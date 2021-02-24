@@ -48,8 +48,8 @@
               </div>
               <div class="col-md-9 col-sm-9 col-12 pl-0">
                 <div class="project-info-shortcode-text">
-                  <h5>Project started</h5>
-                  <p>13 december 2019</p>
+                  <h5>First release</h5>
+                  <p>14 december 2019</p>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
               <div class="col-md-9 col-sm-9 col-12 pl-0">
                 <div class="project-info-shortcode-text">
                   <h5>Objective</h5>
-                  <p>Help network and systems engineers</p>
+                  <p>Complete toolbox for network and systems administrators</p>
                 </div>
               </div>
             </div>
@@ -147,7 +147,9 @@
             administration and covering all the needs for diagnosing and dealing with faults or failures of an installed 
             system and its components. The most important system tools are available. It is thus possible to modify the 
             partitioning of hard disks, to save the data or the system, to repair the file system and to recover lost data, 
-            or to reactivate the boot manager, to carry out a deep formatting of a hard drive and many other things !</p>
+            or to reactivate the boot manager, to carry out a deep formatting of a hard drive, diagnostics of networks 
+	    at several levels and on many protocols, creation and management of PKI, virtualization, automation, 
+            containerization, network lab with GNS3 and many others!</p>
           <p>Kaisen Linux also integrates a good number of wifi/video/sound and bluetooth drivers in addition to those 
             contained in the kernel to provide improved hardware support and ensuring that you do not have to install 
             anything more after installation. You can start the live distribution, as well as install it on your computer.

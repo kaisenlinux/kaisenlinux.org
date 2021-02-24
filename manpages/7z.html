@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>7z — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  7z</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">archiver</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="n">format</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6557918064-1">[</span><span class="o">&lt;</span><span class="n">switches</span><span class="o">&gt;</span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6557918064-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">archive_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6557918064-2">[</span><span class="o">&lt;</span><span class="n">file_names</span><span class="o">&gt;</span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6557918064-2">]</span><span class="w"> </span><span class="p" data-group-id="6557918064-3">[</span><span class="o">&lt;</span><span class="na">@listfiles</span><span class="o">&gt;</span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6557918064-3">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="o">-</span><span class="nc">Zip</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">archiver</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="p" data-group-id="3675084807-1">(</span><span class="n">that</span><span class="w"> </span><span class="n">implements</span><span class="w"> </span><span class="nc">LZMA</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="n">featuring</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">ratio</span><span class="p" data-group-id="3675084807-1">)</span><span class="p">,</span><span class="w"> </span><span class="nc">LZMA2</span><span class="p">,</span><span class="w"> </span><span class="nc">XZ</span><span class="p">,</span><span class="w"> </span><span class="nc">ZIP</span><span class="p">,</span><span class="w"> </span><span class="nc">Zip64</span><span class="p">,</span><span class="w"> </span><span class="nc">CAB</span><span class="p">,</span><span class="w"> </span><span class="nc">RAR</span><span class="w">
+    </span><span class="p" data-group-id="3675084807-2">(</span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">free</span><span class="w"> </span><span class="n">p7zip</span><span class="o">-</span><span class="n">rar</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">installed</span><span class="p" data-group-id="3675084807-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">ARJ</span><span class="p">,</span><span class="w"> </span><span class="nc">GZIP</span><span class="p">,</span><span class="w"> </span><span class="nc">BZIP2</span><span class="p">,</span><span class="w"> </span><span class="nc">TAR</span><span class="p">,</span><span class="w"> </span><span class="nc">CPIO</span><span class="p">,</span><span class="w"> </span><span class="nc">RPM</span><span class="p">,</span><span class="w"> </span><span class="nc">ISO</span><span class="p">,</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">DEB</span><span class="w"> </span><span class="n">formats</span><span class="o">.</span><span class="w">  </span><span class="nc">Compression</span><span class="w">  </span><span class="n">ratio</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="n">the</span><span class="w">
+    </span><span class="n">new</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">30</span><span class="o">-</span><span class="mi">50</span><span class="p">%</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">ZIP</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">plugins</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">slightly</span><span class="w"> </span><span class="n">slower</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="mi">7</span><span class="n">za</span><span class="p" data-group-id="3675084807-3">(</span><span class="mi">1</span><span class="p" data-group-id="3675084807-3">)</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">formats</span><span class="o">.</span></code></pre><h2 id="commands" class="section-heading">
+  <a href="#commands" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  COMMANDS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">a</span><span class="w">      </span><span class="nc">Add</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">b</span><span class="w">      </span><span class="nc">Benchmark</span><span class="w">
+
+    </span><span class="n">d</span><span class="w">      </span><span class="nc">Delete</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">e</span><span class="w">      </span><span class="nc">Extract</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="p" data-group-id="8991113737-1">(</span><span class="n">without</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">names</span><span class="p" data-group-id="8991113737-1">)</span><span class="w">
+
+    </span><span class="n">h</span><span class="w">      </span><span class="nc">Calculate</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">files</span><span class="w">
+
+    </span><span class="n">i</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">formats</span><span class="w">
+
+    </span><span class="n">l</span><span class="w">      </span><span class="nc">List</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">rn</span><span class="w">     </span><span class="nc">Rename</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">t</span><span class="w">      </span><span class="nc">Test</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">u</span><span class="w">      </span><span class="nc">Update</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="n">x</span><span class="w">      </span><span class="n">eXtract</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">paths</span></code></pre><p> SWITCHES</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">--</span><span class="w">     </span><span class="nc">Stop</span><span class="w"> </span><span class="n">switches</span><span class="w"> </span><span class="n">parsing</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ai</span><span class="p" data-group-id="4302340874-1">[</span><span class="n">r</span><span class="p" data-group-id="4302340874-2">[</span><span class="o">-</span><span class="o">|</span><span class="mi">0</span><span class="p" data-group-id="4302340874-2">]</span><span class="p" data-group-id="4302340874-1">]</span><span class="p" data-group-id="4302340874-3">{</span><span class="na">@listfile</span><span class="o">|</span><span class="o">!</span><span class="n">wildcard</span><span class="p" data-group-id="4302340874-3">}</span><span class="w">
+           </span><span class="nc">Include</span><span class="w"> </span><span class="n">archives</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ax</span><span class="p" data-group-id="4302340874-4">[</span><span class="n">r</span><span class="p" data-group-id="4302340874-5">[</span><span class="o">-</span><span class="o">|</span><span class="mi">0</span><span class="p" data-group-id="4302340874-5">]</span><span class="p" data-group-id="4302340874-4">]</span><span class="p" data-group-id="4302340874-6">{</span><span class="na">@listfile</span><span class="o">|</span><span class="o">!</span><span class="n">wildcard</span><span class="p" data-group-id="4302340874-6">}</span><span class="w">
+           </span><span class="nc">Exclude</span><span class="w"> </span><span class="n">archives</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ao</span><span class="p" data-group-id="4302340874-7">{</span><span class="n">a</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="n">u</span><span class="p" data-group-id="4302340874-7">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="nc">Overwrite</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">an</span><span class="w">    </span><span class="nc">Disable</span><span class="w"> </span><span class="n">archive_name</span><span class="w"> </span><span class="n">field</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">bb</span><span class="p" data-group-id="4302340874-8">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">3</span><span class="p" data-group-id="4302340874-8">]</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">level</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">bd</span><span class="w">    </span><span class="nc">Disable</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">indicator</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">bs</span><span class="p" data-group-id="4302340874-9">{</span><span class="n">o</span><span class="o">|</span><span class="n">e</span><span class="o">|</span><span class="n">p</span><span class="p" data-group-id="4302340874-9">}</span><span class="p" data-group-id="4302340874-10">{</span><span class="mi">0</span><span class="o">|</span><span class="mi">1</span><span class="o">|</span><span class="mi">2</span><span class="p" data-group-id="4302340874-10">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">output</span><span class="o">/</span><span class="n">error</span><span class="o">/</span><span class="n">progress</span><span class="w"> </span><span class="n">line</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">bt</span><span class="w">    </span><span class="nc">Show</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">statistics</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">i</span><span class="p" data-group-id="4302340874-11">[</span><span class="n">r</span><span class="p" data-group-id="4302340874-12">[</span><span class="o">-</span><span class="o">|</span><span class="mi">0</span><span class="p" data-group-id="4302340874-12">]</span><span class="p" data-group-id="4302340874-11">]</span><span class="p" data-group-id="4302340874-13">{</span><span class="na">@listfile</span><span class="o">|</span><span class="o">!</span><span class="n">wildcard</span><span class="p" data-group-id="4302340874-13">}</span><span class="w">
+           </span><span class="nc">Include</span><span class="w"> </span><span class="n">filenames</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">m</span><span class="p" data-group-id="4302340874-14">{</span><span class="nc">Parameters</span><span class="p" data-group-id="4302340874-14">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="nc">Compression</span><span class="w"> </span><span class="nc">Method</span><span class="w"> </span><span class="p" data-group-id="4302340874-15">(</span><span class="n">see</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">p7zip</span><span class="o">/</span><span class="nc">DOC</span><span class="o">/</span><span class="nc">MANUAL</span><span class="o">/</span><span class="n">cmdline</span><span class="o">/</span><span class="n">switches</span><span class="o">/</span><span class="n">method</span><span class="o">.</span><span class="n">htm</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">p7zip</span><span class="o">-</span><span class="n">full</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">methods</span><span class="p" data-group-id="4302340874-15">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">o</span><span class="p" data-group-id="4302340874-16">{</span><span class="nc">Directory</span><span class="p" data-group-id="4302340874-16">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="nc">Output</span><span class="w"> </span><span class="n">directory</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">p</span><span class="p" data-group-id="4302340874-17">{</span><span class="nc">Password</span><span class="p" data-group-id="4302340874-17">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="nc">Password</span><span class="w"> </span><span class="p" data-group-id="4302340874-18">(</span><span class="ss">NOTE</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="mi">7</span><span class="n">zr</span><span class="p" data-group-id="4302340874-18">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="4302340874-19">[</span><span class="o">-</span><span class="o">|</span><span class="mi">0</span><span class="p" data-group-id="4302340874-19">]</span><span class="w">
+           </span><span class="nc">Recurse</span><span class="w"> </span><span class="n">subdirectories</span><span class="w"> </span><span class="p" data-group-id="4302340874-20">(</span><span class="ss">CAUTION</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k" data-group-id="4302340874-21">do</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">think</span><span class="p">,</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">it</span><span class="p">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sa</span><span class="p" data-group-id="4302340874-22">{</span><span class="n">a</span><span class="o">|</span><span class="n">e</span><span class="o">|</span><span class="n">s</span><span class="p" data-group-id="4302340874-22">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">scc</span><span class="p" data-group-id="4302340874-23">{</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span><span class="o">|</span><span class="nc">WIN</span><span class="o">|</span><span class="nc">DOS</span><span class="p" data-group-id="4302340874-23">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">charset</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="n">input</span><span class="o">/</span><span class="n">output</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">scs</span><span class="p" data-group-id="4302340874-24">{</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span><span class="o">|</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">16</span><span class="nc">LE</span><span class="o">|</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">16</span><span class="nc">BE</span><span class="o">|</span><span class="nc">WIN</span><span class="o">|</span><span class="nc">DOS</span><span class="o">|</span><span class="p" data-group-id="4302340874-25">{</span><span class="n">id</span><span class="p" data-group-id="4302340874-25">}</span><span class="p" data-group-id="4302340874-24">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">charset</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">files</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">scrc</span><span class="p" data-group-id="4302340874-26">[</span><span class="nc">CRC32</span><span class="o">|</span><span class="nc">CRC64</span><span class="o">|</span><span class="nc">SHA1</span><span class="o">|</span><span class="nc">SHA256</span><span class="o">|</span><span class="o">*</span><span class="p" data-group-id="4302340874-26">]</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="n">commands</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sdel</span><span class="w">  </span><span class="nc">Delete</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k" data-group-id="4302340874-21">after</span><span class="w"> </span><span class="n">compression</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">seml</span><span class="p" data-group-id="4302340874-27">[</span><span class="o">.</span><span class="p" data-group-id="4302340874-27">]</span><span class="w">
+           </span><span class="nc">Send</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">email</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sfx</span><span class="p" data-group-id="4302340874-28">[</span><span class="p" data-group-id="4302340874-29">{</span><span class="n">name</span><span class="p" data-group-id="4302340874-29">}</span><span class="p" data-group-id="4302340874-28">]</span><span class="w">
+           </span><span class="nc">Create</span><span class="w"> </span><span class="nc">SFX</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">si</span><span class="p" data-group-id="4302340874-30">[</span><span class="p" data-group-id="4302340874-31">{</span><span class="n">name</span><span class="p" data-group-id="4302340874-31">}</span><span class="p" data-group-id="4302340874-30">]</span><span class="w">
+           </span><span class="nc">Read</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="p" data-group-id="4302340874-32">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">cf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">si</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="p" data-group-id="4302340874-32">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">slp</span><span class="w">   </span><span class="nc">Set</span><span class="w"> </span><span class="nc">Large</span><span class="w"> </span><span class="nc">Pages</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">slt</span><span class="w">   </span><span class="nc">Show</span><span class="w"> </span><span class="n">technical</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="p" data-group-id="4302340874-33">(</span><span class="nc">List</span><span class="p" data-group-id="4302340874-33">)</span><span class="w"> </span><span class="n">command</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">snh</span><span class="w">   </span><span class="nc">Store</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">links</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">snl</span><span class="w">   </span><span class="nc">Store</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">links</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sni</span><span class="w">   </span><span class="nc">Store</span><span class="w"> </span><span class="nc">NT</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">information</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sns</span><span class="p" data-group-id="4302340874-34">[</span><span class="o">-</span><span class="p" data-group-id="4302340874-34">]</span><span class="w">
+           </span><span class="nc">Store</span><span class="w"> </span><span class="nc">NTFS</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="n">streams</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sfx</span><span class="p" data-group-id="4302340874-35">[</span><span class="p" data-group-id="4302340874-36">{</span><span class="n">name</span><span class="p" data-group-id="4302340874-36">}</span><span class="p" data-group-id="4302340874-35">]</span><span class="w">
+           </span><span class="nc">Create</span><span class="w"> </span><span class="nc">SFX</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">so</span><span class="w">    </span><span class="nc">Write</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="w"> </span><span class="p" data-group-id="4302340874-37">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="n">so</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">xf</span><span class="w"> </span><span class="o">-</span><span class="p" data-group-id="4302340874-37">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">spd</span><span class="w">   </span><span class="nc">Disable</span><span class="w"> </span><span class="n">wildcard</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">names</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">spe</span><span class="w">   </span><span class="nc">Eliminate</span><span class="w"> </span><span class="n">duplication</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">command</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">spf</span><span class="w">   </span><span class="nc">Use</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">qualified</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">paths</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ssc</span><span class="p" data-group-id="4302340874-38">[</span><span class="o">-</span><span class="p" data-group-id="4302340874-38">]</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">sensitive</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ssw</span><span class="w">   </span><span class="nc">Compress</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">files</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">stl</span><span class="w">   </span><span class="nc">Set</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">recently</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">stm</span><span class="p" data-group-id="4302340874-39">{</span><span class="nc">HexMask</span><span class="p" data-group-id="4302340874-39">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="n">affinity</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p" data-group-id="4302340874-40">(</span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">number</span><span class="p" data-group-id="4302340874-40">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">stx</span><span class="p" data-group-id="4302340874-41">{</span><span class="nc">Type</span><span class="p" data-group-id="4302340874-41">}</span><span class="w">
+           </span><span class="nc">Exclude</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">t</span><span class="p" data-group-id="4302340874-42">{</span><span class="nc">Type</span><span class="p" data-group-id="4302340874-42">}</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">u</span><span class="p" data-group-id="4302340874-43">[</span><span class="o">-</span><span class="p" data-group-id="4302340874-43">]</span><span class="p" data-group-id="4302340874-44">[</span><span class="n">p</span><span class="c1">#][q#][r#][x#][y#][z#][!newArchiveName]</span><span class="w">
+           </span><span class="nc">Update</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="4302340874-45">{</span><span class="nc">Size</span><span class="p" data-group-id="4302340874-45">}</span><span class="p" data-group-id="4302340874-46">[</span><span class="n">b</span><span class="o">|</span><span class="n">k</span><span class="o">|</span><span class="n">m</span><span class="o">|</span><span class="n">g</span><span class="p" data-group-id="4302340874-46">]</span><span class="w">
+           </span><span class="nc">Create</span><span class="w"> </span><span class="n">volumes</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">w</span><span class="p" data-group-id="4302340874-47">[</span><span class="n">path</span><span class="p" data-group-id="4302340874-47">]</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"> </span><span class="nc">Empty</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">directory</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">x</span><span class="p" data-group-id="4302340874-48">[</span><span class="n">r</span><span class="p" data-group-id="4302340874-49">[</span><span class="o">-</span><span class="o">|</span><span class="mi">0</span><span class="p" data-group-id="4302340874-49">]</span><span class="p" data-group-id="4302340874-48">]</span><span class="p" data-group-id="4302340874-44">]</span><span class="p" data-group-id="4302340874-50">{</span><span class="na">@listfile</span><span class="o">|</span><span class="o">!</span><span class="n">wildcard</span><span class="p" data-group-id="4302340874-50">}</span><span class="w">
+           </span><span class="nc">Exclude</span><span class="w"> </span><span class="n">filenames</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">y</span><span class="w">     </span><span class="nc">Assume</span><span class="w"> </span><span class="nc">Yes</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">queries</span></code></pre><p> DIAGNOSTICS</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="o">-</span><span class="nc">Zip</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="ss">codes</span><span class="p">:</span><span class="w">
+
+           </span><span class="mi">0</span><span class="w">      </span><span class="nc">Normal</span><span class="w"> </span><span class="p" data-group-id="2529624871-1">(</span><span class="n">no</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">warnings</span><span class="w"> </span><span class="n">detected</span><span class="p" data-group-id="2529624871-1">)</span><span class="w">
+
+           </span><span class="mi">1</span><span class="w">      </span><span class="nc">Warning</span><span class="w"> </span><span class="p" data-group-id="2529624871-2">(</span><span class="nc">Non</span><span class="w"> </span><span class="n">fatal</span><span class="w"> </span><span class="n">error</span><span class="p" data-group-id="2529624871-3">(</span><span class="n">s</span><span class="p" data-group-id="2529624871-3">)</span><span class="p" data-group-id="2529624871-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">compressing</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">compressed</span><span class="w">
+
+           </span><span class="mi">2</span><span class="w">      </span><span class="nc">Fatal</span><span class="w"> </span><span class="n">error</span><span class="w">
+
+           </span><span class="mi">7</span><span class="w">      </span><span class="nc">Bad</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">parameters</span><span class="w">
+
+           </span><span class="mi">8</span><span class="w">      </span><span class="nc">Not</span><span class="w"> </span><span class="n">enough</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">operation</span><span class="w">
+
+           </span><span class="mi">255</span><span class="w">    </span><span class="nc">User</span><span class="w"> </span><span class="n">stopped</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">control</span><span class="o">-</span><span class="nc">C</span><span class="w"> </span><span class="p" data-group-id="2529624871-4">(</span><span class="ow">or</span><span class="w"> </span><span class="n">similar</span><span class="p" data-group-id="2529624871-4">)</span></code></pre><p> Backup and limitations</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">DO</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="nc">USE</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">7</span><span class="o">-</span><span class="n">zip</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">purpose</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">Linux</span><span class="o">/</span><span class="nc">Unix</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="p">:</span><span class="w">
+     </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="o">-</span><span class="n">zip</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">owner</span><span class="o">/</span><span class="n">group</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">On</span><span class="w"> </span><span class="nc">Linux</span><span class="o">/</span><span class="nc">Unix</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="p">:</span><span class="w">
+     </span><span class="o">-</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">cf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">si</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w">
+     </span><span class="o">-</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="n">so</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">xf</span><span class="w"> </span><span class="o">-</span><span class="w">
+
+    </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="p" data-group-id="8639721230-1">(</span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="8639721230-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">others</span><span class="w"> </span><span class="nc">Unix</span><span class="o">/</span><span class="nc">MacOS</span><span class="o">/</span><span class="nc">Windows</span><span class="w"> </span><span class="n">users</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">7</span><span class="o">-</span><span class="n">zip</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">example</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w">  </span><span class="n">directory</span><span class="w">
+
+    </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="s">&quot;-r&quot;</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k" data-group-id="8639721230-2">do</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">think</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">directory</span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;.*&quot;</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="8639721230-3">(</span><span class="n">example</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;directory/*&quot;</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="s">&quot;directory/.profile&quot;</span><span class="p" data-group-id="8639721230-3">)</span></code></pre><h2 id="example1" class="section-heading">
+  <a href="#example1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLE1
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">t7z</span><span class="w"> </span><span class="o">-</span><span class="n">m0</span><span class="o">=</span><span class="n">lzma</span><span class="w"> </span><span class="o">-</span><span class="n">mx</span><span class="o">=</span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="n">mfb</span><span class="o">=</span><span class="mi">64</span><span class="w"> </span><span class="o">-</span><span class="n">md</span><span class="o">=</span><span class="mi">32</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="n">ms</span><span class="o">=</span><span class="n">on</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">dir1</span><span class="w">
+           </span><span class="n">adds</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="s">&quot;dir1&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="s">&quot;ultra settings&quot;</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">t7z</span><span class="w">   </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">m0</span><span class="o">=</span><span class="n">lzma</span><span class="w">
+           </span><span class="n">lzma</span><span class="w"> </span><span class="n">method</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">mx</span><span class="o">=</span><span class="mi">9</span><span class="w">  </span><span class="n">level</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p" data-group-id="5286096027-1">(</span><span class="nc">Ultra</span><span class="p" data-group-id="5286096027-1">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">mfb</span><span class="o">=</span><span class="mi">64</span><span class="w">
+           </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">fast</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">LZMA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">md</span><span class="o">=</span><span class="mi">32</span><span class="n">m</span><span class="w">
+           </span><span class="n">dictionary</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">megabytes</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">ms</span><span class="o">=</span><span class="n">on</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">on</span></code></pre><h2 id="example2" class="section-heading">
+  <a href="#example2" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLE2
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">sfx</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="n">exe</span><span class="w"> </span><span class="n">dir1</span><span class="w">
+           </span><span class="n">add</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="s">&quot;dir1&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">SFX</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="n">exe</span><span class="w"> </span><span class="p" data-group-id="3625656990-1">(</span><span class="nc">Remark</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">SFX</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="nc">MUST</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="s">&quot;.exe&quot;</span><span class="p" data-group-id="3625656990-1">)</span></code></pre><h2 id="example3" class="section-heading">
+  <a href="#example3" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLE3
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">mhe</span><span class="o">=</span><span class="n">on</span><span class="w"> </span><span class="o">-</span><span class="n">pmy_password</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="mi">7</span><span class="n">z</span><span class="w"> </span><span class="n">a_directory</span><span class="w">
+           </span><span class="n">add</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="s">&quot;a_directory&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="s">&quot;archive.7z&quot;</span><span class="w"> </span><span class="p" data-group-id="1097365851-1">(</span><span class="k">with</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">on</span><span class="p" data-group-id="1097365851-1">)</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="mi">7</span><span class="n">zr</span><span class="p" data-group-id="9171106699-1">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-1">)</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="n">za</span><span class="p" data-group-id="9171106699-2">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">p7zip</span><span class="p" data-group-id="9171106699-3">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">bzip2</span><span class="p" data-group-id="9171106699-4">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">gzip</span><span class="p" data-group-id="9171106699-5">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">zip</span><span class="p" data-group-id="9171106699-6">(</span><span class="mi">1</span><span class="p" data-group-id="9171106699-6">)</span><span class="p">,</span></code></pre><p> HTML Documentation</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">p7zip</span><span class="o">-</span><span class="n">full</span><span class="o">/</span><span class="nc">DOC</span><span class="o">/</span><span class="nc">MANUAL</span><span class="o">/</span><span class="n">start</span><span class="o">.</span><span class="n">htm</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Written</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Mohammed</span><span class="w"> </span><span class="nc">Adnene</span><span class="w"> </span><span class="nc">Trojette</span><span class="o">.</span><span class="w"> </span><span class="nc">Updated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Robert</span><span class="w"> </span><span class="nc">Luberda</span><span class="o">.</span></code></pre><p> 7-Zip                                                                      March 6th, 2016                                                                     7z(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

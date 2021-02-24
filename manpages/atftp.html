@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>atftp — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  ATFTP</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">atftp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">TFTP</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="p" data-group-id="8958559053-1">(</span><span class="nc">RFC1350</span><span class="p" data-group-id="8958559053-1">)</span><span class="o">.</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">atftp</span><span class="w"> </span><span class="p" data-group-id="3647525299-1">[</span><span class="n">options</span><span class="p" data-group-id="3647525299-1">]</span><span class="w"> </span><span class="p" data-group-id="3647525299-2">[</span><span class="n">host</span><span class="w"> </span><span class="p" data-group-id="3647525299-3">[</span><span class="n">port</span><span class="p" data-group-id="3647525299-3">]</span><span class="p" data-group-id="3647525299-2">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">atftp</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">used</span><span class="w"> </span><span class="n">interactively</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">retrieve</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">TFTP</span><span class="w"> </span><span class="n">servers</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">interactively</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">by</span><span class="w">
+    </span><span class="n">typing</span><span class="w"> </span><span class="sc">&#39;help&#39;</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="nc">TFTP</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">RFC1350</span><span class="p">,</span><span class="w"> </span><span class="nc">RFC2347</span><span class="p">,</span><span class="w"> </span><span class="nc">RFC2348</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RFC2349</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">multicast</span><span class="w">  </span><span class="n">implementation</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="nc">RFC2090</span><span class="w">
+    </span><span class="ow">and</span><span class="w"> </span><span class="n">mtftp</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PXE</span><span class="w"> </span><span class="n">specification</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">This</span><span class="w">  </span><span class="n">program</span><span class="w">  </span><span class="n">supports</span><span class="w">  </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usual</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">syntax</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">dashes</span><span class="w"> </span><span class="p" data-group-id="5396496958-1">(</span><span class="sc">&#39;--&#39;</span><span class="p" data-group-id="5396496958-1">)</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w">
+    </span><span class="n">usable</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">only</span><span class="p">,</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">atftp</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">interactively</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">get</span><span class="w">
+           </span><span class="nc">Non</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">invocation</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w"> </span><span class="nc">Instruct</span><span class="w"> </span><span class="n">atftp</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fetch</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tftp</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">mget</span><span class="w"> </span><span class="nc">Non</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">invocation</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w"> </span><span class="nc">Used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fetch</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mtftp</span><span class="w"> </span><span class="n">capable</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">put</span><span class="w">
+           </span><span class="nc">Non</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">invocation</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w"> </span><span class="nc">Instruct</span><span class="w"> </span><span class="n">atftp</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tftp</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">P</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="w">
+           </span><span class="nc">Give</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">tftp</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">standard</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">atftp</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Linksys</span><span class="w"> </span><span class="n">routers</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">shouldn</span><span class="sc">&#39;t be used elsewhere.
+
+    -l, --local-file
+           Non interactive invocation only. The client side (locat) file name to read or write. Must be used in conjunction with --get or --put.
+
+    -r, --remote-file
+           Non interactive invocation only. The server side (remote) file name to get or put. Must be used in conjunction with --get or --put.
+
+    --tftp-timeout &lt;value&gt;
+           Number of seconds for timeout of the client. Default is 5 seconds.
+
+    --option &lt;&quot;name value&quot;&gt;
+           Set option &quot;name&quot; to &quot;value&quot;. This command supports exactly the same arguments as the interactive one. For example, use: --option  &quot;blksize  1428&quot;  to
+           configure block size.
+           Possible Values are:
+             --option &quot;tsize enable&quot;
+             --option &quot;tsize disable&quot;
+             --option &quot;blksize 8&quot;
+             --option &quot;blksize 65464&quot;
+
+    --mtftp &lt;&quot;name value&quot;&gt;
+           Set  mtftp possible options. Accepts the same options as the interactive mtftp command. For example, use: --mtftp &quot;client-port 76&quot; to configure client
+           side port to use.
+
+    --no-source-port-checking
+           See atftpd&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">verbose</span><span class="w">
+           </span><span class="nc">Instruct</span><span class="w"> </span><span class="n">atftp</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">verbose</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">what</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">going</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">trace</span><span class="w">
+           </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">purpose</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">going</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+           </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+           </span><span class="nc">Print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">arguments</span><span class="o">.</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Remi</span><span class="w"> </span><span class="nc">Lefebvre</span><span class="w"> </span><span class="o">&lt;</span><span class="n">remi</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Jean</span><span class="o">-</span><span class="nc">Pierre</span><span class="w"> </span><span class="nc">Lefebvre</span><span class="w"> </span><span class="o">&lt;</span><span class="n">helix</span><span class="na">@step</span><span class="o">.</span><span class="n">polymtl</span><span class="o">.</span><span class="n">ca</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+                                                                       </span><span class="nc">December</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="w">                                                                 </span><span class="nc">ATFTP</span><span class="p" data-group-id="4143304864-1">(</span><span class="mi">1</span><span class="p" data-group-id="4143304864-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

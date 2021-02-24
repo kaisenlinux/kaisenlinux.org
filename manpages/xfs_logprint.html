@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>xfs_logprint — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  xfs_logprint</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_logprint</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">filesystem</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_logprint</span><span class="w"> </span><span class="p" data-group-id="5445676268-1">[</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="5445676268-1">]</span><span class="w"> </span><span class="n">device</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_logprint</span><span class="w">  </span><span class="n">prints</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">log</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">an</span><span class="w">  </span><span class="nc">XFS</span><span class="w">  </span><span class="n">filesystem</span><span class="w">  </span><span class="p" data-group-id="2536196009-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="2536196009-2">(</span><span class="mi">5</span><span class="p" data-group-id="2536196009-2">)</span><span class="p" data-group-id="2536196009-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pathname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">logical</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w">
+    </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="n">undisturbed</span><span class="o">.</span><span class="w">  </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">oper</span><span class="err">‐</span><span class="w">
+    </span><span class="n">ation</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">xfs_logprint</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">One</span><span class="w">  </span><span class="n">mode</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">better</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">filesystem</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">debugging</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="w">
+    </span><span class="n">prints</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">portion</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">pertains</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">recovery</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">words</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">head</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w">  </span><span class="n">view</span><span class="w">
+    </span><span class="n">tries</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">transaction</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">regard</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">records</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w">  </span><span class="n">second</span><span class="w">  </span><span class="n">mode</span><span class="w">  </span><span class="n">starts</span><span class="w">  </span><span class="n">printing</span><span class="w">  </span><span class="n">out</span><span class="w">  </span><span class="n">information</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="o">.</span><span class="w">  </span><span class="nc">Some</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">log</span><span class="w">
+    </span><span class="n">record</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">overlaps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">oldest</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">record</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">reached</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">when</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">logical</span><span class="w">  </span><span class="k">end</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">log</span><span class="w">  </span><span class="n">is</span><span class="w">
+    </span><span class="n">reached</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">displayed</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w"> </span><span class="nc">Transactions</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">decoded</span><span class="w"> </span><span class="n">fully</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">-</span><span class="n">b</span><span class="w">     </span><span class="nc">Extract</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">c</span><span class="w">     </span><span class="nc">Attempt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">continue</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">detected</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">C</span><span class="w"> </span><span class="n">filename</span><span class="w">
+           </span><span class="nc">Copy</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">filename</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">printed</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="n">printing</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">located</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">disk</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">D</span><span class="w">     </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">decode</span><span class="w"> </span><span class="n">anything</span><span class="p">;</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">e</span><span class="w">     </span><span class="nc">Exit</span><span class="w">  </span><span class="ow">when</span><span class="w">  </span><span class="n">an</span><span class="w">  </span><span class="n">error</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="o">.</span><span class="w"> </span><span class="nc">Normally</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_logprint</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">continue</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">unwind</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="n">logs</span><span class="o">.</span><span class="w">  </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">sometimes</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">dies</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bad</span><span class="w">
+           </span><span class="n">ways</span><span class="o">.</span><span class="w">  </span><span class="nc">Using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">prevents</span><span class="w"> </span><span class="n">core</span><span class="w"> </span><span class="n">dumps</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">f</span><span class="w">     </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">processed</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="9156304034-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="p" data-group-id="9156304034-2">(</span><span class="mi">8</span><span class="p" data-group-id="9156304034-2">)</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">option</span><span class="p" data-group-id="9156304034-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">happen</span><span class="w">  </span><span class="k">if</span><span class="w">
+           </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">ordinary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">xfs_copy</span><span class="p" data-group-id="9156304034-3">(</span><span class="mi">8</span><span class="p" data-group-id="9156304034-3">)</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">logdev</span><span class="w">
+           </span><span class="nc">External</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">filesystems</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">log</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">i</span><span class="w">     </span><span class="nc">Extract</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">inode</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">q</span><span class="w">     </span><span class="nc">Extract</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">quota</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">n</span><span class="w">     </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">interpret</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">interpret</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">o</span><span class="w">     </span><span class="nc">Also</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hex</span><span class="o">.</span><span class="w">  </span><span class="nc">Normally</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">decoded</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">start</span><span class="o">-</span><span class="n">block</span><span class="w">
+           </span><span class="nc">Override</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">notion</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">printing</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">t</span><span class="w">     </span><span class="nc">Print</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">transactional</span><span class="w"> </span><span class="n">view</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Print</span><span class="w"> </span><span class="s">&quot;overwrite&quot;</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="p" data-group-id="8746581234-1">(</span><span class="mi">8</span><span class="p" data-group-id="8746581234-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="8746581234-2">(</span><span class="mi">8</span><span class="p" data-group-id="8746581234-2">)</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                  </span><span class="n">xfs_logprint</span><span class="p" data-group-id="8746581234-3">(</span><span class="mi">8</span><span class="p" data-group-id="8746581234-3">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

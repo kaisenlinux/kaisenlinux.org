@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>ipv6calc — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  ipv6calc</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">calculate</span><span class="w"> </span><span class="nc">IPv6</span><span class="o">/</span><span class="nc">IPv4</span><span class="o">/</span><span class="nc">MAC</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="p" data-group-id="6591388031-1">[</span><span class="c1">## OPTIONS] [&lt;input data&gt;]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">calculates</span><span class="w"> </span><span class="nc">IPv6</span><span class="o">/</span><span class="nc">IPv4</span><span class="o">/</span><span class="nc">MAC</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="k" data-group-id="7955410863-1">do</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">tricky</span><span class="w"> </span><span class="n">things</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">includes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">capability</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">presented</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="w"> </span><span class="n">arguments</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">General</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-1">[</span><span class="o">-</span><span class="n">d</span><span class="o">|</span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="nc">DEBUGVALUE</span><span class="p" data-group-id="1222810038-1">]</span><span class="w">
+           </span><span class="n">debug</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="1222810038-2">(</span><span class="n">bitwise</span><span class="w"> </span><span class="n">like</span><span class="p" data-group-id="1222810038-2">)</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">IPV6CALC_DEBUG</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">value</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-3">[</span><span class="o">-</span><span class="n">v</span><span class="o">|</span><span class="o">--</span><span class="n">version</span><span class="w"> </span><span class="p" data-group-id="1222810038-4">[</span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="p" data-group-id="1222810038-5">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="1222810038-5">]</span><span class="p" data-group-id="1222810038-4">]</span><span class="p" data-group-id="1222810038-3">]</span><span class="w">
+           </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="p" data-group-id="1222810038-6">(</span><span class="mi">2</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">levels</span><span class="p" data-group-id="1222810038-6">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-7">[</span><span class="o">-</span><span class="n">v</span><span class="o">|</span><span class="o">--</span><span class="n">version</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="1222810038-7">]</span><span class="w">
+           </span><span class="n">explanation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">tokens</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-8">[</span><span class="o">-</span><span class="nc">V</span><span class="o">|</span><span class="o">--</span><span class="n">verbose</span><span class="p" data-group-id="1222810038-8">]</span><span class="w">
+           </span><span class="n">be</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">verbose</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-9">[</span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="o">|</span><span class="o">-</span><span class="sc">?]</span><span class="w">
+           </span><span class="n">this</span><span class="w"> </span><span class="n">online</span><span class="w"> </span><span class="n">help</span><span class="w">
+
+    </span><span class="nc">External</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="1222810038-10">(</span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">compiled</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">suppport</span><span class="p" data-group-id="1222810038-10">)</span><span class="p">:</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-11">[</span><span class="o">--</span><span class="n">db</span><span class="o">-</span><span class="n">ip2location</span><span class="o">-</span><span class="n">disable</span><span class="p" data-group-id="1222810038-11">]</span><span class="w">
+           </span><span class="nc">IP2Location</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-12">[</span><span class="o">--</span><span class="n">db</span><span class="o">-</span><span class="n">ip2location</span><span class="o">-</span><span class="n">dir</span><span class="w"> </span><span class="nc">DIRECTORY</span><span class="p" data-group-id="1222810038-12">]</span><span class="w">
+           </span><span class="nc">IP2Location</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="1222810038-13">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="nc">IP2Location</span><span class="p" data-group-id="1222810038-13">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-14">[</span><span class="o">--</span><span class="n">db</span><span class="o">-</span><span class="n">geoip</span><span class="o">-</span><span class="n">disable</span><span class="p" data-group-id="1222810038-14">]</span><span class="w">
+           </span><span class="nc">GeoIP</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-15">[</span><span class="o">--</span><span class="n">db</span><span class="o">-</span><span class="n">geoip</span><span class="o">-</span><span class="n">dir</span><span class="w"> </span><span class="nc">DIRECTORY</span><span class="p" data-group-id="1222810038-15">]</span><span class="w">
+           </span><span class="nc">GeoIP</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="1222810038-16">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="nc">GeoIP</span><span class="p" data-group-id="1222810038-16">)</span><span class="w">
+
+    </span><span class="nc">Special</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-17">[</span><span class="o">-</span><span class="n">q</span><span class="o">|</span><span class="o">--</span><span class="n">quiet</span><span class="p" data-group-id="1222810038-17">]</span><span class="w">
+           </span><span class="n">be</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">quiet</span><span class="w"> </span><span class="p" data-group-id="1222810038-18">(</span><span class="n">auto</span><span class="o">-</span><span class="n">enabled</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="1222810038-18">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-19">[</span><span class="o">-</span><span class="n">f</span><span class="o">|</span><span class="o">--</span><span class="n">flush</span><span class="p" data-group-id="1222810038-19">]</span><span class="w">
+           </span><span class="n">flush</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="nc">Usage</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-20">[</span><span class="o">--</span><span class="ow">in</span><span class="o">|</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="nc">INPUT</span><span class="o">-</span><span class="nc">TYPE</span><span class="p" data-group-id="1222810038-20">]</span><span class="w">
+           </span><span class="n">specify</span><span class="w"> </span><span class="n">input</span><span class="w">  </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="1222810038-21">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">autodetect</span><span class="p" data-group-id="1222810038-21">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-22">[</span><span class="o">--</span><span class="n">out</span><span class="o">|</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="nc">OUTPUT</span><span class="o">-</span><span class="nc">TYPE</span><span class="p" data-group-id="1222810038-22">]</span><span class="w">
+           </span><span class="n">specify</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="1222810038-23">(</span><span class="ss">sometimes</span><span class="p">:</span><span class="w"> </span><span class="n">autodetect</span><span class="p" data-group-id="1222810038-23">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-24">[</span><span class="o">--</span><span class="n">action</span><span class="o">|</span><span class="o">-</span><span class="nc">A</span><span class="w"> </span><span class="nc">ACTION</span><span class="p" data-group-id="1222810038-24">]</span><span class="w">
+           </span><span class="n">specify</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="p" data-group-id="1222810038-25">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">conversion</span><span class="p">,</span><span class="w"> </span><span class="ss">sometimes</span><span class="p">:</span><span class="w"> </span><span class="n">autodetect</span><span class="p" data-group-id="1222810038-25">)</span><span class="w">
+
+    </span><span class="p" data-group-id="1222810038-26">[</span><span class="o">&lt;</span><span class="n">format</span><span class="w"> </span><span class="n">option</span><span class="o">&gt;</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1222810038-26">]</span><span class="w">
+           </span><span class="n">specify</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+    </span><span class="o">&lt;</span><span class="n">input</span><span class="w"> </span><span class="n">data</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="1222810038-27">[</span><span class="n">...</span><span class="p" data-group-id="1222810038-27">]</span><span class="w">
+           </span><span class="n">input</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+           </span><span class="nc">Available</span><span class="w"> </span><span class="n">input</span><span class="w">  </span><span class="ss">types</span><span class="p">:</span><span class="w">
+                  </span><span class="p" data-group-id="1222810038-28">[</span><span class="o">-</span><span class="n">m</span><span class="p" data-group-id="1222810038-28">]</span><span class="w"> </span><span class="o">-</span><span class="nc">I</span><span class="o">|</span><span class="o">--</span><span class="ow">in</span><span class="w">     </span><span class="o">-</span><span class="sc">?|</span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="w">
+
+           </span><span class="nc">Available</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ss">types</span><span class="p">:</span><span class="w">
+                  </span><span class="p" data-group-id="1222810038-29">[</span><span class="o">-</span><span class="n">m</span><span class="p" data-group-id="1222810038-29">]</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="o">|</span><span class="o">--</span><span class="n">out</span><span class="w">    </span><span class="o">-</span><span class="sc">?|</span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="w">
+
+           </span><span class="nc">Available</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="ss">types</span><span class="p">:</span><span class="w">
+                  </span><span class="p" data-group-id="1222810038-30">[</span><span class="o">-</span><span class="n">m</span><span class="p" data-group-id="1222810038-30">]</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="o">|</span><span class="o">--</span><span class="n">action</span><span class="w"> </span><span class="o">-</span><span class="sc">?|</span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="w">
+
+     </span><span class="nc">Other</span><span class="w"> </span><span class="ss">usage</span><span class="p">:</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showinfo</span><span class="o">|</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="p" data-group-id="1222810038-31">[</span><span class="o">--</span><span class="n">machine_readable</span><span class="o">|</span><span class="o">-</span><span class="n">m</span><span class="p" data-group-id="1222810038-31">]</span><span class="w">
+           </span><span class="n">show</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">showinfo</span><span class="o">|</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">--</span><span class="n">show_types</span><span class="w">
+           </span><span class="n">show</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="sc">&#39;-m&#39;</span><span class="w">
+
+    </span><span class="nc">Usage</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">shortcut</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shortcut</span><span class="w"> </span><span class="n">option</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="1222810038-32">[</span><span class="o">&lt;</span><span class="n">format</span><span class="w"> </span><span class="n">option</span><span class="o">&gt;</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1222810038-32">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">input</span><span class="w"> </span><span class="n">data</span><span class="o">&gt;</span><span class="w">
+
+    </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ss">use</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shortcut</span><span class="w"> </span><span class="n">option</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="sc">?|</span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">r</span><span class="o">|</span><span class="o">--</span><span class="n">addr2ip6_int</span><span class="w"> </span><span class="p" data-group-id="1222810038-33">(</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">revnibbles</span><span class="o">.</span><span class="n">int</span><span class="p" data-group-id="1222810038-33">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">r</span><span class="o">|</span><span class="o">--</span><span class="n">addr_to_ip6int</span><span class="w"> </span><span class="p" data-group-id="1222810038-34">(</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">revnibbles</span><span class="o">.</span><span class="n">int</span><span class="p" data-group-id="1222810038-34">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">a</span><span class="o">|</span><span class="o">--</span><span class="n">addr2ip6_arpa</span><span class="w"> </span><span class="p" data-group-id="1222810038-35">(</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">revnibbles</span><span class="o">.</span><span class="n">arpa</span><span class="p" data-group-id="1222810038-35">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">a</span><span class="o">|</span><span class="o">--</span><span class="n">addr_to_ip6arpa</span><span class="w"> </span><span class="p" data-group-id="1222810038-36">(</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">revnibbles</span><span class="o">.</span><span class="n">arpa</span><span class="p" data-group-id="1222810038-36">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">b</span><span class="o">|</span><span class="o">--</span><span class="n">addr_to_bitstring</span><span class="w"> </span><span class="p" data-group-id="1222810038-37">(</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">bitstring</span><span class="p" data-group-id="1222810038-37">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr2compaddr</span><span class="w"> </span><span class="p" data-group-id="1222810038-38">(</span><span class="o">--</span><span class="n">printcompressed</span><span class="p" data-group-id="1222810038-38">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr_to_compressed</span><span class="w"> </span><span class="p" data-group-id="1222810038-39">(</span><span class="o">--</span><span class="n">printcompressed</span><span class="p" data-group-id="1222810038-39">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr2uncompaddr</span><span class="w"> </span><span class="p" data-group-id="1222810038-40">(</span><span class="o">--</span><span class="n">printuncompressed</span><span class="p" data-group-id="1222810038-40">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr_to_uncompressed</span><span class="w"> </span><span class="p" data-group-id="1222810038-41">(</span><span class="o">--</span><span class="n">printuncompressed</span><span class="p" data-group-id="1222810038-41">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr_to_base85</span><span class="w"> </span><span class="p" data-group-id="1222810038-42">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">base85</span><span class="p" data-group-id="1222810038-42">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">base85_to_addr</span><span class="w"> </span><span class="p" data-group-id="1222810038-43">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">base85</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ipv6addr</span><span class="p" data-group-id="1222810038-43">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">mac_to_eui64</span><span class="w"> </span><span class="p" data-group-id="1222810038-44">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">eui64</span><span class="p" data-group-id="1222810038-44">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr2fulluncompaddr</span><span class="w"> </span><span class="p" data-group-id="1222810038-45">(</span><span class="o">--</span><span class="n">printfulluncompressed</span><span class="p" data-group-id="1222810038-45">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr_to_fulluncompressed</span><span class="w"> </span><span class="p" data-group-id="1222810038-46">(</span><span class="o">--</span><span class="n">printfulluncompressed</span><span class="p" data-group-id="1222810038-46">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr2if_inet6</span><span class="w"> </span><span class="p" data-group-id="1222810038-47">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ifinet6</span><span class="p" data-group-id="1222810038-47">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">addr_to_ifinet6</span><span class="w"> </span><span class="p" data-group-id="1222810038-48">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ifinet6</span><span class="p" data-group-id="1222810038-48">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">if_inet62addr</span><span class="w"> </span><span class="p" data-group-id="1222810038-49">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ifinet6</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">--</span><span class="n">printcompressed</span><span class="p" data-group-id="1222810038-49">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">ifinet6_to_compressed</span><span class="w"> </span><span class="p" data-group-id="1222810038-50">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ifinet6</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">--</span><span class="n">printcompressed</span><span class="p" data-group-id="1222810038-50">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">eui64_to_privacy</span><span class="w"> </span><span class="p" data-group-id="1222810038-51">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">iid_token</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">iid_token</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="w"> </span><span class="n">genprivacyiid</span><span class="p" data-group-id="1222810038-51">)</span><span class="w">
+
+       </span><span class="o">--</span><span class="n">ipv4_to_6to4addr</span><span class="w"> </span><span class="p" data-group-id="1222810038-52">(</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">ipv4</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">ipv6addr</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="w"> </span><span class="n">conv6to4</span><span class="p" data-group-id="1222810038-52">)</span><span class="w">
+
+    </span><span class="nc">See</span><span class="w"> </span><span class="n">inline</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="o">.</span></code></pre><p> REPORTING## BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ipv6calc</span><span class="na">@lists</span><span class="o">.</span><span class="n">deepspace6</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authors</span><span class="o">.</span><span class="w">
+    </span><span class="ss">Homepage</span><span class="p">:</span><span class="w"> </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">deepspace6</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">ipv6calc</span><span class="o">.</span><span class="n">html</span></code></pre><h2 id="examples" class="section-heading">
+  <a href="#examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">To</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w">
+
+    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">--</span><span class="n">showinfo</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">::</span><span class="mi">1</span><span class="w">
+
+    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">--</span><span class="n">showinfo</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="w">
+
+    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">--</span><span class="n">showinfo</span><span class="w"> </span><span class="o">--</span><span class="n">show_types</span><span class="w">
+
+    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">--</span><span class="n">ipv4_to_6to4addr</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="w">
+
+    </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">--</span><span class="n">addr_to_uncompressed</span><span class="w"> </span><span class="o">::</span><span class="mi">1</span><span class="w">
+
+    </span><span class="nc">Usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="ss">mode</span><span class="p">:</span><span class="w">
+           </span><span class="n">cat</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">Apache</span><span class="o">-</span><span class="nc">Logfile</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ipv6calc</span><span class="w"> </span><span class="o">-</span><span class="nc">E</span><span class="w"> </span><span class="n">ipv6</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">cc</span><span class="o">=</span><span class="nc">US</span><span class="p">,</span><span class="n">iid</span><span class="o">-</span><span class="n">random</span></code></pre><p> COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">GPLv2</span></code></pre><h2 id="authors" class="section-heading">
+  <a href="#authors" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHORS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Peter</span><span class="w"> </span><span class="nc">Bieringer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pb</span><span class="na">@bieringer</span><span class="o">.</span><span class="n">de</span><span class="o">&gt;</span></code></pre><p> Peter Bieringer <a href="mailto:pb@bieringer.de">pb@bieringer.de</a>                                              0.99.0                                                                    ipv6calc(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

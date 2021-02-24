@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>xfreerdp — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  XFREERDP</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">FreeRDP</span><span class="w"> </span><span class="nc">X11</span><span class="w"> </span><span class="n">client</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="p" data-group-id="7228879828-1">[</span><span class="n">file</span><span class="p" data-group-id="7228879828-1">]</span><span class="w"> </span><span class="p" data-group-id="7228879828-2">[</span><span class="n">options</span><span class="p" data-group-id="7228879828-2">]</span><span class="w"> </span><span class="p" data-group-id="7228879828-3">[</span><span class="o">/</span><span class="n">v</span><span class="ss">:server</span><span class="p" data-group-id="7228879828-4">[</span><span class="ss">:port</span><span class="p" data-group-id="7228879828-4">]</span><span class="p" data-group-id="7228879828-3">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">X11</span><span class="w"> </span><span class="nc">Remote</span><span class="w"> </span><span class="nc">Desktop</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="p" data-group-id="7072185416-1">(</span><span class="nc">RDP</span><span class="p" data-group-id="7072185416-1">)</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FreeRDP</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w"> </span><span class="nc">An</span><span class="w"> </span><span class="nc">RDP</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">editions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Windows</span><span class="o">.</span><span class="w">
+    </span><span class="nc">Alternative</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="n">xrdp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">VRDP</span><span class="w"> </span><span class="p" data-group-id="7072185416-2">(</span><span class="nc">VirtualBox</span><span class="p" data-group-id="7072185416-2">)</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">/</span><span class="n">a</span><span class="ss">:addin</span><span class="p" data-group-id="5681091932-1">[</span><span class="p">,</span><span class="n">options</span><span class="p" data-group-id="5681091932-1">]</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">addin</span><span class="ss">:addin</span><span class="p" data-group-id="5681091932-2">[</span><span class="p">,</span><span class="n">options</span><span class="p" data-group-id="5681091932-2">]</span><span class="w">
+        </span><span class="nc">Addin</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">action</span><span class="o">-</span><span class="n">script</span><span class="ss">:file</span><span class="o">-</span><span class="n">name</span><span class="w">
+        </span><span class="nc">Action</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="p" data-group-id="5681091932-3">(</span><span class="n">default</span><span class="p">:</span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">config</span><span class="o">/</span><span class="n">freerdp</span><span class="o">/</span><span class="n">action</span><span class="o">.</span><span class="n">sh</span><span class="p" data-group-id="5681091932-3">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">admin</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">console</span><span class="w">
+        </span><span class="nc">Admin</span><span class="w"> </span><span class="p" data-group-id="5681091932-4">(</span><span class="ow">or</span><span class="w"> </span><span class="n">console</span><span class="p" data-group-id="5681091932-4">)</span><span class="w"> </span><span class="n">session</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">aero</span><span class="w">
+        </span><span class="n">desktop</span><span class="w"> </span><span class="n">composition</span><span class="w"> </span><span class="p" data-group-id="5681091932-5">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-5">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="ss">:path</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">||</span><span class="kn">alias</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">program</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">cmd</span><span class="ss">:parameters</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="w"> </span><span class="n">parameters</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">file</span><span class="ss">:file</span><span class="o">-</span><span class="n">name</span><span class="w">
+        </span><span class="nc">File</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">application</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">guid</span><span class="ss">:app</span><span class="o">-</span><span class="n">guid</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="nc">GUID</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">icon</span><span class="ss">:icon</span><span class="o">-</span><span class="n">path</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">icon</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">interface</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">name</span><span class="ss">:app</span><span class="o">-</span><span class="n">name</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">interface</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">app</span><span class="o">-</span><span class="n">workdir</span><span class="ss">:workspace</span><span class="w"> </span><span class="n">path</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="n">path</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">assistance</span><span class="ss">:password</span><span class="w">
+        </span><span class="nc">Remote</span><span class="w"> </span><span class="n">assistance</span><span class="w"> </span><span class="n">password</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">auto</span><span class="o">-</span><span class="n">request</span><span class="o">-</span><span class="ss">control</span><span class="p">:</span><span class="w">
+        </span><span class="nc">Automatically</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">assistance</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">control</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">async</span><span class="o">-</span><span class="n">channels</span><span class="w">
+        </span><span class="nc">Asynchronous</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="p" data-group-id="5681091932-6">(</span><span class="n">experimental</span><span class="p" data-group-id="5681091932-6">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-7">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-7">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">async</span><span class="o">-</span><span class="n">input</span><span class="w">
+        </span><span class="nc">Asynchronous</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p" data-group-id="5681091932-8">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-8">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">async</span><span class="o">-</span><span class="n">update</span><span class="w">
+        </span><span class="nc">Asynchronous</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="p" data-group-id="5681091932-9">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-9">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">audio</span><span class="o">-</span><span class="n">mode</span><span class="ss">:mode</span><span class="w">
+        </span><span class="nc">Audio</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">auth</span><span class="o">-</span><span class="n">only</span><span class="w">
+        </span><span class="nc">Authenticate</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="p" data-group-id="5681091932-10">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-10">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">authentication</span><span class="w">
+        </span><span class="nc">Authentication</span><span class="w"> </span><span class="p" data-group-id="5681091932-11">(</span><span class="n">experimental</span><span class="p" data-group-id="5681091932-11">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-12">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-12">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">auto</span><span class="o">-</span><span class="n">reconnect</span><span class="w">
+        </span><span class="nc">Automatic</span><span class="w"> </span><span class="n">reconnection</span><span class="w"> </span><span class="p" data-group-id="5681091932-13">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-13">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">auto</span><span class="o">-</span><span class="n">reconnect</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">retries</span><span class="ss">:retries</span><span class="w">
+        </span><span class="nc">Automatic</span><span class="w"> </span><span class="n">reconnection</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">retries</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unlimited</span><span class="w"> </span><span class="p" data-group-id="5681091932-14">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="5681091932-14">]</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">bitmap</span><span class="o">-</span><span class="n">cache</span><span class="w">
+        </span><span class="n">bitmap</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="p" data-group-id="5681091932-15">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-15">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">bpp</span><span class="ss">:depth</span><span class="w">
+        </span><span class="nc">Session</span><span class="w"> </span><span class="n">bpp</span><span class="w"> </span><span class="p" data-group-id="5681091932-16">(</span><span class="n">color</span><span class="w"> </span><span class="n">depth</span><span class="p" data-group-id="5681091932-16">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-17">(</span><span class="n">default</span><span class="p">:</span><span class="mi">16</span><span class="p" data-group-id="5681091932-17">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">buildconfig</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">configuration</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">cert</span><span class="p">:</span><span class="p" data-group-id="5681091932-18">[</span><span class="n">deny</span><span class="p">,</span><span class="n">ignore</span><span class="p">,</span><span class="n">name</span><span class="ss">:name</span><span class="p">,</span><span class="n">tofu</span><span class="p">,</span><span class="n">fingerprint</span><span class="ss">:hash</span><span class="ss">:hash</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">hex</span><span class="p" data-group-id="5681091932-19">[</span><span class="p">,</span><span class="n">fingerprint</span><span class="ss">:hash</span><span class="ss">:another</span><span class="w"> </span><span class="n">hash</span><span class="p" data-group-id="5681091932-19">]</span><span class="p" data-group-id="5681091932-18">]</span><span class="w">
+        </span><span class="nc">Certificate</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">care!</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deny</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="nc">Automatically</span><span class="w"> </span><span class="n">abort</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">match</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">interaction</span><span class="o">.</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="n">...</span><span class="w">
+        </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="n">altogether</span><span class="w"> </span><span class="p" data-group-id="5681091932-20">(</span><span class="n">overrules</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="5681091932-20">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">match</span><span class="w">
+        </span><span class="n">locally</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tofu</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="nc">Accept</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">unconditionally</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">deny</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">subsequent</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w">
+        </span><span class="n">match</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fingerprints</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">hashes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="n">unconditionally</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">cert</span><span class="o">-</span><span class="n">deny</span><span class="w">
+        </span><span class="p" data-group-id="5681091932-21">[</span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">/</span><span class="n">cert</span><span class="ss">:deny</span><span class="p" data-group-id="5681091932-21">]</span><span class="w"> </span><span class="nc">Automatically</span><span class="w"> </span><span class="n">abort</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">validated</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">cert</span><span class="o">-</span><span class="n">ignore</span><span class="w">
+        </span><span class="p" data-group-id="5681091932-22">[</span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">/</span><span class="n">cert</span><span class="ss">:ignore</span><span class="p" data-group-id="5681091932-22">]</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">certificate</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">cert</span><span class="o">-</span><span class="n">name</span><span class="ss">:name</span><span class="w">
+        </span><span class="p" data-group-id="5681091932-23">[</span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">/</span><span class="n">cert</span><span class="ss">:name</span><span class="ss">:&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="p" data-group-id="5681091932-23">]</span><span class="w"> </span><span class="nc">Certificate</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">cert</span><span class="o">-</span><span class="n">tofu</span><span class="w">
+        </span><span class="p" data-group-id="5681091932-24">[</span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">/</span><span class="n">cert</span><span class="ss">:tofu</span><span class="p" data-group-id="5681091932-24">]</span><span class="w"> </span><span class="nc">Automatically</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">connect</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">client</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">number</span><span class="ss">:number</span><span class="w">
+        </span><span class="nc">Client</span><span class="w"> </span><span class="nc">Build</span><span class="w"> </span><span class="nc">Number</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p" data-group-id="5681091932-25">(</span><span class="n">influences</span><span class="w"> </span><span class="n">smartcard</span><span class="w"> </span><span class="n">behaviour</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="p" data-group-id="5681091932-26">[</span><span class="nc">MS</span><span class="o">-</span><span class="nc">RDPESC</span><span class="p" data-group-id="5681091932-26">]</span><span class="p" data-group-id="5681091932-25">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">client</span><span class="o">-</span><span class="n">hostname</span><span class="ss">:name</span><span class="w">
+        </span><span class="nc">Client</span><span class="w"> </span><span class="nc">Hostname</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">clipboard</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">clipboard</span><span class="w"> </span><span class="p" data-group-id="5681091932-27">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-27">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">codec</span><span class="o">-</span><span class="n">cache</span><span class="p">:</span><span class="p" data-group-id="5681091932-28">[</span><span class="n">rfx</span><span class="o">|</span><span class="n">nsc</span><span class="o">|</span><span class="n">jpeg</span><span class="p" data-group-id="5681091932-28">]</span><span class="w">
+        </span><span class="nc">Bitmap</span><span class="w"> </span><span class="n">codec</span><span class="w"> </span><span class="n">cache</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">compression</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">z</span><span class="w">
+        </span><span class="n">compression</span><span class="w"> </span><span class="p" data-group-id="5681091932-29">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-29">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">compression</span><span class="o">-</span><span class="n">level</span><span class="ss">:level</span><span class="w">
+        </span><span class="nc">Compression</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="p" data-group-id="5681091932-30">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p" data-group-id="5681091932-30">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">credentials</span><span class="o">-</span><span class="n">delegation</span><span class="w">
+        </span><span class="n">credentials</span><span class="w"> </span><span class="n">delegation</span><span class="w"> </span><span class="p" data-group-id="5681091932-31">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-31">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">d</span><span class="ss">:domain</span><span class="w">
+        </span><span class="nc">Domain</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">decorations</span><span class="w">
+        </span><span class="nc">Window</span><span class="w"> </span><span class="n">decorations</span><span class="w"> </span><span class="p" data-group-id="5681091932-32">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-32">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">disp</span><span class="w">
+        </span><span class="nc">Display</span><span class="w"> </span><span class="n">control</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">drive</span><span class="ss">:name</span><span class="p">,</span><span class="n">path</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="o">.</span><span class="w"> </span><span class="nc">Hotplug</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">/</span><span class="n">drive</span><span class="ss">:hotplug</span><span class="p">,</span><span class="o">*</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;Drives
+        that I plug in later&quot;</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">MSTSC</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">drives</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">shares</span><span class="w"> </span><span class="p" data-group-id="5681091932-33">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-33">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">dvc</span><span class="ss">:channel</span><span class="p" data-group-id="5681091932-34">[</span><span class="p">,</span><span class="n">options</span><span class="p" data-group-id="5681091932-34">]</span><span class="w">
+        </span><span class="nc">Dynamic</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">dynamic</span><span class="o">-</span><span class="n">resolution</span><span class="w">
+        </span><span class="nc">Send</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">resized</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">echo</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">echo</span><span class="w">
+        </span><span class="nc">Echo</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">encryption</span><span class="w">
+        </span><span class="nc">Encryption</span><span class="w"> </span><span class="p" data-group-id="5681091932-35">(</span><span class="n">experimental</span><span class="p" data-group-id="5681091932-35">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-36">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-36">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">encryption</span><span class="o">-</span><span class="n">methods</span><span class="p">:</span><span class="p" data-group-id="5681091932-37">[</span><span class="mi">40</span><span class="p">,</span><span class="p" data-group-id="5681091932-37">]</span><span class="p" data-group-id="5681091932-38">[</span><span class="mi">56</span><span class="p">,</span><span class="p" data-group-id="5681091932-38">]</span><span class="p" data-group-id="5681091932-39">[</span><span class="mi">128</span><span class="p">,</span><span class="p" data-group-id="5681091932-39">]</span><span class="p" data-group-id="5681091932-40">[</span><span class="nc">FIPS</span><span class="p" data-group-id="5681091932-40">]</span><span class="w">
+        </span><span class="nc">RDP</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">methods</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">f</span><span class="w">
+        </span><span class="nc">Fullscreen</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="5681091932-41">(</span><span class="o">&lt;</span><span class="nc">Ctrl</span><span class="o">&gt;</span><span class="o">+</span><span class="o">&lt;</span><span class="nc">Alt</span><span class="o">&gt;</span><span class="o">+</span><span class="o">&lt;</span><span class="nc">Enter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toggles</span><span class="w"> </span><span class="n">fullscreen</span><span class="p" data-group-id="5681091932-41">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="w">
+        </span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="n">input</span><span class="o">/</span><span class="n">output</span><span class="w"> </span><span class="p" data-group-id="5681091932-42">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-42">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">fipsmode</span><span class="w">
+        </span><span class="nc">FIPS</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="5681091932-43">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-43">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">floatbar</span><span class="p" data-group-id="5681091932-44">[</span><span class="ss">:sticky</span><span class="p">:</span><span class="p" data-group-id="5681091932-45">[</span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="5681091932-45">]</span><span class="p">,</span><span class="n">default</span><span class="p">:</span><span class="p" data-group-id="5681091932-46">[</span><span class="n">visible</span><span class="o">|</span><span class="n">hidden</span><span class="p" data-group-id="5681091932-46">]</span><span class="p">,</span><span class="n">show</span><span class="p">:</span><span class="p" data-group-id="5681091932-47">[</span><span class="n">always</span><span class="o">|</span><span class="n">fullscreen</span><span class="o">||</span><span class="n">window</span><span class="p" data-group-id="5681091932-47">]</span><span class="p" data-group-id="5681091932-44">]</span><span class="w">
+        </span><span class="n">floatbar</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="p" data-group-id="5681091932-48">(</span><span class="ow">when</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sticky</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fullscreen</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="5681091932-48">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">fonts</span><span class="w">
+        </span><span class="n">smooth</span><span class="w"> </span><span class="n">fonts</span><span class="w"> </span><span class="p" data-group-id="5681091932-49">(</span><span class="nc">ClearType</span><span class="p" data-group-id="5681091932-49">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-50">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-50">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">frame</span><span class="o">-</span><span class="n">ack</span><span class="ss">:number</span><span class="w">
+        </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="n">acknowledgement</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">from</span><span class="o">-</span><span class="n">stdin</span><span class="p" data-group-id="5681091932-51">[</span><span class="ss">:force</span><span class="p" data-group-id="5681091932-51">]</span><span class="w">
+        </span><span class="nc">Read</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">stdin</span><span class="o">.</span><span class="w"> </span><span class="nc">With</span><span class="w"> </span><span class="o">&lt;</span><span class="n">force</span><span class="o">&gt;</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">connection</span><span class="p">,</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">g</span><span class="ss">:gateway</span><span class="p" data-group-id="5681091932-52">[</span><span class="ss">:port</span><span class="p" data-group-id="5681091932-52">]</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="nc">Hostname</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gateway</span><span class="o">-</span><span class="n">usage</span><span class="o">-</span><span class="n">method</span><span class="p">:</span><span class="p" data-group-id="5681091932-53">[</span><span class="n">direct</span><span class="o">|</span><span class="n">detect</span><span class="p" data-group-id="5681091932-53">]</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">gum</span><span class="p">:</span><span class="p" data-group-id="5681091932-54">[</span><span class="n">direct</span><span class="o">|</span><span class="n">detect</span><span class="p" data-group-id="5681091932-54">]</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">method</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gd</span><span class="ss">:domain</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="n">domain</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gdi</span><span class="ss">:sw</span><span class="o">|</span><span class="n">hw</span><span class="w">
+        </span><span class="nc">GDI</span><span class="w"> </span><span class="n">rendering</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">geometry</span><span class="w">
+        </span><span class="nc">Geometry</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">gestures</span><span class="w">
+        </span><span class="nc">Consume</span><span class="w"> </span><span class="n">multitouch</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">locally</span><span class="w"> </span><span class="p" data-group-id="5681091932-55">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-55">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gfx</span><span class="p" data-group-id="5681091932-56">[</span><span class="ss">:RFX</span><span class="p" data-group-id="5681091932-56">]</span><span class="w">
+        </span><span class="nc">RDP8</span><span class="w"> </span><span class="n">graphics</span><span class="w"> </span><span class="n">pipeline</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">gfx</span><span class="o">-</span><span class="n">progressive</span><span class="w">
+        </span><span class="nc">RDP8</span><span class="w"> </span><span class="n">graphics</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">progressive</span><span class="w"> </span><span class="n">codec</span><span class="w"> </span><span class="p" data-group-id="5681091932-57">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-57">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">gfx</span><span class="o">-</span><span class="n">small</span><span class="o">-</span><span class="n">cache</span><span class="w">
+        </span><span class="nc">RDP8</span><span class="w"> </span><span class="n">graphics</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="5681091932-58">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-58">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">gfx</span><span class="o">-</span><span class="n">thin</span><span class="o">-</span><span class="n">client</span><span class="w">
+        </span><span class="nc">RDP8</span><span class="w"> </span><span class="n">graphics</span><span class="w"> </span><span class="n">pipeline</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">thin</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="5681091932-59">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-59">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">glyph</span><span class="o">-</span><span class="n">cache</span><span class="w">
+        </span><span class="nc">Glyph</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="p" data-group-id="5681091932-60">(</span><span class="n">experimental</span><span class="p" data-group-id="5681091932-60">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-61">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-61">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gp</span><span class="ss">:password</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="n">password</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">grab</span><span class="o">-</span><span class="n">keyboard</span><span class="w">
+        </span><span class="nc">Grab</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="p" data-group-id="5681091932-62">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-62">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gt</span><span class="p">:</span><span class="p" data-group-id="5681091932-63">[</span><span class="n">rpc</span><span class="o">|</span><span class="n">http</span><span class="o">|</span><span class="n">auto</span><span class="p" data-group-id="5681091932-63">]</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gu</span><span class="p">:</span><span class="p" data-group-id="5681091932-64">[</span><span class="p" data-group-id="5681091932-65">[</span><span class="n">domain</span><span class="err">\</span><span class="p" data-group-id="5681091932-65">]</span><span class="n">user</span><span class="o">|</span><span class="n">user</span><span class="p" data-group-id="5681091932-66">[</span><span class="na">@domain</span><span class="p" data-group-id="5681091932-66">]</span><span class="p" data-group-id="5681091932-64">]</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="n">username</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">gat</span><span class="ss">:access</span><span class="w"> </span><span class="n">token</span><span class="w">
+        </span><span class="nc">Gateway</span><span class="w"> </span><span class="nc">Access</span><span class="w"> </span><span class="nc">Token</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">h</span><span class="ss">:height</span><span class="w">
+        </span><span class="nc">Height</span><span class="w"> </span><span class="p" data-group-id="5681091932-67">(</span><span class="n">default</span><span class="p">:</span><span class="mi">768</span><span class="p" data-group-id="5681091932-67">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">heartbeat</span><span class="w">
+        </span><span class="nc">Support</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="nc">PDUs</span><span class="w"> </span><span class="p" data-group-id="5681091932-68">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-68">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="sc">?
+</span><span class="w">        </span><span class="nc">Print</span><span class="w"> </span><span class="n">help</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">home</span><span class="o">-</span><span class="n">drive</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="p" data-group-id="5681091932-69">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-69">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">ipv6</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="mi">6</span><span class="w">
+        </span><span class="nc">Prefer</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="nc">AAA</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="nc">IPv4</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">record</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="p">:</span><span class="mi">0</span><span class="n">xid</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">name</span><span class="w">
+        </span><span class="nc">Keyboard</span><span class="w"> </span><span class="n">layout</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="n">lang</span><span class="p">:</span><span class="mi">0</span><span class="n">xid</span><span class="w">
+        </span><span class="nc">Keyboard</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="n">language</span><span class="w"> </span><span class="n">identifier</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="k" data-group-id="5681091932-70">fn</span><span class="o">-</span><span class="n">key</span><span class="ss">:value</span><span class="w">
+        </span><span class="nc">Function</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">value</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="n">list</span><span class="w">
+        </span><span class="nc">List</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">layouts</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="n">lang</span><span class="o">-</span><span class="n">list</span><span class="w">
+        </span><span class="nc">List</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">languages</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="n">subtype</span><span class="ss">:id</span><span class="w">
+        </span><span class="nc">Keyboard</span><span class="w"> </span><span class="n">subtype</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">kbd</span><span class="o">-</span><span class="n">type</span><span class="ss">:id</span><span class="w">
+        </span><span class="nc">Keyboard</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">load</span><span class="o">-</span><span class="n">balance</span><span class="o">-</span><span class="n">info</span><span class="ss">:info</span><span class="o">-</span><span class="n">string</span><span class="w">
+        </span><span class="nc">Load</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">info</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">log</span><span class="o">-</span><span class="n">filters</span><span class="ss">:tag</span><span class="ss">:level</span><span class="p" data-group-id="5681091932-71">[</span><span class="p">,</span><span class="n">tag</span><span class="ss">:level</span><span class="p" data-group-id="5681091932-72">[</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="5681091932-72">]</span><span class="p" data-group-id="5681091932-71">]</span><span class="w">
+        </span><span class="nc">Set</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="n">filters</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">wLog</span><span class="p" data-group-id="5681091932-73">(</span><span class="mi">7</span><span class="p" data-group-id="5681091932-73">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">log</span><span class="o">-</span><span class="n">level</span><span class="p">:</span><span class="p" data-group-id="5681091932-74">[</span><span class="nc">OFF</span><span class="o">|</span><span class="nc">FATAL</span><span class="o">|</span><span class="nc">ERROR</span><span class="o">|</span><span class="nc">WARN</span><span class="o">|</span><span class="nc">INFO</span><span class="o">|</span><span class="nc">DEBUG</span><span class="o">|</span><span class="nc">TRACE</span><span class="p" data-group-id="5681091932-74">]</span><span class="w">
+        </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">wLog</span><span class="p" data-group-id="5681091932-75">(</span><span class="mi">7</span><span class="p" data-group-id="5681091932-75">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">max</span><span class="o">-</span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">size</span><span class="ss">:size</span><span class="w">
+        </span><span class="nc">Specify</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">fast</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">max</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">time</span><span class="ss">:time</span><span class="w">
+        </span><span class="nc">Specify</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"> </span><span class="n">spend</span><span class="w"> </span><span class="n">treating</span><span class="w"> </span><span class="n">packets</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">menu</span><span class="o">-</span><span class="n">anims</span><span class="w">
+        </span><span class="n">menu</span><span class="w"> </span><span class="n">animations</span><span class="w"> </span><span class="p" data-group-id="5681091932-76">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-76">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">microphone</span><span class="p" data-group-id="5681091932-77">[</span><span class="p">:</span><span class="p" data-group-id="5681091932-78">[</span><span class="n">sys</span><span class="ss">:sys</span><span class="p">,</span><span class="p" data-group-id="5681091932-78">]</span><span class="p" data-group-id="5681091932-79">[</span><span class="n">dev</span><span class="ss">:dev</span><span class="p">,</span><span class="p" data-group-id="5681091932-79">]</span><span class="p" data-group-id="5681091932-80">[</span><span class="n">format</span><span class="ss">:format</span><span class="p">,</span><span class="p" data-group-id="5681091932-80">]</span><span class="p" data-group-id="5681091932-81">[</span><span class="n">rate</span><span class="ss">:rate</span><span class="p">,</span><span class="p" data-group-id="5681091932-81">]</span><span class="p" data-group-id="5681091932-82">[</span><span class="n">channel</span><span class="ss">:channel</span><span class="p" data-group-id="5681091932-82">]</span><span class="p" data-group-id="5681091932-77">]</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">mic</span><span class="p" data-group-id="5681091932-83">[</span><span class="p">:</span><span class="p" data-group-id="5681091932-84">[</span><span class="n">sys</span><span class="ss">:sys</span><span class="p">,</span><span class="p" data-group-id="5681091932-84">]</span><span class="p" data-group-id="5681091932-85">[</span><span class="n">dev</span><span class="ss">:dev</span><span class="p">,</span><span class="p" data-group-id="5681091932-85">]</span><span class="p" data-group-id="5681091932-86">[</span><span class="n">format</span><span class="ss">:format</span><span class="p">,</span><span class="p" data-group-id="5681091932-86">]</span><span class="p" data-group-id="5681091932-87">[</span><span class="n">rate</span><span class="ss">:rate</span><span class="p">,</span><span class="p" data-group-id="5681091932-87">]</span><span class="p" data-group-id="5681091932-88">[</span><span class="n">channel</span><span class="ss">:channel</span><span class="p" data-group-id="5681091932-88">]</span><span class="p" data-group-id="5681091932-83">]</span><span class="w">
+        </span><span class="nc">Audio</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p" data-group-id="5681091932-89">(</span><span class="n">microphone</span><span class="p" data-group-id="5681091932-89">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">monitor</span><span class="o">-</span><span class="n">list</span><span class="w">
+        </span><span class="nc">List</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">monitors</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">monitors</span><span class="ss">:id</span><span class="p" data-group-id="5681091932-90">[</span><span class="p">,</span><span class="n">id</span><span class="p" data-group-id="5681091932-91">[</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="5681091932-91">]</span><span class="p" data-group-id="5681091932-90">]</span><span class="w">
+        </span><span class="nc">Select</span><span class="w"> </span><span class="n">monitors</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">mouse</span><span class="o">-</span><span class="n">motion</span><span class="w">
+        </span><span class="nc">Send</span><span class="w"> </span><span class="n">mouse</span><span class="w"> </span><span class="n">motion</span><span class="w"> </span><span class="p" data-group-id="5681091932-92">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-92">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">multimon</span><span class="p" data-group-id="5681091932-93">[</span><span class="ss">:force</span><span class="p" data-group-id="5681091932-93">]</span><span class="w">
+        </span><span class="nc">Use</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">monitors</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">multitouch</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">multitouch</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p" data-group-id="5681091932-94">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-94">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">multitransport</span><span class="w">
+        </span><span class="nc">Support</span><span class="w"> </span><span class="n">multitransport</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="p" data-group-id="5681091932-95">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-95">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">nego</span><span class="w">
+        </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">negotiation</span><span class="w"> </span><span class="p" data-group-id="5681091932-96">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-96">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">network</span><span class="p">:</span><span class="p" data-group-id="5681091932-97">[</span><span class="n">modem</span><span class="o">|</span><span class="n">broadband</span><span class="o">|</span><span class="n">broadband</span><span class="o">-</span><span class="n">low</span><span class="o">|</span><span class="n">broadband</span><span class="o">-</span><span class="n">high</span><span class="o">|</span><span class="n">wan</span><span class="o">|</span><span class="n">lan</span><span class="o">|</span><span class="n">auto</span><span class="p" data-group-id="5681091932-97">]</span><span class="w">
+        </span><span class="nc">Network</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">nsc</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">nscodec</span><span class="w">
+        </span><span class="nc">NSCodec</span><span class="w"> </span><span class="n">support</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">offscreen</span><span class="o">-</span><span class="n">cache</span><span class="w">
+        </span><span class="n">offscreen</span><span class="w"> </span><span class="n">bitmap</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="p" data-group-id="5681091932-98">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-98">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">orientation</span><span class="p">:</span><span class="p" data-group-id="5681091932-99">[</span><span class="mi">0</span><span class="o">|</span><span class="mi">90</span><span class="o">|</span><span class="mi">180</span><span class="o">|</span><span class="mi">270</span><span class="p" data-group-id="5681091932-99">]</span><span class="w">
+        </span><span class="nc">Orientation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">degrees</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">old</span><span class="o">-</span><span class="n">license</span><span class="w">
+        </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">license</span><span class="w"> </span><span class="n">workflow</span><span class="w"> </span><span class="p" data-group-id="5681091932-100">(</span><span class="n">no</span><span class="w"> </span><span class="nc">CAL</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hwId</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="5681091932-100">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-101">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-101">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">p</span><span class="ss">:password</span><span class="w">
+        </span><span class="nc">Password</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">parallel</span><span class="p" data-group-id="5681091932-102">[</span><span class="ss">:name</span><span class="p" data-group-id="5681091932-103">[</span><span class="p">,</span><span class="n">path</span><span class="p" data-group-id="5681091932-103">]</span><span class="p" data-group-id="5681091932-102">]</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">parent</span><span class="o">-</span><span class="n">window</span><span class="ss">:window</span><span class="o">-</span><span class="n">id</span><span class="w">
+        </span><span class="nc">Parent</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">id</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">password</span><span class="o">-</span><span class="n">is</span><span class="o">-</span><span class="n">pin</span><span class="w">
+        </span><span class="nc">Use</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">smart</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="5681091932-104">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-104">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">pcb</span><span class="ss">:blob</span><span class="w">
+        </span><span class="nc">Preconnection</span><span class="w"> </span><span class="nc">Blob</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">pcid</span><span class="ss">:id</span><span class="w">
+        </span><span class="nc">Preconnection</span><span class="w"> </span><span class="nc">Id</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">pheight</span><span class="ss">:height</span><span class="w">
+        </span><span class="nc">Physical</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="p" data-group-id="5681091932-105">(</span><span class="ow">in</span><span class="w"> </span><span class="n">millimeters</span><span class="p" data-group-id="5681091932-105">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">play</span><span class="o">-</span><span class="n">rfx</span><span class="ss">:pcap</span><span class="o">-</span><span class="n">file</span><span class="w">
+        </span><span class="nc">Replay</span><span class="w"> </span><span class="n">rfx</span><span class="w"> </span><span class="n">pcap</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">port</span><span class="ss">:number</span><span class="w">
+        </span><span class="nc">Server</span><span class="w"> </span><span class="n">port</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">suppress</span><span class="o">-</span><span class="n">output</span><span class="w">
+        </span><span class="n">suppress</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">minimized</span><span class="w"> </span><span class="p" data-group-id="5681091932-106">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-106">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">print</span><span class="o">-</span><span class="n">reconnect</span><span class="o">-</span><span class="n">cookie</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">base64</span><span class="w"> </span><span class="n">reconnect</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">connecting</span><span class="w"> </span><span class="p" data-group-id="5681091932-107">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-107">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">printer</span><span class="p" data-group-id="5681091932-108">[</span><span class="ss">:name</span><span class="p" data-group-id="5681091932-109">[</span><span class="p">,</span><span class="n">driver</span><span class="p" data-group-id="5681091932-109">]</span><span class="p" data-group-id="5681091932-108">]</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">proxy</span><span class="p">:</span><span class="p" data-group-id="5681091932-110">[</span><span class="n">proto</span><span class="ss">:/</span><span class="o">/</span><span class="p" data-group-id="5681091932-110">]</span><span class="p" data-group-id="5681091932-111">[</span><span class="n">user</span><span class="ss">:password@</span><span class="p" data-group-id="5681091932-111">]</span><span class="n">host</span><span class="ss">:port</span><span class="w">
+        </span><span class="nc">Proxy</span><span class="w"> </span><span class="ss">settings</span><span class="p">:</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">env</span><span class="o">.</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="p" data-group-id="5681091932-112">(</span><span class="n">see</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">below</span><span class="p" data-group-id="5681091932-112">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="s">&quot;socks5&quot;</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">explicitly</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="s">&quot;http&quot;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">pth</span><span class="ss">:password</span><span class="o">-</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">pass</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">hash</span><span class="ss">:password</span><span class="o">-</span><span class="n">hash</span><span class="w">
+        </span><span class="nc">Pass</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="p" data-group-id="5681091932-113">(</span><span class="n">restricted</span><span class="w"> </span><span class="n">admin</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="5681091932-113">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">pwidth</span><span class="ss">:width</span><span class="w">
+        </span><span class="nc">Physical</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="p" data-group-id="5681091932-114">(</span><span class="ow">in</span><span class="w"> </span><span class="n">millimeters</span><span class="p" data-group-id="5681091932-114">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">rdp2tcp</span><span class="ss">:executable</span><span class="w"> </span><span class="n">path</span><span class="p" data-group-id="5681091932-115">[</span><span class="ss">:arg</span><span class="n">...</span><span class="p" data-group-id="5681091932-115">]</span><span class="w">
+        </span><span class="nc">TCP</span><span class="w"> </span><span class="n">redirection</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">reconnect</span><span class="o">-</span><span class="n">cookie</span><span class="ss">:base64</span><span class="o">-</span><span class="n">cookie</span><span class="w">
+        </span><span class="nc">Pass</span><span class="w"> </span><span class="n">base64</span><span class="w"> </span><span class="n">reconnect</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">connection</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">redirect</span><span class="o">-</span><span class="n">prefer</span><span class="ss">:FQDN</span><span class="o">|</span><span class="nc">IP</span><span class="o">|</span><span class="nc">NETBIOS</span><span class="p">,</span><span class="p" data-group-id="5681091932-116">[</span><span class="n">...</span><span class="p" data-group-id="5681091932-116">]</span><span class="w">
+        </span><span class="nc">Override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">order</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">relax</span><span class="o">-</span><span class="n">order</span><span class="o">-</span><span class="n">checks</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">relax</span><span class="o">-</span><span class="n">order</span><span class="o">-</span><span class="n">checks</span><span class="w">
+        </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">RDP</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">announced</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">capability</span><span class="w"> </span><span class="n">exchange</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">connecting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">buggy</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">restricted</span><span class="o">-</span><span class="n">admin</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">restrictedAdmin</span><span class="w">
+        </span><span class="nc">Restricted</span><span class="w"> </span><span class="n">admin</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">rfx</span><span class="w">
+        </span><span class="nc">RemoteFX</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">rfx</span><span class="o">-</span><span class="n">mode</span><span class="p">:</span><span class="p" data-group-id="5681091932-117">[</span><span class="n">image</span><span class="o">|</span><span class="n">video</span><span class="p" data-group-id="5681091932-117">]</span><span class="w">
+        </span><span class="nc">RemoteFX</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">scale</span><span class="p">:</span><span class="p" data-group-id="5681091932-118">[</span><span class="mi">100</span><span class="o">|</span><span class="mi">140</span><span class="o">|</span><span class="mi">180</span><span class="p" data-group-id="5681091932-118">]</span><span class="w">
+        </span><span class="nc">Scaling</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="p" data-group-id="5681091932-119">(</span><span class="n">default</span><span class="p">:</span><span class="mi">100</span><span class="p" data-group-id="5681091932-119">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">scale</span><span class="o">-</span><span class="n">desktop</span><span class="ss">:percentage</span><span class="w">
+        </span><span class="nc">Scaling</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">desktop</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="p" data-group-id="5681091932-120">(</span><span class="n">value</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">500</span><span class="p" data-group-id="5681091932-120">)</span><span class="w"> </span><span class="p" data-group-id="5681091932-121">(</span><span class="n">default</span><span class="p">:</span><span class="mi">100</span><span class="p" data-group-id="5681091932-121">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">scale</span><span class="o">-</span><span class="n">device</span><span class="p">:</span><span class="mi">100</span><span class="o">|</span><span class="mi">140</span><span class="o">|</span><span class="mi">180</span><span class="w">
+        </span><span class="nc">Scaling</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="p" data-group-id="5681091932-122">(</span><span class="n">default</span><span class="p">:</span><span class="mi">100</span><span class="p" data-group-id="5681091932-122">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">sec</span><span class="p">:</span><span class="p" data-group-id="5681091932-123">[</span><span class="n">rdp</span><span class="o">|</span><span class="n">tls</span><span class="o">|</span><span class="n">nla</span><span class="o">|</span><span class="n">ext</span><span class="p" data-group-id="5681091932-123">]</span><span class="w">
+        </span><span class="nc">Force</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">sec</span><span class="o">-</span><span class="n">ext</span><span class="w">
+        </span><span class="nc">NLA</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="p" data-group-id="5681091932-124">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-124">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sec</span><span class="o">-</span><span class="n">nla</span><span class="w">
+        </span><span class="nc">NLA</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="p" data-group-id="5681091932-125">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-125">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sec</span><span class="o">-</span><span class="n">rdp</span><span class="w">
+        </span><span class="nc">RDP</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="p" data-group-id="5681091932-126">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-126">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">sec</span><span class="o">-</span><span class="n">tls</span><span class="w">
+        </span><span class="nc">TLS</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="p" data-group-id="5681091932-127">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-127">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">serial</span><span class="p" data-group-id="5681091932-128">[</span><span class="ss">:name</span><span class="p" data-group-id="5681091932-129">[</span><span class="p">,</span><span class="n">path</span><span class="p" data-group-id="5681091932-130">[</span><span class="p">,</span><span class="n">driver</span><span class="p" data-group-id="5681091932-131">[</span><span class="p">,</span><span class="n">permissive</span><span class="p" data-group-id="5681091932-131">]</span><span class="p" data-group-id="5681091932-130">]</span><span class="p" data-group-id="5681091932-129">]</span><span class="p" data-group-id="5681091932-128">]</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">tty</span><span class="p" data-group-id="5681091932-132">[</span><span class="ss">:name</span><span class="p" data-group-id="5681091932-133">[</span><span class="p">,</span><span class="n">path</span><span class="p" data-group-id="5681091932-134">[</span><span class="p">,</span><span class="n">driver</span><span class="p" data-group-id="5681091932-135">[</span><span class="p">,</span><span class="n">permissive</span><span class="p" data-group-id="5681091932-135">]</span><span class="p" data-group-id="5681091932-134">]</span><span class="p" data-group-id="5681091932-133">]</span><span class="p" data-group-id="5681091932-132">]</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">shell</span><span class="ss">:shell</span><span class="w">
+        </span><span class="nc">Alternate</span><span class="w"> </span><span class="n">shell</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">shell</span><span class="o">-</span><span class="n">dir</span><span class="ss">:dir</span><span class="w">
+        </span><span class="nc">Shell</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">size</span><span class="ss">:widthxheight</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">percent</span><span class="p">%</span><span class="p" data-group-id="5681091932-136">[</span><span class="n">wh</span><span class="p" data-group-id="5681091932-136">]</span><span class="w">
+        </span><span class="nc">Screen</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p" data-group-id="5681091932-137">(</span><span class="n">default</span><span class="p">:</span><span class="mi">1024</span><span class="n">x768</span><span class="p" data-group-id="5681091932-137">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">smart</span><span class="o">-</span><span class="n">sizing</span><span class="p" data-group-id="5681091932-138">[</span><span class="ss">:widthxheight</span><span class="p" data-group-id="5681091932-138">]</span><span class="w">
+        </span><span class="nc">Scale</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">desktop</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">smartcard</span><span class="p" data-group-id="5681091932-139">[</span><span class="ss">:str</span><span class="p" data-group-id="5681091932-140">[</span><span class="p">,</span><span class="n">str</span><span class="n">...</span><span class="p" data-group-id="5681091932-140">]</span><span class="p" data-group-id="5681091932-139">]</span><span class="w">
+        </span><span class="nc">Redirect</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">smartcard</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">str</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">names</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">smartcard</span><span class="o">-</span><span class="n">logon</span><span class="w">
+        </span><span class="nc">Activates</span><span class="w"> </span><span class="nc">Smartcard</span><span class="w"> </span><span class="nc">Logon</span><span class="w"> </span><span class="n">authentication</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="5681091932-141">(</span><span class="ss">EXPERIMENTAL</span><span class="p">:</span><span class="w"> </span><span class="nc">NLA</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supported</span><span class="p" data-group-id="5681091932-141">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">sound</span><span class="p" data-group-id="5681091932-142">[</span><span class="p">:</span><span class="p" data-group-id="5681091932-143">[</span><span class="n">sys</span><span class="ss">:sys</span><span class="p">,</span><span class="p" data-group-id="5681091932-143">]</span><span class="p" data-group-id="5681091932-144">[</span><span class="n">dev</span><span class="ss">:dev</span><span class="p">,</span><span class="p" data-group-id="5681091932-144">]</span><span class="p" data-group-id="5681091932-145">[</span><span class="n">format</span><span class="ss">:format</span><span class="p">,</span><span class="p" data-group-id="5681091932-145">]</span><span class="p" data-group-id="5681091932-146">[</span><span class="n">rate</span><span class="ss">:rate</span><span class="p">,</span><span class="p" data-group-id="5681091932-146">]</span><span class="p" data-group-id="5681091932-147">[</span><span class="n">channel</span><span class="ss">:channel</span><span class="p">,</span><span class="p" data-group-id="5681091932-147">]</span><span class="p" data-group-id="5681091932-148">[</span><span class="n">latency</span><span class="ss">:latency</span><span class="p">,</span><span class="p" data-group-id="5681091932-148">]</span><span class="p" data-group-id="5681091932-149">[</span><span class="n">quality</span><span class="ss">:quality</span><span class="p" data-group-id="5681091932-149">]</span><span class="p" data-group-id="5681091932-142">]</span><span class="p">,</span><span class="w">
+    </span><span class="o">/</span><span class="n">audio</span><span class="p" data-group-id="5681091932-150">[</span><span class="p">:</span><span class="p" data-group-id="5681091932-151">[</span><span class="n">sys</span><span class="ss">:sys</span><span class="p">,</span><span class="p" data-group-id="5681091932-151">]</span><span class="p" data-group-id="5681091932-152">[</span><span class="n">dev</span><span class="ss">:dev</span><span class="p">,</span><span class="p" data-group-id="5681091932-152">]</span><span class="p" data-group-id="5681091932-153">[</span><span class="n">format</span><span class="ss">:format</span><span class="p">,</span><span class="p" data-group-id="5681091932-153">]</span><span class="p" data-group-id="5681091932-154">[</span><span class="n">rate</span><span class="ss">:rate</span><span class="p">,</span><span class="p" data-group-id="5681091932-154">]</span><span class="p" data-group-id="5681091932-155">[</span><span class="n">channel</span><span class="ss">:channel</span><span class="p">,</span><span class="p" data-group-id="5681091932-155">]</span><span class="p" data-group-id="5681091932-156">[</span><span class="n">latency</span><span class="ss">:latency</span><span class="p">,</span><span class="p" data-group-id="5681091932-156">]</span><span class="p" data-group-id="5681091932-157">[</span><span class="n">quality</span><span class="ss">:quality</span><span class="p" data-group-id="5681091932-157">]</span><span class="p" data-group-id="5681091932-150">]</span><span class="w">
+        </span><span class="nc">Audio</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="p" data-group-id="5681091932-158">(</span><span class="n">sound</span><span class="p" data-group-id="5681091932-158">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">span</span><span class="w">
+        </span><span class="nc">Span</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">monitors</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">spn</span><span class="o">-</span><span class="n">class</span><span class="ss">:service</span><span class="o">-</span><span class="n">class</span><span class="w">
+        </span><span class="nc">SPN</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">class</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">ssh</span><span class="o">-</span><span class="n">agent</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">ssh</span><span class="o">-</span><span class="n">agent</span><span class="w">
+        </span><span class="nc">SSH</span><span class="w"> </span><span class="nc">Agent</span><span class="w"> </span><span class="n">forwarding</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">t</span><span class="ss">:title</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">title</span><span class="ss">:title</span><span class="w">
+        </span><span class="nc">Window</span><span class="w"> </span><span class="n">title</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">themes</span><span class="w">
+        </span><span class="n">themes</span><span class="w"> </span><span class="p" data-group-id="5681091932-159">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-159">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">timeout</span><span class="ss">:time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">timeout</span><span class="ss">:time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ms</span><span class="w">
+        </span><span class="nc">Advanced</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">latency</span><span class="w"> </span><span class="ss">links</span><span class="p">:</span><span class="w"> </span><span class="nc">Adjust</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">encounter</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">failures</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="p" data-group-id="5681091932-160">(</span><span class="n">default</span><span class="p">:</span><span class="mi">9000</span><span class="p" data-group-id="5681091932-160">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">tls</span><span class="o">-</span><span class="n">ciphers</span><span class="p">:</span><span class="p" data-group-id="5681091932-161">[</span><span class="n">netmon</span><span class="o">|</span><span class="n">ma</span><span class="o">|</span><span class="n">ciphers</span><span class="p" data-group-id="5681091932-161">]</span><span class="w">
+        </span><span class="nc">Allowed</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="n">ciphers</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">tls</span><span class="o">-</span><span class="n">seclevel</span><span class="ss">:level</span><span class="w">
+        </span><span class="nc">TLS</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p" data-group-id="5681091932-162">(</span><span class="n">default</span><span class="p">:</span><span class="mi">1</span><span class="p" data-group-id="5681091932-162">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">toggle</span><span class="o">-</span><span class="n">fullscreen</span><span class="w">
+        </span><span class="nc">Alt</span><span class="o">+</span><span class="nc">Ctrl</span><span class="o">+</span><span class="nc">Enter</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">toggle</span><span class="w"> </span><span class="n">fullscreen</span><span class="w"> </span><span class="p" data-group-id="5681091932-163">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-163">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">tune</span><span class="ss">:setting</span><span class="ss">:value</span><span class="p">,</span><span class="n">setting</span><span class="ss">:value</span><span class="w">
+        </span><span class="p" data-group-id="5681091932-164">[</span><span class="n">experimental</span><span class="p" data-group-id="5681091932-164">]</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="n">manipulate</span><span class="w"> </span><span class="n">freerdp</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">extreme</span><span class="w"> </span><span class="n">caution!</span><span class="w"> </span><span class="p" data-group-id="5681091932-165">(</span><span class="n">default</span><span class="p">:</span><span class="p" data-group-id="5681091932-165">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">tune</span><span class="o">-</span><span class="n">list</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">/</span><span class="n">tune</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">u</span><span class="p">:</span><span class="p" data-group-id="5681091932-166">[</span><span class="p" data-group-id="5681091932-167">[</span><span class="n">domain</span><span class="err">\</span><span class="p" data-group-id="5681091932-167">]</span><span class="n">user</span><span class="o">|</span><span class="n">user</span><span class="p" data-group-id="5681091932-168">[</span><span class="na">@domain</span><span class="p" data-group-id="5681091932-168">]</span><span class="p" data-group-id="5681091932-166">]</span><span class="w">
+        </span><span class="nc">Username</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">unmap</span><span class="o">-</span><span class="n">buttons</span><span class="w">
+        </span><span class="nc">Let</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="p" data-group-id="5681091932-169">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-169">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">v</span><span class="ss">:server</span><span class="p" data-group-id="5681091932-170">[</span><span class="ss">:port</span><span class="p" data-group-id="5681091932-170">]</span><span class="w">
+        </span><span class="nc">Server</span><span class="w"> </span><span class="n">hostname</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">vc</span><span class="ss">:channel</span><span class="p" data-group-id="5681091932-171">[</span><span class="p">,</span><span class="n">options</span><span class="p" data-group-id="5681091932-171">]</span><span class="w">
+        </span><span class="nc">Static</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">version</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">video</span><span class="w">
+        </span><span class="nc">Video</span><span class="w"> </span><span class="n">optimized</span><span class="w"> </span><span class="n">remoting</span><span class="w"> </span><span class="n">channel</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">vmconnect</span><span class="p" data-group-id="5681091932-172">[</span><span class="ss">:vmid</span><span class="p" data-group-id="5681091932-172">]</span><span class="w">
+        </span><span class="nc">Hyper</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="p" data-group-id="5681091932-173">(</span><span class="kn">use</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">2179</span><span class="p">,</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">negotiation</span><span class="p" data-group-id="5681091932-173">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">w</span><span class="ss">:width</span><span class="w">
+        </span><span class="nc">Width</span><span class="w"> </span><span class="p" data-group-id="5681091932-174">(</span><span class="n">default</span><span class="p">:</span><span class="mi">1024</span><span class="p" data-group-id="5681091932-174">)</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">wallpaper</span><span class="w">
+        </span><span class="n">wallpaper</span><span class="w"> </span><span class="p" data-group-id="5681091932-175">(</span><span class="n">default</span><span class="ss">:on</span><span class="p" data-group-id="5681091932-175">)</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">window</span><span class="o">-</span><span class="n">drag</span><span class="w">
+        </span><span class="n">full</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">drag</span><span class="w"> </span><span class="p" data-group-id="5681091932-176">(</span><span class="n">default</span><span class="ss">:off</span><span class="p" data-group-id="5681091932-176">)</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">window</span><span class="o">-</span><span class="n">position</span><span class="ss">:xposxypos</span><span class="w">
+        </span><span class="n">window</span><span class="w"> </span><span class="n">position</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">wm</span><span class="o">-</span><span class="n">class</span><span class="ss">:class</span><span class="o">-</span><span class="n">name</span><span class="w">
+        </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WM_CLASS</span><span class="w"> </span><span class="n">hint</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">instance</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">workarea</span><span class="w">
+        </span><span class="nc">Use</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">area</span></code></pre><h2 id="environmentvariables" class="section-heading">
+  <a href="#environmentvariables" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ENVIRONMENTVARIABLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">wlog</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w">
+        </span><span class="n">xfreerdp</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">wLog</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">facility</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="p" data-group-id="7669047982-1">(</span><span class="n">wlog</span><span class="p" data-group-id="7669047982-2">(</span><span class="mi">7</span><span class="p" data-group-id="7669047982-2">)</span><span class="p" data-group-id="7669047982-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">informations</span><span class="o">.</span><span class="w"> </span><span class="nc">Arguments</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">log</span><span class="o">-</span><span class="n">level</span><span class="w">
+        </span><span class="ow">or</span><span class="w"> </span><span class="o">/</span><span class="n">log</span><span class="o">-</span><span class="n">filters</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">precedence</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span></code></pre><h2 id="examples" class="section-heading">
+  <a href="#examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span><span class="n">rdp</span><span class="w"> </span><span class="o">/</span><span class="n">p</span><span class="ss">:Pwd123!</span><span class="w"> </span><span class="o">/</span><span class="n">f</span><span class="w">
+        </span><span class="nc">Connect</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fullscreen</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span><span class="n">rdp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nc">Pwd123</span><span class="o">!</span><span class="w">
+
+    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="o">/</span><span class="n">u</span><span class="p">:</span><span class="c1">## USER /size:50%h /v:rdp.contoso.com</span><span class="w">
+        </span><span class="nc">Connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">rdp</span><span class="o">.</span><span class="n">contoso</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">user</span><span class="c1">## USER and a size of 50 percent of the height. If width (w) is set instead of height (h) like /size:50%w. 50</span><span class="w">
+        </span><span class="n">percent</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="o">/</span><span class="n">u</span><span class="ss">:CONTOSO</span><span class="o">\\</span><span class="nc">JohnDoe</span><span class="w"> </span><span class="o">/</span><span class="n">p</span><span class="ss">:Pwd123!</span><span class="w"> </span><span class="o">/</span><span class="n">v</span><span class="ss">:rdp</span><span class="o">.</span><span class="n">contoso</span><span class="o">.</span><span class="n">com</span><span class="w">
+        </span><span class="nc">Connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">rdp</span><span class="o">.</span><span class="n">contoso</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="nc">CONTOSO</span><span class="o">\\</span><span class="nc">JohnDoe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nc">Pwd123</span><span class="o">!</span><span class="w">
+
+    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="o">/</span><span class="n">u</span><span class="ss">:JohnDoe</span><span class="w"> </span><span class="o">/</span><span class="n">p</span><span class="ss">:Pwd123!</span><span class="w"> </span><span class="o">/</span><span class="n">w</span><span class="p">:</span><span class="mi">1366</span><span class="w"> </span><span class="o">/</span><span class="n">h</span><span class="p">:</span><span class="mi">768</span><span class="w"> </span><span class="o">/</span><span class="n">v</span><span class="p">:</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span><span class="p">:</span><span class="mi">4489</span><span class="w">
+        </span><span class="nc">Connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">4489</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="nc">JohnDoe</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nc">Pwd123</span><span class="o">!</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1366</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">768</span><span class="w">
+
+    </span><span class="n">xfreerdp</span><span class="w"> </span><span class="o">/</span><span class="n">u</span><span class="ss">:JohnDoe</span><span class="w"> </span><span class="o">/</span><span class="n">p</span><span class="ss">:Pwd123!</span><span class="w"> </span><span class="o">/</span><span class="n">vmconnect</span><span class="ss">:C824F53E</span><span class="o">-</span><span class="mi">95</span><span class="nc">D2</span><span class="o">-</span><span class="mi">46</span><span class="nc">C6</span><span class="o">-</span><span class="mi">9</span><span class="nc">A18</span><span class="o">-</span><span class="mi">23</span><span class="nc">A5BB403532</span><span class="w"> </span><span class="o">/</span><span class="n">v</span><span class="p">:</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span><span class="w">
+        </span><span class="nc">Establish</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="nc">JohnDoe</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="nc">Pwd123</span><span class="o">!</span><span class="w">  </span><span class="ow">and</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Hyper</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="p" data-group-id="0014165430-1">(</span><span class="kn">use</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="mi">2179</span><span class="p">,</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">negotiation</span><span class="p" data-group-id="0014165430-1">)</span><span class="w">
+        </span><span class="k">with</span><span class="w"> </span><span class="nc">VMID</span><span class="w"> </span><span class="nc">C824F53E</span><span class="o">-</span><span class="mi">95</span><span class="nc">D2</span><span class="o">-</span><span class="mi">46</span><span class="nc">C6</span><span class="o">-</span><span class="mi">9</span><span class="nc">A18</span><span class="o">-</span><span class="mi">23</span><span class="nc">A5BB403532</span><span class="w">
+
+    </span><span class="o">+</span><span class="n">clipboard</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">clipboard</span><span class="w"> </span><span class="n">redirection</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">drive</span><span class="ss">:home</span><span class="p">,</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">drive</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">drive</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">smartcard</span><span class="ss">:&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">smartcard</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">printer</span><span class="ss">:&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">driver</span><span class="o">&gt;</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">printer</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">driver</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">serial</span><span class="ss">:&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">parallel</span><span class="ss">:&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">sound</span><span class="ss">:sys</span><span class="ss">:alsa</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">sys</span><span class="ss">:alsa</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">microphone</span><span class="ss">:sys</span><span class="ss">:alsa</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">audio</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">sys</span><span class="ss">:alsa</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">multimedia</span><span class="ss">:sys</span><span class="ss">:alsa</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="n">multimedia</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">sys</span><span class="ss">:alsa</span><span class="w">
+
+    </span><span class="o">/</span><span class="n">usb</span><span class="ss">:id</span><span class="p">,</span><span class="n">dev</span><span class="p">:</span><span class="mi">054</span><span class="n">c</span><span class="p">:</span><span class="mi">0268</span><span class="w">
+        </span><span class="nc">Activate</span><span class="w"> </span><span class="nc">USB</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">054</span><span class="n">c</span><span class="p">:</span><span class="mi">0268</span></code></pre><p> LINKS</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">freerdp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">The</span><span class="w"> </span><span class="nc">FreeRDP</span><span class="w"> </span><span class="nc">Team</span></code></pre><p> freerdp                                                                      2020-08-25                                                                  XFREERDP(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

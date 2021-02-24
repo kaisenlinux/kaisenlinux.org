@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>pst2ldif — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>PST2LDIF(1)                                                        libpst Utilities - Version 0.6                                                        PST2LDIF(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">pst2ldif</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">contacts</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">MS</span><span class="w"> </span><span class="nc">Outlook</span><span class="w"> </span><span class="o">.</span><span class="n">pst</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">.</span><span class="n">ldif</span><span class="w"> </span><span class="n">format</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">pst2ldif</span><span class="w"> </span><span class="p" data-group-id="4069784383-1">[</span><span class="o">-</span><span class="nc">V</span><span class="p" data-group-id="4069784383-1">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-2">[</span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="n">ldap</span><span class="o">-</span><span class="n">base</span><span class="p" data-group-id="4069784383-2">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-3">[</span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">class</span><span class="p" data-group-id="4069784383-3">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-4">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">debug</span><span class="o">-</span><span class="n">file</span><span class="p" data-group-id="4069784383-4">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-5">[</span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">extra</span><span class="o">-</span><span class="n">line</span><span class="p" data-group-id="4069784383-5">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-6">[</span><span class="o">-</span><span class="n">o</span><span class="p" data-group-id="4069784383-6">]</span><span class="w"> </span><span class="p" data-group-id="4069784383-7">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="4069784383-7">]</span><span class="w"> </span><span class="n">pstfilename</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="nc">V</span><span class="w">
+       </span><span class="nc">Show</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w"> </span><span class="nc">Subsequent</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="n">ldap</span><span class="o">-</span><span class="n">base</span><span class="w">
+       </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="n">records</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">probably</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="s">&quot;o=organization, c=US&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">class</span><span class="w">
+       </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">objectClass</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contact</span><span class="w"> </span><span class="n">items</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">schema</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">LDAP</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">must</span><span class="w">
+       </span><span class="n">contain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">classes</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">debug</span><span class="o">-</span><span class="n">file</span><span class="w">
+       </span><span class="nc">Specify</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">ascii</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">versions</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">extra</span><span class="o">-</span><span class="n">line</span><span class="w">
+       </span><span class="nc">Specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">entry</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">entry</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w">
+       </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">schema</span><span class="p">,</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">schema</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">schema</span><span class="w"> </span><span class="n">generates</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">postalAddress</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">entry</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">new</span><span class="w">
+       </span><span class="n">schema</span><span class="w"> </span><span class="n">generates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">postalAddress</span><span class="w"> </span><span class="p" data-group-id="7562166242-1">(</span><span class="ow">and</span><span class="w"> </span><span class="n">homePostalAddress</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">available</span><span class="p" data-group-id="7562166242-1">)</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">delimiters</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">RFC4517</span><span class="o">.</span><span class="w"> </span><span class="nc">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">schema</span><span class="w">
+       </span><span class="n">also</span><span class="w"> </span><span class="n">generates</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">leading</span><span class="w"> </span><span class="n">entries</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s">&quot;dn:ldap base&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s">&quot;dn: cn=root, ldap base&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="w">
+       </span><span class="nc">Show</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Subsequent</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">pst2ldif</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contact</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">MS</span><span class="w"> </span><span class="nc">Outlook</span><span class="w"> </span><span class="o">.</span><span class="n">pst</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">produces</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">.</span><span class="n">ldif</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">contacts</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">LDAP</span><span class="w">
+   </span><span class="n">database</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="ss">schema</span><span class="p">:</span><span class="w">
+       </span><span class="n">cn</span><span class="w">
+       </span><span class="n">givenName</span><span class="w">
+       </span><span class="n">sn</span><span class="w">
+       </span><span class="n">personalTitle</span><span class="w">
+       </span><span class="n">company</span><span class="w">
+       </span><span class="n">mail</span><span class="w">
+       </span><span class="n">postalAddress</span><span class="w">
+       </span><span class="n">l</span><span class="w">
+       </span><span class="n">st</span><span class="w">
+       </span><span class="n">postalCode</span><span class="w">
+       </span><span class="n">c</span><span class="w">
+       </span><span class="n">homePhone</span><span class="w">
+       </span><span class="n">telephoneNumber</span><span class="w">
+       </span><span class="n">facsimileTelephoneNumber</span><span class="w">
+       </span><span class="n">mobile</span><span class="w">
+       </span><span class="n">description</span><span class="w">
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">ldap</span><span class="w"> </span><span class="ss">schema</span><span class="p">:</span><span class="w">
+       </span><span class="n">cn</span><span class="w">
+       </span><span class="n">givenName</span><span class="w">
+       </span><span class="n">sn</span><span class="w">
+       </span><span class="n">title</span><span class="w">
+       </span><span class="n">o</span><span class="w">
+       </span><span class="n">mail</span><span class="w">
+       </span><span class="n">postalAddress</span><span class="w">
+       </span><span class="n">homePostalAddress</span><span class="w">
+       </span><span class="n">l</span><span class="w">
+       </span><span class="n">st</span><span class="w">
+       </span><span class="n">postalCode</span><span class="w">
+       </span><span class="n">c</span><span class="w">
+       </span><span class="n">homePhone</span><span class="w">
+       </span><span class="n">telephoneNumber</span><span class="w">
+       </span><span class="n">facsimileTelephoneNumber</span><span class="w">
+       </span><span class="n">mobile</span><span class="w">
+       </span><span class="n">description</span><span class="w">
+       </span><span class="n">labeledURI</span></code></pre><p>COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Copyright</span><span class="w"> </span><span class="p" data-group-id="2789420405-1">(</span><span class="nc">C</span><span class="p" data-group-id="2789420405-1">)</span><span class="w"> </span><span class="mi">2008</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">510</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Group</span><span class="w"> </span><span class="o">&lt;</span><span class="n">carl</span><span class="na">@five</span><span class="o">-</span><span class="n">ten</span><span class="o">-</span><span class="n">sg</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">software</span><span class="p">;</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">redistribute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w">
+   </span><span class="nc">Foundation</span><span class="p">;</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p" data-group-id="2789420405-2">(</span><span class="n">at</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">option</span><span class="p" data-group-id="2789420405-2">)</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">program</span><span class="p">;</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">COPYING</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w">
+   </span><span class="nc">Foundation</span><span class="p">,</span><span class="w"> </span><span class="mi">675</span><span class="w"> </span><span class="nc">Mass</span><span class="w"> </span><span class="nc">Ave</span><span class="p">,</span><span class="w"> </span><span class="nc">Cambridge</span><span class="p">,</span><span class="w"> </span><span class="nc">MA</span><span class="w"> </span><span class="mi">02139</span><span class="p">,</span><span class="w"> </span><span class="nc">USA</span><span class="o">.</span></code></pre><p>VERSION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="mf">0.6</span><span class="o">.</span><span class="mi">75</span></code></pre><p>pst2ldif 0.6.75                                                              2017-12-07                                                                  PST2LDIF(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

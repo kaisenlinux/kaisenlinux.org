@@ -10,7 +10,7 @@
     <h3>Page not Found</h3>
     <h4>We're sorry, but the page you were looking for doesn't exist.</h4>
     <div class="mt-30">
-      <a href="index.php" class="dark-button button-md">Back Home</a>
+      <a href="/" class="dark-button button-md">Back Home</a>
     </div>
   </div>
 </div>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>sensors-detect — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  SENSORS-DETECT</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">sensors</span><span class="o">-</span><span class="n">detect</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">detect</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">chips</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">sensors</span><span class="o">-</span><span class="n">detect</span><span class="w"> </span><span class="p" data-group-id="7288204299-1">[</span><span class="w"> </span><span class="o">--</span><span class="n">auto</span><span class="w"> </span><span class="p" data-group-id="7288204299-1">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">sensors</span><span class="o">-</span><span class="n">detect</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">an</span><span class="w">  </span><span class="n">interactive</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">walk</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">scanning</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">chips</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">sensors</span><span class="p">,</span><span class="w">
+    </span><span class="n">supported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">libsensors</span><span class="p" data-group-id="9981189522-1">(</span><span class="mi">3</span><span class="p" data-group-id="9981189522-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">generally</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lm_sensors</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">suite</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">sensors</span><span class="o">-</span><span class="n">detect</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">look</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">devices</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="ss">order</span><span class="p">:</span><span class="w">
+
+    </span><span class="err">•</span><span class="w">      </span><span class="nc">Sensors</span><span class="w"> </span><span class="n">embedded</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">CPUs</span><span class="p">,</span><span class="w"> </span><span class="n">south</span><span class="w"> </span><span class="n">bridges</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">controllers</span><span class="o">.</span><span class="w">
+
+    </span><span class="err">•</span><span class="w">      </span><span class="nc">Sensors</span><span class="w"> </span><span class="n">embedded</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Super</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">chips</span><span class="o">.</span><span class="w">
+
+    </span><span class="err">•</span><span class="w">      </span><span class="nc">Hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">chips</span><span class="w"> </span><span class="n">accessed</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="nc">ISA</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">ports</span><span class="o">.</span><span class="w">
+
+    </span><span class="err">•</span><span class="w">      </span><span class="nc">Hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">chips</span><span class="w"> </span><span class="n">reachable</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">SMBus</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">generally</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">I2C</span><span class="w"> </span><span class="n">bus</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">As</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">detection</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="n">trouble</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">systems</span><span class="p">,</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">attempted</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">detection</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">discovery</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Su</span><span class="err">‐</span><span class="w">
+    </span><span class="n">per</span><span class="w">  </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">chip</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">features</span><span class="o">.</span><span class="w">  </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">ask</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">detection</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">his</span><span class="o">/</span><span class="n">her</span><span class="w"> </span><span class="n">wish</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w">
+    </span><span class="n">useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">chip</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="n">vendors</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="9981189522-2">do</span><span class="w"> </span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">notably</span><span class="w"> </span><span class="nc">Asus</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Tyan</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">--</span><span class="n">auto</span><span class="w"> </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">automatic</span><span class="p">,</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">interactive</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">Assume</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">answers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">questions</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">isn</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">necessarily</span><span class="w"> </span><span class="n">safe</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">may</span><span class="w">  </span><span class="n">lead</span><span class="w">
+           </span><span class="n">to</span><span class="w"> </span><span class="n">potentially</span><span class="w"> </span><span class="n">dangerous</span><span class="w"> </span><span class="n">probes</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">attempted</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WARNING</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">below</span><span class="o">.</span></code></pre><p> WARNING</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">sensors</span><span class="o">-</span><span class="n">detect</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chip</span><span class="w"> </span><span class="n">detections</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">definition</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t know which chips are there before it manages to iden‐
+    tify them. This means that it can access chips in a way these chips do not like, causing problems ranging from SMBus lockup to permanent hardware  damage  (a
+    rare case, thankfully.)
+
+    The  authors made their best to make the detection as safe as possible, and it turns out to work just fine in most cases, however it is impossible to guaran‐
+    tee that sensors-detect will not lock or kill a specific system. So, as a rule of thumb, you should not run sensors-detect on  production  servers,  and  you
+    should  not run sensors-detect if can&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">afford</span><span class="w"> </span><span class="n">replacing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="nc">Also</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">detection</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">have</span><span class="w">
+    </span><span class="n">been</span><span class="w"> </span><span class="n">skipped</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">doing</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">sensors</span><span class="p" data-group-id="5734555541-1">(</span><span class="mi">1</span><span class="p" data-group-id="5734555541-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">libsensors</span><span class="p" data-group-id="5734555541-2">(</span><span class="mi">3</span><span class="p" data-group-id="5734555541-2">)</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Frodo</span><span class="w"> </span><span class="nc">Looijaard</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Jean</span><span class="w"> </span><span class="nc">Delvare</span></code></pre><p> lm-sensors 3                                                               September 2013                                                          SENSORS-DETECT(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

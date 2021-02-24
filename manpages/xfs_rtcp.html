@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>xfs_rtcp — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  xfs_rtcp</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_rtcp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">command</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_rtcp</span><span class="w"> </span><span class="p" data-group-id="7372175533-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">extsize</span><span class="w"> </span><span class="p" data-group-id="7372175533-1">]</span><span class="w"> </span><span class="p" data-group-id="7372175533-2">[</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="p" data-group-id="7372175533-2">]</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">target</span><span class="w">
+    </span><span class="n">xfs_rtcp</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs_rtcp</span><span class="w">  </span><span class="n">copies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="p" data-group-id="5028266093-1">(</span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="p" data-group-id="5028266093-1">)</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w">
+    </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">exists</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">extsize</span><span class="w">
+           </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">p</span><span class="w">     </span><span class="nc">Use</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">xfs_rtcp</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="n">the</span><span class="w">
+           </span><span class="n">destination</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">direct</span><span class="w">
+           </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">xfs</span><span class="p" data-group-id="3884543741-1">(</span><span class="mi">5</span><span class="p" data-group-id="3884543741-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="p" data-group-id="3884543741-2">(</span><span class="mi">8</span><span class="p" data-group-id="3884543741-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="3884543741-3">(</span><span class="mi">8</span><span class="p" data-group-id="3884543741-3">)</span><span class="o">.</span></code></pre><p> CAVEATS</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Currently</span><span class="p">,</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">XFS</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="nc">WILL</span><span class="w"> </span><span class="nc">CA</span><span class="c1">## USECORRUPTION on the data partition.</span><span class="w">
+    </span><span class="nc">As</span><span class="w"> </span><span class="n">such</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">curious</span><span class="w"> </span><span class="nc">DEVELOPERS</span><span class="w"> </span><span class="nc">ONLY</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                      </span><span class="n">xfs_rtcp</span><span class="p" data-group-id="5004895824-1">(</span><span class="mi">8</span><span class="p" data-group-id="5004895824-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

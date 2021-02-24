@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="KaisenLinux v1.5.0">
+
+    <title>Packages — KaisenLinux v1.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-9f40bfafb3.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+KaisenLinux
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.5.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="KaisenLinux" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Guides</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Packages</h1><p><strong>This section presents the different packages modified for Kaisen Linux and their function on the system.</strong></p><h2 id="forked-packages" class="section-heading">
+  <a href="#forked-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Forked packages
+</h2>
+<h3 id="adduser" class="section-heading">
+  <a href="#adduser" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  adduser
+</h3>
+<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="bash">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
+*Allow the deletion of the folder associated with a deleted user (/home/userdelete) when it is deleted with the delsuer command in file /etc/deluser.conf</code></pre><h3 id="base-files" class="section-heading">
+  <a href="#base-files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  base-files
+</h3>
+<p>The base-files package will simply provide the following files on the system:</p><pre><code class="bash">*/etc/debian_version
+*/etc/issue
+*/etc/issue.net
+*/etc/os-release</code></pre><p>These files are used to identify the system version in details, such as the system version number, distribution name, code name, etc.
+These files are used by the live system during the welcome message on the system (here Debian has been replaced by Kaisen Linux).
+They are also used to customize GRUB thanks to the lsb_release package which, in its default configuration will read the /etc/os-release file to find out the version of the OS.   </p><p>By consequently, personalize the GRUB entries in its default configuration by the command lsb_release -i -s (information present in /etc/default/grub at the line GRUB_DISTRIBUTOR) when executing the update-grub command. The goal here was to replace Debian with Kaisen on the GRUB entries of the installed system. This package surely has many other uses, but I have not encountered them so far.  </p><p>The package has therefore been recompiled to formalize the name of the distribution on the system and customize it a little more.</p><h3 id="linux" class="section-heading">
+  <a href="#linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  linux
+</h3>
+<p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br></br>The Kaisen Linux kernel has its own lean configuration.</p><h3 id="cron" class="section-heading">
+  <a href="#cron" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  cron
+</h3>
+<p>The package has been modified to automatically add the &quot;kaisen-basemenu-purge&quot; package to automatically clean up duplicate icons on the menu.</p><h3 id="debian-installer" class="section-heading">
+  <a href="#debian-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  debian-installer
+</h3>
+<p>This package is forked to build the installer with the custom Kaisen Linux kernel as well as our packages used by the installer (rootskel-gtk for example). It is necessary to rebuild the installer to integrate the modified packages for the installer and thus integrate them into the rolling release ISO.</p><h3 id="rootskel-gtk" class="section-heading">
+  <a href="#rootskel-gtk" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  rootskel-gtk
+</h3>
+<p>This package has been modified because it provides the graphical configuration of the installer (theme, banners). The theme of the Kaisen Linux graphical installer is based on the original Clearlooks theme.</p><h3 id="apt-setup" class="section-heading">
+  <a href="#apt-setup" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  apt-setup
+</h3>
+<p>This package allows you to configure the /etc/apt/sources.list file after installing the system.<br></br>Since the Kaisen Linux installer is configured to request no network configuration, this package has been forked to add the Kaisen Linux repository, because by default, without internet connection (therefore no mirror selection), apt-setup will configure the Debian security repositories.  </p><h3 id="choose-mirror" class="section-heading">
+  <a href="#choose-mirror" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  choose-mirror
+</h3>
+<p>This package configures the mirrors to be used to download packages. This package has been forked in anticipation of the future, an ISO netinstall is planned.</p><h3 id="partman-auto" class="section-heading">
+  <a href="#partman-auto" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  partman-auto
+</h3>
+<p>This package, as its name suggests, allows you to automatically partition the disk during installation.
+This package was forked for three things:  </p><ul><li>Use of BTRFS as default file system on all partitions of the disk (except /boot if the partition is separated)</li><li>Definition of EXT4 as the default file system for /boot if the partition is separate from / (this is the case for example during the installation of the system with LVM and cryptsetup).</li><li>Modification of the size of the partitions allocated by partman to adapt it to the size required by Kaisen Linux and thus limit any problems that may appear on insufficient disk space (especially in case of separation of the partitions /home /var /tmp and /).</li></ul><h3 id="debootstrap" class="section-heading">
+  <a href="#debootstrap" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  debootstrap
+</h3>
+<p>This package builds and installs the base system (the packages mentioned as required). This package is forked to integrate the specific configurations of Kaisen Linux (build the base system from the distribution repository).</p><h3 id="desktop-base" class="section-heading">
+  <a href="#desktop-base" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  desktop-base
+</h3>
+<p>This package provides wallpapers for the desktop, login screen, grub etc ...<br></br>This package is forked to add the different Kaisen themes on the system to provide wallpapers as well as &quot;alternatives&quot; to define by default the theme to use. It is by default configured on kaisen-theme.  </p><h3 id="grub2" class="section-heading">
+  <a href="#grub2" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  grub2
+</h3>
+<p>This package was forked to integrate the kaisen-grub-configuration package as a dependency. This allowed the possibility of providing a GRUB image even when the machine is encrypted and activating the plymouth theme.</p><h3 id="live-build" class="section-heading">
+  <a href="#live-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  live-build
+</h3>
+<p>It is the official Debian tool for building system images. It was forked to add support for the &quot;kaisen-rolling&quot; repository.</p><h3 id="win32-loader" class="section-heading">
+  <a href="#win32-loader" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  win32-loader
+</h3>
+<p>This package allows you to start the installation of a Debian system directly from a Windows system. The package was forked to simply add the Kaisen Linux logo.</p><h3 id="shadow" class="section-heading">
+  <a href="#shadow" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  shadow
+</h3>
+<p>This package was forked because the /etc/default/useradd file was modified to support /bin/zsh as the default terminal when adding a user.<br></br>The number of users to add to the system has also been changed. Maximum 100 users can be added (by default, 58999 users can be added).</p><h3 id="live-installer" class="section-heading">
+  <a href="#live-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  live-installer
+</h3>
+<p>Forked to support the kaisen-calamares-settings package.</p><h3 id="plymouth" class="section-heading">
+  <a href="#plymouth" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  plymouth
+</h3>
+<p>Forked to define kaisen-theme by default for Plymouth.</p><h2 id="kaisen-linux-packages" class="section-heading">
+  <a href="#kaisen-linux-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Kaisen Linux packages
+</h2>
+<h3 id="kaisen-basemenu-purge" class="section-heading">
+  <a href="#kaisen-basemenu-purge" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-basemenu-purge
+</h3>
+<p>This package removes &quot;double&quot; launchers. These duplicate icons appear when updating packages containing a launcher for a graphical application, for example ettercap, lftp, kismet etc ... Custom launchers have been created for the Kaisen menu to organize them by categories (monitoring, scanner etc). The custom launchers are also launched with sudo if necessary by the software.<br></br>This package therefore removes the original launchers contained in <code class="inline">/usr/share/applications</code></p><h3 id="kaisen-grub-configuration" class="section-heading">
+  <a href="#kaisen-grub-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-grub-configuration
+</h3>
+<p>The GRUB package has been recompiled to change the configuration of the /etc/default/grub file to add support for the default splash screen for the user on the installed system (graphical boot) and also allow in case the command lsb_release -i -s cannot be executed because the lsb-release script is not present, you can still display Kaisen and not Debian in the GRUB entries.</p><p>The kaisen-grub-configuration package is installed automatically during system installation and automates this customization.</p><h3 id="kaisen-archive-keyring" class="section-heading">
+  <a href="#kaisen-archive-keyring" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-archive-keyring
+</h3>
+<p>This package provides the public GPG keys needed to use our secure repository with identity verification via a GPG key (used by official Debian repositories and implemented security by default).</p><h3 id="kaisen-menu" class="section-heading">
+  <a href="#kaisen-menu" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-menu
+</h3>
+<p>This package provides the custom menu. This includes the &quot;skeleton&quot; of the menu (allows you to organize the location of the different folders), the directories as well as the launchers of the applications. This menu is mainly used to reference the tools present in the distribution.</p><h3 id="kaisen-services-management" class="section-heading">
+  <a href="#kaisen-services-management" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-services-management
+</h3>
+<p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br></br>The scripts are installed in <code class="inline">/opt/services</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
+  <a href="#kaisen-update" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-update
+</h3>
+<p>This package just provides a script to perform an apt update &amp;&amp; apt upgrade in one command. The kaisen-update command also allows to remove the most necessary packages (dependencies no longer used).</p><h3 id="kaisen-build" class="section-heading">
+  <a href="#kaisen-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-build
+</h3>
+<p>This package contains all configurations for build Kaisen Linux ISO.</p><h3 id="kaisen-interfaces" class="section-heading">
+  <a href="#kaisen-interfaces" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-interfaces
+</h3>
+<p>All Kaisen Linux MATE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.
+This package installs the kaisen-interface-switcher command (MATE version).</p><p>All Kaisen Linux KDE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.
+This package installs the kaisen-interface-switcher command (KDE version).</p><p>All Kaisen Linux LXDE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.
+This package installs the kaisen-interface-switcher command.</p><p>All Kaisen Linux XFCE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.
+This package installs the kaisen-interface-switcher command.</p><h3 id="kaisen-skeleton" class="section-heading">
+  <a href="#kaisen-skeleton" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-skeleton
+</h3>
+<p>This allows you to have launchers on the desktop, the conky theme...<br></br>This package replaces the old kaisen-*-default-profile packages which installed only the default profile of the related interface.
+This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpages" class="section-heading">
+  <a href="#kaisen-manpages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-manpages
+</h3>
+<p>This package is simply an offline implementation of the entire <a href="https://kaisenlinux.org/manpages">https://kaisenlinux.org/manpages</a> domain in order to access the centralized manpages of the tools built into Kaisen Linux without requiring an internet connection. An Apache server is installed with this package to read HTML pages via localhost.</p><h3 id="veracrypt" class="section-heading">
+  <a href="#veracrypt" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  veracrypt
+</h3>
+<p>Tool to HDD, SSD and system disks encryption.</p><h3 id="woeusb" class="section-heading">
+  <a href="#woeusb" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  woeusb
+</h3>
+<p>Tool to create Windows USB bootable key.</p><h3 id="gns3-server" class="section-heading">
+  <a href="#gns3-server" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  gns3-server
+</h3>
+<p>Tool to network simulator (server package)</p><h3 id="gns3-gui" class="section-heading">
+  <a href="#gns3-gui" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  gns3-gui
+</h3>
+<p>Tool to network simulator (client package)</p><h3 id="apfs-fuse" class="section-heading">
+  <a href="#apfs-fuse" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  apfs-fuse
+</h3>
+<p>FUSE driver for Apple FileSystem</p><h3 id="ubridge" class="section-heading">
+  <a href="#ubridge" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ubridge
+</h3>
+<p>Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces</p><h3 id="vpcs" class="section-heading">
+  <a href="#vpcs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  vpcs
+</h3>
+<p>Simple Virtual PC Simulator</p><h3 id="dynamips" class="section-heading">
+  <a href="#dynamips" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  dynamips
+</h3>
+<p>Router emulator for GNS3</p><h3 id="neo4j" class="section-heading">
+  <a href="#neo4j" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  neo4j
+</h3>
+<p>Graph for everyone</p><h3 id="bettercap" class="section-heading">
+  <a href="#bettercap" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  bettercap
+</h3>
+<p>Tool to testing the possibility of MITM attacks on Bluetooth, Wi-Fi, Ethernet and more.</p><h3 id="ldapdomaindump" class="section-heading">
+  <a href="#ldapdomaindump" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ldapdomaindump
+</h3>
+<p>Tool to dump Active Directory informations dumper.</p><h3 id="hfsprescue" class="section-heading">
+  <a href="#hfsprescue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  hfsprescue
+</h3>
+<p>Tool specialized in recovering data from HFS + partitions.</p><h3 id="conkycolors" class="section-heading">
+  <a href="#conkycolors" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  conkycolors
+</h3>
+<p>Tool developed with the aim of simplifying the configuration of the Conky theme. Some contributions have been made on the official GitHub repository of the software to facilitate its integration into Kaisen Linux.</p><h3 id="sentry-python" class="section-heading">
+  <a href="#sentry-python" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  sentry-python
+</h3>
+<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="python-cpuinfo" class="section-heading">
+  <a href="#python-cpuinfo" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  python-cpuinfo
+</h3>
+<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="pystatgrab" class="section-heading">
+  <a href="#pystatgrab" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  pystatgrab
+</h3>
+<p>Packaged tool because is a dependency of certain features offered by Conkycolors.</p><h3 id="python3-getdevinfo" class="section-heading">
+  <a href="#python3-getdevinfo" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  python3-getdevinfo
+</h3>
+<p>Repackaged to make it compatible with Kaisen Linux, is a dependency on ddrescue-gui.</p><h2 id="source-of-packages" class="section-heading">
+  <a href="#source-of-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Source of packages
+</h2>
+<p>All the sources of the packages can be found here:</p><p><a href="https://gitlab.com/kaisenlinux/packages">https://gitlab.com/kaisenlinux/packages</a></p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>arping — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  ARPING</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">arping</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REQUEST</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">neighbour</span><span class="w"> </span><span class="n">host</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">arping</span><span class="w"> </span><span class="p" data-group-id="9331003740-1">[</span><span class="o">-</span><span class="nc">AbDfhqUV</span><span class="p" data-group-id="9331003740-1">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-2">[</span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">count</span><span class="p" data-group-id="9331003740-2">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-3">[</span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="n">deadline</span><span class="p" data-group-id="9331003740-3">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-4">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interval</span><span class="p" data-group-id="9331003740-4">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-5">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">source</span><span class="p" data-group-id="9331003740-5">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-6">[</span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">interface</span><span class="p" data-group-id="9331003740-6">]</span><span class="w"> </span><span class="p" data-group-id="9331003740-7">{</span><span class="n">destination</span><span class="p" data-group-id="9331003740-7">}</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Ping</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">packets</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">source</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">-</span><span class="nc">A</span><span class="w">
+        </span><span class="nc">The</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">-</span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REPLY</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REQUEST</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">b</span><span class="w">
+        </span><span class="nc">Send</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="nc">MAC</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="n">broadcasts</span><span class="o">.</span><span class="w"> </span><span class="nc">Normally</span><span class="w"> </span><span class="n">arping</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">broadcast</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">unicast</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="n">received</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">count</span><span class="w">
+        </span><span class="nc">Stop</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REQUEST</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span><span class="w"> </span><span class="nc">With</span><span class="w"> </span><span class="n">deadline</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REPLY</span><span class="w"> </span><span class="n">packets</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">expires</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">D</span><span class="w">
+        </span><span class="nc">Duplicate</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">detection</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="2881648308-1">(</span><span class="nc">DAD</span><span class="p" data-group-id="2881648308-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="nc">RFC2131</span><span class="p">,</span><span class="w"> </span><span class="mf">4.4</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">Returns</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">DAD</span><span class="w"> </span><span class="n">succeeded</span><span class="w"> </span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">received</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">f</span><span class="w">
+        </span><span class="nc">Finish</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="n">confirming</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">alive</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="n">interface</span><span class="w">
+        </span><span class="nc">Name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="nc">REQUEST</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">h</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">q</span><span class="w">
+        </span><span class="nc">Quiet</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w"> </span><span class="nc">Nothing</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">displayed</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">source</span><span class="w">
+        </span><span class="nc">IP</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">absent</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w">
+
+            </span><span class="err">•</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="nc">DAD</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="2881648308-2">(</span><span class="k">with</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="o">-</span><span class="nc">D</span><span class="p" data-group-id="2881648308-2">)</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="w">
+
+            </span><span class="err">•</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="nc">Unsolicited</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="2881648308-3">(</span><span class="k">with</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="p" data-group-id="2881648308-3">)</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">destination</span><span class="o">.</span><span class="w">
+
+            </span><span class="err">•</span><span class="w"> </span><span class="nc">Otherwise</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">calculated</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">routing</span><span class="w"> </span><span class="n">tables</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">U</span><span class="w">
+        </span><span class="nc">Unsolicited</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">neighbours</span><span class="err">&#39;</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">caches</span><span class="o">.</span><span class="w"> </span><span class="nc">No</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">expected</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">V</span><span class="w">
+        </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="n">deadline</span><span class="w">
+        </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">arping</span><span class="w"> </span><span class="n">exits</span><span class="w"> </span><span class="n">regardless</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">received</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">arping</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="k">after</span><span class="w">
+        </span><span class="n">count</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">sent</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">waits</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">deadline</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="n">probes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">answered</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interval</span><span class="w">
+        </span><span class="nc">Specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interval</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p">,</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ping</span><span class="p" data-group-id="5165781616-1">(</span><span class="mi">8</span><span class="p" data-group-id="5165781616-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">clockdiff</span><span class="p" data-group-id="5165781616-2">(</span><span class="mi">8</span><span class="p" data-group-id="5165781616-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">tracepath</span><span class="p" data-group-id="5165781616-3">(</span><span class="mi">8</span><span class="p" data-group-id="5165781616-3">)</span><span class="o">.</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">arping</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Alexey</span><span class="w"> </span><span class="nc">Kuznetsov</span><span class="w"> </span><span class="o">&lt;</span><span class="n">kuznet</span><span class="na">@ms2</span><span class="o">.</span><span class="n">inr</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">ru</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p> SECURITY</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">arping</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w"> </span><span class="n">capability</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">set</span><span class="o">-</span><span class="n">uid</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">caches</span><span class="w"> </span><span class="n">of</span><span class="w">
+    </span><span class="n">neighbour</span><span class="w"> </span><span class="n">hosts</span><span class="o">.</span></code></pre><p> AVAILABILITY</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">arping</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">iputils</span><span class="w"> </span><span class="n">package</span><span class="o">.</span></code></pre><p> iputils s20200821                                                                                                                                          ARPING(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

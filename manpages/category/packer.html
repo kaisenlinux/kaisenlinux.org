@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>packer — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>PACKER(1)                                                                      packer                                                                      PACKER(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">packer</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">platforms</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="err">$</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8751832359-1">[</span><span class="o">&lt;</span><span class="n">options</span><span class="o">&gt;</span><span class="p" data-group-id="8751832359-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">only</span><span class="o">=</span><span class="n">amazon</span><span class="o">-</span><span class="n">ebs</span><span class="w"> </span><span class="n">template</span><span class="o">.</span><span class="n">json</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Packer</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">automatic</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">identical</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="p" data-group-id="0579625713-1">(</span><span class="n">single</span><span class="w"> </span><span class="n">deployable</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">configured</span><span class="w"> </span><span class="nc">OS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">software</span><span class="p" data-group-id="0579625713-1">)</span><span class="w">
+   </span><span class="k">for</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">platforms</span><span class="w"> </span><span class="p" data-group-id="0579625713-2">(</span><span class="n">public</span><span class="w"> </span><span class="n">cloud</span><span class="w"> </span><span class="n">providers</span><span class="p">,</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">cloud</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">desktop</span><span class="w"> </span><span class="n">virtualization</span><span class="w"> </span><span class="n">solutions</span><span class="p" data-group-id="0579625713-2">)</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w">  </span><span class="n">the</span><span class="w">
+   </span><span class="n">documentation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Packer</span><span class="p">,</span><span class="w"> </span><span class="n">especially</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">proper</span><span class="w"> </span><span class="nc">Packer</span><span class="w"> </span><span class="n">templates</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">packer</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">docs</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>COMMANDS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">build</span><span class="w">  </span><span class="n">build</span><span class="w"> </span><span class="n">image</span><span class="p" data-group-id="0656714067-1">(</span><span class="n">s</span><span class="p" data-group-id="0656714067-1">)</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">template</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">related</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ss">of</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">fix</span><span class="w">    </span><span class="n">fix</span><span class="w">  </span><span class="n">templates</span><span class="w">  </span><span class="n">from</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Packer</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="ss">this</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">fix</span><span class="w"> </span><span class="n">old</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">new</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">fixes</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">performs</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">spe</span><span class="err">‐</span><span class="w">
+          </span><span class="n">cial</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ss">of</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">fix</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">inspect</span><span class="w">
+          </span><span class="n">print</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">template</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">validates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">necessity</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">valid</span><span class="w">  </span><span class="p" data-group-id="0656714067-2">(</span><span class="n">this</span><span class="w">  </span><span class="n">is</span><span class="w">
+          </span><span class="n">what</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">validate</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">for</span><span class="p" data-group-id="0656714067-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">validate</span><span class="w">
+          </span><span class="n">check</span><span class="w">  </span><span class="k">if</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">valid</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">valid</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">zero</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">isn</span><span class="err">&#39;</span><span class="n">t</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="o">-</span><span class="n">syntax</span><span class="o">-</span><span class="n">only</span><span class="w">
+          </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">checked</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">version</span><span class="w">
+          </span><span class="n">print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Packer</span><span class="w"> </span><span class="n">version</span></code></pre><p>LOGGING</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">To</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="ss">this</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="nc">PACKER_LOG</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">packer</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">foo</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="mi">2</span><span class="p">&gt;&gt;</span><span class="n">build</span><span class="o">.</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="err">$</span><span class="nc">PACKER_LOG_PATH</span><span class="o">.</span></code></pre><p>ENVIRONMENT VARIABLES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variables</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">packer</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">other</span><span class="o">/</span><span class="n">environmental</span><span class="o">-</span><span class="n">variables</span><span class="o">.</span><span class="n">html</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>AUTHORS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">HashiCorp</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">Packer</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">developed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Mitchell</span><span class="w"> </span><span class="nc">Hashimoto</span><span class="w">  </span><span class="o">&lt;</span><span class="n">mitchell</span><span class="o">.</span><span class="n">hashimoto</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">,</span><span class="w">  </span><span class="nc">Jack</span><span class="w">  </span><span class="nc">Pearkes</span><span class="w">  </span><span class="o">&lt;</span><span class="n">jackpearkes</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">,</span><span class="w">  </span><span class="nc">Mark</span><span class="w">  </span><span class="nc">Peek</span><span class="p">,</span><span class="w">  </span><span class="nc">Ross</span><span class="w">  </span><span class="nc">Smith</span><span class="w">  </span><span class="nc">II</span><span class="w">
+   </span><span class="o">&lt;</span><span class="n">ross</span><span class="na">@smithii</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Rickard</span><span class="w"> </span><span class="n">von</span><span class="w"> </span><span class="nc">Essen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">rickard</span><span class="o">.</span><span class="n">von</span><span class="o">.</span><span class="n">essen</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manpage</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Daniel</span><span class="w"> </span><span class="nc">Stender</span><span class="w"> </span><span class="o">&lt;</span><span class="n">stender</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">packaging</span><span class="w"> </span><span class="n">team</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                       </span><span class="nc">PACKER</span><span class="p" data-group-id="3460733991-1">(</span><span class="mi">1</span><span class="p" data-group-id="3460733991-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

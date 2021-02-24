@@ -19,7 +19,7 @@
           </div>
           <div class="team-member-text">
             <h4>Jean-Baptiste Gardella</h4>
-            <span>Founder & team leader</span>
+            <span>Beta tester</span>
             <p>Has greatly contributes of alpha and beta version with his tests.</p>
             <ul>
               <li><a href="https://www.linkedin.com/in/jean-baptiste-gardella-336a04170/" target="_blank"><i class="fab fa-linkedin"></i></a></li>

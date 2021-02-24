@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>rfkill — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  RFKILL</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">rfkill</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">enabling</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">disabling</span><span class="w"> </span><span class="n">wireless</span><span class="w"> </span><span class="n">devices</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">rfkill</span><span class="w"> </span><span class="p" data-group-id="6102518784-1">[</span><span class="n">options</span><span class="p" data-group-id="6102518784-1">]</span><span class="w"> </span><span class="p" data-group-id="6102518784-2">[</span><span class="n">command</span><span class="p" data-group-id="6102518784-2">]</span><span class="w"> </span><span class="p" data-group-id="6102518784-3">[</span><span class="n">id</span><span class="o">|</span><span class="n">type</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="6102518784-3">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">rfkill</span><span class="w"> </span><span class="n">lists</span><span class="p">,</span><span class="w"> </span><span class="n">enabling</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">disabling</span><span class="w"> </span><span class="n">wireless</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="s">&quot;list&quot;</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">deprecated</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">maintained</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="n">compatibility</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">speci</span><span class="err">‐</span><span class="w">
+    </span><span class="n">fied</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="o">.</span><span class="w">  </span><span class="nc">So</span><span class="w"> </span><span class="n">whenever</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">scripts</span><span class="o">.</span><span class="w">  </span><span class="nc">Always</span><span class="w">  </span><span class="n">explicitly</span><span class="w">  </span><span class="n">define</span><span class="w">  </span><span class="n">expected</span><span class="w">
+    </span><span class="n">columns</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">environments</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">stable</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">-</span><span class="nc">J</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">json</span><span class="w">
+           </span><span class="nc">Use</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">noheadings</span><span class="w">
+           </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="w">
+           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="o">.</span><span class="w">  </span><span class="nc">Use</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">columns</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">all</span><span class="w">
+           </span><span class="nc">Output</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">columns</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">raw</span><span class="w">
+           </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">version</span><span class="w">
+           </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><h2 id="commands" class="section-heading">
+  <a href="#commands" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  COMMANDS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">help</span><span class="w">   </span><span class="nc">Display</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">event</span><span class="w">  </span><span class="nc">Listen</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rfkill</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">list</span><span class="w"> </span><span class="p" data-group-id="7893588319-1">[</span><span class="n">id</span><span class="o">|</span><span class="n">type</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="7893588319-1">]</span><span class="w">
+           </span><span class="nc">List</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">current</span><span class="w">  </span><span class="n">state</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">section</span><span class="c1">## DESCRIPTION.  It is a good idea to check</span><span class="w">
+           </span><span class="k">with</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">appropriate</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unblock</span><span class="o">.</span><span class="w">  </span><span class="nc">Special</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">everything</span><span class="o">.</span><span class="w">  </span><span class="nc">Use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">id</span><span class="w">
+           </span><span class="ow">or</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">block</span><span class="w"> </span><span class="n">id</span><span class="o">|</span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="7893588319-2">[</span><span class="n">...</span><span class="p" data-group-id="7893588319-2">]</span><span class="w">
+           </span><span class="nc">Disable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">unblock</span><span class="w"> </span><span class="n">id</span><span class="o">|</span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="7893588319-3">[</span><span class="n">...</span><span class="p" data-group-id="7893588319-3">]</span><span class="w">
+           </span><span class="nc">Enable</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">corresponding</span><span class="w">  </span><span class="n">device</span><span class="o">.</span><span class="w">   </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">device</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">hard</span><span class="o">-</span><span class="n">blocked</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">switch</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="n">unavailable</span><span class="w"> </span><span class="n">though</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">now</span><span class="w">
+           </span><span class="n">soft</span><span class="o">-</span><span class="n">unblocked</span><span class="o">.</span></code></pre><h2 id="example" class="section-heading">
+  <a href="#example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLE
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">rfkill</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="w"> </span><span class="nc">ID</span><span class="p">,</span><span class="nc">TYPE</span><span class="w">
+    </span><span class="n">rfkill</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">all</span><span class="w">
+    </span><span class="n">rfkill</span><span class="w"> </span><span class="n">unblock</span><span class="w"> </span><span class="n">wlan</span><span class="w">
+    </span><span class="n">rfkill</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">bluetooth</span><span class="w"> </span><span class="n">uwb</span><span class="w"> </span><span class="n">wimax</span><span class="w"> </span><span class="n">wwan</span><span class="w"> </span><span class="n">gps</span><span class="w"> </span><span class="n">fm</span><span class="w"> </span><span class="n">nfc</span></code></pre><h2 id="authors" class="section-heading">
+  <a href="#authors" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHORS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">rfkill</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">originally</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Johannes</span><span class="w"> </span><span class="nc">Berg</span><span class="w"> </span><span class="err">⟨</span><span class="n">johannes</span><span class="na">@sipsolutions</span><span class="o">.</span><span class="n">net</span><span class="err">⟩</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Marcel</span><span class="w"> </span><span class="nc">Holtmann</span><span class="w"> </span><span class="err">⟨</span><span class="n">marcel</span><span class="na">@holtmann</span><span class="o">.</span><span class="n">org</span><span class="err">⟩</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w">  </span><span class="n">later</span><span class="w">  </span><span class="n">modified</span><span class="w">  </span><span class="n">by</span><span class="w">
+    </span><span class="nc">Sami</span><span class="w"> </span><span class="nc">Kerola</span><span class="w"> </span><span class="err">⟨</span><span class="n">kerolasa</span><span class="na">@iki</span><span class="o">.</span><span class="n">fi</span><span class="err">⟩</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Karel</span><span class="w"> </span><span class="nc">Zak</span><span class="w"> </span><span class="err">⟨</span><span class="n">kzak</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="err">⟩</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Darren</span><span class="w"> </span><span class="nc">Salt</span><span class="w"> </span><span class="err">⟨</span><span class="n">linux</span><span class="na">@youmustbejoking</span><span class="o">.</span><span class="n">demon</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">uk</span><span class="err">⟩</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p" data-group-id="3400080118-1">(</span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="3400080118-1">)</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">powertop</span><span class="p" data-group-id="3815171866-1">(</span><span class="mi">8</span><span class="p" data-group-id="3815171866-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">rfkill</span><span class="p" data-group-id="3815171866-2">(</span><span class="mi">8</span><span class="p" data-group-id="3815171866-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="err">⟨</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">git</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">scm</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">torvalds</span><span class="o">/</span><span class="n">linux</span><span class="o">.</span><span class="n">git</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="nc">Documentation</span><span class="o">/</span><span class="n">driver</span><span class="o">-</span><span class="n">api</span><span class="o">/</span><span class="w">
+    </span><span class="n">rfkill</span><span class="o">.</span><span class="n">rst</span><span class="err">⟩</span></code></pre><p> AVAILABILITY</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">The</span><span class="w"> </span><span class="n">rfkill</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="nc">Kernel</span><span class="w"> </span><span class="nc">Archive</span><span class="w"> </span><span class="err">⟨</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="err">⟩</span><span class="o">.</span></code></pre><p> util-linux                                                                   2017-07-06                                                                    RFKILL(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

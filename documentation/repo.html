@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="KaisenLinux v1.5.0">
+
+    <title>Kaisen Linux repositories — KaisenLinux v1.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-9f40bfafb3.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+KaisenLinux
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.5.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="KaisenLinux" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Guides</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Kaisen Linux repositories</h1><h2 id="referential-lists" class="section-heading">
+  <a href="#referential-lists" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Referential lists
+</h2>
+<h3 id="kaisen-rolling" class="section-heading">
+  <a href="#kaisen-rolling" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-rolling
+</h3>
+<p>This repository is the official Kaisen Linux repository. It is updated directly from the Debian testing repository continuously, the mirror is updated every 6 hours.<br></br>It is the default repository contained in live images as well as on the installed system.</p><h3 id="kaisen-devel" class="section-heading">
+  <a href="#kaisen-devel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-devel
+</h3>
+<p>It is a repository used for the development environment, it references developed/forks packages for distribution as well as integrated packages from another source such as Anydesk and TeamViewer for example.<br></br>During rolling repository updates, all the packages in this repository are &quot;pull&quot; on kaisen-rolling to restore them after their removal due to the update of the repository.<br></br>It is also used as stock when the updated packages are ready to go into production (kaisen-rolling).</p><h3 id="kaisen-packages" class="section-heading">
+  <a href="#kaisen-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-packages
+</h3>
+<p>This repository simply stores forked/developed packages for Kaisen Linux. It is mainly used as a backup of kaisen-devel. It also serves as an environment for testing new versions of packages before pushing packages to kaisen-devel which will push these new packages to kaisen-rolling itself.<br></br>CAUTION: Installing packages from this repository can break certain parts of your system or even make it unstable or even unusable. Only use it if you know what you are doing.</p><h3 id="kaisen-testing" class="section-heading">
+  <a href="#kaisen-testing" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-testing
+</h3>
+<p>This repository is used during the development of new packages or experimental testing of some bundles (sometimes not often push to kaisen-rolling).<br></br>CAUTION: Installing packages from this repository can break certain parts of your system or even make it unstable or even unusable. Only use it if you know what you are doing.  </p><h2 id="which-repository-to-use" class="section-heading">
+  <a href="#which-repository-to-use" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Which repository to use
+</h2>
+<p>You can use them all. However, if you are new to GNU / Linux, avoid the kaisen-testing repository, repairing your system can be complicated in case of problems.</p><h2 id="adding-repositories" class="section-heading">
+  <a href="#adding-repositories" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Adding repositories
+</h2>
+<p>We recommend adding a repository file to <code class="inline">/etc/apt/sources.list.d/file.list</code>. This keeps a functional <code class="inline">/etc/apt/sources.list</code> file in case of problems.
+Here are the others Kaisen Linux repositories that you can enter in this file:</p><pre><code class="bash">deb https://kaisendeb.lf.je/kaisen kaisen-devel main contrib non-free
+deb-src https://kaisendeb.lf.je/kaisen kaisen-devel main contrib non-free
+deb https://kaisendeb.lf.je/kaisen kaisen-packages main contrib non-free
+deb-src https://kaisendeb.lf.je/kaisen kaisen-packages main contrib non-free
+deb https://kaisendeb.lf.je/kaisen kaisen-testing main contrib non-free
+deb-src https://kaisendeb.lf.je/kaisen kaisen-testing main contrib non-free</code></pre>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

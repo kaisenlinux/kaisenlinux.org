@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>ethtool — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>ETHTOOL(8)                                                             System Manager's Manual                                                            ETHTOOL(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">settings</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">help</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="p" data-group-id="1106743269-1">[</span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-1">]</span><span class="w"> </span><span class="n">args</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="p" data-group-id="1106743269-2">[</span><span class="o">--</span><span class="n">json</span><span class="p" data-group-id="1106743269-2">]</span><span class="w"> </span><span class="n">args</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">monitor</span><span class="w"> </span><span class="p" data-group-id="1106743269-3">[</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="1106743269-3">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-4">[</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-4">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">pause</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">A</span><span class="o">|</span><span class="o">--</span><span class="n">pause</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-5">[</span><span class="n">autoneg</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-5">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-6">[</span><span class="n">rx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-6">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-7">[</span><span class="n">tx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-7">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">coalesce</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">C</span><span class="o">|</span><span class="o">--</span><span class="n">coalesce</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-8">[</span><span class="n">adaptive</span><span class="o">-</span><span class="n">rx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-8">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-9">[</span><span class="n">adaptive</span><span class="o">-</span><span class="n">tx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-9">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-10">[</span><span class="n">rx</span><span class="o">-</span><span class="n">usecs</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-10">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-11">[</span><span class="n">rx</span><span class="o">-</span><span class="n">frames</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-11">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-12">[</span><span class="n">rx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">irq</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-12">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-13">[</span><span class="n">rx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">irq</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-13">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-14">[</span><span class="n">tx</span><span class="o">-</span><span class="n">usecs</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-14">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-15">[</span><span class="n">tx</span><span class="o">-</span><span class="n">frames</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-15">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-16">[</span><span class="n">tx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">irq</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-16">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-17">[</span><span class="n">tx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">irq</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-17">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-18">[</span><span class="n">stats</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">usecs</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-18">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-19">[</span><span class="n">pkt</span><span class="o">-</span><span class="n">rate</span><span class="o">-</span><span class="n">low</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-19">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-20">[</span><span class="n">rx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">low</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-20">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-21">[</span><span class="n">rx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">low</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-21">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-22">[</span><span class="n">tx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">low</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-22">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-23">[</span><span class="n">tx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">low</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-23">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-24">[</span><span class="n">pkt</span><span class="o">-</span><span class="n">rate</span><span class="o">-</span><span class="n">high</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-24">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-25">[</span><span class="n">rx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">high</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-25">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-26">[</span><span class="n">rx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">high</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-26">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-27">[</span><span class="n">tx</span><span class="o">-</span><span class="n">usecs</span><span class="o">-</span><span class="n">high</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-27">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-28">[</span><span class="n">tx</span><span class="o">-</span><span class="n">frames</span><span class="o">-</span><span class="n">high</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-28">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-29">[</span><span class="n">sample</span><span class="o">-</span><span class="n">interval</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-29">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">ring</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">G</span><span class="o">|</span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">ring</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-30">[</span><span class="n">rx</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-30">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-31">[</span><span class="n">rx</span><span class="o">-</span><span class="n">mini</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-31">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-32">[</span><span class="n">rx</span><span class="o">-</span><span class="n">jumbo</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-32">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-33">[</span><span class="n">tx</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-33">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="o">|</span><span class="o">--</span><span class="n">driver</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="o">|</span><span class="o">--</span><span class="n">register</span><span class="o">-</span><span class="n">dump</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-34">[</span><span class="n">raw</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-34">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-35">[</span><span class="n">hex</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-35">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-36">[</span><span class="n">file</span><span class="w"> </span><span class="n">name</span><span class="p" data-group-id="1106743269-36">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="o">|</span><span class="o">--</span><span class="n">eeprom</span><span class="o">-</span><span class="n">dump</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-37">[</span><span class="n">raw</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-37">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-38">[</span><span class="n">offset</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-38">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-39">[</span><span class="n">length</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-39">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">E</span><span class="o">|</span><span class="o">--</span><span class="n">change</span><span class="o">-</span><span class="n">eeprom</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-40">[</span><span class="n">magic</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-40">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-41">[</span><span class="n">offset</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-41">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-42">[</span><span class="n">length</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-42">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-43">[</span><span class="n">value</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-43">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">k</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">features</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">offload</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">K</span><span class="o">|</span><span class="o">--</span><span class="n">features</span><span class="o">|</span><span class="o">--</span><span class="n">offload</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="o">|</span><span class="o">--</span><span class="n">identify</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-44">[</span><span class="nc">N</span><span class="p" data-group-id="1106743269-44">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">P</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">permaddr</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="o">|</span><span class="o">--</span><span class="n">negotiate</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="o">|</span><span class="o">--</span><span class="n">statistics</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">phy</span><span class="o">-</span><span class="n">statistics</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="o">|</span><span class="o">--</span><span class="n">test</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-45">[</span><span class="n">offline</span><span class="o">|</span><span class="n">online</span><span class="o">|</span><span class="n">external_lb</span><span class="p" data-group-id="1106743269-45">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-46">[</span><span class="n">speed</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-46">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-47">[</span><span class="n">duplex</span><span class="w"> </span><span class="n">half</span><span class="o">|</span><span class="n">full</span><span class="p" data-group-id="1106743269-47">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-48">[</span><span class="n">port</span><span class="w"> </span><span class="n">tp</span><span class="o">|</span><span class="n">aui</span><span class="o">|</span><span class="n">bnc</span><span class="o">|</span><span class="n">mii</span><span class="p" data-group-id="1106743269-48">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-49">[</span><span class="n">mdix</span><span class="w"> </span><span class="n">auto</span><span class="o">|</span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-49">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-50">[</span><span class="n">autoneg</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-50">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-51">[</span><span class="n">advertise</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-52">[</span><span class="o">/</span><span class="nc">M</span><span class="p" data-group-id="1106743269-52">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">advertise</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1106743269-51">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-53">[</span><span class="n">phyad</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-53">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-54">[</span><span class="n">xcvr</span><span class="w"> </span><span class="n">internal</span><span class="o">|</span><span class="n">external</span><span class="p" data-group-id="1106743269-54">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-55">[</span><span class="n">wol</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-56">[</span><span class="o">/</span><span class="nc">M</span><span class="p" data-group-id="1106743269-56">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">wol</span><span class="w"> </span><span class="n">p</span><span class="o">|</span><span class="n">u</span><span class="o">|</span><span class="n">m</span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="n">a</span><span class="o">|</span><span class="n">g</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">d</span><span class="n">...</span><span class="p" data-group-id="1106743269-55">]</span><span class="w">  </span><span class="p" data-group-id="1106743269-57">[</span><span class="n">sopass</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="p" data-group-id="1106743269-57">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-58">[</span><span class="n">master</span><span class="o">-</span><span class="n">slave</span><span class="w"> </span><span class="n">preferred</span><span class="o">-</span><span class="n">master</span><span class="o">|</span><span class="n">preferred</span><span class="o">-</span><span class="w">
+          </span><span class="n">slave</span><span class="o">|</span><span class="n">forced</span><span class="o">-</span><span class="n">master</span><span class="o">|</span><span class="n">forced</span><span class="o">-</span><span class="n">slave</span><span class="p" data-group-id="1106743269-58">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-59">[</span><span class="n">msglvl</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-60">[</span><span class="o">/</span><span class="nc">M</span><span class="p" data-group-id="1106743269-60">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">msglvl</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1106743269-59">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="o">|</span><span class="o">-</span><span class="n">u</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">nfc</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">ntuple</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-61">[</span><span class="w"> </span><span class="n">rx</span><span class="o">-</span><span class="n">flow</span><span class="o">-</span><span class="n">hash</span><span class="w"> </span><span class="n">tcp4</span><span class="o">|</span><span class="n">udp4</span><span class="o">|</span><span class="n">ah4</span><span class="o">|</span><span class="n">esp4</span><span class="o">|</span><span class="n">sctp4</span><span class="o">|</span><span class="n">tcp6</span><span class="o">|</span><span class="n">udp6</span><span class="o">|</span><span class="n">ah6</span><span class="o">|</span><span class="n">esp6</span><span class="o">|</span><span class="n">sctp6</span><span class="w"> </span><span class="o">|</span><span class="w">
+          </span><span class="n">rule</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-61">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">N</span><span class="o">|</span><span class="o">-</span><span class="nc">U</span><span class="o">|</span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">nfc</span><span class="o">|</span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">ntuple</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="n">rx</span><span class="o">-</span><span class="n">flow</span><span class="o">-</span><span class="n">hash</span><span class="w"> </span><span class="n">tcp4</span><span class="o">|</span><span class="n">udp4</span><span class="o">|</span><span class="n">ah4</span><span class="o">|</span><span class="n">esp4</span><span class="o">|</span><span class="n">sctp4</span><span class="o">|</span><span class="n">tcp6</span><span class="o">|</span><span class="n">udp6</span><span class="o">|</span><span class="n">ah6</span><span class="o">|</span><span class="n">esp6</span><span class="o">|</span><span class="n">sctp6</span><span class="w"> </span><span class="n">m</span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="n">s</span><span class="o">|</span><span class="n">d</span><span class="o">|</span><span class="n">f</span><span class="o">|</span><span class="n">n</span><span class="o">|</span><span class="n">r</span><span class="n">...</span><span class="w"> </span><span class="o">|</span><span class="w">
+          </span><span class="n">flow</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">ether</span><span class="o">|</span><span class="n">ip4</span><span class="o">|</span><span class="n">tcp4</span><span class="o">|</span><span class="n">udp4</span><span class="o">|</span><span class="n">sctp4</span><span class="o">|</span><span class="n">ah4</span><span class="o">|</span><span class="n">esp4</span><span class="o">|</span><span class="n">ip6</span><span class="o">|</span><span class="n">tcp6</span><span class="o">|</span><span class="n">udp6</span><span class="o">|</span><span class="n">ah6</span><span class="o">|</span><span class="n">esp6</span><span class="o">|</span><span class="n">sctp6</span><span class="w"> </span><span class="p" data-group-id="1106743269-62">[</span><span class="n">src</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="w"> </span><span class="p" data-group-id="1106743269-63">[</span><span class="n">m</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="p" data-group-id="1106743269-63">]</span><span class="p" data-group-id="1106743269-62">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-64">[</span><span class="n">dst</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="w"> </span><span class="p" data-group-id="1106743269-65">[</span><span class="n">m</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="p" data-group-id="1106743269-65">]</span><span class="p" data-group-id="1106743269-64">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-66">[</span><span class="n">proto</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-67">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-67">]</span><span class="p" data-group-id="1106743269-66">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-68">[</span><span class="n">src</span><span class="o">-</span><span class="n">ip</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="1106743269-69">[</span><span class="n">m</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="p" data-group-id="1106743269-69">]</span><span class="p" data-group-id="1106743269-68">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-70">[</span><span class="n">dst</span><span class="o">-</span><span class="n">ip</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="1106743269-71">[</span><span class="n">m</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="p" data-group-id="1106743269-71">]</span><span class="p" data-group-id="1106743269-70">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-72">[</span><span class="n">tos</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-73">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-73">]</span><span class="p" data-group-id="1106743269-72">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-74">[</span><span class="n">tclass</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-75">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-75">]</span><span class="p" data-group-id="1106743269-74">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-76">[</span><span class="n">l4proto</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-77">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-77">]</span><span class="p" data-group-id="1106743269-76">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-78">[</span><span class="n">src</span><span class="o">-</span><span class="n">port</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-79">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-79">]</span><span class="p" data-group-id="1106743269-78">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-80">[</span><span class="n">dst</span><span class="o">-</span><span class="n">port</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-81">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-81">]</span><span class="p" data-group-id="1106743269-80">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-82">[</span><span class="n">spi</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-83">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-83">]</span><span class="p" data-group-id="1106743269-82">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-84">[</span><span class="n">l4data</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-85">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-85">]</span><span class="p" data-group-id="1106743269-84">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-86">[</span><span class="n">vlan</span><span class="o">-</span><span class="n">etype</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-87">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-87">]</span><span class="p" data-group-id="1106743269-86">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-88">[</span><span class="n">vlan</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-89">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-89">]</span><span class="p" data-group-id="1106743269-88">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-90">[</span><span class="n">user</span><span class="o">-</span><span class="kd">def</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="p" data-group-id="1106743269-91">[</span><span class="n">m</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-91">]</span><span class="p" data-group-id="1106743269-90">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-92">[</span><span class="n">dst</span><span class="o">-</span><span class="n">mac</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="w"> </span><span class="p" data-group-id="1106743269-93">[</span><span class="n">m</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="p" data-group-id="1106743269-93">]</span><span class="p" data-group-id="1106743269-92">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-94">[</span><span class="n">action</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-94">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-95">[</span><span class="n">context</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-95">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-96">[</span><span class="n">loc</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-96">]</span><span class="w"> </span><span class="o">|</span><span class="w">
+          </span><span class="n">delete</span><span class="w"> </span><span class="nc">N</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">w</span><span class="o">|</span><span class="o">--</span><span class="n">get</span><span class="o">-</span><span class="n">dump</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-97">[</span><span class="n">data</span><span class="w"> </span><span class="n">filename</span><span class="p" data-group-id="1106743269-97">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">W</span><span class="o">|</span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">dump</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="nc">N</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">T</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">stamping</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">rxfh</span><span class="o">-</span><span class="n">indir</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">rxfh</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">X</span><span class="o">|</span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">rxfh</span><span class="o">-</span><span class="n">indir</span><span class="o">|</span><span class="o">--</span><span class="n">rxfh</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-98">[</span><span class="n">hkey</span><span class="w"> </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="ss">:...</span><span class="p" data-group-id="1106743269-98">]</span><span class="w">  </span><span class="p" data-group-id="1106743269-99">[</span><span class="n">start</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-99">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-100">[</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="nc">W0</span><span class="w"> </span><span class="nc">W1</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="p" data-group-id="1106743269-100">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-101">[</span><span class="n">hfunc</span><span class="w"> </span><span class="nc">FUNC</span><span class="p" data-group-id="1106743269-101">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-102">[</span><span class="n">context</span><span class="w"> </span><span class="nc">CTX</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">new</span><span class="p" data-group-id="1106743269-102">]</span><span class="w">
+          </span><span class="p" data-group-id="1106743269-103">[</span><span class="n">delete</span><span class="p" data-group-id="1106743269-103">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="o">|</span><span class="o">--</span><span class="n">flash</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="1106743269-104">[</span><span class="nc">N</span><span class="p" data-group-id="1106743269-104">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="o">|</span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">channels</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">L</span><span class="o">|</span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">channels</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-105">[</span><span class="n">rx</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-105">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-106">[</span><span class="n">tx</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-106">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-107">[</span><span class="n">other</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-107">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-108">[</span><span class="n">combined</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-108">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="o">|</span><span class="o">--</span><span class="n">dump</span><span class="o">-</span><span class="n">module</span><span class="o">-</span><span class="n">eeprom</span><span class="o">|</span><span class="o">--</span><span class="n">module</span><span class="o">-</span><span class="n">info</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-109">[</span><span class="n">raw</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-109">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-110">[</span><span class="n">hex</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-110">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-111">[</span><span class="n">offset</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-111">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-112">[</span><span class="n">length</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-112">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">priv</span><span class="o">-</span><span class="n">flags</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">priv</span><span class="o">-</span><span class="n">flags</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">eee</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">eee</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-113">[</span><span class="n">eee</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-113">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-114">[</span><span class="n">tx</span><span class="o">-</span><span class="n">lpi</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="p" data-group-id="1106743269-114">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-115">[</span><span class="n">tx</span><span class="o">-</span><span class="n">timer</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-115">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-116">[</span><span class="n">advertise</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-116">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">phy</span><span class="o">-</span><span class="n">tunable</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-117">[</span><span class="w"> </span><span class="n">downshift</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="p" data-group-id="1106743269-118">[</span><span class="n">count</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-118">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-117">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-119">[</span><span class="w"> </span><span class="n">fast</span><span class="o">-</span><span class="n">link</span><span class="o">-</span><span class="n">down</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="p" data-group-id="1106743269-120">[</span><span class="n">msecs</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-120">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-119">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-121">[</span><span class="w"> </span><span class="n">energy</span><span class="o">-</span><span class="n">detect</span><span class="o">-</span><span class="n">power</span><span class="o">-</span><span class="n">down</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w"> </span><span class="p" data-group-id="1106743269-122">[</span><span class="n">msecs</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-122">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-121">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">get</span><span class="o">-</span><span class="n">phy</span><span class="o">-</span><span class="n">tunable</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-123">[</span><span class="n">downshift</span><span class="p" data-group-id="1106743269-123">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-124">[</span><span class="n">fast</span><span class="o">-</span><span class="n">link</span><span class="o">-</span><span class="n">down</span><span class="p" data-group-id="1106743269-124">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-125">[</span><span class="n">energy</span><span class="o">-</span><span class="n">detect</span><span class="o">-</span><span class="n">power</span><span class="o">-</span><span class="n">down</span><span class="p" data-group-id="1106743269-125">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">get</span><span class="o">-</span><span class="n">tunable</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-126">[</span><span class="n">rx</span><span class="o">-</span><span class="n">copybreak</span><span class="p" data-group-id="1106743269-126">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-127">[</span><span class="n">tx</span><span class="o">-</span><span class="n">copybreak</span><span class="p" data-group-id="1106743269-127">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-128">[</span><span class="n">pfc</span><span class="o">-</span><span class="n">prevention</span><span class="o">-</span><span class="n">tout</span><span class="p" data-group-id="1106743269-128">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">tunable</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-129">[</span><span class="n">rx</span><span class="o">-</span><span class="n">copybreak</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-129">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-130">[</span><span class="n">tx</span><span class="o">-</span><span class="n">copybreak</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-130">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-131">[</span><span class="n">pfc</span><span class="o">-</span><span class="n">prevention</span><span class="o">-</span><span class="n">tout</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-131">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">reset</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-132">[</span><span class="n">flags</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-132">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-133">[</span><span class="n">mgmt</span><span class="p" data-group-id="1106743269-133">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-134">[</span><span class="n">mgmt</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-134">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-135">[</span><span class="n">irq</span><span class="p" data-group-id="1106743269-135">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-136">[</span><span class="n">irq</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-136">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-137">[</span><span class="n">dma</span><span class="p" data-group-id="1106743269-137">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-138">[</span><span class="n">dma</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-138">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-139">[</span><span class="n">filter</span><span class="p" data-group-id="1106743269-139">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-140">[</span><span class="n">filter</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-140">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-141">[</span><span class="n">offload</span><span class="p" data-group-id="1106743269-141">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-142">[</span><span class="n">offload</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-142">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-143">[</span><span class="n">mac</span><span class="p" data-group-id="1106743269-143">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-144">[</span><span class="n">mac</span><span class="o">-</span><span class="w">
+          </span><span class="n">shared</span><span class="p" data-group-id="1106743269-144">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-145">[</span><span class="n">phy</span><span class="p" data-group-id="1106743269-145">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-146">[</span><span class="n">phy</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-146">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-147">[</span><span class="n">ram</span><span class="p" data-group-id="1106743269-147">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-148">[</span><span class="n">ram</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-148">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-149">[</span><span class="n">ap</span><span class="p" data-group-id="1106743269-149">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-150">[</span><span class="n">ap</span><span class="o">-</span><span class="n">shared</span><span class="p" data-group-id="1106743269-150">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-151">[</span><span class="n">dedicated</span><span class="p" data-group-id="1106743269-151">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-152">[</span><span class="n">all</span><span class="p" data-group-id="1106743269-152">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">fec</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">fec</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="n">encoding</span><span class="w"> </span><span class="n">auto</span><span class="o">|</span><span class="n">off</span><span class="o">|</span><span class="n">rs</span><span class="o">|</span><span class="n">baser</span><span class="o">|</span><span class="n">llrs</span><span class="w"> </span><span class="p" data-group-id="1106743269-153">[</span><span class="n">...</span><span class="p" data-group-id="1106743269-153">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">-</span><span class="nc">Q</span><span class="o">|</span><span class="o">--</span><span class="n">per</span><span class="o">-</span><span class="n">queue</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-154">[</span><span class="n">queue_mask</span><span class="w"> </span><span class="p">%</span><span class="n">x</span><span class="p" data-group-id="1106743269-154">]</span><span class="w"> </span><span class="n">sub_command</span><span class="w"> </span><span class="n">...</span><span class="w">
+           </span><span class="o">.</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">cable</span><span class="o">-</span><span class="n">test</span><span class="w"> </span><span class="n">devname</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">cable</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">tdr</span><span class="w"> </span><span class="n">devname</span><span class="w"> </span><span class="p" data-group-id="1106743269-155">[</span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-155">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-156">[</span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-156">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-157">[</span><span class="n">step</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-157">]</span><span class="w"> </span><span class="p" data-group-id="1106743269-158">[</span><span class="n">pair</span><span class="w"> </span><span class="nc">N</span><span class="p" data-group-id="1106743269-158">]</span><span class="w">
+
+   </span><span class="n">ethtool</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">tunnels</span><span class="w"> </span><span class="n">devname</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="n">particularly</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">wired</span><span class="w"> </span><span class="nc">Ethernet</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">devname</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">ethtool</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">operate</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="nc">Shows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="nc">Shows</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ethtool</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="nc">Turns</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w"> </span><span class="nc">Argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">mask</span><span class="p">:</span><span class="w">
+
+          </span><span class="mh">0x01</span><span class="w">  </span><span class="nc">Parser</span><span class="w"> </span><span class="n">information</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">json</span><span class="w"> </span><span class="nc">Output</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">JavaScript</span><span class="w"> </span><span class="nc">Object</span><span class="w"> </span><span class="nc">Notation</span><span class="w"> </span><span class="p" data-group-id="2914980826-1">(</span><span class="nc">JSON</span><span class="p" data-group-id="2914980826-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">subset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">this</span><span class="o">.</span><span class="w"> </span><span class="nc">Those</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="k" data-group-id="2914980826-2">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">continue</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">plain</span><span class="w">  </span><span class="n">text</span><span class="w">  </span><span class="ow">in</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">presence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">pause</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">Ethernet</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">A</span><span class="w"> </span><span class="o">--</span><span class="n">pause</span><span class="w">
+          </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">Ethernet</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">autoneg</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w">
+              </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">autonegotiation</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w">
+              </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="nc">RX</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">tx</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w">
+              </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="nc">TX</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">coalesce</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">coalescing</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">C</span><span class="w"> </span><span class="o">--</span><span class="n">coalesce</span><span class="w">
+          </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">coalescing</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">ring</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rx</span><span class="o">/</span><span class="n">tx</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">G</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">ring</span><span class="w">
+          </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rx</span><span class="o">/</span><span class="n">tx</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="w"> </span><span class="nc">N</span><span class="w">   </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Rx</span><span class="w"> </span><span class="n">ring</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="o">-</span><span class="n">mini</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Rx</span><span class="w"> </span><span class="nc">Mini</span><span class="w"> </span><span class="n">ring</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="o">-</span><span class="n">jumbo</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Rx</span><span class="w"> </span><span class="nc">Jumbo</span><span class="w"> </span><span class="n">ring</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">tx</span><span class="w"> </span><span class="nc">N</span><span class="w">   </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ring</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Tx</span><span class="w"> </span><span class="n">ring</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">--</span><span class="n">driver</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">--</span><span class="n">register</span><span class="o">-</span><span class="n">dump</span><span class="w">
+          </span><span class="nc">Retrieves</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">prints</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">decoded</span><span class="w"> </span><span class="n">others</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">printed</span><span class="w">
+          </span><span class="ow">in</span><span class="w"> </span><span class="n">hex</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">ethtool</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w">  </span><span class="n">previous</span><span class="w">  </span><span class="n">raw</span><span class="w">  </span><span class="n">register</span><span class="w">
+          </span><span class="n">dump</span><span class="p">,</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">reading</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">--</span><span class="n">eeprom</span><span class="o">-</span><span class="n">dump</span><span class="w">
+          </span><span class="nc">Retrieves</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">prints</span><span class="w">  </span><span class="n">an</span><span class="w"> </span><span class="nc">EEPROM</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="nc">EEPROM</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">length</span><span class="w">
+          </span><span class="ow">and</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">dumping</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">portions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">EEPROM</span><span class="o">.</span><span class="w">  </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="nc">EEPROM</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">raw</span><span class="w"> </span><span class="n">on</span><span class="o">|</span><span class="n">off</span><span class="w">
+
+       </span><span class="n">offset</span><span class="w"> </span><span class="nc">N</span><span class="w">
+
+       </span><span class="n">length</span><span class="w"> </span><span class="nc">N</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">E</span><span class="w"> </span><span class="o">--</span><span class="n">change</span><span class="o">-</span><span class="n">eeprom</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="nc">EEPROM</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="n">offset</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">it</span><span class="sc">&#39;s new value. If value is  not
+          specified,  stdin is read and written to the EEPROM. The length and offset parameters allow writing to certain portions of the EEPROM.  Because of the
+          persistent nature of writing to the EEPROM, a device-specific magic key must be specified to prevent the accidental writing to the EEPROM.
+
+   -k --show-features --show-offload
+          Queries the specified network device for the state of protocol offload and other features.
+
+   -K --features --offload
+          Changes the offload parameters and other features of the specified network device.  The following feature names are built-in and others may be defined
+          by the kernel.
+
+       rx on|off
+              Specifies whether RX checksumming should be enabled.
+
+       tx on|off
+              Specifies whether TX checksumming should be enabled.
+
+       sg on|off
+              Specifies whether scatter-gather should be enabled.
+
+       tso on|off
+              Specifies whether TCP segmentation offload should be enabled.
+
+       ufo on|off
+              Specifies whether UDP fragmentation offload should be enabled
+
+       gso on|off
+              Specifies whether generic segmentation offload should be enabled
+
+       gro on|off
+              Specifies whether generic receive offload should be enabled
+
+       lro on|off
+              Specifies whether large receive offload should be enabled
+
+       rxvlan on|off
+              Specifies whether RX VLAN acceleration should be enabled
+
+       txvlan on|off
+              Specifies whether TX VLAN acceleration should be enabled
+
+       ntuple on|off
+              Specifies whether Rx ntuple filters and actions should be enabled
+
+       rxhash on|off
+              Specifies whether receive hashing offload should be enabled
+
+   -p --identify
+          Initiates  adapter-specific  action  intended  to enable an operator to easily identify the adapter by sight.  Typically this involves blinking one or
+          more LEDs on the specific network port.
+
+       [ N]   Length of time to perform phys-id, in seconds.
+
+   -P --show-permaddr
+          Queries the specified network device for permanent hardware address.
+
+   -r --negotiate
+          Restarts auto-negotiation on the specified Ethernet device, if auto-negotiation is enabled.
+
+   -S --statistics
+          Queries the specified network device for NIC- and driver-specific statistics.
+
+   --phy-statistics
+          Queries the specified network device for PHY specific statistics.
+
+   -t --test
+          Executes adapter selftest on the specified network device. Possible test modes are:
+
+       offline
+              Perform full set of tests, possibly interrupting normal operation during the tests,
+
+       online Perform limited set of tests, not interrupting normal operation,
+
+       external_lb
+              Perform full set of tests, as for offline, and additionally an external-loopback test.
+
+   -s --change
+          Allows changing some or all settings of the specified network device.  All following options only apply if -s was specified.
+
+       speed N
+              Set speed in Mb/s.  ethtool with just the device name as an argument will show you the supported device speeds.
+
+       duplex half|full
+              Sets full or half duplex mode.
+
+       port tp|aui|bnc|mii
+              Selects device port.
+
+       master-slave preferred-master|preferred-slave|forced-master|forced-slave
+              Configure MASTER/SLAVE role of the PHY. When the PHY is configured as MASTER, the PMA Transmit function shall source TX_TCLK from  a  local  clock
+              source. When configured as SLAVE, the PMA Transmit function shall source TX_TCLK from the clock recovered from data stream provided by MASTER. Not
+              all devices support this.
+
+              preferred-master   Prefer MASTER role on autonegotiation
+              preferred-slave    Prefer SLAVE role on autonegotiation
+              forced-master      Force the PHY in MASTER role. Can be used without autonegotiation
+              forced-slave       Force the PHY in SLAVE role. Can be used without autonegotiation
+
+       mdix auto|on|off
+              Selects MDI-X mode for port. May be used to override the automatic detection feature of most adapters. An argument of auto means automatic  detec‐
+              tion  of MDI status, on forces MDI-X (crossover) mode, while off means MDI (straight through) mode.  The driver should guarantee that this command
+              takes effect immediately, and if necessary may reset the link to cause the change to take effect.
+
+       autoneg on|off
+              Specifies whether autonegotiation should be enabled. Autonegotiation is enabled by default, but in some network devices may have trouble with  it,
+              so you can disable it if really necessary.
+
+       advertise N
+              Sets the speed and duplex advertised by autonegotiation.  The argument is a hexadecimal value using one or a combination of the following values:
+
+              0x001                       10baseT Half
+              0x002                       10baseT Full
+              0x004                       100baseT Half
+              0x008                       100baseT Full
+              0x80000000000000000         100baseT1 Full
+              0x40000000000000000000000   100baseFX Half
+              0x80000000000000000000000   100baseFX Full
+              0x010                       1000baseT Half               (not supported by IEEE standards)
+              0x020                       1000baseT Full
+              0x20000                     1000baseKX Full
+              0x20000000000               1000baseX Full
+              0x100000000000000000        1000baseT1 Full
+              0x8000                      2500baseX Full               (not supported by IEEE standards)
+              0x800000000000              2500baseT Full
+              0x1000000000000             5000baseT Full
+              0x1000                      10000baseT Full
+              0x40000                     10000baseKX4 Full
+              0x80000                     10000baseKR Full
+              0x100000                    10000baseR_FEC
+              0x40000000000               10000baseCR Full
+              0x80000000000               10000baseSR Full
+              0x100000000000              10000baseLR Full
+              0x200000000000              10000baseLRM Full
+              0x400000000000              10000baseER Full
+              0x200000                    20000baseMLD2 Full           (not supported by IEEE standards)
+              0x400000                    20000baseKR2 Full            (not supported by IEEE standards)
+              0x80000000                  25000baseCR Full
+              0x100000000                 25000baseKR Full
+              0x200000000                 25000baseSR Full
+              0x800000                    40000baseKR4 Full
+              0x1000000                   40000baseCR4 Full
+              0x2000000                   40000baseSR4 Full
+              0x4000000                   40000baseLR4 Full
+              0x400000000                 50000baseCR2 Full
+              0x800000000                 50000baseKR2 Full
+              0x10000000000               50000baseSR2 Full
+              0x10000000000000            50000baseKR Full
+              0x20000000000000            50000baseSR Full
+              0x40000000000000            50000baseCR Full
+              0x80000000000000            50000baseLR_ER_FR Full
+              0x100000000000000           50000baseDR Full
+              0x8000000                   56000baseKR4 Full
+              0x10000000                  56000baseCR4 Full
+              0x20000000                  56000baseSR4 Full
+              0x40000000                  56000baseLR4 Full
+              0x1000000000                100000baseKR4 Full
+              0x2000000000                100000baseSR4 Full
+              0x4000000000                100000baseCR4 Full
+              0x8000000000                100000baseLR4_ER4 Full
+              0x200000000000000           100000baseKR2 Full
+              0x400000000000000           100000baseSR2 Full
+              0x800000000000000           100000baseCR2 Full
+              0x1000000000000000          100000baseLR2_ER2_FR2 Full
+              0x2000000000000000          100000baseDR2 Full
+              0x8000000000000000000       100000baseKR Full
+              0x10000000000000000000      100000baseSR Full
+              0x20000000000000000000      100000baseLR_ER_FR Full
+              0x40000000000000000000      100000baseCR Full
+              0x80000000000000000000      100000baseDR Full
+              0x4000000000000000          200000baseKR4 Full
+              0x8000000000000000          200000baseSR4 Full
+              0x10000000000000000         200000baseLR4_ER4_FR4 Full
+              0x20000000000000000         200000baseDR4 Full
+              0x40000000000000000         200000baseCR4 Full
+              0x100000000000000000000     200000baseKR2 Full
+              0x200000000000000000000     200000baseSR2 Full
+              0x400000000000000000000     200000baseLR2_ER2_FR2 Full
+              0x800000000000000000000     200000baseDR2 Full
+              0x1000000000000000000000    200000baseCR2 Full
+              0x200000000000000000        400000baseKR8 Full
+              0x400000000000000000        400000baseSR8 Full
+              0x800000000000000000        400000baseLR8_ER8_FR8 Full
+              0x1000000000000000000       400000baseDR8 Full
+              0x2000000000000000000       400000baseCR8 Full
+              0x2000000000000000000000    400000baseKR4 Full
+              0x4000000000000000000000    400000baseSR4 Full
+              0x8000000000000000000000    400000baseLR4_ER4_FR4 Full
+              0x10000000000000000000000   400000baseDR4 Full
+              0x20000000000000000000000   400000baseCR4 Full
+
+       phyad N
+              PHY address.
+
+       xcvr internal|external
+              Selects transceiver type. Currently only internal and external can be specified, in the future further types might be added.
+
+       wol p|u|m|b|a|g|s|f|d...
+              Sets  Wake-on-LAN  options.   Not all devices support this.  The argument to this option is a string of characters specifying which options to en‐
+              able.
+
+              p   Wake on PHY activity
+              u   Wake on unicast messages
+              m   Wake on multicast messages
+              b   Wake on broadcast messages
+              a   Wake on ARP
+              g   Wake on MagicPacket™
+              s   Enable SecureOn™ password for MagicPacket™
+              f   Wake on filter(s)
+              d   Disable (wake on nothing).  This option clears all pre‐
+                  vious options.
+
+       sopass xx:yy:zz:aa:bb:cc
+              Sets the SecureOn™ password.  The argument to this option must be 6 bytes in Ethernet MAC hex format (xx:yy:zz:aa:bb:cc).
+
+       msglvl N
+       msglvl type on|off ...
+              Sets  the driver message type flags by name or number. type names the type of message to enable or disable; N specifies the new flags numerically.
+              The defined type names and numbers are:
+
+              drv         0x0001  General driver status
+              probe       0x0002  Hardware probing
+              link        0x0004  Link state
+              timer       0x0008  Periodic status check
+              ifdown      0x0010  Interface being brought down
+              ifup        0x0020  Interface being brought up
+              rx_err      0x0040  Receive error
+              tx_err      0x0080  Transmit error
+              tx_queued   0x0100  Transmit queueing
+              intr        0x0200  Interrupt handling
+              tx_done     0x0400  Transmit completion
+              rx_status   0x0800  Receive completion
+              pktdata     0x1000  Packet contents
+              hw          0x2000  Hardware status
+              wol         0x4000  Wake-on-LAN status
+
+              The precise meanings of these type flags differ between drivers.
+
+   -n -u --show-nfc --show-ntuple
+          Retrieves receive network flow classification options or rules.
+
+       rx-flow-hash tcp4|udp4|ah4|esp4|sctp4|tcp6|udp6|ah6|esp6|sctp6
+              Retrieves the hash options for the specified flow type.
+
+              tcp4    TCP over IPv4
+              udp4    UDP over IPv4
+              ah4     IPSEC AH over IPv4
+              esp4    IPSEC ESP over IPv4
+              sctp4   SCTP over IPv4
+              tcp6    TCP over IPv6
+              udp6    UDP over IPv6
+              ah6     IPSEC AH over IPv6
+              esp6    IPSEC ESP over IPv6
+              sctp6   SCTP over IPv6
+
+       rule N Retrieves the RX classification rule with the given ID.
+
+   -N -U --config-nfc --config-ntuple
+          Configures receive network flow classification options or rules.
+
+       rx-flow-hash tcp4|udp4|ah4|esp4|sctp4|tcp6|udp6|ah6|esp6|sctp6m|v|t|s|d|f|n|r...
+              Configures the hash options for the specified flow type.
+
+              m   Hash on the Layer 2 destination address of the rx packet.
+              v   Hash on the VLAN tag of the rx packet.
+              t   Hash on the Layer 3 protocol field of the rx packet.
+              s   Hash on the IP source address of the rx packet.
+              d   Hash on the IP destination address of the rx packet.
+              f   Hash on bytes 0 and 1 of the Layer 4 header of the rx packet.
+              n   Hash on bytes 2 and 3 of the Layer 4 header of the rx packet.
+              r   Discard all packets of this flow type. When  this  option  is
+                  set, all other options are ignored.
+
+       flow-type ether|ip4|tcp4|udp4|sctp4|ah4|esp4|ip6|tcp6|udp6|ah6|esp6|sctp6
+              Inserts or updates a classification rule for the specified flow type.
+
+              ether   Ethernet
+              ip4     Raw IPv4
+              tcp4    TCP over IPv4
+              udp4    UDP over IPv4
+              sctp4   SCTP over IPv4
+              ah4     IPSEC AH over IPv4
+              esp4    IPSEC ESP over IPv4
+              ip6     Raw IPv6
+              tcp6    TCP over IPv6
+              udp6    UDP over IPv6
+              sctp6   SCTP over IPv6
+              ah6     IPSEC AH over IPv6
+              esp6    IPSEC ESP over IPv6
+
+       For  all  fields  that allow both a value and a mask to be specified, the mask may be specified immediately after the value using the m keyword, or sepa‐
+       rately using the field name keyword with -mask appended, e.g. src-mask.
+
+       src xx:yy:zz:aa:bb:cc [m xx:yy:zz:aa:bb:cc]
+              Includes the source MAC address, specified as 6 bytes in hexadecimal separated by colons, along with an optional mask.  Valid only  for  flow-type
+              ether.
+
+       dst xx:yy:zz:aa:bb:cc [m xx:yy:zz:aa:bb:cc]
+              Includes  the destination MAC address, specified as 6 bytes in hexadecimal separated by colons, along with an optional mask.  Valid only for flow-
+              type ether.
+
+       proto N [m N]
+              Includes the Ethernet protocol number (ethertype) and an optional mask.  Valid only for flow-type ether.
+
+       src-ip ip-address [m ip-address]
+              Specify the source IP address of the incoming packet to match along with an optional mask.  Valid for all IP based flow-types.
+
+       dst-ip ip-address [m ip-address]
+              Specify the destination IP address of the incoming packet to match along with an optional mask.  Valid for all IP based flow-types.
+
+       tos N [m N]
+              Specify the value of the Type of Service field in the incoming packet to match along with an optional mask.  Applies to all IPv4 based flow-types.
+
+       tclass N [m N]
+              Specify the value of the Traffic Class field in the incoming packet to match along with an optional mask.  Applies to all IPv6 based flow-types.
+
+       l4proto N [m N]
+              Includes the layer 4 protocol number and optional mask.  Valid only for flow-types ip4 and ip6.
+
+       src-port N [m N]
+              Specify the value of the source port field (applicable to TCP/UDP packets) in the incoming packet to match along with an optional mask.  Valid for
+              flow-types ip4, tcp4, udp4, and sctp4 and their IPv6 equivalents.
+
+       dst-port N [m N]
+              Specify the value of the destination port field (applicable to TCP/UDP packets)in the incoming packet to match along with an optional mask.  Valid
+              for flow-types ip4, tcp4, udp4, and sctp4 and their IPv6 equivalents.
+
+       spi N [m N]
+              Specify the value of the security parameter index field (applicable to AH/ESP packets)in the incoming packet to match along with an optional mask.
+              Valid for flow-types ip4, ah4, and esp4 and their IPv6 equivalents.
+
+       l4data N [m N]
+              Specify the value of the first 4 Bytes of Layer 4 in the incoming packet to match along with an optional mask.  Valid for ip4 and ip6 flow-types.
+
+       vlan-etype N [m N]
+              Includes the VLAN tag Ethertype and an optional mask.
+
+       vlan N [m N]
+              Includes the VLAN tag and an optional mask.
+
+       user-def N [m N]
+              Includes 64-bits of user-specific data and an optional mask.
+
+       dst-mac xx:yy:zz:aa:bb:cc [m xx:yy:zz:aa:bb:cc]
+              Includes  the  destination  MAC  address,  specified as 6 bytes in hexadecimal separated by colons, along with an optional mask.  Valid for all IP
+              based flow-types.
+
+       action N
+              Specifies the Rx queue to send packets to, or some other action.
+
+              -1            Drop the matched flow
+              -2            Use the matched flow as a Wake-on-LAN filter
+              0 or higher   Rx queue to route the flow
+
+       context N
+              Specifies the RSS context to spread packets over multiple queues; either 0 for the default RSS context, or a value returned by ethtool -X ... con‐
+              text new.
+
+       vf N   Specifies the Virtual Function the filter applies to. Not compatible with action.
+
+       queue N
+              Specifies the Rx queue to send packets to. Not compatible with action.
+
+       loc N  Specify the location/ID to insert the rule. This will overwrite any rule present in that location and will not go through any of the rule ordering
+              process.
+
+       delete N
+              Deletes the RX classification rule with the given ID.
+
+   -w --get-dump
+          Retrieves and prints firmware dump for the specified network device.  By default, it prints out the dump flag, version and length of  the  dump  data.
+          When data is indicated, then ethtool fetches the dump data and directs it to a file.
+
+   -W --set-dump
+          Sets the dump flag for the device.
+
+   -T --show-time-stamping
+          Show the device&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">stamping</span><span class="w"> </span><span class="n">capabilities</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="nc">PTP</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">clock</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">rxfh</span><span class="o">-</span><span class="n">indir</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">rxfh</span><span class="w">
+          </span><span class="nc">Retrieves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">key</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">X</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">rxfh</span><span class="o">-</span><span class="n">indir</span><span class="w"> </span><span class="o">--</span><span class="n">rxfh</span><span class="w">
+          </span><span class="nc">Configures</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">key</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">hkey</span><span class="w">   </span><span class="nc">Sets</span><span class="w">  </span><span class="nc">RSS</span><span class="w">  </span><span class="n">hash</span><span class="w">  </span><span class="n">key</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">specified</span><span class="w">  </span><span class="n">network</span><span class="w">  </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">RSS</span><span class="w">  </span><span class="n">hash</span><span class="w">  </span><span class="n">key</span><span class="w">  </span><span class="n">should</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">device</span><span class="w">  </span><span class="n">supported</span><span class="w">  </span><span class="n">length</span><span class="o">.</span><span class="w">  </span><span class="nc">Hash</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w">
+              </span><span class="n">xx</span><span class="ss">:yy</span><span class="ss">:zz</span><span class="ss">:aa</span><span class="ss">:bb</span><span class="ss">:cc</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nibbles</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mentioned</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">nibble</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">zero</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">hfunc</span><span class="w">  </span><span class="nc">Sets</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">functions</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">part</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">rxfh</span><span class="w">
+              </span><span class="n">command</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">start</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">spreading</span><span class="w"> </span><span class="n">flows</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">N</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">equal</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">spread</span><span class="w"> </span><span class="n">flows</span><span class="w"> </span><span class="n">evenly</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">queues</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">weight</span><span class="w"> </span><span class="nc">W0</span><span class="w"> </span><span class="nc">W1</span><span class="w"> </span><span class="n">...</span><span class="w">
+              </span><span class="nc">Sets</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="k">receive</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">spread</span><span class="w"> </span><span class="n">flows</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">queues</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">weights</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">weights</span><span class="w"> </span><span class="n">must</span><span class="w">
+              </span><span class="n">be</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">zero</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exceed</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">default</span><span class="w">
+              </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">indirection</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">context</span><span class="w"> </span><span class="nc">CTX</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">new</span><span class="w">
+              </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">CTX</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">new</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">delete</span><span class="w"> </span><span class="nc">Delete</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">RSS</span><span class="w"> </span><span class="n">context</span><span class="o">.</span><span class="w">  </span><span class="nc">May</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">conjunction</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">zero</span><span class="w"> </span><span class="nc">CTX</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">--</span><span class="n">flash</span><span class="w">
+          </span><span class="nc">Write</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">flash</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">volatile</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">file</span><span class="w">   </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">loader</span><span class="w">  </span><span class="ow">or</span><span class="w">
+              </span><span class="n">firmware</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">look</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">firmware</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">N</span><span class="w">      </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">stores</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">volatile</span><span class="w"> </span><span class="n">memory</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w">
+              </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">requesting</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">written</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">driver</span><span class="o">-</span><span class="n">dependent</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">channels</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">has</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">IRQ</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">queues</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">trigger</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">IRQ</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">L</span><span class="w"> </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">channels</span><span class="w">
+          </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="w"> </span><span class="nc">N</span><span class="w">   </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">queues</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">tx</span><span class="w"> </span><span class="nc">N</span><span class="w">   </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">transmit</span><span class="w"> </span><span class="n">queues</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">other</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">purposes</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">interrupts</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">SR</span><span class="o">-</span><span class="nc">IOV</span><span class="w"> </span><span class="n">co</span><span class="o">-</span><span class="n">ordination</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">combined</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">purpose</span><span class="w"> </span><span class="n">channels</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">--</span><span class="n">dump</span><span class="o">-</span><span class="n">module</span><span class="o">-</span><span class="n">eeprom</span><span class="w"> </span><span class="o">--</span><span class="n">module</span><span class="o">-</span><span class="n">info</span><span class="w">
+          </span><span class="nc">Retrieves</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">decodes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">EEPROM</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">modules</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="w"> </span><span class="nc">SFP</span><span class="o">+</span><span class="p">,</span><span class="w"> </span><span class="nc">QSFP</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">optical</span><span class="w"> </span><span class="n">diagnostic</span><span class="w">  </span><span class="n">infor</span><span class="err">‐</span><span class="w">
+          </span><span class="n">mation</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">decoded</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">priv</span><span class="o">-</span><span class="n">flags</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">flags</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">meanings</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="p" data-group-id="2914980826-3">(</span><span class="k">if</span><span class="w"> </span><span class="n">any</span><span class="p" data-group-id="2914980826-3">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">driv</span><span class="err">‐</span><span class="w">
+          </span><span class="n">er</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">priv</span><span class="o">-</span><span class="n">flags</span><span class="w">
+          </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="sc">&#39;s private flags as specified.
+
+       flag on|off Sets the state of the named private flag.
+
+   --show-eee
+          Queries the specified network device for its support of Energy-Efficient Ethernet (according to the IEEE 802.3az specifications)
+
+   --set-eee
+          Sets the device EEE behaviour.
+
+       eee on|off
+              Enables/disables the device support of EEE.
+
+       tx-lpi on|off
+              Determines whether the device should assert its Tx LPI.
+
+       advertise N
+              Sets the speeds for which the device should advertise EEE capabilities.  Values are as for --change advertise
+
+       tx-timer N
+              Sets the amount of time the device should stay in idle mode prior to asserting its Tx LPI (in microseconds). This has meaning only when Tx LPI  is
+              enabled.
+
+   --set-phy-tunable
+          Sets the PHY tunable parameters.
+
+       downshift on|off
+              Specifies whether downshift should be enabled.
+
+              count N
+                  Sets the PHY downshift re-tries count.
+
+       fast-link-down on|off
+              Specifies whether Fast Link Down should be enabled and time until link down (if supported).
+
+              msecs N
+                  Sets the period after which the link is reported as down. Note that the PHY may choose
+                  the closest supported value. Only on reading back the tunable do you get the actual value.
+
+       energy-detect-power-down on|off
+              Specifies  whether  Energy Detect Power Down (EDPD) should be enabled (if supported).  This will put the RX and TX circuit blocks into a low power
+              mode, and the PHY will wake up periodically to send link pulses to avoid any lock-up situation with a peer PHY that may also have EDPD enabled. By
+              default, this setting will also enable the periodic transmission of TX pulses.
+
+              msecs N
+                  Some PHYs support configuration of the wake-up interval to send TX pulses.
+                  This setting allows the control of this interval, and 0 disables TX pulses
+                  if the PHY supports this. Disabling TX pulses can create a lock-up situation
+                  where neither of the PHYs wakes the other one. If unspecified the default
+                  value (in milliseconds) will be used by the PHY.
+
+   --get-phy-tunable
+          Gets the PHY tunable parameters.
+
+       downshift
+              For  operation  in  cabling  environments  that are incompatible with 1000BASE-T, PHY device provides an automatic link speed downshift operation.
+              Link speed downshift after N failed 1000BASE-T auto-negotiation attempts.  Downshift is useful where cable does not have the 4 pairs instance.
+
+              Gets the PHY downshift count/status.
+
+       fast-link-down
+              Depending on the mode it may take 0.5s - 1s until a broken link is reported as down.  In certain use cases a link-down event needs to be  reported
+              as  soon as possible.  Some PHYs support a Fast Link Down Feature and may allow configuration of the delay before a broken link is reported as be‐
+              ing down.
+
+              Gets the PHY Fast Link Down status / period.
+
+       energy-detect-power-down
+              Gets the current configured setting for Energy Detect Power Down (if supported).
+
+   --get-tunable
+          Get the tunable parameters.
+
+       rx-copybreak
+              Get the current rx copybreak value in bytes.
+
+       tx-copybreak
+              Get the current tx copybreak value in bytes.
+
+       pfc-prevention-tout
+              Get the current pfc prevention timeout value in msecs.
+
+   --set-tunable
+          Set driver&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">tunable</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">rx</span><span class="o">-</span><span class="n">copybreak</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rx</span><span class="w"> </span><span class="n">copybreak</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">tx</span><span class="o">-</span><span class="n">copybreak</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tx</span><span class="w"> </span><span class="n">copybreak</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">pfc</span><span class="o">-</span><span class="n">prevention</span><span class="o">-</span><span class="n">tout</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Set</span><span class="w"> </span><span class="n">pfc</span><span class="w"> </span><span class="n">prevention</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">msecs</span><span class="o">.</span><span class="w"> </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">65535</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">auto</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">reset</span><span class="w">
+          </span><span class="nc">Reset</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">below</span><span class="w">
+
+       </span><span class="n">flags</span><span class="w"> </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Resets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">mask</span><span class="w">
+
+       </span><span class="n">mgmt</span><span class="w">   </span><span class="nc">Management</span><span class="w"> </span><span class="n">processor</span><span class="w">
+
+       </span><span class="n">irq</span><span class="w">    </span><span class="nc">Interrupt</span><span class="w"> </span><span class="n">requester</span><span class="w">
+
+       </span><span class="n">dma</span><span class="w">    </span><span class="nc">DMA</span><span class="w"> </span><span class="n">engine</span><span class="w">
+
+       </span><span class="n">filter</span><span class="w"> </span><span class="nc">Filtering</span><span class="o">/</span><span class="n">flow</span><span class="w"> </span><span class="n">direction</span><span class="w">
+
+       </span><span class="n">offload</span><span class="w">
+              </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">offload</span><span class="w">
+
+       </span><span class="n">mac</span><span class="w">    </span><span class="nc">Media</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">controller</span><span class="w">
+
+       </span><span class="n">phy</span><span class="w">    </span><span class="nc">Transceiver</span><span class="o">/</span><span class="nc">PHY</span><span class="w">
+
+       </span><span class="n">ram</span><span class="w">    </span><span class="nc">RAM</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="nc">Application</span><span class="w"> </span><span class="nc">Processor</span><span class="w">
+
+       </span><span class="n">dedicated</span><span class="w">
+              </span><span class="nc">All</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">dedicated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">interface</span><span class="w">
+
+       </span><span class="n">all</span><span class="w">    </span><span class="nc">All</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">shared</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">fec</span><span class="w">
+          </span><span class="nc">Queries</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Forward</span><span class="w"> </span><span class="nc">Error</span><span class="w"> </span><span class="nc">Correction</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">fec</span><span class="w">
+          </span><span class="nc">Configures</span><span class="w"> </span><span class="nc">Forward</span><span class="w"> </span><span class="nc">Error</span><span class="w"> </span><span class="nc">Correction</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Forward</span><span class="w"> </span><span class="nc">Error</span><span class="w"> </span><span class="nc">Correction</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">persisted</span><span class="w"> </span><span class="k" data-group-id="2914980826-2">after</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">hotplug</span><span class="w"> </span><span class="n">events</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">swapped</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w">  </span><span class="n">support</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="nc">FEC</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">administratively</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">correct</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">encoding</span><span class="w"> </span><span class="n">auto</span><span class="o">|</span><span class="n">off</span><span class="o">|</span><span class="n">rs</span><span class="o">|</span><span class="n">baser</span><span class="o">|</span><span class="n">llrs</span><span class="w"> </span><span class="p" data-group-id="2914980826-4">[</span><span class="n">...</span><span class="p" data-group-id="2914980826-4">]</span><span class="w">
+
+              </span><span class="nc">Sets</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="nc">FEC</span><span class="w"> </span><span class="n">encoding</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">Combinations</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w">  </span><span class="n">encoding</span><span class="w"> </span><span class="n">auto</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">semantics</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">combinations</span><span class="w"> </span><span class="n">vary</span><span class="w">
+              </span><span class="n">between</span><span class="w"> </span><span class="n">drivers</span><span class="o">.</span><span class="w">
+
+              </span><span class="n">auto</span><span class="w">    </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">driver</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">encoding</span><span class="w">
+              </span><span class="n">off</span><span class="w">     </span><span class="nc">Turn</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="nc">FEC</span><span class="w">
+              </span><span class="nc">RS</span><span class="w">      </span><span class="nc">Force</span><span class="w"> </span><span class="nc">RS</span><span class="o">-</span><span class="nc">FEC</span><span class="w"> </span><span class="n">encoding</span><span class="w">
+              </span><span class="nc">BaseR</span><span class="w">   </span><span class="nc">Force</span><span class="w"> </span><span class="nc">BaseR</span><span class="w"> </span><span class="n">encoding</span><span class="w">
+              </span><span class="nc">LLRS</span><span class="w">    </span><span class="nc">Force</span><span class="w"> </span><span class="nc">LLRS</span><span class="o">-</span><span class="nc">FEC</span><span class="w"> </span><span class="n">encoding</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">Q</span><span class="o">|</span><span class="o">--</span><span class="n">per</span><span class="o">-</span><span class="n">queue</span><span class="w">
+          </span><span class="nc">Applies</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">queues</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">queue_mask</span><span class="w"> </span><span class="p">%</span><span class="n">x</span><span class="w">
+              </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">queues</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">queue_mask</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">queues</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">sub_command</span><span class="w">
+              </span><span class="nc">Sub</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">apply</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">sub</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">coalesce</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">coalesce</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">q</span><span class="o">.</span><span class="nc">B</span><span class="w"> </span><span class="o">--</span><span class="n">cable</span><span class="o">-</span><span class="n">test</span><span class="w">
+          </span><span class="nc">Perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">results</span><span class="o">.</span><span class="w"> </span><span class="nc">What</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">capabilities</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">Typically</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">pairs</span><span class="w">  </span><span class="ow">and</span><span class="w">
+          </span><span class="n">shorted</span><span class="w"> </span><span class="n">pairs</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reported</span><span class="p">,</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">pairs</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="nc">O.K</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fault</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">approximate</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fault</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reported</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cable</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">tdr</span><span class="w">
+          </span><span class="nc">Perform</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="nc">Time</span><span class="w"> </span><span class="nc">Domain</span><span class="w"> </span><span class="nc">Reflectometer</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">pulse</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reflection</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w">
+          </span><span class="n">given</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">reported</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">break</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="n">reflection</span><span class="o">.</span><span class="w"> </span><span class="nc">Minor</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">small</span><span class="w">  </span><span class="n">reflection</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">cable</span><span class="w">  </span><span class="n">is</span><span class="w">
+          </span><span class="n">shorted</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reflection</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">negative</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">lengths</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">150</span><span class="n">m</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="mi">1</span><span class="n">m</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">pairs</span><span class="o">.</span><span class="w"> </span><span class="nc">How</span><span class="err">‐</span><span class="w">
+          </span><span class="n">ever</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restrict</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">noted</span><span class="p">,</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">round</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">distances</span><span class="w"> </span><span class="n">to</span><span class="w">  </span><span class="n">whatever</span><span class="w">  </span><span class="n">granu</span><span class="err">‐</span><span class="w">
+          </span><span class="n">larity</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">implemented</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">often</span><span class="w"> </span><span class="mf">0.8</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">meter</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">rounded</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">first</span><span class="w">  </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Distance</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cable</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">meters</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">last</span><span class="w">  </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Distance</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cable</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">meters</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">measurement</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">step</span><span class="w">  </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Distance</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">meters</span><span class="p">,</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">measurement</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">pair</span><span class="w">  </span><span class="nc">N</span><span class="w">
+              </span><span class="nc">Which</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">measured</span><span class="o">.</span><span class="w"> </span><span class="nc">Typically</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cable</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">pairs</span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Pair</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Pair</span><span class="w"> </span><span class="nc">B</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">monitor</span><span class="w">
+          </span><span class="nc">Listens</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">netlink</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">them</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">command</span><span class="w">
+              </span><span class="nc">If</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">ethtool</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w"> </span><span class="nc">Without</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="p">,</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="n">types</span><span class="w">
+              </span><span class="n">are</span><span class="w"> </span><span class="n">shown</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">devname</span><span class="w">
+              </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">argument</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">shown</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">show</span><span class="o">-</span><span class="n">tunnels</span><span class="w">
+          </span><span class="nc">Show</span><span class="w"> </span><span class="n">tunnel</span><span class="o">-</span><span class="n">related</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">capabilities</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="w">  </span><span class="nc">List</span><span class="w"> </span><span class="nc">UDP</span><span class="w"> </span><span class="n">ports</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">programmed</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">VxLAN</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">GENEVE</span><span class="w"> </span><span class="n">tunnels</span><span class="o">.</span></code></pre><p>BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Not</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="p" data-group-id="8119608818-1">(</span><span class="ow">in</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">whole</span><span class="p" data-group-id="8119608818-1">)</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">drivers</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">David</span><span class="w"> </span><span class="nc">Miller</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Modifications</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Jeff</span><span class="w"> </span><span class="nc">Garzik</span><span class="p">,</span><span class="w"> </span><span class="nc">Tim</span><span class="w"> </span><span class="nc">Hockin</span><span class="p">,</span><span class="w"> </span><span class="nc">Jakub</span><span class="w"> </span><span class="nc">Jelinek</span><span class="p">,</span><span class="w"> </span><span class="nc">Andre</span><span class="w"> </span><span class="nc">Majorel</span><span class="p">,</span><span class="w"> </span><span class="nc">Eli</span><span class="w"> </span><span class="nc">Kupermann</span><span class="p">,</span><span class="w"> </span><span class="nc">Scott</span><span class="w"> </span><span class="nc">Feldman</span><span class="p">,</span><span class="w"> </span><span class="nc">Andi</span><span class="w"> </span><span class="nc">Kleen</span><span class="p">,</span><span class="w"> </span><span class="nc">Alexander</span><span class="w"> </span><span class="nc">Duyck</span><span class="p">,</span><span class="w"> </span><span class="nc">Sucheta</span><span class="w"> </span><span class="nc">Chakraborty</span><span class="p">,</span><span class="w"> </span><span class="nc">Jesse</span><span class="w">
+   </span><span class="nc">Brandeburg</span><span class="p">,</span><span class="w"> </span><span class="nc">Ben</span><span class="w"> </span><span class="nc">Hutchings</span><span class="p">,</span><span class="w"> </span><span class="nc">Scott</span><span class="w"> </span><span class="nc">Branden</span><span class="o">.</span></code></pre><p>AVAILABILITY</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">ethtool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="err">⟨</span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">ethtool</span><span class="o">/</span><span class="err">⟩</span></code></pre><p>Ethtool version 5.9                                                           Oct 2020                                                                    ETHTOOL(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>dd — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>DD(1)                                                                       User Commands                                                                      DD(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dd</span><span class="w"> </span><span class="p" data-group-id="7810691583-1">[</span><span class="nc">OPERAND</span><span class="p" data-group-id="7810691583-1">]</span><span class="n">...</span><span class="w">
+   </span><span class="n">dd</span><span class="w"> </span><span class="nc">OPTION</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Copy</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">converting</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">formatting</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operands</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">bs</span><span class="o">=</span><span class="nc">BYTES</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">BYTES</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="4357232839-1">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p" data-group-id="4357232839-1">)</span><span class="p">;</span><span class="w"> </span><span class="n">overrides</span><span class="w"> </span><span class="n">ibs</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">obs</span><span class="w">
+
+   </span><span class="n">cbs</span><span class="o">=</span><span class="nc">BYTES</span><span class="w">
+          </span><span class="n">convert</span><span class="w"> </span><span class="nc">BYTES</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w">
+
+   </span><span class="n">conv</span><span class="o">=</span><span class="nc">CONVS</span><span class="w">
+          </span><span class="n">convert</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">comma</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">list</span><span class="w">
+
+   </span><span class="n">count</span><span class="o">=</span><span class="nc">N</span><span class="w">
+          </span><span class="n">copy</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">blocks</span><span class="w">
+
+   </span><span class="n">ibs</span><span class="o">=</span><span class="nc">BYTES</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">BYTES</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="4357232839-2">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p" data-group-id="4357232839-2">)</span><span class="w">
+
+   </span><span class="k">if</span><span class="o">=</span><span class="nc">FILE</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">FILE</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">stdin</span><span class="w">
+
+   </span><span class="n">iflag</span><span class="o">=</span><span class="nc">FLAGS</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">comma</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">list</span><span class="w">
+
+   </span><span class="n">obs</span><span class="o">=</span><span class="nc">BYTES</span><span class="w">
+          </span><span class="n">write</span><span class="w"> </span><span class="nc">BYTES</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="4357232839-3">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p" data-group-id="4357232839-3">)</span><span class="w">
+
+   </span><span class="n">of</span><span class="o">=</span><span class="nc">FILE</span><span class="w">
+          </span><span class="n">write</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">FILE</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">stdout</span><span class="w">
+
+   </span><span class="n">oflag</span><span class="o">=</span><span class="nc">FLAGS</span><span class="w">
+          </span><span class="n">write</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">comma</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">list</span><span class="w">
+
+   </span><span class="n">seek</span><span class="o">=</span><span class="nc">N</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">obs</span><span class="o">-</span><span class="n">sized</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">output</span><span class="w">
+
+   </span><span class="n">skip</span><span class="o">=</span><span class="nc">N</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">ibs</span><span class="o">-</span><span class="n">sized</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">input</span><span class="w">
+
+   </span><span class="n">status</span><span class="o">=</span><span class="nc">LEVEL</span><span class="w">
+          </span><span class="nc">The</span><span class="w">  </span><span class="nc">LEVEL</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">information</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">print</span><span class="w">  </span><span class="n">to</span><span class="w"> </span><span class="n">stderr</span><span class="p">;</span><span class="w"> </span><span class="sc">&#39;none&#39;</span><span class="w"> </span><span class="n">suppresses</span><span class="w"> </span><span class="n">everything</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">messages</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;noxfer&#39;</span><span class="w"> </span><span class="n">suppresses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">statistics</span><span class="p">,</span><span class="w">
+          </span><span class="sc">&#39;progress&#39;</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">periodic</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">statistics</span><span class="w">
+
+   </span><span class="nc">N</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">BYTES</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">multiplicative</span><span class="w"> </span><span class="ss">suffixes</span><span class="p">:</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="n">kB</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="nc">K</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="nc">MB</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="nc">M</span><span class="o">=</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">,</span><span class="w">  </span><span class="n">xM</span><span class="o">=</span><span class="nc">M</span><span class="p">,</span><span class="w">  </span><span class="nc">GB</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+   </span><span class="nc">G</span><span class="o">=</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="nc">P</span><span class="p">,</span><span class="w"> </span><span class="nc">E</span><span class="p">,</span><span class="w"> </span><span class="nc">Z</span><span class="p">,</span><span class="w"> </span><span class="nc">Y</span><span class="o">.</span><span class="w">  </span><span class="nc">Binary</span><span class="w"> </span><span class="n">prefixes</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="ss">too</span><span class="p">:</span><span class="w"> </span><span class="nc">KiB</span><span class="o">=</span><span class="nc">K</span><span class="p">,</span><span class="w"> </span><span class="nc">MiB</span><span class="o">=</span><span class="nc">M</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="nc">CONV</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ss">be</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">ascii</span><span class="w">  </span><span class="n">from</span><span class="w"> </span><span class="nc">EBCDIC</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">ASCII</span><span class="w">
+
+   </span><span class="n">ebcdic</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">ASCII</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">EBCDIC</span><span class="w">
+
+   </span><span class="n">ibm</span><span class="w">    </span><span class="n">from</span><span class="w"> </span><span class="nc">ASCII</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="nc">EBCDIC</span><span class="w">
+
+   </span><span class="n">block</span><span class="w">  </span><span class="n">pad</span><span class="w"> </span><span class="n">newline</span><span class="o">-</span><span class="n">terminated</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cbs</span><span class="o">-</span><span class="n">size</span><span class="w">
+
+   </span><span class="n">unblock</span><span class="w">
+          </span><span class="n">replace</span><span class="w"> </span><span class="n">trailing</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cbs</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">newline</span><span class="w">
+
+   </span><span class="n">lcase</span><span class="w">  </span><span class="n">change</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="k">case</span><span class="w">
+
+   </span><span class="n">ucase</span><span class="w">  </span><span class="n">change</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="k">case</span><span class="w">
+
+   </span><span class="n">sparse</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">seek</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">all</span><span class="o">-</span><span class="nc">NUL</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">blocks</span><span class="w">
+
+   </span><span class="n">swab</span><span class="w">   </span><span class="n">swap</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">bytes</span><span class="w">
+
+   </span><span class="n">sync</span><span class="w">   </span><span class="n">pad</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">NULs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">ibs</span><span class="o">-</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unblock</span><span class="p">,</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="nc">NULs</span><span class="w">
+
+   </span><span class="n">excl</span><span class="w">   </span><span class="n">fail</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">exists</span><span class="w">
+
+   </span><span class="n">nocreat</span><span class="w">
+          </span><span class="k" data-group-id="4357232839-4">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="n">notrunc</span><span class="w">
+          </span><span class="k" data-group-id="4357232839-5">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">truncate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="n">noerror</span><span class="w">
+          </span><span class="n">continue</span><span class="w"> </span><span class="k" data-group-id="4357232839-5">after</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">errors</span><span class="w">
+
+   </span><span class="n">fdatasync</span><span class="w">
+          </span><span class="n">physically</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">finishing</span><span class="w">
+
+   </span><span class="n">fsync</span><span class="w">  </span><span class="n">likewise</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">metadata</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="nc">FLAG</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ss">be</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">append</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="4357232839-6">(</span><span class="n">makes</span><span class="w"> </span><span class="n">sense</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">output</span><span class="p">;</span><span class="w"> </span><span class="n">conv</span><span class="o">=</span><span class="n">notrunc</span><span class="w"> </span><span class="n">suggested</span><span class="p" data-group-id="4357232839-6">)</span><span class="w">
+
+   </span><span class="n">direct</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+   </span><span class="n">directory</span><span class="w">
+          </span><span class="n">fail</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w">
+
+   </span><span class="n">dsync</span><span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="n">synchronized</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+   </span><span class="n">sync</span><span class="w">   </span><span class="n">likewise</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">metadata</span><span class="w">
+
+   </span><span class="n">fullblock</span><span class="w">
+          </span><span class="n">accumulate</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p" data-group-id="4357232839-7">(</span><span class="n">iflag</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4357232839-7">)</span><span class="w">
+
+   </span><span class="n">nonblock</span><span class="w">
+          </span><span class="kn">use</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">blocking</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w">
+
+   </span><span class="n">noatime</span><span class="w">
+          </span><span class="k" data-group-id="4357232839-8">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">time</span><span class="w">
+
+   </span><span class="n">nocache</span><span class="w">
+          </span><span class="nc">Request</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="n">cache</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">oflag</span><span class="o">=</span><span class="n">sync</span><span class="w">
+
+   </span><span class="n">noctty</span><span class="w"> </span><span class="k" data-group-id="4357232839-9">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">assign</span><span class="w"> </span><span class="n">controlling</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="n">nofollow</span><span class="w">
+          </span><span class="k" data-group-id="4357232839-10">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">symlinks</span><span class="w">
+
+   </span><span class="n">count_bytes</span><span class="w">
+          </span><span class="n">treat</span><span class="w"> </span><span class="sc">&#39;count=N&#39;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p" data-group-id="4357232839-11">(</span><span class="n">iflag</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4357232839-11">)</span><span class="w">
+
+   </span><span class="n">skip_bytes</span><span class="w">
+          </span><span class="n">treat</span><span class="w"> </span><span class="sc">&#39;skip=N&#39;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p" data-group-id="4357232839-12">(</span><span class="n">iflag</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4357232839-12">)</span><span class="w">
+
+   </span><span class="n">seek_bytes</span><span class="w">
+          </span><span class="n">treat</span><span class="w"> </span><span class="sc">&#39;seek=N&#39;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p" data-group-id="4357232839-13">(</span><span class="n">oflag</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4357232839-13">)</span><span class="w">
+
+   </span><span class="nc">Sending</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">USR1</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="sc">&#39;dd&#39;</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">resume</span><span class="w"> </span><span class="n">copying</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Options</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="n">output</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Paul</span><span class="w"> </span><span class="nc">Rubin</span><span class="p">,</span><span class="w"> </span><span class="nc">David</span><span class="w"> </span><span class="nc">MacKenzie</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Stuart</span><span class="w"> </span><span class="nc">Kemp</span><span class="o">.</span></code></pre><p>REPORTING BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">GNU</span><span class="w"> </span><span class="n">coreutils</span><span class="w"> </span><span class="n">online</span><span class="w"> </span><span class="ss">help</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">coreutils</span><span class="o">/</span><span class="o">&gt;</span><span class="w">
+   </span><span class="nc">Report</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">translation</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">translationproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">team</span><span class="o">/</span><span class="o">&gt;</span></code></pre><p>COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Copyright</span><span class="w"> </span><span class="err">©</span><span class="w"> </span><span class="mi">2020</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="p">,</span><span class="w"> </span><span class="nc">Inc</span><span class="o">.</span><span class="w">  </span><span class="nc">License</span><span class="w"> </span><span class="nc">GPLv3</span><span class="ss">+</span><span class="p">:</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">GPL</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">gpl</span><span class="o">.</span><span class="n">html</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="ss">software</span><span class="p">:</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">redistribute</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">  </span><span class="nc">There</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">NO</span><span class="w"> </span><span class="nc">WARRANTY</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">permitted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">law</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Full</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">coreutils</span><span class="o">/</span><span class="n">dd</span><span class="o">&gt;</span><span class="w">
+   </span><span class="ow">or</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">locally</span><span class="w"> </span><span class="ss">via</span><span class="p">:</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="sc">&#39;(coreutils) dd invocation&#39;</span></code></pre><p>GNU coreutils 8.32                                                         September 2020                                                                      DD(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>ifstat — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  IFSTAT</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ifstat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Report</span><span class="w"> </span><span class="nc">InterFace</span><span class="w"> </span><span class="nc">STATistics</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ifstat</span><span class="w"> </span><span class="p" data-group-id="8023380151-1">[</span><span class="o">-</span><span class="n">a</span><span class="p" data-group-id="8023380151-1">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-2">[</span><span class="o">-</span><span class="n">l</span><span class="p" data-group-id="8023380151-2">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-3">[</span><span class="o">-</span><span class="n">z</span><span class="p" data-group-id="8023380151-3">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-4">[</span><span class="o">-</span><span class="n">n</span><span class="p" data-group-id="8023380151-4">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-5">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="8023380151-5">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-6">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="8023380151-6">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-7">[</span><span class="o">-</span><span class="n">t</span><span class="p" data-group-id="8023380151-7">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-8">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">if0</span><span class="p">,</span><span class="n">if1</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="8023380151-8">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-9">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">drv</span><span class="p" data-group-id="8023380151-10">[</span><span class="ss">:opt</span><span class="p" data-group-id="8023380151-10">]</span><span class="p" data-group-id="8023380151-9">]</span><span class="w"> </span><span class="p" data-group-id="8023380151-11">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="p" data-group-id="8023380151-12">[</span><span class="n">comm</span><span class="err">@</span><span class="p" data-group-id="8023380151-12">]</span><span class="p" data-group-id="8023380151-13">[</span><span class="c1">#]host[/nn]] [-T] [-A] [-w] [-W] [-S] [-b] [-q] [delay[/delay] [count]]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Ifstat</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">little</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">iostat</span><span class="o">/</span><span class="n">vmstat</span><span class="w"> </span><span class="k" data-group-id="5290560109-1">do</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">statistics</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">ifstat</span><span class="w"> </span><span class="n">accepts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">l</span><span class="w">  </span><span class="nc">Enables</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">loopback</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">available</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">ifstat</span><span class="w"> </span><span class="n">monitors</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">loopback</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">up</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">a</span><span class="w">  </span><span class="nc">Enables</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">available</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">z</span><span class="w">  </span><span class="nc">Hides</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">counters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w"> </span><span class="n">eg</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">i</span><span class="w">  </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">monitor</span><span class="p">,</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">commas</span><span class="w"> </span><span class="p" data-group-id="0230745493-1">(</span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comma</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">escaped</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="sc">&#39;</span><span class="se">\&#39;</span><span class="sc">). Multiple instances of
+        the options are added together.
+
+    -s  Equivalent to -d snmp:[comm@][#]host[/nn]] to poll a remote host through SNMP. See below for details.
+
+    -h  Displays a short help message.
+
+    -n  Turns off displaying the header periodically.
+
+    -t  Adds a timestamp at the beginning of each line.
+
+    -T  Reports total bandwith for all monitored interfaces.
+
+    -A  Disables use of interface indexes: by default, when polling mechanism is index based (snmp, ifmib), ifstat remembers indexes of monitored interfaces to
+        poll only them. However, if interfaces indexes change often (new interfaces added, etc), you might loose some stats, hence this flag. Note that if you
+        ask ifstat to monitor a non existent interface, it will poll all interfaces until it finds the requested one (regardless of this flag) so you can poll
+        for an interface that goes up and down.
+
+    -w  Uses fixed width columns, instead of enlarging them if needed for interfaces names to fit.
+
+    -W  Wrap lines that are larger than the terminal width (implies -w). Wrapped lines are prefixed with a cycling letter to ease reading.
+
+    -S  Keep stats updated on the same line if possible (no scrolling nor wrapping).
+
+    -b  Reports bandwith in kbits/sec instead of kbytes/sec.
+
+    -q  Quiet mode, warnings are not printed.
+
+    -v  Displays version and the compiled-in drivers.
+
+    -d  Specifies a driver to use to gather stats and an eventual option for this driver separated of the driver name by a colon. If this is not specified, ifs‐
+        tat uses the first driver compiled in, with no options.
+
+        The following drivers are available (depending on the operating system and compile-time options, not all of them might be present):
+
+        proc
+            This driver gets statistics from Linux&#39;</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">net</span><span class="o">/</span><span class="n">dev</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">An</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+        </span><span class="n">ifmib</span><span class="w">
+            </span><span class="nc">This</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">FreeBSD</span><span class="sc">&#39;s ifmib sysctl. It doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+        </span><span class="n">kstat</span><span class="w">
+            </span><span class="nc">This</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Solaris</span><span class="w"> </span><span class="n">kstat</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t accept any options.
+
+        ifdata
+            This driver gets statistics using SIOCGIFDATA ioctl under IRIX and OpenBSD (different semantics). It doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+        </span><span class="n">route</span><span class="w">
+            </span><span class="nc">This</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">routing</span><span class="w"> </span><span class="n">sysctl</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">systems</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t accept any options.
+
+        kvm This driver gets statistics by reading the kernel live structures. It accepts an option specifying which files/devices to use in the following format
+            : [execfile][,[corefile][,swapfile]] (see kvm_open(3) for details on those fields). If a null string is passed for a parameter, the system default
+            will be used for it.
+
+            Note that for this driver to work, ifstat needs to have read access to the system memory device. This is usually done by running it as root, or by
+            installing setgid mem or kmem. ifstat will NOT install setgid by default; It is up to you to decide if you trust it.
+
+        dlpi
+            This driver gets statistics using the DLPI streams interface available on HP-UX. An alternate device to query statistics from can be passed as the
+            option (default is /dev/dlpi).
+
+        win32
+            This driver gets statistics using the GetIfTable interface available on Win32 systems. It doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+        </span><span class="n">snmp</span><span class="w">
+            </span><span class="nc">This</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="nc">SNMP</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="p" data-group-id="0230745493-2">[</span><span class="n">comm</span><span class="err">@</span><span class="p" data-group-id="0230745493-2">]</span><span class="p" data-group-id="0230745493-3">[</span><span class="c1">#]host[/nn]], specifies the host and eventual community to poll. Default</span><span class="w">
+            </span><span class="n">community</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">public</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">prepending</span><span class="w"> </span><span class="s">&quot;comm@&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostname</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="c1">#, interface names are generated from their index</span><span class="w">
+            </span><span class="n">as</span><span class="w"> </span><span class="err">`</span><span class="n">ifNN</span><span class="sc">&#39; (this is a workaround for some equipments that give all interfaces the same description). Default host is localhost, and this will be used
+            by default if snmp is the only available driver.
+
+            The driver will try to poll several interfaces at once by grouping requests in SNMP packets. By default interfaces will be polled by group of 8. If
+            this doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">equipments</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">suffixing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">/</span><span class="n">nn</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">to</span><span class="w">
+            </span><span class="n">poll</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">once</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">poll</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">efficiently</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">delay</span><span class="w">
+        </span><span class="n">delay</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">decimal</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">intervals</span><span class="w"> </span><span class="n">shorter</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">second</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="0230745493-4">(</span><span class="n">minimum</span><span class="w"> </span><span class="mf">0.1</span><span class="p" data-group-id="0230745493-4">)</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="p" data-group-id="0230745493-5">(</span><span class="n">separated</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="sc">&#39;/&#39;</span><span class="p" data-group-id="0230745493-5">)</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">poll</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">start</span><span class="w">
+        </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">polls</span><span class="w"> </span><span class="p" data-group-id="0230745493-6">(</span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;fast&quot;</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="n">delay</span><span class="p" data-group-id="0230745493-6">)</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">count</span><span class="w">
+        </span><span class="n">count</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">stopping</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">unlimited</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">vmstat</span><span class="p" data-group-id="0665292061-1">(</span><span class="mi">1</span><span class="p" data-group-id="0665292061-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">iostat</span><span class="p" data-group-id="0665292061-2">(</span><span class="mi">1</span><span class="p" data-group-id="0665292061-2">)</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Ga</span><span class="n">ël</span><span class="w"> </span><span class="nc">Roualland</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">gael</span><span class="o">.</span><span class="n">roualland</span><span class="na">@dial</span><span class="o">.</span><span class="n">oleane</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p> ifstat 1.1                                                                   2003-11-22                                                                    IFSTAT(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="KaisenLinux v1.5.0">
+
+    <title>Install OS — KaisenLinux v1.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-9f40bfafb3.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+KaisenLinux
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.5.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="KaisenLinux" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Guides</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Install OS</h1><h2 id="modes" class="section-heading">
+  <a href="#modes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Modes
+</h2>
+<pre><code class="bash">*Kaisen Linux Install (Text mode)
+*Kaisen Linux Graphical Install (GUI mode)
+*Kaisen Linux Rescue Install (Text mode)
+*Kaisen Linux Rescue Install (GUI mode)
+*Kaisen Linux Expert Install (Text mode)
+*Kaisen Linux Expert Install (GUI mode)</code></pre><p>Installation in text mode, not on the command line, but in reality semi-graphic.<br></br>The GUI mode corresponds to the complete support of the graphic mode, with the support of the mouse and a graphical interface a little more advanced than the text mode.</p><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Description
+</h2>
+<p>So we have 3 different installation modes:  </p><ul><li>Normal</li><li>Rescue</li><li>Expert</li></ul><p>The <strong>normal mode</strong> simply corresponds to the classic process as it is configured in Kaisen Linux thanks to the preseed file (details in the next section).  </p><p>The <strong>rescue mode</strong> allows you to install the system in recovery mode in the event of a problem with an initial installation or in normal mode, he will suggest the use of a shell.. You will usually never have to use it, but if necessary, it can surely help you and solve your problems.  </p><p>The <strong>expert mode</strong> will allow you to install your system and customize it even more than with normal mode. It will allow you for example to precisely choose the keyboard model that suits you, for example if you have a particular layout. It also allows you to select certain modules to load from the installation media. Be careful what you do, however. Forgetting an important module could compromise your installation and/or make it unstable.  </p><p>You will understand, it is a mode made to personalize its installation as well as possible, but can also be difficult to take in hand for a beginner. Use this mode only if you really know what you are doing.<br></br>Note however that the preseed file and its configurations are taken into account in this mode.  </p><p>In the most classic cases, the normal mode will be more than enough.</p><h2 id="recommendations" class="section-heading">
+  <a href="#recommendations" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Recommendations
+</h2>
+<h3 id="installation-recommendations" class="section-heading">
+  <a href="#installation-recommendations" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installation recommendations
+</h3>
+<p>To install the system, nothing could be simpler!<br></br>You just need to follow the requested steps, and wait for the process to finish.<br></br>I will not detail here the installation process in rescue or expert mode (these modes are reserved for advanced users), but only what the installer does.<br></br>Here are the steps you will have to follow:  </p><ol><li>Select the language of the installer, the system and the keyboard</li><li>Select your hostname</li><li>Create your user and user password (you have to put password)</li><li>After it will ask you to partition your disk. For less advanced users, select assisted partitioning and put the whole system in a single partition</li><li>The system will then install</li><li>If you are in UEFI mode, which will surely happen on your current machines, once the installation is complete, the GRUB will automatically install in the right place and the PC will restart with your system ready for use.</li></ol><h3 id="partitioning-recommendations" class="section-heading">
+  <a href="#partitioning-recommendations" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Partitioning recommendations
+</h3>
+<p>On disks below 70Gb, if you use assisted partitioning on the installer do not ask to separate the partitions /home, /var and /tmp.<br></br>The system will leave little space on the / and can be problematic.<br></br>Here is the cause of the problem and how to fix it:  </p><p>Indeed, the root system, the / must have at least 15GB of space to be able to install the whole system. Below 70Gb, the / will be too small in size and the system unstable or may crash during installation due to lack of space to continue the operation.  </p><p>However, you will still be able to partition your disks yourself, use LVM, and encryption.  </p><p>But no matter which assisted partitioning mode you use, on small disks do not use partitioning with the 3 partitions mentioned above, you will have problems.  </p><p>I advise you to partition yourself by taking into account this constraint on the /.  </p><p>I also advise you to manage the partitioning of the disk yourself or to use LVM to facilitate the repartitioning of your disks in the future.</p><h2 id="preseed-file" class="section-heading">
+  <a href="#preseed-file" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Preseed file
+</h2>
+<p>The preseed file is a file used by the Debian installer (the default one is contained in the initrd generated by the installer, modifying it can completely alter the installer and make it absolutely unusable, even if it can be spotted without too many problems , avoid going that far).<br></br>It is for this reason, that we integrate during the construction of the ISO a file of preseed personalized to personalize the installer, so that to modify and rework it is much simpler than to regenerate all the package managing the preseed by defect and will avoid many problems and hours of galleys.<br></br>If we integrate a preseed file, it will be taken into account instead of the one provided by default.<br></br>Here are the configurations of the preseed file used to customize the Kaisen Linux installer:</p><pre><code class="bash">#Disable network configuration on the installer
+d-i netcfg/enable boolean false
+
+#Disable missing firmware message during network configuration
+d-i hw-detect/load_firmware boolean false
+
+#Change default hostname debian to kaisenlinux
+d-i netcfg/get_hostname string kaisenlinux
+d-i netcfg/get_hostname seen false
+
+#Upgrade installed packages
+d-i pkgsel/upgrade select full-upgrade
+
+#Do not ask to create a root password to force the creation of a user with reduced privileges
+d-i passwd/root-login boolean false
+
+#Do not activate volume wipe during encryption
+d-i partman-auto-crypto/erase_disks boolean false
+
+#Activate eatmydata to improve installation speed
+d-i preseed/early_command string anna-install eatmydata-udeb
+
+#Do not use an APT mirror (removes the question of the additional mirror for APT, useless here since everything is 
+already in ISO)
+d-i apt-setup/use_mirror boolean false
+
+#Delete the message at end installation and automatic reboot after finish install 
+d-i finish-install/reboot_in_progress note
+#Execute at command after system installation
+#d-i preseed/late_command string in-target rm /etc/apt/sources.list.d/kaisen.list</code></pre><p>It is thanks to this file that the Debian installer is customized and for this reason that certain processes, such as password request for root, network configuration and others do not exist on the ISO. The purpose of this file is to automate certain tasks (we can completely automate the installation using this file), as well as to customize the installer according to our needs.  </p><p>The choice not to leave to the installer, the choice to create a password for root is because using the default root account is highly discouraged as well as the custom terminal, although available on root by typing zsh in the terminal (bash was left by default to allow chroot), is by default available for users without privileges.</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

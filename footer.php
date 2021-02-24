@@ -18,15 +18,15 @@
 
       <!-- Column 2 Start -->
       <div class="col-md-3 col-sm-6 col-12">
-        <h3>Social links</h3>
+        <h3>Community links</h3>
         <div class="mt-25">
           <div class="footer-social-icons mt-25">
             <ul>
+	      <li><a href="https://forum.kaisenlinux.org" target ="_blank"><i class="fab fa-discourse"></i></a></li>
               <li><a href="https://gitlab.com/kaisenlinux" target="_blank"><i class="fab fa-gitlab"></i></a></li>
               <li><a href="https://github.com/kaisenlinux" target="_blank"><i class="fab fa-github"></i></a></li>
               <li><a href="https://linkedin.com/company/kaisenlinux" target="_blank"><i class="fab fa-linkedin"></i></a></li>
               <li><a href="https://twitter.com/KaisenLinuxOS" target="_blank"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="https://discord.gg/hkGsf7F" target="_blank"><i class="fab fa-discord"></i></a></li>
             </ul>
           </div>
         </div>
@@ -38,7 +38,7 @@
         <h3>Importants links</h3>
         <ul class="footer-list">
           <li><a href="https://distrowatch.com/dwres.php?waitingdistro=553&resource=links" target="_blank">Vote on Distrowatch (your click automatically vote)</a></li>
-          <li><a href="mailto:support@kaisen-linux.org">Support mail</a></li>
+          <li><a href="mailto:team@kaisenlinux.org">Contact mail</a></li>
         </ul>
       </div>
       <!-- Column 3 End -->

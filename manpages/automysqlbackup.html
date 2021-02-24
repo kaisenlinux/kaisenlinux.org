@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>automysqlbackup — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  automysqlbackup</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">automysqlbackup</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">daily</span><span class="p">,</span><span class="w"> </span><span class="n">weekly</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">monthly</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">     </span><span class="n">automysqlbackup</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">     </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">documents</span><span class="w"> </span><span class="n">briefly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">automysqlbackup</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+     </span><span class="n">configuration</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">automysqlbackup</span><span class="w"> </span><span class="n">file</span></code></pre><h2 id="parameters" class="section-heading">
+  <a href="#parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  PARAMETERS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">USER</span><span class="w"> </span><span class="nc">NAME</span><span class="o">=</span><span class="n">dbuser</span><span class="w">
+           </span><span class="nc">Username</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">dbuser</span><span class="w">
+
+    </span><span class="nc">PASSWORD</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+           </span><span class="nc">Username</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">password</span><span class="w">
+
+    </span><span class="nc">DBHOST</span><span class="o">=</span><span class="n">localhost</span><span class="w">
+           </span><span class="nc">Host</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="5000363172-1">(</span><span class="ow">or</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="p" data-group-id="5000363172-1">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">MySQL</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="w"> </span><span class="n">localhost</span><span class="w">
+
+    </span><span class="nc">DB</span><span class="w"> </span><span class="nc">NAMES</span><span class="o">=</span><span class="s">&quot;DB1 DB2 DB3&quot;</span><span class="w">
+           </span><span class="nc">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">DB</span><span class="w"> </span><span class="nc">NAMES</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Daily</span><span class="o">/</span><span class="nc">Weekly</span><span class="w"> </span><span class="nc">Backup</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="s">&quot;DB1 DB2 DB3&quot;</span><span class="w">
+
+    </span><span class="nc">BACKUPDIR</span><span class="o">=</span><span class="s">&quot;/backups&quot;</span><span class="w">
+           </span><span class="nc">Backup</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="w"> </span><span class="o">/</span><span class="n">backups</span><span class="w">
+
+    </span><span class="nc">MAILCONTENT</span><span class="o">=</span><span class="s">&quot;stdout&quot;</span><span class="w">
+           </span><span class="nc">Mail</span><span class="w"> </span><span class="n">setup</span><span class="w"> </span><span class="nc">What</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mailed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">you?</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="n">log</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">attachments</span><span class="w"> </span><span class="p" data-group-id="5000363172-2">(</span><span class="n">see</span><span class="w"> </span><span class="n">docs</span><span class="p" data-group-id="5000363172-2">)</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="n">stdout</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">manually</span><span class="o">.</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="n">quiet</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MAILADDR</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">MAXATTSIZE</span><span class="o">=</span><span class="s">&quot;4000&quot;</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">k</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="5000363172-3">(</span><span class="mi">4000</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">approx</span><span class="w"> </span><span class="mi">5</span><span class="nc">MB</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p" data-group-id="5000363172-4">[</span><span class="n">see</span><span class="w"> </span><span class="n">docs</span><span class="p" data-group-id="5000363172-4">]</span><span class="p" data-group-id="5000363172-3">)</span><span class="w">
+
+    </span><span class="nc">MAILADDR</span><span class="o">=</span><span class="s">&quot;user@domain.com&quot;</span><span class="w">
+           </span><span class="nc">Email</span><span class="w"> </span><span class="nc">Address</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">mail</span><span class="w"> </span><span class="n">to?</span><span class="w"> </span><span class="p" data-group-id="5000363172-5">(</span><span class="n">user</span><span class="na">@domain</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="5000363172-5">)</span></code></pre><h2 id="advanced-options" class="section-heading">
+  <a href="#advanced-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ADVANCED OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">MDB</span><span class="w"> </span><span class="nc">NAMES</span><span class="o">=</span><span class="s">&quot;mysql $DB NAMES&quot;</span><span class="w">
+           </span><span class="nc">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">DBB</span><span class="w"> </span><span class="nc">NAMES</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Monthly</span><span class="w"> </span><span class="nc">Backups</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">DBEXCLUDE</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
+           </span><span class="nc">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">DB</span><span class="w"> </span><span class="nc">NAMES</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">EXCLUDE</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">DB</span><span class="w"> </span><span class="nc">NAMES</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="p" data-group-id="7582233276-1">(</span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="s">&quot; quotes)
+
+    CREATE_DATABASE=yes
+           Include CREATE DATABASE in backup?
+
+    SEPDIR=yes
+           Separate backup directory and file for each DB? (yes or no)
+
+    DOWEEKLY=6
+           Which day do you want weekly backups at? (1 to 7 where 1 is Monday)
+
+    COMP=gzip
+           Choose Compression type. (gzip or bzip2)
+
+    COMMCOMP=no
+           Compress communications between backup server and MySQL server?
+
+    LATEST=no
+           Additionally keep a copy of the most recent backup in a separate directory.
+
+    MAX_ALLOWED_PACKET=
+           The maximum size of the buffer for client/server communication. e.g. 16MB (maximum i
+
+    SOCKET=
+           For connections to localhost. Sometimes the Unix socket file must be specified.
+
+    #PREBACKUP=&quot;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">automysqlbackup</span><span class="o">/</span><span class="n">mysql</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">pre</span><span class="s">&quot;
+           Command to run before backups (uncomment to use)
+
+    #POSTBACKUP=&quot;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">automysqlbackup</span><span class="o">/</span><span class="n">mysql</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">post</span><span class="err">&quot;</span><span class="w">
+           </span><span class="nc">Command</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">backups</span><span class="w"> </span><span class="p" data-group-id="7582233276-2">(</span><span class="n">uncomment</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="p" data-group-id="7582233276-2">)</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Jose</span><span class="w"> </span><span class="nc">Luis</span><span class="w"> </span><span class="nc">Tallon</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jltallon</span><span class="na">@adv</span><span class="o">-</span><span class="n">solutions</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">GNU</span><span class="o">/</span><span class="nc">Linux</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="o">.</span></code></pre><p> wipe_out                                                                     6 Sep 2008                                                           automysqlbackup(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

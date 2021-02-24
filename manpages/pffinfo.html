@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>pffinfo — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  pffinfo                                                                         LOCAL                                                                        pffinfo</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="n">pffinfo</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">determines</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Personal</span><span class="w"> </span><span class="nc">Folder</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="p" data-group-id="8367874960-1">(</span><span class="nc">OST</span><span class="p">,</span><span class="w"> </span><span class="nc">PAB</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">PST</span><span class="p" data-group-id="8367874960-1">)</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="n">pffinfo</span><span class="w"> </span><span class="p" data-group-id="7567269050-1">[</span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">codepage</span><span class="p" data-group-id="7567269050-1">]</span><span class="w"> </span><span class="p" data-group-id="7567269050-2">[</span><span class="o">-</span><span class="n">ahvV</span><span class="p" data-group-id="7567269050-2">]</span><span class="w"> </span><span class="n">source</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="n">pffinfo</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Personal</span><span class="w"> </span><span class="nc">Folder</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="p" data-group-id="5602126787-1">(</span><span class="nc">OST</span><span class="p">,</span><span class="w"> </span><span class="nc">PAB</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">PST</span><span class="p" data-group-id="5602126787-1">)</span><span class="w">
+
+  </span><span class="n">pffinfo</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">libpff</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="n">libpff</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Personal</span><span class="w"> </span><span class="nc">Folder</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="p" data-group-id="5602126787-2">(</span><span class="nc">OST</span><span class="p">,</span><span class="w"> </span><span class="nc">PAB</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">PST</span><span class="p" data-group-id="5602126787-2">)</span><span class="w"> </span><span class="n">format</span><span class="w">
+
+  </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+  </span><span class="nc">The</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
+
+  </span><span class="o">-</span><span class="n">a</span><span class="w">      </span><span class="n">shows</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="n">information</span><span class="w">
+
+  </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">codepage</span><span class="w">
+          </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">codepage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">ASCII</span><span class="w"> </span><span class="n">strings</span><span class="p">,</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w"> </span><span class="n">ascii</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">874</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">932</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">936</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">949</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">950</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1250</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1251</span><span class="p">,</span><span class="w">
+          </span><span class="n">windows</span><span class="o">-</span><span class="mi">1252</span><span class="w"> </span><span class="p" data-group-id="5602126787-3">(</span><span class="n">default</span><span class="p" data-group-id="5602126787-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1253</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1254</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1255</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1256</span><span class="p">,</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1257</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">windows</span><span class="o">-</span><span class="mi">1258</span><span class="w">
+
+  </span><span class="o">-</span><span class="n">h</span><span class="w">      </span><span class="n">shows</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w">
+
+  </span><span class="o">-</span><span class="n">v</span><span class="w">      </span><span class="n">verbose</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stderr</span><span class="w">
+
+  </span><span class="o">-</span><span class="nc">V</span><span class="w">      </span><span class="n">print</span><span class="w"> </span><span class="n">version</span></code></pre><h2 id="environment" class="section-heading">
+  <a href="#environment" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ENVIRONMENT
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">None</span></code></pre><h2 id="files" class="section-heading">
+  <a href="#files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  FILES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">None</span></code></pre><h2 id="examples" class="section-heading">
+  <a href="#examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="c1"># pffinfo -a file.pst</span><span class="w">
+  </span><span class="n">pffinfo</span><span class="w"> </span><span class="mi">20110107</span><span class="w">
+
+  </span><span class="nc">Personal</span><span class="w"> </span><span class="nc">Folder</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="ss">information</span><span class="p">:</span><span class="w">
+          </span><span class="nc">File</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w">              </span><span class="mi">271360</span><span class="w"> </span><span class="n">bytes</span><span class="w">
+          </span><span class="nc">File</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w">      </span><span class="nc">Personal</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Tables</span><span class="w"> </span><span class="p" data-group-id="2055775391-1">(</span><span class="nc">PST</span><span class="p" data-group-id="2055775391-1">)</span><span class="w">
+          </span><span class="nc">File</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w">              </span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="w">
+          </span><span class="nc">Encryption</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w">        </span><span class="n">compressible</span><span class="w">
+
+  </span><span class="nc">Message</span><span class="w"> </span><span class="ss">store</span><span class="p">:</span><span class="w">
+          </span><span class="ss">Folders</span><span class="p">:</span><span class="w">                </span><span class="nc">Subtree</span><span class="p">,</span><span class="w"> </span><span class="nc">Wastbox</span><span class="p">,</span><span class="w"> </span><span class="nc">Finder</span><span class="w">
+          </span><span class="nc">Password</span><span class="w"> </span><span class="ss">checksum</span><span class="p">:</span><span class="w">      </span><span class="nc">N</span><span class="o">/</span><span class="nc">A</span><span class="w">
+
+  </span><span class="nc">Unallocated</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="ss">blocks</span><span class="p">:</span><span class="w">
+          </span><span class="mi">00018944</span><span class="w"> </span><span class="p" data-group-id="2055775391-2">(</span><span class="mh">0x00004a00</span><span class="p" data-group-id="2055775391-2">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">00020480</span><span class="w"> </span><span class="p" data-group-id="2055775391-3">(</span><span class="mh">0x00005000</span><span class="p" data-group-id="2055775391-3">)</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">1536</span><span class="w">
+        </span><span class="n">...</span><span class="w">
+       </span><span class="mi">01051648</span><span class="w"> </span><span class="p" data-group-id="2055775391-4">(</span><span class="mh">0x00100c00</span><span class="p" data-group-id="2055775391-4">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">01052160</span><span class="w"> </span><span class="p" data-group-id="2055775391-5">(</span><span class="mh">0x00100e00</span><span class="p" data-group-id="2055775391-5">)</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="w">
+
+  </span><span class="nc">Unallocated</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ss">blocks</span><span class="p">:</span><span class="w">
+       </span><span class="mi">00025024</span><span class="w"> </span><span class="p" data-group-id="2055775391-6">(</span><span class="mh">0x000061c0</span><span class="p" data-group-id="2055775391-6">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">00025536</span><span class="w"> </span><span class="p" data-group-id="2055775391-7">(</span><span class="mh">0x000063c0</span><span class="p" data-group-id="2055775391-7">)</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="w">
+        </span><span class="n">...</span><span class="w">
+       </span><span class="mi">01353664</span><span class="w"> </span><span class="p" data-group-id="2055775391-8">(</span><span class="mh">0x0014a7c0</span><span class="p" data-group-id="2055775391-8">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">01541120</span><span class="w"> </span><span class="p" data-group-id="2055775391-9">(</span><span class="mh">0x00178400</span><span class="p" data-group-id="2055775391-9">)</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">187456</span></code></pre><p> DIAGNOSTICS</p><pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">Errors</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stderr</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">  </span><span class="nc">Verbose</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">compila</span><span class="err">‐</span><span class="w">
+  </span><span class="n">tion</span><span class="o">.</span></code></pre><h2 id="bugs" class="section-heading">
+  <a href="#bugs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  BUGS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">Please</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joachim</span><span class="o">.</span><span class="n">metz</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="ss">website</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">libyal</span><span class="o">/</span><span class="n">libpff</span><span class="o">/</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">These</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Joachim</span><span class="w"> </span><span class="nc">Metz</span><span class="o">.</span></code></pre><p> COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="nc">Copyright</span><span class="w"> </span><span class="p" data-group-id="1096316051-1">(</span><span class="nc">C</span><span class="p" data-group-id="1096316051-1">)</span><span class="w"> </span><span class="mi">2008</span><span class="o">-</span><span class="mi">2018</span><span class="p">,</span><span class="w"> </span><span class="nc">Joachim</span><span class="w"> </span><span class="nc">Metz</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joachim</span><span class="o">.</span><span class="n">metz</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">software</span><span class="p">;</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">copying</span><span class="w"> </span><span class="n">conditions</span><span class="o">.</span><span class="w"> </span><span class="nc">There</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">NO</span><span class="w"> </span><span class="n">warranty</span><span class="p">;</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">even</span><span class="w">
+  </span><span class="k">for</span><span class="w"> </span><span class="nc">MERCHANTABILITY</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">FITNESS</span><span class="w"> </span><span class="nc">FOR</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="nc">PARTICULAR</span><span class="w"> </span><span class="nc">PURPOSE</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="n">pffexport</span><span class="p" data-group-id="3692022889-1">(</span><span class="mi">1</span><span class="p" data-group-id="3692022889-1">)</span></code></pre><p> libpff                                                                     January 1, 2017                                                                    libpff</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

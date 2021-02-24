@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>glusterfsd — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  GlusterFS</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">GlusterFS</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Clustered</span><span class="w"> </span><span class="nc">Filesystem</span><span class="o">.</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">glusterfsd</span><span class="w"> </span><span class="p" data-group-id="8404892093-1">[</span><span class="n">options</span><span class="p" data-group-id="8404892093-1">]</span><span class="w"> </span><span class="p" data-group-id="8404892093-2">[</span><span class="n">mountpoint</span><span class="p" data-group-id="8404892093-2">]</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">GlusterFS</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clustered</span><span class="w"> </span><span class="n">file</span><span class="o">-</span><span class="n">system</span><span class="w"> </span><span class="n">capable</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">scaling</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">peta</span><span class="o">-</span><span class="n">bytes</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">aggregates</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">bricks</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="nc">Infiniband</span><span class="w"> </span><span class="nc">RDMA</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">TCP</span><span class="o">/</span><span class="nc">IP</span><span class="w"> </span><span class="n">intercon</span><span class="err">‐</span><span class="w">
+    </span><span class="n">nect</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">parallel</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="n">bricks</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">commodity</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">x86</span><span class="o">-</span><span class="mi">64</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">SATA</span><span class="o">-</span><span class="nc">II</span><span class="w"> </span><span class="nc">RAID</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Infiniband</span><span class="w">
+    </span><span class="nc">HBA</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">GlusterFS</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">fully</span><span class="w">  </span><span class="nc">POSIX</span><span class="w">  </span><span class="n">compliant</span><span class="w">  </span><span class="nc">FileSystem</span><span class="o">.</span><span class="w"> </span><span class="nc">On</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">side</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">F</span><span class="c1">## USEpackage, on server side, it works seemlessly on different OSes.</span><span class="w">
+    </span><span class="p" data-group-id="5836018450-1">(</span><span class="nc">Currently</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">GNU</span><span class="o">/</span><span class="nc">Linux</span><span class="p">,</span><span class="w"> </span><span class="nc">Solaris</span><span class="p" data-group-id="5836018450-1">)</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Mandatory</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+</span><span class="nc">Basic</span><span class="w"> </span><span class="n">options</span><span class="w">
+    </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">volfile</span><span class="o">=</span><span class="nc">VOLUME</span><span class="o">-</span><span class="nc">FILE</span><span class="w">
+           </span><span class="nc">File</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">VOLUME</span><span class="o">-</span><span class="nc">FILE</span><span class="w"> </span><span class="p" data-group-id="7037337617-1">[</span><span class="n">default</span><span class="ss">:/</span><span class="n">etc</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">.</span><span class="n">vol</span><span class="p" data-group-id="7037337617-1">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="nc">LOGFILE</span><span class="w">
+           </span><span class="nc">File</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">logging</span><span class="w"> </span><span class="p" data-group-id="7037337617-2">[</span><span class="n">default</span><span class="ss">:/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">.</span><span class="n">log</span><span class="p" data-group-id="7037337617-2">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">level</span><span class="o">=</span><span class="nc">LOGLEVEL</span><span class="w">
+           </span><span class="nc">Logging</span><span class="w"> </span><span class="n">severity</span><span class="o">.</span><span class="w">  </span><span class="nc">Valid</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="nc">TRACE</span><span class="p">,</span><span class="w"> </span><span class="nc">DEBUG</span><span class="p">,</span><span class="w"> </span><span class="nc">INFO</span><span class="p">,</span><span class="w"> </span><span class="nc">WARNING</span><span class="p">,</span><span class="w"> </span><span class="nc">ERROR</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">CRITICAL</span><span class="w"> </span><span class="p" data-group-id="7037337617-3">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="nc">WARNING</span><span class="p" data-group-id="7037337617-3">]</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">volfile</span><span class="o">-</span><span class="n">server</span><span class="o">=</span><span class="nc">SERVER</span><span class="w">
+           </span><span class="nc">Server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">from</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">overrides</span><span class="w"> </span><span class="o">--</span><span class="n">volfile</span><span class="w"> </span><span class="n">option</span><span class="w">
+
+</span><span class="nc">Advanced</span><span class="w"> </span><span class="n">options</span><span class="w">
+    </span><span class="o">--</span><span class="n">localtime</span><span class="o">-</span><span class="n">logging</span><span class="w">
+           </span><span class="nc">Enable</span><span class="w"> </span><span class="n">localtime</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">timestamps</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">debug</span><span class="w">
+           </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">daemon</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">DEBUG</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">console</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">N</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">daemon</span><span class="w">
+           </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">foreground</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w">
+           </span><span class="nc">Makes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">pid</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="nc">PIDFILE</span><span class="w">
+           </span><span class="nc">File</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="nc">SOCKFILE</span><span class="w">
+           </span><span class="nc">Socket</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inter</span><span class="o">-</span><span class="n">process</span><span class="w"> </span><span class="n">communication</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">brick</span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="nc">DIRECTORY</span><span class="w">
+           </span><span class="nc">Directory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">GlusterFS</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">brick</span><span class="o">-</span><span class="n">port</span><span class="w"> </span><span class="nc">PORT</span><span class="w">
+           </span><span class="nc">Brick</span><span class="w"> </span><span class="nc">Port</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Gluster</span><span class="w"> </span><span class="n">portmapper</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">volfile</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="nc">KEY</span><span class="w">
+           </span><span class="nc">KEY</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">fetched</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">volfile</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="nc">PORT</span><span class="w">
+           </span><span class="nc">Port</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">volfile</span><span class="w"> </span><span class="n">server</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">volfile</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">transport</span><span class="o">=</span><span class="nc">TRANSPORT</span><span class="w">
+           </span><span class="nc">Transport</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p" data-group-id="7037337617-4">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">tcp</span><span class="p" data-group-id="7037337617-4">]</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">volume</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="nc">VOLUME</span><span class="o">-</span><span class="c1">## NAME</span><span class="w">
+           </span><span class="nc">Volume</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">MOUNT</span><span class="o">-</span><span class="nc">POINT</span><span class="w"> </span><span class="p" data-group-id="7037337617-5">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">VOLUME</span><span class="o">-</span><span class="nc">FILE</span><span class="p" data-group-id="7037337617-5">]</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">xlator</span><span class="o">-</span><span class="n">option</span><span class="o">=</span><span class="nc">VOLUME</span><span class="o">-</span><span class="c1">## NAME.OPTION=VALUE</span><span class="w">
+           </span><span class="nc">Add</span><span class="o">/</span><span class="n">override</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">translator</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">value</span><span class="w">
+
+</span><span class="nc">Fuse</span><span class="w"> </span><span class="n">options</span><span class="w">
+    </span><span class="o">--</span><span class="n">attribute</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="nc">SECONDS</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">SECONDS</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inodes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fuse</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p" data-group-id="7037337617-6">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="7037337617-6">]</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">entry</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="nc">SECONDS</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">SECONDS</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fuse</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p" data-group-id="7037337617-7">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="7037337617-7">]</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">direct</span><span class="o">-</span><span class="n">io</span><span class="o">-</span><span class="n">mode</span><span class="o">=</span><span class="nc">BOOL</span><span class="w">
+           </span><span class="nc">Enable</span><span class="o">/</span><span class="nc">Disable</span><span class="w"> </span><span class="n">direct</span><span class="o">-</span><span class="n">io</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fuse</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="p" data-group-id="7037337617-8">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">enable</span><span class="p" data-group-id="7037337617-8">]</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">resolve</span><span class="o">-</span><span class="n">gids</span><span class="w">
+           </span><span class="nc">Resolve</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">auxiliary</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fuse</span><span class="w"> </span><span class="n">translator</span><span class="w"> </span><span class="p" data-group-id="7037337617-9">(</span><span class="n">max</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="n">otherwise</span><span class="p" data-group-id="7037337617-9">)</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">auto</span><span class="o">-</span><span class="n">invalidation</span><span class="o">=</span><span class="nc">BOOL</span><span class="w">
+           </span><span class="n">controls</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">fuse</span><span class="o">-</span><span class="n">kernel</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">auto</span><span class="o">-</span><span class="n">invalidate</span><span class="w"> </span><span class="n">attribute</span><span class="p">,</span><span class="w"> </span><span class="n">dentry</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">page</span><span class="o">-</span><span class="n">cache</span><span class="o">.</span><span class="w"> </span><span class="nc">Disable</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">files</span><span class="o">/</span><span class="n">directories</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">accessed</span><span class="w"> </span><span class="n">across</span><span class="w">
+           </span><span class="n">two</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">concurrently</span><span class="w"> </span><span class="p" data-group-id="7037337617-10">[</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">on</span><span class="p" data-group-id="7037337617-10">]</span><span class="w">
+
+</span><span class="nc">Miscellaneous</span><span class="w"> </span><span class="nc">Options</span><span class="w">
+    </span><span class="o">-</span><span class="sc">?,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+           </span><span class="nc">Give</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">list</span><span class="w">
+
+    </span><span class="o">--</span><span class="n">usage</span><span class="w">
+           </span><span class="nc">Give</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">message</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+           </span><span class="nc">Print</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">version</span></code></pre><h2 id="files" class="section-heading">
+  <a href="#files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  FILES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="o">*</span><span class="o">.</span><span class="n">vol</span></code></pre><h2 id="examples" class="section-heading">
+  <a href="#examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Start</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">GlusterFS</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">localhost</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">foo</span><span class="w">
+
+    </span><span class="n">glusterfsd</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">localhost</span><span class="w"> </span><span class="o">--</span><span class="n">volfile</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="n">foo</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">media</span><span class="o">-</span><span class="n">disk</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">glusterd</span><span class="o">/</span><span class="n">vols</span><span class="o">/</span><span class="n">foo</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">server</span><span class="o">-</span><span class="n">media</span><span class="o">-</span><span class="n">disk</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="n">pid</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="o">&lt;</span><span class="n">uniqueid</span><span class="o">&gt;</span><span class="o">.</span><span class="n">socket</span><span class="w"> </span><span class="o">--</span><span class="n">brick</span><span class="o">-</span><span class="n">name</span><span class="w">
+    </span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">disk</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">glusterfs</span><span class="o">/</span><span class="n">bricks</span><span class="o">/</span><span class="n">media</span><span class="o">-</span><span class="n">disk</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="n">log</span><span class="w"> </span><span class="o">--</span><span class="n">brick</span><span class="o">-</span><span class="n">port</span><span class="w"> </span><span class="mi">24009</span><span class="w"> </span><span class="o">--</span><span class="n">xlator</span><span class="o">-</span><span class="n">option</span><span class="w"> </span><span class="n">foo</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">listen</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">24009</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">fusermount</span><span class="p" data-group-id="5717813865-1">(</span><span class="mi">1</span><span class="p" data-group-id="5717813865-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">glusterfs</span><span class="p" data-group-id="5717813865-2">(</span><span class="mi">8</span><span class="p" data-group-id="5717813865-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">gluster</span><span class="p" data-group-id="5717813865-3">(</span><span class="mi">8</span><span class="p" data-group-id="5717813865-3">)</span></code></pre><p> COPYRIGHT</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Copyright</span><span class="p" data-group-id="9064286460-1">(</span><span class="n">c</span><span class="p" data-group-id="9064286460-1">)</span><span class="w"> </span><span class="mi">2006</span><span class="o">-</span><span class="mi">2011</span><span class="w">  </span><span class="nc">Gluster</span><span class="p">,</span><span class="w"> </span><span class="nc">Inc</span><span class="o">.</span><span class="w">  </span><span class="o">&lt;</span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">gluster</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p> 19 March 2010                                                            Cluster Filesystem                                                             GlusterFS(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

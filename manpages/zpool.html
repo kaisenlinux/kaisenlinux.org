@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>zpool — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  zpool</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">zpool</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">pools</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">zpool</span><span class="w"> </span><span class="p" data-group-id="5529158003-1">[</span><span class="o">-</span><span class="sc">?]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="p" data-group-id="5529158003-2">[</span><span class="o">-</span><span class="k" data-group-id="5529158003-3">fn</span><span class="p">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-4">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-4">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">attach</span><span class="w"> </span><span class="p" data-group-id="5529158003-5">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-5">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-6">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-6">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">new_device</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="p" data-group-id="5529158003-7">[</span><span class="o">-</span><span class="nc">F</span><span class="w"> </span><span class="p" data-group-id="5529158003-8">[</span><span class="o">-</span><span class="n">n</span><span class="p" data-group-id="5529158003-8">]</span><span class="p" data-group-id="5529158003-7">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="p" data-group-id="5529158003-9">[</span><span class="n">device</span><span class="p" data-group-id="5529158003-9">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="p" data-group-id="5529158003-10">[</span><span class="o">-</span><span class="k" data-group-id="5529158003-11">fn</span><span class="p">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-12">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-12">]</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="5529158003-13">[</span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">file</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-13">]</span><span class="w">
+         </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="5529158003-14">[</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">mountpoint</span><span class="p" data-group-id="5529158003-14">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-15">[</span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="n">root</span><span class="p" data-group-id="5529158003-15">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">destroy</span><span class="w"> </span><span class="p" data-group-id="5529158003-16">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-16">]</span><span class="w"> </span><span class="n">pool</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">detach</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="p" data-group-id="5529158003-17">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-17">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">property</span><span class="p" data-group-id="5529158003-18">[</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="5529158003-18">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="p" data-group-id="5529158003-19">[</span><span class="o">-</span><span class="n">il</span><span class="p" data-group-id="5529158003-19">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-20">[</span><span class="n">pool</span><span class="p" data-group-id="5529158003-20">]</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="p" data-group-id="5529158003-21">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">dir</span><span class="p" data-group-id="5529158003-21">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-22">[</span><span class="o">-</span><span class="nc">D</span><span class="p" data-group-id="5529158003-22">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="p" data-group-id="5529158003-23">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">mntopts</span><span class="p" data-group-id="5529158003-23">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-24">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-24">]</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="5529158003-25">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">cachefile</span><span class="p" data-group-id="5529158003-25">]</span><span class="w">
+         </span><span class="p" data-group-id="5529158003-26">[</span><span class="o">-</span><span class="nc">D</span><span class="p" data-group-id="5529158003-26">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-27">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-27">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-28">[</span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="n">root</span><span class="p" data-group-id="5529158003-28">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-29">[</span><span class="o">-</span><span class="nc">F</span><span class="w"> </span><span class="p" data-group-id="5529158003-30">[</span><span class="o">-</span><span class="n">n</span><span class="p" data-group-id="5529158003-30">]</span><span class="p" data-group-id="5529158003-29">]</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="p" data-group-id="5529158003-31">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">mntopts</span><span class="p" data-group-id="5529158003-31">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-32">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-32">]</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="5529158003-33">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">cachefile</span><span class="p" data-group-id="5529158003-33">]</span><span class="w">
+         </span><span class="p" data-group-id="5529158003-34">[</span><span class="o">-</span><span class="nc">D</span><span class="p" data-group-id="5529158003-34">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-35">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-35">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-36">[</span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="n">root</span><span class="p" data-group-id="5529158003-36">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-37">[</span><span class="o">-</span><span class="nc">F</span><span class="w"> </span><span class="p" data-group-id="5529158003-38">[</span><span class="o">-</span><span class="n">n</span><span class="p" data-group-id="5529158003-38">]</span><span class="p" data-group-id="5529158003-37">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">|</span><span class="n">id</span><span class="w"> </span><span class="p" data-group-id="5529158003-39">[</span><span class="n">newpool</span><span class="p" data-group-id="5529158003-39">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="p" data-group-id="5529158003-40">[</span><span class="o">-</span><span class="nc">T</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p" data-group-id="5529158003-40">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-41">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="5529158003-41">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-42">[</span><span class="n">pool</span><span class="p" data-group-id="5529158003-42">]</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="5529158003-43">[</span><span class="n">interval</span><span class="p" data-group-id="5529158003-44">[</span><span class="n">count</span><span class="p" data-group-id="5529158003-44">]</span><span class="p" data-group-id="5529158003-43">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p" data-group-id="5529158003-45">[</span><span class="o">-</span><span class="nc">H</span><span class="p" data-group-id="5529158003-45">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-46">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="p" data-group-id="5529158003-47">[</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="5529158003-47">]</span><span class="p" data-group-id="5529158003-46">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-48">[</span><span class="n">pool</span><span class="p" data-group-id="5529158003-48">]</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">offline</span><span class="w"> </span><span class="p" data-group-id="5529158003-49">[</span><span class="o">-</span><span class="n">t</span><span class="p" data-group-id="5529158003-49">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">online</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="p" data-group-id="5529158003-50">[</span><span class="o">-</span><span class="n">f</span><span class="p" data-group-id="5529158003-50">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="5529158003-51">[</span><span class="n">new_device</span><span class="p" data-group-id="5529158003-51">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">scrub</span><span class="w"> </span><span class="p" data-group-id="5529158003-52">[</span><span class="o">-</span><span class="n">s</span><span class="p" data-group-id="5529158003-52">]</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="w"> </span><span class="n">pool</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="p" data-group-id="5529158003-53">[</span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="n">altroot</span><span class="p" data-group-id="5529158003-53">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-54">[</span><span class="o">-</span><span class="n">n</span><span class="p" data-group-id="5529158003-54">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-55">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">mntopts</span><span class="p" data-group-id="5529158003-55">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-56">[</span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="5529158003-56">]</span><span class="w"> </span><span class="n">pool</span><span class="w">
+         </span><span class="n">newpool</span><span class="w"> </span><span class="p" data-group-id="5529158003-57">[</span><span class="n">device</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="5529158003-57">]</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p" data-group-id="5529158003-58">[</span><span class="o">-</span><span class="n">xv</span><span class="p" data-group-id="5529158003-58">]</span><span class="w"> </span><span class="p" data-group-id="5529158003-59">[</span><span class="n">pool</span><span class="p" data-group-id="5529158003-59">]</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w"> </span><span class="p" data-group-id="5529158003-60">[</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">version</span><span class="p" data-group-id="5529158003-60">]</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">...</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">The</span><span class="w">  </span><span class="n">zpool</span><span class="w">  </span><span class="n">command</span><span class="w">  </span><span class="n">configures</span><span class="w">  </span><span class="nc">ZFS</span><span class="w">  </span><span class="n">storage</span><span class="w">  </span><span class="n">pools</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w">  </span><span class="n">storage</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">replication</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">ZFS</span><span class="w">
+    </span><span class="n">datasets</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">All</span><span class="w"> </span><span class="n">datasets</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">zfs</span><span class="p" data-group-id="0452076888-1">(</span><span class="mi">1</span><span class="nc">M</span><span class="p" data-group-id="0452076888-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">managing</span><span class="w"> </span><span class="n">datasets</span><span class="o">.</span><span class="w">
+
+</span><span class="nc">Virtual</span><span class="w"> </span><span class="nc">Devices</span><span class="w"> </span><span class="p" data-group-id="0452076888-2">(</span><span class="n">vdevs</span><span class="p" data-group-id="0452076888-2">)</span><span class="w">
+    </span><span class="nc">A</span><span class="w"> </span><span class="s">&quot;virtual device&quot;</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">organized</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">performance</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">fault</span><span class="w"> </span><span class="n">characteristics</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w">  </span><span class="n">following</span><span class="w">
+    </span><span class="n">virtual</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ss">supported</span><span class="p">:</span><span class="w">
+
+    </span><span class="n">disk</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w">  </span><span class="n">block</span><span class="w">  </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">located</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">dsk</span><span class="o">.</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="n">slices</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">partitions</span><span class="p">,</span><span class="w"> </span><span class="n">though</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">whole</span><span class="w">
+        </span><span class="n">disks</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shorthand</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="0452076888-3">(</span><span class="n">the</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">portion</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="s">&quot;/dev/dsk&quot;</span><span class="p" data-group-id="0452076888-3">)</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w">  </span><span class="n">whole</span><span class="w">  </span><span class="n">disk</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w">
+        </span><span class="n">specified</span><span class="w">  </span><span class="n">by</span><span class="w"> </span><span class="n">omitting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">slice</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">designation</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c0t0d0&quot;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="s">&quot;/dev/dsk/c0t0d0s2&quot;</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">disk</span><span class="p">,</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">auto</span><span class="err">‐</span><span class="w">
+        </span><span class="n">matically</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">file</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">backing</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">discouraged</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="n">primarily</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">experimental</span><span class="w"> </span><span class="n">purposes</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">fault</span><span class="w">  </span><span class="n">tolerance</span><span class="w">
+        </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">part</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">mirror</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">replicated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">identical</span><span class="w"> </span><span class="n">fashion</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mirror</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="nc">X</span><span class="w">
+        </span><span class="n">bytes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">withstand</span><span class="w"> </span><span class="p" data-group-id="0452076888-4">(</span><span class="nc">N</span><span class="o">-</span><span class="mi">1</span><span class="p" data-group-id="0452076888-4">)</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">failing</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">compromised</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">raidz</span><span class="w">
+    </span><span class="n">raidz1</span><span class="w">
+    </span><span class="n">raidz2</span><span class="w">
+    </span><span class="n">raidz3</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">variation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">RAID</span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">parity</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">eliminates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;RAID-5 write hole&quot;</span><span class="w"> </span><span class="p" data-group-id="0452076888-5">(</span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">parity</span><span class="w"> </span><span class="n">become</span><span class="w">  </span><span class="n">inconsistent</span><span class="w">
+        </span><span class="k">after</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">power</span><span class="w"> </span><span class="n">loss</span><span class="p" data-group-id="0452076888-5">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">parity</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">striped</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="o">.</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w">  </span><span class="n">raidz</span><span class="w">  </span><span class="n">group</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="o">-</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">parity</span><span class="p">,</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">sustain</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">failures</span><span class="p">,</span><span class="w"> </span><span class="n">respectively</span><span class="p">,</span><span class="w"> </span><span class="n">without</span><span class="w">
+        </span><span class="n">losing</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">raidz1</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="n">parity</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="p">;</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raidz2</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">double</span><span class="o">-</span><span class="n">parity</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="p">;</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">raidz3</span><span class="w">
+        </span><span class="n">vdev</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">triple</span><span class="o">-</span><span class="n">parity</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">raidz1</span><span class="o">.</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">P</span><span class="w"> </span><span class="n">parity</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="n">approximately</span><span class="w"> </span><span class="p" data-group-id="0452076888-6">(</span><span class="nc">N</span><span class="o">-</span><span class="nc">P</span><span class="p" data-group-id="0452076888-6">)</span><span class="o">*</span><span class="nc">X</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">withstand</span><span class="w"> </span><span class="nc">P</span><span class="w"> </span><span class="n">device</span><span class="p" data-group-id="0452076888-7">(</span><span class="n">s</span><span class="p" data-group-id="0452076888-7">)</span><span class="w"> </span><span class="n">failing</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">integrity</span><span class="w">
+        </span><span class="n">is</span><span class="w"> </span><span class="n">compromised</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">parity</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">9</span><span class="w">  </span><span class="n">to</span><span class="w">
+        </span><span class="n">help</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">spare</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">pseudo</span><span class="o">-</span><span class="n">vdev</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">keeps</span><span class="w"> </span><span class="n">track</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">hot</span><span class="w"> </span><span class="n">spares</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Hot Spares&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">log</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w">  </span><span class="n">separate</span><span class="o">-</span><span class="n">intent</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">writes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">load</span><span class="o">-</span><span class="n">balanced</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mirrored</span><span class="o">.</span><span class="w"> </span><span class="nc">How</span><span class="err">‐</span><span class="w">
+        </span><span class="n">ever</span><span class="p">,</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="n">log</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Intent Log&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">cache</span><span class="w">
+
+        </span><span class="nc">A</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">group</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="s">&quot;Cache  Devices&quot;</span><span class="w">
+        </span><span class="n">section</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Virtual</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">nested</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w"> </span><span class="nc">Mirrors</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">mirrors</span><span class="w"> </span><span class="p" data-group-id="0452076888-8">(</span><span class="ow">or</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">combinations</span><span class="p" data-group-id="0452076888-8">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">al</span><span class="err">‐</span><span class="w">
+    </span><span class="n">lowed</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">A</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="p" data-group-id="0452076888-9">(</span><span class="n">known</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;root vdevs&quot;</span><span class="p" data-group-id="0452076888-9">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">dynamically</span><span class="w"> </span><span class="n">distributed</span><span class="w"> </span><span class="n">across</span><span class="w">  </span><span class="n">all</span><span class="w">  </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w">
+    </span><span class="n">devices</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">among</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w"> </span><span class="nc">As</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">added</span><span class="p">,</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">places</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Virtual</span><span class="w">  </span><span class="n">devices</span><span class="w">  </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">whitespace</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">keywords</span><span class="w"> </span><span class="s">&quot;mirror&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot;raidz&quot;</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">distinguish</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">a</span><span class="w">
+    </span><span class="n">group</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">begins</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">vdevs</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="ss">disks</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool create mypool mirror c0t0d0 c0t1d0 mirror c1t0d0 c1t1d0</span><span class="w">
+
+</span><span class="nc">Device</span><span class="w"> </span><span class="nc">Failure</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Recovery</span><span class="w">
+    </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">rich</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">mechanisms</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">handling</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">failure</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">corruption</span><span class="o">.</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">checksummed</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nc">ZFS</span><span class="w">  </span><span class="n">automatically</span><span class="w">  </span><span class="n">repairs</span><span class="w">
+    </span><span class="n">bad</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">corruption</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">detected</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">In</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">advantage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">features</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">redundancy</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">mirrored</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">groups</span><span class="o">.</span><span class="w"> </span><span class="nc">While</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">run</span><span class="err">‐</span><span class="w">
+    </span><span class="n">ning</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">redundant</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">discouraged</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">corruption</span><span class="w"> </span><span class="n">can</span><span class="w">  </span><span class="n">ren</span><span class="err">‐</span><span class="w">
+    </span><span class="n">der</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">unavailable</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">A</span><span class="w">  </span><span class="n">pool</span><span class="sc">&#39;s health status is described by one of three states: online, degraded, or faulted. An online pool has all devices operating normally. A degraded pool
+    is one in which one or more devices have failed, but the data is still available due to a redundant configuration. A faulted pool has corrupted metadata,  or
+    one or more faulted devices, and insufficient replicas to continue functioning.
+
+    The  health of the top-level vdev, such as mirror or raidz device, is potentially impacted by the state of its associated vdevs, or component devices. A top-
+    level vdev or component device is in one of the following states:
+
+    DEGRADED
+
+        One or more top-level vdevs is in the degraded state because one or more component devices are offline. Sufficient replicas exist to  continue  function‐
+        ing.
+
+        One  or  more component devices is in the degraded or faulted state, but sufficient replicas exist to continue functioning. The underlying conditions are
+        as follows:
+
+            o      The number of checksum errors exceeds acceptable levels and the device is degraded as an indication that something may be wrong. ZFS continues
+                   to use the device as necessary.
+
+            o      The  number of I/O errors exceeds acceptable levels. The device could not be marked as faulted because there are insufficient replicas to con‐
+                   tinue functioning.
+
+    FAULTED
+
+        One or more top-level vdevs is in the faulted state because one or more component devices are offline. Insufficient replicas exist to continue  function‐
+        ing.
+
+        One or more component devices is in the faulted state, and insufficient replicas exist to continue functioning. The underlying conditions are as follows:
+
+            o      The device could be opened, but the contents did not match expected values.
+
+            o      The number of I/O errors exceeds acceptable levels and the device is faulted to prevent further use of the device.
+
+    OFFLINE
+
+        The device was explicitly taken offline by the &quot;zpool offline&quot; command.
+
+    ONLINE
+
+        The device is online and functioning.
+
+    REMOVED
+
+        The device was physically removed while the system was running. Device removal detection is hardware-dependent and may not be supported on all platforms.
+
+    UNAVAIL
+
+        The device could not be opened. If a pool is imported when a device was unavailable, then the device will be identified by a unique identifier instead of
+        its path since the path was never correct in the first place.
+
+    If a device is removed and later re-attached to the system, ZFS attempts to put the device online automatically. Device attach detection  is  hardware-depen‐
+    dent and might not be supported on all platforms.
+
+Hot Spares
+    ZFS allows devices to be associated with pools as &quot;hot spares&quot;. These devices are not actively used in the pool, but when an active device fails, it is auto‐
+    matically replaced by a hot spare. To create a pool with hot spares, specify a &quot;spare&quot; vdev with any number of devices. For example,
+
+      # zpool create pool mirror c0d0 c1d0 spare c2d0 c3d0
+
+    Spares can be shared across multiple pools, and can be added with the &quot;zpool add&quot; command and removed with the &quot;zpool remove&quot; command. Once a spare  replace‐
+    ment  is  initiated,  a new &quot;spare&quot; vdev is created within the configuration that will remain there until the original device is replaced. At this point, the
+    hot spare becomes available again if another device fails.
+
+    If a pool has a shared spare that is currently being used, the pool can not be exported since other pools may use this shared spare, which may lead to poten‐
+    tial data corruption.
+
+    An  in-progress  spare  replacement  can  be cancelled by detaching the hot spare. If the original faulted device is detached, then the hot spare assumes its
+    place in the configuration, and is removed from the spare list of all active pools.
+
+    Spares cannot replace log devices.
+
+Intent Log
+    The ZFS Intent Log (ZIL) satisfies POSIX requirements for synchronous transactions. For instance, databases often require their transactions to be on  stable
+    storage  devices  when  returning from a system call. NFS and other applications can also use fsync() to ensure data stability. By default, the intent log is
+    allocated from blocks within the main pool. However, it might be possible to get better performance using separate intent log devices such as NVRAM or a ded‐
+    icated disk. For example:
+
+      # zpool create pool c0d0 c1d0 log c2d0
+
+    Multiple log devices can also be specified, and they can be mirrored. See the EXAMPLES section for an example of mirroring multiple log devices.
+
+    Log devices can be added, replaced, attached, detached, and imported and exported as part of the larger pool. Mirrored log devices can be removed by specify‐
+    ing the top-level mirror for the log.
+
+Cache Devices
+    Devices can be added to a storage pool as &quot;cache devices.&quot; These devices provide an additional layer of caching between main memory and disk. For  read-heavy
+    workloads,  where  the  working set size is much larger than what can be cached in main memory, using cache devices allow much more of this working set to be
+    served from low latency media. Using cache devices provides the greatest performance improvement for random read-workloads of mostly static content.
+
+    To create a pool with cache devices, specify a &quot;cache&quot; vdev with any number of devices. For example:
+
+      # zpool create pool c0d0 c1d0 cache c2d0 c3d0
+
+    Cache devices cannot be mirrored or part of a raidz configuration. If a read error is encountered on a cache device, that read I/O is reissued to the  origi‐
+    nal storage pool device, which might be part of a mirrored or raidz configuration.
+
+    The content of the cache devices is considered volatile, as is the case with other system caches.
+
+Processes
+    Each  imported pool has an associated process, named zpool-poolname. The threads in this process are the pool&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">processing</span><span class="w"> </span><span class="n">threads</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">com</span><span class="err">‐</span><span class="w">
+    </span><span class="n">pression</span><span class="p">,</span><span class="w"> </span><span class="n">checksumming</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">visibility</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">utilization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sys</span><span class="err">‐</span><span class="w">
+    </span><span class="n">tem</span><span class="sc">&#39;s storage pools. The existence of this process is an unstable interface.
+
+Properties
+    Each  pool  has  several properties associated with it. Some properties are read-only statistics while others are configurable and change the behavior of the
+    pool. The following are read-only properties:
+
+    alloc
+
+        Amount of storage space within the pool that has been physically allocated.
+
+    capacity
+
+        Percentage of pool space used. This property can also be referred to by its shortened column name, &quot;cap&quot;.
+
+    dedupratio
+
+        The deduplication ratio specified for a pool, expressed  as a multiplier. Deduplication can be turned on by entering the command:
+
+          # zfs set dedup=on dataset
+
+        The default value is off.
+
+        dedupratio is expressed as a single decimal number. For example, a dedupratio value of 1.76 indicates that 1.76 units of data were stored but only 1 unit
+        of disk space was actually consumed.
+
+    free
+
+        Number of blocks within the pool that are not allocated.
+
+    guid
+
+        A unique identifier for the pool.
+
+    health
+
+        The current health of the pool. Health can be &quot;ONLINE&quot;, &quot;DEGRADED&quot;, &quot;FAULTED&quot;, &quot; OFFLINE&quot;, &quot;REMOVED&quot;, or &quot;UNAVAIL&quot;.
+
+    size
+
+        Total size of the storage pool.
+
+    These  space  usage properties report actual physical space available to the storage pool. The physical space can be different from the total amount of space
+    that any contained datasets can actually use. The amount of space used in a raidz configuration depends on the characteristics of the data being written.  In
+    addition,  ZFS reserves some space for internal accounting that the zfs(1M) command takes into account, but the zpool command does not. For non-full pools of
+    a reasonable size, these effects should be invisible. For small pools, or pools that are close to being completely full, these discrepancies may become  more
+    noticeable.  The following property can be set at creation time:
+
+    ashift
+
+        Pool sector size exponent, to the power of 2 (internally referred to as &quot;ashift&quot;). I/O operations will be aligned to the specified size boundaries. Addi‐
+        tionally, the minimum (disk) write size will be set to the specified size, so this represents a space vs. performance trade-off.  The  typical  case  for
+        setting  this  property  is  when performance is important and the underlying disks use 4KiB sectors but report 512B sectors to the OS (for compatibility
+        reasons); in that case, set ashift=12 (which is 1&lt;&lt;12 = 4096).  Since most large disks have had 4K sectors since 2011, ZFS defaults to ashift=12 for  all
+        disks larger than 512 GB.
+
+        For  optimal  performance,  the pool sector size should be greater than or equal to the sector size of the underlying disks. Since the property cannot be
+        changed after pool creation, if in a given pool, you ever want to use drives that report 4KiB sectors, you must set ashift=12 at pool creation time.
+
+    The following property can be set at creation time and import time:
+
+    altroot
+
+        Alternate root directory. If set, this directory is prepended to any mount points within the pool. This can be used when examining an unknown pool  where
+        the  mount points cannot be trusted, or in an alternate boot environment, where the typical paths are not valid. altroot is not a persistent property. It
+        is valid only while the system is up. Setting altroot defaults to using cachefile=none, though this may be overridden   using an explicit setting.
+
+    The following properties can be set at creation time and import time, and later changed with the zpool set command:
+
+    autoexpand=on | off
+
+        Controls automatic pool expansion when the underlying LUN is grown. If set to on, the pool will be resized according to the size of the expanded  device.
+        If the device is part of a mirror or raidz then all devices within that mirror/raidz group must be expanded before the new space is made available to the
+        pool. The default behavior is off. This property can also be referred to by its shortened column name, expand.
+
+    autoreplace=on | off
+
+        Controls automatic device replacement. If set to &quot;off&quot;, device replacement must be initiated by the administrator by using the &quot;zpool  replace&quot;  command.
+        If  set to &quot;on&quot;, any new device, found in the same physical location as a device that previously belonged to the pool, is automatically formatted and re‐
+        placed. The default behavior is &quot;off&quot;. This property can also be referred to by its shortened column name, &quot;replace&quot;.
+
+    bootfs=pool/dataset
+
+        Identifies the default bootable dataset for the root pool. This property is expected to be set mainly by the installation and upgrade programs.
+
+    cachefile=path | none
+
+        Controls the location of where the pool configuration is cached. Discovering all pools on system startup requires a cached copy of the configuration data
+        that  is stored on the root file system. All pools in this cache are automatically imported when the system boots. Some environments, such as install and
+        clustering, need to cache this information in a different location so that pools are not automatically imported. Setting this property  caches  the  pool
+        configuration  in a different location that can later be imported with &quot;zpool import -c&quot;. Setting it to the special value &quot;none&quot; creates a temporary pool
+        that is never cached, and the special value &#39;</span><span class="sc">&#39; (empty string) uses the default location.
+
+        Multiple pools can share the same cache file. Because the kernel destroys and recreates this file when pools are added and removed, care should be  taken
+        when attempting to access this file. When the last pool using a cachefile is exported or destroyed, the file is removed.
+
+    delegation=on | off
+
+        Controls whether a non-privileged user is granted access based on the dataset permissions defined on the dataset. See zfs(1M) for more information on ZFS
+        delegated administration.
+
+    failmode=wait | continue | panic
+
+        Controls the system behavior in the event of catastrophic pool failure. This condition is typically a result of a loss of connectivity to the  underlying
+        storage device(s) or a failure of all devices within the pool. The behavior of such an event is determined as follows:
+
+        wait
+
+            Blocks  all  I/O access to the pool until the device connectivity is recovered and the errors are cleared. A pool remains in the wait state until the
+            device issue is resolved. This is the default behavior.
+
+        continue
+
+            Returns EIO to any new write I/O requests but allows reads to any of the remaining healthy devices. Any write requests that have yet to be  committed
+            to disk would be blocked.
+
+        panic
+
+            Prints out a message to the console and generates a system crash dump.
+
+    listsnaps=on | off
+
+        Controls  whether  information  about  snapshots  associated  with this pool is output when &quot;zfs list&quot; is run without the -t option. The default value is
+        &quot;off&quot;.
+
+    version=version
+
+        The current on-disk version of the pool. This can be increased, but never decreased. The preferred method of updating pools is with the  &quot;zpool  upgrade&quot;
+        command,  though  this  property can be used when a specific version is needed for backwards compatibility. This property can be any number between 1 and
+        the current version reported by &quot;zpool upgrade -v&quot;.
+
+Subcommands
+    All subcommands that modify state are logged persistently to the pool in their original form.
+
+    The zpool command provides subcommands to create and destroy storage pools, add capacity to storage pools, and provide information about the  storage  pools.
+    The following subcommands are supported:
+
+    zpool -?
+
+        Displays a help message.
+
+    zpool add [-fn]  [-o property=value] pool vdev ...
+
+        Adds  the  specified  virtual devices to the given pool. The vdev specification is described in the &quot;Virtual Devices&quot; section. The behavior of the -f op‐
+        tion, and the device checks performed are described in the &quot;zpool create&quot; subcommand.
+
+        -f
+
+            Forces use of vdevs, even if they appear in use or specify a conflicting replication level. Not all devices can be overridden in this manner.
+
+        -n
+
+            Displays the configuration that would be used without actually adding the vdevs. The actual pool creation can still fail due to  insufficient  privi‐
+            leges or device sharing.
+
+        -o property=value
+
+            Sets  the  given pool properties. See the &quot;Properties&quot; section for a list of valid properties that can be set. The only property supported at the mo‐
+            ment is &quot;ashift&quot;.
+
+        Do not add a disk that is currently configured as a quorum device to a zpool. After a disk is in the pool, that disk can then be configured as  a  quorum
+        device.
+
+    zpool attach [-f]  [-o property=value] pool device new_device
+
+        Attaches  new_device  to an existing zpool device. The existing device cannot be part of a raidz configuration. If device is not currently part of a mir‐
+        rored configuration, device automatically transforms into a two-way mirror of device and new_device. If device is part of  a  two-way  mirror,  attaching
+        new_device creates a three-way mirror, and so on. In either case, new_device begins to resilver immediately.
+
+        -f
+
+            Forces use of new_device, even if its appears to be in use. Not all devices can be overridden in this manner.
+
+        -o property=value
+
+            Sets  the  given pool properties. See the &quot;Properties&quot; section for a list of valid properties that can be set. The only property supported at the mo‐
+            ment is &quot;ashift&quot;.
+
+    zpool clear [-F [-n]] pool [device] ...
+
+        Clears device errors in a pool. If no arguments are specified, all device errors within the pool are cleared. If one or more devices is  specified,  only
+        those errors associated with the specified device or devices are cleared.
+
+        -F
+
+            Initiates  recovery mode for an unopenable pool. Attempts to discard the last few transactions in the pool to return it to an openable state. Not all
+            damaged pools can be recovered by using this option. If successful, the data from the discarded transactions is irretrievably lost.
+
+        -n
+
+            Used in combination with the -F flag. Check whether discarding transactions would make the pool openable, but do not actually  discard  any  transac‐
+            tions.
+
+    zpool create [-fn] [-o property=value] ... [-O file-system-property=value] ... [-m mountpoint] [-R root] pool vdev ...
+
+        Creates a new storage pool containing the virtual devices specified on the command line. The pool name must begin with a letter, and can only contain al‐
+        phanumeric characters as well as underscore (&quot;_&quot;), dash (&quot;-&quot;), and period (&quot;.&quot;). The pool names mirror, raidz, spare, and log are reserved, as are  names
+        beginning with the pattern c[0-9]. The vdev specification is described in the &quot;Virtual Devices&quot; section.
+
+        The command verifies that each device specified is accessible and not currently in use by another subsystem. There are some uses, such as being currently
+        mounted, or specified as the dedicated dump device, that prevents a device from ever being used by ZFS. Other uses, such as having a preexisting UFS file
+        system, can be overridden with the -f option.
+
+        The  command  also checks that the replication strategy for the pool is consistent. An attempt to combine redundant and non-redundant storage in a single
+        pool, or to mix disks and files, results in an error unless -f is specified. The use of differently sized devices within a single raidz or  mirror  group
+        is also flagged as an error unless -f is specified.
+
+        Unless  the  -R option is specified, the default mount point is &quot;/pool&quot;. The mount point must not exist or must be empty, or else the root dataset cannot
+        be mounted. This can be overridden with the -m option.
+
+        -f
+
+            Forces use of vdevs, even if they appear in use or specify a conflicting replication level. Not all devices can be overridden in this manner.
+
+        -n
+
+            Displays the configuration that would be used without actually creating the pool. The actual pool creation can still fail due to insufficient  privi‐
+            leges or device sharing.
+
+        -o property=value [-o property=value] ...
+
+            Sets the given pool properties. See the &quot;Properties&quot; section for a list of valid properties that can be set.
+
+        -O file-system-property=value
+        [-O file-system-property=value] ...
+
+            Sets  the  given  file  system properties in the root file system of the pool. See the &quot;Properties&quot; section of zfs(1M) for a list of valid properties
+            that can be set.
+
+        -R root
+
+            Equivalent to &quot;-o cachefile=none,altroot=root&quot;
+
+        -m mountpoint
+
+            Sets the mount point for the root dataset. The default mount point is &quot;/pool&quot; or &quot;altroot/pool&quot; if altroot is specified. The mount point must  be  an
+            absolute path, &quot;legacy&quot;, or &quot;none&quot;. For more information on dataset mount points, see zfs(1M).
+
+    zpool destroy [-f] pool
+
+        Destroys the given pool, freeing up any devices for other use. This command tries to unmount any active datasets before destroying the pool.
+
+        -f
+
+            Forces any active datasets contained within the pool to be unmounted.
+
+    zpool detach pool device
+
+        Detaches device from a mirror. The operation is refused if there are no other valid replicas of the data.
+
+    zpool export [-f] pool ...
+
+        Exports  the  given  pools  from  the system. All devices are marked as exported, but are still considered in use by other subsystems. The devices can be
+        moved between systems (even those of different endianness) and imported as long as a sufficient number of devices are present.
+
+        Before exporting the pool, all datasets within the pool are unmounted. A pool can not be exported if it has a shared spare that is currently being used.
+
+        For pools to be portable, you must give the zpool command whole disks, not just slices, so that ZFS can label the disks with portable EFI labels.  Other‐
+        wise, disk drivers on platforms of different endianness will not recognize the disks.
+
+        -f
+
+            Forcefully unmount all datasets, using the &quot;unmount -f&quot; command.
+
+            This command will forcefully export the pool even if it has a shared spare that is currently being used. This may lead to potential data corruption.
+
+    zpool get &quot;all&quot; | property[,...] pool ...
+
+        Retrieves  the  given  list of properties (or all properties if &quot;all&quot; is used) for the specified storage pool(s). These properties are displayed with the
+        following fields:
+
+                 name          Name of storage pool
+                  property      Property name
+                  value         Property value
+                  source        Property source, either &#39;</span><span class="n">default</span><span class="sc">&#39; or &#39;</span><span class="n">local</span><span class="sc">&#39;.
+
+        See the &quot;Properties&quot; section for more information on the available pool properties.
+
+    zpool history [-il] [pool] ...
+
+        Displays the command history of the specified pools or all pools if no pool is specified.
+
+        -i
+
+            Displays internally logged ZFS events in addition to user initiated events.
+
+        -l
+
+            Displays log records in long format, which in addition to standard format includes, the user name, the hostname, and the zone in which the  operation
+            was performed.
+
+    zpool import [-d dir | -c cachefile] [-D]
+
+        Lists  pools available to import. If the -d option is not specified, this command searches for devices in &quot;/dev/dsk&quot;. The -d option can be specified mul‐
+        tiple times, and all directories are searched. If the device appears to be part of an exported pool, this command displays a summary of the pool with the
+        name  of the pool, a numeric identifier, as well as the vdev layout and current health of the device for each device or file. Destroyed pools, pools that
+        were previously destroyed with the &quot;zpool destroy&quot; command, are not listed unless the -D option is specified.
+
+        The numeric identifier is unique, and can be used instead of the pool name when multiple exported pools of the same name are available.
+
+        -c cachefile
+
+            Reads configuration from the given cachefile that was created with the &quot;cachefile&quot; pool property. This cachefile is used instead of searching for de‐
+            vices.
+
+        -d dir
+
+            Searches for devices or files in dir. The -d option can be specified multiple times.
+
+        -D
+
+            Lists destroyed pools only.
+
+    zpool import [-o mntopts] [ -o property=value] ... [-d dir | -c cachefile] [-D] [-f] [-R root] [-F [-n]] -a
+
+        Imports all pools found in the search directories. Identical to the previous command, except that all pools with a sufficient number of devices available
+        are imported. Destroyed pools, pools that were previously destroyed with the &quot;zpool destroy&quot; command, will not be imported unless the -D option is speci‐
+        fied.
+
+        -o mntopts
+
+            Comma-separated  list  of  mount options to use when mounting datasets within the pool. See zfs(1M) for a description of dataset properties and mount
+            options.
+
+        -o property=value
+
+            Sets the specified property on the imported pool. See the &quot;Properties&quot; section for more information on the available pool properties.
+
+        -c cachefile
+
+            Reads configuration from the given cachefile that was created with the &quot;cachefile&quot; pool property. This cachefile is used instead of searching for de‐
+            vices.
+
+        -d dir
+
+            Searches for devices or files in dir. The -d option can be specified multiple times. This option is incompatible with the -c option.
+
+        -D
+
+            Imports destroyed pools only. The -f option is also required.
+
+        -f
+
+            Forces import, even if the pool appears to be potentially active.
+
+        -F
+
+            Recovery  mode  for a non-importable pool. Attempt to return the pool to an importable state by discarding the last few transactions. Not all damaged
+            pools can be recovered by using this option. If successful, the data from the discarded transactions is irretrievably lost. This option is ignored if
+            the pool is importable or already imported.
+
+        -a
+
+            Searches for and imports all pools found.
+
+        -R root
+
+            Sets the &quot;cachefile&quot; property to &quot;none&quot; and the &quot;altroot&quot; property to &quot;root&quot;.
+
+        -n
+
+            Used  with  the -F recovery option. Determines whether a non-importable pool can be made importable again, but does not actually perform the pool re‐
+            covery. For more details about pool recovery mode, see the -F option, above.
+
+    zpool import [-o mntopts] [ -o property=value] ... [-d dir | -c cachefile] [-D] [-f] [-R root] [-F [-n]] pool | id [newpool]
+
+        Imports a specific pool. A pool can be identified by its name or the numeric identifier. If newpool is specified, the pool is  imported  using  the  name
+        newpool. Otherwise, it is imported with the same name as its exported name.
+
+        If  a device is removed from a system without running &quot;zpool export&quot; first, the device appears as potentially active. It cannot be determined if this was
+        a failed export, or whether the device is really in use from another host. To import a pool in this state, the -f option is required.
+
+        -o mntopts
+
+            Comma-separated list of mount options to use when mounting datasets within the pool. See zfs(1M) for a description of dataset  properties  and  mount
+            options.
+
+        -o property=value
+
+            Sets the specified property on the imported pool. See the &quot;Properties&quot; section for more information on the available pool properties.
+
+        -c cachefile
+
+            Reads configuration from the given cachefile that was created with the &quot;cachefile&quot; pool property. This cachefile is used instead of searching for de‐
+            vices.
+
+        -d dir
+
+            Searches for devices or files in dir. The -d option can be specified multiple times. This option is incompatible with the -c option.
+
+        -D
+
+            Imports destroyed pool. The -f option is also required.
+
+        -f
+
+            Forces import, even if the pool appears to be potentially active.
+
+        -F
+
+            Recovery mode for a non-importable pool. Attempt to return the pool to an importable state by discarding the last few transactions. Not  all  damaged
+            pools can be recovered by using this option. If successful, the data from the discarded transactions is irretrievably lost. This option is ignored if
+            the pool is importable or already imported.
+
+        -R root
+
+            Sets the &quot;cachefile&quot; property to &quot;none&quot; and the &quot;altroot&quot; property to &quot;root&quot;.
+
+        -n
+
+            Used with the -F recovery option. Determines whether a non-importable pool can be made importable again, but does not actually perform the  pool  re‐
+            covery. For more details about pool recovery mode, see the -F option, above.
+
+    zpool iostat [-T u | d] [-v] [pool] ... [interval[count]]
+
+        Displays  I/O  statistics  for  the given pools. When given an interval, the statistics are printed every interval seconds until Ctrl-C is pressed. If no
+        pools are specified, statistics for every pool in the system is shown. If count is specified, the command exits after count reports are printed.
+
+        -T u | d
+
+            Display a time stamp.
+
+            Specify u for a printed representation of the internal representation of time. See time(2). Specify d for standard date format. See date(1).
+
+        -v
+
+            Verbose statistics. Reports usage statistics for individual vdevs within the pool, in addition to the pool-wide statistics.
+
+    zpool list [-H] [-o props[,...]] [pool] ...
+
+        Lists the given pools along with a health status and space usage. When given no arguments, all pools in the system are listed.
+
+        -H
+
+            Scripted mode. Do not display headers, and separate fields by a single tab instead of arbitrary space.
+
+        -o props
+
+            Comma-separated list of properties to display. See the &quot;Properties&quot; section for a list of valid properties. The default list  is  name,  size,  allo‐
+            cated, free, capacity, health, altroot.
+
+    zpool offline [-t] pool device ...
+
+        Takes the specified physical device offline. While the device is offline, no attempt is made to read or write to the device.
+
+        This command is not applicable to spares or cache devices.
+
+        -t
+
+            Temporary. Upon reboot, the specified physical device reverts to its previous state.
+
+    zpool online [-e] pool device...
+
+        Brings the specified physical device online.
+
+        This command is not applicable to spares or cache devices.
+
+        -e
+
+            Expand  the device to use all available space. If the device is part of a mirror or raidz then all devices must be expanded before the new space will
+            become available to the pool.
+
+    zpool remove pool device ...
+
+        Removes the specified device from the pool. This command currently only supports removing hot spares, cache, and log devices. A mirrored log  device  can
+        be  removed  by specifying the top-level mirror for the log. Non-log devices that are part of a mirrored configuration can be removed using the zpool de‐
+        tach command. Non-redundant and raidz devices cannot be removed from a pool.
+
+    zpool replace [-f] pool old_device [new_device]
+
+        Replaces old_device with new_device. This is equivalent to attaching new_device, waiting for it to resilver, and then detaching old_device.
+
+        The size of new_device must be greater than or equal to the minimum size of all the devices in a mirror or raidz configuration.
+
+        new_device is required if the pool is not redundant. If new_device is not specified, it defaults to old_device. This form of replacement is useful  after
+        an  existing  disk has failed and has been physically replaced. In this case, the new disk may have the same /dev/dsk path as the old device, even though
+        it is actually a different disk. ZFS recognizes this.
+
+        -f
+
+            Forces use of new_device, even if its appears to be in use. Not all devices can be overridden in this manner.
+
+    zpool scrub [-s] pool ...
+
+        Begins a scrub. The scrub examines all data in the specified pools to verify that it checksums correctly. For replicated (mirror or raidz)  devices,  ZFS
+        automatically  repairs any damage discovered during the scrub. The &quot;zpool status&quot; command reports the progress of the scrub and summarizes the results of
+        the scrub upon completion.
+
+        Scrubbing and resilvering are very similar operations. The difference is that resilvering only examines data that ZFS knows to be out of date (for  exam‐
+        ple, when attaching a new device to a mirror or replacing an existing device), whereas scrubbing examines all data to discover silent errors due to hard‐
+        ware faults or disk failure.
+
+        Because scrubbing and resilvering are I/O-intensive operations, ZFS only allows one at a time. If a scrub is already in progress, the &quot;zpool scrub&quot;  com‐
+        mand terminates it and starts a new scrub. If a resilver is in progress, ZFS does not allow a scrub to be started until the resilver completes.
+
+        -s
+
+            Stop scrubbing.
+
+    zpool set property=value pool
+
+        Sets the given property on the specified pool. See the &quot;Properties&quot; section for more information on what properties can be set and acceptable values.
+
+    zpool split [-R altroot] [-n] [-o mntopts] [-o property=value] pool newpool [device ...]
+
+        Splits off one disk from each mirrored top-level vdev in a pool and creates a new pool from the split-off disks. The original pool must be made up of one
+        or more mirrors and must not be in the process of resilvering. The split subcommand chooses the last device in each mirror vdev unless  overridden  by  a
+        device specification on the command line.
+
+        When using a device argument, split includes the specified device(s) in a new pool and, should any devices remain unspecified, assigns the last device in
+        each mirror vdev to that pool, as it does normally. If you are uncertain about the outcome of a split command, use the -n (&quot;dry-run&quot;)  option  to  ensure
+        your command will have the effect you intend.
+
+        -R altroot
+
+            Automatically import the newly created pool after splitting, using the specified altroot parameter for the new pool&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">altroot</span><span class="w">
+            </span><span class="n">description</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Properties&quot;</span><span class="w"> </span><span class="n">section</span><span class="p">,</span><span class="w"> </span><span class="n">above</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">n</span><span class="w">
+
+            </span><span class="nc">Displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">splitting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="n">could</span><span class="w">  </span><span class="n">still</span><span class="w">  </span><span class="n">fail</span><span class="w">  </span><span class="n">due</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">insufficient</span><span class="w">
+            </span><span class="n">privileges</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">status</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">mntopts</span><span class="w">
+
+            </span><span class="nc">Comma</span><span class="o">-</span><span class="n">separated</span><span class="w">  </span><span class="n">list</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">mount</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">mounting</span><span class="w"> </span><span class="n">datasets</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">zfs</span><span class="p" data-group-id="0452076888-10">(</span><span class="mi">1</span><span class="nc">M</span><span class="p" data-group-id="0452076888-10">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">mount</span><span class="w">
+            </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Valid</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">conjunction</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">property</span><span class="o">=</span><span class="n">value</span><span class="w">
+
+            </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Properties&quot;</span><span class="w"> </span><span class="n">section</span><span class="p">,</span><span class="w"> </span><span class="n">above</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">properties</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p" data-group-id="0452076888-11">[</span><span class="o">-</span><span class="n">xv</span><span class="p" data-group-id="0452076888-11">]</span><span class="w"> </span><span class="p" data-group-id="0452076888-12">[</span><span class="n">pool</span><span class="p" data-group-id="0452076888-12">]</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+        </span><span class="nc">Displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">pools</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">displayed</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w">  </span><span class="n">more</span><span class="w">  </span><span class="ow">in</span><span class="err">‐</span><span class="w">
+        </span><span class="n">formation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">health</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Device Failure and Recovery&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">.</span><span class="w">
+
+        </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">scrub</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">resilver</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">progress</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">percentage</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">estimated</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">completion</span><span class="o">.</span><span class="w"> </span><span class="nc">Both</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">approximate</span><span class="p">,</span><span class="w">
+        </span><span class="n">because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">workloads</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">change</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">x</span><span class="w">
+
+            </span><span class="nc">Only</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">exhibiting</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">unavailable</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">v</span><span class="w">
+
+            </span><span class="nc">Displays</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">printing</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">scrub</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w">
+
+        </span><span class="nc">Displays</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">disk</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w"> </span><span class="nc">Older</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">continue</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">available</span><span class="o">.</span><span class="w"> </span><span class="nc">These</span><span class="w">
+        </span><span class="n">pools</span><span class="w">  </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">upgraded</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="s">&quot;zpool upgrade -a&quot;</span><span class="o">.</span><span class="w"> </span><span class="nc">Pools</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">displayed</span><span class="p">,</span><span class="w"> </span><span class="n">although</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="err">‐</span><span class="w">
+        </span><span class="n">accessible</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w">
+
+        </span><span class="nc">Displays</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">software</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">displayed</span><span class="p">,</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">expla</span><span class="err">‐</span><span class="w">
+        </span><span class="n">nation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+    </span><span class="n">zpool</span><span class="w"> </span><span class="n">upgrade</span><span class="w"> </span><span class="p" data-group-id="0452076888-13">[</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">version</span><span class="p" data-group-id="0452076888-13">]</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">...</span><span class="w">
+
+        </span><span class="nc">Upgrades</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">disk</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w"> </span><span class="nc">Once</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">done</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">longer</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">accessible</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">older</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">
+        </span><span class="n">software</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="n">a</span><span class="w">
+
+            </span><span class="nc">Upgrades</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">pools</span><span class="o">.</span><span class="w">
+
+        </span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">version</span><span class="w">
+
+            </span><span class="nc">Upgrade</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">upgraded</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w">  </span><span class="n">used</span><span class="w">  </span><span class="n">to</span><span class="w">
+            </span><span class="n">increase</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">software</span><span class="o">.</span></code></pre><h2 id="examples" class="section-heading">
+  <a href="#examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXAMPLES
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nc">Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">RAID</span><span class="o">-</span><span class="nc">Z</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">raidz</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">vdev</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">six</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool create tank raidz c0t0d0 c0t1d0 c0t2d0 c0t3d0 c0t4d0 c0t5d0</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nc">Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Mirrored</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">mirrors</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">mirror</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool create tank mirror c0t0d0 c0t1d0 mirror c0t2d0 c0t3d0</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nc">Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Using</span><span class="w"> </span><span class="nc">Slices</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unmirrored</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">slices</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool create tank /dev/dsk/c0t0d0s1 c0t1d0s4</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="nc">Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Using</span><span class="w"> </span><span class="nc">Files</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unmirrored</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">While</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">recommended</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">experimental</span><span class="w"> </span><span class="n">purposes</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool create tank /path/to/file/a /path/to/file/b</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="nc">Adding</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Mirror</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w">  </span><span class="n">following</span><span class="w">  </span><span class="n">command</span><span class="w">  </span><span class="n">adds</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">mirrored</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="s">&quot;tank&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">assuming</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="o">-</span><span class="n">way</span><span class="w"> </span><span class="n">mirrors</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">immedi</span><span class="err">‐</span><span class="w">
+    </span><span class="n">ately</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">datasets</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool add tank mirror c1t0d0 c1t1d0</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nc">Listing</span><span class="w"> </span><span class="nc">Available</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pools</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool list</span><span class="w">
+ </span><span class="nc">NAME</span><span class="w">   </span><span class="nc">SIZE</span><span class="w">  </span><span class="nc">ALLOC</span><span class="w">   </span><span class="nc">FREE</span><span class="w">    </span><span class="nc">CAP</span><span class="w">  </span><span class="nc">DEDUP</span><span class="w">  </span><span class="nc">HEALTH</span><span class="w">  </span><span class="nc">ALTROOT</span><span class="w">
+      </span><span class="n">pool</span><span class="w">    </span><span class="mi">136</span><span class="nc">G</span><span class="w">   </span><span class="mi">109</span><span class="nc">M</span><span class="w">   </span><span class="mi">136</span><span class="nc">G</span><span class="w">     </span><span class="mi">0</span><span class="p">%</span><span class="w">  </span><span class="mf">3.00</span><span class="n">x</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">  </span><span class="o">-</span><span class="w">
+      </span><span class="n">rpool</span><span class="w">  </span><span class="mf">67.5</span><span class="nc">G</span><span class="w">  </span><span class="mf">12.6</span><span class="nc">G</span><span class="w">  </span><span class="mf">54.9</span><span class="nc">G</span><span class="w">    </span><span class="mi">18</span><span class="p">%</span><span class="w">  </span><span class="mf">1.01</span><span class="n">x</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">  </span><span class="o">-</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="nc">Listing</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="nc">Properties</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w">
+
+      </span><span class="p">%</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">pool</span><span class="w">
+  </span><span class="nc">NAME</span><span class="w"> </span><span class="nc">PROPERTY</span><span class="w">       </span><span class="nc">VALUE</span><span class="w">       </span><span class="nc">SOURCE</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">size</span><span class="w">           </span><span class="mi">136</span><span class="nc">G</span><span class="w">        </span><span class="o">-</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">capacity</span><span class="w">       </span><span class="mi">0</span><span class="p">%</span><span class="w">          </span><span class="o">-</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">altroot</span><span class="w">        </span><span class="o">-</span><span class="w">           </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">health</span><span class="w">         </span><span class="nc">ONLINE</span><span class="w">      </span><span class="o">-</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">guid</span><span class="w">           </span><span class="mi">15697759092019394988</span><span class="w">  </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">version</span><span class="w">        </span><span class="mi">21</span><span class="w">          </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">bootfs</span><span class="w">         </span><span class="o">-</span><span class="w">           </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">delegation</span><span class="w">     </span><span class="n">on</span><span class="w">          </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">autoreplace</span><span class="w">    </span><span class="n">off</span><span class="w">         </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">cachefile</span><span class="w">      </span><span class="o">-</span><span class="w">           </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">failmode</span><span class="w">       </span><span class="n">wait</span><span class="w">        </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">listsnapshots</span><span class="w">  </span><span class="n">off</span><span class="w">         </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">autoexpand</span><span class="w">     </span><span class="n">off</span><span class="w">         </span><span class="n">default</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">dedupratio</span><span class="w">     </span><span class="mf">3.00</span><span class="n">x</span><span class="w">       </span><span class="o">-</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">free</span><span class="w">           </span><span class="mi">136</span><span class="nc">G</span><span class="w">        </span><span class="o">-</span><span class="w">
+      </span><span class="n">pool</span><span class="w">  </span><span class="n">allocated</span><span class="w">      </span><span class="mi">109</span><span class="nc">M</span><span class="w">        </span><span class="o">-</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="nc">Destroying</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">destroys</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="s">&quot;tank&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">datasets</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="n">within</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool destroy -f tank</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="nc">Exporting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">exports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">tank</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">relocated</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">imported</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool export tank</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="nc">Importing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">pools</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">imports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="s">&quot;tank&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">following</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool import</span><span class="w">
+        </span><span class="ss">pool</span><span class="p">:</span><span class="w"> </span><span class="n">tank</span><span class="w">
+          </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="mi">7678868315469843843</span><span class="w">
+       </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="nc">ONLINE</span><span class="w">
+      </span><span class="ss">action</span><span class="p">:</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">imported</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">identifier</span><span class="o">.</span><span class="w">
+      </span><span class="ss">config</span><span class="p">:</span><span class="w">
+
+              </span><span class="n">tank</span><span class="w">        </span><span class="nc">ONLINE</span><span class="w">
+                </span><span class="n">mirror</span><span class="o">-</span><span class="mi">0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">
+                  </span><span class="n">c1t2d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">
+                  </span><span class="n">c1t3d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">
+
+      </span><span class="c1"># zpool import tank</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="nc">Upgrading</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Pools</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Current</span><span class="w"> </span><span class="nc">Version</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">upgrades</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Storage</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">software</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># zpool upgrade -a</span><span class="w">
+      </span><span class="nc">This</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">19</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">All</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="nc">Managing</span><span class="w"> </span><span class="nc">Hot</span><span class="w"> </span><span class="nc">Spares</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">hot</span><span class="w"> </span><span class="ss">spare</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool create tank mirror c0t0d0 c0t1d0 spare c0t2d0</span><span class="w">
+
+    </span><span class="nc">If</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fail</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reduced</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">degraded</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool replace tank c0t0d0 c0t3d0</span><span class="w">
+
+    </span><span class="nc">Once</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">resilvered</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">spare</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">hot</span><span class="w"> </span><span class="n">spare</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">permanently</span><span class="w"> </span><span class="n">re</span><span class="err">‐</span><span class="w">
+    </span><span class="n">moved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool remove tank c0t2d0</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="nc">Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Pool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Mirrored</span><span class="w"> </span><span class="nc">Separate</span><span class="w"> </span><span class="nc">Intent</span><span class="w"> </span><span class="nc">Logs</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">consisting</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">two</span><span class="o">-</span><span class="n">way</span><span class="w"> </span><span class="n">mirrors</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">mirrored</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="ss">devices</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool create pool mirror c0d0 c1d0 mirror c2d0 c3d0 log mirror \</span><span class="w">
+         </span><span class="n">c4d0</span><span class="w"> </span><span class="n">c5d0</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="nc">Adding</span><span class="w"> </span><span class="nc">Cache</span><span class="w"> </span><span class="nc">Devices</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">disks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="ss">pool</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool add pool cache c2d0 c3d0</span><span class="w">
+
+    </span><span class="nc">Once</span><span class="w">  </span><span class="n">added</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">gradually</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span><span class="w"> </span><span class="nc">Depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">devices</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">them</span><span class="w">
+    </span><span class="n">to</span><span class="w"> </span><span class="n">fill</span><span class="o">.</span><span class="w"> </span><span class="nc">Capacity</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">monitored</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">iostat</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool iostat -v pool 5</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="nc">Removing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Mirrored</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="nc">Device</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">removes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mirrored</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">mirror</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Given</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="ss">configuration</span><span class="p">:</span><span class="w">
+
+         </span><span class="ss">pool</span><span class="p">:</span><span class="w"> </span><span class="n">tank</span><span class="w">
+        </span><span class="ss">state</span><span class="p">:</span><span class="w"> </span><span class="nc">ONLINE</span><span class="w">
+        </span><span class="ss">scrub</span><span class="p">:</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="n">requested</span><span class="w">
+      </span><span class="ss">config</span><span class="p">:</span><span class="w">
+
+              </span><span class="nc">NAME</span><span class="w">       </span><span class="nc">STATE</span><span class="w">     </span><span class="nc">READ</span><span class="w"> </span><span class="nc">WRITE</span><span class="w"> </span><span class="nc">CKSUM</span><span class="w">
+               </span><span class="n">tank</span><span class="w">        </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                 </span><span class="n">mirror</span><span class="o">-</span><span class="mi">0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c6t0d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c6t1d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                 </span><span class="n">mirror</span><span class="o">-</span><span class="mi">1</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c6t2d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c6t3d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+               </span><span class="n">logs</span><span class="w">
+                 </span><span class="n">mirror</span><span class="o">-</span><span class="mi">2</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c4t0d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+                   </span><span class="n">c4t1d0</span><span class="w">  </span><span class="nc">ONLINE</span><span class="w">       </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">     </span><span class="mi">0</span><span class="w">
+
+    </span><span class="nc">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mirrored</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">mirror</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool remove tank mirror-2</span><span class="w">
+
+    </span><span class="nc">Example</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="nc">Recovering</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Faulted</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="nc">Pool</span><span class="w">
+
+    </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">faulted</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">recoverable</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">indicating</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="p" data-group-id="8457324173-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">cachefile</span><span class="w"> </span><span class="n">above</span><span class="p" data-group-id="8457324173-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w">
+    </span><span class="n">the</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Recover</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool clear -F data</span><span class="w">
+      </span><span class="nc">Pool</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Tue</span><span class="w"> </span><span class="nc">Sep</span><span class="w"> </span><span class="mi">08</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">35</span><span class="w"> </span><span class="mi">2009</span><span class="o">.</span><span class="w">
+      </span><span class="nc">Discarded</span><span class="w"> </span><span class="n">approximately</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">transactions</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">cached</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">recovery</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="ss">flag</span><span class="p">:</span><span class="w">
+
+      </span><span class="c1"># zpool import -F data</span><span class="w">
+      </span><span class="nc">Pool</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Tue</span><span class="w"> </span><span class="nc">Sep</span><span class="w"> </span><span class="mi">08</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">35</span><span class="w"> </span><span class="mi">2009</span><span class="o">.</span><span class="w">
+      </span><span class="nc">Discarded</span><span class="w"> </span><span class="n">approximately</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">transactions</span><span class="o">.</span></code></pre><h2 id="exist-status" class="section-heading">
+  <a href="#exist-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  EXIST STATUS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ss">returned</span><span class="p">:</span><span class="w">
+
+    </span><span class="mi">0</span><span class="w">
+
+        </span><span class="nc">Successful</span><span class="w"> </span><span class="n">completion</span><span class="o">.</span><span class="w">
+
+    </span><span class="mi">1</span><span class="w">
+
+        </span><span class="nc">An</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurred</span><span class="o">.</span><span class="w">
+
+    </span><span class="mi">2</span><span class="w">
+
+        </span><span class="nc">Invalid</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span></code></pre><p> ATTRIBUTES</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">See</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="2023163732-1">(</span><span class="mi">5</span><span class="p" data-group-id="2023163732-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">descriptions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">attributes</span><span class="p">:</span><span class="w">
+
+    </span><span class="err">┌</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┬</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┐</span><span class="w">
+    </span><span class="err">│</span><span class="w">      </span><span class="nc">ATTRIBUTE</span><span class="w"> </span><span class="nc">TYPE</span><span class="w">         </span><span class="err">│</span><span class="w">      </span><span class="nc">ATTRIBUTE</span><span class="w"> </span><span class="nc">VALUE</span><span class="w">        </span><span class="err">│</span><span class="w">
+    </span><span class="err">├</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┼</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┤</span><span class="w">
+    </span><span class="err">│</span><span class="nc">Availability</span><span class="w">                 </span><span class="err">│</span><span class="nc">SUNWzfsu</span><span class="w">                     </span><span class="err">│</span><span class="w">
+    </span><span class="err">├</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┼</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┤</span><span class="w">
+    </span><span class="err">│</span><span class="nc">Interface</span><span class="w"> </span><span class="nc">Stability</span><span class="w">          </span><span class="err">│</span><span class="nc">Committed</span><span class="w">                    </span><span class="err">│</span><span class="w">
+    </span><span class="err">└</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┴</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">─</span><span class="err">┘</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">zfs</span><span class="p" data-group-id="8109561789-1">(</span><span class="mi">1</span><span class="nc">M</span><span class="p" data-group-id="8109561789-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="8109561789-2">(</span><span class="mi">5</span><span class="p" data-group-id="8109561789-2">)</span></code></pre><p> SunOS 5.11                                                                   4 Jan 2010                                                                     zpool(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

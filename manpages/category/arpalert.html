@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>arpalert — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>ARPALERT(8)                                                            arp traffic monitoring                                                            ARPALERT(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">arpalert</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">monitoring</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Arpalert</span><span class="w">  </span><span class="n">uses</span><span class="w">  </span><span class="nc">ARP</span><span class="w">  </span><span class="n">protocol</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">unauthorized</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">detected</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">script</span><span class="w">
+   </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">launched</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="o">.</span></code></pre><p>COMMAND LINE</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">config_file</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
+          </span><span class="nc">Comma</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">pid_file</span><span class="w">
+          </span><span class="nc">Use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containis</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arpalert</span><span class="w"> </span><span class="n">session</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">exist</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">his</span><span class="w"> </span><span class="n">locked</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="k" data-group-id="7389369058-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">run</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">exec_script</span><span class="w">
+          </span><span class="nc">Script</span><span class="w"> </span><span class="n">launched</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">send</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">D</span><span class="w"> </span><span class="n">log_level</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="n">logged</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p" data-group-id="7389369058-2">(</span><span class="n">emergency</span><span class="p" data-group-id="7389369058-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="p" data-group-id="7389369058-3">(</span><span class="n">debug</span><span class="p" data-group-id="7389369058-3">)</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="n">bitween</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">logged</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">leases_file</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="p" data-group-id="7389369058-4">(</span><span class="n">see</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="7389369058-4">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">file</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">load</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Run</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">F</span><span class="w">     </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">foreground</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Watch</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="p" data-group-id="7389369058-5">(</span><span class="n">the</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="7389369058-5">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">The</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">w</span><span class="w">     </span><span class="nc">Debug</span><span class="w"> </span><span class="ss">option</span><span class="p">:</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">captured</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">P</span><span class="w">     </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">promiscuous</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="7389369058-6">(</span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">analyse</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p" data-group-id="7389369058-6">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">quit</span><span class="o">.</span></code></pre><p>CONFIGURATION FILE</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">data</span><span class="p">:</span><span class="w"> </span><span class="n">integer</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">boolean</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="sc">&#39;oui&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;true&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;yes&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="no">true</span><span class="w">  </span><span class="n">values</span><span class="w">  </span><span class="ow">or</span><span class="w">
+   </span><span class="sc">&#39;non&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;no&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;false&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">falses</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arpalert</span><span class="w">
+          </span><span class="nc">Use</span><span class="w"> </span><span class="n">privileges</span><span class="w"> </span><span class="n">separation</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">user</span><span class="w">
+
+   </span><span class="n">umask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">177</span><span class="w">
+          </span><span class="nc">Uses</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">umask</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">creation</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">chroot</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">thierry</span><span class="o">/</span><span class="n">arp_test</span><span class="o">/</span><span class="w">
+          </span><span class="nc">Use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">jail</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">commented</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">chroot</span><span class="o">.</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">chroot</span><span class="p">:</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="o">-</span><span class="nc">HUP</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">chroot</span><span class="o">.</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">restarted</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arpalert</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">can</span><span class="sc">&#39;t be connect to the new socket: the logs with syslog are dis‐
+          abled. Prefere to use the log file.
+          The file paths are relative to the chroot dir (except the config file)
+
+   log file = /var/log/arpalert.log
+          The program log into this file
+          If this option is commented out, the internal system log is not used.
+          The internal system logs can be used in same time that syslog.
+
+   log level = 6
+          The level logged. The levels are between 0 (emergency) and 7 (debug). If 3 is selected all levels between 0 and 3 are logged.
+
+   use syslog = true
+          If this option is false, the syslog system is disabled
+
+   maclist file = /etc/arpalert/maclist.allow
+          White list
+
+   maclist alert file = /etc/arpalert/maclist.deny
+          Black list
+
+   maclist leases file = /var/lib/arpalert/arpalert.leases
+          Dump file
+
+   dump inter = 5
+          Minimum time to wait between two leases dump
+
+   auth request file = /etc/arpalert/authrq.conf
+          List of authorized request
+
+   lock file = /var/run/arpalert.pid
+          pid file
+
+   dump packet = false
+          Only for debugging: this dump packet received on standard output. The syntax &quot;dump paquet&quot; is also avalaible, but is deprecated
+
+   daemon = false
+          If is set to true, run the program as daemon
+
+   interface = &quot;&quot;
+          Comma separated network interfaces leisten to. If this value is not specified, the soft select the first interface.
+
+   catch only arp = TRUE
+          Configure the network for catch only arp request.  The detection type &quot;new_mac&quot; is deactived.  This mode is used for CPU saving if Arpalert is running
+          on a router
+
+   mod on detect = &quot;&quot;
+          Module file loaded by arpalert. This module is launched on each valid alert.  This system avoids a costly fork/exec
+
+   mod config = &quot;&quot;
+          This chain is transferred to the init function of module loaded
+
+   action on detect = &quot;&quot;
+          Script launched on each detection. Parameters are:
+           - mac address of requestor,
+           - ip of requestor,
+           - supp. parm.,
+           - ethernet device listening on
+           - type of alert,
+           - optional: ethernet vendor
+
+          type of alert:
+          0: IP change
+          1: Mac address already detected but not in white list
+          2: Mac address in black list
+          3: New mac address
+          4: Unauthorized arp request
+          5: Abusive number of arp request detected
+          6: Ethernet mac address different from arp mac address
+          7: Flood detected
+          8: New mac address without ip address
+
+   execution timeout = 10
+          Script execution timeout (seconds)
+
+   max alert = 20
+          Maximun simultaneous lanched script
+
+   dump black list = false
+          Dump the black listed mac address in leases file
+
+   dump white list = false
+          Dump the white listed mac address in leases file
+
+   dump new address = true
+          Dump the new mac address in leases file
+
+   mac timeout = 259200
+          After this time a mac address is removed from memory (seconds) (default 1 month)
+
+   max entry = 1000000
+          After this limit the memory hash is cleaned (protect to arp flood)
+
+   anti flood interval = 10
+          This sends only one mismatch alert in this time (in seconds)
+
+   anti flood global = 50
+          If the number of arp request in seconds exceeds this value, all alerts are ignored for &quot;anti flood interval&quot; time
+
+   mac vendor file = &quot;&quot;
+          This file contain the association from mac address to vendor name. This file can be downloaded here: http://standards.ieee.org/regauth/oui/oui.txt
+
+   log mac vendor = false
+          Log vendor name
+
+   alert mac vendor = false
+          Give vendor name to script
+
+   mod mac vendor = false
+          Give vendor name to module
+
+   log referenced address, alert on referenced address, mod on referenced address = false
+          Log/launch script/call module if the address is referenced in hash but is not in white list
+
+   log deny address, alert on deny address, mod on deny address = true
+          Log/launch script/call module if the mac address is in black list
+
+   log new address, alert on new address, mod on new address = true
+          Log/launch script/call module if the address isn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">referenced</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">change</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">change</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">change</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">change</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">unauth</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">unauth</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">unauth</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Unauthorized</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="ss">request</span><span class="p">:</span><span class="w"> </span><span class="n">launch</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">authorized</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="n">ignore</span><span class="w"> </span><span class="n">unknown</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">analyse</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unknown</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="p" data-group-id="1276460478-1">(</span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">white</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="1276460478-1">)</span><span class="w">
+
+   </span><span class="n">ignore</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Ignore</span><span class="w"> </span><span class="nc">ARP</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">windows</span><span class="w"> </span><span class="n">dhcp</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unauthorized</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">detection</span><span class="w">
+
+   </span><span class="n">ignore</span><span class="w"> </span><span class="n">me</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">addresse</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authorizations</span><span class="w"> </span><span class="n">checks</span><span class="w">
+
+   </span><span class="n">unauth</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">
+          </span><span class="nc">Select</span><span class="w"> </span><span class="n">suspend</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ss">method</span><span class="p">:</span><span class="w">
+          </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">unauth</span><span class="w"> </span><span class="n">alerts</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="s">&quot;anti flood interval&quot;</span><span class="w"> </span><span class="n">time</span><span class="w">
+          </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">tuple</span><span class="w"> </span><span class="p" data-group-id="1276460478-2">(</span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="p" data-group-id="1276460478-2">)</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="s">&quot;anti flood interval&quot;</span><span class="w"> </span><span class="n">time</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">abus</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">abus</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">abus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;max request&quot;</span><span class="w">
+
+   </span><span class="n">max</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000</span><span class="w">
+          </span><span class="nc">Maximun</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">authorized</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">second</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ethernet</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="1276460478-3">(</span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">requestor</span><span class="p" data-group-id="1276460478-3">)</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">flood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">flood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">flood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">arp</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">seconds</span><span class="w">
+
+   </span><span class="n">log</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Log</span><span class="o">/</span><span class="n">launch</span><span class="w"> </span><span class="n">script</span><span class="o">/</span><span class="n">call</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ethernet</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">expire</span><span class="w">
+
+   </span><span class="n">expire</span><span class="w"> </span><span class="n">authorized</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="nc">Allow</span><span class="w"> </span><span class="n">authorized</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">expire</span></code></pre><p>DATA FILES FORMATS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpalert</span><span class="o">/</span><span class="n">maclist</span><span class="o">.</span><span class="n">allow</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpalert</span><span class="o">/</span><span class="n">maclist</span><span class="o">.</span><span class="ss">deny</span><span class="p">:</span><span class="w">
+          </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="c1"># as a first caracter are ignored</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">form</span><span class="w">
+          </span><span class="o">&lt;</span><span class="nc">MAC_ADRESS</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">IP_ADDRESS</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9333033514-1">[</span><span class="o">&lt;</span><span class="nc">FLAG</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FLAG</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FLAG</span><span class="o">&gt;</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="9333033514-1">]</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+          </span><span class="ss">ip_change</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">black_listed</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">black</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">alerts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">unauth_rq</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">unauthorized</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">rq_abus</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">abuse</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">mac_error</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">mac_change</span><span class="p">:</span><span class="w"> </span><span class="nc">Ignore</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w">
+          </span><span class="ss">mac_expire</span><span class="p">:</span><span class="w"> </span><span class="nc">Never</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w"> </span><span class="nc">Useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="s">&quot;expire authorized mac addresses&quot;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">arpalert</span><span class="o">/</span><span class="n">authrq</span><span class="o">.</span><span class="ss">conf</span><span class="p">:</span><span class="w">
+          </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="c1"># character are ignored</span><span class="w">
+          </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ignored</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">authorisations</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">begins</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">brackets</span><span class="w">
+          </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="p" data-group-id="9333033514-2">(</span><span class="k">with</span><span class="w"> </span><span class="o">/</span><span class="n">xx</span><span class="w"> </span><span class="n">notion</span><span class="p" data-group-id="9333033514-2">)</span><span class="w">
+          </span><span class="p" data-group-id="9333033514-3">[</span><span class="o">&lt;</span><span class="nc">MAC_ADRESS</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="p" data-group-id="9333033514-3">]</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">IP_ADRESS</span><span class="o">&gt;</span><span class="w">
+          </span><span class="o">&lt;</span><span class="nc">IP_ADRESS</span><span class="o">&gt;</span><span class="o">/</span><span class="o">&lt;</span><span class="nc">BITS</span><span class="o">&gt;</span></code></pre><p>FILES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">sbin</span><span class="o">/</span><span class="ss">arpalert</span><span class="p">:</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">etc</span><span class="o">/</span><span class="n">arpalert</span><span class="o">/</span><span class="n">arpalert</span><span class="o">.</span><span class="ss">conf</span><span class="p">:</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">arpalert</span><span class="o">.</span><span class="ss">pid</span><span class="p">:</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">var</span><span class="o">/</span><span class="n">state</span><span class="o">/</span><span class="n">arpalert</span><span class="o">.</span><span class="ss">leases</span><span class="p">:</span><span class="w"> </span><span class="n">leases</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+                                                                         </span><span class="mi">2006</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">09</span><span class="w">                                                                  </span><span class="nc">ARPALERT</span><span class="p" data-group-id="1824498104-1">(</span><span class="mi">8</span><span class="p" data-group-id="1824498104-1">)</span></code></pre>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

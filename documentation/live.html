@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="KaisenLinux v1.5.0">
+
+    <title>Live informations — KaisenLinux v1.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-9f40bfafb3.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+KaisenLinux
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.5.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="KaisenLinux" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Guides</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>Live informations</h1><h2 id="default-credentials" class="section-heading">
+  <a href="#default-credentials" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Default credentials
+</h2>
+<ul><li>Login: kaisen</li><li>Password: kaisen</li></ul><h2 id="live-languages" class="section-heading">
+  <a href="#live-languages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Live languages
+</h2>
+<ul><li>You can using <strong>French</strong> with <strong>azerty</strong> keyboard. This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (Français)</strong> =&gt; once you have started on your DVD or bootable USB key.</li><li>You can using <strong>English</strong> with <strong>qwerty</strong> (US disposition) keyboard. This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (English)</strong> =&gt; once you have started on your DVD or bootable USB key.</li><li>You can using <strong>Spain</strong> with qwerty (Spain disposition) keyboard. This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (Espanol)</strong> =&gt; once you have started on your DVD or bootable USB key.</li><li>You can using <strong>Portugal</strong> with qwerty (Portugal disposition). This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (Portugues)</strong> =&gt; once you have started on your DVD or bootable USB key.</li><li>You can using <strong>Italian</strong> with qwerty (Italian disposition). This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (Italiano)</strong> =&gt; once you have started on your DVD or bootable USB key.</li><li>You can using <strong>Deutsch</strong> with <strong>qwertz</strong> (Deutsch disposition). This language can be chosen by the entry <strong>Kaisen Linux Rolling Live (Deutsche)</strong> =&gt; once you have started on your DVD or bootable USB key.  </li></ul><p>If your keyboard is neither azerty, qwerty or qwertz of the variants mentioned above, select the language on which to start the live and once on the live, in the terminal, type the command <code class="inline">setxkbmap your_keyboard</code>
+For example, for the russian keyboard, the command will be <code class="inline">setxkbmap ru</code></p><h2 id="live-options" class="section-heading">
+  <a href="#live-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Live options
+</h2>
+<p>Kaisen Linux live has several options:</p><ul><li>Default</li><li>Failsafe mode</li><li>Persistence</li><li>Encrypted persistence</li><li>Forensic mode</li><li>Charging in RAM</li><li>Charging in RAM (failsafe)</li><li>Charging in RAM (forensic)</li></ul><pre><code class="bash">*Default: Simple start in live mode without special options.
+*Failsafe mode: Repair mode and disables certain features such as multi-threading and direct access to RAM. 
+Facilitates the detection of problems.
+*Persistence: Mode allowing to keep this data on different live sessions (by default, the live erases all the data of the session once the computer is shut down or restarted). CAUTION: This mode can only be used with a bootable USB key with a partition dedicated to persistence. More details in the section dedicated to the use of the persistent mode.
+*Encrypted persistence: Exactly the same function as persistence mode, with the only difference, the partition with persistent data will be secured using cryptsetup and luks.
+*Forensic mode: Mode allowing to start the system by bringing certain security there like deactivation of the assembly by default of the equipment connected in USB and the deactivation of graphics cards AMD and Nvidia. The swap 
+(partition used by the system to compensate for a possible lack of RAM) is also disabled with this mode.
+*Charging in RAM: Mode allowing to fully load the squashfs in the RAM memory, allowing to use the live system without keeping the USB key connected. Useful for computers with few USB ports. 8Gb of RAM is recommended to use this mode. The system loaded in RAM consumes 3.5GB to 4GB.
+*Charging in RAM (failsafe): Allows like failsafe mode and loaded in RAM, to fully load the system in RAM memory and to deactivate multi-threading support as well as direct access to RAM memory.
+*Charging in RAM (forensic): This mode allows to load the whole system in RAM, but by activating the functionalities provided with the classic forensic mode.</code></pre><p>All these options are available on the six languages ​​provided for the live system.</p><h3 id="default-mode" class="section-heading">
+  <a href="#default-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Default mode
+</h3>
+<p>This mode requires nothing more than typing the enter key on its keyboard to be used. Very useful mode for testing the system, as well as for performing some quick tasks such as disk formatting or disk performance analysis.</p><h3 id="failsafe-mode" class="section-heading">
+  <a href="#failsafe-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Failsafe mode
+</h3>
+<p>This mode is often used to diagnose problems related to its hardware or to deactivate the support of certain functions which can conflict with certain uses such as multi-threading, management of APM (Advanced Power Management) etc. Do not use this mode if you do not need it. Using it will not cause any problems on your machine or live system, but disables certain functions that may be useful.</p><h3 id="forensic-mode" class="section-heading">
+  <a href="#forensic-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Forensic mode
+</h3>
+<p>This mode allows you to start on a live system by deactivating additional graphics cards.
+Automatic mounting of disks / partitions and swap are disabled. The purpose of this mode is to be able to more easily diagnose problems related to graphics cards (driver or screen problems related to faulty hardware) and to be able to more easily control the mounting of discs on the system. The automatic deactivation of device mounting makes it possible, for example, to limit the extent of damage that can be caused by malware. This feature is useful for performing disk and / or malware analysis on discs whose origin or content is potentially dangerous.</p><h3 id="persistence-mode" class="section-heading">
+  <a href="#persistence-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Persistence mode
+</h3>
+<p>This mode allows you to keep this data between each live session. However, this mode must be configured beforehand. Persistence mode makes it possible, among other things, to keep the modification of its graphic parameters (wallpaper, theme, policies, etc.), to keep the packages updated, to keep the data entered by the user, etc.</p><h3 id="encrypted-persistence" class="section-heading">
+  <a href="#encrypted-persistence" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Encrypted persistence
+</h3>
+<p>This mode allows you to keep this data between each live session. However, this mode needs to be configured beforehand. The difference with the previous persistent mode, is that persistent data is encrypted, which increases the security, confidentiality and integrity of persistent data. This mode should be used as a priority and is recommended over normal persistent mode, for your safety.</p><h3 id="charging-in-ram" class="section-heading">
+  <a href="#charging-in-ram" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Charging in RAM
+</h3>
+<p>This mode requires nothing more than typing the enter key on its keyboard to be used. Very useful mode to accelerate the speed of the live system on recent machines, because the system is fully loaded in RAM and therefore faster than a USB port. Useful also to save the USB ports of the machine in case there is not much to see one. Once this mode is used and you have access to the desktop, you can unplug the USB key and fully use the system.</p><h3 id="charging-in-ram-with-failsafe-mode" class="section-heading">
+  <a href="#charging-in-ram-with-failsafe-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Charging in RAM with failsafe mode
+</h3>
+<p>This mode also allows you to fully load the system into RAM, but by disabling certain functions such as APM and SMP (like classic failsafe mode). Only use this mode if you have the utility and know why to use it. Using it will not cause any problems on your machine or live system, but disables certain functions that may be useful.</p><h3 id="charging-in-ram-with-forensic-mode" class="section-heading">
+  <a href="#charging-in-ram-with-forensic-mode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Charging in RAM with forensic mode
+</h3>
+<p>The forensic mode allows you to automatically deactivate Nvidia graphics cards as well as AMD cards. Storage devices are not mounted automatically. This mode allows you to benefit from all the advantages of this mode while keeping a free USB port on your computer.</p><h2 id="create-live-usb-key-with-persistence" class="section-heading">
+  <a href="#create-live-usb-key-with-persistence" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Create live USB key with persistence
+</h2>
+<h3 id="prerequisite" class="section-heading">
+  <a href="#prerequisite" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <strong>Prerequisite</strong>
+</h3>
+<p>WARNING: A USB key configured to support live persistent will not work with Apple hardware, surely due to their specific BIOS.</p><p>We recommend that you have at least a 64GB USB key to take full advantage of this feature. Delete your current partition entirely with Gparted and create a partition table in GPT, dd will do the rest for you. You don't need to format the partition with any file system.
+Check with the command <code class="inline">sudo fdisk -l</code> what your key is called. Here we will assume that our USB drive is <code class="inline">/dev/sdb</code>.</p><h3 id="usb-creation" class="section-heading">
+  <a href="#usb-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <strong>USB creation</strong>
+</h3>
+<p>This documentation was made with the live MATE ISO but also works with KDE, LXDE and XFCE and SR (System Rescue).
+Make sure you are in the same folder as the ISO to do all this !!</p><ul><li>Create a bootable Kaisen USB drive with the following command:</li></ul><pre><code class="bash">sudo dd if=kaisenlinuxrolling1.5-amd64-MATE.iso of=/dev/sdb bs=4M</code></pre><p>Normally two partitions were created by dd. You can check this with the sudo fdisk -l command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="bash">end=55gb (if key is 64gb, for security we will put the key ending at 55gb plus the size of the ISO so 3gb)
+read start _ &lt;&lt;(du -bcm kaisenlinuxrolling1.5-amd64-MATE.iso | tail -1); echo $start
+sudo parted /dev/sdb mkpart primary $start $end</code></pre><ul><li>Here is what to answer with parted:</li></ul><pre><code class="bash">Warning: Not all of the space available to /dev/sdb1 appears to be used, you can fix the GPT to use all of the space (an extra
+117235328 blocks) or continue with the current setting?
+Fix/Ignore?</code></pre><p>Answer: Fix</p><pre><code class="bash">Error: Can't have overlapping partitions.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><pre><code class="bash">Partition name?  []?</code></pre><p>Answer: persistence</p><pre><code class="bash">File system type?  [ext2]?</code></pre><p>Answer: ext4</p><pre><code class="bash">Start?</code></pre><p>Answer $start value (I get 3577 just after echo $start with MATE ISO)</p><pre><code class="bash">End?</code></pre><p>Answer: 55gb</p><ul><li>You may be asked the questions below. Just ignore the messages.</li></ul><pre><code class="bash">Error: Error informing the kernel about modifications to partition /dev/sdb1 -- Device or resource busy.  This means Linux won't know about any changes you made to /dev/sdb1 until you reboot -- so you shouldn't mount it or use it in any way before rebooting.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><pre><code class="bash">Error: Partition(s) 3 on /dev/sdb have been written, but we have been unable to inform the kernel of the change, probably because it/they are in use.  As a result, the old partition(s) will remain in use.  You should reboot now before making further changes.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><p><strong>To initialize /etc/mtab, disconnect then reconnect your key!!</strong></p><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.</p><ul><li>Then do this for create filesystems and partition label:<br></br>The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</li></ul><pre><code class="bash">sudo mkfs.ext4 -L persistence /dev/sdb3
+sudo e2label /dev/sdb3 persistence</code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="bash">sudo mkdir -p /mnt/persistence
+sudo mount /dev/sdb3 /mnt/persistence
+echo &quot;/ union&quot; | sudo tee /mnt/persistence/persistence.conf
+sudo umount /mnt/persistence</code></pre><p><strong>Your key is now ready!</strong></p><p>Restart a live Kaisen with the persistence option enabled. To test that the persistence is functional, for example change the theme of the graphical interface then restart your live session by always choosing &quot;persistence&quot;. If the theme you modified has been kept instead of the default one, persistence is functional :-)</p><h2 id="create-live-usb-key-with-encrypted-persistence" class="section-heading">
+  <a href="#create-live-usb-key-with-encrypted-persistence" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Create live USB key with encrypted persistence
+</h2>
+<h3 id="prerequisite-1" class="section-heading">
+  <a href="#prerequisite-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <strong>Prerequisite</strong>
+</h3>
+<p>WARNING: A USB key configured to support live persistent will not work with Apple hardware, surely due to their specific BIOS.</p><p>We recommend that you have at least a 64GB USB key to take full advantage of this feature. Delete your current partition entirely with Gparted and create a partition table in GPT, dd will do the rest for you. You don't need to format the partition with any file system.
+Check with the command <code class="inline">sudo fdisk -l</code> what your key is called. Here we will assume that our USB drive is <code class="inline">/dev/sdb</code>.</p><h2 id="usb-creation-1" class="section-heading">
+  <a href="#usb-creation-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  USB creation
+</h2>
+<p>This documentation was made with the live MATE ISO but also works with KDE, LXDE and XFCE and SR (System Rescue).
+Make sure you are in the same folder as the ISO to do all this !! Create a bootable Kaisen USB drive with the following command:</p><pre><code class="bash">sudo dd if=kaisenlinuxrolling1.5-amd64-MATE.iso of=/dev/sdb bs=4M</code></pre><p>Normally two partitions were created by dd. You can check this with the <code class="inline">sudo fdisk -l</code> command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="bash">end=55gb (if key is 55gb, for security we will put the key ending at 10gb plus the size of the ISO so 3gb)
+read start _ &lt;&lt;(du -bcm kaisenlinuxrolling1.5-amd64-MATE.iso | tail -1); echo $start
+sudo parted /dev/sdb mkpart primary $start $end</code></pre><ul><li>Here is what to answer with parted:</li></ul><pre><code class="bash">Warning: Not all of the space available to /dev/sdb1 appears to be used, you can fix the GPT to use all of the space (an extra
+117235328 blocks) or continue with the current setting?
+Fix/Ignore?</code></pre><p>Answer: Fix</p><pre><code class="bash">Error: Can't have overlapping partitions.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><pre><code class="bash">Partition name?  []?</code></pre><p>Answer: persistence</p><pre><code class="bash">File system type?  [ext2]?</code></pre><p>Answer: ext4</p><pre><code class="bash">Start?</code></pre><p>Answer $start value (I get 3577 just after echo $start with MATE ISO)</p><pre><code class="bash">End?</code></pre><p>Answer: 55gb</p><ul><li>You may be asked the questions below. Just ignore the messages.</li></ul><pre><code class="bash">Error: Error informing the kernel about modifications to partition /dev/sdb1 -- Device or resource busy.  This means Linux won't know about any changes you made to /dev/sdb1 until you reboot -- so you shouldn't mount it or use it in any way before rebooting.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><pre><code class="bash">Error: Partition(s) 3 on /dev/sdb have been written, but we have been unable to inform the kernel of the change, probably because it/they are in use.  As a result, the old partition(s) will remain in use.  You should reboot now before making further changes.
+Ignore/Cancel?</code></pre><p>Answer: Ignore</p><p><strong>To initialize /etc/mtab, disconnect then reconnect your key!!</strong></p><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.<br></br>WARNING: do not forget the passphrase to unlock the partition, otherwise you will have to completely redo your key and your data cannot be recovered. You have been warned.</p><pre><code class="bash">sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
+sudo cryptsetup luksOpen /dev/sdb3 my_usb</code></pre><p>Then do this for create filesystems and partition label:
+The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</p><pre><code class="bash">sudo mkfs.ext4 -L persistence /dev/mapper/my_usb
+sudo e2label /dev/mapper/my_usb persistence</code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="bash">sudo mkdir -p /mnt/my_usb
+sudo mount /dev/mapper/my_usb /mnt/my_usb
+echo &quot;/ union&quot; | sudo tee /mnt/my_usb/persistence.conf
+sudo umount /dev/mapper/my_usb</code></pre><ul><li>Let's close the encrypted channel:</li></ul><pre><code class="bash">sudo cryptsetup luksClose /dev/mapper/my_usb</code></pre><p><strong>Your key is now ready!</strong></p><p>Restart a live Kaisen with the encrypted persistence option enabled. To test that the persistence is functional, for example change the theme of the graphical interface then restart your live session by always choosing &quot;encrypted persistence&quot;.  If the theme you modified has been kept instead of the default one, encrypted persistence is functional :-)</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>partimage — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-0baf9f48e2.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>partimage(1)                                                           Partition Image Manual                                                           partimage(1)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">partimage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partitions</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">partimage</span><span class="w">  </span><span class="p" data-group-id="7377797876-1">[</span><span class="w">  </span><span class="o">-</span><span class="n">bcdehimMnoSvwy</span><span class="w">  </span><span class="p" data-group-id="7377797876-1">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-2">[</span><span class="o">-</span><span class="nc">B</span><span class="w"> </span><span class="sc">&#39;pattern response string&#39;</span><span class="p" data-group-id="7377797876-2">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-3">[</span><span class="o">-</span><span class="n">z</span><span class="w"> </span><span class="n">compresslevel</span><span class="p" data-group-id="7377797876-3">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-4">[</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">volumesize</span><span class="p" data-group-id="7377797876-4">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-5">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">actionatend</span><span class="p" data-group-id="7377797876-5">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-6">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">server</span><span class="p" data-group-id="7377797876-6">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-7">[</span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">port</span><span class="p" data-group-id="7377797876-7">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-8">[</span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">mountoptions</span><span class="p" data-group-id="7377797876-8">]</span><span class="w">
+   </span><span class="p" data-group-id="7377797876-9">[</span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="n">username</span><span class="p" data-group-id="7377797876-9">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-10">[</span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="n">password</span><span class="p" data-group-id="7377797876-10">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-11">[</span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="n">loglevel</span><span class="p" data-group-id="7377797876-11">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-12">[</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">image_file</span><span class="w"> </span><span class="p" data-group-id="7377797876-12">]</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="p" data-group-id="7377797876-13">[</span><span class="w"> </span><span class="o">-</span><span class="n">bcdehimMnoSvwy</span><span class="w"> </span><span class="p" data-group-id="7377797876-13">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-14">[</span><span class="o">-</span><span class="nc">B</span><span class="w"> </span><span class="sc">&#39;pattern response string&#39;</span><span class="p" data-group-id="7377797876-14">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-15">[</span><span class="o">-</span><span class="n">z</span><span class="w"> </span><span class="n">compresslevel</span><span class="p" data-group-id="7377797876-15">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-16">[</span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">volumesize</span><span class="p" data-group-id="7377797876-16">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-17">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">actionatend</span><span class="p" data-group-id="7377797876-17">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-18">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">server</span><span class="p" data-group-id="7377797876-18">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-19">[</span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">port</span><span class="p" data-group-id="7377797876-19">]</span><span class="w">  </span><span class="p" data-group-id="7377797876-20">[</span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">mountoptions</span><span class="p" data-group-id="7377797876-20">]</span><span class="w">
+   </span><span class="p" data-group-id="7377797876-21">[</span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="n">username</span><span class="p" data-group-id="7377797876-21">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-22">[</span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="n">password</span><span class="p" data-group-id="7377797876-22">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-23">[</span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="n">loglevel</span><span class="p" data-group-id="7377797876-23">]</span><span class="w"> </span><span class="p" data-group-id="7377797876-24">[</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">image_file</span><span class="o">/</span><span class="sc">&#39;stdin&#39;</span><span class="w"> </span><span class="p" data-group-id="7377797876-24">]</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="p" data-group-id="7377797876-25">[</span><span class="w"> </span><span class="n">restmbr</span><span class="w"> </span><span class="n">image_file</span><span class="w"> </span><span class="p" data-group-id="7377797876-25">]</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="p" data-group-id="7377797876-26">[</span><span class="w"> </span><span class="n">imginfo</span><span class="w"> </span><span class="n">image_file</span><span class="w"> </span><span class="p" data-group-id="7377797876-26">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">partimage</span><span class="w"> </span><span class="n">backs</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">restores</span><span class="w"> </span><span class="n">them</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">z</span><span class="w"> </span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">compress</span><span class="w"> </span><span class="n">val</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="ss">level</span><span class="p">:</span><span class="w">
+          </span><span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="n">don</span><span class="sc">&#39;t compress: very fast but very big image file
+          val=1: compress using gzip: fast and small image file (default)
+          val=2: compress using bzip2: very slow and very small image file
+
+   -c, --nocheck
+          Don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">saving</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">overwrite</span><span class="w">
+          </span><span class="nc">Overwrite</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">confirmation</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">nodesc</span><span class="w">
+          </span><span class="nc">Don</span><span class="sc">&#39;t ask any description for the image file.
+
+   -V vol, --volume vol
+          Split image into multiple volumes files. vol will be the size in KB of volumes.
+
+   -w, --waitvol
+          Wait for a confirmation after each volume change.
+
+   -e, --erase
+          Erase empty blocks on restore with zero bytes.
+
+   -m, --allowmnt
+          Don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w"> </span><span class="nc">Dangerous</span><span class="o">!</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">M</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">nombr</span><span class="w">
+          </span><span class="nc">Don</span><span class="sc">&#39;t create a backup of the MBR (Mast Boot Record) in the image file.
+
+   -h, --help
+          Show help.
+
+   -v, --version
+          Show version.
+
+   -f action, --finish action
+          Action to do if finished successfully:
+          action=0: wait (do nothing)
+          action=1: halt (power off the computer)
+          action=2: reboot (restart the computer)
+          action=3: quit
+
+   -b, --batch
+          batch mode: the GUI won&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">action</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">B</span><span class="w"> </span><span class="sc">&#39;pattern response string&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">fully</span><span class="o">-</span><span class="n">batch</span><span class="w"> </span><span class="sc">&#39;pattern response string&#39;</span><span class="w">
+          </span><span class="n">full</span><span class="w">  </span><span class="n">batch</span><span class="w">  </span><span class="ss">mode</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GUI</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">displayed</span><span class="o">.</span><span class="w"> </span><span class="nc">Rather</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">displayed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w">
+          </span><span class="ss">format</span><span class="p">:</span><span class="w">
+          </span><span class="err">´</span><span class="o">&lt;</span><span class="n">glob</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;=</span><span class="o">&lt;</span><span class="n">response</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="p">;</span><span class="n">...</span><span class="err">´</span><span class="w">
+          </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">matched</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">&lt;</span><span class="n">window</span><span class="o">-</span><span class="n">title</span><span class="o">&gt;</span><span class="o">/</span><span class="o">&lt;</span><span class="n">message</span><span class="o">-</span><span class="n">text</span><span class="o">&gt;</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">dialogue</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">displayed</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">dialog</span><span class="w"> </span><span class="n">boxes</span><span class="w">  </span><span class="k">with</span><span class="w">
+          </span><span class="n">buttons</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">window</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">response</span><span class="o">&gt;</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">exact</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">above</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">nosync</span><span class="w">
+          </span><span class="nc">Don</span><span class="sc">&#39;t synchronize the disks at the end of the operation. Dangerous!
+
+   -s addr, --server addr
+          Give partimaged server&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">port</span><span class="w"> </span><span class="n">port</span><span class="w">
+          </span><span class="nc">Give</span><span class="w"> </span><span class="n">partimaged</span><span class="w"> </span><span class="n">server</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">listening</span><span class="w"> </span><span class="n">port</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="n">debuglevel</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="n">debuglevel</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">debuglevel</span><span class="w"> </span><span class="p" data-group-id="2339622974-1">(</span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="2339622974-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">nossl</span><span class="w">
+          </span><span class="nc">Disable</span><span class="w"> </span><span class="nc">SSL</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">simulate</span><span class="w">
+          </span><span class="nc">Simulation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">restoration</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">automnt</span><span class="w"> </span><span class="n">str</span><span class="w">
+          </span><span class="nc">Automatic</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">doc</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">name</span><span class="w">
+          </span><span class="nc">Username</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">partimage</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="n">pass</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="n">pass</span><span class="w">
+          </span><span class="nc">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">partimage</span><span class="w"> </span><span class="n">server</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">partimage</span><span class="w"> </span><span class="o">-</span><span class="n">z1</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda12</span><span class="w"> </span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">backup</span><span class="o">/</span><span class="n">redhat</span><span class="o">-</span><span class="mf">6.2</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="n">gz</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="o">-</span><span class="n">z1</span><span class="w"> </span><span class="o">-</span><span class="n">om</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda9</span><span class="w"> </span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">backup</span><span class="o">/</span><span class="n">win95</span><span class="o">-</span><span class="n">osr2</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="n">gz</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda13</span><span class="w"> </span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">backup</span><span class="o">/</span><span class="n">suse</span><span class="o">-</span><span class="mf">6.4</span><span class="o">.</span><span class="n">partimg</span><span class="w">
+   </span><span class="n">cat</span><span class="w"> </span><span class="n">debian</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="mi">000</span><span class="w"> </span><span class="n">debian</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="mi">001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">partimage</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda1</span><span class="w"> </span><span class="n">stdin</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="n">restmbr</span><span class="w"> </span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">backup</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">potato</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="n">bz2</span><span class="w">
+   </span><span class="n">partimage</span><span class="w"> </span><span class="n">imginfo</span><span class="w"> </span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">backup</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">potato</span><span class="o">-</span><span class="mf">2.2</span><span class="o">.</span><span class="n">partimg</span><span class="o">.</span><span class="n">bz2</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">partimaged</span><span class="p" data-group-id="1031826145-1">(</span><span class="mi">8</span><span class="p" data-group-id="1031826145-1">)</span></code></pre><p>DIAGNOSTICS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">compile</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="sc">&#39;partimage -i&#39;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">batchmode</span><span class="p">,</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">normaly</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span></code></pre><p>CAVEATS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Supported</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ss">systems</span><span class="p">:</span><span class="w"> </span><span class="nc">Ext2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nc">Reiser3</span><span class="p">,</span><span class="w"> </span><span class="nc">FAT16</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="nc">HPFS</span><span class="p">,</span><span class="w"> </span><span class="nc">JFS</span><span class="p">,</span><span class="w"> </span><span class="nc">XFS</span><span class="p">,</span><span class="w"> </span><span class="nc">UFS</span><span class="p" data-group-id="5149934963-1">(</span><span class="n">beta</span><span class="p" data-group-id="5149934963-1">)</span><span class="p">,</span><span class="w"> </span><span class="nc">HFS</span><span class="p" data-group-id="5149934963-2">(</span><span class="n">beta</span><span class="p" data-group-id="5149934963-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">NTFS</span><span class="p" data-group-id="5149934963-3">(</span><span class="n">experimental</span><span class="p" data-group-id="5149934963-3">)</span><span class="w">
+
+   </span><span class="nc">FAT12</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span></code></pre><p>BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">BUGS</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">them</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Franck</span><span class="w"> </span><span class="nc">Ladurelle</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ladurelf</span><span class="na">@partimage</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
+   </span><span class="nc">Francois</span><span class="w"> </span><span class="nc">Dupoux</span><span class="w">  </span><span class="o">&lt;</span><span class="n">fdupoux</span><span class="na">@partimage</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span></code></pre><p>3rd Berkeley Distribution                                                   30 May, 2002                                                                partimage(1)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

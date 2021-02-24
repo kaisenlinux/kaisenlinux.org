@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Kaisen-linux v0.0.1">
+    <title>nilfs-tune — Kaisen-linux v0.0.1</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <script src="dist/sidebar_items-d3359b838f.js"></script>
+      <script src="doc-versions.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="#homepage_url" class="sidebar-projectName">
+Kaisen-linux      </a>
+      <strong class="sidebar-projectVersion">
+        v0.0.1
+      </strong>
+    </div>
+      <a href="#homepage_url">
+        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+      </a>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>  NILFS-TUNE</p><h2 id="name" class="section-heading">
+  <a href="#name" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  NAME
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">nilfs</span><span class="o">-</span><span class="n">tune</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">adjust</span><span class="w"> </span><span class="n">tunable</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">NILFS</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span></code></pre><h2 id="synopsis" class="section-heading">
+  <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SYNOPSIS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">nilfs</span><span class="o">-</span><span class="n">tune</span><span class="w"> </span><span class="p" data-group-id="0040351398-1">[</span><span class="n">options</span><span class="p" data-group-id="0040351398-1">]</span><span class="w"> </span><span class="n">device</span></code></pre><h2 id="description" class="section-heading">
+  <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  DESCRIPTION
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">nilfs</span><span class="o">-</span><span class="n">tune</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">tunable</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inactive</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">systems</span><span class="o">.</span><span class="w">  </span><span class="nc">Modifying</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+  <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OPTIONS
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="o">-</span><span class="n">f</span><span class="w">     </span><span class="nc">Force</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interval</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">segment</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">block</span><span class="o">-</span><span class="n">max</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">segment</span><span class="w"> </span><span class="n">construction</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">l</span><span class="w">     </span><span class="nc">List</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">superblock</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">program</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">L</span><span class="w"> </span><span class="n">volume</span><span class="o">-</span><span class="n">label</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">  </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">long</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">volume</span><span class="o">-</span><span class="n">label</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">longer</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">nilfs</span><span class="o">-</span><span class="n">tune</span><span class="w">
+           </span><span class="n">will</span><span class="w"> </span><span class="n">truncate</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="4921380792-1">(</span><span class="mi">8</span><span class="p" data-group-id="4921380792-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span><span class="p" data-group-id="4921380792-2">(</span><span class="mi">5</span><span class="p" data-group-id="4921380792-2">)</span><span class="w"> </span><span class="p" data-group-id="4921380792-3">(</span><span class="ow">and</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="4921380792-3">)</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="nc">LABEL</span><span class="o">=</span><span class="n">volume</span><span class="o">-</span><span class="n">label</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">block</span><span class="w">
+           </span><span class="n">special</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda5</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="p" data-group-id="4921380792-4">[</span><span class="o">^</span><span class="p" data-group-id="4921380792-4">]</span><span class="n">feature</span><span class="p" data-group-id="4921380792-5">[</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="4921380792-5">]</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">indicated</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p" data-group-id="4921380792-6">(</span><span class="n">options</span><span class="p" data-group-id="4921380792-6">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">  </span><span class="nc">More</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">cleared</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">separating</span><span class="w"> </span><span class="n">fea</span><span class="err">‐</span><span class="w">
+           </span><span class="n">tures</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">commas</span><span class="o">.</span><span class="w">  </span><span class="nc">Filesystem</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">prefixed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">caret</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="p" data-group-id="4921380792-7">(</span><span class="sc">&#39;^&#39;</span><span class="p" data-group-id="4921380792-7">)</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">cleared</span><span class="w"> </span><span class="ow">in</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">filesystem</span><span class="err">&#39;</span><span class="n">s</span><span class="w">  </span><span class="n">superblock</span><span class="p">;</span><span class="w">  </span><span class="n">filesystem</span><span class="w">  </span><span class="n">features</span><span class="w">
+           </span><span class="n">without</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">cleared</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">nilfs</span><span class="o">-</span><span class="ss">tune</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">block_count</span><span class="w">
+                  </span><span class="nc">Enable</span><span class="w">  </span><span class="n">block</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">checkpoint</span><span class="o">.</span><span class="w">  </span><span class="nc">After</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">fsck</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">counts</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">fsck</span><span class="w"> </span><span class="n">tool</span><span class="w">
+                  </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">yet</span><span class="p">,</span><span class="w"> </span><span class="n">sorry</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="nc">UUID</span><span class="w">
+           </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">universally</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="p" data-group-id="4921380792-8">(</span><span class="nc">UUID</span><span class="p" data-group-id="4921380792-8">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">UUID</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">UUID</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">series</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="n">digits</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">hyphens</span><span class="p">,</span><span class="w">  </span><span class="n">like</span><span class="w">
+           </span><span class="ss">this</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;c1b9d5a2-f162-11cf-9ece-0020afc76f16&quot;</span><span class="o">.</span><span class="w">
+
+    </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">Display</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><h2 id="author" class="section-heading">
+  <a href="#author" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  AUTHOR
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">Jiro</span><span class="w"> </span><span class="nc">SEKIBA</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jir</span><span class="na">@unicus</span><span class="o">.</span><span class="n">jp</span><span class="o">&gt;</span></code></pre><p> AVAILABILITY</p><pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">nilfs</span><span class="o">-</span><span class="n">tune</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nilfs</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">nilfs</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">io</span><span class="o">.</span></code></pre><h2 id="see-also" class="section-heading">
+  <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SEE ALSO
+</h2>
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">nilfs</span><span class="p" data-group-id="8392489014-1">(</span><span class="mi">8</span><span class="p" data-group-id="8392489014-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">lscp</span><span class="p" data-group-id="8392489014-2">(</span><span class="mi">1</span><span class="p" data-group-id="8392489014-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">chcp</span><span class="p" data-group-id="8392489014-3">(</span><span class="mi">8</span><span class="p" data-group-id="8392489014-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkcp</span><span class="p" data-group-id="8392489014-4">(</span><span class="mi">8</span><span class="p" data-group-id="8392489014-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">rmcp</span><span class="p" data-group-id="8392489014-5">(</span><span class="mi">8</span><span class="p" data-group-id="8392489014-5">)</span><span class="o">.</span></code></pre><p> nilfs-utils version 2.2                                                       Apr 2014                                                                 NILFS-TUNE(8)</p>      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>
