@@ -5,15 +5,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Kaisen-linux v0.0.1">
-    <title>btrfs-image — Kaisen-linux v0.0.1</title>
+    <meta name="project" content="Manpages v0.0.1">
+
+    <title>btrfs-image — Manpages v0.0.1</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
-    <script src="dist/sidebar_items-d3359b838f.js"></script>
+
+    <script src="dist/sidebar_items-96a347addf.js"></script>
+
       <script src="doc-versions.js"></script>
+
     <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
 <div class="main">
 
 <button class="sidebar-button sidebar-toggle">
@@ -40,19 +47,22 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="#homepage_url" class="sidebar-projectName">
-Kaisen-linux      </a>
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+Manpages
+      </a>
       <strong class="sidebar-projectVersion">
         v0.0.1
       </strong>
     </div>
-      <a href="#homepage_url">
-        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
       </a>
+
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
 
 
   </ul>
@@ -72,16 +82,16 @@ Kaisen-linux      </a>
   <a href="#synopsis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   SYNOPSIS
 </h2>
-<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">btrfs</span><span class="o">-</span><span class="n">image</span><span class="w"> </span><span class="p" data-group-id="9603981999-1">[</span><span class="n">options</span><span class="p" data-group-id="9603981999-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target</span><span class="o">&gt;</span></code></pre><h2 id="description" class="section-heading">
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">btrfs</span><span class="o">-</span><span class="n">image</span><span class="w"> </span><span class="p" data-group-id="5579045734-1">[</span><span class="n">options</span><span class="p" data-group-id="5579045734-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target</span><span class="o">&gt;</span></code></pre><h2 id="description" class="section-heading">
   <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   DESCRIPTION
 </h2>
 <pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">btrfs</span><span class="o">-</span><span class="n">image</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">zeroed</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preserved</span><span class="o">.</span><span class="w"> </span><span class="nc">Mainly</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">debugging</span><span class="w">
     </span><span class="n">purposes</span><span class="o">.</span><span class="w">
 
-    </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">device</span><span class="o">/</span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="1608906457-1">(</span><span class="kn">use</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">stdout</span><span class="p" data-group-id="1608906457-1">)</span><span class="o">.</span><span class="w">
+    </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">device</span><span class="o">/</span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="7433247578-1">(</span><span class="kn">use</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">stdout</span><span class="p" data-group-id="7433247578-1">)</span><span class="o">.</span><span class="w">
 
-    </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="1608906457-2">(</span><span class="n">option</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="1608906457-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dumped</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">device</span><span class="o">/</span><span class="n">file</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
+    </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="7433247578-2">(</span><span class="n">option</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="7433247578-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dumped</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">device</span><span class="o">/</span><span class="n">file</span><span class="o">.</span></code></pre><h2 id="options" class="section-heading">
   <a href="#options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   OPTIONS
 </h2>
@@ -90,10 +100,10 @@ Kaisen-linux      </a>
         </span><span class="n">running</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">possible</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">stripes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
 
     </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
-        </span><span class="nc">Compression</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="p" data-group-id="1271617518-1">(</span><span class="mi">0</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="1271617518-1">)</span><span class="o">.</span><span class="w">
+        </span><span class="nc">Compression</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="p" data-group-id="7128150557-1">(</span><span class="mi">0</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="7128150557-1">)</span><span class="o">.</span><span class="w">
 
     </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
-        </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="p" data-group-id="1271617518-2">(</span><span class="mi">1</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">32</span><span class="p" data-group-id="1271617518-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">restore</span><span class="o">.</span><span class="w">
+        </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="p" data-group-id="7128150557-2">(</span><span class="mi">1</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="mi">32</span><span class="p" data-group-id="7128150557-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">restore</span><span class="o">.</span><span class="w">
 
     </span><span class="o">-</span><span class="n">o</span><span class="w">
         </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">fixup</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">restored</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w">
@@ -117,7 +127,8 @@ Kaisen-linux      </a>
   <a href="#see-also" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   SEE ALSO
 </h2>
-<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mkfs</span><span class="o">.</span><span class="n">btrfs</span><span class="p" data-group-id="3525435175-1">(</span><span class="mi">8</span><span class="p" data-group-id="3525435175-1">)</span></code></pre><p> Btrfs v5.9                                                                   10/23/2020                                                               BTRFS-IMAGE(8)</p>      <footer class="footer">
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">mkfs</span><span class="o">.</span><span class="n">btrfs</span><span class="p" data-group-id="4696150589-1">(</span><span class="mi">8</span><span class="p" data-group-id="4696150589-1">)</span></code></pre><p> Btrfs v5.9                                                                   10/23/2020                                                               BTRFS-IMAGE(8)</p>
+      <footer class="footer">
         <p>
           <span class="line">
             Built using
@@ -130,6 +141,7 @@ Kaisen-linux      </a>
           </span>
         </p>
         <p>
+
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
@@ -149,5 +161,7 @@ Kaisen-linux      </a>
   </div>
 </section>
 </div>
+
+
   </body>
 </html>

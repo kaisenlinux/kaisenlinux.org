@@ -5,15 +5,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Kaisen-linux v0.0.1">
-    <title>autopostgresqlbackup — Kaisen-linux v0.0.1</title>
+    <meta name="project" content="Manpages v0.0.1">
+
+    <title>autopostgresqlbackup — Manpages v0.0.1</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
-    <script src="dist/sidebar_items-d3359b838f.js"></script>
+
+    <script src="dist/sidebar_items-96a347addf.js"></script>
+
       <script src="doc-versions.js"></script>
+
     <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
     <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
 <div class="main">
 
 <button class="sidebar-button sidebar-toggle">
@@ -40,19 +47,22 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="#homepage_url" class="sidebar-projectName">
-Kaisen-linux      </a>
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+Manpages
+      </a>
       <strong class="sidebar-projectVersion">
         v0.0.1
       </strong>
     </div>
-      <a href="#homepage_url">
-        <img src="assets/logo.jpg" alt="Kaisen-linux" class="sidebar-projectImage">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
       </a>
+
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">MANUAL</a></li>
+    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
 
 
   </ul>
@@ -76,7 +86,7 @@ Kaisen-linux      </a>
   <a href="#description" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   DESCRIPTION
 </h2>
-<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">autopostgresqlbackup</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="p" data-group-id="6007208271-1">(</span><span class="n">usually</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cron</span><span class="w"> </span><span class="n">job</span><span class="p" data-group-id="6007208271-1">)</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">automated</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">periodic</span><span class="w"> </span><span class="n">backups</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PostgreSQL</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="n">autopostgresqlbackup</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="p" data-group-id="0473890896-1">(</span><span class="n">usually</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cron</span><span class="w"> </span><span class="n">job</span><span class="p" data-group-id="0473890896-1">)</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">automated</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">periodic</span><span class="w"> </span><span class="n">backups</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PostgreSQL</span><span class="w">
     </span><span class="n">databases</span><span class="o">.</span><span class="w">
 
     </span><span class="nc">On</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">systems</span><span class="p">,</span><span class="w"> </span><span class="n">autopostgresqlbackup</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">editing</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">autopostgresqlbackup</span><span class="o">.</span></code></pre><h2 id="author" class="section-heading">
@@ -85,7 +95,8 @@ Kaisen-linux      </a>
 </h2>
 <pre><code class="nohighlight makeup elixir"><span class="w">    </span><span class="nc">This</span><span class="w"> </span><span class="n">manpage</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Emmanuel</span><span class="w"> </span><span class="nc">Bouthenot</span><span class="w"> </span><span class="o">&lt;</span><span class="n">kolter</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">GNU</span><span class="o">/</span><span class="nc">Linux</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="o">.</span><span class="w">
 
-                                                                                                                                          </span><span class="nc">AUTOPOSTGRESQLBACKUP</span><span class="p" data-group-id="3193221418-1">(</span><span class="mi">8</span><span class="p" data-group-id="3193221418-1">)</span></code></pre>      <footer class="footer">
+                                                                                                                                          </span><span class="nc">AUTOPOSTGRESQLBACKUP</span><span class="p" data-group-id="6243417414-1">(</span><span class="mi">8</span><span class="p" data-group-id="6243417414-1">)</span></code></pre>
+      <footer class="footer">
         <p>
           <span class="line">
             Built using
@@ -98,6 +109,7 @@ Kaisen-linux      </a>
           </span>
         </p>
         <p>
+
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
@@ -117,5 +129,7 @@ Kaisen-linux      </a>
   </div>
 </section>
 </div>
+
+
   </body>
 </html>

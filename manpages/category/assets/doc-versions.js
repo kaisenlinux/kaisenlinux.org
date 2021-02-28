@@ -1,10 +1,10 @@
 var versionNodes = [
   {
-    version: "0.0.1", // version number or name (required)
-    url: "https://hexdocs.pm/ex_doc/0.19.3/" // documentation URL (required)
+    version: "sort by packages", // version number or name (required)
+    url: "https://kaisenlinux.org/manpages/readme.html" // documentation URL (required)
   },
   {
-  version: "0.0.2", 
-  url: "https://hexdocs.pm/ex_doc/0.19.3/"
+  version: "sort by category", 
+  url: "https://manpages.kaisen-linux.org/manpages/category/readme.html"
   }
 ]

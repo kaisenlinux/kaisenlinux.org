@@ -1,10 +1,10 @@
 var versionNodes = [
   {
     version: "sort by packages", // version number or name (required)
-    url: "https://manpages.kaisen-linux.org/readme.html" // documentation URL (required)
+    url: "https://kaisenlinux.org/manpages/readme.html" // documentation URL (required)
   },
   {
   version: "sort by category", 
-  url: "https://manpages.kaisen-linux.org/category/readme.html"
+  url: "https://manpages.kaisen-linux.org/manpages/category/readme.html"
   }
 ]
