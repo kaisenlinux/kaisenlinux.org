@@ -5,7 +5,7 @@
   <div class="container">
     <div class="section-heading center-holder">
       <h3>Ex members</h3>
-      <p>Thanks you for your works !</p>
+      <p>Thanks for your works !</p>
     </div>
 
     <div class="row mt-50  justify-content-md-center">
