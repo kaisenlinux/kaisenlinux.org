@@ -1,8 +1,8 @@
 <?php 
 
-  //ini_set('display_errors', 1);
-  //ini_set('display_startup_errors', 1);
-  //error_reporting(E_ALL);
+  ini_set('display_errors', 0);
+  ini_set('display_startup_errors', 0);
+  error_reporting(E_ALL);
 
 ?>
 <?php 
@@ -20,10 +20,10 @@
   <link rel="shortcut icon" href="img/logos/favicon.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="./assets/main.css">
+  <link rel="stylesheet" type="text/css" href="/assets/main.css">
 
   <!-- Swiper Slider -->
-  <script src="js/swiper.min.js"></script>
+  <script src="/js/swiper.min.js"></script>
 
 
 
@@ -66,41 +66,50 @@
   <nav id="navigation4" class="container navigation">
     <div class="nav-header">
       <a class="nav-brand" href="/">
-        <img src="img/logos/logo.svg" class="main-logo" alt="logo" id="main_logo">
-        <img src="img/logos/logo-big.svg" class="big-logo">
+        <img src="/img/logos/logo.svg" class="main-logo" alt="logo" id="main_logo">
+        <img src="/img/logos/logo-big.svg" class="big-logo">
       </a>
       <div class="nav-toggle"></div>
     </div>
     <div class="nav-menus-wrapper">
       <ul class="nav-menu align-to-right">
-        <li><a href="/">Home</a>
-        </li>
-        <li><a href="downloads">Downloads</a>
-        </li>
-        <li><a href="blog/">Blog</a>
-        </li>
-        <li><a href="documentation/">Documentation</a>
-	</li>
-        <li><a href="manpages/">Manpages</a>
-	</li>
-	<li><a href="#">Community</a>
-	<ul class="nav-dropdown">
-	<li><a href="https://forum.kaisenlinux.org" target ="_blank">Forum</a></li>
-	<li><a href="https://gitlab.com/kaisenlinux" target="_blank">Gitlab</a></li>
-	<li><a href="https://github.com/kaisenlinux" target="_blank">Github (Gitlab mirror)</a></li>
-	<li><a href="https://linkedin.com/company/kaisenlinux" target="_blank">Linkedin</a></li>
-	<li><a href="https://twitter.com/KaisenLinuxOS" target="_blank">Twitter</a></li>
-	</ul>
-	</li>
-        <li><a href="#">About</a>
-          <ul class="nav-dropdown">
-            <li><a href="team">Team</a></li>
-            <li><a href="oldmembers">Ex members</a></li>
-            <li><a href="contributors">Contributors</a></li>
-            <li><a href="partners">Partners</a></li>
+        
+        <li><a href="https://kaisenlinux.org">Home</a></li>
+        <li><a href="https://kaisenlinux.org/downloads">Downloads</a></li>
+        <li><a href="https://kaisenlinux.org/blog/">Blog</a></li>
+        <li><a href="https://kaisenlinux.org/documentation/">Documentation</a></li>
+        <li><a href="https://kaisenlinux.org/manpages/">Manpages</a></li>
+        <li><a href="#">Community</a>
+
+        	<ul class="nav-dropdown">
+          
+          	<li><a href="https://forum.kaisenlinux.org" target="_blank">Forum</a></li>
+          	<li><a href="https://gitlab.com/kaisenlinux" target="_blank">Gitlab</a></li>
+          	<li><a href="https://github.com/kaisenlinux" target="_blank">Github (Gitlab mirror)</a></li>
+          	<li><a href="https://linkedin.com/company/kaisenlinux" target="_blank">Linkedin</a></li>
+          	<li><a href="https://twitter.com/KaisenLinuxOS" target="_blank">Twitter</a></li>
+        	
           </ul>
+
+	      </li>
+
+        <li>
+
+          <a href="#">About</a>
+          
+          <ul class="nav-dropdown">
+
+            <li><a href="https://kaisenlinux.org/team">Team</a></li>
+            <li><a href="https://kaisenlinux.org/oldmembers">Ex members</a></li>
+            <li><a href="https://kaisenlinux.org/contributors">Contributors</a></li>
+            <li><a href="https://kaisenlinux.org/partners">Partners</a></li>
+
+          </ul>
+
         </li>
+
       </ul>
+
     </div>
   </nav>
 </header>
