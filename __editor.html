@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>without bootstrap</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  </head>
+  <body>
+    <div id="summernote"></div>
+    <div class="export"><span class="export-bt">Export code</span></div>
+    
+
+    <style type="text/css">
+    	.export{
+    		text-align: center;
+    		padding-top: 10px;
+    	}
+    	.export-bt{
+    		display: inline-block;
+    		border:1px solid #000;
+    		padding: 10px;
+    		cursor: pointer;
+    		font-family: arial;
+    		font-size: 12px;
+    		user-select: none;
+
+    	}	
+    	.export-bt:hover{
+    		background: #000;
+    		color:#fff;
+    	}
+    </style>
+    <script>
+      $('#summernote').summernote({
+        tabsize: 2,
+        height: '80vh',
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+      document.querySelector('.export-bt').addEventListener('click', e=>{
+      	var markupStr = $('#summernote').summernote('code');
+        markupStr = markupStr.replace(/[']/g, '\\$&'); // $& means the whole matched string
+		    copyTextToClipboard(markupStr) 
+      })
+
+
+		function fallbackCopyTextToClipboard(text) {
+		  var textArea = document.createElement("textarea");
+		  textArea.value = text;
+		  
+		  // Avoid scrolling to bottom
+		  textArea.style.top = "0";
+		  textArea.style.left = "0";
+		  textArea.style.position = "fixed";
+
+		  document.body.appendChild(textArea);
+		  textArea.focus();
+		  textArea.select();
+
+		  try {
+		    var successful = document.execCommand('copy');
+		    var msg = successful ? 'successful' : 'unsuccessful';
+
+		    console.log('Fallback: Copying text command was ' + msg);
+		    document.querySelector('.export-bt').innerHTML = 'Copied';
+		    setTimeout(e=>{
+		    	document.querySelector('.export-bt').innerHTML = 'Export code';
+		    },1500)
+
+
+
+		  } catch (err) {
+		    console.error('Fallback: Oops, unable to copy', err);
+		  }
+
+		  document.body.removeChild(textArea);
+		}
+		function copyTextToClipboard(text) {
+		  if (!navigator.clipboard) {
+		    fallbackCopyTextToClipboard(text);
+		    return;
+		  }
+		  navigator.clipboard.writeText(text).then(function() {
+		    console.log('Async: Copying to clipboard was successful!');
+
+
+
+		  }, function(err) {
+		    console.error('Async: Could not copy text: ', err);
+		  });
+		}
+
+
+
+    </script>
+
+
+  </body>
+</html>
