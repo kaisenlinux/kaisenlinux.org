@@ -1,5 +1,4 @@
 <?php include('./header.php');?>
-<?php include('./__blog.php');?>
 
 <div class="section-block head">
   <div class="container">
@@ -172,40 +171,65 @@
       <div class="section-heading-line-left"></div>
     </div>
     <div class="row mt-30">
-
-    <?php  for ($i=0; $i < $blog_home_visible; $i++) { $b=$blog[$i]; ?>
       <div class="col-md-4 col-sm-6 col-12">
-
         <div class="blog-grid-simple">
-      
-        <img src="<?php echo $b['visuel']; ?>">
-
-        <h4><?php echo $b['title']; ?></h4>
-        <p><?php echo $b['extract']; ?></p>
-        <div class="blog-grid-simple-content">
-          <div class="row blog-grid-simple-date">
-            <div class="col-2 pr-0">
-              <i class="fa fa-calendar"></i>
-            </div>
-            <div class="col-5 pl-0">
-              <h5><?php echo $b['date']; ?></h5>
-            </div>
-            <div class="col-5 right-holder">
-              <a href="./blog/<?php echo $b['link']; ?>">Read on blog</a>
+          <h4>Kaisen Linux Rolling 1.5 Release Notes</h4>
+          <p>New revision of the rolling. Lot of ameliorations. New tools and design. Bugs fixed.</p>
+          <div class="blog-grid-simple-content">
+            <div class="row blog-grid-simple-date">
+              <div class="col-2 pr-0">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="col-5 pl-0">
+                <h5>Dec 13, 2020</h5>
+              </div>
+              <div class="col-5 right-holder">
+                <a href="https://blog.kaisen-linux.org/blog/articles/kaisenlinuxrolling1.5.html" target="_blank">Read on blog</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-    <?php } ?>
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="blog-grid-simple">
+          <h4>Kaisen Linux Rolling 1.4 Release Notes</h4>
+          <p>New revision of the rolling. End summer release. New tools and renew conky. Bugs fixed.</p>
+          <div class="blog-grid-simple-content">
+            <div class="row blog-grid-simple-date">
+              <div class="col-2 pr-0">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="col-5 pl-0">
+                <h5>Aug 30, 2020</h5>
+              </div>
+              <div class="col-5 right-holder">
+                <a href="https://blog.kaisen-linux.org/blog/articles/kaisenlinuxrolling1.4.html" target="_blank">Read on blog</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <?php foreach ($blog as $key_b => $b) { ?>
-
-
-    <?php  } ?>
-
-
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="blog-grid-simple">
+          <h4>Kaisen Linux Rolling 1.3 Release Notes</h4>
+          <p>New revision of the rolling. Almost complete overhaul of the system. New tools and conky.</p>
+          <div class="blog-grid-simple-content">
+            <div class="row blog-grid-simple-date">
+              <div class="col-2 pr-0">
+                <i class="fa fa-calendar"></i>
+              </div>
+              <div class="col-5 pl-0">
+                <h5>Aug 20, 2020</h5>
+              </div>
+              <div class="col-5 right-holder">
+                <a href="https://blog.kaisen-linux.org/blog/articles/kaisenlinuxrolling1.3.html" target="_blank">Read on blog</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

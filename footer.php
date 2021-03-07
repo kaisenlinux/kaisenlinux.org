@@ -73,55 +73,55 @@
 
 
 <!-- Jquery -->
-<script src="/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <!--Popper JS-->
-<script src="/js/popper.min.js"></script>
+<script src="js/popper.min.js"></script>
 
 <!--Popper JS-->
-<script src="/js/popper.min.js"></script>
+<script src="js/popper.min.js"></script>
 
 <!-- Bootstrap JS-->
-<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Owl Carousel-->
-<script src="/js/owl.carousel.js"></script>
+<script src="js/owl.carousel.js"></script>
 
 <!-- Navbar JS -->
-<script src="/js/navigation.js"></script>
-<script src="/js/navigation.fixed.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/navigation.fixed.js"></script>
 
 <!-- Wow JS -->
-<script src="/js/wow.min.js"></script>
+<script src="js/wow.min.js"></script>
 
 <!-- Countup -->
-<script src="/js/jquery.counterup.min.js"></script>
-<script src="/js/waypoints.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/waypoints.min.js"></script>
 
 <!-- Tabs -->
-<script src="/js/tabs.min.js"></script>
+<script src="js/tabs.min.js"></script>
 
 <!-- Yotube Video Player -->
-<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<script src="js/jquery.mb.YTPlayer.min.js"></script>
 
 
 
 <!-- Isotop -->
-<script src="/js/isotope.pkgd.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
 
 <!-- Switcher JS -->
-<script src="/js/switcher.js"></script>
+<script src="js/switcher.js"></script>
 
 <!-- Modernizr -->
-<script src="/js/modernizr.js"></script>
+<script src="js/modernizr.js"></script>
 
 <!-- Google Map -->
-<script src="/js/map.js"></script>
+<script src="js/map.js"></script>
 
 <!-- Main JS -->
-<script src="/js/main.js"></script>
+<script src="js/main.js"></script>
 
-<script src="/assets/main.min.js"></script>
+<script src="./assets/main.min.js"></script>
 
 
 
