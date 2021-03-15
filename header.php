@@ -100,7 +100,6 @@
           <ul class="nav-dropdown">
 
             <li><a href="https://kaisenlinux.org/team">Team</a></li>
-            <li><a href="https://kaisenlinux.org/oldmembers">Ex members</a></li>
             <li><a href="https://kaisenlinux.org/contributors">Contributors</a></li>
             <li><a href="https://kaisenlinux.org/partners">Partners</a></li>
 
