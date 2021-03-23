@@ -24,8 +24,8 @@
 	- Compress 2 jpg in img/interfaces with jpegoptim (-39%) and backup it on old/ folder
 
 5. Alt attributes:
-	- Add alt atributes to downloads page
-
+	- Add alt attributes to downloads page
+	- Add alt attributes to partners page
 ## Notes : Suggests
 
 - Create a www with redirect to root domain ?  

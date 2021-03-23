@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-md-6 col-sm-12 col-12">
               <div class="partner-img">
-                <img src="img/partners/dn.jpg">
+                <img src="img/partners/dn.jpg" alt="digital network logo">
               </div>
             </div>
             <div class="col-md-6 col-sm-12 col-12">
@@ -38,7 +38,7 @@
           <div class="row">
             <div class="col-md-6 col-sm-12 col-12">
               <div class="partner-img">
-                <img src="img/partners/scalarx.jpg">
+                <img src="img/partners/scalarx.jpg" alt="scalarx logo">
               </div>
             </div>
             <div class="col-md-6 col-sm-12 col-12">
@@ -63,7 +63,7 @@
           <div class="row">
             <div class="col-md-6 col-sm-12 col-12">
               <div class="partner-img">
-                <img src="img/partners/ldnr.jpg">
+                <img src="img/partners/ldnr.jpg" alt="LDNR formation logo">
               </div>
             </div>
             <div class="col-md-6 col-sm-12 col-12">
