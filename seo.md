@@ -21,4 +21,5 @@
 ## Notes : Suggests
 
 - Create a www with redirect to root domain ?  
-- Create a X-ROBOTS-TAGS to ignore parameters after iso.kaisenlinux.org/[release]/ 
+- Create a X-ROBOTS-TAGS to ignore parameters after iso.kaisenlinux.org/[release]/  
+- Generate /documentation with `mix docs --canonical`
