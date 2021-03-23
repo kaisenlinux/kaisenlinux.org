@@ -1,5 +1,9 @@
 # SEO
 
+# UPDATES
+
+- First update : 23032021
+
 ## TASKS
 
 1. Create sitemap
@@ -28,8 +32,11 @@
 	- Add alt attributes to partners page
 	- Add alt attributes for contributors page
 
+6. Create robots.txt
+
 ## Notes : Suggests
 
 - Create a www with redirect to root domain ?  
 - Create a X-ROBOTS-TAGS to ignore parameters after iso.kaisenlinux.org/[release]/  
 - Generate /documentation with `mix docs --canonical`
+- Add meta description for all pages under documentation/
