@@ -3,9 +3,9 @@
 
 	$title = "Kaisen Linux | The distribution for professional IT";
 	
-	$description = "Kaisen Linux is a complete operating system whose originality is to provide a set of tools dedicated to system administration and covering all the needs for diagnosing and dealing with faults or failures of an installed system and its components. The most important system tools are available.";
+	$description = "Kaisen Linux is a distribution dedicated for IT professional based on Debian GNU/Linux. Large tools are integrated for diagnostics, rescue system and networks, lab creation and many more!";
 
-	$image = 'https://kaisenlinux.org/img/kaisen-social.png';
+	$image = 'https://kaisenlinux.org/img/kaisen-social.jpg';
 	$url = 'https://kaisenlinux.org';
 
 
@@ -103,11 +103,11 @@
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinux1.5-amd64-SR.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-SR.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinux1.5-amd64-SR.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-SR.iso',
 				],
 
 			],

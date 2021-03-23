@@ -101,9 +101,9 @@
           Others desktop environments: KDE, XFCE, LXDE<br>
           Latest version: <?php echo $release_version; ?><br>
           Live credentials: <span>kaisen/kaisen</span><br>
-          Old versions: <a href="https://kaisen.lf.je/index.html" target="_blank">here</a><br>
-          All checksums <a href="https://kaisen-linux.org/kaisen/checksums.txt" target="_blank">here</a><br>
-          Last changelog <a href="https://blog.kaisen-linux.org/blog/articles/kaisenlinuxrolling1.5.html" target="_blank">here</a><br>
+          Old versions: <a href="https://iso.kaisenlinux.org" target="_blank">here</a><br>
+          All checksums <a href="https://kaisenlinux.org/checksums.txt" target="_blank">here</a><br>
+          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling1.5.html" target="_blank">here</a><br>
           Vote on <a href="https://distrowatch.com/dwres.php?waitingdistro=553&resource=links" target="_blank">Distrowatch</a>
           (your click automatically vote)
           </div>
