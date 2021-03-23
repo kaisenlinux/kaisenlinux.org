@@ -17,3 +17,8 @@
 
 	- page documentation/faq : link to create-your-own-skel not found  
 	fixedf by updating git repo documentation-dev/md/faq.md with link documentation/faq#how-to-create-your-own-default-profile-for-user-configurations-skel
+
+## Notes : Suggests
+
+- Create a www with redirect to root domain ?  
+- Create a X-ROBOTS-TAGS to ignore parameters after iso.kaisenlinux.org/[release]/ 
