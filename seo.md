@@ -14,3 +14,6 @@
 
 	- page documentation/update : link Update kaisen rolling broken
 	fixed by updating git repo documentation-dev/md/update.md with redirect to documentation/faq#update-kaisen-linux-rolling
+
+	- page documentation/faq : link to create-your-own-skel not found  
+	fixedf by updating git repo documentation-dev/md/faq.md with link documentation/faq#how-to-create-your-own-default-profile-for-user-configurations-skel
