@@ -3,6 +3,7 @@
 ## TASKS
 
 1. Create sitemap
+	- Removing downloads.php and all urls with parameters on iso subdomains.  
 
 2. Remove downloads.php from sitemap and replace on page links with /downloads  
 	- Warning: to check error with _functions.php title ?
