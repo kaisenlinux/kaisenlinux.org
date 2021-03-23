@@ -6,77 +6,77 @@
       <div class="swiper-wrapper">
 
         <div href="./img/interfaces/kaisen-linux_plymouth.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_plymouth.jpg">
+         <img src="./img/interfaces/kaisen-linux_plymouth.jpg" alt="kaisen linux plymouth theme">
           <div class="legend"><p>Plymouth theme</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_login_screen.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_login_screen.jpg">
+         <img src="./img/interfaces/kaisen-linux_login_screen.jpg" alt="kaisen linux login screen">
           <div class="legend"><p>Login screen</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_mate_desktop.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_mate_desktop.jpg">
+         <img src="./img/interfaces/kaisen-linux_mate_desktop.jpg" alt="kaisen linux desktop with MATE">
           <div class="legend"><p>MATE default desktop</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_mate_netadmin_menu.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_mate_netadmin_menu.jpg">
+         <img src="./img/interfaces/kaisen-linux_mate_netadmin_menu.jpg" alt="kaisen linux mate with network administration tools menu">
           <div class="legend"><p>MATE network administration tools menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_mate_technicians_menu.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_mate_technicians_menu.jpg">
+         <img src="./img/interfaces/kaisen-linux_mate_technicians_menu.jpg" alt="kaisen linux mate with technicians tools menu" >
           <div class="legend"><p>MATE technicians tools menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_xfce_desktop.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_xfce_desktop.jpg">
+         <img src="./img/interfaces/kaisen-linux_xfce_desktop.jpg" alt="kaisen linux with XFCE desktop">
           <div class="legend"><p>XFCE default desktop</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_xfce_services_menu.jpg" target="_blank" class="swiper-slide">
-         <img src="./img/interfaces/kaisen-linux_xfce_services_menu.jpg">
+         <img src="./img/interfaces/kaisen-linux_xfce_services_menu.jpg" alt="kaisen linux xfce with services menu">
           <div class="legend"><p>XFCE services menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_xfce_logout.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_xfce_logout.jpg">
+          <img src="./img/interfaces/kaisen-linux_xfce_logout.jpg" alt="kaisen linux xfce logout">
            <div class="legend"><p>XFCE logout</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_lxde_desktop.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_lxde_desktop.jpg">
+          <img src="./img/interfaces/kaisen-linux_lxde_desktop.jpg" alt="kaisen linux with LXDE desktop">
            <div class="legend"><p>LXDE default desktop</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_lxde_sysadmin_menu.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_lxde_sysadmin_menu.jpg">
+          <img src="./img/interfaces/kaisen-linux_lxde_sysadmin_menu.jpg" alt="kaisen linux LXDE with sysadmin tools menu">
            <div class="legend"><p>LXDE sysadmin tools menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_lxde_miscellaneous-menu.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_lxde_miscellaneous-menu.jpg">
+          <img src="./img/interfaces/kaisen-linux_lxde_miscellaneous-menu.jpg" alt="kaisen linux LXDE with miscellaneous tools menu">
            <div class="legend"><p>LXDE miscellaneous tools menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_kde_desktop.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_kde_desktop.jpg">
+          <img src="./img/interfaces/kaisen-linux_kde_desktop.jpg" alt="kaisen linux with KDE desktop">
            <div class="legend"><p>KDE default desktop</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_kde_filesystems.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_kde_filesystems.jpg">
+          <img src="./img/interfaces/kaisen-linux_kde_filesystems.jpg" alt="kaisen linux KDE with filesystems menu">
            <div class="legend"><p>KDE filesystems menu</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_mate_zsh_systemd.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_mate_zsh_systemd.jpg">
+          <img src="./img/interfaces/kaisen-linux_mate_zsh_systemd.jpg" alt="kaisen linux with ZSH completion for systemd">
            <div class="legend"><p>Use ZSH completion for SystemD</p></div>
         </div>
 
         <div href="./img/interfaces/kaisen-linux_mate_zsh_apt.jpg" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_mate_zsh_apt.jpg">
+          <img src="./img/interfaces/kaisen-linux_mate_zsh_apt.jpg" alt="kaisen linux zsh completion for APT">
            <div class="legend"><p>Use ZSH completion for APT</p></div>
         </div>
         
