@@ -23,9 +23,11 @@
 	- Compress img/screen.png with tinypng (-58%) and rename old with screen_old.png
 	- Compress 2 jpg in img/interfaces with jpegoptim (-39%) and backup it on old/ folder
 
-5. Alt attributes:
+5. Alt image attributes:
 	- Add alt attributes to downloads page
 	- Add alt attributes to partners page
+	- Add alt attributes for contributors page
+
 ## Notes : Suggests
 
 - Create a www with redirect to root domain ?  
