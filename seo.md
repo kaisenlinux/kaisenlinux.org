@@ -21,6 +21,7 @@
 
 4. Compress img:
 	- Compress img/screen.png with tinypng (-58%) and rename old with screen_old.png
+	- Compress 2 jpg in img/interfaces with jpegoptim (-39%) and backup it on old/ folder
 
 ## Notes : Suggests
 
