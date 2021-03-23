@@ -16,7 +16,7 @@
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
-            <img src="img/contributors/jergud.jpg" alt="img">
+            <img src="img/contributors/jergud.jpg" alt="image of jerome guichard">
           </div>
           <div class="team-member-text">
             <h4>Jérôme Guichard</h4>
@@ -32,7 +32,7 @@
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
-            <img src="img/contributors/kaisen.jpg">
+            <img src="img/contributors/kaisen.jpg" alt="unknown image for guillaume dechoux">
           </div>
           <div class="team-member-text">
             <h4>Guillaume Dechoux</h4>

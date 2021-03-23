@@ -120,7 +120,7 @@
             </div>
           </div>
 
-          <a href="./downloads.php" class="project-info-shortcode project-info-shortcode-download">
+          <a href="./downloads" class="project-info-shortcode project-info-shortcode-download">
             <div class="row">
               <div class="col-md-3 col-sm-3 col-12  pr-0">
                 <div class="project-info-shortcode-icon">
