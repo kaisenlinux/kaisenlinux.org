@@ -19,6 +19,9 @@
 	- page documentation/faq : link to create-your-own-skel not found  
 	fixedf by updating git repo documentation-dev/md/faq.md with link documentation/faq#how-to-create-your-own-default-profile-for-user-configurations-skel
 
+4. Compress img:
+	- Compress img/screen.png with tinypng (-58%) and rename old with screen_old.png
+
 ## Notes : Suggests
 
 - Create a www with redirect to root domain ?  
