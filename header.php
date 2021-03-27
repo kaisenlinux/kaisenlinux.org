@@ -19,6 +19,10 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="img/logos/favicon.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/main.css" as="style">
+  <link rel="preload" href="/js/swiper.min.js" as="script">
 
   <link rel="stylesheet" type="text/css" href="/assets/main.css">
 
