@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.23.0">
     <meta name="project" content="Documentation v1.6.0">
 
-    <title>Kaisen Linux updates — Documentation v1.6.0</title>
+    <title>Configure cryptsetup-nuke-password — Documentation v1.6.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
     <script src="dist/sidebar_items-60193556ee.js"></script>
@@ -74,24 +74,24 @@ Documentation
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>Kaisen Linux system updates</h1><h2 id="alpha-and-beta" class="section-heading">
-  <a href="#alpha-and-beta" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Alpha and beta
+<h1>Configure cryptsetup-nuke-password</h1><h2 id="what-cryptsetup-nuke-password" class="section-heading">
+  <a href="#what-cryptsetup-nuke-password" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  What cryptsetup-nuke-password
 </h2>
-<p>The alpha and beta versions (from version 20191214 to 20200413) had a &quot;fixed&quot; update system, which means that each new release was a system update. The user had to reinstall the system each time to update the system components not distributed by Debian.<br></br>The repositories used were those of Debian, which forced me with each new thing to correct / do / integrate to publish a new ISO and have to reinstall the system (can also be used live, but not able to update via APT is very restrictive).
-This update system is totally outdated and difficult to manage, what is more, the system gets heavier because each package was added by hand, and a lot of flourishes were added as versions were released. This update system has been released for distributing updates in <strong>rolling</strong> mode.</p><h2 id="rolling" class="section-heading">
-  <a href="#rolling" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Rolling
+<p>The software cryptsetup-nuke password is a software developed by Offensive Security and publish under GPLv3 licence. This software provides additional security at cryptsetup.<br></br>It allows to define an additional password which can also be typed in the cryptsetup password prompt, but allows to destroy the decryption key of the cryptsetup volumes in order to prevent its unlocking.</p><h2 id="how-to-configure-cryptsetup-nuke-password" class="section-heading">
+  <a href="#how-to-configure-cryptsetup-nuke-password" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  How to configure cryptsetup-nuke-password
 </h2>
-<p>This update system distributes continuously via the kaisen-rolling repository all updates from Debian testing. This is the mode of updates closest to a rolling distribution. This is the mode we have chosen unlike LTS. It is the distribution mode that I prefer, and the rest of the team joined this opinion, the stable version of Kaisen Linux (called rolling) is therefore based on this model.</p><h2 id="how-to-update-rolling-release" class="section-heading">
-  <a href="#how-to-update-rolling-release" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  How to update rolling release
+<p>In the menu of miscellaneous tools and tools for system administrators, there is an entry for the command <code class="inline">sudo dpkg-reconfigure cryptsetup-nuke-password</code>.<br></br>This command will open an ncurses window and allow you to set a password, keep the current one or simply delete it.<br></br>Once a password is set, it can be typed at the cryptsetup password prompt when the computer starts up. This typed password will indicate invalid password, but will also indicate on the password defined during the encryption with cryptsetup as invalid because the decryption keys will have been destroyed.<br></br>Use only with full knowledge of the facts and consequences associated with this functionality. We will not be responsible for damage to your systems in the event of improper handling.<br></br>To remove the set password, simply re-run the <code class="inline">sudo dpkg-reconfigure cryptsetup-nuke-password</code> command and select &quot;delete current password&quot;.</p><h2 id="backing-up-the-encryption-key" class="section-heading">
+  <a href="#backing-up-the-encryption-key" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Backing up the encryption key
 </h2>
-<p>All methods here: <a href="https://kaisenlinux.org/documentation/faq#update-kaisen-linux-rolling">Update Kaisen Linux Rolling</a></p><h2 id="know-my-version" class="section-heading">
-  <a href="#know-my-version" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Know my version
+<p>If you plan to use this nuke password, you should consider
+save the luks header. This can be useful for example when you travel with your business computer and even encrypted contains sensitive information about the information system in which you are working.<br></br>You can delete and then restore the header without losing access to your data.  </p><p><code class="inline">sudo cryptsetup luksHeaderBackup &lt;device&gt; --header-backup-file &lt;your-backup-file&gt;</code></p><p>To later restore the header, you will have to do:</p><p><code class="inline">sudo cryptsetup luksHeaderRestore &lt;device&gt; --header-backup-file &lt;your-backup-file&gt;</code></p><h2 id="prerequisite" class="section-heading">
+  <a href="#prerequisite" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Prerequisite
 </h2>
-<p>open terminal:</p><pre><code class="bash">cat /etc/debian_version</code></pre>
+<p>You must install the distribution to take advantage of the functionality offered by nuke, the live system does not support nuke configuration because it cannot regenerate the initrd on our official images.</p>
       <footer class="footer">
         <p>
           <span class="line">
