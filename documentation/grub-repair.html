@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Documentation v1.5.0">
+    <meta name="project" content="Documentation v1.6.0">
 
-    <title>Repair GRUB — Documentation v1.5.0</title>
+    <title>Repair GRUB — Documentation v1.6.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-b699ece780.js"></script>
+    <script src="dist/sidebar_items-caf335b214.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -51,7 +51,7 @@
 Documentation
       </a>
       <strong class="sidebar-projectVersion">
-        v1.5.0
+        v1.6.0
       </strong>
     </div>
 
@@ -82,93 +82,83 @@ Documentation
   <a href="#classic-partition" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Classic partition
 </h3>
-<pre><code class="bash">*sudo fdisk -l (Locate the EFI Linux partition and /)
-*sudo mount /dev/sdX /mnt (X represents the drive letter)
-*sudo mount --bind /dev /mnt/dev
-*sudo mount --bind /dev/pts /mnt/dev/pts
-*sudo mount --bind /proc /mnt/proc
-*sudo mount --bind /sys /mnt/sys
-*sudo mount /dev/sdXY /mnt/boot/efi (X represents the drive letter, and the Y the EFI partition number, it should be 
-the first)
-*sudo apt install grub-efi-amd64
-*sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed 
-/mnt/usr/lib/grub/
-*sudo chroot /mnt
-*grub-install --target=x86_64-efi /dev/sdX
-*update-grub (cancel the operation in progress at the time it makes Warning (impossible to update the GRUB entries via 
-*os-prober which is normal in chrooted environment) 
-*mv /boot/grub/grub.cfg.new /boot/grub/grub.cfg
-*exit
-*sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved</p><h3 id="lvm-without-luks-encryption" class="section-heading">
+<pre><code class="bash">sudo fdisk -l (Locate the EFI Linux partition and /)
+sudo mount /dev/sdX /mnt (X represents the drive letter)
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /dev/pts /mnt/dev/pts
+sudo mount --bind /proc /mnt/proc
+sudo mount --bind /sys /mnt/sys
+sudo mount /dev/sdXY /mnt/boot/efi (X represents the drive letter, and the Y the EFI partition number, it should be the first)
+sudo apt install grub-efi-amd64
+sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed /mnt/usr/lib/grub/
+sudo chroot /mnt
+grub-install --target=x86_64-efi /dev/sdX
+update-grub (cancel the operation in progress at the time it makes Warning (impossible to update the GRUB entries via 
+os-prober which is normal in chrooted environment) 
+mv /boot/grub/grub.cfg.new /boot/grub/grub.cfg
+exit
+sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved</p><h3 id="lvm-without-luks-encryption" class="section-heading">
   <a href="#lvm-without-luks-encryption" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   LVM without LUKS encryption
 </h3>
-<pre><code class="bash">*sudo fdisk -l (Locate the EFI Linux partition and /)
-*sudo vgscan
-*sudo vgchange -ay
-*sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the 
-vgscan command)
-*sudo mount /dev/sdXY /mnt/boot (mount boot partition)
-*sudo mount --bind /dev /mnt/dev
-*sudo mount --bind /dev/pts /mnt/dev/pts
-*sudo mount --bind /proc /mnt/proc
-*sudo mount --bind /sys /mnt/sys
-*sudo mount /dev/sdXY /mnt/boot/efi (mount the EFI partition often, this partition is often the first)
-*sudo apt install grub-efi-amd64
-*sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed 
-/mnt/usr/lib/grub/ 
-*sudo chroot /mnt
-*grub-install --target=x86_64-efi /dev/sdX
-*update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a 
-vacuum)
-*exit
-*sudo reboot </code></pre><p>CAUTION:  </p><p>If the update-grub is spinning, after running sudo reboot, restart the live, and do the following steps:  </p><pre><code class="bash">*sudo vgscan
-*sudo vgchange -ay
-*sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the 
-vgscan command)
-*sudo mount /dev/sdX /mnt/boot (mount boot partition)
-*sudo mount --bind /dev /mnt/dev
-*sudo mount --bind /proc /mnt/proc
-*sudo chroot /mnt
-*update-grub
-*exit
-*sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:  </p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved  </p><h3 id="lvm-with-luks-encryption" class="section-heading">
+<pre><code class="bash">sudo fdisk -l (Locate the EFI Linux partition and /)
+sudo vgscan
+sudo vgchange -ay
+sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
+sudo mount /dev/sdXY /mnt/boot (mount boot partition)
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /dev/pts /mnt/dev/pts
+sudo mount --bind /proc /mnt/proc
+sudo mount --bind /sys /mnt/sys
+sudo mount /dev/sdXY /mnt/boot/efi (mount the EFI partition often, this partition is often the first)
+sudo apt install grub-efi-amd64
+sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed /mnt/usr/lib/grub/ 
+sudo chroot /mnt
+grub-install --target=x86_64-efi /dev/sdX
+update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a vacuum)
+exit
+sudo reboot </code></pre><p>CAUTION:  </p><p>If the update-grub is spinning, after running sudo reboot, restart the live, and do the following steps:  </p><pre><code class="bash">sudo vgscan
+sudo vgchange -ay
+sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
+sudo mount /dev/sdX /mnt/boot (mount boot partition)
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /proc /mnt/proc
+sudo chroot /mnt
+update-grub
+exit
+sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:  </p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved  </p><h3 id="lvm-with-luks-encryption" class="section-heading">
   <a href="#lvm-with-luks-encryption" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   LVM with LUKS encryption
 </h3>
-<pre><code class="bash">*sudo fdisk -l (Locate the EFI Linux partition and /)
-*sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
-*sudo vgscan
-*sudo vgchange -ay
-*sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the 
-vgscan command)
-*sudo mount /dev/sdXY /mnt/boot (mount boot partition)
-*sudo mount --bind /dev /mnt/dev
-*sudo mount --bind /dev/pts /mnt/dev/pts
-*sudo mount --bind /proc /mnt/proc
-*sudo mount --bind /sys /mnt/sys
-*sudo mount /dev/sdXY /mnt/boot/efi (mount the EFI partition often /dev/sdX1)
-*sudo apt install grub-efi-amd64
-*sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed 
-/mnt/usr/lib/grub/
-*sudo chroot /mnt
-*grub-install --target=x86_64-efi /dev/sdX
-*update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a 
-vacuum)
-*exit
-*sudo reboot </code></pre><p>CAUTION:  </p><p>If the update-grub is running in a vacuum, restart the system, and do the following steps:  </p><pre><code class="bash">*sudo fdisk -l (Locate the EFI Linux partition and /)
-*sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
-*sudo vgscan
-*sudo vgchange -ay
-*sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the 
-vgscan command)
-*sudo mount /dev/sdX /mnt/boot (mount boot partition)
-*sudo mount --bind /dev /mnt/dev
-*sudo mount --bind /proc /mnt/proc
-*sudo chroot /mnt
-*update-grub
-*exit
-*sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved</p>
+<pre><code class="bash">sudo fdisk -l (Locate the EFI Linux partition and /)
+sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
+sudo vgscan
+sudo vgchange -ay
+sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
+sudo mount /dev/sdXY /mnt/boot (mount boot partition)
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /dev/pts /mnt/dev/pts
+sudo mount --bind /proc /mnt/proc
+sudo mount --bind /sys /mnt/sys
+sudo mount /dev/sdXY /mnt/boot/efi (mount the EFI partition often /dev/sdX1)
+sudo apt install grub-efi-amd64
+sudo cp -rvf /usr/lib/grub/x86_64-efi /mnt/usr/lib/grub/ or sudo cp -rvf /usr/lib/grub/x86_64-efi-signed /mnt/usr/lib/grub/
+sudo chroot /mnt
+grub-install --target=x86_64-efi /dev/sdX
+update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a vacuum)
+exit
+sudo reboot </code></pre><p>CAUTION:  </p><p>If the update-grub is running in a vacuum, restart the system, and do the following steps:  </p><pre><code class="bash">sudo fdisk -l (Locate the EFI Linux partition and /)
+sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
+sudo vgscan
+sudo vgchange -ay
+sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
+sudo mount /dev/sdX /mnt/boot (mount boot partition)
+sudo mount --bind /dev /mnt/dev
+sudo mount --bind /proc /mnt/proc
+sudo chroot /mnt
+update-grub
+exit
+sudo reboot</code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="bash">sudo apt install grub-efi</code></pre><p>The problem should be solved</p>
       <footer class="footer">
         <p>
           <span class="line">
