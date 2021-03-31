@@ -96,7 +96,7 @@ lot of things have also been changed on the distribution, here is the changelog.
 	contents of /etc/skel on the directory for all users. However this will make you lose your personalization on 
 	your desktop environment, use it as a precaution.</p>
 
-<p>How do I check if I am in version 1.5? Use this command:</p>
+<p>How do I check if I am in version 1.6? Use this command:</p>
 <ul>
     <li><strong>cat /etc/debian-version</strong></li>
 </ul>
