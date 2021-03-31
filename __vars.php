@@ -9,7 +9,7 @@
 	$url = 'https://kaisenlinux.org';
 
 
-	$release_version = 'Rolling 1.5';
+	$release_version = 'Rolling 1.6';
 
 
 	$links_download = [
@@ -18,16 +18,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/mate.png',
-			'size' => '3.5Go',
+			'size' => '3.6Go',
 
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-MATE.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.6-amd64-MATE.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-MATE.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.6-amd64-MATE.iso',
 				],
 
 			],
@@ -43,11 +43,11 @@
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-KDE.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.6-amd64-KDE.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-KDE.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.6-amd64-KDE.iso',
 				],
 
 			],
@@ -58,16 +58,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/xfce.png',
-			'size' => '3.4Go',
+			'size' => '3.5Go',
 
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-XFCE.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.6-amd64-XFCE.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-XFCE.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.6-amd64-XFCE.iso',
 				],
 
 			],
@@ -78,16 +78,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/lxde.png',
-			'size' => '3.4Go',
+			'size' => '3.5Go',
 
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-LXDE.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.6-amd64-LXDE.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-LXDE.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.6-amd64-LXDE.iso',
 				],
 
 			],
@@ -103,11 +103,11 @@
 			'links' => [
 				[
                                         'name' => 'Mirror 1',
-                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.5-amd64-SR.iso',
+                                        'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.6-amd64-SR.iso',
                                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.5-amd64-SR.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.6-amd64-SR.iso',
 				],
 
 			],

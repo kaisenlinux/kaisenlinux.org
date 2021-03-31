@@ -159,6 +159,14 @@
 			'link' => 'kaisenlinuxrolling1.5.php',
 			'author' => 'Kaisen',
 		],
+		[
+            'title' => 'Kaisen Linux Rolling 1.6 release note',
+        	'extract' => 'New revision of the rolling. Lot ameliorations. New tools and new conky. Bugs fixed.',
+            'date'=> '2021/03/31',
+            'visuel' => '/img/screen.png',
+            'link' => 'kaisenlinuxrolling1.6.php',
+            'author' => 'Kaisen',
+        ],
 
 	];
 
