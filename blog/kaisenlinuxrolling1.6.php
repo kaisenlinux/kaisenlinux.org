@@ -107,7 +107,7 @@ than doing the updates.<br>
 <p>Thank you all for your support, thank you for using Kaisen Linux and for being part 
 of this wonderful adventure!</p>
 
-<p>You can report bugs on the forum available at <a href https://forum.kaisenlinux.org target="_blank">here</p>
+<p>You can report bugs on the forum available at <a href="https://forum.kaisenlinux.org" target="_blank">here</a></p>
 <p>Do not hesitate to vote for the integration of Kaisen Linux on Distrowatch on the following 
 <a href="https://distrowatch.com/dwres.php?waitingdistro=553&resource=links" target="_blank">link</a> if you are satisfied with our work!</p>
 
