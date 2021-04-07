@@ -30,6 +30,24 @@
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
+            <img src="img/team/ftx514.jpg" alt="img">
+          </div>
+          <div class="team-member-text">
+            <h4>Florian Mauduit<br><small>FTX514</small></h4>
+            <span>Infrastructure maintainer lf.je mirrors</span>
+            <p>Today a confirmed professional in cloud technologies, he supplies the official lf.je mirrors and keeps 
+              them in working order. It also helps in the maintenance of infrastructure.</p>
+
+            <ul>
+              <li><a href="https://www.linkedin.com/in/florian-mauduit-nodepay/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
             <img src="img/team/tobas.jpg" alt="img">
           </div>
           <div class="team-member-text">
@@ -44,8 +62,7 @@
           </div>
         </div>
       </div>
-
-      <div class="col-md-3 col-sm-6 col-12">
+            <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
             <img src="img/contributors/kaisen.jpg" alt="img">
@@ -65,6 +82,5 @@
     </div>
   </div>
 </div>
-
 <!-- Team Members END -->
 <?php include('./footer.php');?>
