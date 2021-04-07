@@ -13,6 +13,21 @@
     <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
+            <img src="img/contributors/arthur.jpg" alt="image of jerome guichard">
+          </div>
+          <div class="team-member-text">
+            <h4>Arthur Boudreault</h4>
+            <p>Fixed and improved a lot of English translation mainly in the menu.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/arthur-boudreault-3470aa18b/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
             <img src="img/contributors/ftx514.jpg" alt="img of florian mauduit">
           </div>
           <div class="team-member-text">
