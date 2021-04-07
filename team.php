@@ -52,7 +52,7 @@
           <div class="team-member-text">
             <h4>Arnaud Cormier<br><small>Magiknono</small></h4>
             <span>Manpages maintainer</span>
-            <p>Freelance Linux sysadmin and webdev. He is lot of contributed at Kaisen Linux
+            <p>Freelance Linux sysadmin and webdev. He contributed a lot on Kaisen Linux
                with videos. Today, he is maintainer of <a href="manpages/">manpages</a> documentation.</p>
 
             <ul>
