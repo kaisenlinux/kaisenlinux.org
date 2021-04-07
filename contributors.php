@@ -10,8 +10,20 @@
     </div>
     <div class="row mt-50 justify-content-md-center">
 
-
-
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
+            <img src="img/contributors/ftx514.jpg" alt="img of florian mauduit">
+          </div>
+          <div class="team-member-text">
+            <h4>Florian Mauduit</h4>
+            <p>Infrastructure provider for the first APT repository and second ISO mirror.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/florian-mauduit-nodepay/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">

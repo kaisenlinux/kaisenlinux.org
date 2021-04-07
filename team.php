@@ -30,24 +30,6 @@
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
-            <img src="img/team/ftx514.jpg" alt="img">
-          </div>
-          <div class="team-member-text">
-            <h4>Florian Mauduit<br><small>FTX514</small></h4>
-            <span>Infrastructure maintainer lf.je mirrors</span>
-            <p>Today a confirmed professional in cloud technologies, he supplies the official lf.je mirrors and keeps 
-              them in working order. It also helps in the maintenance of infrastructure.</p>
-
-            <ul>
-              <li><a href="https://www.linkedin.com/in/florian-mauduit-nodepay/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-sm-6 col-12">
-        <div class="team-member">
-          <div class="team-member-img">
             <img src="img/team/tobas.jpg" alt="img">
           </div>
           <div class="team-member-text">
@@ -71,7 +53,7 @@
             <h4>Arnaud Cormier<br><small>Magiknono</small></h4>
             <span>Manpages maintainer</span>
             <p>Freelance Linux sysadmin and webdev. He is lot of contributed at Kaisen Linux
-               with videos and documentation. Today, he is maintainer of <a href="manpages/">manpages</a> documentation.</p>
+               with videos. Today, he is maintainer of <a href="manpages/">manpages</a> documentation.</p>
 
             <ul>
               <li><a href="https://www.linkedin.com/in/arnaudcormier/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
