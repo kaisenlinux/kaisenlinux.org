@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Manpages v1.6.0">
+
+    <title>wg-quick — Manpages v1.6.0</title>
+    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+
+    <script src="dist/sidebar_items-c7cc8df595.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion">
+        v1.6.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<p>WG-QUICK(8)                                                                              WireGuard                                                                             WG-QUICK(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wg</span><span class="o">-</span><span class="n">quick</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WireGuard</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">simply</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wg</span><span class="o">-</span><span class="n">quick</span><span class="w"> </span><span class="p" data-group-id="8089184410-1">[</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">strip</span><span class="w"> </span><span class="p" data-group-id="8089184410-1">]</span><span class="w"> </span><span class="p" data-group-id="8089184410-2">[</span><span class="w"> </span><span class="nc">CONFIG_FILE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nc">INTERFACE</span><span class="w"> </span><span class="p" data-group-id="8089184410-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">extremely</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">easily</span><span class="w"> </span><span class="n">bringing</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WireGuard</span><span class="w"> </span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="n">suitable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">few</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">cases</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Use</span><span class="w">  </span><span class="n">up</span><span class="w">  </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">tear</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">Running</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WireGuard</span><span class="w"> </span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="n">brings</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">ad</span><span class="err">‐</span><span class="w">
+   </span><span class="n">dresses</span><span class="p">,</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">mtu</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">routes</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">pre</span><span class="o">/</span><span class="n">post</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">scripts</span><span class="o">.</span><span class="w"> </span><span class="nc">Running</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">saves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span><span class="w"> </span><span class="n">removes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WireGuard</span><span class="w"> </span><span class="n">interface</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="n">optionally</span><span class="w">
+   </span><span class="n">runs</span><span class="w">  </span><span class="n">pre</span><span class="o">/</span><span class="n">post</span><span class="w">  </span><span class="n">down</span><span class="w">  </span><span class="n">scripts</span><span class="o">.</span><span class="w"> </span><span class="nc">Running</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">saves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">bringing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">down</span><span class="o">.</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="n">strip</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">all</span><span class="w">
+   </span><span class="n">wg</span><span class="o">-</span><span class="n">quick</span><span class="p" data-group-id="5819546790-1">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-1">)</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">removed</span><span class="p">,</span><span class="w"> </span><span class="n">suitable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="5819546790-2">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">CONFIG_FILE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">whose</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="err">`</span><span class="o">.</span><span class="n">conf</span><span class="sc">&#39;. Otherwise, INTERFACE is an interface name, with configuration found  at  `/etc/wire‐
+   guard/INTERFACE.conf&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">searched</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">distro</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">paths</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Generally</span><span class="w">  </span><span class="n">speaking</span><span class="p">,</span><span class="w">  </span><span class="n">this</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">wraps</span><span class="w"> </span><span class="n">invocations</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="5819546790-3">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-3">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ip</span><span class="p" data-group-id="5819546790-4">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-4">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WireGuard</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">simple</span><span class="w">
+   </span><span class="n">needs</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">advanced</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">highly</span><span class="w"> </span><span class="n">encouraged</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">tool</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">manager</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="5819546790-5">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-5">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ip</span><span class="p" data-group-id="5819546790-6">(</span><span class="mi">8</span><span class="p" data-group-id="5819546790-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">usual</span><span class="o">.</span></code></pre><p>CONFIGURATION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">few</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">understood</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="7206125747-1">(</span><span class="mi">8</span><span class="p" data-group-id="7206125747-1">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">configure</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">handles</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">values</span><span class="w">
+   </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">understands</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">passes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">ones</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="7206125747-2">(</span><span class="mi">8</span><span class="p" data-group-id="7206125747-2">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">processing</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">It</span><span class="w"> </span><span class="n">infers</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">routes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">peers</span><span class="sc">&#39; allowed IPs, and automatically adds them to the system routing table. If one of those routes is the default route (0.0.0.0/0 or ::/0),
+   then it uses ip-rule(8) to handle overriding of the default gateway.
+
+   The configuration file will be passed directly to wg(8)&#39;</span><span class="n">s</span><span class="w"> </span><span class="err">`</span><span class="n">setconf</span><span class="sc">&#39; sub-command, with the exception of the following additions to the Interface section, which are handled by  this
+   tool:
+
+   •      Address — a comma-separated list of IP (v4 or v6) addresses (optionally with CIDR masks) to be assigned to the interface. May be specified multiple times.
+
+   •      DNS  —  a comma-separated list of IP (v4 or v6) addresses to be set as the interface&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">servers</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="nc">IP</span><span class="w"> </span><span class="n">hostnames</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="sc">&#39;s DNS search domains. May
+          be specified multiple times. Upon bringing the interface up, this runs `resolvconf -a tun.INTERFACE -m 0 -x` and upon bringing it down, this runs `resolvconf -d  tun.INTER‐
+          FACE`. If these particular invocations of resolvconf(8) are undesirable, the PostUp and PostDown keys below may be used instead.
+
+   •      MTU  —  if  not specified, the MTU is automatically determined from the endpoint addresses or the system default route, which is usually a sane choice. However, to manually
+          specify an MTU to override this automatic discovery, this value may be specified explicitly.
+
+   •      Table — Controls the routing table to which routes are added. There are two special values: `off&#39;</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">routes</span><span class="w"> </span><span class="n">altogether</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="n">auto</span><span class="sc">&#39; (the default)  adds
+          routes to the default table and enables special handling of default routes.
+
+   •      PreUp,  PostUp,  PreDown,  PostDown  — script snippets which will be executed by bash(1) before/after setting up/tearing down the interface, most commonly used to configure
+          custom DNS options or firewall rules. The special string `%i&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">expanded</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">INTERFACE</span><span class="o">.</span><span class="w"> </span><span class="nc">Each</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="ow">in</span><span class="w">
+          </span><span class="n">order</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">      </span><span class="nc">SaveConfig</span><span class="w">  </span><span class="err">—</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="err">`</span><span class="no">true</span><span class="sc">&#39;, the configuration is saved from the current state of the interface upon shutdown. Any changes made to the configuration file before the in‐
+          terface is removed will therefore be overwritten.
+
+   Recommended INTERFACE names include `wg0&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">`</span><span class="n">wgvpn0</span><span class="sc">&#39; or even `wgmgmtlan0&#39;</span><span class="o">.</span><span class="w">  </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">at</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="k">end</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="n">fact</span><span class="w">  </span><span class="n">optional</span><span class="p">,</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">really</span><span class="w">  </span><span class="n">any</span><span class="w">  </span><span class="n">free</span><span class="o">-</span><span class="n">form</span><span class="w">  </span><span class="n">string</span><span class="w">  </span><span class="p" data-group-id="7206125747-3">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="w">
+   </span><span class="nc">Z0</span><span class="o">-</span><span class="mi">9</span><span class="bp">_</span><span class="o">=</span><span class="o">+</span><span class="o">.</span><span class="o">-</span><span class="p" data-group-id="7206125747-3">]</span><span class="p" data-group-id="7206125747-4">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p" data-group-id="7206125747-4">}</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">work</span><span class="o">.</span><span class="w"> </span><span class="nc">So</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">geographic</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">suffice</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="err">`</span><span class="n">cincinnati</span><span class="sc">&#39;, `nyc&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">`</span><span class="n">paris</span><span class="sc">&#39;, if that&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">somehow</span><span class="w"> </span><span class="n">desirable</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">draw</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="6845137745-1">(</span><span class="mi">8</span><span class="p" data-group-id="6845137745-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">there</span><span class="o">.</span><span class="w"> </span><span class="nc">Bold</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">extend</span><span class="w"> </span><span class="n">wg</span><span class="p" data-group-id="6845137745-2">(</span><span class="mi">8</span><span class="p" data-group-id="6845137745-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">connecting</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">VPN</span><span class="w"> </span><span class="n">gateway</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">tunneling</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="ss">traffic</span><span class="p">:</span><span class="w">
+
+       </span><span class="p" data-group-id="6845137745-3">[</span><span class="nc">Interface</span><span class="p" data-group-id="6845137745-3">]</span><span class="w">
+       </span><span class="nc">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.200</span><span class="o">.</span><span class="mf">100.8</span><span class="o">/</span><span class="mi">24</span><span class="w">
+       </span><span class="nc">DNS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.200</span><span class="o">.</span><span class="mf">100.1</span><span class="w">
+       </span><span class="nc">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oK56DE9Ue9zK76rAc8pBl6opph</span><span class="o">+</span><span class="mi">1</span><span class="n">v36lm7cXXsQKrQM</span><span class="o">=</span><span class="w">
+
+       </span><span class="p" data-group-id="6845137745-4">[</span><span class="nc">Peer</span><span class="p" data-group-id="6845137745-4">]</span><span class="w">
+       </span><span class="nc">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">GtL7fZc</span><span class="o">/</span><span class="n">bLnqZldpVofMCD6hDjrK28SsdLxevJ</span><span class="o">+</span><span class="n">qtKU</span><span class="o">=</span><span class="w">
+       </span><span class="nc">PresharedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="nc">UwcSPg38hW</span><span class="o">/</span><span class="nc">D9Y3tcS1FOV0K1wuURMbS0sesJEP5ak</span><span class="o">=</span><span class="w">
+       </span><span class="nc">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span><span class="w">
+       </span><span class="nc">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">demo</span><span class="o">.</span><span class="n">wireguard</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">51820</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w">  </span><span class="err">`</span><span class="nc">Address</span><span class="err">`</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="err">`</span><span class="nc">DNS</span><span class="err">`</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">resolv</span><span class="err">‐</span><span class="w">
+   </span><span class="n">conf</span><span class="p" data-group-id="6845137745-5">(</span><span class="mi">8</span><span class="p" data-group-id="6845137745-5">)</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">peer</span><span class="sc">&#39;s allowed IPs entry implies that this interface should be configured as the default gateway, which this script does.
+
+   Building on the last example, one might attempt the so-called ``kill-switch&#39;</span><span class="sc">&#39;, in order to prevent the flow of unencrypted packets through the non-WireGuard interfaces, by  adding
+   the following two lines `PostUp` and `PreDown` lines to the `[Interface]` section:
+
+       PostUp = iptables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+       PreDown = iptables -D OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+
+   The  `PostUp&#39;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="nc">PreDown</span><span class="sc">&#39; fields have been added to specify an iptables(8) command which, when used with interfaces that have a peer that specifies 0.0.0.0/0 as part of the `Al‐
+   lowedIPs&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">wg</span><span class="o">-</span><span class="n">quick</span><span class="sc">&#39;s fwmark usage in order to drop all packets that are either not coming out of the tunnel encrypted or not going through the tunnel  itself.
+   (Note that this continues to allow most DHCP traffic through, since most DHCP clients make use of PF_PACKET sockets, which bypass Netfilter.) When IPv6 is in use, additional simi‐
+   lar lines could be added using ip6tables(8).
+
+   Or, perhaps it is desirable to store private keys in encrypted form, such as through use of pass(1):
+
+       PostUp = wg set %i private-key &lt;(pass WireGuard/private-keys/%i)
+
+   For use on a server, the following is a more complicated example involving multiple peers:
+
+       [Interface]
+       Address = 10.192.122.1/24
+       Address = 10.10.0.1/16
+       SaveConfig = true
+       PrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=
+       ListenPort = 51820
+
+       [Peer]
+       PublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=
+       AllowedIPs = 10.192.122.3/32, 10.192.124.1/24
+
+       [Peer]
+       PublicKey = TrMvSoP4jYQlY6RIzBgbssQqY3vxI2Pi+y71lOWWXX0=
+       AllowedIPs = 10.192.122.4/32, 192.168.0.0/16
+
+       [Peer]
+       PublicKey = gN65BkIKy1eCE9pP1wdc8ROUtkHLF2PfAqYdyYBz6EA=
+       AllowedIPs = 10.10.10.230/32
+
+   Notice the two `Address&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="err">`</span><span class="nc">SaveConfig</span><span class="sc">&#39; is set to `true&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">indicating</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w">  </span><span class="n">status</span><span class="w">  </span><span class="n">of</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="n">combination</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="nc">Table</span><span class="sc">&#39;, `PostUp&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="nc">PreDown</span><span class="ss">&#39; fields may be used for policy routing as well. For example, the following may be used to send SSH traffic (TCP port 22) traf‐
+   fic through the tunnel:
+
+       [Interface]
+       Address = 10.192.122.1/24
+       PrivateKey = yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=
+       ListenPort = 51820
+       Table = 1234
+       PostUp = ip rule add ipproto tcp dport 22 table 1234
+       PreDown = ip rule delete ipproto tcp dport 22 table 1234
+
+       [Peer]
+       PublicKey = xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=
+       AllowedIPs = 0.0.0.0/0
+
+   These configuration files may be placed in any directory, putting the desired interface name in the filename:
+
+       # wg-quick up /path/to/wgnet0.conf
+
+   For convenience, if only an interface name is supplied, it automatically chooses a path in `/etc/wireguard/&#39;</span><span class="p">:</span><span class="w">
+
+       </span><span class="c1"># wg-quick up wgnet0</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="err">`</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">wireguard</span><span class="o">/</span><span class="n">wgnet0</span><span class="o">.</span><span class="n">conf</span><span class="err">&#39;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">strip</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reloading</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">disrupting</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="ss">sessions</span><span class="p">:</span><span class="w">
+
+       </span><span class="c1"># wg syncconf wgnet0 &lt;(wg-quick strip wgnet0)</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wg</span><span class="p" data-group-id="3229137362-1">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p" data-group-id="3229137362-2">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">link</span><span class="p" data-group-id="3229137362-3">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">address</span><span class="p" data-group-id="3229137362-4">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">route</span><span class="p" data-group-id="3229137362-5">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">rule</span><span class="p" data-group-id="3229137362-6">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">resolvconf</span><span class="p" data-group-id="3229137362-7">(</span><span class="mi">8</span><span class="p" data-group-id="3229137362-7">)</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">wg</span><span class="o">-</span><span class="n">quick</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Jason</span><span class="w"> </span><span class="nc">A</span><span class="o">.</span><span class="w"> </span><span class="nc">Donenfeld</span><span class="w"> </span><span class="err">⟨</span><span class="nc">Jason</span><span class="na">@zx2c4</span><span class="o">.</span><span class="n">com</span><span class="err">⟩</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">World</span><span class="w"> </span><span class="nc">Wide</span><span class="w"> </span><span class="nc">Web</span><span class="w"> </span><span class="err">⟨</span><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">wireguard</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="err">⟩</span><span class="o">.</span></code></pre><p>ZX2C4                                                                                 2016 January 1                                                                           WG-QUICK(8)</p>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
