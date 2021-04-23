@@ -60,7 +60,7 @@
     <div class="footer-bar">
       <p>Developed by <a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><span class="primary-color">Kevin Chevreuil - Kaisen</span></a>
          and <a href="https://www.linkedin.com/in/tomibequet/" target="_blank"><span class="primary-color">Tomi Bequet - tobas</span></a></p>
-      <p>Kaisen Linux is a registered trademark of <a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><span class="primary-color">Kevin Chevreuil</span></a>. Linux is a registered trademark of Linux Torvalds in the United States and other countries.</p>
+      <p>Kaisen Linux® is a registered trademark of <a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><span class="primary-color">Kevin Chevreuil</span></a>. Linux® is a registered trademark of Linus Torvalds in the United States and other countries.</p>
       <p>Copyright ©<?php echo date("Y"); ?>. All Rights Reserved.</p>
     </div>
     <!-- Footer Bar End -->
