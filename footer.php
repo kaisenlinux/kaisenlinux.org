@@ -26,7 +26,7 @@
               <li><a href="https://gitlab.com/kaisenlinux" target="_blank"><i class="fab fa-gitlab"></i></a></li>
               <li><a href="https://github.com/kaisenlinux" target="_blank"><i class="fab fa-github"></i></a></li>
               <li><a href="https://linkedin.com/company/kaisenlinux" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-              <li><a href="https://twitter.com/KaisenLinuxOS" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://twitter.com/kaisenlinux" target="_blank"><i class="fab fa-twitter"></i></a></li>
             </ul>
           </div>
         </div>

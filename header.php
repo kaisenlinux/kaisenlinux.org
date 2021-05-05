@@ -91,7 +91,7 @@
           	<li><a href="https://gitlab.com/kaisenlinux" target="_blank">Gitlab</a></li>
           	<li><a href="https://github.com/kaisenlinux" target="_blank">Github (Gitlab mirror)</a></li>
           	<li><a href="https://linkedin.com/company/kaisenlinux" target="_blank">Linkedin</a></li>
-          	<li><a href="https://twitter.com/KaisenLinuxOS" target="_blank">Twitter</a></li>
+          	<li><a href="https://twitter.com/kaisenlinux" target="_blank">Twitter</a></li>
         	
           </ul>
 
