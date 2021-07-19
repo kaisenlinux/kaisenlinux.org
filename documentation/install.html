@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Documentation v1.6.0">
+    <meta name="project" content="Documentation v1.7.0">
 
-    <title>Install OS — Documentation v1.6.0</title>
+    <title>Install OS — Documentation v1.7.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-60193556ee.js"></script>
+    <script src="dist/sidebar_items-20ddf2a157.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -51,7 +51,7 @@
 Documentation
       </a>
       <strong class="sidebar-projectVersion">
-        v1.6.0
+        v1.7.0
       </strong>
     </div>
 
@@ -103,7 +103,8 @@ Kaisen Linux Expert Install (GUI mode)</code></pre><p>Installation in text mode,
   <a href="#recommendations-on-filesystems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Recommendations on filesystems
 </h3>
-<p>Kaisen Linux uses the BTRFS file system by default on automatic partitioning because a <a href="advanced-btrfs-utilisation.html">snapshot</a> feature has been integrated by default and allows you to take snapshots of its system.<br></br>If you are installing Kaisen Linux through manual partitioning, we recommend that you use BTRFS on all your partitions in order to take full advantage of the features offered by Kaisen Linux.</p><h2 id="preseed-file" class="section-heading">
+<p>Kaisen Linux uses the BTRFS file system by default on automatic partitioning because a <a href="advanced-btrfs-utilisation.html">snapshot</a> feature has been integrated by default and allows you to take snapshots of its system.<br></br>If you are installing Kaisen Linux through manual partitioning, we recommend that you use BTRFS on all your partitions in order to take full advantage of the features offered by Kaisen Linux.
+You should also leave the default options provided with the BTRFS file system selection, these options are optimized for BTRFS and for Kaisen Linux.</p><h2 id="preseed-file" class="section-heading">
   <a href="#preseed-file" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Preseed file
 </h2>
@@ -113,6 +114,8 @@ d-i netcfg/enable boolean false
 d-i hw-detect/load_firmware boolean false
 #Do not ask to create a root password to force the creation of a user with reduced privileges
 d-i passwd/root-login boolean false
+#Define default filesystem
+d-i partman/default_filesystem string btrfs
 #Do not activate volume wipe during encryption
 d-i partman-auto-crypto/erase_disks boolean false
 #Activate eatmydata to reduce space disk used
@@ -122,7 +125,7 @@ d-i apt-setup/use_mirror boolean false
 #Delete the message at end installation and automatic reboot after finish install
 d-i finish-install/reboot_in_progress note
 #Execute at command after system installation
-d-i preseed/late_command string in-target bash -c 'apt-mark showhold | while read kernel;do apt-mark unhold $kernel;done' || true</code></pre><p>It is thanks to this file that the Debian installer is customized and for this reason that certain processes, such as password request for root, network configuration and others do not exist on the ISO. The purpose of this file is to automate certain tasks (we can completely automate the installation using this file), as well as to customize the installer according to our needs.  </p><p>The choice not to leave to the installer, the choice to create a password for root is because using the default root account is highly discouraged as well as the custom terminal, although available on root by typing zsh in the terminal (bash was left by default to allow chroot), is by default available for users without privileges.</p>
+#d-i preseed/late_command string in-target sh -c ''</code></pre><p>It is thanks to this file that the Debian installer is customized and for this reason that certain processes, such as password request for root, network configuration and others do not exist on the ISO. The purpose of this file is to automate certain tasks (we can completely automate the installation using this file), as well as to customize the installer according to our needs.  </p><p>The choice not to leave to the installer, the choice to create a password for root is because using the default root account is highly discouraged as well as the custom terminal, although available on root by typing zsh in the terminal (bash was left by default to allow chroot), is by default available for users without privileges.</p>
       <footer class="footer">
         <p>
           <span class="line">

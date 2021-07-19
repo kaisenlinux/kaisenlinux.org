@@ -39,7 +39,7 @@
       <div class="col-md-3 col-sm-6 col-12">
         <h3>Importants links</h3>
         <ul class="footer-list">
-          <li><a href="https://distrowatch.com/table.php?distribution=kaisen" target="_blank">Distrowatch page</a></li>
+          <li><a href="https://distrowatch.com/kaisen" target="_blank">Distrowatch page</a></li>
           <li><a href="mailto:team@kaisenlinux.org">Contact mail</a></li>
         </ul>
       </div>

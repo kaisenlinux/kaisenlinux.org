@@ -153,7 +153,7 @@
 		],	
 		[
 			'title' => 'Kaisen Linux Rolling 1.5 release note',
-			'extract' => 'New revision of the rolling. Lot ameliorations. New tools and design. Bugs fixed.',
+			'extract' => 'New revision of the rolling. Lot of ameliorations. New tools and design. Bugs fixed.',
 			'date'=> '2020/12/13',
 			'visuel' => '/img/screen.png',
 			'link' => 'kaisenlinuxrolling1.5.php',
@@ -161,10 +161,18 @@
 		],
 		[
             'title' => 'Kaisen Linux Rolling 1.6 release note',
-        	'extract' => 'New revision of the rolling. Lot ameliorations. New tools and new conky. Bugs fixed.',
+        	'extract' => 'New revision of the rolling. Lot of ameliorations. New tools and new conky. Bugs fixed.',
             'date'=> '2021/03/31',
             'visuel' => '/img/screen.png',
             'link' => 'kaisenlinuxrolling1.6.php',
+            'author' => 'Kaisen',
+        ],
+		[
+            'title' => 'Kaisen Linux Rolling 1.7 release note',
+        	'extract' => 'New revision of the rolling. Final 1.x release. Lot of ameliorations. New ISOS.',
+            'date'=> '2021/07/19',
+            'visuel' => '/img/screen.png',
+            'link' => 'kaisenlinuxrolling1.7.php',
             'author' => 'Kaisen',
         ],
 
