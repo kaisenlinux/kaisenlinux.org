@@ -18,7 +18,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/mate.png',
-			'size' => '3.6Go',
+			'size' => '3.7Go',
 
 			'links' => [
 				[
@@ -38,7 +38,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '3.9Go',
+			'size' => '4.0Go',
 
 			'links' => [
 				[
@@ -78,7 +78,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/lxde.png',
-			'size' => '3.5Go',
+			'size' => '3.6Go',
 
 			'links' => [
 				[
@@ -98,7 +98,7 @@
 
 			'include' => 'No installer, live only',
 			'img'	  => './img/downloads/sr.png',
-			'size' => '2.2Go',
+			'size' => '2.3Go',
 
 			'links' => [
 				[
@@ -138,7 +138,7 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '375Mo',
+			'size' => '380Mo',
 
 			'links' => [
 				[
