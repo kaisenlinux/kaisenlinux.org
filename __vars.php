@@ -27,7 +27,7 @@
                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-MATE.iso',
+					'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-MATE.iso',
 				],
 
 			],
@@ -47,7 +47,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-KDE.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-KDE.iso',
                 ],
 
 			],
@@ -67,7 +67,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-XFCE.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-XFCE.iso',
                 ],
 
 			],
@@ -87,7 +87,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-LXDE.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-LXDE.iso',
                 ],
 
 			],
@@ -107,7 +107,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-SR.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-SR.iso',
                 ],
 
 			],
@@ -127,7 +127,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-CONSOLE.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-CONSOLE.iso',
                 ],
 
 			],
@@ -147,7 +147,7 @@
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.7-amd64-NETINST.iso',
+                    'link' => 'https://kaisen.lf.je/rolling/kaisenlinuxrolling1.7-amd64-NETINST.iso',
                 ],
 
 			],
