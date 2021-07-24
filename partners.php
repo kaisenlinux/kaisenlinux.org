@@ -95,9 +95,9 @@
               <div class="partner-text">
                 <span>Company</span>
                 <h4>HackerSploit</h4>
-                <p>HackerSploit is the leading provider of free Infosec and cybersecurity training. They goal is to make 
-                  training more effective and accessible for all. They providing training on attack and defend with 
-                  virtuals labs and realist scenarios.</p>
+                <p>HackerSploit is the leading provider of free Infosec and cybersecurity training. We are their partner 
+                  for the creation of their distribution based on Kaisen Linux. 
+                  We help them with infrastructure, packaging and development.</p>
                   <div class="blog-grid-simple-content">
                     <div class="center-holder">
                       <a href="https://hackersploit.org/">Go to website</a>
