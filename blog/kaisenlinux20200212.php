@@ -10,7 +10,7 @@
       <div class="col-lg-8 offset-lg-2 text-center">
         <h1>Kaisen Linux 20200212 Release Notes</h1>
         <ul class="list-inline mb-50">
-          <li class="list-inline-item">Author: Kaisen</li>
+          <li class="list-inline-item">Author: Kevin Chevreuil - Kaisen</li>
           <li class="list-inline-item">Date: 2020/04/03</li>
         </ul>
         <img class="img-fluid mb-50" src="../img/screen.png" alt="blog-image">

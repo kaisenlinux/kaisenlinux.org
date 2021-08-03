@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Documentation v1.7.0">
+    <meta name="project" content="Documentation v1.8.0">
 
-    <title>Packages — Documentation v1.7.0</title>
+    <title>Packages — Documentation v1.8.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-20ddf2a157.js"></script>
+    <script src="dist/sidebar_items-bd2e3b0443.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -51,7 +51,7 @@
 Documentation
       </a>
       <strong class="sidebar-projectVersion">
-        v1.7.0
+        v1.8.0
       </strong>
     </div>
 
@@ -96,11 +96,9 @@ They are also used to customize GRUB thanks to the lsb_release package which, in
   <a href="#linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   linux
 </h3>
-<p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br></br>The Kaisen Linux kernel has its own lean configuration.</p><h3 id="cron" class="section-heading">
-  <a href="#cron" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  cron
-</h3>
-<p>The package has been modified to automatically add the &quot;kaisen-basemenu-purge&quot; package to automatically clean up duplicate icons on the menu.</p><h3 id="debian-installer" class="section-heading">
+<p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br></br>The Kaisen Linux kernel has its own lean configuration.
+The kernel is also recompiled to disable signing modules because signing modules breaks GRUB
+with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-heading">
   <a href="#debian-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   debian-installer
 </h3>
@@ -137,7 +135,11 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#live-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   live-build
 </h3>
-<p>It is the official Debian tool for building system images. It was forked to add support for the &quot;kaisen-rolling&quot; repository.</p><h3 id="win32-loader" class="section-heading">
+<p>It is the official Debian tool for building system images. It was forked to add support for the &quot;kaisen-rolling&quot; repository.</p><h3 id="live-config" class="section-heading">
+  <a href="#live-config" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  live-config
+</h3>
+<p>This package contains all live configurations. Forked to add components/0031-kaisen-password script. This script add a password for live system.</p><h3 id="win32-loader" class="section-heading">
   <a href="#win32-loader" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   win32-loader
 </h3>
@@ -149,7 +151,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#live-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   live-installer
 </h3>
-<p>Forked to support the kaisen-calamares-settings package.</p><h3 id="plymouth" class="section-heading">
+<p>Forked to add 61kaisen script to launch this script after the system installation.</p><h3 id="plymouth" class="section-heading">
   <a href="#plymouth" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   plymouth
 </h3>
@@ -165,7 +167,8 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#simple-cdd" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   simple-cdd
 </h3>
-<p>Forked to update default preseed</p><h3 id="debian-cd" class="section-heading">
+<p>Forked to add kaisen profile. The kaisen profile add a custom preseed for NETINST ISO,
+and add a postinst script to exec a few actions after the installation.</p><h3 id="debian-cd" class="section-heading">
   <a href="#debian-cd" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   debian-cd
 </h3>
@@ -173,7 +176,15 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#tasksel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   tasksel
 </h3>
-<p>Forked to adding Kaisen Linux tasks</p><h2 id="kaisen-linux-packages" class="section-heading">
+<p>Forked to adding Kaisen Linux tasks</p><h3 id="lightdm-gtk-greeter" class="section-heading">
+  <a href="#lightdm-gtk-greeter" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  lightdm-gtk-greeter
+</h3>
+<p>Forked to add Kaisen Linux lightdm settings</p><h3 id="net-retriever" class="section-heading">
+  <a href="#net-retriever" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  net-retriever
+</h3>
+<p>Forked to add kaisen-archive-keyring-udeb package</p><h2 id="kaisen-linux-packages" class="section-heading">
   <a href="#kaisen-linux-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Kaisen Linux packages
 </h2>
@@ -185,7 +196,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#kaisen-grub-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-grub-configuration
 </h3>
-<p>The GRUB package has been recompiled to change the configuration of the /etc/default/grub file to add support for the default splash screen for the user on the installed system (graphical boot) and also allow in case the command lsb_release -i -s cannot be executed because the lsb-release script is not present, you can still display Kaisen and not Debian in the GRUB entries.</p><p>The kaisen-grub-configuration package is installed automatically during system installation and automates this customization.</p><h3 id="kaisen-archive-keyring" class="section-heading">
+<p>The GRUB package has been recompiled to change the configuration of the /etc/default/grub file to add support for the default splash screen for the user on the installed system (graphical boot) and also allow in case the command lsb_release -i -s cannot be executed because the lsb-release script is not present, you can still display Kaisen and not Debian in the GRUB entries.  </p><p>The kaisen-grub-configuration package is installed automatically during system installation and automates this customization.</p><h3 id="kaisen-archive-keyring" class="section-heading">
   <a href="#kaisen-archive-keyring" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-archive-keyring
 </h3>
@@ -226,17 +237,15 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   <a href="#kaisen-documentation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-documentation
 </h3>
-<p>This package is simply an offline implementation of the entire <a href="https://kaisenlinux.org/documentation/">https://kaisenlinux.org/documentation/</a> domain in order to access the centralized documentation without requiring an internet connection.</p><h3 id="kaisen-netinst-configurator" class="section-heading">
-  <a href="#kaisen-netinst-configurator" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  kaisen-netinst-configurator
-</h3>
-<p>This package can be considered as a hook that can be installed via the netinstaller. 
-This package installs a set of scripts allowing to automate for example the installation of packages, the complete installation of guests on virtual hosts etc... 
-This package is useless on a live ISO.</p><h3 id="kaisen-cli-tools" class="section-heading">
+<p>This package is simply an offline implementation of the entire <a href="https://kaisenlinux.org/documentation/">https://kaisenlinux.org/documentation/</a> domain in order to access the centralized documentation without requiring an internet connection.</p><h3 id="kaisen-cli-tools" class="section-heading">
   <a href="#kaisen-cli-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-cli-tools
 </h3>
-<p>This metapackage was created to list the tools available directly via a terminal and is installed for the &quot;CONSOLE only&quot; ISO, allowing to have a fully console-based live, without X server or preinstalled GUI.</p><h3 id="veracrypt" class="section-heading">
+<p>This metapackage was created to list the tools available directly via a terminal and is installed for the &quot;CONSOLE only&quot; ISO, allowing to have a fully console-based live, without X server or preinstalled GUI.</p><h3 id="kaisen-design" class="section-heading">
+  <a href="#kaisen-design" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  kaisen-design
+</h3>
+<p>This package contains all themes and icons for Kaisen Linux</p><h3 id="veracrypt" class="section-heading">
   <a href="#veracrypt" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   veracrypt
 </h3>
@@ -336,7 +345,15 @@ This package is useless on a live ISO.</p><h3 id="kaisen-cli-tools" class="secti
   <a href="#libtorrent-rasterbar" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   libtorrent-rasterbar
 </h3>
-<p>Rebuilt to update libtorrent-rasterbar because qbittorrent compilation necessary use this version</p><h2 id="source-of-packages" class="section-heading">
+<p>Rebuilt to update libtorrent-rasterbar because qbittorrent compilation necessary use this version</p><h3 id="bloodhound" class="section-heading">
+  <a href="#bloodhound" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  bloodhound
+</h3>
+<p>Tool to check Active Directory configurations</p><h3 id="ddrescue-gui" class="section-heading">
+  <a href="#ddrescue-gui" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  ddrescue-gui
+</h3>
+<p>Tool to add a GUI for ddrescue tool</p><h2 id="source-of-packages" class="section-heading">
   <a href="#source-of-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Source of packages
 </h2>

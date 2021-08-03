@@ -9,7 +9,7 @@
       <div class="col-lg-8 offset-lg-2 text-center">
         <h1>Kaisen Linux Rolling 1.0 Release Notes</h1>
         <ul class="list-inline mb-50">
-          <li class="list-inline-item">Author: Kaisen</li>
+          <li class="list-inline-item">Author: Kevin Chevreuil - Kaisen</li>
           <li class="list-inline-item">Date: 2020/05/19</li>
         </ul>
         <img class="img-fluid mb-50" src="../img/screen.png" alt="blog-image">
