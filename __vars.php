@@ -9,7 +9,7 @@
 	$url = 'https://kaisenlinux.org';
 
 
-	$release_version = 'Rolling 1.8';
+	$release_version = 'Rolling 2.0RC4';
 
 
 	$links_download = [
@@ -18,17 +18,17 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/mate.png',
-			'size' => '3.7Go',
+			'size' => '4.2Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-MATE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-MATE.iso',
                 ],
-				[
+				/*[
 					'name' => 'Mirror 2',
-					'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-MATE.iso',
-				],
+					'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-MATE.iso',
+				],*/
 
 			],
 
@@ -38,17 +38,17 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '4.0Go',
+			'size' => '4.6Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-KDE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-KDE.iso',
                 ],
-				[
+				/*[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-KDE.iso',
-                ],
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-KDE.iso',
+                ],*/
 
 			],
 
@@ -58,37 +58,37 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/xfce.png',
-			'size' => '3.5Go',
+			'size' => '4.0Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-XFCE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-XFCE.iso',
                 ],
-				[
+				/*[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-XFCE.iso',
-                ],
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-XFCE.iso',
+                ],*/
 
 			],
 
 		],
 
-		'LXDE' => [
+		'LXQT' => [
 
 			'include' => 'All tools included',
-			'img'	  => './img/downloads/lxde.png',
-			'size' => '3.6Go',
+			'img'	  => './img/downloads/lxqt.png',
+			'size' => '4.1Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-LXDE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-LXQT.iso',
                 ],
-				[
+				/*[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-LXDE.iso',
-                ],
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-LXQT.iso',
+                ],*/
 
 			],
 
@@ -98,37 +98,17 @@
 
 			'include' => 'No installer, live only',
 			'img'	  => './img/downloads/sr.png',
-			'size' => '2.3Go',
+			'size' => '2.4Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-SR.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-SR.iso',
                 ],
-				[
+				/*[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-SR.iso',
-                ],
-
-			],
-
-		],
-
-		'CONSOLE' => [
-
-			'include' => 'Live only, no GUI',
-			'img'	  => './img/downloads/console.png',
-			'size' => '1.1Go',
-
-			'links' => [
-				[
-                    'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-CONSOLE.iso',
-                ],
-				[
-                    'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-CONSOLE.iso',
-                ],
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-SR.iso',
+                ],*/
 
 			],
 
@@ -138,17 +118,17 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '380Mo',
+			'size' => '392Mo',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling1.8-amd64-NETINST.iso',
+                    'link' => 'https://iso.kaisenlinux.org/testing/kaisenlinuxrolling2.0RC4-amd64-NETINST.iso',
                 ],
-				[
+				/*[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling1.8-amd64-NETINST.iso',
-                ],
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.0RC4-amd64-NETINST.iso',
+                ],*/
 
 			],
 

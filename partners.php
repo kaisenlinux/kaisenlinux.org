@@ -8,32 +8,7 @@
       <h3>Collaborations</h3>
     </div>
     <div class="row mt-60">
-      <div class="col-md-6 col-sm-6 col-12">
-        <div class="partner-box">
-          <div class="row">
-            <div class="col-md-6 col-sm-12 col-12">
-              <div class="partner-img">
-                <img src="img/partners/dn.jpg" alt="digital network logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-12">
-              <div class="partner-text">
-                <span>Company</span>
-                <h4>Digital Network</h4>
-                <p>Digital Network is a French company specializing in outsourcing and hosting of IT open-source infrastructures.
-                  Digital Network provides us with hosting and participates in the management, and that for free!</p>
-                  <div class="blog-grid-simple-content">
-                    <div class="center-holder">
-                      <a href="https://digital-network.net/">Go to website</a>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6 col-12">
+    <div class="col-md-6 col-sm-6 col-12">
         <div class="partner-box">
           <div class="row">
             <div class="col-md-6 col-sm-12 col-12">
@@ -83,7 +58,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-sm-6 col-12">
+    <!--  <div class="col-md-6 col-sm-6 col-12">
         <div class="partner-box">
           <div class="row">
             <div class="col-md-6 col-sm-12 col-12">
@@ -107,7 +82,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
