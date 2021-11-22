@@ -39,7 +39,23 @@
           </div>
         </div>
       </div>
-      
+
+    <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
+            <img src="img/contributors/h_2_o2.jpg" alt="img of stefan kuny">
+          </div>
+          <div class="team-member-text">
+            <h4>Stefan Kuny</h4>
+            <p>Creator of the Kaisen logo of neofetch and many suggestions for improvement.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/skuny" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+	      <li><a href="https://twitter.com/On1c0n3_hax" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
