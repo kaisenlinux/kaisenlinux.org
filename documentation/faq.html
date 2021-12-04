@@ -10,7 +10,7 @@
     <title>Frequently asked Questions — Documentation v2.0.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-cd999528a3.js"></script>
+    <script src="dist/sidebar_items-ee3d4d70bd.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -88,7 +88,7 @@ Documentation
 </h3>
 <p>If you are looking for more documentation about the built-in tools and how they work and 
 their use cases, you can refer to the built-in manpages in the packages delivering the 
-tools or to the centralized manpages we make at <a href="https://kaisenlinux.org/manpages">https://kaisenlinux.org/manpages</a> or via 
+tools or to the centralized manpages we make at <a href="https://kaisenlinux.org/manpages/">https://kaisenlinux.org/manpages/</a> or via 
 the kaisen-manpages package.</p><h3 id="using-kaisen" class="section-heading">
   <a href="#using-kaisen" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Using Kaisen
@@ -130,10 +130,10 @@ If that doesn't solve your problem, contact support.</p><hr class="thin"></hr><h
   <a href="#how-to-build-custom-iso" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   How to build custom ISO?
 </h2>
-<h2 id="kaisen-build" class="section-heading">
+<h3 id="kaisen-build" class="section-heading">
   <a href="#kaisen-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-build
-</h2>
+</h3>
 <p>A package called kaisen-build has been developed to allow you to build your custom ISO based on Kaisen Linux. It is also this package and the tools it installs that we use to build official releases. The main objective of building your own ISO is to create your own live system and have one more up to date while awaiting official publications from the Kaisen Linux team.
 The second objective of doing this is to integrate into your live system tools which are not integrated by default in Kaisen Linux and which need to use them on a live system.<br></br>Note that creating a custom ISO also includes the Debian installer (default configuration provided by kaisen-build) customized by us (graphic theme, file systems, partitioning, preseed etc ...). Doing this is not useful for having a newer installable system, just do apt update &amp;&amp; apt upgrade to have your system constantly updated and with your software installed.
 We advise you to use kaisen-build in order to create your own live system.</p><h3 id="the-different-variants" class="section-heading">
@@ -161,11 +161,7 @@ CUSTOM = Variant pre-configured, but no integrated tool. Variant reserved for th
   <a href="#how-to-proceed" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   How to proceed?
 </h3>
-<p>Install kaisen-build with the <code class="inline">sudo apt install kaisen-build</code> command. The package will install live-build (a set of scripts used by Debian to build their official ISO images, which we also use), live-manual and live-doc which will help you get started with the live-build configuration and customize your ISO, live-boot to start your live.<br></br>Once the package is installed, in <code class="inline">/home/*</code> you will have a folder named <strong>kaisen-build</strong>.<br></br>In the <code class="inline">kaisen-build/variant/</code> folder, there is the folder named <strong>CUSTOM</strong>. This folder is reserved for you so that you can make your ISO live and installable (these options are by default in the live-build configuration file that I do not recommend that you modify), this file is complete and some options are already preconfigured like official Kaisen Linux packages, GUIs, as well as the Debian Installer <a href="#">preseed LINK TO ADD</a> file.<br></br>In the event of an update, or even in the event of accidental deletion of the package and after a reinstallation, all the modifications made on the custom branch will be kept, thanks to an automated backup and automatic restoration of the CUSTOM branch in the installation process of the package.<br></br>This is why I strongly advise you not to create your ISO by customizing another variant than CUSTOM because your modifications will be lost in the event of an update of kaisen-build.<br></br>Once your branch is fully configured, you can run a compilation at the root of the kaisen-build folder, with the command:</p><pre><code class="bash">sudo ./kaisen-build build CUSTOM </code></pre><p>If you want to put a version number to your ISO, put this:  </p><pre><code class="bash">sudo ./kaisen-build build CUSTOM 1.0</code></pre><p>Version 1.0 is an example, but you can put whatever you want, I advise you not to put too many letters and numbers because if the name of the ISO volume exceeds 32 characters, the compilation will crash. The name of the ISO volume is &quot;Kaisen Linux Rolling $variant $version&quot; ($variant corresponds here to CUSTOM and $version corresponds here to 1.0), in the example, the name of the ISO volume will be Kaisen Linux Rolling CUSTOM 1.0.</p><h2 id="further-information" class="section-heading">
-  <a href="#further-information" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Further information
-</h2>
-<h3 id="support" class="section-heading">
+<p>Install kaisen-build with the <code class="inline">sudo apt install kaisen-build</code> command. The package will install live-build (a set of scripts used by Debian to build their official ISO images, which we also use), live-manual and live-doc which will help you get started with the live-build configuration and customize your ISO, live-boot to start your live.<br></br>Once the package is installed, in <code class="inline">/home/*</code> you will have a folder named <strong>kaisen-build</strong>.<br></br>In the <code class="inline">kaisen-build/variant/</code> folder, there is the folder named <strong>CUSTOM</strong>. This folder is reserved for you so that you can make your ISO live and installable (these options are by default in the live-build configuration file that I do not recommend that you modify), this file is complete and some options are already preconfigured like official Kaisen Linux packages, GUIs, as well as the Debian Installer <a href="install.html#example-of-preseed-file">preseed</a> file.<br></br>In the event of an update, or even in the event of accidental deletion of the package and after a reinstallation, all the modifications made on the custom branch will be kept, thanks to an automated backup and automatic restoration of the CUSTOM branch in the installation process of the package.<br></br>This is why I strongly advise you not to create your ISO by customizing another variant than CUSTOM because your modifications will be lost in the event of an update of kaisen-build.<br></br>Once your branch is fully configured, you can run a compilation at the root of the kaisen-build folder, with the command:</p><pre><code class="bash">sudo ./kaisen-build build CUSTOM 1.0</code></pre><p>Version 1.0 is an example, but you can put whatever you want, I advise you not to put too many letters and numbers because if the name of the ISO volume exceeds 32 characters, the compilation will crash. The name of the ISO volume is &quot;Kaisen Linux Rolling $variant $version&quot; ($variant corresponds here to CUSTOM and $version corresponds here to 1.0), in the example, the name of the ISO volume will be Kaisen Linux Rolling CUSTOM 1.0.</p><h3 id="support" class="section-heading">
   <a href="#support" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Support
 </h3>
@@ -173,7 +169,7 @@ CUSTOM = Variant pre-configured, but no integrated tool. Variant reserved for th
   <a href="#warning-on-personal-images" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Warning on personal images
 </h3>
-<p>One of the strengths of the GNU/Linux world, which we follow to give our users the choice to do what they want with the environment we provide them so that they can adapt it to their needs, is also a problem because the integration of malware, trackers or others can be facilitated.<br></br>To avoid this kind of inconvenience, do not download an ISO image outside the following two mirrors: <a href="https://iso.kaisenlinux.org">https://iso.kaisenlinux.org</a> and <a href="https://kaisen.lf.je/index.html">https://kaisen.lf.je/index.html</a><br></br>Also check the SHA256 checksums indicated on the official website.
+<p>One of the strengths of the GNU/Linux world, which we follow to give our users the choice to do what they want with the environment we provide them so that they can adapt it to their needs, is also a problem because the integration of malware, trackers or others can be facilitated.<br></br>To avoid this kind of inconvenience, do not download an ISO image outside the following two mirrors: <a href="https://iso.kaisenlinux.org">https://iso.kaisenlinux.org</a> and <a href="https://iso.kaisenlinux.xyz">https://iso.kaisenlinux.xyz</a><br></br>Also check the SHA256 checksums indicated on the official website.
 So keep your images created by yourself for yourself, and do not use ISOS images whose origin thereof is not a certainty (check the checksums on the site to be sure).</p><h3 id="update-custom-branch" class="section-heading">
   <a href="#update-custom-branch" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Update CUSTOM branch
@@ -215,7 +211,7 @@ Note, however, that this method is the least simple, but the most refined, it is
   <a href="#profile-created-in-etc-skel_user" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Profile created in /etc/skel_user
 </h3>
-<p>If you have created your default profile as mentioned <a href="https://kaisenlinux.org/documentation/how-to-create-your-own-skel">here</a>, you can run the <code class="inline">kaisen-update-skel-user</code> command to update your profile on all users present on the system.</p><hr class="thin"></hr><h2 id="informations-on-the-conky-theme" class="section-heading">
+<p>If you have created your default profile as mentioned <a href="faq.html#how-to-create-your-own-default-profile-for-user-configurations-skel">here</a>, you can run the <code class="inline">kaisen-update-skel-user</code> command to update your profile on all users present on the system.</p><hr class="thin"></hr><h2 id="informations-on-the-conky-theme" class="section-heading">
   <a href="#informations-on-the-conky-theme" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Informations on the conky theme
 </h2>
