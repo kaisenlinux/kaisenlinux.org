@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Documentation v1.8.0">
+    <meta name="project" content="Documentation v2.0.0">
 
-    <title>Autoload VirtualBox module at boot — Documentation v1.8.0</title>
+    <title>Autoload VirtualBox module at boot — Documentation v2.0.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-bd2e3b0443.js"></script>
+    <script src="dist/sidebar_items-cd999528a3.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -51,7 +51,7 @@
 Documentation
       </a>
       <strong class="sidebar-projectVersion">
-        v1.8.0
+        v2.0.0
       </strong>
     </div>
 
@@ -74,9 +74,9 @@ Documentation
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>Autoload VirtualBox module at boot</h1><h2 id="on-active-systems" class="section-heading">
-  <a href="#on-active-systems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  On active systems
+<h1>Autoload VirtualBox module at boot</h1><h2 id="on-live-systems" class="section-heading">
+  <a href="#on-live-systems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  On live systems
 </h2>
 <p>On full live ISOS, by default the VirtualBox module is launched at the start of the distribution because the configuration has been done beforehand. Even if the distribution and VirtualBox are updated, this configuration will remain effective.</p><h2 id="on-netinst-iso" class="section-heading">
   <a href="#on-netinst-iso" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -86,7 +86,9 @@ Documentation
   <a href="#do-it-manually" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Do it manually
 </h2>
-<p>If you have not installed Kaisen Linux via the NETINST installer and you want to avoid the &quot;modprobe vboxdrv&quot; message at each boot you need to perform this configuration:</p><pre><code class="bash">echo &quot;vboxdrv&quot; | sudo tee /etc/modules-load.d/virtualbox.conf</code></pre><p>This configuration will remain effective even after an update of VirtualBox or the distribution.</p>
+<p>If you have not installed Kaisen Linux via the NETINST installer and you want to avoid the &quot;modprobe vboxdrv&quot; message at each boot you need to perform this configuration:</p><pre><code class="bash">echo &quot;vboxdrv&quot; | sudo tee /etc/modules-load.d/virtualbox.conf
+echo &quot;vboxnetadp&quot; | sudo tee -a /etc/modules-load.d/virtualbox.conf
+echo &quot;vboxnetflt&quot; | sudo tee -a /etc/modules-load.d/virtualbox.conf</code></pre><p>This configuration will remain effective even after an update of VirtualBox or the distribution.</p>
       <footer class="footer">
         <p>
           <span class="line">

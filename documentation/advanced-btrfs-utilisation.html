@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.23.0">
-    <meta name="project" content="Documentation v1.8.0">
+    <meta name="project" content="Documentation v2.0.0">
 
-    <title>Advanced BTRFS utilisation — Documentation v1.8.0</title>
+    <title>Advanced BTRFS utilisation — Documentation v2.0.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-bd2e3b0443.js"></script>
+    <script src="dist/sidebar_items-cd999528a3.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -51,7 +51,7 @@
 Documentation
       </a>
       <strong class="sidebar-projectVersion">
-        v1.8.0
+        v2.0.0
       </strong>
     </div>
 
@@ -86,7 +86,7 @@ Documentation
   <a href="#manual-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Manual creation
 </h3>
-<p>To manually create subvolumes to use the snapshost system, we will proceed like this.<br></br>Here, the subvolumes that will be created are the same as those created by installing Kaisen Linux with an ISO of revision 1.6.  </p><p>Subvolumes can be created using commands installed via the btrfs-progs package. This package is installed by default in Kaisen Linux.  </p><p>This command can be used to create BTRFS subvolume:</p><p><code class="inline">sudo btrfs subvolume create subvolume_name</code></p><h3 id="deletion" class="section-heading">
+<p>To manually create subvolumes to use the snapshost system, we will proceed like this.<br></br>Here, the subvolumes that will be created are the same as those created by installing Kaisen Linux with an ISO of revision 1.6.  </p><p>Subvolumes can be created using commands installed via the btrfs-progs package. This package is installed by default in Kaisen Linux if the kaisen-filesystems package is installed, or if BTRFS is the file system used when installing the system.  </p><p>This command can be used to create BTRFS subvolume:</p><p><code class="inline">sudo btrfs subvolume create subvolume_name</code></p><h3 id="deletion" class="section-heading">
   <a href="#deletion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Deletion
 </h3>
@@ -113,17 +113,17 @@ Documentation
 <p>APT snapshots are handled by the apt-btrfs-snapshot package. Whenever APT is used for a package update or installation, a snapshot will be automatically taken.<br></br>If an upgrade or a package installation goes wrong it is easy to go back with these commands:
 <code class="inline">sudo apt-btrfs-snapshot list</code><br></br>This command will list all snapshots taken by apt-btrfs-snapshot.<br></br>The names of the snapshots look like this:<br></br><code class="inline">@apt-snapshot-2021-03-30_10:54:37</code></p><p>We want to restore the snapshot with the name mentioned above. For that, we will type the command:
 <code class="inline">sudo apt-btrfs-snapshot set-default @apt-snapshot-2021-03-30_10:54:37</code><br></br>At the next restart, all changes made to the packages will be reverted.</p><p>To delete all snapshots taken by apt-btrfs-snapshot, you must type this command as root or via sudo:
-<code class="inline">sudo apt-btrfs-snapshot delete-older-than 0d</code></p><p>To delete snapshots that are for example 10 days old or more, type this command:
-<code class="inline">sudo apt-btrfs-snapshot delete-older-than 10d</code></p><p>This can also be done via the live Kaisen.<br></br>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
+<code class="inline">sudo apt-btrfs-snapshot delete-older-than 0d</code></p><p>To delete snapshots that are for example 3 days old or more, type this command:
+<code class="inline">sudo apt-btrfs-snapshot delete-older-than 3d</code></p><p>This can also be done via the live Kaisen.<br></br>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
 This is a convenient and efficient way to restore your broken system.  </p><p>This functionality can also be completely removed by fully uninstalling the package. In this case, you have to run this command:
 <code class="inline">sudo apt remove --purge apt-btrfs-snapshot</code></p><h3 id="snapshots-with-timeshift" class="section-heading">
   <a href="#snapshots-with-timeshift" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Snapshots with Timeshift
 </h3>
-<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br></br>We recommend the use of Timeshift to take and restore snapshot of your system.</p><h3 id="recommendations-for-btrfs" class="section-heading">
+<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br></br>We recommend the use of Timeshift to take and restore snapshot of your system.</p><h2 id="recommendations-for-btrfs" class="section-heading">
   <a href="#recommendations-for-btrfs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Recommendations for BTRFS
-</h3>
+</h2>
 <p>This is not enabled by default for performance reasons as well as to avoid premature wear, automated defragmentation is disabled.<br></br>It is advisable to defragment BTRFS volumes at least every 6 months (CoW can create significant fragmentation), even on SSDs.<br></br>Delete the snapshots first, and then type the command (in case you have BTRFS installed on the root):
 <code class="inline">sudo btrfs filesystem defragment -rv /</code></p>
       <footer class="footer">
