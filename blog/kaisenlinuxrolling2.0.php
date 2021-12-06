@@ -72,6 +72,7 @@ to fix multiple bugs, for example the disappearance of the / partition when the 
 take into account partitions that have spaces in their name.<p></br>
 <p>All the default profiles have been updated following the updates of the different interfaces as well as to display the virtual office numbers for example (useful to see them on black background).
 The KDE menu, as well as the XFCE menu, has also been updated.<p></br>
+<p>The Kaisen Linux logo has been added to Neofetch. Thanks to Stefan Kuny for this contribution!<p></br>
 
 <p>New tools:
 	<ul>
