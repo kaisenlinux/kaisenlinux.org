@@ -183,6 +183,14 @@
             'link' => 'kaisenlinuxrolling1.8.php',
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
+		[
+            'title' => 'Kaisen Linux Rolling 2.0 release note',
+        	'extract' => 'New revsion of the rolling. First 2.x releases. Major bugs fixed. Lots of improvements.',
+            'date'=> '2021/12/14',
+            'visuel' => '/img/screen.png',
+            'link' => 'kaisenlinuxrolling2.0.php',
+            'author' => 'Kevin Chevreuil - Kaisen',
+        ],
 
 	];
 
