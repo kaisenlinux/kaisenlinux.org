@@ -72,6 +72,7 @@ to fix multiple bugs, for example the disappearance of the / partition when the 
 take into account partitions that have spaces in their name.<p></br>
 <p>All the default profiles have been updated following the updates of the different interfaces as well as to display the virtual office numbers for example (useful to see them on black background).
 The KDE menu, as well as the XFCE menu, has also been updated.<p></br>
+<p>The VirtualBox modules vboxnetadp and vboxnetflt added in the hook of kaisen-build package and simple-cdd script<p></br>
 <p>The Kaisen Linux logo has been added to Neofetch. Thanks to Stefan Kuny for this contribution!<p></br>
 
 <p>New tools:
@@ -103,6 +104,17 @@ The KDE menu, as well as the XFCE menu, has also been updated.<p></br>
 	</ul>
 </p></br></br>
 
+<p>At the infrastructure level, the Kaisen Linux repositories got a redesign and the kaisen-rolling-snapshot repository was created. The purpose of this 
+repository is to re-inject into the kaisen-rolling repository any potential packages removed by Debian that can be installed by several Kaisen Linux 
+metapackages. This will ensure real stability as well as the availability at all times of all tools, even via installation with the NETINST. 
+The NETINST always installing what is up to date on the servers, did not guarantee until now that all the tools are present. 
+The presence of the kaisen-rolling-snapshot repository fixes this problem.
+How repositories work is explained here: https://gitlab.com/kaisenlinux/reprepro/-/blob/master/conf-prod/README<p></br>
+
+<p>Except in exceptional cases, each new ISO will be released every 6 months, allowing for a more up-to-date live. It is planned to release 4 revisions per 
+major version (1, 2...). This is to give me more time to port Kaisen Linux to Raspebrry Pi! And the project having reached a real stability, 
+will always be maintained but less important modifications on the operation of the distribution will require new ISOS, APT will be able to update everything.<p></br>
+
 <p>The kaisen-update command is now a package (the command is no longer installed by the kaisen-miscellaneous-tools metapackage) you will have to reinstall 
 the command if you want to continue using it. You will need to install kaisen-update after the update.<br>
 The BTRFS snapshot tools being no longer installed by default will be automatically uninstalled 
@@ -125,6 +137,15 @@ Here are the commands to perform.<p><br>
 <p>This is by no means mandatory, but I also recommend that you use the kaisen-update-skel command to put the entire 
 	contents of /etc/skel on the directory for all users. However this will make you lose your personalization on 
 	your desktop environment, use it as a precaution.</p></br></br>
+
+<p>To VirtualBox users!<p>
+Newer versions of Linux now install VirtualBox guest add-ons by default.
+To avoid error messages when updating VirtualBox (which does not prevent you from being able to update VirtualBox),
+you should uninstall the following packages with this command:
+<ul>
+	<li>sudo apt autoremove -y --purge virtualbox-guest-dkms virtualbox-guest-source</li>
+</ul>
+</p></br></br>
 
 <p>To LXDE users!<p>
 It is recommended to change the GUI, although the LXDE metapackage is still present in the repositories. It will not be updated anymore, and its default 
@@ -166,7 +187,7 @@ than doing the updates.</p><br>
 <p>Thank you all for your support, thank you for using Kaisen Linux and for being part 
 of this wonderful adventure!</p>
 
-<p>You can report bugs on the forum available at <a href="https://forum.kaisenlinux.org" target="_blank">here</a></p>
+<p>You can report bugs on the forum available at <a href="https://forum.kaisenlinux.org" target="_blank">here</a>.</p>
 
         </div>
 
