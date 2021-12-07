@@ -150,7 +150,8 @@ you should uninstall the following packages with this command:
 <p>To LXDE users!<p>
 It is recommended to change the GUI, although the LXDE metapackage is still present in the repositories. It will not be updated anymore, and its default 
 profile has been removed in the skel, and no more interface switcher for the LXDE version.<br>
-This is to switch to a more modern and user-friendly interface and compatible with the new Kaisen Linux graphic charts.<p></br>
+This is to switch to a more modern and user-friendly interface and compatible with the new Kaisen Linux graphic charts.<br>
+Do this with an Ethernet cable or with a USB Ethernet adapter. The complete uninstallation of LXDE will remove network-manager which manages the wifi.<p></br>
 
 <p>To change the GUI, and use KDE instead do this:
 <ul>
