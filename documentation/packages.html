@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Documentation v2.0.0">
 
     <title>Packages — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-ee3d4d70bd.js"></script>
+    <script src="dist/sidebar_items-6718960bf5.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
 
 <div class="main">
 
@@ -36,7 +43,7 @@
       <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
 
@@ -47,10 +54,10 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
 Documentation
       </a>
-      <strong class="sidebar-projectVersion">
+      <strong class="sidebar-projectVersion" translate="no">
         v2.0.0
       </strong>
     </div>
@@ -62,7 +69,7 @@ Documentation
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">Guides</a></li>
+    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
 
 
   </ul>
@@ -74,7 +81,12 @@ Documentation
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>Packages</h1><p><strong>This section presents the different packages modified for Kaisen Linux and their function on the system.</strong></p><h2 id="forked-packages" class="section-heading">
+<h1 id="content">
+Packages
+
+</h1>
+
+<p><strong>This section presents the different packages modified for Kaisen Linux and their function on the system.</strong></p><h2 id="forked-packages" class="section-heading">
   <a href="#forked-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Forked packages
 </h2>
@@ -82,21 +94,23 @@ Documentation
   <a href="#adduser" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   adduser
 </h3>
-<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="bash">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
-*Allow the deletion of the folder associated with a deleted user (/home/userdelete) when it is deleted with the delsuer command in file /etc/deluser.conf</code></pre><h3 id="base-files" class="section-heading">
+<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="makeup bash"><span class="">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
+</span><span class="">*Allow the deletion of the folder associated with a deleted user (/home/userdelete) when it is deleted with the delsuer command in file /etc/deluser.conf
+</span></code></pre><h3 id="base-files" class="section-heading">
   <a href="#base-files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   base-files
 </h3>
-<p>The base-files package will simply provide the following files on the system:</p><pre><code class="bash">*/etc/debian_version
-*/etc/issue
-*/etc/issue.net
-*/etc/os-release</code></pre><p>These files are used to identify the system version in details, such as the system version number, distribution name, code name, etc.
+<p>The base-files package will simply provide the following files on the system:</p><pre><code class="makeup bash"><span class="">*/etc/debian_version
+</span><span class="">*/etc/issue
+</span><span class="">*/etc/issue.net
+</span><span class="">*/etc/os-release
+</span></code></pre><p>These files are used to identify the system version in details, such as the system version number, distribution name, code name, etc.
 These files are used by the live system during the welcome message on the system (here Debian has been replaced by Kaisen Linux).
 They are also used to customize GRUB thanks to the lsb_release package which, in its default configuration will read the /etc/os-release file to find out the version of the OS.   </p><p>By consequently, personalize the GRUB entries in its default configuration by the command lsb_release -i -s (information present in /etc/default/grub at the line GRUB_DISTRIBUTOR) when executing the update-grub command. The goal here was to replace Debian with Kaisen on the GRUB entries of the installed system. This package surely has many other uses, but I have not encountered them so far.  </p><p>The package has therefore been recompiled to formalize the name of the distribution on the system and customize it a little more.</p><h3 id="linux" class="section-heading">
   <a href="#linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   linux
 </h3>
-<p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br></br>The Kaisen Linux kernel has its own lean configuration.
+<p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br/>The Kaisen Linux kernel has its own lean configuration.
 The kernel is also recompiled to disable signing modules because signing modules breaks GRUB
 with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-heading">
   <a href="#debian-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -110,7 +124,7 @@ with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-hea
   <a href="#apt-setup" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   apt-setup
 </h3>
-<p>This package allows you to configure the /etc/apt/sources.list file after installing the system.<br></br>Since the Kaisen Linux installer is configured to request no network configuration, this package has been forked to add the Kaisen Linux repository, because by default, without internet connection (therefore no mirror selection), apt-setup will configure the Debian security repositories.  </p><h3 id="choose-mirror" class="section-heading">
+<p>This package allows you to configure the /etc/apt/sources.list file after installing the system.<br/>Since the Kaisen Linux installer is configured to request no network configuration, this package has been forked to add the Kaisen Linux repository, because by default, without internet connection (therefore no mirror selection), apt-setup will configure the Debian security repositories.  </p><h3 id="choose-mirror" class="section-heading">
   <a href="#choose-mirror" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   choose-mirror
 </h3>
@@ -127,7 +141,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#desktop-base" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   desktop-base
 </h3>
-<p>This package provides wallpapers for the desktop, login screen, grub etc ...<br></br>This package is forked to add the different Kaisen themes on the system to provide wallpapers as well as &quot;alternatives&quot; to define by default the theme to use. It is by default configured on kaisen-theme.  </p><h3 id="grub2" class="section-heading">
+<p>This package provides wallpapers for the desktop, login screen, grub etc ...<br/>This package is forked to add the different Kaisen themes on the system to provide wallpapers as well as &quot;alternatives&quot; to define by default the theme to use. It is by default configured on kaisen-theme.  </p><h3 id="grub2" class="section-heading">
   <a href="#grub2" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   grub2
 </h3>
@@ -147,7 +161,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   <a href="#shadow" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   shadow
 </h3>
-<p>This package was forked because the /etc/default/useradd file was modified to support /bin/zsh as the default terminal when adding a user.<br></br>The number of users to add to the system has also been changed. Maximum 100 users can be added (by default, 58999 users can be added).</p><h3 id="live-installer" class="section-heading">
+<p>This package was forked because the /etc/default/useradd file was modified to support /bin/zsh as the default terminal when adding a user.<br/>The number of users to add to the system has also been changed. Maximum 100 users can be added (by default, 58999 users can be added).</p><h3 id="live-installer" class="section-heading">
   <a href="#live-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   live-installer
 </h3>
@@ -200,7 +214,7 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   <a href="#kaisen-basemenu-purge" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-basemenu-purge
 </h3>
-<p>This package removes &quot;double&quot; launchers. These duplicate icons appear when updating packages containing a launcher for a graphical application, for example ettercap, lftp, kismet etc ... Custom launchers have been created for the Kaisen menu to organize them by categories (monitoring, scanner etc). The custom launchers are also launched with sudo if necessary by the software.<br></br>This package therefore removes the original launchers contained in <code class="inline">/usr/share/applications</code></p><h3 id="kaisen-grub-configuration" class="section-heading">
+<p>This package removes &quot;double&quot; launchers. These duplicate icons appear when updating packages containing a launcher for a graphical application, for example ettercap, lftp, kismet etc ... Custom launchers have been created for the Kaisen menu to organize them by categories (monitoring, scanner etc). The custom launchers are also launched with sudo if necessary by the software.<br/>This package therefore removes the original launchers contained in <code class="inline">/usr/share/applications</code></p><h3 id="kaisen-grub-configuration" class="section-heading">
   <a href="#kaisen-grub-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-grub-configuration
 </h3>
@@ -216,7 +230,7 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   <a href="#kaisen-services-management" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-services-management
 </h3>
-<p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br></br>The scripts are installed in <code class="inline">/opt/services</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
+<p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br/>The scripts are installed in <code class="inline">/opt/services</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
   <a href="#kaisen-update" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-update
 </h3>
@@ -232,7 +246,7 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   <a href="#kaisen-skeleton" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-skeleton
 </h3>
-<p>This allows you to have launchers on the desktop, the conky theme...<br></br>This package replaces the old kaisen-*-default-profile packages which installed only the default profile of the related interface.
+<p>This allows you to have launchers on the desktop, the conky theme...<br/>This package replaces the old kaisen-*-default-profile packages which installed only the default profile of the related interface.
 This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpages" class="section-heading">
   <a href="#kaisen-manpages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   kaisen-manpages
@@ -418,16 +432,44 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   Source of packages
 </h2>
 <p>All the sources of the packages can be found here:</p><p><a href="https://gitlab.com/kaisenlinux/packages">https://gitlab.com/kaisenlinux/packages</a></p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="tools.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Tools
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="metapackages.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Metapackages
+        </span>
+      </a>
+
+  </div>
+</div>
+
       <footer class="footer">
+
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
           </span>
           <span class="line">
             Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
           </span>
         </p>
         <p>
@@ -435,15 +477,11 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
           <button class="line footer-button display-quick-switch">
             Go to a HexDocs package
           </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
+          <button class="line footer-button display-settings">
+            Settings
           </button>
         </p>
       </footer>

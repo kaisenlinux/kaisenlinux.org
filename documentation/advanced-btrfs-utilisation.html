@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Documentation v2.0.0">
 
     <title>Advanced BTRFS utilisation — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
     <script src="dist/sidebar_items-6718960bf5.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
 
 <div class="main">
 
@@ -36,7 +43,7 @@
       <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
 
@@ -47,10 +54,10 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
 Documentation
       </a>
-      <strong class="sidebar-projectVersion">
+      <strong class="sidebar-projectVersion" translate="no">
         v2.0.0
       </strong>
     </div>
@@ -62,7 +69,7 @@ Documentation
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">Guides</a></li>
+    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
 
 
   </ul>
@@ -74,7 +81,12 @@ Documentation
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>Advanced BTRFS utilisation</h1><h2 id="subvolumes" class="section-heading">
+<h1 id="content">
+Advanced BTRFS utilisation
+
+</h1>
+
+<h2 id="subvolumes" class="section-heading">
   <a href="#subvolumes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Subvolumes
 </h2>
@@ -82,11 +94,11 @@ Documentation
   <a href="#explanations" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Explanations
 </h3>
-<p>A subvolume is a branch of the file system that behaves like a file subsystem. it appears as a directory.<br></br>It is thanks to these sub-volumes that the creation of snapshots of a directory is possible.</p><h3 id="manual-creation" class="section-heading">
+<p>A subvolume is a branch of the file system that behaves like a file subsystem. it appears as a directory.<br/>It is thanks to these sub-volumes that the creation of snapshots of a directory is possible.</p><h3 id="manual-creation" class="section-heading">
   <a href="#manual-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Manual creation
 </h3>
-<p>To manually create subvolumes to use the snapshost system, we will proceed like this.<br></br>Here, the subvolumes that will be created are the same as those created by installing Kaisen Linux with an ISO of revision 1.6.  </p><p>Subvolumes can be created using commands installed via the btrfs-progs package. This package is installed by default in Kaisen Linux if the kaisen-filesystems package is installed, or if BTRFS is the file system used when installing the system.  </p><p>This command can be used to create BTRFS subvolume:</p><p><code class="inline">sudo btrfs subvolume create subvolume_name</code></p><h3 id="deletion" class="section-heading">
+<p>To manually create subvolumes to use the snapshost system, we will proceed like this.<br/>Here, the subvolumes that will be created are the same as those created by installing Kaisen Linux with an ISO of revision 1.6.  </p><p>Subvolumes can be created using commands installed via the btrfs-progs package. This package is installed by default in Kaisen Linux if the kaisen-filesystems package is installed, or if BTRFS is the file system used when installing the system.  </p><p>This command can be used to create BTRFS subvolume:</p><p><code class="inline">sudo btrfs subvolume create subvolume_name</code></p><h3 id="deletion" class="section-heading">
   <a href="#deletion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Deletion
 </h3>
@@ -102,45 +114,73 @@ Documentation
   <a href="#snapshots-with-btrfs-commands" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Snapshots with BTRFS commands
 </h3>
-<p>To take a snapshot of the entire system from the command line:<br></br><code class="inline">sudo btrfs subvolume snapshot / /opt/snapshot20210330</code><br></br>This command will take a snaphsot from the test subvolume (directory). This frozen version of your directory will be accessible through the &quot;/opt/snapshot20210330&quot; directory. The modifications made in each of the two directories are independent. The filesystem manages the changes so that they are transparent to the user (with ext4, it would have been necessary to create a copy of the directory, which would have occupied double the disk space. A snapshot does not consume any additional disk space).  </p><h3 id="restore-snapshot" class="section-heading">
+<p>To take a snapshot of the entire system from the command line:<br/><code class="inline">sudo btrfs subvolume snapshot / /opt/snapshot20210330</code><br/>This command will take a snaphsot from the test subvolume (directory). This frozen version of your directory will be accessible through the &quot;/opt/snapshot20210330&quot; directory. The modifications made in each of the two directories are independent. The filesystem manages the changes so that they are transparent to the user (with ext4, it would have been necessary to create a copy of the directory, which would have occupied double the disk space. A snapshot does not consume any additional disk space).  </p><h3 id="restore-snapshot" class="section-heading">
   <a href="#restore-snapshot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Restore snapshot
 </h3>
-<p>To restore the snapshot taken previously, the following command can be used:<br></br><code class="inline">sudo btrfs subvolume get-default /</code>  </p><h3 id="apt-snapshots" class="section-heading">
+<p>To restore the snapshot taken previously, the following command can be used:<br/><code class="inline">sudo btrfs subvolume get-default /</code>  </p><h3 id="apt-snapshots" class="section-heading">
   <a href="#apt-snapshots" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   APT snapshots
 </h3>
-<p>APT snapshots are handled by the apt-btrfs-snapshot package. Whenever APT is used for a package update or installation, a snapshot will be automatically taken.<br></br>If an upgrade or a package installation goes wrong it is easy to go back with these commands:
-<code class="inline">sudo apt-btrfs-snapshot list</code><br></br>This command will list all snapshots taken by apt-btrfs-snapshot.<br></br>The names of the snapshots look like this:<br></br><code class="inline">@apt-snapshot-2021-03-30_10:54:37</code></p><p>We want to restore the snapshot with the name mentioned above. For that, we will type the command:
-<code class="inline">sudo apt-btrfs-snapshot set-default @apt-snapshot-2021-03-30_10:54:37</code><br></br>At the next restart, all changes made to the packages will be reverted.</p><p>To delete all snapshots taken by apt-btrfs-snapshot, you must type this command as root or via sudo:
+<p>APT snapshots are handled by the apt-btrfs-snapshot package. Whenever APT is used for a package update or installation, a snapshot will be automatically taken.<br/>If an upgrade or a package installation goes wrong it is easy to go back with these commands:
+<code class="inline">sudo apt-btrfs-snapshot list</code><br/>This command will list all snapshots taken by apt-btrfs-snapshot.<br/>The names of the snapshots look like this:<br/><code class="inline">@apt-snapshot-2021-03-30_10:54:37</code></p><p>We want to restore the snapshot with the name mentioned above. For that, we will type the command:
+<code class="inline">sudo apt-btrfs-snapshot set-default @apt-snapshot-2021-03-30_10:54:37</code><br/>At the next restart, all changes made to the packages will be reverted.</p><p>To delete all snapshots taken by apt-btrfs-snapshot, you must type this command as root or via sudo:
 <code class="inline">sudo apt-btrfs-snapshot delete-older-than 0d</code></p><p>To delete snapshots that are for example 3 days old or more, type this command:
-<code class="inline">sudo apt-btrfs-snapshot delete-older-than 3d</code></p><p>This can also be done via the live Kaisen.<br></br>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
+<code class="inline">sudo apt-btrfs-snapshot delete-older-than 3d</code></p><p>This can also be done via the live Kaisen.<br/>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
 This is a convenient and efficient way to restore your broken system.  </p><p>This functionality can also be completely removed by fully uninstalling the package. In this case, you have to run this command:
 <code class="inline">sudo apt remove --purge apt-btrfs-snapshot</code>  </p><p>Remember to regularly delete your BTRFS snapshots taken with apt-btrfs-snapshot, they can take up considerable space on your storage device.</p><h3 id="snapshots-with-timeshift" class="section-heading">
   <a href="#snapshots-with-timeshift" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Snapshots with Timeshift
 </h3>
-<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br></br>We recommend the use of Timeshift to take and restore snapshot of your system.  </p><p>Remember to regularly delete your BTRFS snapshots taken with Timeshift, they can take up considerable space on your storage device.</p><h2 id="docker-btrfs-volumes" class="section-heading">
+<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br/>We recommend the use of Timeshift to take and restore snapshot of your system.  </p><p>Remember to regularly delete your BTRFS snapshots taken with Timeshift, they can take up considerable space on your storage device.</p><h2 id="docker-btrfs-volumes" class="section-heading">
   <a href="#docker-btrfs-volumes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Docker BTRFS volumes
 </h2>
-<p>When the Docker daemon is enabled, if you use BTRFS on your / partition, BTRFS automatically mounts a mount point of your partition in /var/lib/docker/btrfs in order to take advantage of BTRFS features on Docker containers and images, such as snapshots, Copy On Write...<br></br>This can consume a lot of space, especially when snapshots have been taken on disk.<br></br>To delete the data created by Docker, you must already stop the Docker service:<br></br><code class="inline">sudo systemctl stop docker</code><br></br>Then you just have to execute this command:<br></br><code class="inline">sudo rm -rf /var/lib/docker/btrfs</code></p><h2 id="recommendations-for-btrfs" class="section-heading">
+<p>When the Docker daemon is enabled, if you use BTRFS on your / partition, BTRFS automatically mounts a mount point of your partition in /var/lib/docker/btrfs in order to take advantage of BTRFS features on Docker containers and images, such as snapshots, Copy On Write...<br/>This can consume a lot of space, especially when snapshots have been taken on disk.<br/>To delete the data created by Docker, you must already stop the Docker service:<br/><code class="inline">sudo systemctl stop docker</code><br/>Then you just have to execute this command:<br/><code class="inline">sudo rm -rf /var/lib/docker/btrfs</code></p><h2 id="recommendations-for-btrfs" class="section-heading">
   <a href="#recommendations-for-btrfs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Recommendations for BTRFS
 </h2>
-<p>This is not enabled by default for performance reasons as well as to avoid premature wear, automated defragmentation is disabled.<br></br>It is advisable to defragment BTRFS volumes at least every 6 months (CoW can create significant fragmentation), even on SSDs.<br></br>Delete the snapshots first, and then type the command (in case you have BTRFS installed on the root):
-<code class="inline">sudo btrfs filesystem defragment -rv /</code>  </p><p>You can also use the btrfs-balance-least-used command to rebalance unbalanced pieces of data. Running this command can potentially allow for the recovery of space on the disk. Try it after deleting snapshots and mount points created on /var/lib/docker/btrfs.<br></br>Example for the / partition :
+<p>This is not enabled by default for performance reasons as well as to avoid premature wear, automated defragmentation is disabled.<br/>It is advisable to defragment BTRFS volumes at least every 6 months (CoW can create significant fragmentation), even on SSDs.<br/>Delete the snapshots first, and then type the command (in case you have BTRFS installed on the root):
+<code class="inline">sudo btrfs filesystem defragment -rv /</code>  </p><p>You can also use the btrfs-balance-least-used command to rebalance unbalanced pieces of data. Running this command can potentially allow for the recovery of space on the disk. Try it after deleting snapshots and mount points created on /var/lib/docker/btrfs.<br/>Example for the / partition :
 <code class="inline">btrfs-balance-least-used /</code></p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="terminal-shortcuts.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Kaisen Terminal shortcuts
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="create-chroot.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Create chroot
+        </span>
+      </a>
+
+  </div>
+</div>
+
       <footer class="footer">
+
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
           </span>
           <span class="line">
             Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
           </span>
         </p>
         <p>
@@ -148,15 +188,11 @@ This is a convenient and efficient way to restore your broken system.  </p><p>Th
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
           <button class="line footer-button display-quick-switch">
             Go to a HexDocs package
           </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
+          <button class="line footer-button display-settings">
+            Settings
           </button>
         </p>
       </footer>
