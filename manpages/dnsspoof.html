@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.0.0">
 
     <title>dnsspoof — Manpages v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
     <script src="dist/sidebar_items-24d43139b0.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
 
 <div class="main">
 
@@ -36,7 +43,7 @@
       <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
 
@@ -47,10 +54,10 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
       </a>
-      <strong class="sidebar-projectVersion">
+      <strong class="sidebar-projectVersion" translate="no">
         v2.0.0
       </strong>
     </div>
@@ -62,7 +69,7 @@ Manpages
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
 
   </ul>
@@ -74,30 +81,63 @@ Manpages
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<p>DNSSPOOF(8)                                                                       System Manager's Manual                                                                      DNSSPOOF(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">forge</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">queries</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w"> </span><span class="p" data-group-id="6913502982-1">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="p" data-group-id="6913502982-1">]</span><span class="w"> </span><span class="p" data-group-id="6913502982-2">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">hostsfile</span><span class="p" data-group-id="6913502982-2">]</span><span class="w"> </span><span class="p" data-group-id="6913502982-3">[</span><span class="n">expression</span><span class="p" data-group-id="6913502982-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w">  </span><span class="n">forges</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">arbitrary</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">LAN</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bypassing</span><span class="w"> </span><span class="n">hostname</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">controls</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">implementing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variety</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">man</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="w">
-   </span><span class="n">the</span><span class="o">-</span><span class="n">middle</span><span class="w"> </span><span class="n">attacks</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
+<h1 id="content">
+
+
+</h1>
+
+<p>DNSSPOOF(8)                                                                       System Manager's Manual                                                                      DNSSPOOF(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">forge</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">queries</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w"> </span><span class="p" data-group-id="5520245549-1">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="p" data-group-id="5520245549-1">]</span><span class="w"> </span><span class="p" data-group-id="5520245549-2">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">hostsfile</span><span class="p" data-group-id="5520245549-2">]</span><span class="w"> </span><span class="p" data-group-id="5520245549-3">[</span><span class="n">expression</span><span class="p" data-group-id="5520245549-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dnsspoof</span><span class="w">  </span><span class="n">forges</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">arbitrary</span><span class="w"> </span><span class="nc">DNS</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">LAN</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bypassing</span><span class="w"> </span><span class="n">hostname</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">controls</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">implementing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variety</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">man</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="w">
+   </span><span class="n">the</span><span class="o">-</span><span class="n">middle</span><span class="w"> </span><span class="n">attacks</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">hostsfile</span><span class="w">
-          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pathname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hosts</span><span class="p" data-group-id="7958726920-1">(</span><span class="mi">5</span><span class="p" data-group-id="7958726920-1">)</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p" data-group-id="7958726920-2">(</span><span class="n">no</span><span class="w"> </span><span class="n">aliases</span><span class="p" data-group-id="7958726920-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">although</span><span class="w"> </span><span class="n">hostnames</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">wildcards</span><span class="w"> </span><span class="p" data-group-id="7958726920-3">(</span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">*</span><span class="o">.</span><span class="n">doubleclick</span><span class="o">.</span><span class="n">net</span><span class="p" data-group-id="7958726920-3">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pathname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">hosts</span><span class="p" data-group-id="8461874689-1">(</span><span class="mi">5</span><span class="p" data-group-id="8461874689-1">)</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p" data-group-id="8461874689-2">(</span><span class="n">no</span><span class="w"> </span><span class="n">aliases</span><span class="p" data-group-id="8461874689-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">although</span><span class="w"> </span><span class="n">hostnames</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">wildcards</span><span class="w"> </span><span class="p" data-group-id="8461874689-3">(</span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">*</span><span class="o">.</span><span class="n">doubleclick</span><span class="o">.</span><span class="n">net</span><span class="p" data-group-id="8461874689-3">)</span><span class="o">.</span><span class="w">
 
    </span><span class="n">expression</span><span class="w">
-          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="7958726920-4">(</span><span class="mi">8</span><span class="p" data-group-id="7958726920-4">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sniff</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="8461874689-4">(</span><span class="mi">8</span><span class="p" data-group-id="8461874689-4">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sniff</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">hostsfile</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">forged</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">LAN</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">machine</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dsniff</span><span class="o">/</span><span class="n">dnsspoof</span><span class="o">.</span><span class="n">hosts</span><span class="w">
-          </span><span class="nc">Sample</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="9633560458-1">(</span><span class="mi">8</span><span class="p" data-group-id="9633560458-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">hosts</span><span class="p" data-group-id="9633560458-2">(</span><span class="mi">5</span><span class="p" data-group-id="9633560458-2">)</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Dug</span><span class="w"> </span><span class="nc">Song</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dugsong</span><span class="na">@monkey</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">hostsfile</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">replies</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">forged</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">LAN</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">machine</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">dsniff</span><span class="o">/</span><span class="n">dnsspoof</span><span class="o">.</span><span class="n">hosts</span><span class="w">
+          </span><span class="nc">Sample</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="8463532899-1">(</span><span class="mi">8</span><span class="p" data-group-id="8463532899-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">hosts</span><span class="p" data-group-id="8463532899-2">(</span><span class="mi">5</span><span class="p" data-group-id="8463532899-2">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Dug</span><span class="w"> </span><span class="nc">Song</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dugsong</span><span class="na">@monkey</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
 
-                                                                                                                                                                           </span><span class="nc">DNSSPOOF</span><span class="p" data-group-id="4458618332-1">(</span><span class="mi">8</span><span class="p" data-group-id="4458618332-1">)</span></code></pre>
+                                                                                                                                                                           </span><span class="nc">DNSSPOOF</span><span class="p" data-group-id="0467253898-1">(</span><span class="mi">8</span><span class="p" data-group-id="0467253898-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="dnsenum.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+dnsenum
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="dnstop.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+dnstop
+        </span>
+      </a>
+
+  </div>
+</div>
+
       <footer class="footer">
+
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
           </span>
           <span class="line">
             Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
           </span>
         </p>
         <p>
@@ -105,15 +145,11 @@ Manpages
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
           <button class="line footer-button display-quick-switch">
             Go to a HexDocs package
           </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
+          <button class="line footer-button display-settings">
+            Settings
           </button>
         </p>
       </footer>

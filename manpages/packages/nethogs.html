@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.0.0">
 
     <title>nethogs — Manpages v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
     <script src="dist/sidebar_items-bb532306fa.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
 
 <div class="main">
 
@@ -36,7 +43,7 @@
       <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
 
@@ -47,10 +54,10 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
       </a>
-      <strong class="sidebar-projectVersion">
+      <strong class="sidebar-projectVersion" translate="no">
         v2.0.0
       </strong>
     </div>
@@ -62,7 +69,7 @@ Manpages
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
 
   </ul>
@@ -74,9 +81,14 @@ Manpages
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<p>NETHOGS(8)                                                                        System Manager's Manual                                                                       NETHOGS(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">nethogs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Net</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">grouping</span><span class="w"> </span><span class="n">bandwidth</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">process</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">nethogs</span><span class="w"> </span><span class="p" data-group-id="9715372542-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="9715372542-1">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-2">[</span><span class="o">-</span><span class="nc">V</span><span class="p" data-group-id="9715372542-2">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-3">[</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="9715372542-3">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-4">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="9715372542-4">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-5">[</span><span class="o">-</span><span class="n">t</span><span class="p" data-group-id="9715372542-5">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-6">[</span><span class="o">-</span><span class="n">c</span><span class="p" data-group-id="9715372542-6">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-7">[</span><span class="o">-</span><span class="n">p</span><span class="p" data-group-id="9715372542-7">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-8">[</span><span class="o">-</span><span class="n">a</span><span class="p" data-group-id="9715372542-8">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-9">[</span><span class="o">-</span><span class="n">s</span><span class="p" data-group-id="9715372542-9">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-10">[</span><span class="o">-</span><span class="n">l</span><span class="p" data-group-id="9715372542-10">]</span><span class="w"> </span><span class="p" data-group-id="9715372542-11">[</span><span class="n">device</span><span class="p" data-group-id="9715372542-12">(</span><span class="n">s</span><span class="p" data-group-id="9715372542-12">)</span><span class="p" data-group-id="9715372542-11">]</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">NetHogs</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="sc">&#39;net top&#39;</span><span class="w"> </span><span class="n">tool</span><span class="o">.</span><span class="w"> </span><span class="nc">Instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">breaking</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">subnet</span><span class="p">,</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="k" data-group-id="3803479539-1">do</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">bandwidth</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">rely</span><span class="w"> </span><span class="n">on</span><span class="w">
+<h1 id="content">
+
+
+</h1>
+
+<p>NETHOGS(8)                                                                        System Manager's Manual                                                                       NETHOGS(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nethogs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Net</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">grouping</span><span class="w"> </span><span class="n">bandwidth</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">process</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nethogs</span><span class="w"> </span><span class="p" data-group-id="0155448394-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="0155448394-1">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-2">[</span><span class="o">-</span><span class="nc">V</span><span class="p" data-group-id="0155448394-2">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-3">[</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="0155448394-3">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-4">[</span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="0155448394-4">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-5">[</span><span class="o">-</span><span class="n">t</span><span class="p" data-group-id="0155448394-5">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-6">[</span><span class="o">-</span><span class="n">c</span><span class="p" data-group-id="0155448394-6">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-7">[</span><span class="o">-</span><span class="n">p</span><span class="p" data-group-id="0155448394-7">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-8">[</span><span class="o">-</span><span class="n">a</span><span class="p" data-group-id="0155448394-8">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-9">[</span><span class="o">-</span><span class="n">s</span><span class="p" data-group-id="0155448394-9">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-10">[</span><span class="o">-</span><span class="n">l</span><span class="p" data-group-id="0155448394-10">]</span><span class="w"> </span><span class="p" data-group-id="0155448394-11">[</span><span class="n">device</span><span class="p" data-group-id="0155448394-12">(</span><span class="n">s</span><span class="p" data-group-id="0155448394-12">)</span><span class="p" data-group-id="0155448394-11">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">NetHogs</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="sc">&#39;net top&#39;</span><span class="w"> </span><span class="n">tool</span><span class="o">.</span><span class="w"> </span><span class="nc">Instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">breaking</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">subnet</span><span class="p">,</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="k" data-group-id="1502822043-1">do</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">bandwidth</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">rely</span><span class="w"> </span><span class="n">on</span><span class="w">
    </span><span class="n">a</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">loaded</span><span class="o">.</span><span class="w"> </span><span class="nc">So</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="sc">&#39;s suddenly a lot of network traffic, you can fire up NetHogs and immediately see which PID is causing this, and if it&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">kind</span><span class="w">
-   </span><span class="n">of</span><span class="w"> </span><span class="n">spinning</span><span class="w"> </span><span class="n">process</span><span class="p">,</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="n">it</span><span class="o">.</span></code></pre><p>   Options</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="n">display</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">usage</span><span class="w">
+   </span><span class="n">of</span><span class="w"> </span><span class="n">spinning</span><span class="w"> </span><span class="n">process</span><span class="p">,</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="n">it</span><span class="o">.</span></code></pre><p>   Options</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="n">display</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">usage</span><span class="w">
 
    </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="n">print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">info</span><span class="w">
 
@@ -84,7 +96,7 @@ Manpages
 
    </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="n">select</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="n">mode</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">p</span><span class="w">     </span><span class="n">sniff</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">promiscuous</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="4874034504-1">(</span><span class="ow">not</span><span class="w"> </span><span class="n">recommended</span><span class="p" data-group-id="4874034504-1">)</span><span class="w">
+   </span><span class="o">-</span><span class="n">p</span><span class="w">     </span><span class="n">sniff</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">promiscuous</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="p" data-group-id="6865727491-1">(</span><span class="ow">not</span><span class="w"> </span><span class="n">recommended</span><span class="p" data-group-id="6865727491-1">)</span><span class="w">
 
    </span><span class="o">-</span><span class="n">a</span><span class="w">     </span><span class="n">monitor</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">devices</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">loopback</span><span class="o">/</span><span class="n">stopped</span><span class="w"> </span><span class="n">ones</span><span class="w">
 
@@ -96,7 +108,7 @@ Manpages
 
    </span><span class="o">-</span><span class="n">l</span><span class="w">     </span><span class="n">display</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w">
 
-   </span><span class="n">device</span><span class="p" data-group-id="4874034504-2">(</span><span class="n">s</span><span class="p" data-group-id="4874034504-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">monitor</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">eth0</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span></code></pre><p>INTERACTIVE CONTROL</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">m</span><span class="w">      </span><span class="n">cycle</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="p" data-group-id="9085532586-1">(</span><span class="nc">KB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nc">KB</span><span class="p">,</span><span class="w"> </span><span class="nc">B</span><span class="p">,</span><span class="w"> </span><span class="nc">MB</span><span class="p">,</span><span class="w"> </span><span class="nc">MB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nc">GB</span><span class="o">/</span><span class="n">s</span><span class="p" data-group-id="9085532586-1">)</span><span class="w">
+   </span><span class="n">device</span><span class="p" data-group-id="6865727491-2">(</span><span class="n">s</span><span class="p" data-group-id="6865727491-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">monitor</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">eth0</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span></code></pre><p>INTERACTIVE CONTROL</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">m</span><span class="w">      </span><span class="n">cycle</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="p" data-group-id="7208584144-1">(</span><span class="nc">KB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nc">KB</span><span class="p">,</span><span class="w"> </span><span class="nc">B</span><span class="p">,</span><span class="w"> </span><span class="nc">MB</span><span class="p">,</span><span class="w"> </span><span class="nc">MB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nc">GB</span><span class="o">/</span><span class="n">s</span><span class="p" data-group-id="7208584144-1">)</span><span class="w">
 
    </span><span class="n">l</span><span class="w">      </span><span class="n">display</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w">
 
@@ -104,22 +116,50 @@ Manpages
 
    </span><span class="n">s</span><span class="w">      </span><span class="n">sort</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="sc">&#39;sent&#39;</span><span class="w">
 
-   </span><span class="n">q</span><span class="w">      </span><span class="n">quit</span></code></pre><p>RUNNING WITHOUT ROOT</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">In</span><span class="w">  </span><span class="n">order</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">run</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">nethogs</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cap_net_admin</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cap_net_raw</span><span class="w"> </span><span class="n">capabilities</span><span class="o">.</span><span class="w"> </span><span class="nc">These</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">executable</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">setcap</span><span class="p" data-group-id="5460068909-1">(</span><span class="mi">8</span><span class="p" data-group-id="5460068909-1">)</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w">
+   </span><span class="n">q</span><span class="w">      </span><span class="n">quit</span></code></pre><p>RUNNING WITHOUT ROOT</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">In</span><span class="w">  </span><span class="n">order</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">run</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">nethogs</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cap_net_admin</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cap_net_raw</span><span class="w"> </span><span class="n">capabilities</span><span class="o">.</span><span class="w"> </span><span class="nc">These</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">executable</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">setcap</span><span class="p" data-group-id="8167581209-1">(</span><span class="mi">8</span><span class="p" data-group-id="8167581209-1">)</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w">
    </span><span class="ss">follows</span><span class="p">:</span><span class="w">
 
-       </span><span class="n">sudo</span><span class="w"> </span><span class="n">setcap</span><span class="w"> </span><span class="s">&quot;cap_net_admin,cap_net_raw+pe&quot;</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nethogs</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">netstat</span><span class="p" data-group-id="8931978806-1">(</span><span class="mi">8</span><span class="p" data-group-id="8931978806-1">)</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="8931978806-2">(</span><span class="mi">1</span><span class="p" data-group-id="8931978806-2">)</span><span class="w"> </span><span class="n">pcap</span><span class="p" data-group-id="8931978806-3">(</span><span class="mi">3</span><span class="p" data-group-id="8931978806-3">)</span></code></pre><p>AUTHOR</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Arnout</span><span class="w"> </span><span class="nc">Engelen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arnouten</span><span class="na">@bzzt</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+       </span><span class="n">sudo</span><span class="w"> </span><span class="n">setcap</span><span class="w"> </span><span class="s">&quot;cap_net_admin,cap_net_raw+pe&quot;</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">nethogs</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">netstat</span><span class="p" data-group-id="8612693730-1">(</span><span class="mi">8</span><span class="p" data-group-id="8612693730-1">)</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="8612693730-2">(</span><span class="mi">1</span><span class="p" data-group-id="8612693730-2">)</span><span class="w"> </span><span class="n">pcap</span><span class="p" data-group-id="8612693730-3">(</span><span class="mi">3</span><span class="p" data-group-id="8612693730-3">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Arnout</span><span class="w"> </span><span class="nc">Engelen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arnouten</span><span class="na">@bzzt</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
 
-                                                                                 </span><span class="mi">14</span><span class="w"> </span><span class="nc">February</span><span class="w"> </span><span class="mi">2004</span><span class="w">                                                                           </span><span class="nc">NETHOGS</span><span class="p" data-group-id="7484645098-1">(</span><span class="mi">8</span><span class="p" data-group-id="7484645098-1">)</span></code></pre>
+                                                                                 </span><span class="mi">14</span><span class="w"> </span><span class="nc">February</span><span class="w"> </span><span class="mi">2004</span><span class="w">                                                                           </span><span class="nc">NETHOGS</span><span class="p" data-group-id="1284598761-1">(</span><span class="mi">8</span><span class="p" data-group-id="1284598761-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="netdiscover.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+netdiscover
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="netperfmeter.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+netperfmeter
+        </span>
+      </a>
+
+  </div>
+</div>
+
       <footer class="footer">
+
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
           </span>
           <span class="line">
             Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
           </span>
         </p>
         <p>
@@ -127,15 +167,11 @@ Manpages
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
           <button class="line footer-button display-quick-switch">
             Go to a HexDocs package
           </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
+          <button class="line footer-button display-settings">
+            Settings
           </button>
         </p>
       </footer>

@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.0.0">
 
     <title>xfs_mdrestore — Manpages v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
     <script src="dist/sidebar_items-bb532306fa.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
   <body data-type="extras">
-    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
 
 <div class="main">
 
@@ -36,7 +43,7 @@
       <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
 
@@ -47,10 +54,10 @@
 
   <div class="sidebar-header">
     <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
       </a>
-      <strong class="sidebar-projectVersion">
+      <strong class="sidebar-projectVersion" translate="no">
         v2.0.0
       </strong>
     </div>
@@ -62,7 +69,7 @@ Manpages
   </div>
 
   <ul class="sidebar-listNav">
-    <li><a id="extras-list" href="#full-list">MANUALS</a></li>
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
 
   </ul>
@@ -74,29 +81,62 @@ Manpages
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<p>xfs_mdrestore(8)                                                                  System Manager's Manual                                                                 xfs_mdrestore(8)</p><p>NAME</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">restores</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">metadump</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span></code></pre><p>SYNOPSIS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="p" data-group-id="0283825651-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">gi</span><span class="w"> </span><span class="p" data-group-id="0283825651-1">]</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">target</span><span class="w">
+<h1 id="content">
+
+
+</h1>
+
+<p>xfs_mdrestore(8)                                                                  System Manager's Manual                                                                 xfs_mdrestore(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">restores</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">metadump</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="p" data-group-id="9606396560-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">gi</span><span class="w"> </span><span class="p" data-group-id="9606396560-1">]</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">target</span><span class="w">
    </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">source</span><span class="w">
-   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">restores</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">xfs_metadump</span><span class="p" data-group-id="2221610418-1">(</span><span class="mi">8</span><span class="p" data-group-id="2221610418-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadump</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">restores</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">xfs_metadump</span><span class="p" data-group-id="6837918072-1">(</span><span class="mi">8</span><span class="p" data-group-id="6837918072-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadump</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w">
    </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">-</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">stdin</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">another</span><span class="w">  </span><span class="n">pro</span><span class="err">‐</span><span class="w">
    </span><span class="n">gram</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">redirected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">xfs_mdrestore</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">onto</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">completely</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">destroyed</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">g</span><span class="w">     </span><span class="nc">Shows</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
+   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">onto</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">completely</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">destroyed</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">g</span><span class="w">     </span><span class="nc">Shows</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">i</span><span class="w">     </span><span class="nc">Shows</span><span class="w"> </span><span class="n">metadump</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">exits</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">displaying</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">  </span><span class="nc">Older</span><span class="w"> </span><span class="n">metadumps</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">descriptive</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span></code></pre><p>DIAGNOSTICS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">restored</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurs</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="n">xfs_metadump</span><span class="p" data-group-id="2100394115-1">(</span><span class="mi">8</span><span class="p" data-group-id="2100394115-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_repair</span><span class="p" data-group-id="2100394115-2">(</span><span class="mi">8</span><span class="p" data-group-id="2100394115-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="2100394115-3">(</span><span class="mi">5</span><span class="p" data-group-id="2100394115-3">)</span></code></pre><p>BUGS</p><pre><code class="nohighlight makeup elixir"><span class="w">   </span><span class="nc">Email</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">linux</span><span class="o">-</span><span class="n">xfs</span><span class="na">@vger</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="w">
+   </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span></code></pre><p>DIAGNOSTICS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mdrestore</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">restored</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurs</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_metadump</span><span class="p" data-group-id="1259991699-1">(</span><span class="mi">8</span><span class="p" data-group-id="1259991699-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_repair</span><span class="p" data-group-id="1259991699-2">(</span><span class="mi">8</span><span class="p" data-group-id="1259991699-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="1259991699-3">(</span><span class="mi">5</span><span class="p" data-group-id="1259991699-3">)</span></code></pre><p>BUGS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Email</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">linux</span><span class="o">-</span><span class="n">xfs</span><span class="na">@vger</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="w">
 
-                                                                                                                                                                      </span><span class="n">xfs_mdrestore</span><span class="p" data-group-id="2089894632-1">(</span><span class="mi">8</span><span class="p" data-group-id="2089894632-1">)</span></code></pre>
+                                                                                                                                                                      </span><span class="n">xfs_mdrestore</span><span class="p" data-group-id="9017862636-1">(</span><span class="mi">8</span><span class="p" data-group-id="9017862636-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="xfs_logprint.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+xfs_logprint
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="xfs_metadump.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+xfs_metadump
+        </span>
+      </a>
+
+  </div>
+</div>
+
       <footer class="footer">
+
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
           </span>
           <span class="line">
             Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
           </span>
         </p>
         <p>
@@ -104,15 +144,11 @@ Manpages
           <button class="line footer-button display-shortcuts-help">
             Display keyboard shortcuts
           </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
           <button class="line footer-button display-quick-switch">
             Go to a HexDocs package
           </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
+          <button class="line footer-button display-settings">
+            Settings
           </button>
         </p>
       </footer>
