@@ -10,7 +10,7 @@
     <title>Advanced BTRFS utilisation — Documentation v2.0.0</title>
     <link rel="stylesheet" href="dist/elixir-9f91ebe876dc01d67920.css" />
 
-    <script src="dist/sidebar_items-ee3d4d70bd.js"></script>
+    <script src="dist/sidebar_items-6718960bf5.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -116,16 +116,21 @@ Documentation
 <code class="inline">sudo apt-btrfs-snapshot delete-older-than 0d</code></p><p>To delete snapshots that are for example 3 days old or more, type this command:
 <code class="inline">sudo apt-btrfs-snapshot delete-older-than 3d</code></p><p>This can also be done via the live Kaisen.<br></br>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
 This is a convenient and efficient way to restore your broken system.  </p><p>This functionality can also be completely removed by fully uninstalling the package. In this case, you have to run this command:
-<code class="inline">sudo apt remove --purge apt-btrfs-snapshot</code></p><h3 id="snapshots-with-timeshift" class="section-heading">
+<code class="inline">sudo apt remove --purge apt-btrfs-snapshot</code>  </p><p>Remember to regularly delete your BTRFS snapshots taken with apt-btrfs-snapshot, they can take up considerable space on your storage device.</p><h3 id="snapshots-with-timeshift" class="section-heading">
   <a href="#snapshots-with-timeshift" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Snapshots with Timeshift
 </h3>
-<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br></br>We recommend the use of Timeshift to take and restore snapshot of your system.</p><h2 id="recommendations-for-btrfs" class="section-heading">
+<p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br></br>We recommend the use of Timeshift to take and restore snapshot of your system.  </p><p>Remember to regularly delete your BTRFS snapshots taken with Timeshift, they can take up considerable space on your storage device.</p><h2 id="docker-btrfs-volumes" class="section-heading">
+  <a href="#docker-btrfs-volumes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Docker BTRFS volumes
+</h2>
+<p>When the Docker daemon is enabled, if you use BTRFS on your / partition, BTRFS automatically mounts a mount point of your partition in /var/lib/docker/btrfs in order to take advantage of BTRFS features on Docker containers and images, such as snapshots, Copy On Write...<br></br>This can consume a lot of space, especially when snapshots have been taken on disk.<br></br>To delete the data created by Docker, you must already stop the Docker service:<br></br><code class="inline">sudo systemctl stop docker</code><br></br>Then you just have to execute this command:<br></br><code class="inline">sudo rm -rf /var/lib/docker/btrfs</code></p><h2 id="recommendations-for-btrfs" class="section-heading">
   <a href="#recommendations-for-btrfs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Recommendations for BTRFS
 </h2>
 <p>This is not enabled by default for performance reasons as well as to avoid premature wear, automated defragmentation is disabled.<br></br>It is advisable to defragment BTRFS volumes at least every 6 months (CoW can create significant fragmentation), even on SSDs.<br></br>Delete the snapshots first, and then type the command (in case you have BTRFS installed on the root):
-<code class="inline">sudo btrfs filesystem defragment -rv /</code></p>
+<code class="inline">sudo btrfs filesystem defragment -rv /</code>  </p><p>You can also use the btrfs-balance-least-used command to rebalance unbalanced pieces of data. Running this command can potentially allow for the recovery of space on the disk. Try it after deleting snapshots and mount points created on /var/lib/docker/btrfs.<br></br>Example for the / partition :
+<code class="inline">btrfs-balance-least-used /</code></p>
       <footer class="footer">
         <p>
           <span class="line">
