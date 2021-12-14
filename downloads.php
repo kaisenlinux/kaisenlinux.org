@@ -98,12 +98,12 @@
         <div class="text-content-big mt-20">
           <p>Architecture: amd64 (Intel and AMD processors)<br>
           Default desktop environment: MATE<br>
-          Others desktop environments: KDE, XFCE, LXDE<br>
+          Others desktop environments: KDE, XFCE, LXQT<br>
           Latest version: <?php echo $release_version; ?><br>
           Live credentials: <span>kaisen/kaisen</span><br>
           Old versions: <a href="https://iso.kaisenlinux.org" target="_blank">here</a><br>
           All checksums <a href="https://kaisenlinux.org/checksums.txt" target="_blank">here</a><br>
-          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling1.8.php" target="_blank">here</a><br>
+          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling2.0.php" target="_blank">here</a><br>
           ISO in testing: <a href="https://iso.kaisenlinux.org/testing" target="_blank">here</a><br>
           </div>
         <div class="section-heading-line-left"></div>
