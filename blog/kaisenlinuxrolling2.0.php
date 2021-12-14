@@ -179,7 +179,7 @@ Do this with an Ethernet cable or with a USB Ethernet adapter. The complete unin
 
 <p>How do I check if I am in version 2.0? Use this command:</p>
 <ul>
-    <li><strong>cat /etc/debian-version</strong></li>
+    <li><strong>cat /etc/debian_version</strong></li>
 </ul>
 <p>This command should return "Rolling 2.0".
 If you are using Kaisen Linux only as a live DVD version, download the ISO again rather 
