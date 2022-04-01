@@ -40,7 +40,6 @@
         <h3>Importants links</h3>
         <ul class="footer-list">
           <li><a href="https://distrowatch.com/kaisen" target="_blank">Distrowatch page</a></li>
-          <li><a href="mailto:team@kaisenlinux.org">Contact mail</a></li>
         </ul>
       </div>
       <!-- Column 3 End -->
