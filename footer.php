@@ -29,6 +29,7 @@
               <li><a href="https://twitter.com/KaisenLinux" target="_blank"><i class="fab fa-twitter"></i></a></li>
 	      <li><a href="https://mastodon.social/@KaisenLinux" target="_blank"><i class="fab fa-mastodon"></i></a></li>
 	      <li><a href="https://t.me/KaisenLinux" target="_blank"><i class ="fab fa-telegram"></i></a></li>
+	      <li><a href="https://ko-fi.com/kaisenlinux" target="_blank"><i class ="fab fa-paypal"></i></a></li>
             </ul>
           </div>
         </div>
@@ -40,6 +41,7 @@
         <h3>Importants links</h3>
         <ul class="footer-list">
           <li><a href="https://distrowatch.com/kaisen" target="_blank">Distrowatch page</a></li>
+	  <li><a href="https://ko-fi.com/kaisenlinux" target="_blank">Ko-Fi (donations)</a></li>
         </ul>
       </div>
       <!-- Column 3 End -->
