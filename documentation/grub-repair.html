@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Repair GRUB — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Repair GRUB — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,48 +60,58 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-GRUB repair
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>GRUB repair</span>
 </h1>
 
 <p><strong>GRUB repair with CLI method</strong>  </p><p>Once the system is installed but after the impossibility of installing GRUB on a system in UEFI, here is the procedure to follow for the installer according to your partitioning.  </p><p>You can help yourself with Gparted software for this tutorial.  </p><p>Only the CLI method will be presented, because it is the most efficient, relevant, and few tools or none can replace this method.  </p><h2 id="grub-efi" class="section-heading">
-  <a href="#grub-efi" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#grub-efi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">grub-efi</p>
+  </a>
   GRUB EFI
 </h2>
 <h3 id="classic-partition" class="section-heading">
-  <a href="#classic-partition" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#classic-partition" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">classic-partition</p>
+  </a>
   Classic partition
 </h3>
-<pre><code class="makeup bash"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
+<pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo mount /dev/sdX /mnt (X represents the drive letter)
 </span><span class="">sudo mount --bind /dev /mnt/dev
 </span><span class="">sudo mount --bind /dev/pts /mnt/dev/pts
@@ -110,12 +127,14 @@ GRUB repair
 </span><span class="">mv /boot/grub/grub.cfg.new /boot/grub/grub.cfg
 </span><span class="">exit
 </span><span class="">sudo reboot
-</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="makeup bash"><span class="">sudo apt install grub-efi
+</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="makeup bash" translate="no"><span class="">sudo apt install grub-efi
 </span></code></pre><p>The problem should be solved</p><h3 id="lvm-without-luks-encryption" class="section-heading">
-  <a href="#lvm-without-luks-encryption" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#lvm-without-luks-encryption" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">lvm-without-luks-encryption</p>
+  </a>
   LVM without LUKS encryption
 </h3>
-<pre><code class="makeup bash"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
+<pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo vgscan
 </span><span class="">sudo vgchange -ay
 </span><span class="">sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
@@ -132,7 +151,7 @@ GRUB repair
 </span><span class="">update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a vacuum)
 </span><span class="">exit
 </span><span class="">sudo reboot 
-</span></code></pre><p>CAUTION:  </p><p>If the update-grub is spinning, after running sudo reboot, restart the live, and do the following steps:  </p><pre><code class="makeup bash"><span class="">sudo vgscan
+</span></code></pre><p>CAUTION:  </p><p>If the update-grub is spinning, after running sudo reboot, restart the live, and do the following steps:  </p><pre><code class="makeup bash" translate="no"><span class="">sudo vgscan
 </span><span class="">sudo vgchange -ay
 </span><span class="">sudo mount /dev/mapper/name--vg-root /mnt (name--vg-root represents the name of the logical volume returned by the vgscan command)
 </span><span class="">sudo mount /dev/sdX /mnt/boot (mount boot partition)
@@ -142,12 +161,14 @@ GRUB repair
 </span><span class="">update-grub
 </span><span class="">exit
 </span><span class="">sudo reboot
-</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:  </p><pre><code class="makeup bash"><span class="">sudo apt install grub-efi
+</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:  </p><pre><code class="makeup bash" translate="no"><span class="">sudo apt install grub-efi
 </span></code></pre><p>The problem should be solved  </p><h3 id="lvm-with-luks-encryption" class="section-heading">
-  <a href="#lvm-with-luks-encryption" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#lvm-with-luks-encryption" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">lvm-with-luks-encryption</p>
+  </a>
   LVM with LUKS encryption
 </h3>
-<pre><code class="makeup bash"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
+<pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
 </span><span class="">sudo vgscan
 </span><span class="">sudo vgchange -ay
@@ -165,7 +186,7 @@ GRUB repair
 </span><span class="">update-grub (close the terminal 20 seconds after the execution of the command, because it will normally run in a vacuum)
 </span><span class="">exit
 </span><span class="">sudo reboot 
-</span></code></pre><p>CAUTION:  </p><p>If the update-grub is running in a vacuum, restart the system, and do the following steps:  </p><pre><code class="makeup bash"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
+</span></code></pre><p>CAUTION:  </p><p>If the update-grub is running in a vacuum, restart the system, and do the following steps:  </p><pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
 </span><span class="">sudo vgscan
 </span><span class="">sudo vgchange -ay
@@ -177,7 +198,7 @@ GRUB repair
 </span><span class="">update-grub
 </span><span class="">exit
 </span><span class="">sudo reboot
-</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="makeup bash"><span class="">sudo apt install grub-efi
+</span></code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="makeup bash" translate="no"><span class="">sudo apt install grub-efi
 </span></code></pre><p>The problem should be solved</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
@@ -209,27 +230,11 @@ Kaisen Terminal shortcuts
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

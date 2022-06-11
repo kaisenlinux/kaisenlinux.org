@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>NETINST informations — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>NETINST informations — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,55 +60,67 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Installation with NETINST ISO
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Installation with NETINST ISO</span>
 </h1>
 
 <h2 id="prerequisites" class="section-heading">
-  <a href="#prerequisites" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#prerequisites" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">prerequisites</p>
+  </a>
   Prerequisites
 </h2>
 <p>Internet is mandatory for the installation via ISO netinst. Even if the system can be installed without internet, you will have a limited and certainly not fully functional installation.</p><h2 id="modes" class="section-heading">
-  <a href="#modes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#modes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">modes</p>
+  </a>
   Modes
 </h2>
 <p>Graphical install: Graphical installer with mouse support.<br/>Install: Semi-graphic installer, comparable to a ncurses interface.    </p><p>In the <strong>advanced options</strong> menu:  </p><p>The <strong>rescue mode</strong> allows you to install the system in recovery mode in the event of a problem with an initial installation or in normal mode, he will suggest the use of a shell.You will usually never have to use it, but if necessary, it can surely help you and solve your problems.  </p><p>The <strong>expert mode</strong> will allow you to install your system and customize it even more than with normal mode. It will allow you for example to precisely choose the keyboard model that suits you, for example if you have a particular layout. It also allows you to select certain modules to load from the installation media. Be careful what you do, however. Forgetting an important module could compromise your installation and/or make it unstable.  </p><p>You will understand, it is a mode made to personalize its installation as well as possible, but can also be difficult to take in hand for a beginner. Use this mode only if you really know what you are doing.<br/>Note however that the preseed file and its configurations are taken into account in this mode.  </p><p>In the most classic cases, the normal mode will be more than enough.  </p><p>The <strong>automated install</strong> mode is not officially supported on Kaisen, it is present because it is provided by default by the installer but the automated installation is disabled.</p><h2 id="how-the-netinst-installer-works" class="section-heading">
-  <a href="#how-the-netinst-installer-works" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#how-the-netinst-installer-works" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">how-the-netinst-installer-works</p>
+  </a>
   How the netinst installer works
 </h2>
-<p>The basic system will be installed after the internet has been configured.<br/>Then the tasksel software will be launched. This software will allow you to install a series of software of your choice in the form of a menu. This predefined set of proposed software are the packages and metapackages developed for Kaisen Linux.  </p><p>Here is this menu:  </p><p>4 graphic interfaces are currently proposed.</p><pre><code class="makeup elixir"><span class="o">-</span><span class="w"> </span><span class="nc">MATE</span><span class="w">
+<p>The basic system will be installed after the internet has been configured.<br/>Then the tasksel software will be launched. This software will allow you to install a series of software of your choice in the form of a menu. This predefined set of proposed software are the packages and metapackages developed for Kaisen Linux.  </p><p>Here is this menu:  </p><p>4 graphic interfaces are currently proposed.</p><pre><code class="makeup elixir" translate="no"><span class="o">-</span><span class="w"> </span><span class="nc">MATE</span><span class="w">
 </span><span class="o">-</span><span class="w"> </span><span class="nc">KDE</span><span class="w">
 </span><span class="o">-</span><span class="w"> </span><span class="nc">XFCE</span><span class="w">
-</span><span class="o">-</span><span class="w"> </span><span class="nc">LXQT</span></code></pre><p>You must choose one of the 4. It is possible, but not recommended to install two or more simultaneously.<br/>If you want to change the GUI, you will have to use the kaisen-interface-switcher script.  </p><p>Network tools:    </p><p>The entry <strong>Install all network tools</strong> will install this <a href="metapackages.html#kaisen-network-tools">metapackage</a>. Select this option if you want to install all network tools. This will avoid selecting all categories of network metapackages.<br/>The entry <strong>Install only ethernet tools</strong> will install only these <a href="tools.html#ethernet">tools</a><br/>The entry <strong>Install only GNS3 tools</strong> will install only these <a href="tools.html#gns3">tools</a><br/>The entry <strong>Install only OSI layer 2 tools</strong> will install only these <a href="tools.html#mac">tools</a><br/>The entry <strong>Install only OSI layer 3 tools</strong> will install only these <a href="tools.html#ip">tools</a><br/>The entry <strong>Install only OSI layer 4 tools</strong> will install only these <a href="tools.html#tcp-udp">tools</a><br/>The entry <strong>Install only network monitoring tools</strong> will install only these <a href="tools.html#monitoring">tools</a><br/>The entry <strong>Install only network PCAP tools</strong> will install only these <a href="tools.html#pcap">tools</a><br/>The entry <strong>Install only console port tools</strong> will install only these <a href="tools.html#console-port">tools</a><br/>The entry <strong>Install only network scanners tools</strong> will install only these <a href="tools.html#network-scanners">tools</a><br/>The entry <strong>Install only VPN clients</strong> will install only these <a href="tools.html#vpn">tools</a><br/>The entry <strong>Install only Wi-Fi tools</strong> will install only these <a href="tools.html#wi-fi">tools</a><br/>The entry <strong>Install only network miscellaneous</strong> will install only these <a href="tools.html#various-network-administrators-tools">tools</a>  </p><p>Sysadmin tools:    </p><p>The entry <strong>Install all sysadmin tools</strong> will install this <a href="metapackages.html#kaisen-sysadmin-tools">metapackage</a>. Select this option if you want to install all sysadmin tools. This will avoid selecting all categories of sysadmin metapackages.<br/>The entry <strong>Install only backup tools</strong> will install only these <a href="tools.html#backup-tools">tools</a><br/>The entry <strong>Install only DHCP tools</strong> will install only these <a href="tools.html#dhcp">tools</a><br/>The entry <strong>Install only DNS tools</strong> will install only these <a href="tools.html#dns">tools</a><br/>The entry <strong>Install only FTP clients</strong> will install only these <a href="tools.html#ftp">tools</a><br/>The entry <strong>Install only Microsoft AD analyze</strong> will install only these <a href="tools.html#microsoft">tools</a><br/>The entry <strong>Install only remote administration tools</strong> will install only these <a href="tools.html#remote-administration">tools</a><br/>The entry <strong>Install only SSL/TLS tools</strong> will install only these <a href="tools.html#ssl-tls">tools</a><br/>The entry <strong>Install only virtualization tools</strong> will install only these <a href="tools.html#virtualization">tools</a><br/>The entry <strong>Install only firewalling tools</strong> will install only these <a href="tools.html#firewalling">tools</a><br/>The entry <strong>Install only AppArmor profiles and tools</strong> will install only these <a href="tools.html#apparmor-tools-and-profiles">tools</a><br/>The entry <strong>Install only databases clients tools</strong> will install only these <a href="tools.html#databases-clients">tools</a><br/>The entry <strong>Install only sysadmin miscellaneous tools</strong> will install only these <a href="tools.html#various-system-administrators-tools">tools</a>  </p><p>Technicians tools:  </p><p>The entry <strong>Install all technicians tools</strong> will install this <a href="metapackages.html#kaisen-technicians-tools">metapackage</a>. Select this option if you want to install all technicians tools. This will avoid selecting all categories of technicians metapackages.<br/>The entry <strong>Install only partitioning and erasing tools</strong> will install only these <a href="tools.html#partitioning-and-delete-tools">tools</a><br/>The entry <strong>Install only password tools</strong> will install only these <a href="tools.html#password-tools">tools</a><br/>The entry <strong>Install only PST tools</strong> will install only these <a href="tools.html#outlook-pst">tools</a><br/>The entry <strong>Install only temperature tools</strong> will install only these <a href="tools.html#temperature-analysis">tools</a><br/>The entry <strong>Install only make bootable USB tools</strong> will install only these <a href="tools.html#usb-boot">tools</a><br/>The entry <strong>Install only virus analysis tools</strong> will install only these <a href="tools.html#virus-analysis">tools</a><br/>The entry <strong>Install only cloning tools</strong> will install only these <a href="tools.html#cloning">tools</a><br/>The entry <strong>Install only data protection tools</strong> will install only these <a href="tools.html#data-protection">tools</a><br/>The entry <strong>Install only data recovery tools</strong> will install only these <a href="tools.html#data-recovery">tools</a><br/>The entry <strong>Install only disks analysis tools</strong> will install only these <a href="tools.html#disks-analysis">tools</a><br/>The entry <strong>Install only hardware tools</strong> will install only these <a href="tools.html#hardware">tools</a>  </p><p>The entry <strong>Install DevOps and Cloud tools</strong> will install only these <a href="tools.html#sysops-tools">tools</a>  </p><p>The entry <strong>Install miscellaneous tools</strong> will install only these <a href="tools.html#miscellaneous-tools">tools</a>  </p><p>The entry <strong>Install scripts and the menu services</strong> will install only <a href="menu.html#services">this</a>. You should install this to more easily manage the pre-installed services, via automated scripts, if you don't install it, it won't affect the use of Kaisen.  </p><p>The entry <strong>Install the kaisen-update command</strong> will install only these <a href="packages.html#kaisen-update">tools</a>  </p><p>The entry <strong>Adding more filesystems support</strong> will install only these <a href="tools.html#filesystems-tools">tools</a> You should combine this metapackage with tools for technicians, e.g. disk analysis tools, file system mounting. This will give you more software support.  </p><p>The entry <strong>Adding more firmwares support</strong> will install only these <a href="tools.html#integrated-firmwares">tools</a>. You will probably not need to install so many drivers on your installation.<br/>They are installed by default on lives in order to extend hardware support to as many computers as possible. If you don't know which driver to install to get wifi, video driver or anything else, installing this metapackage will solve this problem. Do not install it if you only want to install what is necessary for your computer.  </p><p>The entry <strong>Install offline manpages</strong> will install only this <a href="packages.html#kaisen-manpages">tool</a>  </p><p>The entry <strong>Install offline documentation</strong> will install only this <a href="packages.html#kaisen-documentation">tool</a></p>
+</span><span class="o">-</span><span class="w"> </span><span class="nc">LXQT</span></code></pre><p>You must choose one of the 4. It is possible, but not recommended to install two or more simultaneously.<br/>If you want to change the GUI, you will have to use the kaisen-interface-switcher script.  </p><p>Network tools:    </p><p>The entry <strong>Install all network tools</strong> will install this <a href="metapackages.html#kaisen-network-tools">metapackage</a>. Select this option if you want to install all network tools. This will avoid selecting all categories of network metapackages.<br/>The entry <strong>Install only ethernet tools</strong> will install only these <a href="tools.html#ethernet">tools</a><br/>The entry <strong>Install only GNS3 tools</strong> will install only these <a href="tools.html#gns3">tools</a><br/>The entry <strong>Install only OSI layer 2 tools</strong> will install only these <a href="tools.html#mac">tools</a><br/>The entry <strong>Install only OSI layer 3 tools</strong> will install only these <a href="tools.html#ip">tools</a><br/>The entry <strong>Install only OSI layer 4 tools</strong> will install only these <a href="tools.html#tcp-udp">tools</a><br/>The entry <strong>Install only network monitoring tools</strong> will install only these <a href="tools.html#monitoring">tools</a><br/>The entry <strong>Install only network PCAP tools</strong> will install only these <a href="tools.html#pcap">tools</a><br/>The entry <strong>Install only console port tools</strong> will install only these <a href="tools.html#console-port">tools</a><br/>The entry <strong>Install only network scanners tools</strong> will install only these <a href="tools.html#network-scanners">tools</a><br/>The entry <strong>Install only VPN clients</strong> will install only these <a href="tools.html#vpn">tools</a><br/>The entry <strong>Install only Wi-Fi tools</strong> will install only these <a href="tools.html#wi-fi">tools</a><br/>The entry <strong>Install only network miscellaneous</strong> will install only these <a href="tools.html#various-network-administrators-tools">tools</a>  </p><p>Sysadmin tools:    </p><p>The entry <strong>Install all sysadmin tools</strong> will install this <a href="metapackages.html#kaisen-sysadmin-tools">metapackage</a>. Select this option if you want to install all sysadmin tools. This will avoid selecting all categories of sysadmin metapackages.<br/>The entry <strong>Install only backup tools</strong> will install only these <a href="tools.html#backup-tools">tools</a><br/>The entry <strong>Install only DHCP tools</strong> will install only these <a href="tools.html#dhcp">tools</a><br/>The entry <strong>Install only DNS tools</strong> will install only these <a href="tools.html#dns">tools</a><br/>The entry <strong>Install only FTP clients</strong> will install only these <a href="tools.html#ftp">tools</a><br/>The entry <strong>Install only Microsoft AD analyze</strong> will install only these <a href="tools.html#microsoft">tools</a><br/>The entry <strong>Install only remote administration tools</strong> will install only these <a href="tools.html#remote-administration">tools</a><br/>The entry <strong>Install only SSL/TLS tools</strong> will install only these <a href="tools.html#ssl-tls">tools</a><br/>The entry <strong>Install only virtualization tools</strong> will install only these <a href="tools.html#virtualization">tools</a><br/>The entry <strong>Install only firewalling tools</strong> will install only these <a href="tools.html#firewalling">tools</a><br/>The entry <strong>Install only AppArmor profiles and tools</strong> will install only these <a href="tools.html#apparmor-tools-and-profiles">tools</a><br/>The entry <strong>Install only databases clients tools</strong> will install only these <a href="tools.html#databases-clients">tools</a><br/>The entry <strong>Install only sysadmin miscellaneous tools</strong> will install only these <a href="tools.html#various-system-administrators-tools">tools</a>  </p><p>Technicians tools:  </p><p>The entry <strong>Install all technicians tools</strong> will install this <a href="metapackages.html#kaisen-technicians-tools">metapackage</a>. Select this option if you want to install all technicians tools. This will avoid selecting all categories of technicians metapackages.<br/>The entry <strong>Install only partitioning and erasing tools</strong> will install only these <a href="tools.html#partitioning-and-delete-tools">tools</a><br/>The entry <strong>Install only password tools</strong> will install only these <a href="tools.html#password-tools">tools</a><br/>The entry <strong>Install only PST tools</strong> will install only these <a href="tools.html#outlook-pst">tools</a><br/>The entry <strong>Install only temperature tools</strong> will install only these <a href="tools.html#temperature-analysis">tools</a><br/>The entry <strong>Install only make bootable USB tools</strong> will install only these <a href="tools.html#usb-boot">tools</a><br/>The entry <strong>Install only virus analysis tools</strong> will install only these <a href="tools.html#virus-analysis">tools</a><br/>The entry <strong>Install only cloning tools</strong> will install only these <a href="tools.html#cloning">tools</a><br/>The entry <strong>Install only data protection tools</strong> will install only these <a href="tools.html#data-protection">tools</a><br/>The entry <strong>Install only data recovery tools</strong> will install only these <a href="tools.html#data-recovery">tools</a><br/>The entry <strong>Install only disks analysis tools</strong> will install only these <a href="tools.html#disks-analysis">tools</a><br/>The entry <strong>Install only hardware tools</strong> will install only these <a href="tools.html#hardware">tools</a>  </p><p>The entry <strong>Install DevOps and Cloud tools</strong> will install only these <a href="tools.html#sysops-tools">tools</a>  </p><p>The entry <strong>Install miscellaneous tools</strong> will install only these <a href="tools.html#miscellaneous-tools">tools</a>  </p><p>The entry <strong>Install scripts and the menu services</strong> will install only <a href="menu.html#services">this</a>. You should install this to more easily manage the pre-installed services, via automated scripts, if you don't install it, it won't affect the use of Kaisen.  </p><p>The entry <strong>Install the kaisen-update command</strong> will install only these <a href="packages.html#kaisen-update">tools</a>  </p><p>The entry <strong>Adding more filesystems support</strong> will install only these <a href="tools.html#filesystems-tools">tools</a> You should combine this metapackage with tools for technicians, e.g. disk analysis tools, file system mounting. This will give you more software support.  </p><p>The entry <strong>Adding more firmwares support</strong> will install only these <a href="tools.html#integrated-firmwares">tools</a>. You will probably not need to install so many drivers on your installation.<br/>They are installed by default on lives in order to extend hardware support to as many computers as possible. If you don't know which driver to install to get wifi, video driver or anything else, installing this metapackage will solve this problem. Do not install it if you only want to install what is necessary for your computer.  </p><p>The entry <strong>Install offline manpages</strong> will install only this <a href="packages.html#kaisen-manpages">tool</a>  </p><p>The entry <strong>Install offline documentation</strong> will install only this <a href="packages.html#kaisen-documentation">tool</a></p><p>The entry <strong>Install Conky</strong> will install only this <a href="packages.html#kaisen-conky">tool</a></p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -132,27 +151,11 @@ Install OS
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

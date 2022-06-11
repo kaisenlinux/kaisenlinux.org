@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>USB creation — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>USB creation — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,102 +60,126 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-How to USB creation
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>How to USB creation</span>
 </h1>
 
 <h2 id="simple-method-and-supported-any-system" class="section-heading">
-  <a href="#simple-method-and-supported-any-system" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#simple-method-and-supported-any-system" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">simple-method-and-supported-any-system</p>
+  </a>
   Simple method and supported any system
 </h2>
 <p>You can use the <a href="https://www.balena.io/etcher/">balenaEtcher tool</a>.</p><p>This tool is available on Windows, MacOS and GNU/Linux. The tool is graphical and extremely intuitive. It is a simple and efficient method to create a bootable USB stick for GNU/Linux system quickly.</p><h2 id="method-with-cli" class="section-heading">
-  <a href="#method-with-cli" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#method-with-cli" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">method-with-cli</p>
+  </a>
   Method with CLI
 </h2>
-<p>Suppose here that the command <code class="inline">sudo fdisk -l</code> tells us that our USB key is the device <code class="inline">sdb</code>.</p><ul><li>So we will type this command:</li></ul><pre><code class="makeup bash"><span class="">sudo dd if=iso_path/iso_file.iso of=/dev/sdb bs=4M
+<p>Suppose here that the command <code class="inline">sudo fdisk -l</code> tells us that our USB key is the device <code class="inline">sdb</code>.</p><ul><li>So we will type this command:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo dd if=iso_path/iso_file.iso of=/dev/sdb bs=4M
 </span></code></pre><p>At the end of the process, you will have a bootable USB stick.</p><h2 id="other-method-or-tools" class="section-heading">
-  <a href="#other-method-or-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#other-method-or-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">other-method-or-tools</p>
+  </a>
   Other method or tools
 </h2>
 <p>You can use other tools or methods to create your Kaisen Live bootable USB drive, however, note that the two methods mentioned above have been tested and approved by our team. Some problems have been reported to us following the use of Rufus, in particular for installation on certain configurations.</p><h2 id="create-live-usb-key-with-persistence" class="section-heading">
-  <a href="#create-live-usb-key-with-persistence" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#create-live-usb-key-with-persistence" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">create-live-usb-key-with-persistence</p>
+  </a>
   Create live USB key with persistence
 </h2>
 <h3 id="prerequisite" class="section-heading">
-  <a href="#prerequisite" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#prerequisite" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">prerequisite</p>
+  </a>
   <strong>Prerequisite</strong>
 </h3>
 <p>WARNING: A USB flash drive configured to support live persistent will not work with Apple hardware, probably due to their specific BIOS.</p><p>We recommend that you have at least a 64GB USB drive to take full advantage of this feature. 
 Check with the command <code class="inline">sudo fdisk -l</code> what your key is called. Here we will assume that our USB stick is <code class="inline">/dev/sdb</code>.</p><h3 id="usb-key-with-persistence-creation" class="section-heading">
-  <a href="#usb-key-with-persistence-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#usb-key-with-persistence-creation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">usb-key-with-persistence-creation</p>
+  </a>
   USB key with persistence creation
 </h3>
-<p>This documentation was made with ISO MATE but also works with KDE, LXQT and XFCE and SR (System Rescue).<br/>Make sure you are in the same folder as the ISO to do all this!!! The dd command will erase your entire device, make sure you have backed up the important content.  </p><ul><li>Create a bootable Kaisen USB drive with the following command:</li></ul><pre><code class="makeup bash"><span class="">sudo dd if=kaisenlinuxrolling2.0-amd64-MATE.iso of=/dev/sdb bs=4M
-</span></code></pre><p>Normally two partitions were created by dd. You can check this with the sudo fdisk -l command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="makeup bash"><span class="">end=55GiB (if key is 64gb, for security we will put the key ending at 55gb plus the size of the ISO so 4GB)
-</span><span class="">read start _ &lt;&lt;(du -bcm kaisenlinuxrolling2.0-amd64-MATE.iso | tail -1); echo $start
+<p>This documentation was made with ISO MATE but also works with KDE, LXQT and XFCE and SR (System Rescue).<br/>Make sure you are in the same folder as the ISO to do all this!!! The dd command will erase your entire device, make sure you have backed up the important content.  </p><ul><li>Create a bootable Kaisen USB drive with the following command:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo dd if=kaisenlinuxrolling2.1-amd64-MATE.iso of=/dev/sdb bs=4M
+</span></code></pre><p>Normally two partitions were created by dd. You can check this with the sudo fdisk -l command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="makeup bash" translate="no"><span class="">end=55GiB (if key is 64gb, for security we will put the key ending at 55gb plus the size of the ISO so 4GB)
+</span><span class="">read start _ &lt;&lt;(du -bcm kaisenlinuxrolling2.1-amd64-MATE.iso | tail -1); echo $start
 </span><span class="">sudo parted /dev/sdb mkpart primary ${start}MiB $end
-</span></code></pre><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.</p><ul><li>Then do this for create filesystems and partition label:<br/>The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</li></ul><pre><code class="makeup bash"><span class="">sudo mkfs.ext4 -L persistence /dev/sdb3
+</span></code></pre><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.</p><ul><li>Then do this for create filesystems and partition label:<br/>The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo mkfs.ext4 -L persistence /dev/sdb3
 </span><span class="">sudo e2label /dev/sdb3 persistence
-</span></code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="makeup bash"><span class="">sudo mkdir -p /mnt/persistence
+</span></code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir -p /mnt/persistence
 </span><span class="">sudo mount /dev/sdb3 /mnt/persistence
 </span><span class="">echo &quot;/ union&quot; | sudo tee /mnt/persistence/persistence.conf
 </span><span class="">sudo umount /mnt/persistence
 </span></code></pre><p><strong>Your key is now ready!</strong></p><p>Restart a live Kaisen with the persistence option enabled. To test that the persistence is functional, for example change the theme of the graphical interface then restart your live session by always choosing &quot;persistence&quot;. If the theme you modified has been kept instead of the default one, persistence is functional :-)</p><h2 id="create-live-usb-key-with-encrypted-persistence" class="section-heading">
-  <a href="#create-live-usb-key-with-encrypted-persistence" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#create-live-usb-key-with-encrypted-persistence" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">create-live-usb-key-with-encrypted-persistence</p>
+  </a>
   Create live USB key with encrypted persistence
 </h2>
 <h3 id="prerequisite-1" class="section-heading">
-  <a href="#prerequisite-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#prerequisite-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">prerequisite-1</p>
+  </a>
   <strong>Prerequisite</strong>
 </h3>
 <p>WARNING: A USB flash drive configured to support live persistent will not work with Apple hardware, probably due to their specific BIOS.</p><p>We recommend that you have at least a 64GB USB drive to take full advantage of this feature. 
 Check with the command <code class="inline">sudo fdisk -l</code> what your key is called. Here we will assume that our USB stick is <code class="inline">/dev/sdb</code>.</p><h3 id="usb-key-with-encrypted-persistence-creation" class="section-heading">
-  <a href="#usb-key-with-encrypted-persistence-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#usb-key-with-encrypted-persistence-creation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">usb-key-with-encrypted-persistence-creation</p>
+  </a>
   USB key with encrypted persistence creation
 </h3>
-<p>This documentation was made with ISO MATE but also works with KDE, LXQT and XFCE and SR (System Rescue).<br/>Make sure you are in the same folder as the ISO to do all this!!! The dd command will erase your entire device, make sure you have backed up the important content.  </p><ul><li>Create a bootable Kaisen USB drive with the following command:</li></ul><pre><code class="makeup bash"><span class="">sudo dd if=kaisenlinuxrolling2.0-amd64-MATE.iso of=/dev/sdb bs=4M
-</span></code></pre><p>Normally two partitions were created by dd. You can check this with the <code class="inline">sudo fdisk -l</code> command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="makeup bash"><span class="">end=55GiB (if key is 55gb, for security we will put the key ending at 10gb plus the size of the ISO so 4GB)
-</span><span class="">read start _ &lt;&lt;(du -bcm kaisenlinuxrolling2.0-amd64-MATE.iso | tail -1); echo $start
+<p>This documentation was made with ISO MATE but also works with KDE, LXQT and XFCE and SR (System Rescue).<br/>Make sure you are in the same folder as the ISO to do all this!!! The dd command will erase your entire device, make sure you have backed up the important content.  </p><ul><li>Create a bootable Kaisen USB drive with the following command:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo dd if=kaisenlinuxrolling2.1-amd64-MATE.iso of=/dev/sdb bs=4M
+</span></code></pre><p>Normally two partitions were created by dd. You can check this with the <code class="inline">sudo fdisk -l</code> command. You need to create a third to add persistence to it.</p><ul><li>To do this, type the following commands (always in the same folder where the ISO is):</li></ul><pre><code class="makeup bash" translate="no"><span class="">end=55GiB (if key is 55gb, for security we will put the key ending at 10gb plus the size of the ISO so 4GB)
+</span><span class="">read start _ &lt;&lt;(du -bcm kaisenlinuxrolling2.1-amd64-MATE.iso | tail -1); echo $start
 </span><span class="">sudo parted /dev/sdb mkpart primary ${start}MiB $end
-</span></code></pre><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.<br/>WARNING: do not forget the passphrase to unlock the partition, otherwise you will have to completely redo your key and your data cannot be recovered. You have been warned.</p><pre><code class="makeup bash"><span class="">sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
+</span></code></pre><p>You should now have 3 partitions on your <code class="inline">/dev/sdb</code> device.<br/>WARNING: do not forget the passphrase to unlock the partition, otherwise you will have to completely redo your key and your data cannot be recovered. You have been warned.</p><pre><code class="makeup bash" translate="no"><span class="">sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
 </span><span class="">sudo cryptsetup luksOpen /dev/sdb3 my_usb
 </span></code></pre><p>Then do this for create filesystems and partition label:
-The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</p><pre><code class="makeup bash"><span class="">sudo mkfs.ext4 -L persistence /dev/mapper/my_usb
+The <code class="inline">mkfs.ext4</code> command below will ask a question (on the size of the blocks). Just press enter to use the default settings (not affected here).</p><pre><code class="makeup bash" translate="no"><span class="">sudo mkfs.ext4 -L persistence /dev/mapper/my_usb
 </span><span class="">sudo e2label /dev/mapper/my_usb persistence
-</span></code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="makeup bash"><span class="">sudo mkdir -p /mnt/my_usb
+</span></code></pre><p>To take into account this new persistence partition, we should have a file named persistence.conf at the root of this partition with in this file marked: <code class="inline">/ union</code></p><ul><li>We are going to proceed like this:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir -p /mnt/my_usb
 </span><span class="">sudo mount /dev/mapper/my_usb /mnt/my_usb
 </span><span class="">echo &quot;/ union&quot; | sudo tee /mnt/my_usb/persistence.conf
 </span><span class="">sudo umount /dev/mapper/my_usb
-</span></code></pre><ul><li>Let's close the encrypted channel:</li></ul><pre><code class="makeup bash"><span class="">sudo cryptsetup luksClose /dev/mapper/my_usb
+</span></code></pre><ul><li>Let's close the encrypted channel:</li></ul><pre><code class="makeup bash" translate="no"><span class="">sudo cryptsetup luksClose /dev/mapper/my_usb
 </span></code></pre><p><strong>Your key is now ready!</strong></p><p>Restart a live Kaisen with the encrypted persistence option enabled. To test that the persistence is functional, for example change the theme of the graphical interface then restart your live session by always choosing &quot;encrypted persistence&quot;.  If the theme you modified has been kept instead of the default one, encrypted persistence is functional :-)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
@@ -180,27 +211,11 @@ Hardware requirements
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

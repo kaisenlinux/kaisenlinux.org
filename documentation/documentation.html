@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Kaisen Linux | Documentation — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Kaisen Linux | Documentation — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,52 +60,64 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Kaisen Linux | Documentation
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Kaisen Linux | Documentation</span>
 </h1>
 
 <blockquote><p>Kaisen Linux is a distribution for IT professional based on the Debian GNU/Linux distribution.   </p></blockquote><p>It is a complete operating system whose originality is to provide a set of tools dedicated to system administration and covering all the needs for diagnosing and dealing with faults or failures of an installed system and its components. The most important system tools are available.   </p><p>Since release 1.0 named, Kaisen Linux is a rolling release (continuous update) based on debian testing. </p><h2 id="quick-start" class="section-heading">
-  <a href="#quick-start" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#quick-start" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">quick-start</p>
+  </a>
   Quick start
 </h2>
-<ol><li>Choose and download an iso :<ul><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-MATE.iso">Kaisen Linux MATE (default GUI)</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-KDE.iso">Kaisen Linux KDE</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-XFCE.iso">Kaisen Linux XFCE</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-LXQT.iso">Kaisen Linux LXQT</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-SR.iso">Kaisen Linux System Rescue (no installer)</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.0-amd64-NETINST.iso">Kaisen Linux NETINST (network required)</a></li></ul></li><li>Launch it in a VM</li><li>Boot on the live mode or install Kaisen Linux</li><li>Explore and test sysadmin and technicians tools</li><li>Read Kaisen Linux documentation or <a href="https://kaisenlinux.org/manpages/">Kaisen Linux manpages</a> for help</li><li>Join our <a href="https://forum.kaisenlinux.org">community forum</a></li></ol><h2 id="documentation-guides" class="section-heading">
-  <a href="#documentation-guides" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<ol><li>Choose and download an iso :<ul><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-MATE.iso">Kaisen Linux MATE (default GUI)</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-KDE.iso">Kaisen Linux KDE</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-XFCE.iso">Kaisen Linux XFCE</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-LXQT.iso">Kaisen Linux LXQT</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-SR.iso">Kaisen Linux System Rescue (no installer)</a></li><li><a href="https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.1-amd64-NETINST.iso">Kaisen Linux NETINST (network required)</a></li></ul></li><li>Launch it in a VM</li><li>Boot on the live mode or install Kaisen Linux</li><li>Explore and test sysadmin and technicians tools</li><li>Read Kaisen Linux documentation or <a href="https://kaisenlinux.org/manpages/">Kaisen Linux manpages</a> for help</li><li>Join our <a href="https://forum.kaisenlinux.org">community forum</a></li></ol><h2 id="documentation-guides" class="section-heading">
+  <a href="#documentation-guides" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">documentation-guides</p>
+  </a>
   Documentation guides
 </h2>
-<p>The documentation is splitted in 5 GUIDES on the left menu bar:</p><ul><li>START</li><li>TOOLS &amp; PACKAGES</li><li>INFOS</li><li>TUTORIALS</li><li>FAQ</li></ul><h2 id="help-summary" class="section-heading">
-  <a href="#help-summary" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>The documentation is splitted in 6 GUIDES on the left menu bar:</p><ul><li>START</li><li>TOOLS &amp; PACKAGES</li><li>INFOS</li><li>TUTORIALS</li><li>GOODIES</li><li>FAQ</li></ul><h2 id="help-summary" class="section-heading">
+  <a href="#help-summary" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">help-summary</p>
+  </a>
   Help Summary
 </h2>
-<ul><li>Start<ul><li><a href="links.html">Official Kaisen Linux links</a></li><li><a href="why.html">Why use Kaisen Linux ?</a></li><li><a href="variant.html">ISO informations</a></li><li><a href="usb.html">USB creation</a></li><li><a href="hardware.html">Hardware requirements</a></li><li><a href="live.html">Live informations</a></li><li><a href="netinst.html">NETINST informations</a></li><li><a href="install.html">Install OS</a></li><li><a href="virtualisation.html">Using Virtualisation</a></li><li><a href="menu.html">Menu and Tools overview</a></li></ul></li><li>Tools and Packages<ul><li><a href="tools.html">Tools</a></li><li><a href="packages.html">Packages</a></li><li><a href="metapackages.html">Metapackages</a></li></ul></li><li>Infos<ul><li><a href="licence.html">Kaisen Linux licence</a></li><li><a href="download.html">Kaisen Linux downloads</a></li><li><a href="repo.html">Kaisen Linux repositories</a></li><li><a href="update.html">Kaisen Linux updates</a></li></ul></li><li>Tutorials<ul><li><a href="windows-bootable-usb-key.html">Windows bootable USB key</a></li><li><a href="bad-sectors-analyses.html">Bad sectors analyses</a></li><li><a href="grub-repair.html">Repair GRUB</a></li><li><a href="terminal-shortcuts.html">Kaisen Terminal shortcuts</a></li><li><a href="advanced-btrfs-utilisation.html">Advanced BTRFS utilisation</a></li><li><a href="create-chroot.html">Create chroot</a></li><li><a href="configure-cryptsetup-nuke.html">Configure cryptsetup-nuke-password</a></li></ul></li><li>FAQ        <ul><li><a href="faq.html#where-can-i-find-more-documentation">Where can I find more documentation?</a></li><li><a href="faq.html#what-are-the-revisions-of-the-rolling-version">What are the revisions of the rolling version ?</a></li><li><a href="faq.html#why-are-all-additional-services-disabled-by-default">Why are all additional services disabled by default ?</a></li><li><a href="faq.html#how-to-build-a-custom-iso">How to build a custom ISO ?</a></li><li><a href="faq.html#why-no-sources-on-some-packages">Why no sources on some packages ?</a></li><li><a href="faq.html#how-to-update-gui-default-profile">How to update GUI default profile ?</a></li><li><a href="faq.html#informations-on-the-conky-theme">Informations on the conky theme</a></li><li><a href="faq.html#how-do-i-know-the-number-of-the-rolling-version-i-use">Informations on the rolling version</a></li><li><a href="faq.html#why-root-account-is-disabled-by-default">Why root account is disabled by default ?</a></li><li><a href="faq.html#how-to-switch-to-root-directly-with-the-zsh-terminal">How to switch to root directly with the ZSH terminal ?</a></li><li><a href="faq.html#how-to-change-graphical-interface">How to change the graphical interface ?</a></li><li><a href="faq.html#update-kaisen-linux-rolling">How to update Kaisen Linux Rolling ?</a></li><li><a href="faq.html#how-to-change-login-wallpaper">How to change login wallpaper ?</a></li><li><a href="faq.html#why-create-user-accounts-only-on-home">Why create user accounts only on /home ?</a></li><li><a href="faq.html#why-kde-installed-with-lightdm-by-default">Why KDE installed with lightdm by default ?</a></li><li><a href="faq.html#how-to-create-your-own-default-profile-for-user-configurations-skel">How to create your own default profile for user configurations (skel) ?</a></li><li><a href="faq.html#how-do-i-go-back-to-bash">How do I go back to bash ?</a></li><li><a href="faq.html#where-can-i-find-documentation-on-the-built-in-tools-or-how-certain-settings-work">Where can I find documentation on the built-in tools or how certain settings work?</a></li></ul></li></ul>
+<ul><li>Start<ul><li><a href="links.html">Official Kaisen Linux links</a></li><li><a href="why.html">Why use Kaisen Linux ?</a></li><li><a href="variant.html">ISO informations</a></li><li><a href="usb.html">USB creation</a></li><li><a href="hardware.html">Hardware requirements</a></li><li><a href="live.html">Live informations</a></li><li><a href="netinst.html">NETINST informations</a></li><li><a href="install.html">Install OS</a></li><li><a href="virtualisation.html">Using Virtualisation</a></li><li><a href="menu.html">Menu and Tools overview</a></li></ul></li><li>Tools and Packages<ul><li><a href="tools.html">Tools</a></li><li><a href="packages.html">Packages</a></li><li><a href="metapackages.html">Metapackages</a></li></ul></li><li>Infos<ul><li><a href="licence.html">Kaisen Linux licence</a></li><li><a href="download.html">Kaisen Linux downloads</a></li><li><a href="repo.html">Kaisen Linux repositories</a></li><li><a href="update.html">Kaisen Linux updates</a></li></ul></li><li>Tutorials<ul><li><a href="windows-bootable-usb-key.html">Windows bootable USB key</a></li><li><a href="bad-sectors-analyses.html">Bad sectors analyses</a></li><li><a href="grub-repair.html">Repair GRUB</a></li><li><a href="terminal-shortcuts.html">Kaisen Terminal shortcuts</a></li><li><a href="advanced-btrfs-utilisation.html">Advanced BTRFS utilisation</a></li><li><a href="create-chroot.html">Create chroot</a></li><li><a href="configure-cryptsetup-nuke.html">Configure cryptsetup-nuke-password</a></li></ul></li><li>Goodies<ul><li><a href="kaisen-conky.html">Conky theme</a></li><li><a href="cryptsetup-nuke-password.html">LUKS hardening</a></li><li><a href="zsh.html">ZSH</a></li></ul></li><li>FAQ        <ul><li><a href="faq.html#where-can-i-find-more-documentation">Where can I find more documentation?</a></li><li><a href="faq.html#what-are-the-revisions-of-the-rolling-version">What are the revisions of the rolling version ?</a></li><li><a href="faq.html#why-are-all-additional-services-disabled-by-default">Why are all additional services disabled by default ?</a></li><li><a href="faq.html#how-to-build-a-custom-iso">How to build a custom ISO ?</a></li><li><a href="faq.html#why-no-sources-on-some-packages">Why no sources on some packages ?</a></li><li><a href="faq.html#how-to-update-gui-default-profile">How to update GUI default profile ?</a></li><li><a href="faq.html#how-do-i-know-the-number-of-the-rolling-version-i-use">Informations on the rolling version</a></li><li><a href="faq.html#why-root-account-is-disabled-by-default">Why root account is disabled by default ?</a></li><li><a href="faq.html#how-to-switch-to-root-directly-with-the-zsh-terminal">How to switch to root directly with the ZSH terminal ?</a></li><li><a href="faq.html#how-to-change-graphical-interface">How to change the graphical interface ?</a></li><li><a href="faq.html#update-kaisen-linux-rolling">How to update Kaisen Linux Rolling ?</a></li><li><a href="faq.html#how-to-change-login-wallpaper">How to change login wallpaper ?</a></li><li><a href="faq.html#why-create-user-accounts-only-on-home">Why create user accounts only on /home ?</a></li><li><a href="faq.html#why-kde-installed-with-lightdm-by-default">Why KDE installed with lightdm by default ?</a></li><li><a href="faq.html#how-to-create-your-own-default-profile-for-user-configurations-skel">How to create your own default profile for user configurations (skel) ?</a></li><li><a href="faq.html#where-can-i-find-documentation-on-the-built-in-tools-or-how-certain-settings-work">Where can I find documentation on the built-in tools or how certain settings work?</a></li></ul></li></ul>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -120,27 +139,11 @@ Official Kaisen Linux links
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

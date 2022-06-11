@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Packages — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Packages — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,382 +60,740 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Packages
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Packages</span>
 </h1>
 
 <p><strong>This section presents the different packages modified for Kaisen Linux and their function on the system.</strong></p><h2 id="forked-packages" class="section-heading">
-  <a href="#forked-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#forked-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">forked-packages</p>
+  </a>
   Forked packages
 </h2>
 <h3 id="adduser" class="section-heading">
-  <a href="#adduser" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#adduser" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">adduser</p>
+  </a>
   adduser
 </h3>
-<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="makeup bash"><span class="">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
+<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="makeup bash" translate="no"><span class="">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
 </span><span class="">*Allow the deletion of the folder associated with a deleted user (/home/userdelete) when it is deleted with the delsuer command in file /etc/deluser.conf
 </span></code></pre><h3 id="base-files" class="section-heading">
-  <a href="#base-files" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#base-files" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base-files</p>
+  </a>
   base-files
 </h3>
-<p>The base-files package will simply provide the following files on the system:</p><pre><code class="makeup bash"><span class="">*/etc/debian_version
+<p>The base-files package will simply provide the following files on the system:</p><pre><code class="makeup bash" translate="no"><span class="">*/etc/debian_version
 </span><span class="">*/etc/issue
 </span><span class="">*/etc/issue.net
 </span><span class="">*/etc/os-release
 </span></code></pre><p>These files are used to identify the system version in details, such as the system version number, distribution name, code name, etc.
 These files are used by the live system during the welcome message on the system (here Debian has been replaced by Kaisen Linux).
 They are also used to customize GRUB thanks to the lsb_release package which, in its default configuration will read the /etc/os-release file to find out the version of the OS.   </p><p>By consequently, personalize the GRUB entries in its default configuration by the command lsb_release -i -s (information present in /etc/default/grub at the line GRUB_DISTRIBUTOR) when executing the update-grub command. The goal here was to replace Debian with Kaisen on the GRUB entries of the installed system. This package surely has many other uses, but I have not encountered them so far.  </p><p>The package has therefore been recompiled to formalize the name of the distribution on the system and customize it a little more.</p><h3 id="linux" class="section-heading">
-  <a href="#linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">linux</p>
+  </a>
   linux
 </h3>
 <p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br/>The Kaisen Linux kernel has its own lean configuration.
 The kernel is also recompiled to disable signing modules because signing modules breaks GRUB
 with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-heading">
-  <a href="#debian-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#debian-installer" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">debian-installer</p>
+  </a>
   debian-installer
 </h3>
 <p>This package is forked to build the installer with the custom Kaisen Linux kernel as well as our packages used by the installer (rootskel-gtk for example). It is necessary to rebuild the installer to integrate the modified packages for the installer and thus integrate them into the rolling release ISO.</p><h3 id="rootskel-gtk" class="section-heading">
-  <a href="#rootskel-gtk" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#rootskel-gtk" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">rootskel-gtk</p>
+  </a>
   rootskel-gtk
 </h3>
 <p>This package has been modified because it provides the graphical configuration of the installer (theme, banners). The theme of the Kaisen Linux graphical installer is based on the original Clearlooks theme.</p><h3 id="apt-setup" class="section-heading">
-  <a href="#apt-setup" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apt-setup" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apt-setup</p>
+  </a>
   apt-setup
 </h3>
 <p>This package allows you to configure the /etc/apt/sources.list file after installing the system.<br/>Since the Kaisen Linux installer is configured to request no network configuration, this package has been forked to add the Kaisen Linux repository, because by default, without internet connection (therefore no mirror selection), apt-setup will configure the Debian security repositories.  </p><h3 id="choose-mirror" class="section-heading">
-  <a href="#choose-mirror" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#choose-mirror" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">choose-mirror</p>
+  </a>
   choose-mirror
 </h3>
 <p>This package configures the mirrors to be used to download packages.</p><h3 id="partman-auto" class="section-heading">
-  <a href="#partman-auto" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#partman-auto" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">partman-auto</p>
+  </a>
   partman-auto
 </h3>
 <p>This package, as its name suggests, allows you to automatically partition the disk during installation.
 This package was forked for three things:  </p><ul><li>Use of BTRFS as default file system on all partitions of the disk (except /boot if the partition is separated)</li><li>Definition of EXT4 as the default file system for /boot if the partition is separate from / (this is the case for example during the installation of the system with LVM and cryptsetup).</li><li>Modification of the size of the partitions allocated by partman to adapt it to the size required by Kaisen Linux and thus limit any problems that may appear on insufficient disk space (especially in case of separation of the partitions /home /var /tmp and /).</li></ul><h3 id="debootstrap" class="section-heading">
-  <a href="#debootstrap" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#debootstrap" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">debootstrap</p>
+  </a>
   debootstrap
 </h3>
 <p>This package builds and installs the base system (the packages mentioned as required). This package is forked to integrate the specific configurations of Kaisen Linux (build the base system from the distribution repository).</p><h3 id="desktop-base" class="section-heading">
-  <a href="#desktop-base" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#desktop-base" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">desktop-base</p>
+  </a>
   desktop-base
 </h3>
 <p>This package provides wallpapers for the desktop, login screen, grub etc ...<br/>This package is forked to add the different Kaisen themes on the system to provide wallpapers as well as &quot;alternatives&quot; to define by default the theme to use. It is by default configured on kaisen-theme.  </p><h3 id="grub2" class="section-heading">
-  <a href="#grub2" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#grub2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">grub2</p>
+  </a>
   grub2
 </h3>
 <p>This package was forked to integrate the kaisen-grub-configuration package as a dependency. This allowed the possibility of providing a GRUB image even when the machine is encrypted and activating the plymouth theme.</p><h3 id="live-build" class="section-heading">
-  <a href="#live-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#live-build" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">live-build</p>
+  </a>
   live-build
 </h3>
 <p>It is the official Debian tool for building system images. It was forked to add support for the &quot;kaisen-rolling&quot; repository.</p><h3 id="live-config" class="section-heading">
-  <a href="#live-config" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#live-config" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">live-config</p>
+  </a>
   live-config
 </h3>
-<p>This package contains all live configurations. Forked to add components/0031-kaisen-password script. This script add a password for live system.</p><h3 id="win32-loader" class="section-heading">
-  <a href="#win32-loader" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  win32-loader
-</h3>
-<p>This package allows you to start the installation of a Debian system directly from a Windows system. The package was forked to simply add the Kaisen Linux logo.</p><h3 id="shadow" class="section-heading">
-  <a href="#shadow" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>This package contains all live configurations. Forked to add components/0031-kaisen-password script. This script add a password for live system.</p><h3 id="shadow" class="section-heading">
+  <a href="#shadow" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">shadow</p>
+  </a>
   shadow
 </h3>
 <p>This package was forked because the /etc/default/useradd file was modified to support /bin/zsh as the default terminal when adding a user.<br/>The number of users to add to the system has also been changed. Maximum 100 users can be added (by default, 58999 users can be added).</p><h3 id="live-installer" class="section-heading">
-  <a href="#live-installer" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#live-installer" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">live-installer</p>
+  </a>
   live-installer
 </h3>
 <p>Forked to add 61kaisen script to launch this script after the system installation.</p><h3 id="plymouth" class="section-heading">
-  <a href="#plymouth" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#plymouth" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">plymouth</p>
+  </a>
   plymouth
 </h3>
 <p>Forked to define kaisen-theme by default for Plymouth.</p><h3 id="partman-btrfs" class="section-heading">
-  <a href="#partman-btrfs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#partman-btrfs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">partman-btrfs</p>
+  </a>
   partman-btrfs
 </h3>
-<p>Forked to create BTRFS subvolumes</p><h3 id="netcfg" class="section-heading">
-  <a href="#netcfg" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  netcfg
-</h3>
-<p>Forked to define kaisenlinux of hostname string</p><h3 id="simple-cdd" class="section-heading">
-  <a href="#simple-cdd" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Forked to create BTRFS subvolumes</p><h3 id="simple-cdd" class="section-heading">
+  <a href="#simple-cdd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">simple-cdd</p>
+  </a>
   simple-cdd
 </h3>
 <p>Forked to add kaisen profile. The kaisen profile add a custom preseed for NETINST ISO,
 and add a postinst script to exec a few actions after the installation.</p><h3 id="debian-cd" class="section-heading">
-  <a href="#debian-cd" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#debian-cd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">debian-cd</p>
+  </a>
   debian-cd
 </h3>
 <p>Forked to adding kaisen-rolling repository</p><h3 id="tasksel" class="section-heading">
-  <a href="#tasksel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tasksel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tasksel</p>
+  </a>
   tasksel
 </h3>
 <p>Forked to adding Kaisen Linux tasks</p><h3 id="lightdm-gtk-greeter" class="section-heading">
-  <a href="#lightdm-gtk-greeter" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#lightdm-gtk-greeter" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">lightdm-gtk-greeter</p>
+  </a>
   lightdm-gtk-greeter
 </h3>
 <p>Forked to add Kaisen Linux lightdm settings</p><h3 id="net-retriever" class="section-heading">
-  <a href="#net-retriever" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#net-retriever" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">net-retriever</p>
+  </a>
   net-retriever
 </h3>
 <p>Forked to add kaisen-archive-keyring-udeb package</p><h3 id="neofetch" class="section-heading">
-  <a href="#neofetch" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#neofetch" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">neofetch</p>
+  </a>
   neofetch
 </h3>
-<p>Forked to add Kaisen Linux ASCII logo</p><h3 id="virtualbox-ext-pack" class="section-heading">
-  <a href="#virtualbox-ext-pack" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Forked to add Kaisen Linux ASCII logo</p><h3 id="docker-io" class="section-heading">
+  <a href="#docker-io" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">docker-io</p>
+  </a>
+  docker.io
+</h3>
+<p>Forked to add a conffile to change the default storage driver will be used by Docker</p><h3 id="virtualbox" class="section-heading">
+  <a href="#virtualbox" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox</p>
+  </a>
+  virtualbox
+</h3>
+<p>Forked to add a conffile to load automatically vbox modules at boot</p><h3 id="virtualbox-ext-pack" class="section-heading">
+  <a href="#virtualbox-ext-pack" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox-ext-pack</p>
+  </a>
   virtualbox-ext-pack
 </h3>
-<p>Forked to change default debconf ask</p><h2 id="kaisen-linux-packages" class="section-heading">
-  <a href="#kaisen-linux-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Forked to change the default response provided by debconf</p><h3 id="virtualbox-guest-additions" class="section-heading">
+  <a href="#virtualbox-guest-additions" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox-guest-additions</p>
+  </a>
+  virtualbox-guest-additions
+</h3>
+<p>Forked to adapt the dependencies to the rest of the VirtualBox packages</p><h3 id="virtualbox-ext-pack-1" class="section-heading">
+  <a href="#virtualbox-ext-pack-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox-ext-pack-1</p>
+  </a>
+  virtualbox-ext-pack
+</h3>
+<p>Forked to change default debconf </p><h3 id="python-async-timeout" class="section-heading">
+  <a href="#python-async-timeout" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">python-async-timeout</p>
+  </a>
+  python-async-timeout
+</h3>
+<p>Forked to adapt the distributed version to the version required by GNS3</p><h2 id="kaisen-linux-packages" class="section-heading">
+  <a href="#kaisen-linux-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux-packages</p>
+  </a>
   Kaisen Linux packages
 </h2>
 <h3 id="kaisen-basemenu-purge" class="section-heading">
-  <a href="#kaisen-basemenu-purge" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-basemenu-purge" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-basemenu-purge</p>
+  </a>
   kaisen-basemenu-purge
 </h3>
 <p>This package removes &quot;double&quot; launchers. These duplicate icons appear when updating packages containing a launcher for a graphical application, for example ettercap, lftp, kismet etc ... Custom launchers have been created for the Kaisen menu to organize them by categories (monitoring, scanner etc). The custom launchers are also launched with sudo if necessary by the software.<br/>This package therefore removes the original launchers contained in <code class="inline">/usr/share/applications</code></p><h3 id="kaisen-grub-configuration" class="section-heading">
-  <a href="#kaisen-grub-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-grub-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-grub-configuration</p>
+  </a>
   kaisen-grub-configuration
 </h3>
 <p>The GRUB package has been recompiled to change the configuration of the /etc/default/grub file to add support for the default splash screen for the user on the installed system (graphical boot) and also allow in case the command lsb_release -i -s cannot be executed because the lsb-release script is not present, you can still display Kaisen and not Debian in the GRUB entries.  </p><p>The kaisen-grub-configuration package is installed automatically during system installation and automates this customization.</p><h3 id="kaisen-archive-keyring" class="section-heading">
-  <a href="#kaisen-archive-keyring" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-archive-keyring" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-archive-keyring</p>
+  </a>
   kaisen-archive-keyring
 </h3>
 <p>This package provides the public GPG keys needed to use our secure repository with identity verification via a GPG key (used by official Debian repositories and implemented security by default).</p><h3 id="kaisen-menu" class="section-heading">
-  <a href="#kaisen-menu" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-menu" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-menu</p>
+  </a>
   kaisen-menu
 </h3>
 <p>This package provides the custom menu. This includes the &quot;skeleton&quot; of the menu (allows you to organize the location of the different folders), the directories as well as the launchers of the applications. This menu is mainly used to reference the tools present in the distribution.</p><h3 id="kaisen-services-management" class="section-heading">
-  <a href="#kaisen-services-management" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-services-management" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-services-management</p>
+  </a>
   kaisen-services-management
 </h3>
 <p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br/>The scripts are installed in <code class="inline">/opt/services</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
-  <a href="#kaisen-update" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-update" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-update</p>
+  </a>
   kaisen-update
 </h3>
 <p>This package just provides a script to perform an apt update &amp;&amp; apt upgrade in one command. The kaisen-update command also allows to remove the most necessary packages (dependencies no longer used).</p><h3 id="kaisen-build" class="section-heading">
-  <a href="#kaisen-build" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-build" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-build</p>
+  </a>
   kaisen-build
 </h3>
 <p>This package contains all configurations for build Kaisen Linux ISO.</p><h3 id="kaisen-interfaces" class="section-heading">
-  <a href="#kaisen-interfaces" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-interfaces" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-interfaces</p>
+  </a>
   kaisen-interfaces
 </h3>
-<p>All Kaisen Linux MATE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.</p><p>All Kaisen Linux KDE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.</p><p>All Kaisen Linux LXQT Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.</p><p>All Kaisen Linux XFCE Desktop Environment configurations (themes, icons etc). This package also installs the default Firefox configurations for Kaisen Linux as well as its translations, terminator, vim and others.</p><p>The package kaisen-interface-common package installs conky theme and the kaisen-interface-switcher command.</p><h3 id="kaisen-skeleton" class="section-heading">
-  <a href="#kaisen-skeleton" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>All Kaisen Linux MATE Desktop Environment configurations (themes, icons etc). </p><p>All Kaisen Linux KDE Desktop Environment configurations (themes, icons etc). </p><p>All Kaisen Linux LXQT Desktop Environment configurations (themes, icons etc). </p><p>All Kaisen Linux XFCE Desktop Environment configurations (themes, icons etc). </p><p>The package kaisen-interface-common package installs the kaisen-interface-switcher command and commons packages for all interfaces.</p><h3 id="kaisen-skeleton" class="section-heading">
+  <a href="#kaisen-skeleton" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-skeleton</p>
+  </a>
   kaisen-skeleton
 </h3>
 <p>This allows you to have launchers on the desktop, the conky theme...<br/>This package replaces the old kaisen-*-default-profile packages which installed only the default profile of the related interface.
 This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpages" class="section-heading">
-  <a href="#kaisen-manpages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-manpages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-manpages</p>
+  </a>
   kaisen-manpages
 </h3>
 <p>This package is simply an offline implementation of the entire <a href="https://kaisenlinux.org/manpages/">https://kaisenlinux.org/manpages/</a> domain in order to access the centralized manpages of the tools built into Kaisen Linux without requiring an internet connection.</p><h3 id="kaisen-documentation" class="section-heading">
-  <a href="#kaisen-documentation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-documentation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-documentation</p>
+  </a>
   kaisen-documentation
 </h3>
 <p>This package is simply an offline implementation of the entire <a href="https://kaisenlinux.org/documentation/">https://kaisenlinux.org/documentation/</a> domain in order to access the centralized documentation without requiring an internet connection.</p><h3 id="kaisen-design" class="section-heading">
-  <a href="#kaisen-design" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-design" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-design</p>
+  </a>
   kaisen-design
 </h3>
-<p>This package contains all themes and icons for Kaisen Linux</p><h3 id="veracrypt" class="section-heading">
-  <a href="#veracrypt" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>This package contains all themes and icons for Kaisen Linux</p><h3 id="kaisen-conky" class="section-heading">
+  <a href="#kaisen-conky" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-conky</p>
+  </a>
+  kaisen-conky
+</h3>
+<p>Conky theme for Kaisen Linux</p><h3 id="kaisen-winkey-recovery" class="section-heading">
+  <a href="#kaisen-winkey-recovery" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-winkey-recovery</p>
+  </a>
+  kaisen-winkey-recovery
+</h3>
+<p>Official Kaisen Linux tool to recover OEM Windows key</p><h3 id="veracrypt" class="section-heading">
+  <a href="#veracrypt" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">veracrypt</p>
+  </a>
   veracrypt
 </h3>
 <p>Tool to HDD, SSD and system disks encryption.</p><h3 id="woeusb" class="section-heading">
-  <a href="#woeusb" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#woeusb" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">woeusb</p>
+  </a>
   woeusb
 </h3>
 <p>Tool to create Windows USB bootable key (written in Bash).</p><h3 id="woeusb-ng" class="section-heading">
-  <a href="#woeusb-ng" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#woeusb-ng" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">woeusb-ng</p>
+  </a>
   woeusb-ng
 </h3>
 <p>Tool to create Windows USB bootable key (written in Python)</p><h3 id="gns3-server" class="section-heading">
-  <a href="#gns3-server" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#gns3-server" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gns3-server</p>
+  </a>
   gns3-server
 </h3>
 <p>Tool to network simulator (server package)</p><h3 id="gns3-gui" class="section-heading">
-  <a href="#gns3-gui" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#gns3-gui" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gns3-gui</p>
+  </a>
   gns3-gui
 </h3>
 <p>Tool to network simulator (client package)</p><h3 id="apfs-fuse" class="section-heading">
-  <a href="#apfs-fuse" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apfs-fuse" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apfs-fuse</p>
+  </a>
   apfs-fuse
 </h3>
 <p>FUSE driver for Apple FileSystem</p><h3 id="ubridge" class="section-heading">
-  <a href="#ubridge" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ubridge" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ubridge</p>
+  </a>
   ubridge
 </h3>
 <p>Bridge for UDP tunnels, Ethernet, TAP and VMnet interfaces</p><h3 id="vpcs" class="section-heading">
-  <a href="#vpcs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#vpcs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">vpcs</p>
+  </a>
   vpcs
 </h3>
 <p>Simple Virtual PC Simulator</p><h3 id="dynamips" class="section-heading">
-  <a href="#dynamips" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#dynamips" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">dynamips</p>
+  </a>
   dynamips
 </h3>
 <p>Router emulator for GNS3</p><h3 id="neo4j" class="section-heading">
-  <a href="#neo4j" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#neo4j" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">neo4j</p>
+  </a>
   neo4j
 </h3>
 <p>Graph for everyone</p><h3 id="bettercap" class="section-heading">
-  <a href="#bettercap" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#bettercap" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">bettercap</p>
+  </a>
   bettercap
 </h3>
 <p>Tool to testing the possibility of MITM attacks on Bluetooth, Wi-Fi, Ethernet and more.</p><h3 id="bettercap-caplets" class="section-heading">
-  <a href="#bettercap-caplets" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#bettercap-caplets" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">bettercap-caplets</p>
+  </a>
   bettercap-caplets
 </h3>
 <p>Caplets and proxy modules.</p><h3 id="bettercap-ui" class="section-heading">
-  <a href="#bettercap-ui" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#bettercap-ui" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">bettercap-ui</p>
+  </a>
   bettercap-ui
 </h3>
 <p>Bettercap's web UI</p><h3 id="hfsprescue" class="section-heading">
-  <a href="#hfsprescue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#hfsprescue" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">hfsprescue</p>
+  </a>
   hfsprescue
 </h3>
 <p>Tool specialized in recovering data from HFS + partitions.</p><h3 id="conkycolors" class="section-heading">
-  <a href="#conkycolors" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#conkycolors" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">conkycolors</p>
+  </a>
   conkycolors
 </h3>
 <p>Tool developed with the aim of simplifying the configuration of the Conky theme. Some contributions have been made on the official GitHub repository of the software to facilitate its integration into Kaisen Linux.</p><h3 id="ctop" class="section-heading">
-  <a href="#ctop" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ctop" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ctop</p>
+  </a>
   ctop
 </h3>
 <p>Tool to obtain container metrics (Docker or containerd)</p><h3 id="eksctl" class="section-heading">
-  <a href="#eksctl" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#eksctl" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">eksctl</p>
+  </a>
   eksctl
 </h3>
 <p>The official CLI for Amazon EKS</p><h3 id="gtkhash" class="section-heading">
-  <a href="#gtkhash" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#gtkhash" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gtkhash</p>
+  </a>
   gtkhash
 </h3>
 <p>A cross-platform desktop utility for computing message digests or checksums</p><h3 id="helm" class="section-heading">
-  <a href="#helm" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#helm" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">helm</p>
+  </a>
   helm
 </h3>
 <p>The Kubernetes package manager</p><h3 id="iptstate" class="section-heading">
-  <a href="#iptstate" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#iptstate" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">iptstate</p>
+  </a>
   iptstate
 </h3>
 <p>IP Tables state</p><h3 id="k6" class="section-heading">
-  <a href="#k6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#k6" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">k6</p>
+  </a>
   k6
 </h3>
 <p>A modern load testing tool, using Go and JavaScript</p><h3 id="k9s" class="section-heading">
-  <a href="#k9s" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#k9s" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">k9s</p>
+  </a>
   k9s
 </h3>
 <p>Kubernetes CLI To Manage Your Clusters In Style!</p><h3 id="kubernetes" class="section-heading">
-  <a href="#kubernetes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kubernetes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kubernetes</p>
+  </a>
   kubernetes
 </h3>
 <p>Production-Grade Container Scheduling and Management</p><h3 id="minikube" class="section-heading">
-  <a href="#minikube" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#minikube" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">minikube</p>
+  </a>
   minikube
 </h3>
 <p>Run Kubernetes locally</p><h3 id="psensor" class="section-heading">
-  <a href="#psensor" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#psensor" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">psensor</p>
+  </a>
   psensor
 </h3>
 <p>Graphical hardware temperature monitor for Linux</p><h3 id="terraform" class="section-heading">
-  <a href="#terraform" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#terraform" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">terraform</p>
+  </a>
   terraform
 </h3>
 <p>Infrastructure as code tool to provisioning cloud infrastructures.</p><h3 id="trivy" class="section-heading">
-  <a href="#trivy" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#trivy" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">trivy</p>
+  </a>
   trivy
 </h3>
 <p>Vulnerabilities scanner for containers</p><h3 id="sentry-python" class="section-heading">
-  <a href="#sentry-python" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#sentry-python" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">sentry-python</p>
+  </a>
   sentry-python
 </h3>
 <p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="python-cpuinfo" class="section-heading">
-  <a href="#python-cpuinfo" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#python-cpuinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">python-cpuinfo</p>
+  </a>
   python-cpuinfo
 </h3>
 <p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="pystatgrab" class="section-heading">
-  <a href="#pystatgrab" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#pystatgrab" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">pystatgrab</p>
+  </a>
   pystatgrab
 </h3>
 <p>Packaged tool because is a dependency of certain features offered by Conkycolors.</p><h3 id="python3-getdevinfo" class="section-heading">
-  <a href="#python3-getdevinfo" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#python3-getdevinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">python3-getdevinfo</p>
+  </a>
   python3-getdevinfo
 </h3>
 <p>Repackaged to make it compatible with Kaisen Linux, is a dependency on ddrescue-gui.</p><h3 id="btrbk" class="section-heading">
-  <a href="#btrbk" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#btrbk" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">btrbk</p>
+  </a>
   btrbk
 </h3>
 <p>Repackaged to fix bugs with conffiles, fix path binary on systemd service and update btrbk binary</p><h3 id="sslyze" class="section-heading">
-  <a href="#sslyze" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#sslyze" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">sslyze</p>
+  </a>
   sslyze
 </h3>
 <p>SSL/TLS scanner</p><h3 id="tls-parser" class="section-heading">
-  <a href="#tls-parser" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tls-parser" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tls-parser</p>
+  </a>
   tls-parser
 </h3>
 <p>Packaged because is a dependancy of sslyze</p><h3 id="nassl" class="section-heading">
-  <a href="#nassl" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#nassl" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">nassl</p>
+  </a>
   nassl
 </h3>
 <p>Packaged because is a dependancy of sslyze</p><h3 id="i3-gaps" class="section-heading">
-  <a href="#i3-gaps" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#i3-gaps" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">i3-gaps</p>
+  </a>
   i3-gaps
 </h3>
 <p>i3 fork with more features</p><h3 id="ddrescue" class="section-heading">
-  <a href="#ddrescue" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ddrescue" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ddrescue</p>
+  </a>
   ddrescue
 </h3>
 <p>Data recovery and data protection tool</p><h3 id="apt-btrfs-snapshot" class="section-heading">
-  <a href="#apt-btrfs-snapshot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apt-btrfs-snapshot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apt-btrfs-snapshot</p>
+  </a>
   apt-btrfs-snapshot
 </h3>
-<p>Tool to take snapshot when APT used</p><h3 id="qbittorrent" class="section-heading">
-  <a href="#qbittorrent" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  qbittorrent
-</h3>
-<p>BitTorrent client</p><h3 id="libtorrent-rasterbar" class="section-heading">
-  <a href="#libtorrent-rasterbar" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  libtorrent-rasterbar
-</h3>
-<p>An efficient feature complete C++ bittorrent implementation</p><h3 id="bloodhound" class="section-heading">
-  <a href="#bloodhound" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Tool to take snapshot when APT used</p><h3 id="bloodhound" class="section-heading">
+  <a href="#bloodhound" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">bloodhound</p>
+  </a>
   bloodhound
 </h3>
 <p>Tool to check Active Directory configurations</p><h3 id="ddrescue-gui" class="section-heading">
-  <a href="#ddrescue-gui" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ddrescue-gui" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ddrescue-gui</p>
+  </a>
   ddrescue-gui
 </h3>
-<p>Tool to add a GUI for ddrescue tool</p><h2 id="source-of-packages" class="section-heading">
-  <a href="#source-of-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Tool to add a GUI for ddrescue tool</p><h3 id="tfsec" class="section-heading">
+  <a href="#tfsec" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tfsec</p>
+  </a>
+  tfsec
+</h3>
+<p>Security scanner for your Terraform code</p><h3 id="terragrunt" class="section-heading">
+  <a href="#terragrunt" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">terragrunt</p>
+  </a>
+  terragrunt
+</h3>
+<p>Wrapper for Terraform</p><h3 id="notwireshark" class="section-heading">
+  <a href="#notwireshark" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">notwireshark</p>
+  </a>
+  notwireshark
+</h3>
+<p>A packet analyzer like tshark but developped in python</p><h3 id="kyverno" class="section-heading">
+  <a href="#kyverno" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kyverno</p>
+  </a>
+  kyverno
+</h3>
+<p>Kubernetes Native Policy Management</p><h3 id="vault" class="section-heading">
+  <a href="#vault" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">vault</p>
+  </a>
+  vault
+</h3>
+<p>Hashicorp tool to for secrets management, encryption as a service, and privileged access management</p><h3 id="ssldump" class="section-heading">
+  <a href="#ssldump" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ssldump</p>
+  </a>
+  ssldump
+</h3>
+<p>SSL and TLS analyser</p><h3 id="packer" class="section-heading">
+  <a href="#packer" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">packer</p>
+  </a>
+  packer
+</h3>
+<p>Tool for creating identical machine images for multiple platforms from a single source configuration</p><h3 id="kustomize" class="section-heading">
+  <a href="#kustomize" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kustomize</p>
+  </a>
+  kustomize
+</h3>
+<p>Customization of Kubernetes YAML configurations</p><h3 id="kind" class="section-heading">
+  <a href="#kind" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kind</p>
+  </a>
+  kind
+</h3>
+<p>Kubernetes IN Docker - local clusters for testing Kubernetes</p><h3 id="velero" class="section-heading">
+  <a href="#velero" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">velero</p>
+  </a>
+  velero
+</h3>
+<p>Tool to backup and migrate Kubernetes applications and their persistent volumes</p><h3 id="sslscan" class="section-heading">
+  <a href="#sslscan" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">sslscan</p>
+  </a>
+  sslscan
+</h3>
+<p>SSL/TLS scanner</p><h3 id="rclone" class="section-heading">
+  <a href="#rclone" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">rclone</p>
+  </a>
+  rclone
+</h3>
+<p>Rclone - &quot;rsync for cloud storage&quot;</p><h3 id="popeye" class="section-heading">
+  <a href="#popeye" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">popeye</p>
+  </a>
+  popeye
+</h3>
+<p>A Kubernetes cluster resource sanitizer</p><h3 id="gtkstresstest" class="section-heading">
+  <a href="#gtkstresstest" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gtkstresstest</p>
+  </a>
+  gtkstresstest
+</h3>
+<p>System utility designed to stress and monitor various hardware components</p><h3 id="dupeguru" class="section-heading">
+  <a href="#dupeguru" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">dupeguru</p>
+  </a>
+  dupeguru
+</h3>
+<p>Tool to find duplicate files</p><h3 id="gox" class="section-heading">
+  <a href="#gox" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gox</p>
+  </a>
+  gox
+</h3>
+<p>A dead simple, no frills Go cross compile tool</p><h3 id="wipefreespace" class="section-heading">
+  <a href="#wipefreespace" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">wipefreespace</p>
+  </a>
+  wipefreespace
+</h3>
+<p>WipeFreeSpace is a program which will securely wipe (clean, shred, fill, overwrite) the free space</p><h3 id="jmeter" class="section-heading">
+  <a href="#jmeter" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">jmeter</p>
+  </a>
+  jmeter
+</h3>
+<p>Load testing and performance measurement application</p><h3 id="qt-fsarchiver" class="section-heading">
+  <a href="#qt-fsarchiver" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">qt-fsarchiver</p>
+  </a>
+  qt-fsarchiver
+</h3>
+<p>Program to back up and restore partitions, directories and the MBR/GPT.</p><h3 id="testdisk" class="section-heading">
+  <a href="#testdisk" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">testdisk</p>
+  </a>
+  testdisk
+</h3>
+<p>Partition scanner and disk recovery tool, PhotoRec and qPhotoRec file recovery tools</p><h3 id="kubectx" class="section-heading">
+  <a href="#kubectx" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kubectx</p>
+  </a>
+  kubectx
+</h3>
+<p>Faster way to switch between clusters and namespaces in kubectl</p><h3 id="krew" class="section-heading">
+  <a href="#krew" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">krew</p>
+  </a>
+  krew
+</h3>
+<p>Find and install kubectl plugins</p><h3 id="czkawka" class="section-heading">
+  <a href="#czkawka" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">czkawka</p>
+  </a>
+  czkawka
+</h3>
+<p>Multi functional app to find duplicates, empty folders, similar images etc</p><h3 id="hsaudiotag" class="section-heading">
+  <a href="#hsaudiotag" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">hsaudiotag</p>
+  </a>
+  hsaudiotag
+</h3>
+<p>Pure-python library that reads audio file metadata</p><h3 id="whdd" class="section-heading">
+  <a href="#whdd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">whdd</p>
+  </a>
+  whdd
+</h3>
+<p>HDD diagnostic and data recovery tool for Linux</p><h3 id="fred" class="section-heading">
+  <a href="#fred" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">fred</p>
+  </a>
+  fred
+</h3>
+<p>MicrosoFt Registry EDitor</p><h3 id="stressapptest" class="section-heading">
+  <a href="#stressapptest" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">stressapptest</p>
+  </a>
+  stressapptest
+</h3>
+<p>Stress test application for simulating high load situations</p><h3 id="wxfixboot" class="section-heading">
+  <a href="#wxfixboot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">wxfixboot</p>
+  </a>
+  wxfixboot
+</h3>
+<p>Utility to assist with fixing the bootloader on a computer quickly</p><h2 id="source-of-packages" class="section-heading">
+  <a href="#source-of-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">source-of-packages</p>
+  </a>
   Source of packages
 </h2>
 <p>All the sources of the packages can be found here:</p><p><a href="https://gitlab.com/kaisenlinux/packages">https://gitlab.com/kaisenlinux/packages</a></p>
@@ -462,27 +827,11 @@ Metapackages
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

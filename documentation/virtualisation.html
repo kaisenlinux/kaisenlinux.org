@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Using Virtualisation — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Using Virtualisation — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,48 +60,58 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Virtualisation
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Virtualisation</span>
 </h1>
 
 <p>In a nutshell, here's how to virtualize Kaisen Linux.<br/>We assume here that you know what a hypervisor is, as well as creating a virtual machine.<br/>We recommends use VirtualBox or VMWare Workstation.<br/>The VMWare guests daemon as activated by default when Kaisen Linux is executed with VMWare Workstation.  </p><h2 id="virtualbox" class="section-heading">
-  <a href="#virtualbox" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#virtualbox" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox</p>
+  </a>
   VirtualBox
 </h2>
 <p>You can virtualize Kaisen Linux with VirtualBox hypervisor.<br/>Following this step:</p><h3 id="minimal-configuration" class="section-heading">
-  <a href="#minimal-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#minimal-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">minimal-configuration</p>
+  </a>
   Minimal Configuration
 </h3>
-<pre><code class="makeup bash"><span class="">1)  New virtual machine
+<pre><code class="makeup bash" translate="no"><span class="">1)  New virtual machine
 </span><span class="">2)  Name: Your choice
 </span><span class="">3)  Folder: Your choice
 </span><span class="">4)  Type: Linux
@@ -110,12 +127,14 @@ Virtualisation
 </span><span class="">14) You can use EFI (optional parameter)
 </span><span class="">15) Leave the other default settings (except if you have specific needs)
 </span></code></pre><p>Then start your virtual machine on the ISO.
-After starting the virtual machine, via the menu:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable
+After starting the virtual machine, via the menu:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable
 </span></code></pre><h3 id="recommend-configuration" class="section-heading">
-  <a href="#recommend-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#recommend-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">recommend-configuration</p>
+  </a>
   Recommend configuration
 </h3>
-<pre><code class="makeup bash"><span class="">1)  New virtual machine
+<pre><code class="makeup bash" translate="no"><span class="">1)  New virtual machine
 </span><span class="">2)  Name: Your choice
 </span><span class="">3)  Folder: Your choice
 </span><span class="">4)  Type: Linux
@@ -131,35 +150,43 @@ After starting the virtual machine, via the menu:</p><pre><code class="makeup ba
 </span><span class="">14) You can use EFI (optional parameter)
 </span><span class="">15) Leave the other default settings (except if you have specific needs)
 </span></code></pre><p>Then start your virtual machine on the ISO.
-After starting the virtual machine, via the menu:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable
+After starting the virtual machine, via the menu:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; virtualbox-guest-enable
 </span></code></pre><h3 id="install-guest-additions-from-a-host-system-other-than-kaisen-linux" class="section-heading">
-  <a href="#install-guest-additions-from-a-host-system-other-than-kaisen-linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#install-guest-additions-from-a-host-system-other-than-kaisen-linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">install-guest-additions-from-a-host-system-other-than-kaisen-linux</p>
+  </a>
   Install guest additions from a host system other than Kaisen Linux
 </h3>
-<p>To install the VirtualBox Guest Additions from a host system other than Kaisen Linux, you must use the Guest Additions ISO provided by Oracle which can be downloaded here: <a href="https://download.virtualbox.org/virtualbox/6.1.18/VBoxGuestAdditions_6.1.18.iso">https://download.virtualbox.org/virtualbox/6.1.18/VBoxGuestAdditions_6.1.18.iso</a> (Version 6.1.18 is the latest version as of this writing).
-Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash"><span class="">sudo mkdir /tmp/vboxguests
+<p>To install the VirtualBox Guest Additions from a host system other than Kaisen Linux, you must use the Guest Additions ISO provided by Oracle which can be downloaded here: <a href="https://download.virtualbox.org/virtualbox/6.1.34/VBoxGuestAdditions_6.1.34.iso">https://download.virtualbox.org/virtualbox/6.1.34/VBoxGuestAdditions_6.1.34.iso</a> (Version 6.1.34 is the latest version as of this writing).
+Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir /tmp/vboxguests
 </span><span class="">sudo cp -rf /media/cdrom0/* /tmp/vboxguests
 </span><span class="">sudo /tmp/vboxguests/autorun.sh
 </span></code></pre><p>Let the process complete and follow the given steps.
 Once all this is done, you must restart the VM and you will be able to enjoy the full guest additions installed on the VM!</p><h3 id="install-guest-additions-from-a-kaisen-linux-system-host" class="section-heading">
-  <a href="#install-guest-additions-from-a-kaisen-linux-system-host" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#install-guest-additions-from-a-kaisen-linux-system-host" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">install-guest-additions-from-a-kaisen-linux-system-host</p>
+  </a>
   Install guest additions from a Kaisen Linux system host
 </h3>
 <p>To install the VirtualBox Guest Additions from a Kaisen Linux system host, you can find the ISO of guest additions here: <strong>/usr/share/virtualbox/VBoxGuestAdditions.iso</strong>
-Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash"><span class="">sudo mkdir /tmp/vboxguests
+Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir /tmp/vboxguests
 </span><span class="">sudo cp -rf /media/cdrom0/* /tmp/vboxguests
 </span><span class="">sudo /tmp/vboxguests/autorun.sh
 </span></code></pre><p>Let the process complete and follow the given steps.
 Once all this is done, you must restart the VM and you will be able to enjoy the full guest additions installed on the VM!</p><h2 id="vmware-workstation" class="section-heading">
-  <a href="#vmware-workstation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#vmware-workstation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">vmware-workstation</p>
+  </a>
   VMWare Workstation
 </h2>
 <p>You can virtualize Kaisen Linux with VMWare Workstation hypervisor.
 Following this step:</p><h3 id="minimal-configuration-1" class="section-heading">
-  <a href="#minimal-configuration-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#minimal-configuration-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">minimal-configuration-1</p>
+  </a>
   Minimal configuration
 </h3>
-<pre><code class="makeup bash"><span class="">1)  New Vitual Machine
+<pre><code class="makeup bash" translate="no"><span class="">1)  New Vitual Machine
 </span><span class="">2)  Typical
 </span><span class="">3)  Use ISO image (select your ISO with browse button)
 </span><span class="">4)  Guest Operating System: Debian 10 64 bits
@@ -175,12 +202,14 @@ Following this step:</p><h3 id="minimal-configuration-1" class="section-heading"
 </span><span class="">14) Click in: Finish
 </span><span class="">15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI
 </span></code></pre><p>Then start your virtual machine on the ISO.
-After starting the virtual machine, via the menu:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable
+After starting the virtual machine, via the menu:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable
 </span></code></pre><h3 id="recommend-configuration-1" class="section-heading">
-  <a href="#recommend-configuration-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#recommend-configuration-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">recommend-configuration-1</p>
+  </a>
   Recommend configuration
 </h3>
-<pre><code class="makeup bash"><span class="">1)  New Vitual Machine
+<pre><code class="makeup bash" translate="no"><span class="">1)  New Vitual Machine
 </span><span class="">2)  Typical
 </span><span class="">3)  Use ISO image (select your ISO with browse button)
 </span><span class="">4)  Guest Operating System: Debian 10 64 bits
@@ -196,23 +225,29 @@ After starting the virtual machine, via the menu:</p><pre><code class="makeup ba
 </span><span class="">14) Click in: Finish
 </span><span class="">15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI
 </span></code></pre><p>Then start your virtual machine on the ISO.
-After starting the virtual machine, via the menu:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable
+After starting the virtual machine, via the menu:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; vmware-guest-enable
 </span></code></pre><h2 id="informations-for-qemu-kvm" class="section-heading">
-  <a href="#informations-for-qemu-kvm" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#informations-for-qemu-kvm" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">informations-for-qemu-kvm</p>
+  </a>
   Informations for QEMU/KVM
 </h2>
 <h3 id="tools-and-daemons" class="section-heading">
-  <a href="#tools-and-daemons" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tools-and-daemons" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tools-and-daemons</p>
+  </a>
   Tools and daemons
 </h3>
 <p>To facilitate the creation of a virtualized virtual machine with QEMU/KVM, all virtual machines can be created through virt-manager. Full support for different agents like QEMU agent, SPICE, are integrated by default but disabled.<br/>SPICE agents allow you to activate the shared clipboard, put the virtual machine in full screen when viewing it via the console. This is the equivalent of the virtualbox and vmware agents.<br/>SPICE agents are managed by a systemd service.<br/>The integrated services are named <strong>spice-vdagent</strong> as well as <strong>spice-webdavd</strong>.
 The <strong>spice-vdagent</strong> daemon allows you to enable copy and paste as well as to adjust the resolution of the virtual machine screen in relation to the resolution of the host. This daemon is useful for guest guests (using a graphical interface).<br/>The <strong>spice-webdavd</strong> daemon is used to support file sharing between the host and the virtual machine.  </p><h3 id="daemons-gestion" class="section-heading">
-  <a href="#daemons-gestion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#daemons-gestion" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">daemons-gestion</p>
+  </a>
   Daemons gestion
 </h3>
-<p>The spice-webdavd daemon can be easily enabled and disabled here:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-webdavd-enable
+<p>The spice-webdavd daemon can be easily enabled and disabled here:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-webdavd-enable
 </span><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-webdavd-disable
-</span></code></pre><p>The spice-vdagent daemon can be easily enabled and disabled here:</p><pre><code class="makeup bash"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-vdagent-enable
+</span></code></pre><p>The spice-vdagent daemon can be easily enabled and disabled here:</p><pre><code class="makeup bash" translate="no"><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-vdagent-enable
 </span><span class="">Kaisen Linux =&gt; Services =&gt; Virtualization =&gt; spice-vdagent-disable
 </span></code></pre><p><strong>Warning:</strong>
 After the activation of the spice-vdagent daemon on your virtual machine, you need to make the SPICE window full screen and manually run the &quot;spice-vdagent&quot; command and then disconnect your graphical session to make the virtual machine fully full screen.</p>
@@ -246,27 +281,11 @@ Menu and Tools overview
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Kaisen Linux repositories — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Kaisen Linux repositories — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,67 +60,87 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Kaisen Linux repositories
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Kaisen Linux repositories</span>
 </h1>
 
-<ul><li>Default <code class="inline">sources.list</code> in <code class="inline">/etc/apt/</code> :</li></ul><pre><code class="makeup bash"><span class="">deb https://deb.kaisenlinux.org kaisen-rolling main contrib non-free
+<ul><li>Default <code class="inline">sources.list</code> in <code class="inline">/etc/apt/</code> :</li></ul><pre><code class="makeup bash" translate="no"><span class="">deb https://deb.kaisenlinux.org kaisen-rolling main contrib non-free
 </span><span class="">#deb-src https://deb.kaisenlinux.org kaisen-rolling main contrib non-free
 </span></code></pre><h2 id="referential-lists" class="section-heading">
-  <a href="#referential-lists" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#referential-lists" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">referential-lists</p>
+  </a>
   Referential lists
 </h2>
 <h3 id="kaisen-rolling" class="section-heading">
-  <a href="#kaisen-rolling" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-rolling" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-rolling</p>
+  </a>
   kaisen-rolling
 </h3>
 <p>This repository is the official Kaisen Linux repository. It is updated directly from the Debian testing repository continuously, the mirror is updated every 6 hours.<br/>It is the default repository contained in live images as well as on the installed system.</p><h3 id="kaisen-devel" class="section-heading">
-  <a href="#kaisen-devel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-devel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-devel</p>
+  </a>
   kaisen-devel
 </h3>
 <p>It is a repository used for the development environment, it references developed/forks packages for distribution as well as integrated packages from another source such as Anydesk and TeamViewer for example.<br/>During rolling repository updates, all the packages in this repository are &quot;pull&quot; on kaisen-rolling to restore them after their removal due to the update of the repository.<br/>It is also used as stock when the updated packages are ready to go into production (kaisen-rolling).</p><h3 id="kaisen-packages" class="section-heading">
-  <a href="#kaisen-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-packages</p>
+  </a>
   kaisen-packages
 </h3>
 <p>This repository simply stores forked/developed packages for Kaisen Linux. It is mainly used as a backup of kaisen-devel. It also serves as an environment for testing new versions of packages before pushing packages to kaisen-devel which will push these new packages to kaisen-rolling itself.<br/>CAUTION: Installing packages from this repository can break certain parts of your system or even make it unstable or even unusable. Only use it if you know what you are doing.</p><h3 id="kaisen-testing" class="section-heading">
-  <a href="#kaisen-testing" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-testing" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-testing</p>
+  </a>
   kaisen-testing
 </h3>
 <p>This repository is used during the development of new packages or experimental testing of some bundles (sometimes not often push to kaisen-rolling).<br/>CAUTION: Installing packages from this repository can break certain parts of your system or even make it unstable or even unusable. Only use it if you know what you are doing.  </p><h3 id="kaisen-rolling-snapshot" class="section-heading">
-  <a href="#kaisen-rolling-snapshot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-rolling-snapshot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-rolling-snapshot</p>
+  </a>
   kaisen-rolling-snapshot
 </h3>
 <p>This repository is a snapshot of the last official revision of the project. This keeps the packages preinstalled on Kaisen Linux which can be uninstalled on Debian.</p><h2 id="which-repository-to-use" class="section-heading">
-  <a href="#which-repository-to-use" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#which-repository-to-use" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">which-repository-to-use</p>
+  </a>
   Which repository to use
 </h2>
 <p>You can use them all. However, if you are new to GNU / Linux, avoid the kaisen-testing repository, repairing your system can be complicated in case of problems.</p>
@@ -147,27 +174,11 @@ Kaisen Linux updates
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>
