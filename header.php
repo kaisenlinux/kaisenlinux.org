@@ -77,16 +77,21 @@
     </div>
     <div class="nav-menus-wrapper">
       <ul class="nav-menu align-to-right">
-        
+
         <li><a href="https://kaisenlinux.org">Home</a></li>
         <li><a href="https://kaisenlinux.org/downloads">Downloads</a></li>
         <li><a href="https://kaisenlinux.org/blog/">Blog</a></li>
-        <li><a href="https://kaisenlinux.org/documentation/">Documentation</a></li>
-        <li><a href="https://kaisenlinux.org/manpages/">Manpages</a></li>
-        <li><a href="#">Community</a>
 
+	<li><a href="#">Documentations</a>
+		<ul class="nav-dropdown">
+        <li><a href="https://kaisenlinux.org/documentation/">Users documentation</a></li>
+        <li><a href="https://kaisenlinux.org/manpages/">Tools documentation</a></li>
+		</ul>
+	</li>
+
+        <li><a href="#">Community</a>
         	<ul class="nav-dropdown">
-          
+
           	<li><a href="https://forum.kaisenlinux.org" target="_blank">Forum</a></li>
           	<li><a href="https://gitlab.com/kaisenlinux" target="_blank">Gitlab</a></li>
           	<li><a href="https://github.com/kaisenlinux" target="_blank">Github (Gitlab mirror)</a></li>
@@ -95,25 +100,17 @@
 		<li><a href="https://mastodon.social/@KaisenLinux" target="_blank">Mastodon</a></li>
 		<li><a href="https://t.me/KaisenLinux" target="_blank">Telegram</a></li>
 		<li><a href="https://ko-fi.com/kaisenlinux" target="_blank">Ko-Fi (donations)</a></li>
-            
           </ul>
-
 	      </li>
 
         <li>
-
           <a href="#">About</a>
-          
           <ul class="nav-dropdown">
-
             <li><a href="https://kaisenlinux.org/team">Team</a></li>
             <li><a href="https://kaisenlinux.org/contributors">Contributors</a></li>
             <li><a href="https://kaisenlinux.org/partners">Partners</a></li>
-
           </ul>
-
         </li>
-
       </ul>
 
     </div>
