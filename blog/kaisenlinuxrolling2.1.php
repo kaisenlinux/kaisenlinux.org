@@ -42,6 +42,8 @@ The purpose of this tool is to recover this key for reinstalling Windows. Kaisen
 <p>The menu services scripts are now located in /usr/share instead of /opt.</p></br>
 <p>The HTML pages of the offline documentation and the offline manpages are now in /usr/share instead of /opt.</p></br>
 <p>Improved default profiles such as uniform fonts, terminal themes...</p></br>
+<p>The installer no longer displays a message when automatic partitioning is executed and does not create a swap partition.</p></br>
+<p>
 <p>This new release on live versions also fixes CVE-2021-3560 (Polkit) and CVE-2022-0492 (Linux Cgroups).</p></br></br>
 
 <p>Kaisen Linux also comes with several new tools for sysadmins, cloud engineers, technicians, various tools...</p></br>
