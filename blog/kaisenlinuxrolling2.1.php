@@ -142,6 +142,7 @@ The purpose of this tool is to recover this key for reinstalling Windows. Kaisen
     <li>GTKhash is now in version 1.4</li>
 </p></br></br>
 
+<p>If you want to find the old wallpapers, you can find them here : <a href="https://gitlab.com/kaisenlinux/graphisme/backgrounds/-/tree/master/desktop" target="_blank">Old 1.x wallpaper</a>.</p>
 
 <p>We wanted to make this release as close as possible to your expectations in terms of the changes we have made to the design, and we thank you for that!
 So we softened the graphic charter on the red color, less present by default and we don't install Conky by default anymore (but reinstallable if needed thanks to the kaisen-conky package).</br>
