@@ -118,7 +118,7 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '423Mo',
+			'size' => '409Mo',
 
 			'links' => [
 				[
