@@ -12,7 +12,7 @@
           <li class="list-inline-item">Author: Kevin Chevreuil - Kaisen</li>
           <li class="list-inline-item">Date: 2020/04/03</li>
         </ul>
-        <img class="img-fluid mb-50" src="../img/screen.png" alt="blog-image">
+        <img class="img-fluid mb-50" src="../img/blog/screensr.png" alt="blog-image">
       </div>
       <div class="col-lg-8 offset-lg-2">
         <div class="post-single-content">

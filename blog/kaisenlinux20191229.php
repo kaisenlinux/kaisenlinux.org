@@ -10,12 +10,12 @@
           <li class="list-inline-item">Author: Kevin Chevreuil - Kaisen</li>
           <li class="list-inline-item">Date: 2020/04/03</li>
         </ul>
-        <img class="img-fluid mb-50" src="../img/screen.png" alt="blog-image">
+        <img class="img-fluid mb-50" src="../img/blog/screensr.png" alt="blog-image">
       </div>
       <div class="col-lg-8 offset-lg-2">
         <div class="post-single-content">
           <h1 id="kaisenlinux20191229">Kaisen Linux 20191229 changelog</h1>
-<p>This version is the first version was the first version to be posted on the Kaisen Linux website.</p>
+<p>This version is the first version was the first version to be posted on the Kaisen Linux website. Amelioration of the 20191219 release.</p>
 <p>This new release is revision at 20191213 release. GUI reworked. Adding tools and features.</p>
 <p>Added softwares and hardware support:</p>
 <ul>
