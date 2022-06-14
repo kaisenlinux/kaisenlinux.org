@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Metapackages — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Metapackages — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,51 +60,62 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Metapackages
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Metapackages</span>
 </h1>
 
 <p><strong>This section presents the different metapackages created to install several packages via one.</strong></p><h2 id="kaisen-linux-metapackages-for-tools" class="section-heading">
-  <a href="#kaisen-linux-metapackages-for-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-linux-metapackages-for-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux-metapackages-for-tools</p>
+  </a>
   Kaisen Linux metapackages for tools
 </h2>
 <h3 id="kaisen-technicians-tools" class="section-heading">
-  <a href="#kaisen-technicians-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-technicians-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-technicians-tools</p>
+  </a>
   kaisen-technicians-tools
 </h3>
-<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash"><span class="">* kaisen-cloning
+<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash" translate="no"><span class="">* kaisen-cloning
 </span><span class="">* kaisen-data-protection
 </span><span class="">* kaisen-data-recovery
 </span><span class="">* kaisen-disks-analysis
+</span><span class="">* kaisen-duplicates-files
 </span><span class="">* kaisen-hardware
 </span><span class="">* kaisen-partitioning-erase
 </span><span class="">* kaisen-password-tools
@@ -107,10 +125,12 @@ Metapackages
 </span><span class="">* kaisen-various-analysis
 </span><span class="">* kaisen-virus-analysis
 </span></code></pre><h3 id="kaisen-network-tools" class="section-heading">
-  <a href="#kaisen-network-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-network-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-network-tools</p>
+  </a>
   kaisen-network-tools
 </h3>
-<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash"><span class="">* kaisen-network-uncategorized
+<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash" translate="no"><span class="">* kaisen-network-uncategorized
 </span><span class="">* kaisen-ethernet-tools
 </span><span class="">* kaisen-gns3
 </span><span class="">* kaisen-layer4-tools
@@ -123,10 +143,12 @@ Metapackages
 </span><span class="">* kaisen-vpn-tools
 </span><span class="">* kaisen-wifi-tools
 </span></code></pre><h3 id="kaisen-sysadmin-tools" class="section-heading">
-  <a href="#kaisen-sysadmin-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-sysadmin-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-sysadmin-tools</p>
+  </a>
   kaisen-sysadmin-tools
 </h3>
-<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash"><span class="">* kaisen-sysadmin-uncategorized
+<p>This metapackage installs the following Kaisen Linux metapackages:</p><pre><code class="makeup bash" translate="no"><span class="">* kaisen-sysadmin-uncategorized
 </span><span class="">* kaisen-remote-administration
 </span><span class="">* kaisen-backup-tools
 </span><span class="">* kaisen-ftp-clients
@@ -139,191 +161,297 @@ Metapackages
 </span><span class="">* kaisen-microsoft-tools
 </span><span class="">* kaisen-virtualization-tools
 </span></code></pre><h3 id="kaisen-disks-analysis" class="section-heading">
-  <a href="#kaisen-disks-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-disks-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-disks-analysis</p>
+  </a>
   kaisen-disks-analysis
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#disks-analysis">here</a>.</p><h3 id="kaisen-virus-analysis" class="section-heading">
-  <a href="#kaisen-virus-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-virus-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-virus-analysis</p>
+  </a>
   kaisen-virus-analysis
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#virus-analysis">here</a>.</p><h3 id="kaisen-cloning" class="section-heading">
-  <a href="#kaisen-cloning" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-cloning" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-cloning</p>
+  </a>
   kaisen-cloning
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#cloning">here</a>.</p><h3 id="kaisen-usb-boot" class="section-heading">
-  <a href="#kaisen-usb-boot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-usb-boot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-usb-boot</p>
+  </a>
   kaisen-usb-boot
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#usb-boot">here</a>.</p><h3 id="kaisen-hardware" class="section-heading">
-  <a href="#kaisen-hardware" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-hardware" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-hardware</p>
+  </a>
   kaisen-hardware
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#hardware">here</a>.</p><h3 id="kaisen-pst-tools" class="section-heading">
-  <a href="#kaisen-pst-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-pst-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-pst-tools</p>
+  </a>
   kaisen-pst-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#outlook-pst">here</a>.</p><h3 id="kaisen-password-tools" class="section-heading">
-  <a href="#kaisen-password-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-password-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-password-tools</p>
+  </a>
   kaisen-password-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#password-tools">here</a>.</p><h3 id="kaisen-partitioning-erase" class="section-heading">
-  <a href="#kaisen-partitioning-erase" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-partitioning-erase" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-partitioning-erase</p>
+  </a>
   kaisen-partitioning-erase
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#partitioning-and-delete-tools">here</a>.</p><h3 id="kaisen-data-protection" class="section-heading">
-  <a href="#kaisen-data-protection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-data-protection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-data-protection</p>
+  </a>
   kaisen-data-protection
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#data-protection">here</a>.</p><h3 id="kaisen-data-recovery" class="section-heading">
-  <a href="#kaisen-data-recovery" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-data-recovery" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-data-recovery</p>
+  </a>
   kaisen-data-recovery
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#data-recovery">here</a>.</p><h3 id="kaisen-temperature-analysis" class="section-heading">
-  <a href="#kaisen-temperature-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-temperature-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-temperature-analysis</p>
+  </a>
   kaisen-temperature-analysis
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#temperature-analysis">here</a>.</p><h3 id="kaisen-network-uncategorized" class="section-heading">
-  <a href="#kaisen-network-uncategorized" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-network-uncategorized" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-network-uncategorized</p>
+  </a>
   kaisen-network-uncategorized
 </h3>
-<p>This metapackage install all tools listed <a href="tools.html#various-network-administrators-tools">here</a>.</p><h3 id="kaisen-dhcp-tools" class="section-heading">
-  <a href="#kaisen-dhcp-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>This metapackage install all tools listed <a href="tools.html#various-network-administrators-tools">here</a>.</p><h3 id="kaisen-duplicates-files" class="section-heading">
+  <a href="#kaisen-duplicates-files" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-duplicates-files</p>
+  </a>
+  kaisen-duplicates-files
+</h3>
+<p>This metapackage install all tools listed <a href="tools.html#duplicates-files">here</a>.</p><h3 id="kaisen-dhcp-tools" class="section-heading">
+  <a href="#kaisen-dhcp-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-dhcp-tools</p>
+  </a>
   kaisen-dhcp-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#dhcp">here</a>.</p><h3 id="kaisen-dns-tools" class="section-heading">
-  <a href="#kaisen-dns-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-dns-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-dns-tools</p>
+  </a>
   kaisen-dns-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#dns">here</a>.</p><h3 id="kaisen-ethernet-tools" class="section-heading">
-  <a href="#kaisen-ethernet-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-ethernet-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-ethernet-tools</p>
+  </a>
   kaisen-ethernet-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#ethernet">here</a>.</p><h3 id="kaisen-gns3" class="section-heading">
-  <a href="#kaisen-gns3" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-gns3" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-gns3</p>
+  </a>
   kaisen-gns3
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#gns3">here</a>.</p><h3 id="kaisen-layer4-tools" class="section-heading">
-  <a href="#kaisen-layer4-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-layer4-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-layer4-tools</p>
+  </a>
   kaisen-layer4-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#tcp-udp">here</a>.</p><h3 id="kaisen-layer3-tools" class="section-heading">
-  <a href="#kaisen-layer3-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-layer3-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-layer3-tools</p>
+  </a>
   kaisen-layer3-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#ip">here</a>.</p><h3 id="kaisen-layer2-tools" class="section-heading">
-  <a href="#kaisen-layer2-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-layer2-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-layer2-tools</p>
+  </a>
   kaisen-layer2-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#mac">here</a>.</p><h3 id="kaisen-network-monitoring" class="section-heading">
-  <a href="#kaisen-network-monitoring" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-network-monitoring" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-network-monitoring</p>
+  </a>
   kaisen-network-monitoring
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#monitoring">here</a>.</p><h3 id="kaisen-pcap-tools" class="section-heading">
-  <a href="#kaisen-pcap-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-pcap-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-pcap-tools</p>
+  </a>
   kaisen-pcap-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#pcap">here</a>.</p><h3 id="kaisen-portconsole-tools" class="section-heading">
-  <a href="#kaisen-portconsole-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-portconsole-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-portconsole-tools</p>
+  </a>
   kaisen-portconsole-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#console-port">here</a>.</p><h3 id="kaisen-network-scanners" class="section-heading">
-  <a href="#kaisen-network-scanners" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-network-scanners" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-network-scanners</p>
+  </a>
   kaisen-network-scanners
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#network-scanners">here</a>.</p><h3 id="kaisen-tls-tools" class="section-heading">
-  <a href="#kaisen-tls-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-tls-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-tls-tools</p>
+  </a>
   kaisen-tls-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#ssl-tls">here</a>.</p><h3 id="kaisen-vpn-tools" class="section-heading">
-  <a href="#kaisen-vpn-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-vpn-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-vpn-tools</p>
+  </a>
   kaisen-vpn-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#vpn">here</a>.</p><h3 id="kaisen-wifi-tools" class="section-heading">
-  <a href="#kaisen-wifi-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-wifi-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-wifi-tools</p>
+  </a>
   kaisen-wifi-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#wi-fi">here</a>.</p><h3 id="kaisen-sysadmin-uncategorized" class="section-heading">
-  <a href="#kaisen-sysadmin-uncategorized" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-sysadmin-uncategorized" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-sysadmin-uncategorized</p>
+  </a>
   kaisen-sysadmin-uncategorized
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#various-system-administrators-tools">here</a>.</p><h3 id="kaisen-remote-administration" class="section-heading">
-  <a href="#kaisen-remote-administration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-remote-administration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-remote-administration</p>
+  </a>
   kaisen-remote-administration
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#remote-administration">here</a>.</p><h3 id="kaisen-backup-tools" class="section-heading">
-  <a href="#kaisen-backup-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-backup-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-backup-tools</p>
+  </a>
   kaisen-backup-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#backup-tools">here</a>.</p><h3 id="kaisen-ftp-clients" class="section-heading">
-  <a href="#kaisen-ftp-clients" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-ftp-clients" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-ftp-clients</p>
+  </a>
   kaisen-ftp-clients
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#ftp">here</a>.</p><h3 id="kaisen-btrfs-snapshots" class="section-heading">
-  <a href="#kaisen-btrfs-snapshots" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-btrfs-snapshots" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-btrfs-snapshots</p>
+  </a>
   kaisen-btrfs-snapshots
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#system-snapshots">here</a>.</p><h3 id="kaisen-microsoft-tools" class="section-heading">
-  <a href="#kaisen-microsoft-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-microsoft-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-microsoft-tools</p>
+  </a>
   kaisen-microsoft-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#microsoft">here</a>.</p><h3 id="kaisen-virtualization-tools" class="section-heading">
-  <a href="#kaisen-virtualization-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-virtualization-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-virtualization-tools</p>
+  </a>
   kaisen-virtualization-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#virtualization">here</a>.</p><h3 id="kaisen-apparmor" class="section-heading">
-  <a href="#kaisen-apparmor" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-apparmor" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-apparmor</p>
+  </a>
   kaisen-apparmor
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#apparmor-tools-and-profiles">here</a>.</p><h3 id="kaisen-firewalling" class="section-heading">
-  <a href="#kaisen-firewalling" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-firewalling" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-firewalling</p>
+  </a>
   kaisen-firewalling
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#firewalling">here</a>.</p><h3 id="kaisen-databases-tools" class="section-heading">
-  <a href="#kaisen-databases-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-databases-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-databases-tools</p>
+  </a>
   kaisen-databases-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#databases-clients">here</a>.</p><h3 id="kaisen-sysops-tools" class="section-heading">
-  <a href="#kaisen-sysops-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-sysops-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-sysops-tools</p>
+  </a>
   kaisen-sysops-tools
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#devops-and-cloud">here</a>.</p><h3 id="kaisen-firmwares" class="section-heading">
-  <a href="#kaisen-firmwares" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-firmwares" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-firmwares</p>
+  </a>
   kaisen-firmwares
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#integrated-firmwares">here</a>.</p><h3 id="kaisen-filesystems" class="section-heading">
-  <a href="#kaisen-filesystems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-filesystems" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-filesystems</p>
+  </a>
   kaisen-filesystems
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#filesystems-tools">here</a>.</p><h3 id="kaisen-miscellaneous" class="section-heading">
-  <a href="#kaisen-miscellaneous" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-miscellaneous" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-miscellaneous</p>
+  </a>
   kaisen-miscellaneous
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#miscellaneous-tools">here</a>.</p><h2 id="kaisen-linux-metapackages-for-graphical-interfaces" class="section-heading">
-  <a href="#kaisen-linux-metapackages-for-graphical-interfaces" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-linux-metapackages-for-graphical-interfaces" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux-metapackages-for-graphical-interfaces</p>
+  </a>
   Kaisen Linux metapackages for graphical interfaces
 </h2>
 <h3 id="kaisen-kde" class="section-heading">
-  <a href="#kaisen-kde" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-kde" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-kde</p>
+  </a>
   kaisen-kde
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#kde">here</a>.</p><h3 id="kaisen-lxqt" class="section-heading">
-  <a href="#kaisen-lxqt" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-lxqt" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-lxqt</p>
+  </a>
   kaisen-lxqt
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#lxqt">here</a>.</p><h3 id="kaisen-mate" class="section-heading">
-  <a href="#kaisen-mate" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-mate" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-mate</p>
+  </a>
   kaisen-mate
 </h3>
 <p>This metapackage install all tools listed <a href="tools.html#mate">here</a>.</p><h3 id="kaisen-xfce" class="section-heading">
-  <a href="#kaisen-xfce" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-xfce" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-xfce</p>
+  </a>
   kaisen-xfce
 </h3>
-<p>This metapackage install all tools listed <a href="tools.html#xfce">here</a>.</p><h2 id="remove-packages-installed-by-metapackages" class="section-heading">
-  <a href="#remove-packages-installed-by-metapackages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>This metapackage install all tools listed <a href="tools.html#xfce">here</a>.</p><h3 id="kaisen-interfaces-common" class="section-heading">
+  <a href="#kaisen-interfaces-common" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-interfaces-common</p>
+  </a>
+  kaisen-interfaces-common
+</h3>
+<p>This metapackage install all tools listed <a href="tools.html#interfaces-common">here</a>.</p><h2 id="remove-packages-installed-by-metapackages" class="section-heading">
+  <a href="#remove-packages-installed-by-metapackages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">remove-packages-installed-by-metapackages</p>
+  </a>
   Remove packages installed by metapackages
 </h2>
 <p>All the packages installed by the metapackages listed above are configured so as not to be dependent on each other to install and can therefore be uninstalled manually without risk of breaking anything (tightly, the packages dependent on the package that is uninstalled will also be uninstalled).<br/>To easily uninstall a preinstalled package, for example ddrescue package, just type the command:<br/><code class="inline">sudo apt remove --purge ddrescue</code></p><h2 id="source-of-packages" class="section-heading">
-  <a href="#source-of-packages" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#source-of-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">source-of-packages</p>
+  </a>
   Source of packages
 </h2>
 <p>All the sources of the packages managed by us can be found :</p><p><a href="https://gitlab.com/kaisenlinux/packages">https://gitlab.com/kaisenlinux/packages</a></p>
@@ -357,27 +485,11 @@ Kaisen Linux licence
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

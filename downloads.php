@@ -70,13 +70,23 @@
            <div class="legend"><p>KDE filesystems menu</p></div>
         </div>
 
-        <div href="./img/interfaces/kaisen-linux_mate_zsh_systemd.png" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_mate_zsh_systemd.png" alt="kaisen linux with ZSH completion for systemd">
+        <div href="./img/interfaces/kaisen-linux_kde_cloud_menu.png" target="_blank" class="swiper-slide">
+          <img src="./img/interfaces/kaisen-linux_kde_cloud_menu.png" alt="kaisen linux KDE with cloud menu">
+           <div class="legend"><p>KDE cloud menu</p></div>
+        </div>
+
+        <div href="./img/interfaces/kaisen-linux_kde_with_kaisen-conky_package.png" target="_blank" class="swiper-slide">
+          <img src="./img/interfaces/kaisen-linux_kde_with_kaisen-conky_package.png" alt="kaisen linux KDE with kaisen-conky">
+           <div class="legend"><p>KDE with the kaisen-conky package installed</p></div>
+        </div>
+
+        <div href="./img/interfaces/kaisen-linux_kde_zsh_systemd.png" target="_blank" class="swiper-slide">
+          <img src="./img/interfaces/kaisen-linux_kde_zsh_systemd.png" alt="kaisen linux with ZSH completion for systemd">
            <div class="legend"><p>Use ZSH completion for SystemD</p></div>
         </div>
 
-        <div href="./img/interfaces/kaisen-linux_mate_zsh_apt.png" target="_blank" class="swiper-slide">
-          <img src="./img/interfaces/kaisen-linux_mate_zsh_apt.png" alt="kaisen linux zsh completion for APT">
+        <div href="./img/interfaces/kaisen-linux_kde_zsh_apt.png" target="_blank" class="swiper-slide">
+          <img src="./img/interfaces/kaisen-linux_kde_zsh_apt.png" alt="kaisen linux zsh completion for APT">
            <div class="legend"><p>Use ZSH completion for APT</p></div>
         </div>
 
@@ -103,8 +113,8 @@
           Live credentials: <span>kaisen/kaisen</span><br>
           Old versions: <a href="https://iso.kaisenlinux.org" target="_blank">here</a><br>
           All checksums <a href="https://kaisenlinux.org/checksums.txt" target="_blank">here</a><br>
-          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling2.0.php" target="_blank">here</a><br>
-          ISO in testing: <a href="https://iso.kaisenlinux.org/testing" target="_blank">here</a><br>
+          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling2.1.php" target="_blank">here</a><br>
+         <!-- ISO in testing: <a href="https://iso.kaisenlinux.org/testing" target="_blank">here</a><br> -->
           </div>
         <div class="section-heading-line-left"></div>
       </div>

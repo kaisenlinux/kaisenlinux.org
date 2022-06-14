@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
+
+    <title>ZSH — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>ZSH</span>
+</h1>
+
+<h2 id="zsh-on-kaisen-linux" class="section-heading">
+  <a href="#zsh-on-kaisen-linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">zsh-on-kaisen-linux</p>
+  </a>
+  ZSH on Kaisen Linux
+</h2>
+<p>On Kaisen Linux, ZSH is preinstalled by default with the oh-my-zsh framework. This allows for improved completion, many plugins and so much more!</p><h2 id="use-zsh-for-simple-user" class="section-heading">
+  <a href="#use-zsh-for-simple-user" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">use-zsh-for-simple-user</p>
+  </a>
+  Use ZSH for simple user
+</h2>
+<p>Kaisen Linux's default terminal is Bash. Bash is suitable for the majority of users and it is for this reason that it has become the default terminal since Kaisen 2.1.<br/>You are only one user and you only have one account installed, use the following command (as your user and not as root):  </p><pre><code class="makeup bash" translate="no"><span class="">chsh -s /bin/zsh
+</span></code></pre><p>The next time you reconnect to your session, you will be back in ZSH.</p><h2 id="multiple-user-method" class="section-heading">
+  <a href="#multiple-user-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">multiple-user-method</p>
+  </a>
+  Multiple user method
+</h2>
+<h3 id="useradd-command" class="section-heading">
+  <a href="#useradd-command" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">useradd-command</p>
+  </a>
+  Useradd command
+</h3>
+<p>Type this when adding a user with the useradd command to give them the ZSH shell by default:</p><pre><code class="makeup bash" translate="no"><span class="">sudo useradd -s /bin/zsh user
+</span></code></pre><h3 id="modify-useradd-configuration" class="section-heading">
+  <a href="#modify-useradd-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">modify-useradd-configuration</p>
+  </a>
+  Modify useradd configuration
+</h3>
+<p>In the file <code class="inline">/etc/default/useradd</code>, change the following line:</p><pre><code class="makeup bash" translate="no"><span class="">SHELL=/bin/bash
+</span></code></pre><p>In:</p><pre><code class="makeup bash" translate="no"><span class="">SHELL=/bin/zsh
+</span></code></pre><p>After that, with the useradd command the bash shell will be set by default, and you will no longer need to specify -s option.<br/>When updating the shadow package, select the option &quot;N&quot; or &quot;O&quot; to keep your configurations.</p><h3 id="adduser-command" class="section-heading">
+  <a href="#adduser-command" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">adduser-command</p>
+  </a>
+  Adduser command
+</h3>
+<p>Type this when adding a user with the adduser command to give them the bash shell by default:</p><pre><code class="makeup bash" translate="no"><span class="">sudo adduser --shell /bin/zsh user
+</span></code></pre><h3 id="modify-adduser-configuration" class="section-heading">
+  <a href="#modify-adduser-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">modify-adduser-configuration</p>
+  </a>
+  Modify adduser configuration
+</h3>
+<p>In the file <code class="inline">/etc/adduser.conf</code>, change the following line:</p><pre><code class="makeup bash" translate="no"><span class="">DSHELL=/bin/bash
+</span></code></pre><p>In:</p><pre><code class="makeup bash" translate="no"><span class="">DSHELL=/bin/zsh
+</span></code></pre><p>After that, with the adduser command the bash shell will be set by default, and you will no longer need to specify --shell option.
+When updating the adduser package, select the option &quot;N&quot; or &quot;O&quot; to keep your configurations.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="kaisen-conky.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Kaisen Conky
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Cryptsetup nuke password
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

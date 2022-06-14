@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Official Kaisen Linux links — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Official Kaisen Linux links — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,52 +60,64 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Official Kaisen Linux links
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Official Kaisen Linux links</span>
 </h1>
 
 <p>This section lists all existing official links for the project.<br/><strong>If other links exist but are not referenced here, consider that they are not official.</strong></p><h2 id="official-domains" class="section-heading">
-  <a href="#official-domains" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#official-domains" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">official-domains</p>
+  </a>
   Official domains
 </h2>
 <ul><li>Website: <a href="https://kaisenlinux.org">https://kaisenlinux.org</a>  </li><li>Blog: <a href="https://kaisenlinux.org/blog/">https://kaisenlinux.org/blog/</a>  </li><li>Documentation: <a href="https://kaisenlinux.org/documentation/">https://kaisenlinux.org/documentation/</a>  </li><li>Manpages: <a href="https://kaisenlinux.org/manpages/">https://kaisenlinux.org/manpages/</a>  </li></ul><h2 id="officials-iso-downloads-mirrors" class="section-heading">
-  <a href="#officials-iso-downloads-mirrors" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#officials-iso-downloads-mirrors" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">officials-iso-downloads-mirrors</p>
+  </a>
   Officials ISO downloads mirrors
 </h2>
 <ul><li>Official mirror: <a href="https://iso.kaisenlinux.org">https://iso.kaisenlinux.org</a></li><li>Alternative mirror: <a href="https://iso.kaisenlinux.xyz">https://iso.kaisenlinux.xyz</a></li></ul><h2 id="apt-repositories" class="section-heading">
-  <a href="#apt-repositories" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apt-repositories" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apt-repositories</p>
+  </a>
   APT repositories
 </h2>
-<pre><code class="makeup bash"><span class="">deb https://deb.kaisenlinux.org kaisen-rolling main contrib non-free
+<pre><code class="makeup bash" translate="no"><span class="">deb https://deb.kaisenlinux.org kaisen-rolling main contrib non-free
 </span><span class="">deb https://deb.kaisenlinux.org kaisen-devel main contrib non-free
 </span><span class="">deb https://deb.kaisenlinux.org kaisen-packages main contrib non-free
 </span><span class="">deb https://deb.kaisenlinux.org kaisen-testing main contrib non-free
@@ -107,15 +126,21 @@ Official Kaisen Linux links
 </span><span class="">deb-src https://deb.kaisenlinux.org kaisen-packages main contrib non-free
 </span><span class="">deb-src https://deb.kaisenlinux.org kaisen-testing main contrib non-free
 </span></code></pre><h2 id="social-medias" class="section-heading">
-  <a href="#social-medias" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#social-medias" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">social-medias</p>
+  </a>
   Social medias
 </h2>
-<ul><li>Twitter: <a href="https://twitter.com/KaisenLinux">https://twitter.com/KaisenLinux</a></li><li>LinkedIn: <a href="https://linkedin.com/company/kaisenlinux">https://linkedin.com/company/kaisenlinux</a></li><li>Mastodon: <a href="https://mastodon.social/@KaisenLinux">https://mastodon.social/@KaisenLinux</a></li><li>Distrowatch: <a href="https://distrowatch.com/kaisen">https://distrowatch.com/kaisen</a></li></ul><h2 id="distribution-sources" class="section-heading">
-  <a href="#distribution-sources" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<ul><li>Twitter: <a href="https://twitter.com/KaisenLinux">https://twitter.com/KaisenLinux</a></li><li>LinkedIn: <a href="https://linkedin.com/company/kaisenlinux">https://linkedin.com/company/kaisenlinux</a></li><li>Mastodon: <a href="https://mastodon.social/@KaisenLinux">https://mastodon.social/@KaisenLinux</a></li><li>Distrowatch: <a href="https://distrowatch.com/kaisen">https://distrowatch.com/kaisen</a></li><li>Ko-Fi: <a href="https://ko-fi.com/kaisenlinux">https://ko-fi.com/kaisenlinux</a></li></ul><h2 id="distribution-sources" class="section-heading">
+  <a href="#distribution-sources" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">distribution-sources</p>
+  </a>
   Distribution sources
 </h2>
 <ul><li>GitHub (alpha and beta versions): <a href="https://github.com/KaisenCAS/kaisenlinux">https://github.com/KaisenCAS/kaisenlinux</a></li><li>GitLab (rolling version): <a href="https://gitlab.com/kaisenlinux">https://gitlab.com/kaisenlinux</a></li><li>GitLab mirror GitHub (rolling version): <a href="https://github.com/kaisenlinux">https://github.com/kaisenlinux</a></li></ul><h2 id="feedback-and-discussions" class="section-heading">
-  <a href="#feedback-and-discussions" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#feedback-and-discussions" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">feedback-and-discussions</p>
+  </a>
   Feedback and discussions
 </h2>
 <ul><li>Feedback &amp; contact: team@kaisenlinux.org</li><li>Forum : <a href="https://forum.kaisenlinux.org">https://forum.kaisenlinux.org</a></li></ul>
@@ -149,27 +174,11 @@ Why use Kaisen Linux ?
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

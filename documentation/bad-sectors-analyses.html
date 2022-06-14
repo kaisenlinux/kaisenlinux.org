@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Bad sectors analyses — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Bad sectors analyses — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,54 +60,73 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Bad sectors analyses
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Bad sectors analyses</span>
 </h1>
 
 <p><strong>This section is intended to explain how to analyze bad storage space on a storage device.</strong></p><h2 id="softwares" class="section-heading">
-  <a href="#softwares" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#softwares" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">softwares</p>
+  </a>
   Softwares
 </h2>
 <h3 id="gsmartcontrol" class="section-heading">
-  <a href="#gsmartcontrol" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#gsmartcontrol" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gsmartcontrol</p>
+  </a>
   gsmartcontrol
 </h3>
 <p>You can use gsmartcontrol for analyse general condition of the hard drive or SSD. It uses the smartmontools service to display the health status of the storage device. This software have GUI and a lot informations are given.<br/>Gsmartcontrol will not display the number of bad sectors, but the SMART of the hard disk will indicate a problem with storage sectors.  He is rarely mistaken, but a false positive is possible. Use badblocks to perform an additional test.  </p><h3 id="badblocks" class="section-heading">
-  <a href="#badblocks" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#badblocks" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">badblocks</p>
+  </a>
   badblocks
 </h3>
-<p>You can use badblocks tools with fdisk for analyse bad sector of the storage device. Follow this guide:</p><pre><code class="makeup bash"><span class="">* sudo fdisk -l (spot storage device at analyse, for example /dev/sda)
+<p>You can use badblocks tools with fdisk to detect bad sectors of a storage device. Follow this guide:</p><pre><code class="makeup bash" translate="no"><span class="">* sudo fdisk -l (spot storage device at analyse, for example /dev/sda)
 </span><span class="">* sudo badblocks -v /dev/sda
-</span></code></pre><p>This command display in stdout bad sectors. If not sector display (for example, 250059, 250059095 etc), is that there is not bad sector.</p>
+</span></code></pre><p>This command display in stdout bad sectors. If not sector display (for example, 250059, 250059095 etc), is that there is not bad sector.</p><h3 id="whdd" class="section-heading">
+  <a href="#whdd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">whdd</p>
+  </a>
+  whdd
+</h3>
+<p>You can use whdd to detect bad sectors of a storage device. WHDD is a tool with a ncurses interfaces and can support SATA, memory card and NVME disks!
+To start whdd, you can launch this command : <code class="inline">sudo whdd</code> and select the disk to analyze.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -131,27 +157,11 @@ Repair GRUB
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

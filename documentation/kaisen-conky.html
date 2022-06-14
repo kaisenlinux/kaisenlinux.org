@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
+
+    <title>Kaisen Conky — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>Kaisen Conky</span>
+</h1>
+
+<h2 id="what-is-kaisen-conky" class="section-heading">
+  <a href="#what-is-kaisen-conky" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">what-is-kaisen-conky</p>
+  </a>
+  What is Kaisen Conky?
+</h2>
+<p>Kaisen Conky is a package created for Kaisen Linux installing the Conky software and the theme created for Kaisen Linux. Conky is a desktop widget that displays information about processes in use, battery percentage, network connection status, disk space used, and more!</p><h2 id="informations-on-the-conky-theme" class="section-heading">
+  <a href="#informations-on-the-conky-theme" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">informations-on-the-conky-theme</p>
+  </a>
+  Informations on the conky theme
+</h2>
+<h3 id="how-install-conky" class="section-heading">
+  <a href="#how-install-conky" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">how-install-conky</p>
+  </a>
+  How install Conky?
+</h3>
+<p>Conky can be installed with the kaisen-conky package. This package will install the Conky and conkycolors software and their dependencies. The conky configuration is then copied to <code class="inline">/etc/skel</code> and this automatically copied to the <code class="inline">/home/$USER</code> directory of all users on the system.  </p><h3 id="how-to-update-conky" class="section-heading">
+  <a href="#how-to-update-conky" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">how-to-update-conky</p>
+  </a>
+  How to update conky?
+</h3>
+<p>When the kaisen-conky package is updated, the theme will be automatically updated in all user directories having their directory in /home.</p><h3 id="launch-conky-with-a-custom-theme" class="section-heading">
+  <a href="#launch-conky-with-a-custom-theme" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">launch-conky-with-a-custom-theme</p>
+  </a>
+  Launch conky with a custom theme
+</h3>
+<p>It's easy to run your own conky setup. You must modify the conffile <code class="inline">/etc/xdg/autostart/kaisen-conky.desktop</code> This file contains this by default:</p><pre><code class="makeup bash" translate="no"><span class="">[Desktop Entry]
+</span><span class="">Name=Kaisen Linux Conky
+</span><span class="">Exec=/usr/bin/conky
+</span><span class="">Hidden=false
+</span><span class="">Type=Application
+</span><span class="">X-KDE-Autostart-enabled=true
+</span><span class="">X-LXQT-Autostart-enabled=true
+</span><span class="">X-MATE-Autostart-enabled=true
+</span><span class="">X-XFCE-Autostart-enabled=true
+</span></code></pre><p>In this example, your conky configuration file will be called: <code class="inline">.myconkyconf</code></p><p>You will simply have to replace the file like this:</p><pre><code class="makeup bash" translate="no"><span class="">[Desktop Entry]
+</span><span class="">Name=Kaisen Linux Conky
+</span><span class="">Exec=/usr/bin/conky --config ~/.conkyconf
+</span><span class="">Hidden=false
+</span><span class="">Type=Application
+</span><span class="">X-KDE-Autostart-enabled=true
+</span><span class="">X-LXQT-Autostart-enabled=true
+</span><span class="">X-MATE-Autostart-enabled=true
+</span><span class="">X-XFCE-Autostart-enabled=true
+</span></code></pre><p>The next time you start conky, your own configuration will be executed. If it does not perform as you expect, it could probably be an error in your configurations.<br/>When updating the kaisen-kde, kaisen-lxqt, kaisen-mate or kaisen-xfce package, select the option &quot;N&quot; or &quot;O&quot; to keep your configurations.</p><h3 id="disable-conky-launch" class="section-heading">
+  <a href="#disable-conky-launch" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">disable-conky-launch</p>
+  </a>
+  Disable conky launch
+</h3>
+<p>You cannot therefore remove the conky-all package, otherwise you risk removing your entire GUI.<br/>But do not panic ! You have a very easy way to not start conky even if it is installed.<br/>You must go and modify the file: <code class="inline">/etc/xdg/autostart/conky.desktop</code>.  </p><p>This file contains this by default:</p><pre><code class="makeup bash" translate="no"><span class="">[Desktop Entry]
+</span><span class="">Name=Kaisen Linux Conky
+</span><span class="">Exec=/usr/bin/conky
+</span><span class="">Hidden=false
+</span><span class="">Type=Application
+</span><span class="">X-KDE-Autostart-enabled=true
+</span><span class="">X-LXQT-Autostart-enabled=true
+</span><span class="">X-MATE-Autostart-enabled=true
+</span><span class="">X-XFCE-Autostart-enabled=true
+</span></code></pre><p>Just replace the line <code class="inline">Hidden=false</code> with <code class="inline">Hidden=true</code> to completely disable launching Conky (the process won't even be started, conky, so it won't consume any resources.)  </p><p>So the file will look like:</p><pre><code class="makeup bash" translate="no"><span class="">[Desktop Entry]
+</span><span class="">Name=Kaisen Linux Conky
+</span><span class="">Exec=/usr/bin/conky
+</span><span class="">Hidden=true
+</span><span class="">Type=Application
+</span><span class="">X-KDE-Autostart-enabled=true
+</span><span class="">X-LXQT-Autostart-enabled=true
+</span><span class="">X-MATE-Autostart-enabled=true
+</span><span class="">X-XFCE-Autostart-enabled=true
+</span></code></pre><p>When updating the kaisen-kde, kaisen-lxqt, kaisen-mate or kaisen-xfce package, select the option &quot;N&quot; or &quot;O&quot; to keep your configurations.  </p><h3 id="problems-with-kde-desktop" class="section-heading">
+  <a href="#problems-with-kde-desktop" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">problems-with-kde-desktop</p>
+  </a>
+  Problems with KDE desktop
+</h3>
+<p>I have seen some issues with KDE.<br/>The conky is initially configured to be completely transparent and integrated into the wallpaper. KDE is initially configured to start programs that were not closed from the previous session, and Conky is one of them.<br/>Kaisen Linux's default profile disables this feature by default by opening an empty session each time the computer is started/restarted.<br/>To turn off the restore from the previous session, do this:<br/>Go to <code class="inline">&quot;System Settings&quot; =&gt; &quot;Startup and Shutdown&quot; =&gt; &quot;Desktop Session&quot; after select &quot;Start with an empty session&quot;.</code></p><h3 id="relaunch-conky-manually" class="section-heading">
+  <a href="#relaunch-conky-manually" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">relaunch-conky-manually</p>
+  </a>
+  Relaunch conky manually
+</h3>
+<p>Sometimes, Conky may not automatically relaunch after a package update. To relaunch it, it is very simple. Open a terminal window, and type this command:  </p><pre><code class="makeup bash" translate="no"><span class="">conky&amp;
+</span></code></pre><p>Next this command, press <code class="inline">ctrl +D</code> until closing the terminal. Conky is now relaunched.</p><h3 id="completely-uninstall-conky" class="section-heading">
+  <a href="#completely-uninstall-conky" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">completely-uninstall-conky</p>
+  </a>
+  Completely uninstall Conky
+</h3>
+<p>Conky like almost all of the tools pre-integrated in Kaisen Linux can be uninstalled manually via an APT command.<br/>For Conky, do this: <code class="inline">sudo apt remove --purge kaisen-conky</code></p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="update.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Kaisen Linux updates
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="zsh.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+ZSH
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

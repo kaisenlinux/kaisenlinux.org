@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Manpages v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
 
-    <title>tcpxtract — Manpages v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>tcpxtract — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-24d43139b0.js"></script>
+    <script src="dist/sidebar_items-15e8797939.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,45 +60,51 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
-Manpages
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/manpages/">
         <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>tcpxtract</span>
 </h1>
 
-<p>TCPXTRACT(1)                                                                           User Commands                                                                          TCPXTRACT(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">tcpxtract</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">captured</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">packets</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">tcpxtract</span><span class="w"> </span><span class="p" data-group-id="7102360143-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="7102360143-1">]</span><span class="w"> </span><span class="p" data-group-id="7102360143-2">[</span><span class="p" data-group-id="7102360143-3">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="p" data-group-id="7102360143-3">]</span><span class="w"> </span><span class="p" data-group-id="7102360143-4">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p" data-group-id="7102360143-4">]</span><span class="p" data-group-id="7102360143-2">]</span></code></pre><p>DESCRIPTION
-   Valid options include:</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="w">
+<p>TCPXTRACT(1)                                                                           User Commands                                                                          TCPXTRACT(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">tcpxtract</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">captured</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">packets</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">tcpxtract</span><span class="w"> </span><span class="p" data-group-id="8811584349-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="8811584349-1">]</span><span class="w"> </span><span class="p" data-group-id="8811584349-2">[</span><span class="p" data-group-id="8811584349-3">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="p" data-group-id="8811584349-3">]</span><span class="w"> </span><span class="p" data-group-id="8811584349-4">[</span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p" data-group-id="8811584349-4">]</span><span class="p" data-group-id="8811584349-2">]</span></code></pre><p>DESCRIPTION
+   Valid options include:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="w">
           </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="w">
 
    </span><span class="o">--</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="w">
-          </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="1356004702-1">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">eth0</span><span class="p" data-group-id="1356004702-1">)</span><span class="w">
+          </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="1377929333-1">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">eth0</span><span class="p" data-group-id="1377929333-1">)</span><span class="w">
 
    </span><span class="o">--</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="w">
           </span><span class="kn">use</span><span class="w"> </span><span class="nc">FILE</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w">
@@ -134,27 +147,11 @@ tshark
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

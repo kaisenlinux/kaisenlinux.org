@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Hardware requirements — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Hardware requirements — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,62 +60,76 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Hardware requirements
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Hardware requirements</span>
 </h1>
 
 <p>Hardware recommandations for using Kaisen Linux:</p><p><strong>Kaisen Linux is only compatible with 64bit processors.</strong></p><p>32-bit ISOs have never been produced by computers for over 10 years and support the amd64 architecture. Kaisen Linux being a distribution intended for IT professionals regardless of their activity, the chances of seeing a computer not supporting the amd64 architecture which is almost nil at present (except IT technicians for individuals with old hardware, but chances are slim anyway), that's why only 64-bit was produced.</p><p>Kaisen Linux uses 600Mb of RAM in live and installed version (on a physical machine, not on a VM) on MATE version, and uses 7GB at 9GB of disk space in installed version.</p><p>On VM (on VMWare), between 700 and 800MB of RAM are consumed.</p><p>The <strong>LXDE version is the lightest</strong>, and consumes barely 400MB of post-installation RAM (with all additional services disabled).</p><h2 id="minimal-configuration" class="section-heading">
-  <a href="#minimal-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#minimal-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">minimal-configuration</p>
+  </a>
   Minimal configuration
 </h2>
-<p>To use Kaisen Linux, you need at least the following configuration:</p><pre><code class="makeup bash"><span class="">Hard disk: 20Gb
+<p>To use Kaisen Linux, you need at least the following configuration:</p><pre><code class="makeup bash" translate="no"><span class="">Hard disk: 20Gb
 </span><span class="">RAM: 2Gb
 </span><span class="">Processor:1 core @1.5GHz (AMD or Intel)
 </span></code></pre><p>With this configuration, you can start and use the system to do small operations like launching some tools in command line. This is not the recommended configuration, as you will be very limited.</p><h2 id="recommended-configuration" class="section-heading">
-  <a href="#recommended-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#recommended-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">recommended-configuration</p>
+  </a>
   Recommended configuration
 </h2>
-<p>To use Kaisen Linux comfortably, use at least this configuration:</p><pre><code class="makeup bash"><span class="">Hard disk: 30Gb
+<p>To use Kaisen Linux comfortably, use at least this configuration:</p><pre><code class="makeup bash" translate="no"><span class="">Hard disk: 30Gb
 </span><span class="">RAM: 4Gb
 </span><span class="">Processor: 2 core @2GHz (AMD or Intel)
 </span></code></pre><p>With this configuration, you can comfortably use Kaisen Linux for your system / network administration tasks, do several internet searches simultaneously, etc.</p><h2 id="optimal-configuration" class="section-heading">
-  <a href="#optimal-configuration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#optimal-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">optimal-configuration</p>
+  </a>
   Optimal configuration
 </h2>
-<p>To use Kaisen Linux optimally, at least use this configuration:</p><pre><code class="makeup bash"><span class="">Hard disk: 50Gb
+<p>To use Kaisen Linux optimally, at least use this configuration:</p><pre><code class="makeup bash" translate="no"><span class="">Hard disk: 50Gb
 </span><span class="">RAM: 8Gb
 </span><span class="">Processor: 4 core @2,5GHz (AMD or Intel)
 </span></code></pre><p>With this configuration, you can comfortably use Kaisen Linux for your system/network administration tasks, do several internet searches simultaneously, etc.</p><h2 id="bios-and-uefi" class="section-heading">
-  <a href="#bios-and-uefi" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#bios-and-uefi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">bios-and-uefi</p>
+  </a>
   BIOS and UEFI
 </h2>
 <p>Kaisen Linux is 100% compatible with computers with a classic BIOS called LEGACY and a UEFI BIOS. The UEFI BIOS is different and more recent than its predecessor and allows disk support for more than 2TB and 255 primary partitions (unlike the LEGACY BIOS which only supported 4 maximum).<br/>If your computer is less than 10 years old, you have a 99% chance of having a UEFI BIOS.</p>
@@ -142,27 +163,11 @@ Live informations
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

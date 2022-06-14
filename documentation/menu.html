@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Menu and Tools overview — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Menu and Tools overview — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,98 +60,134 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Menu and tools overview
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Menu and tools overview</span>
 </h1>
 
 <h2 id="role-of-the-applications-menu" class="section-heading">
-  <a href="#role-of-the-applications-menu" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#role-of-the-applications-menu" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">role-of-the-applications-menu</p>
+  </a>
   Role of the applications menu
 </h2>
 <p>The application menu on Kaisen Linux is custom built and categorized and is updated very often. The main reason for this menu so big and consequent is to be able to indicate to the user which tools are at its disposal classified by category.</p><h2 id="launchers" class="section-heading">
-  <a href="#launchers" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#launchers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">launchers</p>
+  </a>
   Launchers
 </h2>
 <h3 id="graphical-applications" class="section-heading">
-  <a href="#graphical-applications" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#graphical-applications" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">graphical-applications</p>
+  </a>
   Graphical applications
 </h3>
 <p>Some launchers like Gparted or Wireshark are launchers for graphical applications and these tools can be launched directly via the menu, if root rights are required, the session password will be requested (by sudo) and will open the software directly as root as if it were run as root from the terminal.</p><h3 id="cli-applications" class="section-heading">
-  <a href="#cli-applications" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#cli-applications" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">cli-applications</p>
+  </a>
   CLI applications
 </h3>
 <p>The CLI (Command Line Interface, therefore launching with the terminal) launchers have for a very large majority a different behavior. Since the overwhelming majority of command line tools have multiple options and user parameters (e.g. ls with ls -a ls -l etc ...), it is too complicated to make a launcher by option offered by the software. The software therefore returns a man page or a help page to indicate how the tool is used.</p><h3 id="icons-next-to-the-launchers" class="section-heading">
-  <a href="#icons-next-to-the-launchers" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#icons-next-to-the-launchers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">icons-next-to-the-launchers</p>
+  </a>
   Icons next to the launchers
 </h3>
 <p>The icons next to launchers (applications) also have their meaning. Each graphic tool has its icon as its logo. The launchers of applications that can be used on the terminal have a terminal as their icon. This is to indicate to the user that this is a command line tool or a graphical tool.  </p><p>In the context of veracrypt for example, the command line executable as well as the graphical executable are integrated by default. So there is a launcher for the graphical launcher and a launcher for command line use.</p><h2 id="layout" class="section-heading">
-  <a href="#layout" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#layout" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">layout</p>
+  </a>
   Layout
 </h2>
 <p>The applications menu consists of two menus:</p><h3 id="user-applications" class="section-heading">
-  <a href="#user-applications" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#user-applications" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">user-applications</p>
+  </a>
   User applications
 </h3>
 <p>The user applications menu is the default menu in this category. It is in this menu and all these sub-menus (Internet, Office, Development, etc.) that all the graphical application launchers that you will install via a package will put. Some software integrated by default in Kaisen Linux like VLC, LibreOffice, Qbittorrent, Firefox, and VScodium to name a few, are however stored in this menu, creating a specific category in the Kaisen Linux menu was not useful in my opinion. , and would have overloaded this menu for nothing.</p><h3 id="kaisen-linux" class="section-heading">
-  <a href="#kaisen-linux" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux</p>
+  </a>
   Kaisen Linux
 </h3>
 <p>It is in this menu where all the launchers of the software integrated in Kaisen Linux for the administration of systems and networks and tools for troobleshooting of all kinds are stored. This menu is updated very often to add launchers when there are new tools, improve the services menu etc. You can add as many launchers as you want, but do not modify the menu itself, otherwise you will lose your customizations, or you will not have the updates of this menu (choice to be made at the time of the update of the menu package if the menu configuration files are modified).</p><h2 id="kaisen-linux-submenus" class="section-heading">
-  <a href="#kaisen-linux-submenus" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-linux-submenus" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux-submenus</p>
+  </a>
   Kaisen Linux submenus
 </h2>
 <p>The Kaisen Linux submenus are composed like this:</p><h3 id="tools-for-administrators" class="section-heading">
-  <a href="#tools-for-administrators" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tools-for-administrators" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tools-for-administrators</p>
+  </a>
   Tools for administrators
 </h3>
 <p>This category is divided into three: network, system and DevOps/cloud tools.<br/>Network tools are divided into several categories such as PCAP (frame capture tools), GNS3, Port Console, VPN and many others. The tools in the network tools section are mainly diagnostic and troubleshooting tools mainly on layers 1 to 4 of the OSI model. Some security tools like Nmap or Wireshark are integrated, even if they are used a lot in offensive security, they can also be major assets to secure an IS.<br/>The system tools are mainly remote administration, backup and virtualization tools (type 2 hypervisors), DNS (DNS diagnostic tools), SSL/TLS (TLS certificate analysis) and many others. This category is therefore purely focused on the administration of Windows and Linux systems. Tools like parallel-ssh, rsync, zsync, ab, xca to name a few are classified in this category and its subcategories.<br/>Cloud and DevOps tools are a collection of tools for cloud engineers such as trivy, terraform, k6, k9s and others!</p><h3 id="tools-for-technicians" class="section-heading">
-  <a href="#tools-for-technicians" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tools-for-technicians" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tools-for-technicians</p>
+  </a>
   Tools for technicians
 </h3>
 <p>In this menu, are stored all the tools dedicated to the maintenance of computers and their hardware peripherals and operating systems. Several subcategories exist in this menu like disk scan, data recovery, mount tools etc ... Tools like gsmartcontrol, gparted, ddrescue, testdisk, photorec can be found. These tools can also be used by system administrators as part of some of their functions and not just by IT technicians. Data and disk encryption tools are also classified as well.</p><h3 id="various-tools" class="section-heading">
-  <a href="#various-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#various-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">various-tools</p>
+  </a>
   Various tools
 </h3>
 <p>In this menu, are stored the launchers that cannot be entered in the menu for system and network administrators or technicians, because they are too generic. Can be found there for example midnight commander, progress, and also some scripts developed for Kaisen Linux like for example, the kaisen-interface-switcher and kaisen-update (automation of updates and cleaning of non-essential packages). The kaisen-interface-switcher as well as kaisen-update can be launched directly via the menu because they do not require specific arguments to run.</p><h3 id="filesystems" class="section-heading">
-  <a href="#filesystems" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#filesystems" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">filesystems</p>
+  </a>
   Filesystems
 </h3>
 <p>The menu for file systems is a menu that allows to simply reference the tools and commands that can be used to administer, repair, create, diagnose different file systems such as BTRFS, ExFAT, NTFS, XFS, EXT4 etc ... In this category, is contained for example the commands mkfs (create a filesystem on a partition), fsck (repair the filesystem of a partition) etc ...
 These launchers open a full help or man page.</p><h3 id="services" class="section-heading">
-  <a href="#services" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#services" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">services</p>
+  </a>
   Services
 </h3>
 <p>This menu has been specially designed to simplify the management of services in a simple way. All the services added by the tools present by default in the distribution are disabled for performance and resource saving reasons. Launchers point to scripts in /opt/services, and are sorted by the name of the service, for example, Avahi, 2ping, etc. Certain categories like containerization as well as virtualization encompass multiple launchers. For example in virtualization, the services for QEMU/KVM, VirtualBox and VMWare are arranged here, this allows to reduce the size of the menu. There are also two additional scripts that allow them to turn everything on or off, to avoid having to manually turn each service on or off in the categories. On these two scripts, logical conditions exist to allow you to run these scripts even if the commands executed by this script return an error because the service does not exist. Scripts can also be started manually with the terminal, but are not intentionally present in /usr/sbin or /sbin because they are intended to be used from the menu (which will only reference the launchers of the installed services).</p><h2 id="dynamic-menu-update" class="section-heading">
-  <a href="#dynamic-menu-update" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#dynamic-menu-update" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">dynamic-menu-update</p>
+  </a>
   Dynamic menu update
 </h2>
 <p>All launchers of each category are present in the menu only if the package associated with the program executed by the launcher is present on the system. So if you uninstall a package, or use the ISO dedicated to the rescue system, only the launchers associated with installed software will be listed. This behavior is the same as for the services menu, the scripts will still be present in /opt/services but will no longer be listed in the menu.</p>
@@ -178,27 +221,11 @@ Tools
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

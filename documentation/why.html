@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Why use Kaisen Linux ? — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Why use Kaisen Linux ? — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,41 +60,49 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Why use Kaisen Linux ?
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Why use Kaisen Linux ?</span>
 </h1>
 
 <h2 id="kaisen-linux-objective" class="section-heading">
-  <a href="#kaisen-linux-objective" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kaisen-linux-objective" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-linux-objective</p>
+  </a>
   Kaisen Linux objective
 </h2>
 <p>Kaisen Linux aims to provide a comprehensive tool base for systems and network administrators, DevOps engineer, systems/network/security engineers etc, as well as to meet the needs of IT technicians with tools to perform many operations.
@@ -96,43 +111,63 @@ This is why the slogan of distribution has gradually become &quot;The distributi
 I therefore combined tools intended for system and network administrators as well as technicians within the same distribution to meet the greatest number of needs. In small businesses, systems administrators are also computer technicians.
 This allowed to extend the main function of system rescue, while providing diagnostic tools mainly for the network section.
 You will find on this section, some arguments to distinguish it from other more or less similar projects.</p><h2 id="base" class="section-heading">
-  <a href="#base" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#base" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base</p>
+  </a>
   Base
 </h2>
 <p>Kaisen linux is based at Debian GNU/Linux (testing version) distribution. The system uses Debian packages, however custom packages follow the Debian model as much as possible and are tested before production to limit bugs. Kaisen Linux respects the FHS (File Hierarchy System) standard to remain as faithful as possible to this magnificent distribution that is Debian.</p><h2 id="designed-for-beginners" class="section-heading">
-  <a href="#designed-for-beginners" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#designed-for-beginners" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">designed-for-beginners</p>
+  </a>
   Designed for beginners
 </h2>
 <p>Kaisen Linux is designed to be as simple as possible, which is part of why the MATE KDE, LXDE and XFCE GUI were chosen and the menus are also expanded to list all the tools present by category and subcategory. This will surely facilitate access and management of distribution as well as integrated tools.</p><h2 id="improved-live-system" class="section-heading">
-  <a href="#improved-live-system" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#improved-live-system" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">improved-live-system</p>
+  </a>
   Improved live system
 </h2>
 <p>Kaisen Linux offers a live system with several options such as persistence, RAM loading and forensic mode. Examples of usage and their purposes can be found in the Live informations section.</p><h2 id="improved-terminal" class="section-heading">
-  <a href="#improved-terminal" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#improved-terminal" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">improved-terminal</p>
+  </a>
   Improved terminal
 </h2>
-<p>The terminal of Kaisen Linux is based on zsh and has been modified using many scripts to improve for example the auto-completion such as for example the correction of case errors, allows to navigate in the directories with the tab key, list the packages to install when ordering <strong>apt-get install</strong> and many others!</p><h2 id="installable" class="section-heading">
-  <a href="#installable" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>The terminal of Kaisen Linux is based on bash-completion and zsh and has been modified using many scripts to improve for example the auto-completion such as for example the correction of case errors, allows to navigate in the directories with the tab key, list the packages to install when ordering <strong>apt-get install</strong> and many others!</p><h2 id="installable" class="section-heading">
+  <a href="#installable" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">installable</p>
+  </a>
   Installable
 </h2>
 <p>Kaisen Linux has the functionality of being installed on a hard drive for daily use or to create machines dedicated to certain tasks that can be performed with Kaisen Linux. The installation is possible even in UEFI and certain tasks during the installation have been automated to facilitate the installation of the distribution, automate it a little, and customize the installation. The textual installation (reduced graphics) of classic Debian as well as the installation in graphical mode are incorporated to meet a maximum of tastes.  </p><h2 id="number-of-tools" class="section-heading">
-  <a href="#number-of-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#number-of-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">number-of-tools</p>
+  </a>
   Number of tools
 </h2>
 <p>Kaisen Linux has more than 300 built-in <a href="tools.html">tools</a> for system administrators and also has full management of many file systems, such as tools for XFS, OCFS, F2FS, EXT, NTFS, Exfat, FAT and others, with maintenance tools of these integrated file systems! Many packages have been designed by ourselves for an integration of more specialized tools for administrators like for example automated snapshots when using APT for easy restoration of the initial state of the system in the event of a problem with a software upgrade or installation.</p><h2 id="kernel-custom" class="section-heading">
-  <a href="#kernel-custom" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kernel-custom" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kernel-custom</p>
+  </a>
   Kernel custom
 </h2>
 <p>The Kaisen Linux kernel has been recompiled and optimized as much as possible to optimize the system, secure it and have the latest patches and hardware support. Today, the kernel integrated into Kaisen Linux allows support for the exfat file system, and thus improves the support of original Windows hardware for technicians such as, for example, external disks. The kernel sources and all the dependencies for recompiling them have been integrated into the system so that you can compile your own kernel, from the base of Kaisen Linux!</p><h2 id="support" class="section-heading">
-  <a href="#support" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#support" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">support</p>
+  </a>
   Support
 </h2>
 <p>Kaisen Linux offers support for anyone and questions, today, this supports is present by mail and soon by a forum.</p><h2 id="system-free" class="section-heading">
-  <a href="#system-free" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#system-free" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-free</p>
+  </a>
   System free
 </h2>
 <p>Kaisen Linux is free and will stay !</p><h2 id="rolling-updates" class="section-heading">
-  <a href="#rolling-updates" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#rolling-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">rolling-updates</p>
+  </a>
   Rolling updates
 </h2>
 <p>Since its release in stable version, Kaisen Linux is updated continuously, possible to our repository created for Kaisen Linux. This allows if you choose to install the system, to be able to update the whole system without having to reinstall it, it is an important stage of the project which will remove big constraints to the users concerning the maintenance of the system.<br/>However, if you only use Kaisen Linux in live version, you will have to download the most up-to-date ISO if necessary, even if you do the updates on live, they will disappear on the next restart (USB persistence has its limits).<br/>This can quickly become binding, unfortunately there is no solution to this on the live system.<br/>As mentioned above, a <a href="advanced-btrfs-utilisation.html#apt-snapshots">snapshot</a> system with APT is built in by default (if the system is installed on BTRFS), to make the system even more easily maintainable in the event of a problem with an upgrade.</p>
@@ -166,27 +201,11 @@ List of the differents ISO
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

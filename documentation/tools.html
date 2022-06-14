@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Tools — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Tools — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,267 +60,379 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Tools
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Tools</span>
 </h1>
 
 <p><strong>List of tools integrated into Kaisen Linux</strong></p><h2 id="maintenance-tools" class="section-heading">
-  <a href="#maintenance-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#maintenance-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">maintenance-tools</p>
+  </a>
   Maintenance tools
 </h2>
 <h3 id="disks-analysis" class="section-heading">
-  <a href="#disks-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#disks-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">disks-analysis</p>
+  </a>
   Disks analysis
 </h3>
-<pre><code class="makeup bash"><span class="">e2fsprogs, baobab, bonnie++, diskscan, disktype, gpart, gsmartcontrol, hdparm, ioping, testdisk, ncdu, smartmontools, di, util-linux, util-linux-locales
+<pre><code class="makeup bash" translate="no"><span class="">e2fsprogs, baobab, bonnie++, diskscan, disktype, gpart, gsmartcontrol, hdparm, ioping, testdisk, ncdu, smartmontools, di, util-linux, util-linux-locales, iotop, iozone3, nvme-cli, wxfixboot, whdd, dstat
 </span></code></pre><h3 id="virus-analysis" class="section-heading">
-  <a href="#virus-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#virus-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virus-analysis</p>
+  </a>
   Virus analysis
 </h3>
-<pre><code class="makeup bash"><span class="">chkrootkit, clamdscan, clamtk, rkhunter, clamassassin, clamav-base, clamav-daemon, clamav-docs, clamav-freshclam, clamav-milter, clamav-testfiles, clamfs
+<pre><code class="makeup bash" translate="no"><span class="">chkrootkit, clamdscan, clamtk, rkhunter, clamassassin, clamav-base, clamav-daemon, clamav-docs, clamav-freshclam, clamav-milter, clamav-testfiles, clamfs
 </span></code></pre><h3 id="cloning" class="section-heading">
-  <a href="#cloning" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#cloning" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">cloning</p>
+  </a>
   Cloning
 </h3>
-<pre><code class="makeup bash"><span class="">clonezilla, dcfldd, fsarchiver, guymager, partclone, partimage
+<pre><code class="makeup bash" translate="no"><span class="">clonezilla, dcfldd, dc3dd, fsarchiver, qt-fsarchiver, guymager, partclone, partimage
 </span></code></pre><h3 id="usb-boot" class="section-heading">
-  <a href="#usb-boot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#usb-boot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">usb-boot</p>
+  </a>
   USB boot
 </h3>
-<pre><code class="makeup bash"><span class="">balena-etcher-electron, dcfldd
+<pre><code class="makeup bash" translate="no"><span class="">balena-etcher-electron, dcfldd, dc3dd
 </span></code></pre><h3 id="hardware" class="section-heading">
-  <a href="#hardware" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#hardware" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">hardware</p>
+  </a>
   Hardware
 </h3>
-<pre><code class="makeup bash"><span class="">cpulimit, discover, discover-data, dmidecode, fio, hardinfo, hwinfo, iozone3, lshw, stress, stress-ng, stressant, lshw-gtk, flashbench, hw-probe, memtester, gfio, flashrom, inxi, cpu-x, sysstat
+<pre><code class="makeup bash" translate="no"><span class="">kaisen-winkey-recovery, cpulimit, discover, discover-data, dmidecode, fio, hardinfo, hwinfo, lshw, stress, stress-ng, stressant, lshw-gtk, flashbench, hw-probe, memtester, gfio, flashrom, inxi, cpu-x, sysstat, hwdata, gtkstresstesting, stressapptest, dstat
 </span></code></pre><h3 id="outlook-pst" class="section-heading">
-  <a href="#outlook-pst" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#outlook-pst" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">outlook-pst</p>
+  </a>
   Outlook PST
 </h3>
-<pre><code class="makeup bash"><span class="">pffexport, pffinfo, pst2dii, pst2ldif
+<pre><code class="makeup bash" translate="no"><span class="">pffexport, pffinfo, pst2dii, pst2ldif
 </span></code></pre><h3 id="password-tools" class="section-heading">
-  <a href="#password-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#password-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">password-tools</p>
+  </a>
   Password tools
 </h3>
-<pre><code class="makeup bash"><span class="">apg, bruteforce-luks, chntpw, cmospwd, crack, fcrackzip, hashcat, hydra, john, keepassxc, ophcrack, ophcrack-cli, pdfcrack, pwgen, rarcrack, rephrase, samdump2, hydra-gtk, crunch
+<pre><code class="makeup bash" translate="no"><span class="">apg, bruteforce-luks, chntpw, cmospwd, crack, fcrackzip, hashcat, hydra, john, keepassxc, ophcrack, ophcrack-cli, pdfcrack, pwgen, rarcrack, rephrase, samdump2, hydra-gtk, crunch
 </span></code></pre><h3 id="partitioning-and-delete-tools" class="section-heading">
-  <a href="#partitioning-and-delete-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#partitioning-and-delete-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">partitioning-and-delete-tools</p>
+  </a>
   Partitioning and delete tools
 </h3>
-<pre><code class="makeup bash"><span class="">dcfldd, fatresize, fdisk, gdisk, gparted, nwipe, parted, secure-delete, wipe, zerofree, bleachbit, scrub
+<pre><code class="makeup bash" translate="no"><span class="">dcfldd, dc3dd, fatresize, fdisk, gdisk, gparted, nwipe, parted, secure-delete, wipe, zerofree, bleachbit, scrub, wipefreespace, util-linux, util-linux-locales
 </span></code></pre><h3 id="data-protection" class="section-heading">
-  <a href="#data-protection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#data-protection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">data-protection</p>
+  </a>
   Data protection
 </h3>
-<pre><code class="makeup bash"><span class="">fscrypt, lockfile-progs, zulucrypt-cli, zulucrypt-gui, zulumount-cli, zulumount-gui, veracrypt
+<pre><code class="makeup bash" translate="no"><span class="">fscrypt, lockfile-progs, zulucrypt-cli, zulucrypt-gui, zulumount-cli, zulumount-gui, veracrypt
 </span></code></pre><h3 id="data-recovery" class="section-heading">
-  <a href="#data-recovery" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#data-recovery" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">data-recovery</p>
+  </a>
   Data recovery
 </h3>
-<pre><code class="makeup bash"><span class="">ddrescue-gui, ddrescueview, ddrutility, ext4magic, extundelete, foremost, ddrescue, gddrescue, testdisk, magicrescue, myrescue, recoverdm, recoverjpeg, safecopy, scalpel, scrounge-ntfs, hfsprescue
+<pre><code class="makeup bash" translate="no"><span class="">ddrescue-gui, ddrescueview, ddrutility, ext4magic, extundelete, foremost, ddrescue, gddrescue, testdisk, magicrescue, myrescue, recoverdm, recoverjpeg, safecopy, scalpel, scrounge-ntfs, hfsprescue
 </span></code></pre><h3 id="temperature-analysis" class="section-heading">
-  <a href="#temperature-analysis" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#temperature-analysis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">temperature-analysis</p>
+  </a>
   Temperature analysis
 </h3>
-<pre><code class="makeup bash"><span class="">hddtemp, xsensors, lm-sensors, psensor, psensor-common
+<pre><code class="makeup bash" translate="no"><span class="">hddtemp, xsensors, lm-sensors, psensor, psensor-common
+</span></code></pre><h3 id="duplicates-files" class="section-heading">
+  <a href="#duplicates-files" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">duplicates-files</p>
+  </a>
+  Duplicates files
+</h3>
+<pre><code class="makeup bash" translate="no"><span class="">czkawka, dupeguru, fdupes, rdfind
 </span></code></pre><h2 id="administrators-tools" class="section-heading">
-  <a href="#administrators-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#administrators-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">administrators-tools</p>
+  </a>
   Administrators tools
 </h2>
 <h3 id="dhcp" class="section-heading">
-  <a href="#dhcp" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#dhcp" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">dhcp</p>
+  </a>
   DHCP
 </h3>
-<pre><code class="makeup bash"><span class="">isc-dhcp-client, isc-dhcp-common, dhcpdump, dhcping
+<pre><code class="makeup bash" translate="no"><span class="">isc-dhcp-client, isc-dhcp-common, dhcpdump, dhcping
 </span></code></pre><h3 id="dns" class="section-heading">
-  <a href="#dns" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#dns" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">dns</p>
+  </a>
   DNS
 </h3>
-<pre><code class="makeup bash"><span class="">dnsenum, dnstop, mdns-scan, whois, dnsutils
+<pre><code class="makeup bash" translate="no"><span class="">dnsenum, dnstop, mdns-scan, whois, bind9-dnsutils
 </span></code></pre><h3 id="ethernet" class="section-heading">
-  <a href="#ethernet" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ethernet" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ethernet</p>
+  </a>
   Ethernet
 </h3>
-<pre><code class="makeup bash"><span class="">ethstatus, ethtool, packeth
+<pre><code class="makeup bash" translate="no"><span class="">ethstatus, ethtool, packeth
 </span></code></pre><h3 id="firewalling" class="section-heading">
-  <a href="#firewalling" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#firewalling" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">firewalling</p>
+  </a>
   Firewalling
 </h3>
-<pre><code class="makeup bash"><span class="">iptables-persistent, iptstate
+<pre><code class="makeup bash" translate="no"><span class="">iptables-persistent, iptstate
 </span></code></pre><h3 id="ip" class="section-heading">
-  <a href="#ip" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ip" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ip</p>
+  </a>
   IP
 </h3>
-<pre><code class="makeup bash"><span class="">net-tools, ipcalc, sipcalc, iproute2, iptraf-ng, iptraf, ipv6calc, traceroute, iputils-tracepath
+<pre><code class="makeup bash" translate="no"><span class="">net-tools, ipcalc, sipcalc, iproute2, iptraf-ng, iptraf, ipv6calc, traceroute, iputils-tracepath, ndisc6
 </span></code></pre><h3 id="gns3" class="section-heading">
-  <a href="#gns3" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#gns3" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">gns3</p>
+  </a>
   GNS3
 </h3>
-<pre><code class="makeup bash"><span class="">gns3-gui, gns3-server, dynamips, vpcs, ubridge, nvram_export
+<pre><code class="makeup bash" translate="no"><span class="">gns3-gui, gns3-server, dynamips, vpcs, ubridge
 </span></code></pre><h3 id="mac" class="section-heading">
-  <a href="#mac" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#mac" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">mac</p>
+  </a>
   MAC
 </h3>
-<pre><code class="makeup bash"><span class="">arp-scan, arpalert, iputils-arping, arptables, arpwatch, macchanger
+<pre><code class="makeup bash" translate="no"><span class="">arp-scan, arpalert, iputils-arping, arptables, arpwatch, macchanger
 </span></code></pre><h3 id="monitoring" class="section-heading">
-  <a href="#monitoring" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#monitoring" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">monitoring</p>
+  </a>
   Monitoring
 </h3>
-<pre><code class="makeup bash"><span class="">cbm, etherape, ifstat, iftop, iperf, iperf3, nethogs, netperfmeter, sockstat, tcpstat
+<pre><code class="makeup bash" translate="no"><span class="">cbm, etherape, ifstat, iftop, iperf, iperf3, nethogs, netperfmeter, sockstat, tcpstat, dstat
 </span></code></pre><h3 id="pcap" class="section-heading">
-  <a href="#pcap" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#pcap" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">pcap</p>
+  </a>
   PCAP
 </h3>
-<pre><code class="makeup bash"><span class="">darkstat, hunt, netsed, ngrep, pcapfix, scapy, tcpdump, tcpreplay, tcpxtract, tshark, wireshark
+<pre><code class="makeup bash" translate="no"><span class="">darkstat, hunt, netsed, ngrep, pcapfix, scapy, python3-scapy, tcpdump, tcpreplay, tcpxtract, tshark, wireshark, notwireshark
 </span></code></pre><h3 id="console-port" class="section-heading">
-  <a href="#console-port" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#console-port" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">console-port</p>
+  </a>
   Console port
 </h3>
-<pre><code class="makeup bash"><span class="">cu, minicom, picocom, screen, setserial, statserial
+<pre><code class="makeup bash" translate="no"><span class="">cu, minicom, picocom, screen, setserial, statserial, gtkterm
 </span></code></pre><h3 id="network-scanners" class="section-heading">
-  <a href="#network-scanners" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#network-scanners" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">network-scanners</p>
+  </a>
   Network scanners
 </h3>
-<pre><code class="makeup bash"><span class="">arp-scan, bettercap, bettercap-caplets, bettercap-ui, driftnet, dsniff, ettercap-graphical, hping3, lft, masscan, mitmproxy, mtr-tiny, nast, ndiff, netdiscover, netsniff-ng, net-tools, ncat, nmap, nmapsi4, scapy, python3-scapy, telnet, iputils-tracepath, traceroute
+<pre><code class="makeup bash" translate="no"><span class="">arp-scan, bettercap, bettercap-caplets, bettercap-ui, driftnet, dsniff, ettercap-graphical, hping3, lft, masscan, mitmproxy, mtr-tiny, nast, ndiff, netdiscover, netsniff-ng, net-tools, ncat, nmap, nmapsi4, scapy, python3-scapy, telnet, iputils-tracepath, traceroute
 </span></code></pre><h3 id="ssl-tls" class="section-heading">
-  <a href="#ssl-tls" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ssl-tls" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ssl-tls</p>
+  </a>
   SSL/TLS
 </h3>
-<pre><code class="makeup bash"><span class="">ssldump, sslsniff, sslsplit, sslscan, sslyze
+<pre><code class="makeup bash" translate="no"><span class="">ssldump, sslsniff, sslsplit, sslscan, sslyze
 </span></code></pre><h3 id="tcp-udp" class="section-heading">
-  <a href="#tcp-udp" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tcp-udp" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tcp-udp</p>
+  </a>
   TCP/UDP
 </h3>
-<pre><code class="makeup bash"><span class="">netcat, netcat-openbsd, tcpreplay, tcpflow, tcptrace, tcptraceroute, packetsender, udpcast, dsniff
+<pre><code class="makeup bash" translate="no"><span class="">netcat, netcat-openbsd, tcpreplay, tcpflow, tcptrace, tcptraceroute, packetsender, udpcast, dsniff
 </span></code></pre><h3 id="wi-fi" class="section-heading">
-  <a href="#wi-fi" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#wi-fi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">wi-fi</p>
+  </a>
   Wi-Fi
 </h3>
-<pre><code class="makeup bash"><span class="">aircrack-ng, hostapd, iw, rfkill
+<pre><code class="makeup bash" translate="no"><span class="">aircrack-ng, hostapd, iw, rfkill, linssid
 </span></code></pre><h3 id="vpn" class="section-heading">
-  <a href="#vpn" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#vpn" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">vpn</p>
+  </a>
   VPN
 </h3>
-<pre><code class="makeup bash"><span class="">openvpn, wireguard
+<pre><code class="makeup bash" translate="no"><span class="">openvpn, wireguard, openfortivpn, network-manager-openvpn, network-manager-fortisslvpn, network-manager-openconnect, network-manager-openvpn-gnome, network-manager-fortisslvpn-gnome, network-manager-openconnect-gnome
 </span></code></pre><h3 id="various-network-administrators-tools" class="section-heading">
-  <a href="#various-network-administrators-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#various-network-administrators-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">various-network-administrators-tools</p>
+  </a>
   Various network administrators tools
 </h3>
-<pre><code class="makeup bash"><span class="">2ping, atftp, cdpr, comgt, ndisc6, ntpdate, socat, ssmping, wakeonlan, wondershaper, ifenslave
+<pre><code class="makeup bash" translate="no"><span class="">2ping, atftp, cdpr, comgt, socat, ssmping, wakeonlan, wondershaper, ifenslave, bridge-utils
 </span></code></pre><h3 id="remote-administration" class="section-heading">
-  <a href="#remote-administration" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#remote-administration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">remote-administration</p>
+  </a>
   Remote administration
 </h3>
-<pre><code class="makeup bash"><span class="">virt-viewer, rdesktop, grdesktop, freerdp2-x11, ssh, sshfs, pssh, clusterssh, tmux, zssh, remmina, remmina-plugin-exec, remmina-plugin-kwallet, remmina-plugin-spice, remmina-plugin-www
+<pre><code class="makeup bash" translate="no"><span class="">virt-viewer, rdesktop, grdesktop, freerdp2-x11, ssh, sshfs, pssh, clusterssh, tmux, zssh, remmina, remmina-plugin-exec, remmina-plugin-kwallet, remmina-plugin-spice, remmina-plugin-www, smbclient, ssh-askpass, sshpass
 </span></code></pre><h3 id="backup-tools" class="section-heading">
-  <a href="#backup-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#backup-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">backup-tools</p>
+  </a>
   Backup tools
 </h3>
-<pre><code class="makeup bash"><span class="">dirvish, automysqlbackup, autopostgresqlbackup, bacula-bscan, bacula-client, bacula-common, bacula-common-sqlite3, bacula-console, bacula-console-qt, bacula-fd, bacula-sd, dump, duplicity, restic, rsbackup, rsync, backup2l, zsync, vbackup, duply, grsync, zbackup
+<pre><code class="makeup bash" translate="no"><span class="">dirvish, automysqlbackup, autopostgresqlbackup, bacula-bscan, bacula-client, bacula-common, bacula-common-sqlite3, bacula-console, bacula-console-qt, bacula-fd, bacula-sd, dump, duplicity, restic, rsbackup, rsync, backup2l, zsync, vbackup, duply, grsync, zbackup, rdiff, rdiff-backup, rdiff-backup-fs, borgbackup, rclone
 </span></code></pre><h3 id="ftp" class="section-heading">
-  <a href="#ftp" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ftp" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ftp</p>
+  </a>
   FTP
 </h3>
-<pre><code class="makeup bash"><span class="">filezilla, gftp, lftp
+<pre><code class="makeup bash" translate="no"><span class="">filezilla, gftp, lftp
 </span></code></pre><h3 id="microsoft" class="section-heading">
-  <a href="#microsoft" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#microsoft" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">microsoft</p>
+  </a>
   Microsoft
 </h3>
-<pre><code class="makeup bash"><span class="">bloodhound, ldapdomaindump, cabextract, powershell
+<pre><code class="makeup bash" translate="no"><span class="">bloodhound, powershell
 </span></code></pre><h3 id="virtualization" class="section-heading">
-  <a href="#virtualization" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#virtualization" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualization</p>
+  </a>
   Virtualization
 </h3>
-<pre><code class="makeup bash"><span class="">virtualbox, virtualbox-qt, virtualbox-dkms, virtualbox-source, virtualbox-guest-additions-iso, virtualbox-ext-pack, virt-manager, qemu, qemu-system, qemu-system-x86, qemu-system-gui, qemu-efi, qemu-utils, libvirt-clients, libvirt-daemon-system, virtinst, virt-viewer
+<pre><code class="makeup bash" translate="no"><span class="">virtualbox, virtualbox-qt, virtualbox-dkms, virtualbox-source, virtualbox-guest-additions-iso, virtualbox-ext-pack, virt-manager, qemu, qemu-system, qemu-system-x86, qemu-system-gui, qemu-efi, qemu-utils, libvirt-clients, libvirt-daemon-system, virtinst, virt-viewer
 </span></code></pre><h3 id="various-system-administrators-tools" class="section-heading">
-  <a href="#various-system-administrators-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#various-system-administrators-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">various-system-administrators-tools</p>
+  </a>
   Various system administrators tools
 </h3>
-<pre><code class="makeup bash"><span class="">xca, krb5-config, krb5-pkinit, krb5-user, krb5-locales, ctop, apache2-utils, ssh-askpass, sshpass
+<pre><code class="makeup bash" translate="no"><span class="">xca, krb5-config, krb5-pkinit, krb5-user, krb5-locales, ctop, apache2-utils, ntpsec, ntpsec-ntpdate, python3-ldapdomaindump
 </span></code></pre><h3 id="apparmor-tools-and-profiles" class="section-heading">
-  <a href="#apparmor-tools-and-profiles" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apparmor-tools-and-profiles" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apparmor-tools-and-profiles</p>
+  </a>
   Apparmor tools and profiles
 </h3>
-<pre><code class="makeup bash"><span class="">apparmor, apparmor-profiles, apparmor-profiles-extra, apparmor-notify, apparmor-utils
+<pre><code class="makeup bash" translate="no"><span class="">apparmor, apparmor-profiles, apparmor-profiles-extra, apparmor-notify, apparmor-utils
 </span></code></pre><h3 id="databases-clients" class="section-heading">
-  <a href="#databases-clients" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#databases-clients" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">databases-clients</p>
+  </a>
   Databases clients
 </h3>
-<pre><code class="makeup bash"><span class="">mariadb-client, etcd-client, postgresql-client
+<pre><code class="makeup bash" translate="no"><span class="">mariadb-client, etcd-client, postgresql-client
 </span></code></pre><h2 id="devops-and-cloud" class="section-heading">
-  <a href="#devops-and-cloud" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#devops-and-cloud" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">devops-and-cloud</p>
+  </a>
   DevOps and Cloud
 </h2>
-<pre><code class="makeup bash"><span class="">vagrant, ansible, lxc, docker, docker-compose, docker.io, jmeter, kubectl, kubectl-convert, kubemark, awscli, packer, azure-cli, puppet, terraform, s3fs, eksctl, buildah, helm, k6, k9s, minikube, podman, trivy
+<pre><code class="makeup bash" translate="no"><span class="">docker-compose, docker.io, ansible, lxc, lxctl, kubernetes-client, vagrant, vagrant-lxc, vagrant-sshfs, jmeter, awscli, azure-cli, packer, puppet-agent, pdk, terraform, s3fs, k6, k9s, helm, podman, buildah, minikube, eksctl, trivy, kustomize, kind, krew, kubectx, kyverno, popeye, tfsec, vault, velero, terragrunt
 </span></code></pre><h2 id="system-snapshots" class="section-heading">
-  <a href="#system-snapshots" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#system-snapshots" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-snapshots</p>
+  </a>
   System snapshots
 </h2>
-<pre><code class="makeup bash"><span class="">apt-btrfs-snapshot, btrbk, snapper, timeshift
+<pre><code class="makeup bash" translate="no"><span class="">apt-btrfs-snapshot, btrbk, snapper, timeshift
 </span></code></pre><h2 id="filesystems-tools" class="section-heading">
-  <a href="#filesystems-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#filesystems-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">filesystems-tools</p>
+  </a>
   Filesystems tools
 </h2>
-<pre><code class="makeup bash"><span class="">cryptsetup, dmraid, dmsetup, mdadm, lvm2, dosfstools, f2fs-tools, nilfs-tools, ocfs2-tools, btrfs-compsize, btrfs-heatmap, btrfs-progs, btrfsmaintenance, gfs2-utils, hfsplus, hfsprogs, hfsutils, hfsutils-tcltk, jfsutils, reiserfsprogs, vmfs-tools, xfsdump, xfsprogs, zfs-fuse, zfsnap, exfatprogs, exfat-fuse, ceph-fuse, fuse3, fuse-zip, fuseiso, squashfuse, glusterfs-client, udfclient, udftools, reiser4progs, vmfs6-tools, xmount, archivemount, tmfs, cifs-utils, apfs-fuse, apfsutil, ecryptfs-utils, libbde-utils, dislocker, libfvde-utils, libvhdi-utils, libvmdk-utils, libfsntfs-utils
+<pre><code class="makeup bash" translate="no"><span class="">cryptsetup, dmraid, dmsetup, mdadm, lvm2, dosfstools, f2fs-tools, nilfs-tools, ocfs2-tools, btrfs-compsize, btrfs-heatmap, btrfs-progs, btrfsmaintenance, gfs2-utils, hfsplus, hfsprogs, hfsutils, hfsutils-tcltk, jfsutils, reiserfsprogs, vmfs-tools, xfsdump, xfsprogs, zfs-fuse, zfsnap, exfatprogs, exfat-fuse, ceph-fuse, fuse3, glusterfs-client, udfclient, udftools, reiser4progs, vmfs6-tools, xmount, archivemount, tmfs, cifs-utils, apfs-fuse, apfsutil, ecryptfs-utils, libbde-utils, dislocker, libfvde-utils, libvhdi-utils, libvmdk-utils, libfsntfs-utils, gvfs-fuse, gvfs, ntfs-3g, wimtools
 </span></code></pre><h2 id="miscellaneous-tools" class="section-heading">
-  <a href="#miscellaneous-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#miscellaneous-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">miscellaneous-tools</p>
+  </a>
   Miscellaneous tools
 </h2>
-<pre><code class="makeup bash"><span class="">progress, pv, less, mlocate, dirmngr, gpg, gnupg2, curl, wget, git, gpg-agent, neofetch, git-repair, img2pdf, mc, strace, yamllint, ltrace, irqbalance, tree, vim, codium, cups, hexedit, dstat, file, memstat, psmisc, htop, qtop, lsof, rdfind, fdupes, lzop, p7zip-full, pigz, unp, unar, unrar-free, unzip, zip, bzip2, tar, unrar, zstd, gtkhash
+<pre><code class="makeup bash" translate="no"><span class="">progress, pv, less, plocate, dirmngr, gpa, gpg, gnupg2, curl, wget, git, gpg-agent, neofetch, git-repair, img2pdf, mc, strace, yamllint, ltrace, tree, vim, codium, cups, hexedit, file, psmisc, htop, lsof, lzop, p7zip-full, pigz, unp, unar, unrar-free, unzip, zip, bzip2, tar, unrar, zstd, gtkhash, keepassxc, apg, pwgen, isomaster, fred, cabextract, btop
 </span></code></pre><h2 id="integrated-firmwares" class="section-heading">
-  <a href="#integrated-firmwares" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#integrated-firmwares" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">integrated-firmwares</p>
+  </a>
   Integrated firmwares
 </h2>
-<pre><code class="makeup bash"><span class="">firmware-amd-graphics, firmware-ast, firmware-ath9k-htc, firmware-atheros, firmware-b43-installer, firmware-bnx2, firmware-bnx2x, firmware-brcm80211, firmware-cavium, firmware-intel-sound, firmware-intelwimax, firmware-ipw2x00, firmware-ivtv, firmware-iwlwifi, firmware-libertas, firmware-linux, firmware-linux-free, firmware-linux-nonfree, firmware-microbit-micropython, firmware-misc-nonfree, firmware-myricom, firmware-netronome, firmware-netxen, firmware-qcom-media, firmware-qcom-soc, firmware-qlogic, firmware-realtek, firmware-samsung, firmware-siano, firmware-sof-signed, firmware-ti-connectivity, firmware-tomu, firmware-zd1211, bluetooth, blueman, bluez-tools, bluez-firmware, alsa-firmware-loaders, atmel-firmware
+<pre><code class="makeup bash" translate="no"><span class="">firmware-amd-graphics, firmware-ast, firmware-ath9k-htc, firmware-atheros, firmware-b43-installer, firmware-bnx2, firmware-bnx2x, firmware-brcm80211, firmware-cavium, firmware-intel-sound, firmware-intelwimax, firmware-ipw2x00, firmware-ivtv, firmware-iwlwifi, firmware-libertas, firmware-linux, firmware-linux-free, firmware-linux-nonfree, firmware-microbit-micropython, firmware-misc-nonfree, firmware-myricom, firmware-netronome, firmware-netxen, firmware-qcom-media, firmware-qcom-soc, firmware-qlogic, firmware-realtek, firmware-samsung, firmware-siano, firmware-sof-signed, firmware-ti-connectivity, firmware-tomu, firmware-zd1211, bluetooth, blueman, bluez-tools, bluez-firmware, alsa-firmware-loaders, atmel-firmware
 </span></code></pre><h2 id="kde" class="section-heading">
-  <a href="#kde" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#kde" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kde</p>
+  </a>
   KDE
 </h2>
-<pre><code class="makeup bash"><span class="">kaisen-interfaces-common, kde-standard, firefox, firefox-l10n-fr, firefox-l10n-es-es, firefox-l10n-pt-pt, firefox-l10n-it, firefox-l10n-de, sudo, plymouth, kaisen-menu, lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings, sddm, sddm-theme-breeze, terminator, kaisen-skeleton, kaisen-design, fonts-cantarell, fonts-powerline, conky-all, conkycolors, fonts-liberation, fonts-noto-color-emoji, locales-all, libreoffice, libreoffice-help-fr, libreoffice-help-en-us, libreoffice-help-es, libreoffice-help-pt, libreoffice-help-it, libreoffice-help-de, libreoffice-l10n-fr, libreoffice-l10n-es, libreoffice-l10n-pt, libreoffice-l10n-it, libreoffice-l10n-de, thunderbird, thunderbird-l10n-es-es, thunderbird-l10n-fr, thunderbird-l10n-it, thunderbird-l10n-pt-pt, thunderbird-l10n-de, vlc, gimp, qbittorrent, hexchat
+<pre><code class="makeup bash" translate="no"><span class="">kaisen-interfaces-common, kde-standard, sddm, sddm-theme-breeze, network-manager
 </span></code></pre><h2 id="lxqt" class="section-heading">
-  <a href="#lxqt" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#lxqt" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">lxqt</p>
+  </a>
   LXQT
 </h2>
-<pre><code class="makeup bash"><span class="">kaisen-interfaces-common, lxqt, lxqt-archiver, cmst, lightdm, lightdm-gtk-greeter, firefox, firefox-l10n-fr, firefox-l10n-es-es, firefox-l10n-pt-pt, firefox-l10n-it, firefox-l10n-de, sudo, kaisen-menu, plymouth, xcursor-themes, terminator, kaisen-skeleton, fonts-cantarell, fonts-powerline, kaisen-design, lightdm-gtk-greeter-settings, conky-all, conkycolors, fonts-liberation, fonts-noto-color-emoji, locales-all, libreoffice, libreoffice-help-fr, libreoffice-help-en-us, libreoffice-help-es, libreoffice-help-pt, libreoffice-help-it, libreoffice-help-de, libreoffice-l10n-fr, libreoffice-l10n-es, libreoffice-l10n-pt, libreoffice-l10n-it, libreoffice-l10n-de, thunderbird, thunderbird-l10n-es-es, thunderbird-l10n-fr, thunderbird-l10n-it, thunderbird-l10n-pt-pt, thunderbird-l10n-de, vlc, gimp, qbittorrent, hexchat, gnome-calculator
+<pre><code class="makeup bash" translate="no"><span class="">kaisen-interfaces-common, lxqt, lxqt-archiver, cmst, gnome-calculator
 </span></code></pre><h2 id="mate" class="section-heading">
-  <a href="#mate" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#mate" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">mate</p>
+  </a>
   MATE
 </h2>
-<pre><code class="makeup bash"><span class="">kaisen-interfaces-common, mate-desktop-environment, lightdm, lightdm-gtk-greeter, network-manager, network-manager-gnome, firefox, firefox-l10n-fr, firefox-l10n-es-es, firefox-l10n-pt-pt, firefox-l10n-it, firefox-l10n-de, sudo, kaisen-menu, plymouth, xcursor-themes, terminator, kaisen-skeleton, fonts-cantarell, fonts-powerline, kaisen-design, lightdm-gtk-greeter-settings, conky-all, conkycolors, fonts-liberation, fonts-noto-color-emoji, locales-all, libreoffice, libreoffice-help-fr, libreoffice-help-en-us, libreoffice-help-es, libreoffice-help-pt, libreoffice-help-it, libreoffice-help-de, libreoffice-l10n-fr, libreoffice-l10n-es, libreoffice-l10n-pt, libreoffice-l10n-it, libreoffice-l10n-de, thunderbird, thunderbird-l10n-es-es, thunderbird-l10n-fr, thunderbird-l10n-it, thunderbird-l10n-pt-pt, thunderbird-l10n-de, vlc, gimp, qbittorrent, hexchat
+<pre><code class="makeup bash" translate="no"><span class="">kaisen-interfaces-common, mate-desktop-environment, mate-tweak, network-manager-gnome
 </span></code></pre><h2 id="xfce" class="section-heading">
-  <a href="#xfce" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#xfce" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">xfce</p>
+  </a>
   XFCE
 </h2>
-<pre><code class="makeup bash"><span class="">kaisen-interfaces-common, xfce4, xfce4-panel, xfce4-power-manager, xfce4-power-manager-data, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-screenshooter, xfce4-session, xfce4-settings, xfce4-terminal, xfce4-whiskermenu-plugin, gedit, lightdm, lightdm-gtk-greeter, network-manager, network-manager-gnome, firefox, firefox-l10n-fr, firefox-l10n-es-es, firefox-l10n-pt-pt, firefox-l10n-it, firefox-l10n-de, sudo, kaisen-menu, plymouth, xcursor-themes, terminator, kaisen-skeleton, fonts-cantarell, fonts-powerline, kaisen-design, lightdm-gtk-greeter-settings, conky-all, conkycolors, fonts-liberation, fonts-noto-color-emoji, locales-all, libreoffice, libreoffice-help-fr, libreoffice-help-en-us, libreoffice-help-es, libreoffice-help-pt, libreoffice-help-it, libreoffice-help-de, libreoffice-l10n-fr, libreoffice-l10n-es, libreoffice-l10n-pt, libreoffice-l10n-it, libreoffice-l10n-de, thunderbird, thunderbird-l10n-es-es, thunderbird-l10n-fr, thunderbird-l10n-it, thunderbird-l10n-pt-pt, thunderbird-l10n-de, vlc, gimp, qbittorrent, hexchat, gnome-calculator
+<pre><code class="makeup bash" translate="no"><span class="">kaisen-interfaces-common, xfce4, xfce4-panel, xfce4-power-manager, xfce4-power-manager-data, xfce4-power-manager-plugins, xfce4-pulseaudio-plugin, xfce4-screenshooter, xfce4-session, xfce4-settings, xfce4-terminal, xfce4-whiskermenu-plugin, gedit, network-manager, thunar-archive-plugin, xarchiver, gnome-calculator
+</span></code></pre><h3 id="interfaces-common" class="section-heading">
+  <a href="#interfaces-common" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">interfaces-common</p>
+  </a>
+  Interfaces common
+</h3>
+<pre><code class="makeup bash" translate="no"><span class="">firefox, plymouth, kaisen-menu, lightdm, lightdm-gtk-greeter, kaisen-skeleton, kaisen-design, fonts-cantarell, terminator, lightdm-gtk-greeter-settings, fonts-liberation, fonts-noto-color-emoji, thunderbird, libreoffice, qbittorrent, vlc, gimp, breeze-cursor-theme
 </span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
@@ -345,27 +464,11 @@ Packages
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

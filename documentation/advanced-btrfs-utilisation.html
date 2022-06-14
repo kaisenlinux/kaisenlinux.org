@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
-    <meta name="project" content="Documentation v2.0.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Documentation v2.1.0">
 
-    <title>Advanced BTRFS utilisation — Documentation v2.0.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <title>Advanced BTRFS utilisation — Documentation v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-6718960bf5.js"></script>
+    <script src="dist/sidebar_items-85a0a5d8fc.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,73 +60,97 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
-Documentation
-      </a>
-      <strong class="sidebar-projectVersion" translate="no">
-        v2.0.0
-      </strong>
-    </div>
 
       <a href="https://kaisenlinux.org/documentation/">
         <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Guides</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Advanced BTRFS utilisation
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+  <span>Advanced BTRFS utilisation</span>
 </h1>
 
 <h2 id="subvolumes" class="section-heading">
-  <a href="#subvolumes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#subvolumes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">subvolumes</p>
+  </a>
   Subvolumes
 </h2>
 <h3 id="explanations" class="section-heading">
-  <a href="#explanations" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#explanations" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">explanations</p>
+  </a>
   Explanations
 </h3>
 <p>A subvolume is a branch of the file system that behaves like a file subsystem. it appears as a directory.<br/>It is thanks to these sub-volumes that the creation of snapshots of a directory is possible.</p><h3 id="manual-creation" class="section-heading">
-  <a href="#manual-creation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#manual-creation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">manual-creation</p>
+  </a>
   Manual creation
 </h3>
 <p>To manually create subvolumes to use the snapshost system, we will proceed like this.<br/>Here, the subvolumes that will be created are the same as those created by installing Kaisen Linux with an ISO of revision 1.6.  </p><p>Subvolumes can be created using commands installed via the btrfs-progs package. This package is installed by default in Kaisen Linux if the kaisen-filesystems package is installed, or if BTRFS is the file system used when installing the system.  </p><p>This command can be used to create BTRFS subvolume:</p><p><code class="inline">sudo btrfs subvolume create subvolume_name</code></p><h3 id="deletion" class="section-heading">
-  <a href="#deletion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#deletion" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">deletion</p>
+  </a>
   Deletion
 </h3>
 <p>To delete a BTRFS subvolume, can you proceed like this:</p><p><code class="inline">sudo btrfs subvolume delete subvolume_name</code></p><h2 id="snapshots" class="section-heading">
-  <a href="#snapshots" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#snapshots" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">snapshots</p>
+  </a>
   Snapshots
 </h2>
 <h3 id="explanations-1" class="section-heading">
-  <a href="#explanations-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#explanations-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">explanations-1</p>
+  </a>
   Explanations
 </h3>
 <p>A snapshot, or restore point, is an image of the file system or one of its subvolumes that you back up at a specific point in time, so that you can access or restore it later. The main goal is to restore a system that has become unstable.</p><p>Once created, a snapshot behaves like an ordinary folder on your file system: you can copy it, move it to external media, rename it...</p><h3 id="snapshots-with-btrfs-commands" class="section-heading">
-  <a href="#snapshots-with-btrfs-commands" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#snapshots-with-btrfs-commands" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">snapshots-with-btrfs-commands</p>
+  </a>
   Snapshots with BTRFS commands
 </h3>
 <p>To take a snapshot of the entire system from the command line:<br/><code class="inline">sudo btrfs subvolume snapshot / /opt/snapshot20210330</code><br/>This command will take a snaphsot from the test subvolume (directory). This frozen version of your directory will be accessible through the &quot;/opt/snapshot20210330&quot; directory. The modifications made in each of the two directories are independent. The filesystem manages the changes so that they are transparent to the user (with ext4, it would have been necessary to create a copy of the directory, which would have occupied double the disk space. A snapshot does not consume any additional disk space).  </p><h3 id="restore-snapshot" class="section-heading">
-  <a href="#restore-snapshot" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#restore-snapshot" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">restore-snapshot</p>
+  </a>
   Restore snapshot
 </h3>
 <p>To restore the snapshot taken previously, the following command can be used:<br/><code class="inline">sudo btrfs subvolume get-default /</code>  </p><h3 id="apt-snapshots" class="section-heading">
-  <a href="#apt-snapshots" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#apt-snapshots" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apt-snapshots</p>
+  </a>
   APT snapshots
 </h3>
 <p>APT snapshots are handled by the apt-btrfs-snapshot package. Whenever APT is used for a package update or installation, a snapshot will be automatically taken.<br/>If an upgrade or a package installation goes wrong it is easy to go back with these commands:
@@ -129,15 +160,21 @@ Advanced BTRFS utilisation
 <code class="inline">sudo apt-btrfs-snapshot delete-older-than 3d</code></p><p>This can also be done via the live Kaisen.<br/>Your installed system is crashed, you can restore your APT snapshot by <a href="create-chroot.html">chrooting</a> your installed system and running the command given above.
 This is a convenient and efficient way to restore your broken system.  </p><p>This functionality can also be completely removed by fully uninstalling the package. In this case, you have to run this command:
 <code class="inline">sudo apt remove --purge apt-btrfs-snapshot</code>  </p><p>Remember to regularly delete your BTRFS snapshots taken with apt-btrfs-snapshot, they can take up considerable space on your storage device.</p><h3 id="snapshots-with-timeshift" class="section-heading">
-  <a href="#snapshots-with-timeshift" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#snapshots-with-timeshift" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">snapshots-with-timeshift</p>
+  </a>
   Snapshots with Timeshift
 </h3>
 <p>Snapshots with Timeshift, software available in CLI or GUI, the snapshots can be taken much more easily that with btrfs-progs commands.<br/>We recommend the use of Timeshift to take and restore snapshot of your system.  </p><p>Remember to regularly delete your BTRFS snapshots taken with Timeshift, they can take up considerable space on your storage device.</p><h2 id="docker-btrfs-volumes" class="section-heading">
-  <a href="#docker-btrfs-volumes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#docker-btrfs-volumes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">docker-btrfs-volumes</p>
+  </a>
   Docker BTRFS volumes
 </h2>
 <p>When the Docker daemon is enabled, if you use BTRFS on your / partition, BTRFS automatically mounts a mount point of your partition in /var/lib/docker/btrfs in order to take advantage of BTRFS features on Docker containers and images, such as snapshots, Copy On Write...<br/>This can consume a lot of space, especially when snapshots have been taken on disk.<br/>To delete the data created by Docker, you must already stop the Docker service:<br/><code class="inline">sudo systemctl stop docker</code><br/>Then you just have to execute this command:<br/><code class="inline">sudo rm -rf /var/lib/docker/btrfs</code></p><h2 id="recommendations-for-btrfs" class="section-heading">
-  <a href="#recommendations-for-btrfs" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#recommendations-for-btrfs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">recommendations-for-btrfs</p>
+  </a>
   Recommendations for BTRFS
 </h2>
 <p>This is not enabled by default for performance reasons as well as to avoid premature wear, automated defragmentation is disabled.<br/>It is advisable to defragment BTRFS volumes at least every 6 months (CoW can create significant fragmentation), even on SSDs.<br/>Delete the snapshots first, and then type the command (in case you have BTRFS installed on the root):
@@ -173,27 +210,11 @@ Create chroot
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>
