@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>ocfs2_hb_ctl — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,46 +61,47 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>ocfs2_hb_ctl</span>
 </h1>
 
-<p>ocfs2_hb_ctl(8)                                                                     OCFS2 Manual Pages                                                                     ocfs2_hb_ctl(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Starts</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">stops</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">O2CB</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">device</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">service</span><span class="w">
+<p>ocfs2_hb_ctl(8)                                                    OCFS2 Manual Pages                                                   ocfs2_hb_ctl(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Starts</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">stops</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">O2CB</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">device</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">service</span><span class="w">
    </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="n">service</span><span class="w">
    </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">K</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">service</span><span class="w">
    </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">K</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="n">service</span><span class="w">
    </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w">
    </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">I</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">uuid</span><span class="w">
-   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="9562809041-1">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">io_priority</span><span class="p" data-group-id="9562809041-1">]</span><span class="w">
-   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="p" data-group-id="9562809041-2">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">io_priority</span><span class="p" data-group-id="9562809041-2">]</span><span class="w">
-   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="n">h</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w">  </span><span class="n">starts</span><span class="w">  </span><span class="ow">and</span><span class="w"> </span><span class="n">stops</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">OCFS2</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">Users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">urged</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">directly</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">invoked</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">ocfs2</span><span class="p" data-group-id="9112356717-1">(</span><span class="mi">8</span><span class="p" data-group-id="9112356717-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w">
-   </span><span class="n">tools</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">notifications</span><span class="o">.</span><span class="w">
+   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="6996862549-1">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">io_priority</span><span class="p" data-group-id="6996862549-1">]</span><span class="w">
+   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="p" data-group-id="6996862549-2">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">io_priority</span><span class="p" data-group-id="6996862549-2">]</span><span class="w">
+   </span><span class="n">ocfs2_hb_ctl</span><span class="w"> </span><span class="o">-</span><span class="n">h</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">ocfs2_hb_ctl</span><span class="w">  </span><span class="n">starts</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">stops</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">OCFS2</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">  </span><span class="nc">Users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">strongly</span><span class="w"> </span><span class="n">urged</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">directly</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">automatically</span><span class="w">
+   </span><span class="n">invoked</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">ocfs2</span><span class="p" data-group-id="0594252309-1">(</span><span class="mi">8</span><span class="p" data-group-id="0594252309-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">notifications</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">operates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="n">silently</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">More</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">modes</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="9112356717-2">(</span><span class="mi">7</span><span class="p" data-group-id="9112356717-2">)</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">operates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="n">silently</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">More</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">heartbeat</span><span class="w">
+   </span><span class="n">modes</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="0594252309-2">(</span><span class="mi">7</span><span class="p" data-group-id="0594252309-2">)</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">The</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">accepts</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">uuid</span><span class="o">.</span><span class="w"> </span><span class="nc">Service</span><span class="w"> </span><span class="n">denotes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">requesting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">notification</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">S</span><span class="w">     </span><span class="nc">Starts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="o">.</span><span class="w">
+   </span><span class="nc">The</span><span class="w">  </span><span class="n">tools</span><span class="w">  </span><span class="n">accepts</span><span class="w">  </span><span class="n">devices</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">uuid</span><span class="o">.</span><span class="w"> </span><span class="nc">Service</span><span class="w"> </span><span class="n">denotes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">requesting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">notifica</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tion</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="nc">S</span><span class="w">     </span><span class="nc">Starts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="nc">K</span><span class="w">     </span><span class="nc">Stops</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="o">.</span><span class="w">
 
@@ -122,10 +111,10 @@ Manpages
 
    </span><span class="o">-</span><span class="n">u</span><span class="w">     </span><span class="nc">Specify</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">uuid</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">n</span><span class="w">     </span><span class="nc">Adjust</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">priority</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">thread</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ionice</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">scheduling</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">scheduling</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">provided</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w">  </span><span class="n">op</span><span class="err">‐</span><span class="w">
-          </span><span class="n">tion</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usable</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">O2CB</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">stack</span><span class="o">.</span><span class="w">
+   </span><span class="o">-</span><span class="n">n</span><span class="w">     </span><span class="nc">Adjust</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">priority</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">heartbeat</span><span class="w"> </span><span class="n">thread</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ionice</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">scheduling</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">scheduling</span><span class="w">
+          </span><span class="n">class</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">provided</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usable</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">O2CB</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">stack</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">Displays</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mount</span><span class="o">.</span><span class="n">ocfs2</span><span class="p" data-group-id="5492122429-1">(</span><span class="mi">8</span><span class="p" data-group-id="5492122429-1">)</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="5492122429-2">(</span><span class="mi">7</span><span class="p" data-group-id="5492122429-2">)</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="5492122429-3">(</span><span class="mi">8</span><span class="p" data-group-id="5492122429-3">)</span><span class="w"> </span><span class="n">o2cb</span><span class="o">.</span><span class="n">sysconfig</span><span class="p" data-group-id="5492122429-4">(</span><span class="mi">5</span><span class="p" data-group-id="5492122429-4">)</span><span class="w"> </span><span class="n">ocfs2</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="5492122429-5">(</span><span class="mi">5</span><span class="p" data-group-id="5492122429-5">)</span><span class="w"> </span><span class="n">o2cluster</span><span class="p" data-group-id="5492122429-6">(</span><span class="mi">8</span><span class="p" data-group-id="5492122429-6">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Oracle</span><span class="w"> </span><span class="nc">Corporation</span></code></pre><p>COPYRIGHT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Copyright</span><span class="w"> </span><span class="err">©</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w"> </span><span class="mi">2012</span><span class="w"> </span><span class="nc">Oracle</span><span class="o">.</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="n">reserved</span><span class="o">.</span></code></pre><p>Version 1.8.7                                                                          January 2012                                                                        ocfs2_hb_ctl(8)</p>
+   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">Displays</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">mount</span><span class="o">.</span><span class="n">ocfs2</span><span class="p" data-group-id="7353121116-1">(</span><span class="mi">8</span><span class="p" data-group-id="7353121116-1">)</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="7353121116-2">(</span><span class="mi">7</span><span class="p" data-group-id="7353121116-2">)</span><span class="w"> </span><span class="n">o2cb</span><span class="p" data-group-id="7353121116-3">(</span><span class="mi">8</span><span class="p" data-group-id="7353121116-3">)</span><span class="w"> </span><span class="n">o2cb</span><span class="o">.</span><span class="n">sysconfig</span><span class="p" data-group-id="7353121116-4">(</span><span class="mi">5</span><span class="p" data-group-id="7353121116-4">)</span><span class="w"> </span><span class="n">ocfs2</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="7353121116-5">(</span><span class="mi">5</span><span class="p" data-group-id="7353121116-5">)</span><span class="w"> </span><span class="n">o2cluster</span><span class="p" data-group-id="7353121116-6">(</span><span class="mi">8</span><span class="p" data-group-id="7353121116-6">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Oracle</span><span class="w"> </span><span class="nc">Corporation</span></code></pre><p>COPYRIGHT</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Copyright</span><span class="w"> </span><span class="err">©</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w"> </span><span class="mi">2012</span><span class="w"> </span><span class="nc">Oracle</span><span class="o">.</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="n">reserved</span><span class="o">.</span></code></pre><p>Version 1.8.7                                                         January 2012                                                      ocfs2_hb_ctl(8)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -156,11 +145,27 @@ s3fs
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

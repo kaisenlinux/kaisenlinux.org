@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>sshow — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-2dbf9d3119.js"></script>
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,37 +61,37 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>sshow</span>
 </h1>
 
-<p>SSHOW(8)                                                                          System Manager's Manual                                                                         SSHOW(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">SSH</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">tool</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="p" data-group-id="9996159220-1">[</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="9996159220-1">]</span><span class="w"> </span><span class="p" data-group-id="9996159220-2">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">pcapfile</span><span class="p" data-group-id="9996159220-2">]</span><span class="w"> </span><span class="p" data-group-id="9996159220-3">[</span><span class="n">expression</span><span class="p" data-group-id="9996159220-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="n">analyzes</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="nc">SSH</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SSH</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">traffic</span><span class="p">,</span><span class="w"> </span><span class="n">identifying</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">attempts</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lengths</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">entered</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">sessions</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">lengths</span><span class="o">.</span><span class="w">
+<p>SSHOW(8)                                                        System Manager's Manual                                                        SSHOW(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">SSH</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">tool</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="p" data-group-id="1185366976-1">[</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="1185366976-1">]</span><span class="w"> </span><span class="p" data-group-id="1185366976-2">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">pcapfile</span><span class="p" data-group-id="1185366976-2">]</span><span class="w"> </span><span class="p" data-group-id="1185366976-3">[</span><span class="n">expression</span><span class="p" data-group-id="1185366976-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sshow</span><span class="w"> </span><span class="n">analyzes</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="nc">SSH</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SSH</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="n">traffic</span><span class="p">,</span><span class="w"> </span><span class="n">identifying</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">attempts</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lengths</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">entered</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">sessions</span><span class="p">,</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">lengths</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">advisory</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">attacks</span><span class="w"> </span><span class="n">implemented</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">sshow</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="ss">detail</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">openwall</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">advisories</span><span class="o">/</span><span class="nc">OW</span><span class="o">-</span><span class="mi">003</span><span class="o">-</span><span class="n">ssh</span><span class="o">-</span><span class="n">traffic</span><span class="o">-</span><span class="n">analysis</span><span class="o">.</span><span class="n">txt</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Enable</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w">
+          </span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">openwall</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">advisories</span><span class="o">/</span><span class="nc">OW</span><span class="o">-</span><span class="mi">003</span><span class="o">-</span><span class="n">ssh</span><span class="o">-</span><span class="n">traffic</span><span class="o">-</span><span class="n">analysis</span><span class="o">.</span><span class="n">txt</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Enable</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
@@ -112,10 +100,10 @@ Manpages
           </span><span class="nc">Process</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">PCAP</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">
 
    </span><span class="n">expression</span><span class="w">
-          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="6861782978-1">(</span><span class="mi">8</span><span class="p" data-group-id="6861782978-1">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sniff</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="0490327553-1">(</span><span class="mi">8</span><span class="p" data-group-id="0490327553-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">sshmitm</span><span class="p" data-group-id="0490327553-2">(</span><span class="mi">8</span><span class="p" data-group-id="0490327553-2">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Solar</span><span class="w"> </span><span class="nc">Designer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">solar</span><span class="na">@openwall</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="6680005933-1">(</span><span class="mi">8</span><span class="p" data-group-id="6680005933-1">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">sniff</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="3358938489-1">(</span><span class="mi">8</span><span class="p" data-group-id="3358938489-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">sshmitm</span><span class="p" data-group-id="3358938489-2">(</span><span class="mi">8</span><span class="p" data-group-id="3358938489-2">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Solar</span><span class="w"> </span><span class="nc">Designer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">solar</span><span class="na">@openwall</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
    </span><span class="nc">Dug</span><span class="w"> </span><span class="nc">Song</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dugsong</span><span class="na">@monkey</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
 
-                                                                                                                                                                              </span><span class="nc">SSHOW</span><span class="p" data-group-id="5499619084-1">(</span><span class="mi">8</span><span class="p" data-group-id="5499619084-1">)</span></code></pre>
+                                                                                                                                           </span><span class="nc">SSHOW</span><span class="p" data-group-id="9291551921-1">(</span><span class="mi">8</span><span class="p" data-group-id="9291551921-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -146,11 +134,27 @@ ssldump
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

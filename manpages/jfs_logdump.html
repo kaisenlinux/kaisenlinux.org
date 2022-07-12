@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>jfs_logdump — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,49 +61,49 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>jfs_logdump</span>
 </h1>
 
-<p>jfs_logdump(8)                                                                JFS utility - journal log dump                                                                jfs_logdump(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">device</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="p" data-group-id="8277351010-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="p" data-group-id="8277351010-1">]</span><span class="w"> </span><span class="n">device</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">.</span><span class="o">/</span><span class="n">jfslog</span><span class="o">.</span><span class="n">dmp</span><span class="o">.</span><span class="w">
+<p>jfs_logdump(8)                                               JFS utility - journal log dump                                              jfs_logdump(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">device</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="p" data-group-id="2010514992-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="p" data-group-id="2010514992-1">]</span><span class="w"> </span><span class="n">device</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">.</span><span class="o">/</span><span class="n">jfslog</span><span class="o">.</span><span class="n">dmp</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">dumped</span><span class="w"> </span><span class="p" data-group-id="0694640191-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w">  </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb1</span><span class="w"> </span><span class="p" data-group-id="0694640191-1">)</span><span class="o">.</span><span class="w">
+   </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">dumped</span><span class="w"> </span><span class="p" data-group-id="2074978983-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w">  </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb1</span><span class="w"> </span><span class="p" data-group-id="2074978983-1">)</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">root</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">a</span><span class="w">     </span><span class="nc">Dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">committed</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">synch</span><span class="w"> </span><span class="n">point</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">3</span><span class="n">rd</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">2</span><span class="n">nd</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="o">.</span><span class="o">/</span><span class="n">jfslog</span><span class="o">.</span><span class="ss">dmp</span><span class="p">:</span><span class="w">
+   </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">root</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">a</span><span class="w">     </span><span class="nc">Dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">committed</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">synch</span><span class="w"> </span><span class="n">point</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">3</span><span class="n">rd</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">2</span><span class="n">nd</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="o">.</span><span class="o">/</span><span class="n">jfslog</span><span class="o">.</span><span class="ss">dmp</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb3</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">jfs_logdump</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="p" data-group-id="1219154001-1">(</span><span class="s">&quot;Report Bugs&quot;</span><span class="w"> </span><span class="n">section</span><span class="p" data-group-id="1219154001-1">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="ss">site</span><span class="p">:</span><span class="w">
+          </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb3</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">jfs_logdump</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="p" data-group-id="5712432888-1">(</span><span class="s">&quot;Report Bugs&quot;</span><span class="w"> </span><span class="n">section</span><span class="p" data-group-id="5712432888-1">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="ss">site</span><span class="p">:</span><span class="w">
    </span><span class="n">http</span><span class="ss">://</span><span class="n">jfs</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="w">
 
-   </span><span class="nc">Please</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">pertinent</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">jfs_fsck</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">device</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">jfs_fsck</span><span class="p" data-group-id="4314538302-1">(</span><span class="mi">8</span><span class="p" data-group-id="4314538302-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_mkfs</span><span class="p" data-group-id="4314538302-2">(</span><span class="mi">8</span><span class="p" data-group-id="4314538302-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_fscklog</span><span class="p" data-group-id="4314538302-3">(</span><span class="mi">8</span><span class="p" data-group-id="4314538302-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_tune</span><span class="p" data-group-id="4314538302-4">(</span><span class="mi">8</span><span class="p" data-group-id="4314538302-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_debugfs</span><span class="p" data-group-id="4314538302-5">(</span><span class="mi">8</span><span class="p" data-group-id="4314538302-5">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Barry</span><span class="w"> </span><span class="nc">Arndt</span><span class="w">  </span><span class="p" data-group-id="9785105618-1">(</span><span class="n">barndt</span><span class="na">@us</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="9785105618-1">)</span><span class="w">
+   </span><span class="nc">Please</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">pertinent</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">jfs_fsck</span><span class="w"> </span><span class="k">with</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">device</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">jfs_fsck</span><span class="p" data-group-id="6795806313-1">(</span><span class="mi">8</span><span class="p" data-group-id="6795806313-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_mkfs</span><span class="p" data-group-id="6795806313-2">(</span><span class="mi">8</span><span class="p" data-group-id="6795806313-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_fscklog</span><span class="p" data-group-id="6795806313-3">(</span><span class="mi">8</span><span class="p" data-group-id="6795806313-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_tune</span><span class="p" data-group-id="6795806313-4">(</span><span class="mi">8</span><span class="p" data-group-id="6795806313-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">jfs_debugfs</span><span class="p" data-group-id="6795806313-5">(</span><span class="mi">8</span><span class="p" data-group-id="6795806313-5">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Barry</span><span class="w"> </span><span class="nc">Arndt</span><span class="w">  </span><span class="p" data-group-id="0664959884-1">(</span><span class="n">barndt</span><span class="na">@us</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="0664959884-1">)</span><span class="w">
    </span><span class="nc">William</span><span class="w"> </span><span class="nc">Braswell</span><span class="p">,</span><span class="w"> </span><span class="nc">Jr</span><span class="o">.</span><span class="w">
 
    </span><span class="n">jfs_logdump</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">maintained</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">IBM</span><span class="o">.</span><span class="w">
    </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JFS</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="ss">details</span><span class="p">:</span><span class="w">
    </span><span class="n">http</span><span class="ss">://</span><span class="n">jfs</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="w">
 
-                                                                                 </span><span class="nc">October</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">2002</span><span class="w">                                                                       </span><span class="n">jfs_logdump</span><span class="p" data-group-id="9785105618-2">(</span><span class="mi">8</span><span class="p" data-group-id="9785105618-2">)</span></code></pre>
+                                                                </span><span class="nc">October</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">2002</span><span class="w">                                                     </span><span class="n">jfs_logdump</span><span class="p" data-group-id="0664959884-2">(</span><span class="mi">8</span><span class="p" data-group-id="0664959884-2">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -146,11 +134,27 @@ jfs_mkfs
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

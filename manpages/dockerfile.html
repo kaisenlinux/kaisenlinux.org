@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>Dockerfile — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+
+
+</h1>
+
+<p>DOCKERFILE(5)                                                     Docker User Manuals                                                     DOCKERFILE(5)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span></code></pre><p>INTRODUCTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="nc">Dockerfile</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">automates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Makefile</span><span class="o">.</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">instruc</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tions</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="nc">Docker</span><span class="err">‐</span><span class="w">
+   </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w">  </span><span class="nc">Dockerfile</span><span class="w">  </span><span class="n">describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">taken</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">assemble</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">created</span><span class="p">,</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">argument</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">INSTRUCTION</span><span class="w"> </span><span class="n">arguments</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">FROM</span><span class="w"> </span><span class="n">image</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">A</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">automates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Makefile</span><span class="o">.</span></code></pre><p>USAGE</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">Runs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="n">them</span><span class="p">,</span><span class="w"> </span><span class="n">building</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">build</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">daemon</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CLI</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">whole</span><span class="w">
+     </span><span class="n">context</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">transferred</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="n">reports</span><span class="w">
+     </span><span class="s">&quot;Sending build context to Docker daemon&quot;</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">daemon</span><span class="o">.</span><span class="w">
+
+            </span><span class="n">docker</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">repository</span><span class="o">/</span><span class="n">tag</span><span class="w"> </span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">build</span><span class="w">
+     </span><span class="n">succeeds</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">one</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">committing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w">
+     </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">finally</span><span class="w"> </span><span class="n">outputting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w">
+     </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">cleans</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Docker</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">uses</span><span class="w"> </span><span class="n">intermediate</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">whenever</span><span class="w"> </span><span class="n">possible</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">significantly</span><span class="w">
+     </span><span class="n">accelerates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">process</span><span class="o">.</span></code></pre><p>FORMAT</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">FROM</span><span class="w"> </span><span class="n">image</span><span class="w">
+
+   </span><span class="nc">FROM</span><span class="w"> </span><span class="n">image</span><span class="ss">:tag</span><span class="w">
+
+   </span><span class="nc">FROM</span><span class="w"> </span><span class="n">image</span><span class="na">@digest</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">subsequent</span><span class="w"> </span><span class="n">instructions</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w">
+     </span><span class="n">valid</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">instruction</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">any</span><span class="w">
+     </span><span class="n">valid</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">easy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pulling</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">public</span><span class="w">
+     </span><span class="n">repositories</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">comment</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w">
+     </span><span class="n">multiple</span><span class="w"> </span><span class="n">images</span><span class="o">.</span><span class="w"> </span><span class="nc">Make</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">before</span><span class="w">
+     </span><span class="n">each</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">instruction</span><span class="p">,</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">applies</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">latest</span><span class="w"> </span><span class="n">tag</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="p">,</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">digest</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">FROM</span><span class="w"> </span><span class="n">instruction</span><span class="p">,</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">applies</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">latest</span><span class="w"> </span><span class="n">tag</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="p">,</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">MAINTAINER</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">MAINTAINER</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Author</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">images</span><span class="o">.</span><span class="w">
+     </span><span class="nc">Useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">providing</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">support</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">RUN</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">RUN</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="ss">forms</span><span class="p">:</span><span class="w">
+
+            </span><span class="c1"># the command is run in a shell - /bin/sh -c</span><span class="w">
+            </span><span class="nc">RUN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="w">
+
+            </span><span class="c1"># Executable form</span><span class="w">
+            </span><span class="nc">RUN</span><span class="w"> </span><span class="p" data-group-id="7964741261-1">[</span><span class="s">&quot;executable&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;param1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;param2&quot;</span><span class="p" data-group-id="7964741261-1">]</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">RUN</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">executes</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w">
+     </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">results</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">committed</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="ow">in</span><span class="w">
+     </span><span class="nc">Dockerfile</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">Layering</span><span class="w"> </span><span class="nc">RUN</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="n">conforms</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">core</span><span class="w">
+     </span><span class="n">concepts</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">cheap</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">from</span><span class="w">
+     </span><span class="n">any</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">control</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w">
+     </span><span class="n">exec</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">munging</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">exec</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">makes</span><span class="w">
+     </span><span class="n">it</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">RUN</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">exec</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">must</span><span class="w">
+     </span><span class="kn">use</span><span class="w"> </span><span class="n">double</span><span class="o">-</span><span class="n">quotes</span><span class="w"> </span><span class="p" data-group-id="7964741261-2">(</span><span class="s">&quot;) around words not single-quotes (&#39;).
+
+   CMD
+     -- CMD has three forms:
+
+            # Executable form
+            CMD [&quot;</span><span class="n">executable</span><span class="s">&quot;, &quot;</span><span class="n">param1</span><span class="s">&quot;, &quot;</span><span class="n">param2</span><span class="s">&quot;]`
+
+            # Provide default arguments to ENTRYPOINT
+            CMD [&quot;</span><span class="n">param1</span><span class="s">&quot;, &quot;</span><span class="n">param2</span><span class="s">&quot;]`
+
+            # the command is run in a shell - /bin/sh -c
+            CMD command param1 param2
+
+   -- There should be only one CMD in a Dockerfile. If more than one CMD is listed, only
+     the last CMD takes effect.
+     The main purpose of a CMD is to provide defaults for an executing container.
+     These defaults may include an executable, or they can omit the executable. If
+     they omit the executable, an ENTRYPOINT must be specified.
+     When used in the shell or exec formats, the CMD instruction sets the command to
+     be executed when running the image.
+     If you use the shell form of the CMD, the &lt;command&gt; executes in /bin/sh -c:
+
+   Note that the exec form is parsed as a JSON array, which means that you must
+     use double-quotes (&quot;</span><span class="p" data-group-id="7964741261-2">)</span><span class="w"> </span><span class="n">around</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="n">quotes</span><span class="w"> </span><span class="p" data-group-id="7964741261-3">(</span><span class="sc">&#39;).
+
+            FROM ubuntu
+            CMD echo &quot;This is a test.&quot; | wc -
+
+   -- If you run command without a shell, then you must express the command as a
+     JSON array and give the full path to the executable. This array form is the
+     preferred form of CMD. All additional parameters must be individually expressed
+     as strings in the array:
+
+            FROM ubuntu
+            CMD [&quot;/usr/bin/wc&quot;,&quot;--help&quot;]
+
+   -- To make the container run the same executable every time, use ENTRYPOINT in
+     combination with CMD.
+     If the user specifies arguments to docker run, the specified commands
+     override the default in CMD.
+     Do not confuse RUN with CMD. RUN runs a command and commits the result.
+     CMD executes nothing at build time, but specifies the intended command for
+     the image.
+
+   LABEL
+     -- LABEL &lt;key&gt;=&lt;value&gt; [&lt;key&gt;=&lt;value&gt; ...]or
+
+            LABEL &lt;key&gt;[ &lt;value&gt;]
+            LABEL &lt;key&gt;[ &lt;value&gt;]
+            ...
+
+   The LABEL instruction adds metadata to an image. A LABEL is a
+     key-value pair. To specify a LABEL without a value, simply use an empty
+     string. To include spaces within a LABEL value, use quotes and
+     backslashes as you would in command-line parsing.
+
+            LABEL com.example.vendor=&quot;ACME Incorporated&quot;
+            LABEL com.example.vendor &quot;ACME Incorporated&quot;
+            LABEL com.example.vendor.is-beta &quot;&quot;
+            LABEL com.example.vendor.is-beta=
+            LABEL com.example.vendor.is-beta=&quot;&quot;
+
+   An image can have more than one label. To specify multiple labels, separate
+     each key-value pair by a space.
+
+   Labels are additive including LABELs in FROM images. As the system
+     encounters and then applies a new label, new keys override any previous
+     labels with identical keys.
+
+   To display an image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">labels</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">STOPSIGNAL</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">STOPSIGNAL</span><span class="w"> </span><span class="o">&lt;</span><span class="n">signal</span><span class="o">&gt;</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">STOPSIGNAL</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w">
+     </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">format</span><span class="w">
+     </span><span class="nc">SIG</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="nc">SIGKILL</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">a</span><span class="w">
+     </span><span class="n">position</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="sc">&#39;s syscall table, for instance 9. The default is
+     SIGTERM if not defined.
+
+   The image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">stopsignal</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="o">--</span><span class="n">stop</span><span class="o">-</span><span class="n">signal</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">run</span><span class="p" data-group-id="7964741261-4">(</span><span class="mi">1</span><span class="p" data-group-id="7964741261-4">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">create</span><span class="p" data-group-id="7964741261-5">(</span><span class="mi">1</span><span class="p" data-group-id="7964741261-5">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EXPOSE</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">EXPOSE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="7964741261-6">[</span><span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span><span class="n">...</span><span class="p" data-group-id="7964741261-6">]</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">EXPOSE</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">informs</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">listens</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">ports</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">runtime</span><span class="o">.</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="w">
+     </span><span class="n">interconnect</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w">
+     </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENV</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">ENV</span><span class="w"> </span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">ENV</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w">  </span><span class="n">to</span><span class="w">
+     </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">future</span><span class="w">
+     </span><span class="nc">RUN</span><span class="p">,</span><span class="w"> </span><span class="nc">ENTRYPOINT</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">CMD</span><span class="w"> </span><span class="n">instructions</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w">
+     </span><span class="n">functionally</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prefixing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w">
+     </span><span class="n">environment</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">ENV</span><span class="w"> </span><span class="n">persist</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">run</span><span class="w">
+     </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">resulting</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">
+     </span><span class="n">change</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">--</span><span class="n">env</span><span class="w"> </span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="s">&quot;ENV DEBIAN_FRONTEND=noninteractive&quot;</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">cause</span><span class="w">
+     </span><span class="n">unintended</span><span class="w"> </span><span class="n">consequences</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">persist</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">run</span><span class="w">
+     </span><span class="n">interactively</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">bash</span><span class="w">
+
+   </span><span class="nc">ADD</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">ADD</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="ss">forms</span><span class="p">:</span><span class="w">
+
+            </span><span class="nc">ADD</span><span class="w"> </span><span class="o">&lt;</span><span class="n">src</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="w">
+
+            </span><span class="c1"># Required for paths with whitespace</span><span class="w">
+            </span><span class="nc">ADD</span><span class="w"> </span><span class="p" data-group-id="7964741261-7">[</span><span class="s">&quot;&lt;src&gt;&quot;</span><span class="p">,</span><span class="n">...</span><span class="w"> </span><span class="s">&quot;&lt;dest&gt;&quot;</span><span class="p" data-group-id="7964741261-7">]</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">ADD</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">copies</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">directories</span><span class="w">
+     </span><span class="ow">or</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">URLs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+     </span><span class="nc">Multiple</span><span class="w"> </span><span class="o">&lt;</span><span class="n">src</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directories</span><span class="w">
+     </span><span class="n">then</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">built</span><span class="w">
+     </span><span class="p" data-group-id="7964741261-8">(</span><span class="n">the</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">build</span><span class="p" data-group-id="7964741261-8">)</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">relative</span><span class="w">
+     </span><span class="n">to</span><span class="w"> </span><span class="nc">WORKDIR</span><span class="p">,</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">copied</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+     </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">src</span><span class="o">&gt;</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">recognized</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">format</span><span class="w">
+     </span><span class="p" data-group-id="7964741261-9">(</span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="n">gzip</span><span class="p">,</span><span class="w"> </span><span class="n">bzip2</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="p" data-group-id="7964741261-9">)</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">unpacked</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dest</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">container</span><span class="sc">&#39;s filesystem.  Note that only local compressed files will be unpacked,
+     i.e., the URL download and archive unpacking features cannot be used together.
+     All new directories are created with mode 0755 and with the uid and gid of 0.
+
+   COPY
+     -- COPY has two forms:
+
+            COPY &lt;src&gt; &lt;dest&gt;
+
+            # Required for paths with whitespace
+            COPY [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]
+
+   The COPY instruction copies new files from &lt;src&gt; and
+     adds them to the filesystem of the container at path . The &lt;src&gt; must be
+     the path to a file or directory relative to the source directory that is
+     being built (the context of the build) or a remote file URL. The &lt;dest&gt; is an
+     absolute path, or a path relative to WORKDIR, into which the source will
+     be copied inside the target container. If you COPY an archive file it will
+     land in the container exactly as it appears in the build context without any
+     attempt to unpack it.  All new files and directories are created with mode 0755
+     and with the uid and gid of 0.
+
+   ENTRYPOINT
+     -- ENTRYPOINT has two forms:
+
+            # executable form
+            ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]`
+
+            # run command in a shell - /bin/sh -c
+            ENTRYPOINT command param1 param2
+
+   -- An ENTRYPOINT helps you configure a
+     container that can be run as an executable. When you specify an ENTRYPOINT,
+     the whole container runs as if it was only that executable.  The ENTRYPOINT
+     instruction adds an entry command that is not overwritten when arguments are
+     passed to docker run. This is different from the behavior of CMD. This allows
+     arguments to be passed to the entrypoint, for instance docker run &lt;image&gt; -d
+     passes the -d argument to the ENTRYPOINT.  Specify parameters either in the
+     ENTRYPOINT JSON array (as in the preferred exec form above), or by using a CMD
+     statement.  Parameters in the ENTRYPOINT are not overwritten by the docker run
+     arguments.  Parameters specified via CMD are overwritten by docker run
+     arguments.  Specify a plain string for the ENTRYPOINT, and it will execute in
+     /bin/sh -c, like a CMD instruction:
+
+            FROM ubuntu
+            ENTRYPOINT wc -l -
+
+   This means that the Dockerfile&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">stdin</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="p" data-group-id="7964741261-10">(</span><span class="n">that</span><span class="sc">&#39;s
+     what &quot;-&quot; means), and prints the number of lines (that&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="s">&quot;-l&quot;</span><span class="w"> </span><span class="n">means</span><span class="p" data-group-id="7964741261-10">)</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w">
+     </span><span class="n">make</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">CMD</span><span class="p">:</span><span class="w">
+
+            </span><span class="nc">FROM</span><span class="w"> </span><span class="n">ubuntu</span><span class="w">
+            </span><span class="nc">CMD</span><span class="w"> </span><span class="p" data-group-id="7964741261-11">[</span><span class="s">&quot;-l&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p" data-group-id="7964741261-11">]</span><span class="w">
+            </span><span class="nc">ENTRYPOINT</span><span class="w"> </span><span class="p" data-group-id="7964741261-12">[</span><span class="s">&quot;/usr/bin/wc&quot;</span><span class="p" data-group-id="7964741261-12">]</span><span class="w">
+
+   </span><span class="nc">VOLUME</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">VOLUME</span><span class="w"> </span><span class="p" data-group-id="7964741261-13">[</span><span class="s">&quot;/data&quot;</span><span class="p" data-group-id="7964741261-13">]</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">VOLUME</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">marks</span><span class="w">
+     </span><span class="n">it</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">holding</span><span class="w"> </span><span class="n">externally</span><span class="o">-</span><span class="n">mounted</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">native</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">other</span><span class="w">
+     </span><span class="n">containers</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">USER</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">USER</span><span class="w"> </span><span class="n">daemon</span><span class="w">
+     </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">subsequent</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">USER</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">GID</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w">
+     </span><span class="n">followings</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="ss">valid</span><span class="p">:</span><span class="w">
+     </span><span class="nc">USER</span><span class="w"> </span><span class="p" data-group-id="7964741261-14">[</span><span class="n">user</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">user</span><span class="ss">:group</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">uid</span><span class="ss">:gid</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">user</span><span class="ss">:gid</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">uid</span><span class="ss">:group</span><span class="w"> </span><span class="p" data-group-id="7964741261-14">]</span><span class="w">
+
+   </span><span class="nc">Until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">USER</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">USER</span><span class="w">
+     </span><span class="n">instruction</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">affect</span><span class="w">
+     </span><span class="n">subsequent</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">WORKDIR</span><span class="w">
+     </span><span class="o">--</span><span class="w"> </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">workdir</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">RUN</span><span class="p">,</span><span class="w"> </span><span class="nc">CMD</span><span class="p">,</span><span class="w">
+     </span><span class="nc">ENTRYPOINT</span><span class="p">,</span><span class="w"> </span><span class="nc">COPY</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ADD</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w">
+     </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="o">.</span><span class="w"> </span><span class="nc">Relative</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">defined</span><span class="w">
+     </span><span class="n">relative</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="n">instruction</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+
+            </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="o">/</span><span class="n">a</span><span class="w">
+            </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="n">b</span><span class="w">
+            </span><span class="nc">WORKDIR</span><span class="w"> </span><span class="n">c</span><span class="w">
+            </span><span class="nc">RUN</span><span class="w"> </span><span class="n">pwd</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pwd</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ARG</span><span class="w">
+      </span><span class="o">--</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="p" data-group-id="7964741261-15">[</span><span class="o">=</span><span class="p" data-group-id="7964741261-15">]</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="n">to</span><span class="w">
+     </span><span class="n">the</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">build</span><span class="o">-</span><span class="n">arg</span><span class="w">
+     </span><span class="o">&lt;</span><span class="n">varname</span><span class="o">&gt;=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w">
+     </span><span class="n">defined</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">warning</span><span class="o">.</span><span class="w">
+
+            </span><span class="p" data-group-id="7964741261-16">[</span><span class="nc">Warning</span><span class="p" data-group-id="7964741261-16">]</span><span class="w"> </span><span class="nc">One</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">args</span><span class="w"> </span><span class="p" data-group-id="7964741261-17">[</span><span class="n">foo</span><span class="p" data-group-id="7964741261-17">]</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">consumed</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">many</span><span class="w">
+     </span><span class="n">variables</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">once</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="ss">Dockerfile</span><span class="p">:</span><span class="w">
+
+            </span><span class="nc">FROM</span><span class="w"> </span><span class="n">busybox</span><span class="w">
+            </span><span class="nc">ARG</span><span class="w"> </span><span class="n">user1</span><span class="w">
+            </span><span class="nc">ARG</span><span class="w"> </span><span class="n">buildno</span><span class="w">
+            </span><span class="n">...</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="ss">instruction</span><span class="p">:</span><span class="w">
+
+            </span><span class="nc">FROM</span><span class="w"> </span><span class="n">busybox</span><span class="w">
+            </span><span class="nc">ARG</span><span class="w"> </span><span class="n">user1</span><span class="o">=</span><span class="n">someuser</span><span class="w">
+            </span><span class="nc">ARG</span><span class="w"> </span><span class="n">buildno</span><span class="o">=</span><span class="mi">1</span><span class="w">
+            </span><span class="n">...</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w">
+     </span><span class="n">builder</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">An</span><span class="w"> </span><span class="nc">ARG</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="n">comes</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w">
+     </span><span class="n">defined</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">argument</span><span class="sc">&#39;s use on the command-line or
+     elsewhere.  For example, consider this Dockerfile:
+
+            1 FROM busybox
+            2 USER ${user:-some_user}
+            3 ARG user
+            4 USER $user
+            ...
+
+   A user builds this file by calling:
+
+            $ docker build --build-arg user=what_user Dockerfile
+
+   The USER at line 2 evaluates to some_user as the user variable is defined on the
+     subsequent line 3. The USER at line 4 evaluates to what_user as user is
+     defined and the what_user value was passed on the command line. Prior to its definition by an
+     ARG instruction, any use of a variable results in an empty string.
+
+          Warning: It is not recommended to use build-time variables for
+           passing secrets like github keys, user credentials etc. Build-time variable
+           values are visible to any user of the image with the docker history command.
+
+   You can use an ARG or an ENV instruction to specify variables that are
+     available to the RUN instruction. Environment variables defined using the
+     ENV instruction always override an ARG instruction of the same name. Consider
+     this Dockerfile with an ENV and ARG instruction.
+
+            1 FROM ubuntu
+            2 ARG CONT_IMG_VER
+            3 ENV CONT_IMG_VER=v1.0.0
+            4 RUN echo $CONT_IMG_VER
+
+   Then, assume this image is built with this command:
+
+            $ docker build --build-arg CONT_IMG_VER=v2.0.1 Dockerfile
+
+   In this case, the RUN instruction uses v1.0.0 instead of the ARG setting
+     passed by the user:v2.0.1 This behavior is similar to a shell
+     script where a locally scoped variable overrides the variables passed as
+     arguments or inherited from environment, from its point of definition.
+
+   Using the example above but a different ENV specification you can create more
+     useful interactions between ARG and ENV instructions:
+
+            1 FROM ubuntu
+            2 ARG CONT_IMG_VER
+            3 ENV CONT_IMG_VER=${CONT_IMG_VER:-v1.0.0}
+            4 RUN echo $CONT_IMG_VER
+
+   Unlike an ARG instruction, ENV values are always persisted in the built
+     image. Consider a docker build without the --build-arg flag:
+
+            $ docker build Dockerfile
+
+   Using this Dockerfile example, CONT_IMG_VER is still persisted in the image but
+     its value would be v1.0.0 as it is the default set in line 3 by the ENV instruction.
+
+   The variable expansion technique in this example allows you to pass arguments
+     from the command line and persist them in the final image by leveraging the
+     ENV instruction. Variable expansion is only supported for a limited set of
+     Dockerfile instructions.  ⟨#environment-replacement⟩
+
+   Docker has a set of predefined ARG variables that you can use without a
+     corresponding ARG instruction in the Dockerfile.
+
+          • HTTP_PROXY
+
+          • http_proxy
+
+          • HTTPS_PROXY
+
+          • https_proxy
+
+          • FTP_PROXY
+
+          • ftp_proxy
+
+          • NO_PROXY
+
+          • no_proxy
+
+   To use these, pass them on the command line using --build-arg flag, for
+     example:
+
+            $ docker build --build-arg HTTPS_PROXY=https://my-proxy.example.com .
+
+   ONBUILD
+     -- ONBUILD [INSTRUCTION]
+     The ONBUILD instruction adds a trigger instruction to an image. The
+     trigger is executed at a later time, when the image is used as the base for
+     another build. Docker executes the trigger in the context of the downstream
+     build, as if the trigger existed immediately after the FROM instruction in
+     the downstream Dockerfile.
+
+   You can register any build instruction as a trigger. A trigger is useful if
+     you are defining an image to use as a base for building other images. For
+     example, if you are defining an application build environment or a daemon that
+     is customized with a user-specific configuration.
+
+   Consider an image intended as a reusable python application builder. It must
+     add application source code to a particular directory, and might need a build
+     script called after that. You can&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="nc">ADD</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RUN</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w">
+     </span><span class="n">you</span><span class="w"> </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">yet</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">different</span><span class="w">
+     </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">build</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="w"> </span><span class="nc">Providing</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">developers</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">boilerplate</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">copy</span><span class="o">-</span><span class="n">paste</span><span class="w">
+     </span><span class="n">into</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">inefficient</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="o">-</span><span class="n">prone</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">
+     </span><span class="n">difficult</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">mixes</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">application</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">solution</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="nc">ONBUILD</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">advance</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w">
+     </span><span class="n">run</span><span class="w"> </span><span class="n">later</span><span class="p">,</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">stage</span><span class="o">.</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">*</span><span class="nc">May</span><span class="w"> </span><span class="mi">2014</span><span class="p">,</span><span class="w"> </span><span class="nc">Compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Zac</span><span class="w"> </span><span class="nc">Dover</span><span class="w"> </span><span class="p" data-group-id="9946255904-1">(</span><span class="n">zdover</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">redhat</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">com</span><span class="p" data-group-id="9946255904-1">)</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">documentation</span><span class="o">.</span><span class="w">  </span><span class="o">*</span><span class="nc">Feb</span><span class="w">  </span><span class="mi">2015</span><span class="p">,</span><span class="w">  </span><span class="n">updated</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="nc">Brian</span><span class="w">  </span><span class="nc">Goff</span><span class="w">
+   </span><span class="p" data-group-id="9946255904-2">(</span><span class="n">cpuguy83</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="9946255904-2">)</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">readability</span><span class="w">  </span><span class="o">*</span><span class="nc">Sept</span><span class="w">  </span><span class="mi">2015</span><span class="p">,</span><span class="w">  </span><span class="n">updated</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="nc">Sally</span><span class="w">  </span><span class="nc">O</span><span class="err">&#39;</span><span class="nc">Malley</span><span class="w">  </span><span class="p" data-group-id="9946255904-3">(</span><span class="n">somalley</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="9946255904-3">)</span><span class="w"> </span><span class="o">*</span><span class="nc">Oct</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Addam</span><span class="w"> </span><span class="nc">Hardy</span><span class="w"> </span><span class="p" data-group-id="9946255904-4">(</span><span class="n">ad</span><span class="err">‐</span><span class="w">
+   </span><span class="n">dam</span><span class="o">.</span><span class="n">hardy</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="p" data-group-id="9946255904-4">)</span></code></pre><p>Docker Community                                                        MAY 2014                                                          DOCKERFILE(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-wait.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-wait
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-config-json.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-config-json
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

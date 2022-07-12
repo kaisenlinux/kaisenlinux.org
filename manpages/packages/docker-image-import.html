@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>docker-image-import — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+
+
+</h1>
+
+<p>DOCKER(1)                                                         Docker User Manuals                                                         DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="kn">import</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Import</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tarball</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="p" data-group-id="5780602674-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="5780602674-1">]</span><span class="w"> </span><span class="n">file</span><span class="o">|</span><span class="nc">URL</span><span class="o">|</span><span class="o">-</span><span class="w"> </span><span class="p" data-group-id="5780602674-2">[</span><span class="nc">REPOSITORY</span><span class="p" data-group-id="5780602674-3">[</span><span class="ss">:TAG</span><span class="p" data-group-id="5780602674-3">]</span><span class="p" data-group-id="5780602674-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tarball</span><span class="w"> </span><span class="p" data-group-id="4221934754-1">(</span><span class="o">.</span><span class="n">tar</span><span class="p">,</span><span class="w"> </span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="p">,</span><span class="w"> </span><span class="o">.</span><span class="n">tgz</span><span class="p">,</span><span class="w"> </span><span class="o">.</span><span class="n">bzip</span><span class="p">,</span><span class="w"> </span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span><span class="p">,</span><span class="w"> </span><span class="o">.</span><span class="n">txz</span><span class="p" data-group-id="4221934754-1">)</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">it</span><span class="o">.</span></code></pre><p>EXAMPLES
+Import from a remote location</p><pre><code class="makeup elixir"><span class="w">          </span><span class="c1"># docker image import http://example.com/exampleimage.tgz example/imagerepo</span></code></pre><p>Import from a local file</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Import</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">stdin</span><span class="p">:</span><span class="w">
+
+          </span><span class="c1"># cat exampleimage.tgz | docker image import - example/imagelocal</span><span class="w">
+
+   </span><span class="nc">Import</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">message</span><span class="o">.</span><span class="w">
+
+          </span><span class="c1"># cat exampleimage.tgz | docker image import --message &quot;New image imported from tarball&quot; - exampleimagelocal:new</span><span class="w">
+
+   </span><span class="nc">Import</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+          </span><span class="c1"># docker image import /path/to/exampleimage.tgz</span></code></pre><p>Import from a local file and tag</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Import</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">stdin</span><span class="p">:</span><span class="w">
+
+          </span><span class="c1"># cat exampleimageV2.tgz | docker image import - example/imagelocal:V-2.0</span></code></pre><p>Import from a local directory</p><pre><code class="makeup elixir"><span class="w">          </span><span class="c1"># tar -c . | docker image import - exampleimagedir</span></code></pre><p>Apply specified Dockerfile instructions while importing the image</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="nc">ENV</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">DEBUG</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">
+
+          </span><span class="c1"># tar -c . | docker image import -c=&quot;ENV DEBUG=true&quot; - exampleimagedir</span></code></pre><p>When the daemon supports multiple operating systems</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">systems</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">imported</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">necessary</span><span class="w">
+   </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">platform</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">importing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Windows</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span><span class="w">
+
+          </span><span class="c1"># docker image import --platform=linux .\linuximage.tar</span></code></pre><p>See also</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">export</span><span class="p" data-group-id="2612479812-1">(</span><span class="mi">1</span><span class="p" data-group-id="2612479812-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tar</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">STDOUT</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">change</span><span class="o">=</span><span class="w">      </span><span class="nc">Apply</span><span class="w"> </span><span class="nc">Dockerfile</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">image</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="2583907850-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2583907850-1">]</span><span class="w">      </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">import</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">message</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">imported</span><span class="w"> </span><span class="n">image</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">platform</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="n">platform</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">platform</span><span class="w"> </span><span class="n">capable</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">image</span><span class="p" data-group-id="9561350545-1">(</span><span class="mi">1</span><span class="p" data-group-id="9561350545-1">)</span></code></pre><p>Docker Community                                                        Apr 2022                                                              DOCKER(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-image-history.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-image-history
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-image-inspect.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-image-inspect
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

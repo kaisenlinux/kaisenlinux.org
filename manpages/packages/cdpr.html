@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>cdpr — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-2dbf9d3119.js"></script>
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,35 +61,34 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>cdpr</span>
 </h1>
 
-<p>CDPR(8)                                                                           System Manager's Manual                                                                          CDPR(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cdpr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Cisco</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="nc">Reporter</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cdpr</span><span class="w"> </span><span class="p" data-group-id="7224093870-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="7224093870-1">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-2">[</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="p" data-group-id="7224093870-2">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-3">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">pcap</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="7224093870-3">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-4">[</span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">server</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="7224093870-4">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-5">[</span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="p" data-group-id="7224093870-5">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-6">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="p" data-group-id="7224093870-6">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-7">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p" data-group-id="7224093870-7">]</span><span class="w"> </span><span class="p" data-group-id="7224093870-8">[</span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">script</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="p" data-group-id="7224093870-8">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cdpr</span><span class="w"> </span><span class="n">listens</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Cisco</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">decodes</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="w">
-   </span><span class="n">a</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">processing</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w">
-          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="p" data-group-id="1976918296-1">(</span><span class="n">eth0</span><span class="p">,</span><span class="w"> </span><span class="n">hme0</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="o">.</span><span class="p" data-group-id="1976918296-1">)</span><span class="w">
+<p>CDPR(8)                                                         System Manager's Manual                                                         CDPR(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cdpr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Cisco</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="nc">Reporter</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cdpr</span><span class="w"> </span><span class="p" data-group-id="5762333409-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="5762333409-1">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-2">[</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="p" data-group-id="5762333409-2">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-3">[</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">pcap</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="5762333409-3">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-4">[</span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">server</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="5762333409-4">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-5">[</span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="p" data-group-id="5762333409-5">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-6">[</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="p" data-group-id="5762333409-6">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-7">[</span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p" data-group-id="5762333409-7">]</span><span class="w"> </span><span class="p" data-group-id="5762333409-8">[</span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">script</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="p" data-group-id="5762333409-8">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cdpr</span><span class="w">  </span><span class="n">listens</span><span class="w">  </span><span class="n">on</span><span class="w">  </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Cisco</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">packets</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">decodes</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w">
+   </span><span class="n">optionally</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">processing</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">device</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="p" data-group-id="4035252615-1">(</span><span class="n">eth0</span><span class="p">,</span><span class="w"> </span><span class="n">hme0</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="o">.</span><span class="p" data-group-id="4035252615-1">)</span><span class="w">
 
    </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">pcap</span><span class="o">-</span><span class="n">file</span><span class="w">
           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
@@ -109,9 +96,9 @@ Manpages
    </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usage</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">seconds</span><span class="w">
-          </span><span class="nc">Time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">abort</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="p" data-group-id="1976918296-2">(</span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">60</span><span class="p" data-group-id="1976918296-2">)</span><span class="w">
+          </span><span class="nc">Time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">abort</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="p" data-group-id="4035252615-2">(</span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">60</span><span class="p" data-group-id="4035252615-2">)</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="1976918296-3">[</span><span class="n">vv</span><span class="p" data-group-id="1976918296-3">]</span><span class="w"> </span><span class="nc">Set</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+   </span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="4035252615-3">[</span><span class="n">vv</span><span class="p" data-group-id="4035252615-3">]</span><span class="w"> </span><span class="nc">Set</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">server</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">file</span><span class="w">
           </span><span class="nc">Send</span><span class="w"> </span><span class="n">cdpr</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cdpr</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">cdpr</span><span class="o">/</span><span class="nc">README</span><span class="o">.</span><span class="n">cdprs</span><span class="w">
@@ -123,12 +110,13 @@ Manpages
           </span><span class="nc">Override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">server</span><span class="w">
-          </span><span class="nc">Server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">server</span><span class="o">/</span><span class="nc">IP</span><span class="o">.</span><span class="w">  </span><span class="ss">Example</span><span class="p">:</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.20</span><span class="p">:</span><span class="mi">88</span><span class="w"> </span><span class="p" data-group-id="1976918296-4">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p" data-group-id="1976918296-4">)</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="p" data-group-id="1976918296-5">(</span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="p" data-group-id="1976918296-5">)</span><span class="w">
+          </span><span class="nc">Server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">server</span><span class="o">/</span><span class="nc">IP</span><span class="o">.</span><span class="w">  </span><span class="ss">Example</span><span class="p">:</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.20</span><span class="p">:</span><span class="mi">88</span><span class="w"> </span><span class="p" data-group-id="4035252615-4">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p" data-group-id="4035252615-4">)</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">  </span><span class="p" data-group-id="4035252615-5">(</span><span class="n">overridden</span><span class="w">  </span><span class="n">by</span><span class="w">
+          </span><span class="o">-</span><span class="n">u</span><span class="p" data-group-id="4035252615-5">)</span><span class="w">
 
    </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">script</span><span class="o">-</span><span class="n">path</span><span class="w">
-          </span><span class="nc">Path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="p">;</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="p" data-group-id="1976918296-6">(</span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="p" data-group-id="1976918296-6">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Lance</span><span class="w"> </span><span class="nc">O</span><span class="err">&#39;</span><span class="nc">Connor</span><span class="w"> </span><span class="o">&lt;</span><span class="n">lance</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">ronnoco</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">net</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="p">;</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="p" data-group-id="4035252615-6">(</span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="p" data-group-id="4035252615-6">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Lance</span><span class="w"> </span><span class="nc">O</span><span class="err">&#39;</span><span class="nc">Connor</span><span class="w"> </span><span class="o">&lt;</span><span class="n">lance</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">ronnoco</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">net</span><span class="o">&gt;</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Matt</span><span class="w"> </span><span class="nc">Zagrabelny</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mzagrabe</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">umn</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">edu</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="p" data-group-id="4589739620-1">(</span><span class="n">but</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="4589739620-1">)</span><span class="o">.</span></code></pre><p>User Manuals                                                                            APRIL 2009                                                                                 CDPR(8)</p>
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Matt</span><span class="w"> </span><span class="nc">Zagrabelny</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mzagrabe</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">umn</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">edu</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="p" data-group-id="9981695749-1">(</span><span class="n">but</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="9981695749-1">)</span><span class="o">.</span></code></pre><p>User Manuals                                                           APRIL 2009                                                               CDPR(8)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -159,11 +147,27 @@ ceph-fuse
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

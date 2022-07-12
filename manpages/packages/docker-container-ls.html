@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>docker-container-ls — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+
+
+</h1>
+
+<p>DOCKER(1)                                                         Docker User Manuals                                                         DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">List</span><span class="w"> </span><span class="n">containers</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="p" data-group-id="4351408158-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="4351408158-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">List</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">containers</span><span class="o">.</span></code></pre><p>Filters</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Filter</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="ss">conditions</span><span class="p">:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">ancestor</span><span class="o">=</span><span class="p" data-group-id="1408185044-1">(</span><span class="p" data-group-id="1408185044-2">[</span><span class="ss">:tag</span><span class="p" data-group-id="1408185044-2">]</span><span class="o">||</span><span class="n">image</span><span class="na">@digest</span><span class="w"> </span><span class="err">⟨</span><span class="n">mailto</span><span class="ss">:image@digest</span><span class="err">⟩</span><span class="p" data-group-id="1408185044-1">)</span><span class="w">
+        </span><span class="n">containers</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">descendant</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">before</span><span class="o">=</span><span class="p" data-group-id="1408185044-3">(</span><span class="o">|</span><span class="p" data-group-id="1408185044-3">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">expose</span><span class="o">=</span><span class="p" data-group-id="1408185044-4">(</span><span class="p" data-group-id="1408185044-5">[</span><span class="o">/</span><span class="p" data-group-id="1408185044-5">]</span><span class="o">|</span><span class="o">/</span><span class="p" data-group-id="1408185044-6">[</span><span class="p" data-group-id="1408185044-6">]</span><span class="p" data-group-id="1408185044-4">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">exited</span><span class="o">=</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">of</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">health</span><span class="o">=</span><span class="p" data-group-id="1408185044-7">(</span><span class="n">starting</span><span class="o">|</span><span class="n">healthy</span><span class="o">|</span><span class="n">unhealthy</span><span class="o">|</span><span class="n">none</span><span class="p" data-group-id="1408185044-7">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="sc">&#39;s ID
+      - isolation=(default|process|hyperv) (Windows daemon only)
+      - is-task=(true|false)
+      - label= or label==
+      - name= a container&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">name</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="1408185044-8">(</span><span class="o">|</span><span class="p" data-group-id="1408185044-8">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">publish</span><span class="o">=</span><span class="p" data-group-id="1408185044-9">(</span><span class="p" data-group-id="1408185044-10">[</span><span class="o">/</span><span class="p" data-group-id="1408185044-10">]</span><span class="o">|</span><span class="o">/</span><span class="p" data-group-id="1408185044-11">[</span><span class="p" data-group-id="1408185044-11">]</span><span class="p" data-group-id="1408185044-9">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">since</span><span class="o">=</span><span class="p" data-group-id="1408185044-12">(</span><span class="o">|</span><span class="p" data-group-id="1408185044-12">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="p" data-group-id="1408185044-13">(</span><span class="n">created</span><span class="o">|</span><span class="n">restarting</span><span class="o">|</span><span class="n">removing</span><span class="o">|</span><span class="n">running</span><span class="o">|</span><span class="n">paused</span><span class="o">|</span><span class="n">exited</span><span class="p" data-group-id="1408185044-13">)</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="n">volume</span><span class="o">=</span><span class="p" data-group-id="1408185044-14">(</span><span class="o">|</span><span class="p" data-group-id="1408185044-14">)</span></code></pre><p>Format</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">formatting</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="p" data-group-id="7674804014-1">(</span><span class="o">--</span><span class="n">format</span><span class="p" data-group-id="7674804014-1">)</span><span class="w"> </span><span class="n">pretty</span><span class="o">-</span><span class="n">prints</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">template</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Valid</span><span class="w"> </span><span class="n">placeholders</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="ss">below</span><span class="p">:</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">ID</span><span class="w">           </span><span class="o">-</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="nc">ID</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Image</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nc">Image</span><span class="w"> </span><span class="nc">ID</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Command</span><span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="nc">Quoted</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">CreatedAt</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nc">Time</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">created</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">RunningFor</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="nc">Elapsed</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">started</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Ports</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nc">Exposed</span><span class="w"> </span><span class="n">ports</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Status</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="n">status</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Size</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Names</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="n">names</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Labels</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="nc">All</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="n">assigned</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Label</span><span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+                        </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="sc">&#39;{{.Label &quot;com.docker.swarm.cpu&quot;}}&#39;</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Mounts</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="nc">Names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+      </span><span class="o">-</span><span class="w"> </span><span class="o">.</span><span class="nc">Networks</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="nc">Names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="n">attached</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">container</span><span class="o">.</span></code></pre><p>EXAMPLES
+Display all containers, including non-running</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">IMAGE</span><span class="w">                 </span><span class="nc">COMMAND</span><span class="w">                </span><span class="nc">CREATED</span><span class="w">             </span><span class="nc">STATUS</span><span class="w">      </span><span class="nc">PORTS</span><span class="w">    </span><span class="nc">NAMES</span><span class="w">
+          </span><span class="n">a87ecb4f327c</span><span class="w">        </span><span class="n">fedora</span><span class="p">:</span><span class="mi">20</span><span class="w">             </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA   20 minutes ago      Exit 0               desperate_brattain</span><span class="w">
+          </span><span class="mi">01946</span><span class="n">d9d34d8</span><span class="w">        </span><span class="n">vpavlin</span><span class="o">/</span><span class="n">rhel7</span><span class="ss">:latest</span><span class="w">  </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA   33 minutes ago      Exit 0               thirsty_bell</span><span class="w">
+          </span><span class="n">c1d3b0166030</span><span class="w">        </span><span class="n">acffc0358b9e</span><span class="w">          </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">up</span><span class="w">   </span><span class="mi">2</span><span class="w"> </span><span class="n">weeks</span><span class="w"> </span><span class="n">ago</span><span class="w">         </span><span class="nc">Exit</span><span class="w"> </span><span class="mi">1</span><span class="w">               </span><span class="n">determined_torvalds</span><span class="w">
+          </span><span class="mi">41</span><span class="n">d50ecd2f57</span><span class="w">        </span><span class="n">fedora</span><span class="p">:</span><span class="mi">20</span><span class="w">             </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA   2 weeks ago         Exit 0               drunk_pike</span></code></pre><p>Display only IDs of all containers, including non-running</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w">
+          </span><span class="n">a87ecb4f327c</span><span class="w">
+          </span><span class="mi">01946</span><span class="n">d9d34d8</span><span class="w">
+          </span><span class="n">c1d3b0166030</span><span class="w">
+          </span><span class="mi">41</span><span class="n">d50ecd2f57</span></code></pre><p>Display only IDs of all containers that have the name determined_torvalds</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="o">=</span><span class="n">name</span><span class="o">=</span><span class="n">determined_torvalds</span><span class="w">
+          </span><span class="n">c1d3b0166030</span></code></pre><p>Display containers with their commands</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;{{.ID}}: {{.Command}}&quot;</span><span class="w">
+          </span><span class="ss">a87ecb4f327c</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA</span><span class="w">
+          </span><span class="mi">01946</span><span class="ss">d9d34d8</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA</span><span class="w">
+          </span><span class="ss">c1d3b0166030</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">up</span><span class="w">
+          </span><span class="mi">41</span><span class="ss">d50ecd2f57</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="c1">#(nop) MA</span></code></pre><p>Display containers with their labels in a table</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;table {{.ID}}</span><span class="se">\t</span><span class="s">{{.Labels}}&quot;</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">LABELS</span><span class="w">
+          </span><span class="n">a87ecb4f327c</span><span class="w">        </span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">node</span><span class="o">=</span><span class="n">ubuntu</span><span class="p">,</span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">storage</span><span class="o">=</span><span class="n">ssd</span><span class="w">
+          </span><span class="mi">01946</span><span class="n">d9d34d8</span><span class="w">
+          </span><span class="n">c1d3b0166030</span><span class="w">        </span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">node</span><span class="o">=</span><span class="n">debian</span><span class="p">,</span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">cpu</span><span class="o">=</span><span class="mi">6</span><span class="w">
+          </span><span class="mi">41</span><span class="n">d50ecd2f57</span><span class="w">        </span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">node</span><span class="o">=</span><span class="n">fedora</span><span class="p">,</span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">cpu</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">swarm</span><span class="o">.</span><span class="n">storage</span><span class="o">=</span><span class="n">ssd</span></code></pre><p>Display containers with their node label in a table</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="sc">&#39;table {{.ID}}</span><span class="se">\t</span><span class="sc">{{(.Label &quot;com.docker.swarm.node&quot;)}}&#39;</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">NODE</span><span class="w">
+          </span><span class="n">a87ecb4f327c</span><span class="w">        </span><span class="n">ubuntu</span><span class="w">
+          </span><span class="mi">01946</span><span class="n">d9d34d8</span><span class="w">
+          </span><span class="n">c1d3b0166030</span><span class="w">        </span><span class="n">debian</span><span class="w">
+          </span><span class="mi">41</span><span class="n">d50ecd2f57</span><span class="w">        </span><span class="n">fedora</span></code></pre><p>Display containers with remote-volume mounted</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="w"> </span><span class="n">volume</span><span class="o">=</span><span class="n">remote</span><span class="o">-</span><span class="n">volume</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;table {{.ID}}</span><span class="se">\t</span><span class="s">{{.Mounts}}&quot;</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">MOUNTS</span><span class="w">
+          </span><span class="mi">9</span><span class="n">c3527ed70ce</span><span class="w">        </span><span class="n">remote</span><span class="o">-</span><span class="n">volume</span></code></pre><p>Display containers with a volume mounted in /data</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="w"> </span><span class="n">volume</span><span class="o">=</span><span class="o">/</span><span class="n">data</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;table {{.ID}}</span><span class="se">\t</span><span class="s">{{.Mounts}}&quot;</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">MOUNTS</span><span class="w">
+          </span><span class="mi">9</span><span class="n">c3527ed70ce</span><span class="w">        </span><span class="n">remote</span><span class="o">-</span><span class="n">volume</span></code></pre><p>Display containers that have published port of 80:</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="w"> </span><span class="n">publish</span><span class="o">=</span><span class="mi">80</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">IMAGE</span><span class="w">               </span><span class="nc">COMMAND</span><span class="w">             </span><span class="nc">CREATED</span><span class="w">              </span><span class="nc">STATUS</span><span class="w">              </span><span class="nc">PORTS</span><span class="w">                   </span><span class="nc">NAMES</span><span class="w">
+          </span><span class="n">fc7e477723b7</span><span class="w">        </span><span class="n">busybox</span><span class="w">             </span><span class="s">&quot;top&quot;</span><span class="w">               </span><span class="nc">About</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">minute</span><span class="w"> </span><span class="n">ago</span><span class="w">   </span><span class="nc">Up</span><span class="w"> </span><span class="nc">About</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">minute</span><span class="w">   </span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">32768</span><span class="o">-&gt;</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span><span class="w">   </span><span class="n">admiring_roentgen</span></code></pre><p>Display containers that have exposed TCP port in the range of 8000-8080:</p><pre><code class="makeup elixir"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="w"> </span><span class="n">expose</span><span class="o">=</span><span class="mi">8000</span><span class="o">-</span><span class="mi">8080</span><span class="o">/</span><span class="n">tcp</span><span class="w">
+          </span><span class="nc">CONTAINER</span><span class="w"> </span><span class="nc">ID</span><span class="w">        </span><span class="nc">IMAGE</span><span class="w">               </span><span class="nc">COMMAND</span><span class="w">             </span><span class="nc">CREATED</span><span class="w">             </span><span class="nc">STATUS</span><span class="w">              </span><span class="nc">PORTS</span><span class="w">               </span><span class="nc">NAMES</span><span class="w">
+          </span><span class="mi">9833437217</span><span class="n">a5</span><span class="w">        </span><span class="n">busybox</span><span class="w">             </span><span class="s">&quot;top&quot;</span><span class="w">               </span><span class="mi">21</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">ago</span><span class="w">      </span><span class="nc">Up</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="n">seconds</span><span class="w">       </span><span class="mi">8080</span><span class="o">/</span><span class="n">tcp</span><span class="w">            </span><span class="n">dreamy_mccarthy</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="p" data-group-id="2138959004-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-1">]</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="p" data-group-id="2138959004-2">(</span><span class="n">default</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">running</span><span class="p" data-group-id="2138959004-2">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">filter</span><span class="o">=</span><span class="w">      </span><span class="nc">Filter</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">conditions</span><span class="w"> </span><span class="n">provided</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">format</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Pretty</span><span class="o">-</span><span class="n">print</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">template</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="2138959004-3">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-3">]</span><span class="w">      </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ls</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">last</span><span class="o">=</span><span class="o">-</span><span class="mi">1</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="p" data-group-id="2138959004-4">(</span><span class="n">includes</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">states</span><span class="p" data-group-id="2138959004-4">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">latest</span><span class="p" data-group-id="2138959004-5">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-5">]</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="p" data-group-id="2138959004-6">(</span><span class="n">includes</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">states</span><span class="p" data-group-id="2138959004-6">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">trunc</span><span class="p" data-group-id="2138959004-7">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-7">]</span><span class="w">      </span><span class="nc">Don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">truncate</span><span class="w"> </span><span class="n">output</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">quiet</span><span class="p" data-group-id="2138959004-8">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-8">]</span><span class="w">      </span><span class="nc">Only</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="nc">IDs</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">size</span><span class="p" data-group-id="2138959004-9">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="2138959004-9">]</span><span class="w">      </span><span class="nc">Display</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">sizes</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">container</span><span class="p" data-group-id="6625118148-1">(</span><span class="mi">1</span><span class="p" data-group-id="6625118148-1">)</span></code></pre><p>Docker Community                                                        Apr 2022                                                              DOCKER(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-container-logs.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-container-logs
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-container.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-container
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

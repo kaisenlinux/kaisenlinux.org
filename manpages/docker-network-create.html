@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>docker-network-create — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+
+
+</h1>
+
+<p>DOCKER(1)                                                         Docker User Manuals                                                         DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">network</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="p" data-group-id="2050494404-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="2050494404-1">]</span><span class="w"> </span><span class="nc">NETWORK</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Creates</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">DRIVER</span><span class="w"> </span><span class="n">accepts</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">drivers</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="n">party</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">your</span><span class="w">
+   </span><span class="n">own</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">DRIVER</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">also</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">don</span><span class="sc">&#39;t specify the --driver option, the command automatically  creates  a
+   bridge  network  for  you.   When  you  install Docker Engine it creates a bridge network automatically. This network corresponds to the docker0
+   bridge that Engine has traditionally relied on. When you launch a new container with  docker run it automatically connects to this  bridge  net‐
+   work. You cannot remove this default bridge network but you can create new ones using the network create command.
+
+          $ docker network create -d bridge my-bridge-network
+
+   Bridge  networks  are  isolated  networks on a single Engine installation. If you want to create a network that spans multiple Docker hosts each
+   running an Engine, you must create an overlay network. Unlike bridge networks overlay networks require some pre-existing conditions  before  you
+   can create one. These conditions are:
+
+          • Access to a key-value store. Engine supports Consul, Etcd, and Zookeeper (Distributed store) key-value stores.
+
+          • A cluster of hosts with connectivity to the key-value store.
+
+          • A properly configured Engine daemon on each host in the cluster.
+
+   The dockerd options that support the overlay network are:
+
+          • --cluster-store
+
+          • --cluster-store-opt
+
+          • --cluster-advertise
+
+   To  read  more  about  these  options and how to configure them, see &quot;Get started with multi-host network&quot; ⟨https://docs.docker.com/engine/user‐
+   guide/networking/get-started-overlay/⟩.
+
+   It is also a good idea, though not required, that you install Docker Swarm on to manage the cluster that makes up your network.  Swarm  provides
+   sophisticated discovery and server management that can assist your implementation.
+
+   Once  you  have  prepared the overlay network prerequisites you simply choose a Docker host in the cluster and issue the following to create the
+   network:
+
+          $ docker network create -d overlay my-multihost-network
+
+   Network names must be unique. The Docker daemon attempts to identify naming conflicts but this is not guaranteed. It is the user&#39;</span><span class="n">s</span><span class="w">  </span><span class="n">responsibil</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ity</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">conflicts</span><span class="o">.</span></code></pre><p>Connect containers</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">When</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">network</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">busybox</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mynet</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">itd</span><span class="w"> </span><span class="o">--</span><span class="n">network</span><span class="o">=</span><span class="n">mynet</span><span class="w"> </span><span class="n">busybox</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">subcommand</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">connect</span><span class="w">  </span><span class="n">multiple</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w"> </span><span class="nc">Once</span><span class="w"> </span><span class="n">connected</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">communicate</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">container</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">ad</span><span class="err">‐</span><span class="w">
+   </span><span class="n">dress</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">plugins</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">host</span><span class="w"> </span><span class="n">connectivity</span><span class="p">,</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">connected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">host</span><span class="w"> </span><span class="n">network</span><span class="w">
+   </span><span class="n">but</span><span class="w"> </span><span class="n">launched</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="nc">Engines</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">communicate</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">way</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">disconnect</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">disconnect</span><span class="w"> </span><span class="n">command</span><span class="o">.</span></code></pre><p>Specifying advanced options</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">When</span><span class="w">  </span><span class="n">you</span><span class="w">  </span><span class="n">create</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="p">,</span><span class="w"> </span><span class="nc">Engine</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">overlapping</span><span class="w"> </span><span class="n">subnetwork</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">subnetwork</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">subdivision</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w">
+   </span><span class="n">existing</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">purely</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ip</span><span class="o">-</span><span class="n">addressing</span><span class="w"> </span><span class="n">purposes</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="n">specify</span><span class="w">  </span><span class="n">subnetwork</span><span class="w">  </span><span class="n">values</span><span class="w">  </span><span class="n">directly</span><span class="w">  </span><span class="n">using</span><span class="w">  </span><span class="n">the</span><span class="w">
+   </span><span class="o">--</span><span class="n">subnet</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w"> </span><span class="nc">On</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="ss">subnet</span><span class="p">:</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="n">br0</span><span class="w">
+
+   </span><span class="nc">Additionally</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">gateway</span><span class="w"> </span><span class="o">--</span><span class="n">ip</span><span class="o">-</span><span class="n">range</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="n">bridge</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="mf">172.28</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">ip</span><span class="o">-</span><span class="n">range</span><span class="o">=</span><span class="mf">172.28</span><span class="o">.</span><span class="mf">5.0</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">gateway</span><span class="o">=</span><span class="mf">172.28</span><span class="o">.</span><span class="mf">5.254</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="n">br0</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w">  </span><span class="n">you</span><span class="w"> </span><span class="n">omit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">gateway</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Engine</span><span class="w"> </span><span class="n">selects</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">plugins</span><span class="w">
+   </span><span class="n">that</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">subnetworks</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="mf">192.170</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">gateway</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.100</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">gateway</span><span class="o">=</span><span class="mf">192.170</span><span class="o">.</span><span class="mf">0.100</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">ip</span><span class="o">-</span><span class="n">range</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">&quot;my-router=192.168.1.5&quot;</span><span class="w"> </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">&quot;my-switch=192.168.1.6&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">&quot;my-printer=192.170.1.5&quot;</span><span class="w"> </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="s">&quot;my-nas=192.170.1.6&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="n">my</span><span class="o">-</span><span class="n">multihost</span><span class="o">-</span><span class="n">network</span><span class="w">
+
+   </span><span class="nc">Be</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">subnetworks</span><span class="w"> </span><span class="k" data-group-id="3321073128-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">overlap</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="k" data-group-id="3321073128-2">do</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Engine</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="o">.</span></code></pre><p>   Network internal mode</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">network</span><span class="p">,</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">connects</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">connectivity</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w">
+   </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">externally</span><span class="w"> </span><span class="n">isolated</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">network</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">internal</span><span class="w"> </span><span class="n">option</span><span class="o">.</span></code></pre><p>   Network ingress mode</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">You</span><span class="w">  </span><span class="n">can</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">routing</span><span class="o">-</span><span class="n">mesh</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="n">cluster</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="k" data-group-id="3032646731-1">do</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="o">--</span><span class="n">ingress</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">creating</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">ingress</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">depend</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="nc">Any</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">avail</span><span class="err">‐</span><span class="w">
+   </span><span class="n">able</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ingress</span><span class="w"> </span><span class="n">network</span><span class="p">,</span><span class="w"> </span><span class="n">besides</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">attachable</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="mf">10.11</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">ingress</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">opt</span><span class="w"> </span><span class="n">com</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">mtu</span><span class="o">=</span><span class="mi">9216</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">opt</span><span class="w"> </span><span class="n">encrypted</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="n">my</span><span class="o">-</span><span class="n">ingress</span><span class="o">-</span><span class="n">network</span></code></pre><p>   Run services on predefined networks</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">predefined</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">host</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">service</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">network</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">replicas</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="n">busybox</span><span class="w"> </span><span class="n">top</span></code></pre><p>   Swarm networks with local scope drivers</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">You</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">create</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">drivers</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="k" data-group-id="3180272061-1">do</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">promoting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">network</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">services</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">scope</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="o">--</span><span class="n">attachable</span><span class="w"> </span><span class="err">\</span><span class="w">
+            </span><span class="n">swarm</span><span class="o">-</span><span class="n">network</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">drivers</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">connectivity</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="p" data-group-id="3180272061-2">(</span><span class="n">ex</span><span class="o">.</span><span class="w"> </span><span class="n">macvlan</span><span class="p" data-group-id="3180272061-2">)</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">plumb</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">net</span><span class="err">‐</span><span class="w">
+   </span><span class="n">work</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">supply</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="n">scoped</span><span class="w"> </span><span class="n">network</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">then</span><span class="w">
+   </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">node1</span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="n">subnet</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.0</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="o">--</span><span class="n">gateway</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.115</span><span class="w"> </span><span class="n">mv</span><span class="o">-</span><span class="n">config</span><span class="w">
+          </span><span class="n">node2</span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="o">--</span><span class="n">subnet</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">200.0</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="o">--</span><span class="n">gateway</span><span class="w"> </span><span class="mf">192.168</span><span class="o">.</span><span class="mf">200.202</span><span class="w"> </span><span class="n">mv</span><span class="o">-</span><span class="n">config</span><span class="w">
+          </span><span class="n">node1</span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">macvlan</span><span class="w"> </span><span class="o">--</span><span class="n">scope</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">from</span><span class="w"> </span><span class="n">mv</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">attachable</span><span class="w"> </span><span class="n">swarm</span><span class="o">-</span><span class="n">network</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">attachable</span><span class="p" data-group-id="1186293835-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-1">]</span><span class="w">      </span><span class="nc">Enable</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">attachment</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">aux</span><span class="o">-</span><span class="n">address</span><span class="o">=</span><span class="n">map</span><span class="p" data-group-id="1186293835-2">[</span><span class="p" data-group-id="1186293835-2">]</span><span class="w">      </span><span class="nc">Auxiliary</span><span class="w"> </span><span class="nc">IPv4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Network</span><span class="w"> </span><span class="n">driver</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">from</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">only</span><span class="p" data-group-id="1186293835-3">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-3">]</span><span class="w">      </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">network</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">driver</span><span class="o">=</span><span class="s">&quot;bridge&quot;</span><span class="w">      </span><span class="nc">Driver</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">manage</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Network</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">gateway</span><span class="o">=</span><span class="p" data-group-id="1186293835-4">[</span><span class="p" data-group-id="1186293835-4">]</span><span class="w">      </span><span class="nc">IPv4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="nc">Gateway</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">master</span><span class="w"> </span><span class="n">subnet</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="1186293835-5">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-5">]</span><span class="w">      </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">create</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ingress</span><span class="p" data-group-id="1186293835-6">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-6">]</span><span class="w">      </span><span class="nc">Create</span><span class="w"> </span><span class="n">swarm</span><span class="w"> </span><span class="n">routing</span><span class="o">-</span><span class="n">mesh</span><span class="w"> </span><span class="n">network</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">internal</span><span class="p" data-group-id="1186293835-7">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-7">]</span><span class="w">      </span><span class="nc">Restrict</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ip</span><span class="o">-</span><span class="n">range</span><span class="o">=</span><span class="p" data-group-id="1186293835-8">[</span><span class="p" data-group-id="1186293835-8">]</span><span class="w">      </span><span class="nc">Allocate</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sub</span><span class="o">-</span><span class="n">range</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ipam</span><span class="o">-</span><span class="n">driver</span><span class="o">=</span><span class="s">&quot;default&quot;</span><span class="w">      </span><span class="nc">IP</span><span class="w"> </span><span class="nc">Address</span><span class="w"> </span><span class="nc">Management</span><span class="w"> </span><span class="nc">Driver</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ipam</span><span class="o">-</span><span class="n">opt</span><span class="o">=</span><span class="n">map</span><span class="p" data-group-id="1186293835-9">[</span><span class="p" data-group-id="1186293835-9">]</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="nc">IPAM</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ipv6</span><span class="p" data-group-id="1186293835-10">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1186293835-10">]</span><span class="w">      </span><span class="nc">Enable</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="n">networking</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">label</span><span class="o">=</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">opt</span><span class="o">=</span><span class="n">map</span><span class="p" data-group-id="1186293835-11">[</span><span class="p" data-group-id="1186293835-11">]</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">scope</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Control</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">scope</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">subnet</span><span class="o">=</span><span class="p" data-group-id="1186293835-12">[</span><span class="p" data-group-id="1186293835-12">]</span><span class="w">      </span><span class="nc">Subnet</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">CIDR</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">segment</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">network</span><span class="p" data-group-id="0594935118-1">(</span><span class="mi">1</span><span class="p" data-group-id="0594935118-1">)</span></code></pre><p>Docker Community                                                        Apr 2022                                                              DOCKER(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-network-connect.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-network-connect
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-network-disconnect.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-network-disconnect
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>stressapptest — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,36 +61,35 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>stressapptest</span>
 </h1>
 
-<p>STRESSAPPTEST(1)                                                                  General Commands Manual                                                                 STRESSAPPTEST(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">simulating</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">situations</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="p" data-group-id="8887075681-1">[</span><span class="n">options</span><span class="p" data-group-id="8887075681-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">documents</span><span class="w"> </span><span class="n">briefly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stressapptest</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+<p>STRESSAPPTEST(1)                                                General Commands Manual                                                STRESSAPPTEST(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">simulating</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">situations</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="p" data-group-id="1107171483-1">[</span><span class="n">options</span><span class="p" data-group-id="1107171483-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">documents</span><span class="w"> </span><span class="n">briefly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stressapptest</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">stressapptest</span><span class="w"> </span><span class="p" data-group-id="7349447397-1">(</span><span class="n">unix</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Stressful</span><span class="w"> </span><span class="nc">Application</span><span class="w"> </span><span class="nc">Test</span><span class="p" data-group-id="7349447397-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">maximize</span><span class="w"> </span><span class="n">randomized</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">re</span><span class="err">‐</span><span class="w">
-   </span><span class="n">alistic</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">situation</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">computer</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+   </span><span class="n">stressapptest</span><span class="w">  </span><span class="p" data-group-id="9538167676-1">(</span><span class="n">unix</span><span class="w">  </span><span class="n">name</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="nc">Stressful</span><span class="w"> </span><span class="nc">Application</span><span class="w"> </span><span class="nc">Test</span><span class="p" data-group-id="9538167676-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">tries</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">maximize</span><span class="w"> </span><span class="n">randomized</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">processor</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">intent</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">realistic</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">situation</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">hardware</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">computer</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
 
    </span><span class="o">-</span><span class="nc">A</span><span class="w">     </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">degraded</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">incompatible</span><span class="w"> </span><span class="n">systems</span><span class="o">.</span><span class="w">
 
@@ -110,7 +97,7 @@ Manpages
           </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="5713902640-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="5713902640-1">)</span><span class="w"> </span><span class="sc">&#39;device&#39;</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="6124872159-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="6124872159-1">)</span><span class="w"> </span><span class="sc">&#39;device&#39;</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="w">
           </span><span class="nc">Add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">tempfile</span><span class="w"> </span><span class="sc">&#39;filename&#39;</span><span class="o">.</span><span class="w">
@@ -162,13 +149,13 @@ Manpages
           </span><span class="nc">Do</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">coherency</span><span class="w"> </span><span class="n">testing</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">destructive</span><span class="w">
-          </span><span class="nc">Write</span><span class="o">/</span><span class="n">wipe</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="p" data-group-id="5713902640-2">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-2">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Write</span><span class="o">/</span><span class="n">wipe</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="p" data-group-id="6124872159-2">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-2">)</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">filesize</span><span class="w"> </span><span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="w">
           </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">tempfiles</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">findfiles</span><span class="w">
-          </span><span class="nc">Find</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="5713902640-3">do</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">automatically</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Find</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="6124872159-3">do</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">automatically</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">force_errors</span><span class="w">
           </span><span class="nc">Inject</span><span class="w"> </span><span class="no">false</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">handling</span><span class="o">.</span><span class="w">
@@ -183,10 +170,10 @@ Manpages
           </span><span class="nc">Choose</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">tested</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">CPU</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">max_errors</span><span class="w"> </span><span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Exit</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="k" data-group-id="5713902640-3">after</span><span class="w"> </span><span class="n">finding</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">errors</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Exit</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="k" data-group-id="6124872159-3">after</span><span class="w"> </span><span class="n">finding</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">errors</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">monitor_mode</span><span class="w">
-          </span><span class="nc">Only</span><span class="w"> </span><span class="k" data-group-id="5713902640-4">do</span><span class="w"> </span><span class="nc">ECC</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">polling</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">load</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Only</span><span class="w"> </span><span class="k" data-group-id="6124872159-4">do</span><span class="w"> </span><span class="nc">ECC</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">polling</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">load</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">no_errors</span><span class="w">
           </span><span class="nc">Run</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">ECC</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">errors</span><span class="o">.</span><span class="w">
@@ -195,38 +182,38 @@ Manpages
           </span><span class="nc">Allocate</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">pause_delay</span><span class="w"> </span><span class="o">&lt;</span><span class="n">seconds</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Delay</span><span class="w"> </span><span class="p" data-group-id="5713902640-5">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="5713902640-5">)</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">power</span><span class="w"> </span><span class="n">spikes</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Delay</span><span class="w"> </span><span class="p" data-group-id="6124872159-5">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="6124872159-5">)</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">power</span><span class="w"> </span><span class="n">spikes</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">pause_duration</span><span class="w"> </span><span class="o">&lt;</span><span class="n">seconds</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Duration</span><span class="w"> </span><span class="p" data-group-id="5713902640-6">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="5713902640-6">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">pause</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Duration</span><span class="w"> </span><span class="p" data-group-id="6124872159-6">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="6124872159-6">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">pause</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">random</span><span class="o">-</span><span class="n">threads</span><span class="w"> </span><span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="p" data-group-id="5713902640-7">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-7">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="p" data-group-id="6124872159-7">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-7">)</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reading</span><span class="w"> </span><span class="p" data-group-id="5713902640-8">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-8">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reading</span><span class="w"> </span><span class="p" data-group-id="6124872159-8">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-8">)</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="n">threshold</span><span class="w"> </span><span class="o">&lt;</span><span class="n">time</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="5713902640-9">(</span><span class="ow">in</span><span class="w"> </span><span class="n">us</span><span class="p" data-group-id="5713902640-9">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="p" data-group-id="5713902640-10">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-10">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="6124872159-9">(</span><span class="ow">in</span><span class="w"> </span><span class="n">us</span><span class="p" data-group-id="6124872159-9">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="p" data-group-id="6124872159-10">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-10">)</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">remote_numa</span><span class="w"> </span><span class="o">&lt;</span><span class="n">time</span><span class="o">&gt;</span><span class="w">
           </span><span class="nc">Choose</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="nc">CPU</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">tested</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">CPU</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">segment</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">segments</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="p" data-group-id="5713902640-11">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-11">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">segments</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="p" data-group-id="6124872159-11">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-11">)</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">stop_on_errors</span><span class="w">
-          </span><span class="nc">Stop</span><span class="w"> </span><span class="k" data-group-id="5713902640-4">after</span><span class="w"> </span><span class="n">finding</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Stop</span><span class="w"> </span><span class="k" data-group-id="6124872159-4">after</span><span class="w"> </span><span class="n">finding</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">write</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="p" data-group-id="5713902640-12">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-12">)</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">defined</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reading</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="p" data-group-id="6124872159-12">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-12">)</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">defined</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reading</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">write</span><span class="o">-</span><span class="n">threshold</span><span class="w"> </span><span class="o">&lt;</span><span class="n">time</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="5713902640-13">(</span><span class="ow">in</span><span class="w"> </span><span class="n">us</span><span class="p" data-group-id="5713902640-13">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="p" data-group-id="5713902640-14">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="5713902640-14">)</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">http</span><span class="ss">://</span><span class="n">code</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">stressapptest</span><span class="o">/</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Nick</span><span class="w"> </span><span class="nc">Sanders</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Rapahel</span><span class="w"> </span><span class="nc">Menderico</span><span class="w"> </span><span class="p" data-group-id="3293698268-1">(</span><span class="nc">Google</span><span class="w"> </span><span class="nc">Inc</span><span class="p" data-group-id="3293698268-1">)</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="6124872159-13">(</span><span class="ow">in</span><span class="w"> </span><span class="n">us</span><span class="p" data-group-id="6124872159-13">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="p" data-group-id="6124872159-14">(</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="6124872159-14">)</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">http</span><span class="ss">://</span><span class="n">code</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">stressapptest</span><span class="o">/</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">stressapptest</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Nick</span><span class="w"> </span><span class="nc">Sanders</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Rapahel</span><span class="w"> </span><span class="nc">Menderico</span><span class="w"> </span><span class="p" data-group-id="1872281113-1">(</span><span class="nc">Google</span><span class="w"> </span><span class="nc">Inc</span><span class="p" data-group-id="1872281113-1">)</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Michael</span><span class="w"> </span><span class="nc">Prokop</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mika</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p" data-group-id="3293698268-2">(</span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="3293698268-2">)</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Michael</span><span class="w"> </span><span class="nc">Prokop</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mika</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p" data-group-id="1872281113-2">(</span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="1872281113-2">)</span><span class="o">.</span><span class="w">
 
-                                                                                    </span><span class="mi">2009</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span><span class="w">                                                                        </span><span class="nc">STRESSAPPTEST</span><span class="p" data-group-id="3293698268-3">(</span><span class="mi">1</span><span class="p" data-group-id="3293698268-3">)</span></code></pre>
+                                                                   </span><span class="mi">2009</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span><span class="w">                                                      </span><span class="nc">STRESSAPPTEST</span><span class="p" data-group-id="1872281113-3">(</span><span class="mi">1</span><span class="p" data-group-id="1872281113-3">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -257,11 +244,27 @@ xsensors
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

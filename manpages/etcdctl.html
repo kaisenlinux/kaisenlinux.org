@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>etcdctl — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,33 +61,32 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>etcdctl</span>
 </h1>
 
-<p>ETCDCTL(1)                                                                             User Commands                                                                            ETCDCTL(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">etcdctl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">etcd</span><span class="o">.</span></code></pre><p>WARNING</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Set</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">ETCDCTL_API</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">ETCDCTL_API</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="nc">API</span><span class="o">.</span></code></pre><p>USAGE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">etcdctl</span><span class="w"> </span><span class="p" data-group-id="4828781573-1">[</span><span class="n">options</span><span class="p" data-group-id="4828781573-1">]</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="4828781573-2">[</span><span class="n">command</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="4828781573-2">]</span><span class="w"> </span><span class="p" data-group-id="4828781573-3">[</span><span class="n">arguments</span><span class="n">...</span><span class="p" data-group-id="4828781573-3">]</span></code></pre><p>COMMANDS V3</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">alarm</span><span class="w"> </span><span class="n">disarm</span><span class="w">
+<p>ETCDCTL(1)                                                           User Commands                                                           ETCDCTL(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">etcdctl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">etcd</span><span class="o">.</span></code></pre><p>WARNING</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Set</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">ETCDCTL_API</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">ETCDCTL_API</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="nc">API</span><span class="o">.</span></code></pre><p>USAGE</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">etcdctl</span><span class="w"> </span><span class="p" data-group-id="5449125083-1">[</span><span class="n">options</span><span class="p" data-group-id="5449125083-1">]</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="5449125083-2">[</span><span class="n">command</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="5449125083-2">]</span><span class="w"> </span><span class="p" data-group-id="5449125083-3">[</span><span class="n">arguments</span><span class="n">...</span><span class="p" data-group-id="5449125083-3">]</span></code></pre><p>COMMANDS V3</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">alarm</span><span class="w"> </span><span class="n">disarm</span><span class="w">
           </span><span class="nc">Disarms</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">alarms</span><span class="w">
 
    </span><span class="n">alarm</span><span class="w"> </span><span class="n">list</span><span class="w">
@@ -119,7 +106,7 @@ Manpages
 
    </span><span class="n">defrag</span><span class="w"> </span><span class="nc">Defragments</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">etcd</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">endpoints</span><span class="w">
 
-   </span><span class="n">del</span><span class="w">    </span><span class="nc">Removes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="p" data-group-id="1385869287-1">[</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">range_end</span><span class="p">)</span><span class="w">
+   </span><span class="n">del</span><span class="w">    </span><span class="nc">Removes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="p" data-group-id="9306464477-1">[</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">range_end</span><span class="p">)</span><span class="w">
 
    </span><span class="n">elect</span><span class="w">  </span><span class="nc">Observes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">participates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">leader</span><span class="w"> </span><span class="n">election</span><span class="w">
 
@@ -140,7 +127,7 @@ Manpages
           </span><span class="nc">Creates</span><span class="w"> </span><span class="n">leases</span><span class="w">
 
    </span><span class="n">lease</span><span class="w"> </span><span class="n">keep</span><span class="o">-</span><span class="n">alive</span><span class="w">
-          </span><span class="nc">Keeps</span><span class="w"> </span><span class="n">leases</span><span class="w"> </span><span class="n">alive</span><span class="w"> </span><span class="p" data-group-id="1385869287-2">(</span><span class="n">renew</span><span class="p" data-group-id="1385869287-2">)</span><span class="w">
+          </span><span class="nc">Keeps</span><span class="w"> </span><span class="n">leases</span><span class="w"> </span><span class="n">alive</span><span class="w"> </span><span class="p" data-group-id="9306464477-2">(</span><span class="n">renew</span><span class="p" data-group-id="9306464477-2">)</span><span class="w">
 
    </span><span class="n">lease</span><span class="w"> </span><span class="n">list</span><span class="w">
           </span><span class="nc">List</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="n">leases</span><span class="w">
@@ -229,16 +216,16 @@ Manpages
    </span><span class="n">version</span><span class="w">
           </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">etcdctl</span><span class="w">
 
-   </span><span class="n">watch</span><span class="w">  </span><span class="nc">Watches</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">prefixes</span></code></pre><p>OPTIONS V3</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">cacert</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
+   </span><span class="n">watch</span><span class="w">  </span><span class="nc">Watches</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">prefixes</span></code></pre><p>OPTIONS V3</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">cacert</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
           </span><span class="n">verify</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">TLS</span><span class="o">-</span><span class="n">enabled</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">CA</span><span class="w"> </span><span class="n">bundle</span><span class="w">
 
    </span><span class="o">--</span><span class="n">cert</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
           </span><span class="n">identify</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">file</span><span class="w">
 
    </span><span class="o">--</span><span class="n">command</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="n">s</span><span class="w">
-          </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="8831310415-1">(</span><span class="n">excluding</span><span class="w"> </span><span class="n">dial</span><span class="w"> </span><span class="n">timeout</span><span class="p" data-group-id="8831310415-1">)</span><span class="w">
+          </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="1312909983-1">(</span><span class="n">excluding</span><span class="w"> </span><span class="n">dial</span><span class="w"> </span><span class="n">timeout</span><span class="p" data-group-id="1312909983-1">)</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">debug</span><span class="p" data-group-id="8831310415-2">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="8831310415-2">]</span><span class="w">
+   </span><span class="o">--</span><span class="n">debug</span><span class="p" data-group-id="1312909983-2">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1312909983-2">]</span><span class="w">
           </span><span class="n">enable</span><span class="w"> </span><span class="n">client</span><span class="o">-</span><span class="n">side</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">logging</span><span class="w">
 
    </span><span class="o">--</span><span class="n">dial</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="n">s</span><span class="w">
@@ -247,22 +234,22 @@ Manpages
    </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">discovery</span><span class="o">-</span><span class="n">srv</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
           </span><span class="n">domain</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">SRV</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">describing</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">endpoints</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">endpoints</span><span class="o">=</span><span class="p" data-group-id="8831310415-3">[</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2379</span><span class="p" data-group-id="8831310415-3">]</span><span class="w">
+   </span><span class="o">--</span><span class="n">endpoints</span><span class="o">=</span><span class="p" data-group-id="1312909983-3">[</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">2379</span><span class="p" data-group-id="1312909983-3">]</span><span class="w">
           </span><span class="n">gRPC</span><span class="w"> </span><span class="n">endpoints</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="8831310415-4">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="8831310415-4">]</span><span class="w">
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="1312909983-4">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1312909983-4">]</span><span class="w">
           </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">etcdctl</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">hex</span><span class="p" data-group-id="8831310415-5">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="8831310415-5">]</span><span class="w">
+   </span><span class="o">--</span><span class="n">hex</span><span class="p" data-group-id="1312909983-5">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1312909983-5">]</span><span class="w">
           </span><span class="n">print</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">hex</span><span class="w"> </span><span class="n">encoded</span><span class="w"> </span><span class="n">strings</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">discovery</span><span class="p" data-group-id="8831310415-6">[</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="8831310415-6">]</span><span class="w">
+   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">discovery</span><span class="p" data-group-id="1312909983-6">[</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="1312909983-6">]</span><span class="w">
           </span><span class="n">accept</span><span class="w"> </span><span class="n">insecure</span><span class="w"> </span><span class="nc">SRV</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">describing</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">endpoints</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">skip</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">verify</span><span class="p" data-group-id="8831310415-7">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="8831310415-7">]</span><span class="w">
-          </span><span class="n">skip</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="p" data-group-id="8831310415-8">(</span><span class="ss">CAUTION</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="n">purposes</span><span class="p" data-group-id="8831310415-8">)</span><span class="w">
+   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">skip</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">verify</span><span class="p" data-group-id="1312909983-7">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1312909983-7">]</span><span class="w">
+          </span><span class="n">skip</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="p" data-group-id="1312909983-8">(</span><span class="ss">CAUTION</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="n">purposes</span><span class="p" data-group-id="1312909983-8">)</span><span class="w">
 
-   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">transport</span><span class="p" data-group-id="8831310415-9">[</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="8831310415-9">]</span><span class="w">
+   </span><span class="o">--</span><span class="n">insecure</span><span class="o">-</span><span class="n">transport</span><span class="p" data-group-id="1312909983-9">[</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="1312909983-9">]</span><span class="w">
           </span><span class="n">disable</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">connections</span><span class="w">
 
    </span><span class="o">--</span><span class="n">keepalive</span><span class="o">-</span><span class="n">time</span><span class="o">=</span><span class="mi">2</span><span class="n">s</span><span class="w">
@@ -275,10 +262,10 @@ Manpages
           </span><span class="n">identify</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w">
 
    </span><span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
-          </span><span class="n">username</span><span class="p" data-group-id="8831310415-10">[</span><span class="ss">:password</span><span class="p" data-group-id="8831310415-10">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="p" data-group-id="8831310415-11">(</span><span class="n">prompt</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supplied</span><span class="p" data-group-id="8831310415-11">)</span><span class="w">
+          </span><span class="n">username</span><span class="p" data-group-id="1312909983-10">[</span><span class="ss">:password</span><span class="p" data-group-id="1312909983-10">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="p" data-group-id="1312909983-11">(</span><span class="n">prompt</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supplied</span><span class="p" data-group-id="1312909983-11">)</span><span class="w">
 
    </span><span class="o">-</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">write</span><span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="s">&quot;simple&quot;</span><span class="w">
-          </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="p" data-group-id="8831310415-12">(</span><span class="n">fields</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">protobuf</span><span class="p">,</span><span class="w"> </span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p" data-group-id="8831310415-12">)</span></code></pre><p>COMMANDS V2</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">backup</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">etcd</span><span class="w"> </span><span class="n">directory</span><span class="w">
+          </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="p" data-group-id="1312909983-12">(</span><span class="n">fields</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">protobuf</span><span class="p">,</span><span class="w"> </span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p" data-group-id="1312909983-12">)</span></code></pre><p>COMMANDS V2</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">backup</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">etcd</span><span class="w"> </span><span class="n">directory</span><span class="w">
 
    </span><span class="n">cluster</span><span class="o">-</span><span class="n">health</span><span class="w">
           </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">etcd</span><span class="w"> </span><span class="n">cluster</span><span class="w">
@@ -318,14 +305,14 @@ Manpages
    </span><span class="n">auth</span><span class="w">   </span><span class="n">overall</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="n">controls</span><span class="w">
 
    </span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="w">
-          </span><span class="nc">Shows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">command</span></code></pre><p>OPTIONS V2</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">debug</span><span class="w">
+          </span><span class="nc">Shows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">command</span></code></pre><p>OPTIONS V2</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">debug</span><span class="w">
           </span><span class="n">output</span><span class="w"> </span><span class="n">cURL</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reproduce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">request</span><span class="w">
 
    </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">sync</span><span class="w">
           </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">synchronize</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">request</span><span class="w">
 
    </span><span class="o">--</span><span class="n">output</span><span class="w"> </span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">simple</span><span class="w">
-          </span><span class="n">output</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="p" data-group-id="3107851855-1">(</span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="err">`</span><span class="n">extended</span><span class="err">`</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">`</span><span class="n">json</span><span class="err">`</span><span class="p" data-group-id="3107851855-1">)</span><span class="w"> </span><span class="p" data-group-id="3107851855-2">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;simple&quot;</span><span class="p" data-group-id="3107851855-2">)</span><span class="w">
+          </span><span class="n">output</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="p" data-group-id="4719122522-1">(</span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="err">`</span><span class="n">extended</span><span class="err">`</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">`</span><span class="n">json</span><span class="err">`</span><span class="p" data-group-id="4719122522-1">)</span><span class="w"> </span><span class="p" data-group-id="4719122522-2">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;simple&quot;</span><span class="p" data-group-id="4719122522-2">)</span><span class="w">
 
    </span><span class="o">--</span><span class="n">discovery</span><span class="o">-</span><span class="n">srv</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nc">D</span><span class="w"> </span><span class="n">value</span><span class="w">
           </span><span class="n">domain</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">SRV</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">describing</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">endpoints</span><span class="w">
@@ -340,7 +327,7 @@ Manpages
           </span><span class="nc">DEPRECATED</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&quot;--endpoints&quot;</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">instead</span><span class="w">
 
    </span><span class="o">--</span><span class="n">endpoints</span><span class="w"> </span><span class="n">value</span><span class="w">
-          </span><span class="n">a</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">delimited</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="p" data-group-id="3107851855-3">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://127.0.0.1:2379,http://127.0.0.1:4001&quot;</span><span class="p" data-group-id="3107851855-3">)</span><span class="w">
+          </span><span class="n">a</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">delimited</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="p" data-group-id="4719122522-3">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://127.0.0.1:2379,http://127.0.0.1:4001&quot;</span><span class="p" data-group-id="4719122522-3">)</span><span class="w">
 
    </span><span class="o">--</span><span class="n">cert</span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">value</span><span class="w">
           </span><span class="n">identify</span><span class="w"> </span><span class="nc">HTTPS</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">SSL</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">file</span><span class="w">
@@ -352,19 +339,19 @@ Manpages
           </span><span class="n">verify</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">HTTPS</span><span class="o">-</span><span class="n">enabled</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">CA</span><span class="w"> </span><span class="n">bundle</span><span class="w">
 
    </span><span class="o">--</span><span class="n">username</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">value</span><span class="w">
-          </span><span class="n">provide</span><span class="w"> </span><span class="n">username</span><span class="p" data-group-id="3107851855-4">[</span><span class="ss">:password</span><span class="p" data-group-id="3107851855-4">]</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supplied</span><span class="o">.</span><span class="w">
+          </span><span class="n">provide</span><span class="w"> </span><span class="n">username</span><span class="p" data-group-id="4719122522-4">[</span><span class="ss">:password</span><span class="p" data-group-id="4719122522-4">]</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">supplied</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">timeout</span><span class="w"> </span><span class="n">value</span><span class="w">
-          </span><span class="n">connection</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p" data-group-id="3107851855-5">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="n">s</span><span class="p" data-group-id="3107851855-5">)</span><span class="w">
+          </span><span class="n">connection</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="p" data-group-id="4719122522-5">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="n">s</span><span class="p" data-group-id="4719122522-5">)</span><span class="w">
 
    </span><span class="o">--</span><span class="n">total</span><span class="o">-</span><span class="n">timeout</span><span class="w"> </span><span class="n">value</span><span class="w">
-          </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="p" data-group-id="3107851855-6">(</span><span class="n">except</span><span class="w"> </span><span class="n">watch</span><span class="p" data-group-id="3107851855-6">)</span><span class="w"> </span><span class="p" data-group-id="3107851855-7">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="n">s</span><span class="p" data-group-id="3107851855-7">)</span><span class="w">
+          </span><span class="n">timeout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="p" data-group-id="4719122522-6">(</span><span class="n">except</span><span class="w"> </span><span class="n">watch</span><span class="p" data-group-id="4719122522-6">)</span><span class="w"> </span><span class="p" data-group-id="4719122522-7">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="n">s</span><span class="p" data-group-id="4719122522-7">)</span><span class="w">
 
    </span><span class="o">--</span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w">
           </span><span class="n">show</span><span class="w"> </span><span class="n">help</span><span class="w">
 
    </span><span class="o">--</span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w">
-          </span><span class="n">print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">ectd</span><span class="p" data-group-id="9391320388-1">(</span><span class="mi">1</span><span class="p" data-group-id="9391320388-1">)</span></code></pre><p>3.3.25                                                                                 October 2020                                                                             ETCDCTL(1)</p>
+          </span><span class="n">print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">ectd</span><span class="p" data-group-id="6150944977-1">(</span><span class="mi">1</span><span class="p" data-group-id="6150944977-1">)</span></code></pre><p>3.3.25                                                                October 2020                                                           ETCDCTL(1)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -395,11 +382,27 @@ mariadb
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

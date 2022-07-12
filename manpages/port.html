@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>port — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,48 +61,48 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>port</span>
 </h1>
 
-<p>MEM(4)                                                                           Linux Programmer's Manual                                                                          MEM(4)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mem</span><span class="p">,</span><span class="w"> </span><span class="n">kmem</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">memory</span><span class="p">,</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">ports</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">computer</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">examine</span><span class="w"> </span><span class="p" data-group-id="9743095164-1">(</span><span class="ow">and</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">patch</span><span class="p" data-group-id="9743095164-1">)</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+<p>MEM(4)                                                         Linux Programmer's Manual                                                         MEM(4)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">mem</span><span class="p">,</span><span class="w"> </span><span class="n">kmem</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">memory</span><span class="p">,</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">ports</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">character</span><span class="w">  </span><span class="n">device</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">computer</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">examine</span><span class="w"> </span><span class="p" data-group-id="8732505046-1">(</span><span class="ow">and</span><span class="w"> </span><span class="n">even</span><span class="w">
+   </span><span class="n">patch</span><span class="p" data-group-id="8732505046-1">)</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">Byte</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">addresses</span><span class="o">.</span><span class="w">  </span><span class="nc">References</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">nonexistent</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">returned</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">Examining</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">patching</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">likely</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">lead</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">unexpected</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">write</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">Since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">architecture</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CONFIG_STRICT_DEVMEM</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">limits</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">areas</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">accessed</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
-   </span><span class="n">on</span><span class="w"> </span><span class="n">x86</span><span class="p">,</span><span class="w"> </span><span class="nc">RAM</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">accessing</span><span class="w"> </span><span class="n">memory</span><span class="o">-</span><span class="n">mapped</span><span class="w"> </span><span class="nc">PCI</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">is</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">architecture</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CONFIG_STRICT_DEVMEM</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">limits</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">areas</span><span class="w"> </span><span class="n">which</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">ac</span><span class="err">‐</span><span class="w">
+   </span><span class="n">cessed</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">x86</span><span class="p">,</span><span class="w"> </span><span class="nc">RAM</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">accessing</span><span class="w"> </span><span class="n">memory</span><span class="o">-</span><span class="n">mapped</span><span class="w"> </span><span class="nc">PCI</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="n">is</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ss">by</span><span class="p">:</span><span class="w">
 
        </span><span class="n">mknod</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="mi">660</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w">
        </span><span class="n">chown</span><span class="w"> </span><span class="n">root</span><span class="ss">:kmem</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w">
 
-   </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">kmem</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="p">,</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">accessed</span><span class="o">.</span><span class="w">  </span><span class="nc">Since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w">  </span><span class="n">the</span><span class="w">
-   </span><span class="nc">CONFIG_DEVKMEM</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
+   </span><span class="nc">The</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">kmem</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="p">,</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">accessed</span><span class="o">.</span><span class="w">  </span><span class="nc">Since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p">,</span><span class="w">
+   </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CONFIG_DEVKMEM</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ss">by</span><span class="p">:</span><span class="w">
 
@@ -126,10 +114,10 @@ Manpages
    </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ss">by</span><span class="p">:</span><span class="w">
 
        </span><span class="n">mknod</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="mi">660</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">port</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w">
-       </span><span class="n">chown</span><span class="w"> </span><span class="n">root</span><span class="ss">:kmem</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">port</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w">
+       </span><span class="n">chown</span><span class="w"> </span><span class="n">root</span><span class="ss">:kmem</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">port</span></code></pre><p>FILES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mem</span><span class="w">
    </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">kmem</span><span class="w">
-   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">port</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">chown</span><span class="p" data-group-id="9159465551-1">(</span><span class="mi">1</span><span class="p" data-group-id="9159465551-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mknod</span><span class="p" data-group-id="9159465551-2">(</span><span class="mi">1</span><span class="p" data-group-id="9159465551-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">ioperm</span><span class="p" data-group-id="9159465551-3">(</span><span class="mi">2</span><span class="p" data-group-id="9159465551-3">)</span></code></pre><p>COLOPHON</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w">  </span><span class="n">page</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">part</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">release</span><span class="w"> </span><span class="mf">5.13</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">man</span><span class="o">-</span><span class="n">pages</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">reporting</span><span class="w"> </span><span class="n">bugs</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w">
-   </span><span class="n">found</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">man</span><span class="o">-</span><span class="n">pages</span><span class="o">/</span><span class="o">.</span></code></pre><p>Linux                                                                                   2015-01-02                                                                                  MEM(4)</p>
+   </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">port</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">chown</span><span class="p" data-group-id="9024217158-1">(</span><span class="mi">1</span><span class="p" data-group-id="9024217158-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mknod</span><span class="p" data-group-id="9024217158-2">(</span><span class="mi">1</span><span class="p" data-group-id="9024217158-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">ioperm</span><span class="p" data-group-id="9024217158-3">(</span><span class="mi">2</span><span class="p" data-group-id="9024217158-3">)</span></code></pre><p>COLOPHON</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">release</span><span class="w"> </span><span class="mf">5.13</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">man</span><span class="o">-</span><span class="n">pages</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">reporting</span><span class="w"> </span><span class="n">bugs</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">lat</span><span class="err">‐</span><span class="w">
+   </span><span class="n">est</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">man</span><span class="o">-</span><span class="n">pages</span><span class="o">/</span><span class="o">.</span></code></pre><p>Linux                                                                  2015-01-02                                                                MEM(4)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -160,11 +148,27 @@ setserial
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

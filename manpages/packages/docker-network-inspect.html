@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>docker-network-inspect — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+
+
+</h1>
+
+<p>DOCKER(1)                                                         Docker User Manuals                                                         DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">network</span><span class="o">-</span><span class="n">inspect</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">networks</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="p" data-group-id="5530721797-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="5530721797-1">]</span><span class="w"> </span><span class="nc">NETWORK</span><span class="w"> </span><span class="p" data-group-id="5530721797-2">[</span><span class="nc">NETWORK</span><span class="n">...</span><span class="p" data-group-id="5530721797-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Returns</span><span class="w">  </span><span class="n">information</span><span class="w">  </span><span class="n">about</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">networks</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">renders</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">object</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">two</span><span class="w">
+   </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="ss">network</span><span class="p">:</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">itd</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">container1</span><span class="w"> </span><span class="n">busybox</span><span class="w">
+          </span><span class="n">f2870c98fd504370fb86e59f32cd0753b1ac9b69b7d80566ffc7192a82b3ed27</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">itd</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">container2</span><span class="w"> </span><span class="n">busybox</span><span class="w">
+          </span><span class="n">bda12f8922785d1f160be70736f26c1e331ab8aaf8ed8d56728508f2e2fd4727</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">containers</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">results</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">given</span><span class="w">  </span><span class="n">template</span><span class="w">  </span><span class="k">for</span><span class="w">
+   </span><span class="n">each</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="w"> </span><span class="nc">Go</span><span class="sc">&#39;s text/template ⟨http://golang.org/pkg/text/template/⟩ package describes all the details of the format.
+
+          $ sudo docker network inspect bridge
+          [
+              {
+                  &quot;Name&quot;: &quot;bridge&quot;,
+                  &quot;Id&quot;: &quot;b2b1a2cba717161d984383fd68218cf70bbbd17d328496885f7c921333228b0f&quot;,
+                  &quot;Scope&quot;: &quot;local&quot;,
+                  &quot;Driver&quot;: &quot;bridge&quot;,
+                  &quot;IPAM&quot;: {
+                      &quot;Driver&quot;: &quot;default&quot;,
+                      &quot;Config&quot;: [
+                          {
+                              &quot;Subnet&quot;: &quot;172.17.42.1/16&quot;,
+                              &quot;Gateway&quot;: &quot;172.17.42.1&quot;
+                          }
+                      ]
+                  },
+                  &quot;Internal&quot;: false,
+                  &quot;Ingress&quot;: false,
+                  &quot;Containers&quot;: {
+                      &quot;bda12f8922785d1f160be70736f26c1e331ab8aaf8ed8d56728508f2e2fd4727&quot;: {
+                          &quot;Name&quot;: &quot;container2&quot;,
+                          &quot;EndpointID&quot;: &quot;0aebb8fcd2b282abe1365979536f21ee4ceaf3ed56177c628eae9f706e00e019&quot;,
+                          &quot;MacAddress&quot;: &quot;02:42:ac:11:00:02&quot;,
+                          &quot;IPv4Address&quot;: &quot;172.17.0.2/16&quot;,
+                          &quot;IPv6Address&quot;: &quot;&quot;
+                      },
+                      &quot;f2870c98fd504370fb86e59f32cd0753b1ac9b69b7d80566ffc7192a82b3ed27&quot;: {
+                          &quot;Name&quot;: &quot;container1&quot;,
+                          &quot;EndpointID&quot;: &quot;a00676d9c91a96bbe5bcfb34f705387a33d7cc365bac1a29e4e9728df92d10ad&quot;,
+                          &quot;MacAddress&quot;: &quot;02:42:ac:11:00:01&quot;,
+                          &quot;IPv4Address&quot;: &quot;172.17.0.1/16&quot;,
+                          &quot;IPv6Address&quot;: &quot;&quot;
+                      }
+                  },
+                  &quot;Options&quot;: {
+                      &quot;com.docker.network.bridge.default_bridge&quot;: &quot;true&quot;,
+                      &quot;com.docker.network.bridge.enable_icc&quot;: &quot;true&quot;,
+                      &quot;com.docker.network.bridge.enable_ip_masquerade&quot;: &quot;true&quot;,
+                      &quot;com.docker.network.bridge.host_binding_ipv4&quot;: &quot;0.0.0.0&quot;,
+                      &quot;com.docker.network.bridge.name&quot;: &quot;docker0&quot;,
+                      &quot;com.docker.network.driver.mtu&quot;: &quot;1500&quot;
+                  }
+              }
+          ]
+
+   Returns the information about the user-defined network:
+
+          $ docker network create simple-network
+          69568e6336d8c96bbf57869030919f7c69524f71183b44d80948bd3927c87f6a
+          $ docker network inspect simple-network
+          [
+              {
+                  &quot;Name&quot;: &quot;simple-network&quot;,
+                  &quot;Id&quot;: &quot;69568e6336d8c96bbf57869030919f7c69524f71183b44d80948bd3927c87f6a&quot;,
+                  &quot;Scope&quot;: &quot;local&quot;,
+                  &quot;Driver&quot;: &quot;bridge&quot;,
+                  &quot;IPAM&quot;: {
+                      &quot;Driver&quot;: &quot;default&quot;,
+                      &quot;Config&quot;: [
+                          {
+                              &quot;Subnet&quot;: &quot;172.22.0.0/16&quot;,
+                              &quot;Gateway&quot;: &quot;172.22.0.1&quot;
+                          }
+                      ]
+                  },
+                  &quot;Containers&quot;: {},
+                  &quot;Options&quot;: {}
+              }
+          ]
+
+   docker  network inspect --verbose for swarm mode overlay networks shows service-specific details such as the service&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">VIP</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">mappings</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w">
+   </span><span class="n">also</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="nc">IPs</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">IPs</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">running</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Following</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overlay</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">ov1</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="n">attached</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">replicas</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="w"> </span><span class="n">ov1</span><span class="w">
+          </span><span class="p" data-group-id="6848360480-1">[</span><span class="w">
+              </span><span class="p" data-group-id="6848360480-2">{</span><span class="w">
+                  </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ov1&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ybmyjvao9vtzy3oorxbssj13b&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2017-03-13T17:04:39.776106792Z&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;swarm&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;overlay&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;EnableIPv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;IPAM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-3">{</span><span class="w">
+                      </span><span class="ss">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-4">[</span><span class="w">
+                          </span><span class="p" data-group-id="6848360480-5">{</span><span class="w">
+                              </span><span class="ss">&quot;Subnet&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.0/24&quot;</span><span class="p">,</span><span class="w">
+                              </span><span class="ss">&quot;Gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.1&quot;</span><span class="w">
+                          </span><span class="p" data-group-id="6848360480-5">}</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-4">]</span><span class="w">
+                  </span><span class="p" data-group-id="6848360480-3">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Attachable&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Ingress&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Containers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-6">{</span><span class="w">
+                      </span><span class="ss">&quot;020403bd88a15f60747fd25d1ad5fa1272eb740e8a97fc547d8ad07b2f721c5e&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-7">{</span><span class="w">
+                          </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s1.1.pjn2ik0sfgkfzed3h0s00gs9o&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ad16946f416562d658f3bb30b9830d73ad91ccf6feae44411269cd0ff674714e&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;02:42:0a:00:00:04&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.4/24&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-7">}</span><span class="w">
+                  </span><span class="p" data-group-id="6848360480-6">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-8">{</span><span class="w">
+                      </span><span class="ss">&quot;com.docker.network.driver.overlay.vxlanid_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4097&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="6848360480-8">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-9">{</span><span class="p" data-group-id="6848360480-9">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Peers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-10">[</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-11">{</span><span class="w">
+                          </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;net-3-5d3cfd30a58c&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.13&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-11">}</span><span class="p">,</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-12">{</span><span class="w">
+                          </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;net-1-6ecbc0040a73&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.11&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-12">}</span><span class="p">,</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-13">{</span><span class="w">
+                          </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;net-2-fb80208efd75&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.12&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-13">}</span><span class="w">
+                  </span><span class="p" data-group-id="6848360480-10">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-14">{</span><span class="w">
+                      </span><span class="ss">&quot;s1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-15">{</span><span class="w">
+                          </span><span class="ss">&quot;VIP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.2&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-16">[</span><span class="p" data-group-id="6848360480-16">]</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;LocalLBIndex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-17">[</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-18">{</span><span class="w">
+                                  </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s1.2.q4hcq2aiiml25ubtrtg4q1txt&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;040879b027e55fb658e8b60ae3b87c6cdac7d291e86a190a3b5ac6567b26511a&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointIP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.5&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;Info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-19">{</span><span class="w">
+                                      </span><span class="ss">&quot;Host IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.11&quot;</span><span class="w">
+                                  </span><span class="p" data-group-id="6848360480-19">}</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-18">}</span><span class="p">,</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-20">{</span><span class="w">
+                                  </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s1.3.yawl4cgkp7imkfx469kn9j6lm&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;106edff9f120efe44068b834e1cddb5b39dd4a3af70211378b2f7a9e562bbad8&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointIP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.3&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;Info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-21">{</span><span class="w">
+                                      </span><span class="ss">&quot;Host IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.12&quot;</span><span class="w">
+                                  </span><span class="p" data-group-id="6848360480-21">}</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-20">}</span><span class="p">,</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-22">{</span><span class="w">
+                                  </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s1.1.pjn2ik0sfgkfzed3h0s00gs9o&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ad16946f416562d658f3bb30b9830d73ad91ccf6feae44411269cd0ff674714e&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;EndpointIP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.0.0.4&quot;</span><span class="p">,</span><span class="w">
+                                  </span><span class="ss">&quot;Info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6848360480-23">{</span><span class="w">
+                                      </span><span class="ss">&quot;Host IP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.33.13&quot;</span><span class="w">
+                                  </span><span class="p" data-group-id="6848360480-23">}</span><span class="w">
+                              </span><span class="p" data-group-id="6848360480-22">}</span><span class="w">
+                          </span><span class="p" data-group-id="6848360480-17">]</span><span class="w">
+                      </span><span class="p" data-group-id="6848360480-15">}</span><span class="w">
+                  </span><span class="p" data-group-id="6848360480-14">}</span><span class="w">
+              </span><span class="p" data-group-id="6848360480-2">}</span><span class="w">
+          </span><span class="p" data-group-id="6848360480-1">]</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">template</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="3281821981-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="3281821981-1">]</span><span class="w">      </span><span class="n">help</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inspect</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="p" data-group-id="3281821981-2">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="3281821981-2">]</span><span class="w">      </span><span class="nc">Verbose</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">diagnostics</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">network</span><span class="p" data-group-id="5082479035-1">(</span><span class="mi">1</span><span class="p" data-group-id="5082479035-1">)</span></code></pre><p>Docker Community                                                        Apr 2022                                                              DOCKER(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-network-disconnect.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-network-disconnect
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-network-ls.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-network-ls
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

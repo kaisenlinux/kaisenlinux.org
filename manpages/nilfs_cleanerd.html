@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>nilfs_cleanerd — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-15e8797939.js"></script>
+    <script src="dist/sidebar_items-2a15801a5d.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,42 +61,42 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>nilfs_cleanerd</span>
 </h1>
 
-<p>NILFS_CLEANERD(8)                                                                 System Manager's Manual                                                                NILFS_CLEANERD(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">garbage</span><span class="w"> </span><span class="n">collector</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="p" data-group-id="2717766309-1">[</span><span class="o">-</span><span class="n">hV</span><span class="p" data-group-id="2717766309-1">]</span><span class="w">
+<p>NILFS_CLEANERD(8)                                               System Manager's Manual                                               NILFS_CLEANERD(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">garbage</span><span class="w"> </span><span class="n">collector</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="p" data-group-id="0022592284-1">[</span><span class="o">-</span><span class="n">hV</span><span class="p" data-group-id="0022592284-1">]</span><span class="w">
 
-   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="p" data-group-id="2717766309-2">[</span><span class="n">options</span><span class="p" data-group-id="2717766309-2">]</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="2717766309-3">[</span><span class="n">directory</span><span class="p" data-group-id="2717766309-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">reclaims</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="p" data-group-id="0022592284-2">[</span><span class="n">options</span><span class="p" data-group-id="0022592284-2">]</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="0022592284-3">[</span><span class="n">directory</span><span class="p" data-group-id="0022592284-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">reclaims</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">NILFS2</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">The</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">operates</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">r</span><span class="o">/</span><span class="n">w</span><span class="o">-</span><span class="n">mount</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w">  </span><span class="n">program</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">invoked</span><span class="w">  </span><span class="n">either</span><span class="w">  </span><span class="n">automatically</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2887358683-1">(</span><span class="mi">8</span><span class="p" data-group-id="2887358683-1">)</span><span class="w">  </span><span class="ow">or</span><span class="w">  </span><span class="n">manually</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="n">an</span><span class="w">  </span><span class="n">administrator</span><span class="o">.</span><span class="w">   </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">invoke</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">through</span><span class="w">
-   </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2887358683-2">(</span><span class="mi">8</span><span class="p" data-group-id="2887358683-2">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="2887358683-3">(</span><span class="mi">8</span><span class="p" data-group-id="2887358683-3">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">umount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2887358683-4">(</span><span class="mi">8</span><span class="p" data-group-id="2887358683-4">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">umount</span><span class="p" data-group-id="2887358683-5">(</span><span class="mi">8</span><span class="p" data-group-id="2887358683-5">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">inconsistencies</span><span class="w"> </span><span class="n">among</span><span class="w"> </span><span class="n">administration</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w">  </span><span class="n">program</span><span class="w">  </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">invoked</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="0036604150-1">(</span><span class="mi">8</span><span class="p" data-group-id="0036604150-1">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">administrator</span><span class="o">.</span><span class="w">  </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">invoke</span><span class="w">
+   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="0036604150-2">(</span><span class="mi">8</span><span class="p" data-group-id="0036604150-2">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="0036604150-3">(</span><span class="mi">8</span><span class="p" data-group-id="0036604150-3">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">umount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="0036604150-4">(</span><span class="mi">8</span><span class="p" data-group-id="0036604150-4">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">umount</span><span class="p" data-group-id="0036604150-5">(</span><span class="mi">8</span><span class="p" data-group-id="0036604150-5">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">inconsistencies</span><span class="w">
+   </span><span class="n">among</span><span class="w"> </span><span class="n">administration</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="p" data-group-id="2887358683-6">(</span><span class="n">pid</span><span class="p" data-group-id="2887358683-6">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">started</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="p" data-group-id="0036604150-6">(</span><span class="n">pid</span><span class="p" data-group-id="0036604150-6">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">started</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
           </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
@@ -118,20 +106,20 @@ Manpages
           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">interval</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">protection</span><span class="o">-</span><span class="n">period</span><span class="o">=</span><span class="n">interval</span><span class="w">
-          </span><span class="nc">Override</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">seconds</span><span class="o">.</span></code></pre><p>SIGNALS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">reacts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">signals</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="0707739814-1">(</span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mtab</span><span class="p" data-group-id="0707739814-1">)</span><span class="p">:</span><span class="w">
+          </span><span class="nc">Override</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">seconds</span><span class="o">.</span></code></pre><p>SIGNALS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">reacts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">signals</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="4708150963-1">(</span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mtab</span><span class="p" data-group-id="4708150963-1">)</span><span class="p">:</span><span class="w">
 
           </span><span class="c1"># mount -t nilfs2</span><span class="w">
-          </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">/</span><span class="n">nilfs</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">nilfs2</span><span class="w"> </span><span class="p" data-group-id="0707739814-2">(</span><span class="n">rw</span><span class="p">,</span><span class="n">gcpid</span><span class="o">=</span><span class="nc">PID</span><span class="p" data-group-id="0707739814-2">)</span><span class="w">
+          </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">/</span><span class="n">nilfs</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">nilfs2</span><span class="w"> </span><span class="p" data-group-id="4708150963-2">(</span><span class="n">rw</span><span class="p">,</span><span class="n">gcpid</span><span class="o">=</span><span class="nc">PID</span><span class="p" data-group-id="4708150963-2">)</span><span class="w">
           </span><span class="c1"># kill -SIGNAL PID</span><span class="w">
 
-   </span><span class="nc">SIGHUP</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">lets</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">initialization</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="0707739814-3">(</span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="0707739814-3">)</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reread</span><span class="o">.</span><span class="w">
+   </span><span class="nc">SIGHUP</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">lets</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">initialization</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="4708150963-3">(</span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="4708150963-3">)</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reread</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">SIGTERM</span><span class="w">
           </span><span class="nc">The</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">cleanly</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">SIGUSR1</span><span class="p">,</span><span class="w"> </span><span class="nc">SIGUSR2</span><span class="w">
-          </span><span class="nc">Reserved</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">  </span><span class="nc">These</span><span class="w"> </span><span class="n">let</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">present</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="w">
-          </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="9315480071-1">(</span><span class="mi">5</span><span class="p" data-group-id="9315480071-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Koji</span><span class="w"> </span><span class="nc">Sato</span></code></pre><p>AVAILABILITY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nilfs</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">nilfs</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">io</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nilfs</span><span class="p" data-group-id="2094096328-1">(</span><span class="mi">8</span><span class="p" data-group-id="2094096328-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2094096328-2">(</span><span class="mi">8</span><span class="p" data-group-id="2094096328-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">umount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2094096328-3">(</span><span class="mi">8</span><span class="p" data-group-id="2094096328-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="2094096328-4">(</span><span class="mi">5</span><span class="p" data-group-id="2094096328-4">)</span><span class="o">.</span></code></pre><p>nilfs-utils version 2.2                                                                  Apr 2014                                                                        NILFS_CLEANERD(8)</p>
+          </span><span class="nc">Reserved</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">  </span><span class="nc">These</span><span class="w"> </span><span class="n">let</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">present</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="w">
+          </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="1189097977-1">(</span><span class="mi">5</span><span class="p" data-group-id="1189097977-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Koji</span><span class="w"> </span><span class="nc">Sato</span></code></pre><p>AVAILABILITY</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs_cleanerd</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nilfs</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">nilfs</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">io</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">nilfs</span><span class="p" data-group-id="2744508045-1">(</span><span class="mi">8</span><span class="p" data-group-id="2744508045-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2744508045-2">(</span><span class="mi">8</span><span class="p" data-group-id="2744508045-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">umount</span><span class="o">.</span><span class="n">nilfs2</span><span class="p" data-group-id="2744508045-3">(</span><span class="mi">8</span><span class="p" data-group-id="2744508045-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">nilfs_cleanerd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="2744508045-4">(</span><span class="mi">5</span><span class="p" data-group-id="2744508045-4">)</span><span class="o">.</span></code></pre><p>nilfs-utils version 2.2                                                 Apr 2014                                                      NILFS_CLEANERD(8)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -162,11 +150,27 @@ nilfs-resize
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>

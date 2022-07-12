@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="generator" content="ExDoc v0.26.0">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>xfs_mkfile — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
 
-    <script src="dist/sidebar_items-2dbf9d3119.js"></script>
+    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,34 +22,27 @@
     <script>
 
       try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
     </button>
     <label class="search-label">
-      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -60,11 +53,6 @@
   </div>
 
   <div class="sidebar-header">
-
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
-
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -73,43 +61,42 @@ Manpages
         v2.1.0
       </strong>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
 
-    </ul>
   </div>
 
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
-  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1>
-<button class="settings display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+<h1 id="content">
 
 
-  <span>xfs_mkfile</span>
 </h1>
 
-<p>xfs_mkfile(8)                                                                     System Manager's Manual                                                                    xfs_mkfile(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">file</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="p" data-group-id="9382184933-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="p" data-group-id="9382184933-1">]</span><span class="w"> </span><span class="p" data-group-id="9382184933-2">[</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="p" data-group-id="9382184933-2">]</span><span class="w"> </span><span class="p" data-group-id="9382184933-3">[</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="p" data-group-id="9382184933-3">]</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="9382184933-4">[</span><span class="n">k</span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="n">m</span><span class="o">|</span><span class="n">g</span><span class="p" data-group-id="9382184933-4">]</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">...</span><span class="w">
-   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">padded</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">zeroes</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">flagged</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">kilobytes</span><span class="p">,</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">megabytes</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">gigabytes</span><span class="w">
-   </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">suffixes</span><span class="p">,</span><span class="w"> </span><span class="n">respectively</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Verbose</span><span class="o">.</span><span class="w"> </span><span class="nc">Report</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
+<p>xfs_mkfile(8)                                                   System Manager's Manual                                                   xfs_mkfile(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">file</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="p" data-group-id="0830054286-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="p" data-group-id="0830054286-1">]</span><span class="w"> </span><span class="p" data-group-id="0830054286-2">[</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="p" data-group-id="0830054286-2">]</span><span class="w"> </span><span class="p" data-group-id="0830054286-3">[</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="p" data-group-id="0830054286-3">]</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="0830054286-4">[</span><span class="n">k</span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="n">m</span><span class="o">|</span><span class="n">g</span><span class="p" data-group-id="0830054286-4">]</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">...</span><span class="w">
+   </span><span class="n">xfs_mkfile</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">xfs_mkfile</span><span class="w">  </span><span class="n">creates</span><span class="w">  </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">padded</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">zeroes</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">flagged</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">kilo</span><span class="err">‐</span><span class="w">
+   </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">megabytes</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">gigabytes</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">suffixes</span><span class="p">,</span><span class="w"> </span><span class="n">respectively</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Verbose</span><span class="o">.</span><span class="w"> </span><span class="nc">Report</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="n">n</span><span class="w">     </span><span class="nc">No</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w"> </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">holey</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="9043491023-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">seek</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="9043491023-1">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="o">.</span><span class="w">
+   </span><span class="o">-</span><span class="n">n</span><span class="w">     </span><span class="nc">No</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w"> </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">holey</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="0851503560-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">seek</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="0851503560-1">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">p</span><span class="w">     </span><span class="nc">Preallocate</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preallocated</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">overwritten</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">zeroes</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">truncated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">desired</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span><span class="w">
 
-                                                                                                                                                                         </span><span class="n">xfs_mkfile</span><span class="p" data-group-id="9043491023-2">(</span><span class="mi">8</span><span class="p" data-group-id="9043491023-2">)</span></code></pre>
+                                                                                                                                      </span><span class="n">xfs_mkfile</span><span class="p" data-group-id="0851503560-2">(</span><span class="mi">8</span><span class="p" data-group-id="0851503560-2">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -140,11 +127,27 @@ xfs_ncheck
       <footer class="footer">
 
         <p>
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
-
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
         </p>
       </footer>
     </div>
