@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>mkreiser4 — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+    <script src="dist/sidebar_items-e65e9636d2.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,33 +73,34 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>mkreiser4</span>
 </h1>
 
-<p>mkfs.reiser4(8)                                                   reiser4progs manual                                                   mkfs.reiser4(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">reiser4</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="p" data-group-id="2775481872-1">[</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="2775481872-1">]</span><span class="w"> </span><span class="nc">FILE1</span><span class="w"> </span><span class="nc">FILE2</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="2775481872-2">[</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="2775481872-3">[</span><span class="nc">K</span><span class="o">|</span><span class="nc">M</span><span class="o">|</span><span class="nc">G</span><span class="p" data-group-id="2775481872-3">]</span><span class="w"> </span><span class="p" data-group-id="2775481872-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">reiser4</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">program</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">libreiser4</span><span class="w"> </span><span class="n">library</span><span class="o">.</span><span class="w"> </span><span class="nc">Since</span><span class="w"> </span><span class="n">libreiser4</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">plugin</span><span class="o">-</span><span class="n">based</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w">
-   </span><span class="n">potential</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">reiser4</span><span class="w"> </span><span class="n">partitions</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">balanced</span><span class="w"> </span><span class="n">trees</span><span class="o">.</span></code></pre><p>COMMON OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+<p>mkfs.reiser4(8)                                                                     reiser4progs manual                                                                    mkfs.reiser4(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">reiser4</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="p" data-group-id="6943042738-1">[</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="6943042738-1">]</span><span class="w"> </span><span class="nc">FILE1</span><span class="w"> </span><span class="nc">FILE2</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6943042738-2">[</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6943042738-3">[</span><span class="nc">K</span><span class="o">|</span><span class="nc">M</span><span class="o">|</span><span class="nc">G</span><span class="p" data-group-id="6943042738-3">]</span><span class="w"> </span><span class="p" data-group-id="6943042738-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">reiser4</span><span class="w">  </span><span class="n">filesystem</span><span class="w">  </span><span class="n">creation</span><span class="w">  </span><span class="n">program</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">libreiser4</span><span class="w"> </span><span class="n">library</span><span class="o">.</span><span class="w"> </span><span class="nc">Since</span><span class="w"> </span><span class="n">libreiser4</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">plugin</span><span class="o">-</span><span class="n">based</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">potential</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">just</span><span class="w">
+   </span><span class="n">reiser4</span><span class="w"> </span><span class="n">partitions</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">balanced</span><span class="w"> </span><span class="n">trees</span><span class="o">.</span></code></pre><p>COMMON OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
           </span><span class="n">prints</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="sc">?,</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
@@ -97,8 +110,8 @@ Manpages
           </span><span class="n">assumes</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="sc">&#39;yes&#39;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">questions</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">force</span><span class="w">
-          </span><span class="n">forces</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">disk</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span></code></pre><p>MKFS OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">block</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="nc">N</span><span class="w">
-          </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="9554863178-1">(</span><span class="n">architecture</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p" data-group-id="9554863178-1">)</span><span class="w">
+          </span><span class="n">forces</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">disk</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span></code></pre><p>MKFS OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">block</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="0143431639-1">(</span><span class="n">architecture</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p" data-group-id="0143431639-1">)</span><span class="w">
 
    </span><span class="o">-</span><span class="nc">L</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">label</span><span class="w"> </span><span class="nc">LABEL</span><span class="w">
           </span><span class="n">volume</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w">
@@ -110,9 +123,9 @@ Manpages
           </span><span class="n">forces</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">lost</span><span class="o">+</span><span class="n">found</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">discard</span><span class="w">
-          </span><span class="n">tells</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">discard</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="p" data-group-id="9554863178-2">(</span><span class="k">for</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">drives</span><span class="p" data-group-id="9554863178-2">)</span><span class="o">.</span></code></pre><p>PLUGIN OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">print</span><span class="o">-</span><span class="n">profile</span><span class="w">
-          </span><span class="n">prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">profile</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">plugins</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w">  </span><span class="n">nodes</span><span class="p">,</span><span class="w">  </span><span class="n">files</span><span class="p">,</span><span class="w">  </span><span class="n">directories</span><span class="p">,</span><span class="w">
-          </span><span class="n">hashes</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="o">--</span><span class="n">override</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">plugins</span><span class="o">.</span><span class="w">
+          </span><span class="n">tells</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">discard</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="p" data-group-id="0143431639-2">(</span><span class="k">for</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">drives</span><span class="p" data-group-id="0143431639-2">)</span><span class="o">.</span></code></pre><p>PLUGIN OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">print</span><span class="o">-</span><span class="n">profile</span><span class="w">
+          </span><span class="n">prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">profile</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">plugins</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">directories</span><span class="p">,</span><span class="w"> </span><span class="n">hashes</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="o">--</span><span class="n">override</span><span class="w"> </span><span class="n">is</span><span class="w">  </span><span class="n">speci</span><span class="err">‐</span><span class="w">
+          </span><span class="n">fied</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">plugins</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">print</span><span class="o">-</span><span class="n">plugins</span><span class="w">
           </span><span class="n">prints</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">plugins</span><span class="w"> </span><span class="n">libreiser4</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">about</span><span class="o">.</span><span class="w">
@@ -124,7 +137,7 @@ Manpages
 
           </span><span class="n">assign</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="s">&quot;key&quot;</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ss">policy</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="o">-</span><span class="n">yf</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="n">key_short</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda2</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">reiserfs</span><span class="o">-</span><span class="n">devel</span><span class="na">@vger</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">measurefs</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="8488996336-1">(</span><span class="mi">8</span><span class="p" data-group-id="8488996336-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">debugfs</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="8488996336-2">(</span><span class="mi">8</span><span class="p" data-group-id="8488996336-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">fsck</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="8488996336-3">(</span><span class="mi">8</span><span class="p" data-group-id="8488996336-3">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Yury</span><span class="w"> </span><span class="nc">Umanets</span><span class="w"> </span><span class="o">&lt;</span><span class="n">umka</span><span class="na">@namesys</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>reiser4progs                                                          02 Oct, 2002                                                      mkfs.reiser4(8)</p>
+          </span><span class="n">mkfs</span><span class="o">.</span><span class="n">reiser4</span><span class="w"> </span><span class="o">-</span><span class="n">yf</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="n">key_short</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda2</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">reiserfs</span><span class="o">-</span><span class="n">devel</span><span class="na">@vger</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">measurefs</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="1717719922-1">(</span><span class="mi">8</span><span class="p" data-group-id="1717719922-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">debugfs</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="1717719922-2">(</span><span class="mi">8</span><span class="p" data-group-id="1717719922-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">fsck</span><span class="o">.</span><span class="n">reiser4</span><span class="p" data-group-id="1717719922-3">(</span><span class="mi">8</span><span class="p" data-group-id="1717719922-3">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Yury</span><span class="w"> </span><span class="nc">Umanets</span><span class="w"> </span><span class="o">&lt;</span><span class="n">umka</span><span class="na">@namesys</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>reiser4progs                                                                           02 Oct, 2002                                                                        mkfs.reiser4(8)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -155,27 +168,11 @@ partclone.reiser4
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

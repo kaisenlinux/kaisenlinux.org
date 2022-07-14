@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>sslscan — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
+    <script src="dist/sidebar_items-98c4b94a77.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,46 +73,47 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>sslscan</span>
 </h1>
 
-<p>SSLSCAN(1)                                                      General Commands Manual                                                      SSLSCAN(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Fast</span><span class="w"> </span><span class="nc">SSL</span><span class="o">/</span><span class="nc">TLS</span><span class="w"> </span><span class="n">scanner</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="4615986150-1">[</span><span class="n">options</span><span class="p" data-group-id="4615986150-1">]</span><span class="w"> </span><span class="p" data-group-id="4615986150-2">[</span><span class="n">host</span><span class="ss">:port</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">host</span><span class="p" data-group-id="4615986150-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="n">queries</span><span class="w"> </span><span class="nc">SSL</span><span class="o">/</span><span class="nc">TLS</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="p" data-group-id="6473145581-1">(</span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">HTTPS</span><span class="p" data-group-id="6473145581-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">versions</span><span class="p">,</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="n">suites</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">exchanges</span><span class="p">,</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="n">algorithms</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cer</span><span class="err">‐</span><span class="w">
-   </span><span class="n">tificates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">helps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">weak</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">standpoint</span><span class="o">.</span><span class="w">
+<p>SSLSCAN(1)                                                                        General Commands Manual                                                                       SSLSCAN(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Fast</span><span class="w"> </span><span class="nc">SSL</span><span class="o">/</span><span class="nc">TLS</span><span class="w"> </span><span class="n">scanner</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="3946101221-1">[</span><span class="n">options</span><span class="p" data-group-id="3946101221-1">]</span><span class="w"> </span><span class="p" data-group-id="3946101221-2">[</span><span class="n">host</span><span class="ss">:port</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">host</span><span class="p" data-group-id="3946101221-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslscan</span><span class="w">  </span><span class="n">queries</span><span class="w">  </span><span class="nc">SSL</span><span class="o">/</span><span class="nc">TLS</span><span class="w">  </span><span class="n">services</span><span class="w"> </span><span class="p" data-group-id="8210430673-1">(</span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">HTTPS</span><span class="p" data-group-id="8210430673-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">versions</span><span class="p">,</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="n">suites</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">exchanges</span><span class="p">,</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="n">algorithms</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">helps</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">user</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">weak</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">standpoint</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">Terminal</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">thus</span><span class="w"> </span><span class="n">colour</span><span class="o">-</span><span class="n">coded</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
 
-   </span><span class="nc">Red</span><span class="w"> </span><span class="nc">Background</span><span class="w">  </span><span class="nc">NULL</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="6473145581-2">(</span><span class="n">no</span><span class="w"> </span><span class="n">encryption</span><span class="p" data-group-id="6473145581-2">)</span><span class="w">
-   </span><span class="nc">Red</span><span class="w">             </span><span class="nc">Broken</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="6473145581-3">(</span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="n">bit</span><span class="p" data-group-id="6473145581-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="p" data-group-id="6473145581-4">(</span><span class="nc">SSLv2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">SSLv3</span><span class="p" data-group-id="6473145581-4">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="p" data-group-id="6473145581-5">(</span><span class="nc">MD5</span><span class="p" data-group-id="6473145581-5">)</span><span class="w">
-   </span><span class="nc">Yellow</span><span class="w">          </span><span class="nc">Weak</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="6473145581-6">(</span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">56</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">RC4</span><span class="p" data-group-id="6473145581-6">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">weak</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="p" data-group-id="6473145581-7">(</span><span class="nc">SHA</span><span class="o">-</span><span class="mi">1</span><span class="p" data-group-id="6473145581-7">)</span><span class="w">
-   </span><span class="nc">Purple</span><span class="w">          </span><span class="nc">Anonymous</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="6473145581-8">(</span><span class="nc">ADH</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">AECDH</span><span class="p" data-group-id="6473145581-8">)</span><span class="w">
+   </span><span class="nc">Red</span><span class="w"> </span><span class="nc">Background</span><span class="w">  </span><span class="nc">NULL</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="8210430673-2">(</span><span class="n">no</span><span class="w"> </span><span class="n">encryption</span><span class="p" data-group-id="8210430673-2">)</span><span class="w">
+   </span><span class="nc">Red</span><span class="w">             </span><span class="nc">Broken</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="8210430673-3">(</span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="n">bit</span><span class="p" data-group-id="8210430673-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="p" data-group-id="8210430673-4">(</span><span class="nc">SSLv2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">SSLv3</span><span class="p" data-group-id="8210430673-4">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="p" data-group-id="8210430673-5">(</span><span class="nc">MD5</span><span class="p" data-group-id="8210430673-5">)</span><span class="w">
+   </span><span class="nc">Yellow</span><span class="w">          </span><span class="nc">Weak</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="8210430673-6">(</span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">56</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">RC4</span><span class="p" data-group-id="8210430673-6">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">weak</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="p" data-group-id="8210430673-7">(</span><span class="nc">SHA</span><span class="o">-</span><span class="mi">1</span><span class="p" data-group-id="8210430673-7">)</span><span class="w">
+   </span><span class="nc">Purple</span><span class="w">          </span><span class="nc">Anonymous</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="p" data-group-id="8210430673-8">(</span><span class="nc">ADH</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">AECDH</span><span class="p" data-group-id="8210430673-8">)</span><span class="w">
 
-   </span><span class="n">sslscan</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XML</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">easy</span><span class="w"> </span><span class="n">consumption</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">programs</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w">
+   </span><span class="n">sslscan</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XML</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">easy</span><span class="w"> </span><span class="n">consumption</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">programs</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w">
           </span><span class="nc">Show</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w">
 
    </span><span class="o">--</span><span class="n">targets</span><span class="o">=</span><span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">A</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="o">.</span><span class="w"> </span><span class="nc">Hosts</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ports</span><span class="w"> </span><span class="p" data-group-id="3704527409-1">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">host</span><span class="ss">:port</span><span class="p" data-group-id="3704527409-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">One</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="o">.</span><span class="w"> </span><span class="nc">Hosts</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">ports</span><span class="w"> </span><span class="p" data-group-id="5428151499-1">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">host</span><span class="ss">:port</span><span class="p" data-group-id="5428151499-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">One</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w">
 
    </span><span class="o">--</span><span class="n">sni</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w">
           </span><span class="nc">Use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">SNI</span><span class="w">
@@ -130,8 +143,8 @@ Manpages
           Use IANA/RFC cipher names rather than OpenSSL ones
 
    --show-times
-          Show the time taken for each handshake in milliseconds. Note that only a single request is made with each cipher, and that  the  size  of
-          the ClientHello is not constant, so this should not be used for proper benchmarking or performance testing.
+          Show the time taken for each handshake in milliseconds. Note that only a single request is made with each cipher, and that the size of the ClientHello is not  constant,  so
+          this should not be used for proper benchmarking or performance testing.
 
           You might want to also use --no-cipher-details to make the output a bit clearer.
 
@@ -229,7 +242,7 @@ Manpages
           Set socket timeout. Useful for hosts that fail to respond to ciphers they don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">understand</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">connect</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="o">&lt;</span><span class="n">sec</span><span class="o">&gt;</span><span class="w">
-          </span><span class="nc">Set</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">timeout</span><span class="o">.</span><span class="w"> </span><span class="nc">Useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">respond</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">connect</span><span class="p" data-group-id="3704527409-2">(</span><span class="p" data-group-id="3704527409-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">75</span><span class="n">s</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">timeout</span><span class="o">.</span><span class="w"> </span><span class="nc">Useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">hosts</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">respond</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">connect</span><span class="p" data-group-id="5428151499-2">(</span><span class="p" data-group-id="5428151499-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">75</span><span class="n">s</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">sleep</span><span class="o">=</span><span class="o">&lt;</span><span class="n">msec</span><span class="o">&gt;</span><span class="w">
           </span><span class="nc">Pause</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">connections</span><span class="o">.</span><span class="w"> </span><span class="nc">Useful</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">STARTTLS</span><span class="w"> </span><span class="nc">SMTP</span><span class="w"> </span><span class="n">services</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">that</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">performing</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="n">limiting</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">disabled</span><span class="o">.</span><span class="w">
@@ -247,17 +260,17 @@ Manpages
           </span><span class="nc">Hide</span><span class="w"> </span><span class="nc">NIST</span><span class="w"> </span><span class="nc">EC</span><span class="w"> </span><span class="n">curve</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">EDH</span><span class="o">/</span><span class="nc">RSA</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">length</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">colour</span><span class="w">
-          </span><span class="nc">Disable</span><span class="w"> </span><span class="n">coloured</span><span class="w"> </span><span class="n">output</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Scan</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="nc">HTTPS</span><span class="w"> </span><span class="n">server</span><span class="w">
+          </span><span class="nc">Disable</span><span class="w"> </span><span class="n">coloured</span><span class="w"> </span><span class="n">output</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Scan</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="nc">HTTPS</span><span class="w"> </span><span class="n">server</span><span class="w">
           </span><span class="n">sslscan</span><span class="w"> </span><span class="n">localhost</span><span class="w">
           </span><span class="n">sslscan</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="w">
           </span><span class="n">sslscan</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">443</span><span class="w">
-          </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="6018603795-1">[</span><span class="o">::</span><span class="mi">1</span><span class="p" data-group-id="6018603795-1">]</span><span class="w">
-          </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="6018603795-2">[</span><span class="o">::</span><span class="mi">1</span><span class="p" data-group-id="6018603795-2">]</span><span class="p">:</span><span class="mi">443</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">originally</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Ian</span><span class="w"> </span><span class="nc">Ventura</span><span class="o">-</span><span class="nc">Whiting</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fizz</span><span class="na">@titania</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">uk</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+          </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="4435757787-1">[</span><span class="o">::</span><span class="mi">1</span><span class="p" data-group-id="4435757787-1">]</span><span class="w">
+          </span><span class="n">sslscan</span><span class="w"> </span><span class="p" data-group-id="4435757787-2">[</span><span class="o">::</span><span class="mi">1</span><span class="p" data-group-id="4435757787-2">]</span><span class="p">:</span><span class="mi">443</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslscan</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">originally</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Ian</span><span class="w"> </span><span class="nc">Ventura</span><span class="o">-</span><span class="nc">Whiting</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fizz</span><span class="na">@titania</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">uk</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
    </span><span class="n">sslscan</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Jacob</span><span class="w"> </span><span class="nc">Appelbaum</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jacob</span><span class="na">@appelbaum</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
    </span><span class="n">sslscan</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">rbsec</span><span class="w"> </span><span class="o">&lt;</span><span class="n">robin</span><span class="na">@rbsec</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
    </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">originally</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Marvin</span><span class="w"> </span><span class="nc">Stark</span><span class="w"> </span><span class="o">&lt;</span><span class="n">marv</span><span class="na">@der</span><span class="o">-</span><span class="n">marv</span><span class="o">.</span><span class="n">de</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
 
-                                                                 </span><span class="nc">March</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="w">                                                          </span><span class="nc">SSLSCAN</span><span class="p" data-group-id="5857135672-1">(</span><span class="mi">1</span><span class="p" data-group-id="5857135672-1">)</span></code></pre>
+                                                                                  </span><span class="nc">March</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="w">                                                                            </span><span class="nc">SSLSCAN</span><span class="p" data-group-id="8419997031-1">(</span><span class="mi">1</span><span class="p" data-group-id="8419997031-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -288,27 +301,11 @@ sslsniff
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

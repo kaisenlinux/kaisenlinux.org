@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>cbm — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+    <script src="dist/sidebar_items-e65e9636d2.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,37 +73,38 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>cbm</span>
 </h1>
 
-<p>cbm(1)                                               display in real time the network traffic speed                                              cbm(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">speed</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="p" data-group-id="7987997693-1">[</span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="7987997693-1">]</span><span class="w"> </span><span class="p" data-group-id="7987997693-2">[</span><span class="o">--</span><span class="n">version</span><span class="p" data-group-id="7987997693-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Color</span><span class="w"> </span><span class="nc">Bandwidth</span><span class="w"> </span><span class="nc">Meter</span><span class="w"> </span><span class="p" data-group-id="2484755291-1">(</span><span class="nc">CBM</span><span class="p" data-group-id="2484755291-1">)</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+<p>cbm(1)                                                                display in real time the network traffic speed                                                                cbm(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">speed</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="p" data-group-id="9139523365-1">[</span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="9139523365-1">]</span><span class="w"> </span><span class="p" data-group-id="9139523365-2">[</span><span class="o">--</span><span class="n">version</span><span class="p" data-group-id="9139523365-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Color</span><span class="w"> </span><span class="nc">Bandwidth</span><span class="w"> </span><span class="nc">Meter</span><span class="w"> </span><span class="p" data-group-id="3468505536-1">(</span><span class="nc">CBM</span><span class="p" data-group-id="3468505536-1">)</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">traffic</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">self</span><span class="o">-</span><span class="n">explanatory</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">self</span><span class="o">-</span><span class="n">explanatory</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">version</span><span class="w">
-          </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>INTERACTIVE CONTROL</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">controlled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">keys</span><span class="p">:</span><span class="w">
+          </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>INTERACTIVE CONTROL</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cbm</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">controlled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">keys</span><span class="p">:</span><span class="w">
 
    </span><span class="nc">Up</span><span class="o">/</span><span class="nc">Down</span><span class="w">
           </span><span class="nc">Select</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">about</span><span class="o">.</span><span class="w">
@@ -102,12 +115,12 @@ Manpages
 
    </span><span class="o">+</span><span class="w">      </span><span class="nc">Increase</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">100</span><span class="n">ms</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="w">      </span><span class="nc">Decrease</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">100</span><span class="n">ms</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">cbm</span><span class="w">  </span><span class="n">was</span><span class="w"> </span><span class="n">originally</span><span class="w"> </span><span class="n">developed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Aaron</span><span class="w"> </span><span class="nc">Isotton</span><span class="w"> </span><span class="o">&lt;</span><span class="n">aaron</span><span class="na">@isotton</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w">
-   </span><span class="nc">The</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">isotton</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">cbm</span><span class="o">/</span><span class="w">
+   </span><span class="o">-</span><span class="w">      </span><span class="nc">Decrease</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">100</span><span class="n">ms</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">cbm</span><span class="w">  </span><span class="n">was</span><span class="w">  </span><span class="n">originally</span><span class="w">  </span><span class="n">developed</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="nc">Aaron</span><span class="w">  </span><span class="nc">Isotton</span><span class="w">  </span><span class="o">&lt;</span><span class="n">aaron</span><span class="na">@isotton</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w">  </span><span class="n">may</span><span class="w">  </span><span class="kn">use</span><span class="w">  </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="n">was</span><span class="w">
+   </span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">isotton</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">cbm</span><span class="o">/</span><span class="w">
 
    </span><span class="nc">Currently</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">newer</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">resurrecting</span><span class="o">-</span><span class="n">open</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">projects</span><span class="o">/</span><span class="n">cbm</span><span class="w">
 
-   </span><span class="nc">This</span><span class="w"> </span><span class="n">manpage</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Aaron</span><span class="w"> </span><span class="nc">Isotton</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Joao</span><span class="w"> </span><span class="nc">Eriberto</span><span class="w"> </span><span class="nc">Mota</span><span class="w"> </span><span class="nc">Filho</span><span class="o">.</span></code></pre><p>cbm-0.3.2                                                             15 Aug. 2021                                                               cbm(1)</p>
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manpage</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Aaron</span><span class="w"> </span><span class="nc">Isotton</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Joao</span><span class="w"> </span><span class="nc">Eriberto</span><span class="w"> </span><span class="nc">Mota</span><span class="w"> </span><span class="nc">Filho</span><span class="o">.</span></code></pre><p>cbm-0.3.2                                                                              15 Aug. 2021                                                                                 cbm(1)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -138,27 +151,11 @@ dstat
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

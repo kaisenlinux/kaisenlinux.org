@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>gluster-mountbroker — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-0aa6d80fae.js"></script>
+    <script src="dist/sidebar_items-98c4b94a77.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,36 +73,37 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>gluster-mountbroker</span>
 </h1>
 
-<p>GLUSTER-MOUNTBROKER(8)                                          System Manager's Manual                                          GLUSTER-MOUNTBROKER(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">gluster</span><span class="o">-</span><span class="n">mountbroker</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geo</span><span class="w"> </span><span class="n">replication</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">broker</span></code></pre><p>USAGE</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">gluster</span><span class="o">-</span><span class="n">mountbroker</span><span class="w"> </span><span class="p" data-group-id="0620548717-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="0620548717-1">]</span><span class="w"> </span><span class="p" data-group-id="0620548717-2">{</span><span class="n">setup</span><span class="p">,</span><span class="n">status</span><span class="p">,</span><span class="n">add</span><span class="p">,</span><span class="n">remove</span><span class="p" data-group-id="0620548717-2">}</span><span class="w"> </span><span class="n">...</span></code></pre><p>   positional arguments:</p><pre><code class="makeup elixir"><span class="w">          </span><span class="p" data-group-id="1515607860-1">{</span><span class="n">setup</span><span class="p">,</span><span class="n">status</span><span class="p">,</span><span class="n">add</span><span class="p">,</span><span class="n">remove</span><span class="p" data-group-id="1515607860-1">}</span></code></pre><p>   optional arguments:</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
-          </span><span class="n">show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">This</span><span class="w">  </span><span class="n">manual</span><span class="w">  </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Patrick</span><span class="w"> </span><span class="nc">Matth</span><span class="n">äi</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pmatthaei</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">glusterfs</span><span class="o">.</span><span class="w">  </span><span class="nc">Permission</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">granted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">copy</span><span class="p">,</span><span class="w"> </span><span class="n">distribute</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w">
-   </span><span class="n">this</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="o">.</span><span class="w">
+<p>GLUSTER-MOUNTBROKER(8)                                                            System Manager's Manual                                                           GLUSTER-MOUNTBROKER(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">gluster</span><span class="o">-</span><span class="n">mountbroker</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geo</span><span class="w"> </span><span class="n">replication</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">broker</span></code></pre><p>USAGE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">gluster</span><span class="o">-</span><span class="n">mountbroker</span><span class="w"> </span><span class="p" data-group-id="7042727713-1">[</span><span class="o">-</span><span class="n">h</span><span class="p" data-group-id="7042727713-1">]</span><span class="w"> </span><span class="p" data-group-id="7042727713-2">{</span><span class="n">setup</span><span class="p">,</span><span class="n">status</span><span class="p">,</span><span class="n">add</span><span class="p">,</span><span class="n">remove</span><span class="p" data-group-id="7042727713-2">}</span><span class="w"> </span><span class="n">...</span></code></pre><p>   positional arguments:</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="p" data-group-id="6855009263-1">{</span><span class="n">setup</span><span class="p">,</span><span class="n">status</span><span class="p">,</span><span class="n">add</span><span class="p">,</span><span class="n">remove</span><span class="p" data-group-id="6855009263-1">}</span></code></pre><p>   optional arguments:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="n">show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Patrick</span><span class="w"> </span><span class="nc">Matth</span><span class="n">äi</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pmatthaei</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">glusterfs</span><span class="o">.</span><span class="w">  </span><span class="nc">Permission</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">granted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">copy</span><span class="p">,</span><span class="w"> </span><span class="n">distribute</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="o">.</span><span class="w">
 
-                                                                   </span><span class="nc">July</span><span class="w"> </span><span class="mi">2017</span><span class="w">                                                 </span><span class="nc">GLUSTER</span><span class="o">-</span><span class="nc">MOUNTBROKER</span><span class="p" data-group-id="9374007953-1">(</span><span class="mi">8</span><span class="p" data-group-id="9374007953-1">)</span></code></pre>
+                                                                                     </span><span class="nc">July</span><span class="w"> </span><span class="mi">2017</span><span class="w">                                                                  </span><span class="nc">GLUSTER</span><span class="o">-</span><span class="nc">MOUNTBROKER</span><span class="p" data-group-id="6755890313-1">(</span><span class="mi">8</span><span class="p" data-group-id="6755890313-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -121,27 +134,11 @@ gluster-setgfid2path
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

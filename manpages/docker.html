@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>docker — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+    <script src="dist/sidebar_items-e65e9636d2.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,38 +73,39 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>docker</span>
 </h1>
 
-<p>DOCKER(1)                                                         Docker User Manuals                                                         DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">interface</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="p" data-group-id="0650377820-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="0650377820-1">]</span><span class="w"> </span><span class="nc">COMMAND</span><span class="w"> </span><span class="p" data-group-id="0650377820-2">[</span><span class="nc">ARG</span><span class="n">...</span><span class="p" data-group-id="0650377820-2">]</span><span class="w">
+<p>DOCKER(1)                                                                           Docker User Manuals                                                                          DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">interface</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="p" data-group-id="5627914916-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="5627914916-1">]</span><span class="w"> </span><span class="nc">COMMAND</span><span class="w"> </span><span class="p" data-group-id="5627914916-2">[</span><span class="nc">ARG</span><span class="n">...</span><span class="p" data-group-id="5627914916-2">]</span><span class="w">
 
-   </span><span class="n">docker</span><span class="w"> </span><span class="p" data-group-id="0650377820-3">[</span><span class="o">--</span><span class="n">help</span><span class="o">|</span><span class="o">-</span><span class="n">v</span><span class="o">|</span><span class="o">--</span><span class="n">version</span><span class="p" data-group-id="0650377820-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">interacting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="p" data-group-id="7684217571-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">dockerd</span><span class="p" data-group-id="7684217571-2">(</span><span class="mi">8</span><span class="p" data-group-id="7684217571-2">)</span><span class="p" data-group-id="7684217571-1">)</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CLI</span><span class="o">.</span><span class="w">
+   </span><span class="n">docker</span><span class="w"> </span><span class="p" data-group-id="5627914916-3">[</span><span class="o">--</span><span class="n">help</span><span class="o">|</span><span class="o">-</span><span class="n">v</span><span class="o">|</span><span class="o">--</span><span class="n">version</span><span class="p" data-group-id="5627914916-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">interacting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="p" data-group-id="8572506413-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">dockerd</span><span class="p" data-group-id="8572506413-2">(</span><span class="mi">8</span><span class="p" data-group-id="8572506413-2">)</span><span class="p" data-group-id="8572506413-1">)</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CLI</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">The</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">explain</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">arguments</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">To</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w">
+   </span><span class="nc">To</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">help</span><span class="w">
      </span><span class="nc">Print</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">statement</span><span class="w">
 
    </span><span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">
@@ -101,8 +114,8 @@ Manpages
    </span><span class="o">-</span><span class="nc">D</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">debug</span><span class="o">=</span><span class="no">true</span><span class="o">|</span><span class="no">false</span><span class="w">
      </span><span class="nc">Enable</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="no">false</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="nc">H</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">host</span><span class="o">=</span><span class="p" data-group-id="8496842041-1">[</span><span class="n">unix</span><span class="ss">://</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p" data-group-id="8496842041-1">]</span><span class="p">:</span><span class="w"> </span><span class="n">tcp</span><span class="ss">://</span><span class="p" data-group-id="8496842041-2">[</span><span class="n">host</span><span class="p" data-group-id="8496842041-2">]</span><span class="p">:</span><span class="p" data-group-id="8496842041-3">[</span><span class="n">port</span><span class="p" data-group-id="8496842041-3">]</span><span class="p" data-group-id="8496842041-4">[</span><span class="n">path</span><span class="p" data-group-id="8496842041-4">]</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unix</span><span class="ss">://</span><span class="p" data-group-id="8496842041-5">[</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">socket</span><span class="p" data-group-id="8496842041-5">]</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
-     </span><span class="nc">The</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="8496842041-6">(</span><span class="n">s</span><span class="p" data-group-id="8496842041-6">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w">
+   </span><span class="o">-</span><span class="nc">H</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">host</span><span class="o">=</span><span class="p" data-group-id="1328564500-1">[</span><span class="n">unix</span><span class="ss">://</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p" data-group-id="1328564500-1">]</span><span class="p">:</span><span class="w"> </span><span class="n">tcp</span><span class="ss">://</span><span class="p" data-group-id="1328564500-2">[</span><span class="n">host</span><span class="p" data-group-id="1328564500-2">]</span><span class="p">:</span><span class="p" data-group-id="1328564500-3">[</span><span class="n">port</span><span class="p" data-group-id="1328564500-3">]</span><span class="p" data-group-id="1328564500-4">[</span><span class="n">path</span><span class="p" data-group-id="1328564500-4">]</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unix</span><span class="ss">://</span><span class="p" data-group-id="1328564500-5">[</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">socket</span><span class="p" data-group-id="1328564500-5">]</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="1328564500-6">(</span><span class="n">s</span><span class="p" data-group-id="1328564500-6">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w">
      </span><span class="n">tcp</span><span class="ss">://</span><span class="n">host</span><span class="ss">:port</span><span class="o">/</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">unix</span><span class="ss">://</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="ss">://</span><span class="o">*</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">fd</span><span class="ss">://</span><span class="n">socketfd</span><span class="o">.</span><span class="w">
      </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="mi">2375</span><span class="w"> </span><span class="ow">when</span><span class="w">
      </span><span class="o">--</span><span class="n">tls</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">off</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">2376</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="o">--</span><span class="n">tls</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">on</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">--</span><span class="n">tlsverify</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span><span class="w">
@@ -123,13 +136,13 @@ Manpages
      </span><span class="nc">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">tlsverify</span><span class="o">=</span><span class="no">true</span><span class="o">|</span><span class="no">false</span><span class="w">
-     </span><span class="nc">Use</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="p" data-group-id="8496842041-7">(</span><span class="ss">daemon</span><span class="p">:</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">client</span><span class="p">:</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">daemon</span><span class="p" data-group-id="8496842041-7">)</span><span class="o">.</span><span class="w">
+     </span><span class="nc">Use</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="p" data-group-id="1328564500-7">(</span><span class="ss">daemon</span><span class="p">:</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">client</span><span class="p">:</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">daemon</span><span class="p" data-group-id="1328564500-7">)</span><span class="o">.</span><span class="w">
      </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="no">false</span><span class="o">.</span><span class="w">
 
    </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="o">=</span><span class="no">true</span><span class="o">|</span><span class="no">false</span><span class="w">
-     </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">quit</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="no">false</span><span class="o">.</span></code></pre><p>COMMANDS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Use</span><span class="w"> </span><span class="s">&quot;docker help&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;docker --help&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overview</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+     </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">quit</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="no">false</span><span class="o">.</span></code></pre><p>COMMANDS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Use</span><span class="w"> </span><span class="s">&quot;docker help&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;docker --help&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overview</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">man</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">run</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">April</span><span class="w"> </span><span class="mi">2014</span><span class="p">,</span><span class="w"> </span><span class="nc">Originally</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">William</span><span class="w"> </span><span class="nc">Henry</span><span class="w"> </span><span class="p" data-group-id="8609310359-1">(</span><span class="n">whenry</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">redhat</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">com</span><span class="p" data-group-id="8609310359-1">)</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">work</span><span class="o">.</span></code></pre><p>Docker Community                                                       APRIL 2014                                                             DOCKER(1)</p>
+          </span><span class="n">man</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">run</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">April</span><span class="w"> </span><span class="mi">2014</span><span class="p">,</span><span class="w"> </span><span class="nc">Originally</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">William</span><span class="w"> </span><span class="nc">Henry</span><span class="w"> </span><span class="p" data-group-id="6608614693-1">(</span><span class="n">whenry</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">redhat</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">com</span><span class="p" data-group-id="6608614693-1">)</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">work</span><span class="o">.</span></code></pre><p>Docker Community                                                                        APRIL 2014                                                                               DOCKER(1)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -160,27 +173,11 @@ docker-compose
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

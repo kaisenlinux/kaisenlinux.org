@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>tcpkill — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+    <script src="dist/sidebar_items-e65e9636d2.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,41 +73,42 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>tcpkill</span>
 </h1>
 
-<p>TCPKILL(8)                                                      System Manager's Manual                                                      TCPKILL(8)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LAN</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="p" data-group-id="2558277048-1">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="p" data-group-id="2558277048-1">]</span><span class="w"> </span><span class="p" data-group-id="2558277048-2">[</span><span class="o">-</span><span class="mi">1</span><span class="n">...</span><span class="mi">9</span><span class="p" data-group-id="2558277048-2">]</span><span class="w"> </span><span class="n">expression</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="n">kills</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="o">-</span><span class="n">progress</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="p" data-group-id="6588438835-1">(</span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">libnids</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="mi">3</span><span class="o">-</span><span class="n">whs</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">TCB</span><span class="w"> </span><span class="n">creation</span><span class="p" data-group-id="6588438835-1">)</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
+<p>TCPKILL(8)                                                                        System Manager's Manual                                                                       TCPKILL(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LAN</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="p" data-group-id="6377256424-1">[</span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="p" data-group-id="6377256424-1">]</span><span class="w"> </span><span class="p" data-group-id="6377256424-2">[</span><span class="o">-</span><span class="mi">1</span><span class="n">...</span><span class="mi">9</span><span class="p" data-group-id="6377256424-2">]</span><span class="w"> </span><span class="n">expression</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">tcpkill</span><span class="w"> </span><span class="n">kills</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="o">-</span><span class="n">progress</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="p" data-group-id="6333814278-1">(</span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">libnids</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="mi">3</span><span class="o">-</span><span class="n">whs</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">TCB</span><span class="w"> </span><span class="n">creation</span><span class="p" data-group-id="6333814278-1">)</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">interface</span><span class="w">
           </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
 
-   </span><span class="o">-</span><span class="mi">1</span><span class="n">...</span><span class="mi">9</span><span class="w"> </span><span class="nc">Specify</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">degree</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">brute</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">killing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span><span class="w"> </span><span class="nc">Fast</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">land</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">RST</span><span class="w"> </span><span class="ow">in</span><span class="w">
-          </span><span class="n">the</span><span class="w"> </span><span class="n">moving</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="w">
+   </span><span class="o">-</span><span class="mi">1</span><span class="n">...</span><span class="mi">9</span><span class="w"> </span><span class="nc">Specify</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">degree</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">brute</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">killing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span><span class="w"> </span><span class="nc">Fast</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">land</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">RST</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">moving</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w">
+          </span><span class="n">is</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="w">
 
    </span><span class="n">expression</span><span class="w">
-          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="6844947606-1">(</span><span class="mi">8</span><span class="p" data-group-id="6844947606-1">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">kill</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="8676107962-1">(</span><span class="mi">8</span><span class="p" data-group-id="8676107962-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">tcpnice</span><span class="p" data-group-id="8676107962-2">(</span><span class="mi">8</span><span class="p" data-group-id="8676107962-2">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Dug</span><span class="w"> </span><span class="nc">Song</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dugsong</span><span class="na">@monkey</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tcpdump</span><span class="p" data-group-id="1988600878-1">(</span><span class="mi">8</span><span class="p" data-group-id="1988600878-1">)</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">kill</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">dsniff</span><span class="p" data-group-id="0206419145-1">(</span><span class="mi">8</span><span class="p" data-group-id="0206419145-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">tcpnice</span><span class="p" data-group-id="0206419145-2">(</span><span class="mi">8</span><span class="p" data-group-id="0206419145-2">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Dug</span><span class="w"> </span><span class="nc">Song</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dugsong</span><span class="na">@monkey</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
 
-                                                                                                                                         </span><span class="nc">TCPKILL</span><span class="p" data-group-id="5692705857-1">(</span><span class="mi">8</span><span class="p" data-group-id="5692705857-1">)</span></code></pre>
+                                                                                                                                                                            </span><span class="nc">TCPKILL</span><span class="p" data-group-id="6567839243-1">(</span><span class="mi">8</span><span class="p" data-group-id="6567839243-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -126,27 +139,11 @@ tcptrace
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

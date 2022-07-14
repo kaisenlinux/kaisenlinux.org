@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="generator" content="ExDoc v0.28.4">
     <meta name="project" content="Manpages v2.1.0">
 
     <title>wimverify — Manpages v2.1.0</title>
-    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
 
-    <script src="dist/sidebar_items-2a15801a5d.js"></script>
+    <script src="dist/sidebar_items-e65e9636d2.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,6 +60,11 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
       <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
@@ -61,32 +73,33 @@ Manpages
         v2.1.0
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
 
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+  <span>wimverify</span>
 </h1>
 
-<p>WIMVERIFY(1)                                                         User Commands                                                         WIMVERIFY(1)</p><p>NAME</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Verify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">archive</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="w"> </span><span class="p" data-group-id="5584916026-1">[</span><span class="nc">OPTION</span><span class="n">...</span><span class="p" data-group-id="5584916026-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="p" data-group-id="5141746778-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">equivalently</span><span class="w"> </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="w"> </span><span class="n">verify</span><span class="p" data-group-id="5141746778-1">)</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">validity</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="w">
+<p>WIMVERIFY(1)                                                                           User Commands                                                                          WIMVERIFY(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Verify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">archive</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="w"> </span><span class="p" data-group-id="0822074589-1">[</span><span class="nc">OPTION</span><span class="n">...</span><span class="p" data-group-id="0822074589-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="p" data-group-id="4878482124-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">equivalently</span><span class="w"> </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="w"> </span><span class="n">verify</span><span class="p" data-group-id="4878482124-1">)</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">validity</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">Specifically</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">performs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">verifications</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">WIM</span><span class="p">:</span><span class="w">
 
@@ -98,23 +111,23 @@ Manpages
 
    </span><span class="err">•</span><span class="w">   </span><span class="nc">Verify</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIMs</span><span class="w"> </span><span class="n">referenced</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">ref</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
 
-   </span><span class="err">•</span><span class="w">   </span><span class="nc">Verify</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">decompressed</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">checksums</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir"><span class="w">   </span><span class="o">--</span><span class="n">ref</span><span class="o">=</span><span class="s">&quot;GLOB&quot;</span><span class="w">
-         </span><span class="nc">File</span><span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="nc">WIMs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">from</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">  </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">GLOB</span><span class="w"> </span><span class="n">is</span><span class="w">
-         </span><span class="n">listed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">wimverify</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">expansion</span><span class="o">.</span><span class="w">
+   </span><span class="err">•</span><span class="w">   </span><span class="nc">Verify</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">decompressed</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">checksums</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">ref</span><span class="o">=</span><span class="s">&quot;GLOB&quot;</span><span class="w">
+         </span><span class="nc">File</span><span class="w">  </span><span class="n">glob</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="nc">WIMs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">from</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">  </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">GLOB</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="err">‐</span><span class="w">
+         </span><span class="n">terpreted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">wimverify</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">expansion</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">nocheck</span><span class="w">
-         </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="p" data-group-id="4897577439-1">(</span><span class="n">the</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">table</span><span class="p" data-group-id="4897577439-1">)</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+         </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="p" data-group-id="6460886900-1">(</span><span class="n">the</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">table</span><span class="p" data-group-id="6460886900-1">)</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimverify</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">Even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="p" data-group-id="5922458030-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">check</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">to</span><span class="w">  </span><span class="n">wimcapture</span><span class="p" data-group-id="5922458030-1">)</span><span class="p">,</span><span class="w">  </span><span class="n">wimverify</span><span class="w">  </span><span class="n">may</span><span class="w">  </span><span class="n">still</span><span class="w">  </span><span class="n">be</span><span class="w">
-   </span><span class="n">quite</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">checksummed</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="p" data-group-id="4313911884-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">check</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wimcapture</span><span class="p" data-group-id="4313911884-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">wimverify</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quite</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">file</span><span class="w">  </span><span class="n">data</span><span class="w">  </span><span class="n">is</span><span class="w">
+   </span><span class="n">still</span><span class="w"> </span><span class="n">checksummed</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">future</span><span class="p">,</span><span class="w"> </span><span class="n">wimverify</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="k" data-group-id="5922458030-2">do</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">thorough</span><span class="w"> </span><span class="n">verifications</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">now</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir"><span class="w">   </span><span class="nc">Verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ss">&#39;boot.wim&#39;</span><span class="p">:</span><span class="w">
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">future</span><span class="p">,</span><span class="w"> </span><span class="n">wimverify</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="k" data-group-id="4313911884-2">do</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">thorough</span><span class="w"> </span><span class="n">verifications</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">now</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ss">&#39;boot.wim&#39;</span><span class="p">:</span><span class="w">
 
           </span><span class="n">wimverify</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="n">wim</span><span class="w">
 
    </span><span class="nc">Verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consisting</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="sc">&#39;boot.swm&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;boot2.swm&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;boot3.swm&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">wimverify</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="n">swm</span><span class="w"> </span><span class="o">--</span><span class="n">ref</span><span class="o">=</span><span class="s">&quot;boot*.swm&quot;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir"><span class="w">   </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="p" data-group-id="4057440781-1">(</span><span class="mi">1</span><span class="p" data-group-id="4057440781-1">)</span></code></pre><p>wimlib 1.13.5                                                        December 2021                                                         WIMVERIFY(1)</p>
+          </span><span class="n">wimverify</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="n">swm</span><span class="w"> </span><span class="o">--</span><span class="n">ref</span><span class="o">=</span><span class="s">&quot;boot*.swm&quot;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="p" data-group-id="6370892152-1">(</span><span class="mi">1</span><span class="p" data-group-id="6370892152-1">)</span></code></pre><p>wimlib 1.13.5                                                                          December 2021                                                                          WIMVERIFY(1)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -145,27 +158,11 @@ xfs_admin
       <footer class="footer">
 
         <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button display-settings">
-            Settings
-          </button>
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>
