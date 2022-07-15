@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>parted — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>parted</span>
+</h1>
+
+<p>PARTED(8)                                                                            GNU Parted Manual                                                                           PARTED(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">parted</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">manipulation</span><span class="w"> </span><span class="n">program</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">parted</span><span class="w"> </span><span class="p" data-group-id="8946927210-1">[</span><span class="n">options</span><span class="p" data-group-id="8946927210-1">]</span><span class="w"> </span><span class="p" data-group-id="8946927210-2">[</span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="8946927210-3">[</span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="8946927210-4">[</span><span class="n">options</span><span class="n">...</span><span class="p" data-group-id="8946927210-4">]</span><span class="n">...</span><span class="p" data-group-id="8946927210-3">]</span><span class="p" data-group-id="8946927210-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">parted</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">manipulate</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partitions</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">formats</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="nc">MS</span><span class="o">-</span><span class="nc">DOS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GPT</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">sys</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tems</span><span class="p">,</span><span class="w"> </span><span class="n">reorganising</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">usage</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">copying</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">documents</span><span class="w"> </span><span class="n">parted</span><span class="w"> </span><span class="n">briefly</span><span class="o">.</span><span class="w">  </span><span class="nc">Complete</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">distributed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">Info</span><span class="w"> </span><span class="n">format</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="n">displays</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">list</span><span class="w">
+          </span><span class="n">lists</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">layout</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">devices</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">machine</span><span class="w">
+          </span><span class="n">displays</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">parseable</span><span class="w"> </span><span class="n">output</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">json</span><span class="w">
+          </span><span class="n">displays</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">output</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">script</span><span class="w">
+          </span><span class="n">never</span><span class="w"> </span><span class="n">prompts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">intervention</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">fix</span><span class="w">
+          </span><span class="n">automatically</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="s">&quot;fix&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exceptions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="n">displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="n">alignment</span><span class="o">-</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">align</span><span class="w"> </span><span class="n">alignment</span><span class="o">-</span><span class="n">type</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">partitions</span><span class="p">,</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+          </span><span class="n">none</span><span class="w">   </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">cylinder</span><span class="w">
+                 </span><span class="nc">Align</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cylinders</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">minimal</span><span class="w">
+                 </span><span class="nc">Use</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">topology</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">layout</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">logical</span><span class="w">  </span><span class="n">parti</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">tion</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disks</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">properly</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w">
+                 </span><span class="n">avoids</span><span class="w"> </span><span class="n">performance</span><span class="w"> </span><span class="n">degradation</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">optimal</span><span class="w">
+                 </span><span class="nc">Use</span><span class="w"> </span><span class="n">optimum</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">topology</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">aligns</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">guarantees</span><span class="w"> </span><span class="n">optimal</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span></code></pre><p>COMMANDS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="p" data-group-id="4136608702-1">[</span><span class="n">device</span><span class="p" data-group-id="4136608702-1">]</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">parted</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">finds</span><span class="o">.</span><span class="w">
+
+   </span><span class="p" data-group-id="4136608702-2">[</span><span class="n">command</span><span class="w"> </span><span class="p" data-group-id="4136608702-3">[</span><span class="n">options</span><span class="p" data-group-id="4136608702-3">]</span><span class="p" data-group-id="4136608702-2">]</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">parted</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">prompt</span><span class="o">.</span><span class="w">  </span><span class="nc">Possible</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+          </span><span class="n">help</span><span class="w"> </span><span class="p" data-group-id="4136608702-4">[</span><span class="n">command</span><span class="p" data-group-id="4136608702-4">]</span><span class="w">
+                 </span><span class="nc">Print</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">align</span><span class="o">-</span><span class="n">check</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">partition</span><span class="w">
+                 </span><span class="nc">Check</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">satisfies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">alignment</span><span class="w"> </span><span class="n">constraint</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">  </span><span class="n">type</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="s">&quot;minimal&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;optimal&quot;</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">mklabel</span><span class="w"> </span><span class="n">label</span><span class="o">-</span><span class="n">type</span><span class="w">
+                 </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">disklabel</span><span class="w"> </span><span class="p" data-group-id="4136608702-5">(</span><span class="n">partition</span><span class="w"> </span><span class="n">table</span><span class="p" data-group-id="4136608702-5">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">label</span><span class="o">-</span><span class="n">type</span><span class="o">.</span><span class="w">  </span><span class="n">label</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;aix&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;amiga&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bsd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dvh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gpt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loop&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mac&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;msdos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pc98&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;sun&quot;</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">mkpart</span><span class="w"> </span><span class="p" data-group-id="4136608702-6">[</span><span class="n">part</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">fs</span><span class="o">-</span><span class="n">type</span><span class="p" data-group-id="4136608702-6">]</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="k">end</span><span class="w">
+                 </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span><span class="w"> </span><span class="n">part</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">msdos</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">dvh</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">tables</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;primary&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;logical&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;extended&quot;</span><span class="o">.</span><span class="w">   </span><span class="n">name</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">re</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">quired</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="nc">GPT</span><span class="w">  </span><span class="n">partition</span><span class="w">  </span><span class="n">tables</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">fs</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">optional</span><span class="o">.</span><span class="w">  </span><span class="n">fs</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;btrfs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ext2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ext3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ext4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fat16&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fat32&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hfs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hfs+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;linux-swap&quot;</span><span class="p">,</span><span class="w">
+                 </span><span class="s">&quot;ntfs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;reiserfs&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;udf&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;xfs&quot;</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">name</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">name</span><span class="w">
+                 </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">Mac</span><span class="p">,</span><span class="w"> </span><span class="nc">PC98</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GPT</span><span class="w"> </span><span class="n">disklabels</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">placed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">quotes</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="o">.</span><span class="w">  </span><span class="nc">And</span><span class="w"> </span><span class="n">depending</span><span class="w">  </span><span class="n">on</span><span class="w">
+                 </span><span class="n">the</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">wrapped</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t strip off the double quotes.
+
+          print print-type
+                 Display the partition table.  print-type is optional, and can be one of devices, free, list, or all.
+
+          quit   Exit from parted.
+
+          rescue start end
+                 Rescue a lost partition that was located somewhere between start and end.  If a partition is found, parted will ask if you want to create an entry for it in the par‐
+                 tition table.
+
+          resizepart partition end
+                 Change the end position of partition.  Note that this does not modify any filesystem present in the partition.
+
+          rm partition
+                 Delete partition.
+
+          select device
+                 Choose device as the current device to edit. device should usually be a Linux hard disk device, but it can be a partition, software raid device, or  an  LVM  logical
+                 volume if necessary.
+
+          set partition flag state
+                 Change  the  state of the flag on partition to state.  Supported flags are: &quot;boot&quot;, &quot;root&quot;, &quot;swap&quot;, &quot;hidden&quot;, &quot;raid&quot;, &quot;lvm&quot;, &quot;lba&quot;, &quot;legacy_boot&quot;, &quot;irst&quot;, &quot;msftres&quot;,
+                 &quot;esp&quot;, &quot;chromeos_kernel&quot;, &quot;bls_boot&quot;, &quot;linux-home&quot;, &quot;bios_grub&quot;, and &quot;palo&quot;.  state should be either &quot;on&quot; or &quot;off&quot;.
+
+          unit unit
+                 Set unit as the unit to use when displaying locations and sizes, and for interpreting those given by the user when not suffixed with an explicit unit.  unit  can  be
+                 one  of  &quot;s&quot; (sectors), &quot;B&quot; (bytes), &quot;kB&quot;, &quot;MB&quot;, &quot;KiB&quot;, &quot;MiB&quot;, &quot;GB&quot;, &quot;GiB&quot;, &quot;TB&quot;, &quot;TiB&quot;, &quot;%&quot; (percentage of device size), &quot;cyl&quot; (cylinders), &quot;chs&quot; (cylinders, heads,
+                 sectors), or &quot;compact&quot; (megabytes for input, and a human-friendly form for output).
+
+          toggle partition flag
+                 Toggle the state of flag on partition.
+
+          disk_set flag state
+                 Change a flag on the disk to state. A flag can be either &quot;on&quot; or &quot;off&quot;.  Some or all of these flags will be available, depending on what disk label  you  are  using.
+                 Supported flags are: &quot;pmbr_boot&quot; on GPT to enable the boot flag on the GPT&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">protective</span><span class="w"> </span><span class="nc">MBR</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">disk_toggle</span><span class="w"> </span><span class="n">flag</span><span class="w">
+                 </span><span class="nc">Toggle</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">version</span><span class="w">
+                 </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copyright</span><span class="w"> </span><span class="n">message</span><span class="o">.</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Report</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bug</span><span class="o">-</span><span class="n">parted</span><span class="na">@gnu</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">fdisk</span><span class="p" data-group-id="1715668587-1">(</span><span class="mi">8</span><span class="p" data-group-id="1715668587-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="p" data-group-id="1715668587-2">(</span><span class="mi">8</span><span class="p" data-group-id="1715668587-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">parted</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">documented</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">info</span><span class="p" data-group-id="1715668587-3">(</span><span class="mi">1</span><span class="p" data-group-id="1715668587-3">)</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="n">partitioning</span><span class="w"> </span><span class="n">software</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">distributed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">parted</span><span class="o">-</span><span class="n">doc</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">package</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Timshel</span><span class="w"> </span><span class="nc">Knoll</span><span class="w"> </span><span class="o">&lt;</span><span class="n">timshel</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">GNU</span><span class="o">/</span><span class="nc">Linux</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="p" data-group-id="0438989905-1">(</span><span class="n">but</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="0438989905-1">)</span><span class="o">.</span></code></pre><p>parted                                                                               2021 September 28                                                                           PARTED(8)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="partclone.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+partclone
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="partimage.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+partimage
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

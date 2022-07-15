@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>hostapd — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>hostapd</span>
+</h1>
+
+<p>HOSTAPD(8)                                                                                hostapd                                                                               HOSTAPD(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">hostapd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">IEEE</span><span class="w"> </span><span class="mf">802.11</span><span class="w"> </span><span class="nc">AP</span><span class="p">,</span><span class="w"> </span><span class="nc">IEEE</span><span class="w"> </span><span class="mf">802.1</span><span class="nc">X</span><span class="o">/</span><span class="nc">WPA</span><span class="o">/</span><span class="nc">WPA2</span><span class="o">/</span><span class="nc">EAP</span><span class="o">/</span><span class="nc">RADIUS</span><span class="w"> </span><span class="nc">Authenticator</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">hostapd</span><span class="w"> </span><span class="p" data-group-id="6505573378-1">[</span><span class="o">-</span><span class="n">hdBKtv</span><span class="p" data-group-id="6505573378-1">]</span><span class="w"> </span><span class="p" data-group-id="6505573378-2">[</span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">PID</span><span class="w"> </span><span class="n">file</span><span class="o">&gt;</span><span class="p" data-group-id="6505573378-2">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="6505573378-3">(</span><span class="n">s</span><span class="p" data-group-id="6505573378-3">)</span><span class="o">&gt;</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">documents</span><span class="w"> </span><span class="n">briefly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hostapd</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">hostapd</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">servers</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">implements</span><span class="w"> </span><span class="nc">IEEE</span><span class="w"> </span><span class="mf">802.11</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">management</span><span class="p">,</span><span class="w"> </span><span class="nc">IEEE</span><span class="w"> </span><span class="mf">802.1</span><span class="nc">X</span><span class="o">/</span><span class="nc">WPA</span><span class="o">/</span><span class="nc">WPA2</span><span class="o">/</span><span class="nc">EAP</span><span class="w"> </span><span class="nc">Authenticators</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RADIUS</span><span class="w">
+   </span><span class="n">authentication</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="p" data-group-id="7959170464-1">(</span><span class="nc">Host</span><span class="w"> </span><span class="nc">AP</span><span class="p">,</span><span class="w"> </span><span class="n">mac80211</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">drivers</span><span class="p" data-group-id="7959170464-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">FreeBSD</span><span class="w"> </span><span class="p" data-group-id="7959170464-2">(</span><span class="n">net80211</span><span class="p" data-group-id="7959170464-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">hostapd</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">designed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;daemon&quot;</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">background</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">acts</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="n">component</span><span class="w"> </span><span class="n">controlling</span><span class="w"> </span><span class="n">authentication</span><span class="o">.</span><span class="w">  </span><span class="n">hostapd</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">frontend</span><span class="w"> </span><span class="n">programs</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">text</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">frontend</span><span class="p">,</span><span class="w"> </span><span class="n">hostapd_cli</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hostapd</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">A</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">description</span><span class="p">,</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">hostapd</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="w">     </span><span class="nc">Show</span><span class="w"> </span><span class="n">usage</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Show</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">dd</span><span class="w">    </span><span class="nc">Show</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">B</span><span class="w">     </span><span class="nc">Run</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">background</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">PID</span><span class="w"> </span><span class="n">file</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">K</span><span class="w">     </span><span class="nc">Include</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="w">     </span><span class="nc">Include</span><span class="w"> </span><span class="n">timestamps</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Show</span><span class="w"> </span><span class="n">hostapd</span><span class="w"> </span><span class="n">version</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">hostapd_cli</span><span class="p" data-group-id="6311754407-1">(</span><span class="mi">1</span><span class="p" data-group-id="6311754407-1">)</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">hostapd</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Jouni</span><span class="w"> </span><span class="nc">Malinen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">j</span><span class="na">@w1</span><span class="o">.</span><span class="n">fi</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Faidon</span><span class="w"> </span><span class="nc">Liambotis</span><span class="w"> </span><span class="o">&lt;</span><span class="n">faidon</span><span class="na">@cube</span><span class="o">.</span><span class="n">gr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="p" data-group-id="9574838472-1">(</span><span class="n">but</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">others</span><span class="p" data-group-id="9574838472-1">)</span><span class="o">.</span></code></pre><p>hostapd                                                                               April  7, 2005                                                                            HOSTAPD(8)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="hfsprescue.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+hfsprescue
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="host.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+host
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

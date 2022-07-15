@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>nvme-pred-lat-event-agg-log — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>nvme-pred-lat-event-agg-log</span>
+</h1>
+
+<p>NVME-PRED-LAT-EVE(1)                                                                    NVMe Manual                                                                   NVME-PRED-LAT-EVE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">pred</span><span class="o">-</span><span class="n">lat</span><span class="o">-</span><span class="n">event</span><span class="o">-</span><span class="n">agg</span><span class="o">-</span><span class="n">log</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Send</span><span class="w"> </span><span class="nc">Predictable</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="nc">Page</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">log</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">pred</span><span class="o">-</span><span class="n">lat</span><span class="o">-</span><span class="n">event</span><span class="o">-</span><span class="n">agg</span><span class="o">-</span><span class="n">log</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="6074209199-1">[</span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">entries</span><span class="o">=</span><span class="o">&lt;</span><span class="n">log_entries</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="n">log_entries</span><span class="o">&gt;</span><span class="p" data-group-id="6074209199-1">]</span><span class="w">
+                           </span><span class="p" data-group-id="6074209199-2">[</span><span class="o">--</span><span class="n">rae</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="6074209199-2">]</span><span class="w"> </span><span class="p" data-group-id="6074209199-3">[</span><span class="o">--</span><span class="n">raw</span><span class="o">-</span><span class="n">binary</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="p" data-group-id="6074209199-3">]</span><span class="w">
+                           </span><span class="p" data-group-id="6074209199-4">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">format</span><span class="o">=</span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="p" data-group-id="6074209199-4">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Retrieves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="nc">Predictable</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="nc">Page</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">structure</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="7532295527-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="7532295527-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="7532295527-2">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1</span><span class="p" data-group-id="7532295527-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">On</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="nc">Predictable</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="nc">Page</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">ofseveral</span><span class="w"> </span><span class="n">ways</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">flags</span><span class="p">;</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="n">by</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">readable</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">parse</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="n">log_entries</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">log</span><span class="o">-</span><span class="n">entries</span><span class="o">=</span><span class="o">&lt;</span><span class="n">log_entries</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Retrieve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Predictable</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="n">entries</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">depend</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="nc">For</span><span class="w">
+       </span><span class="nc">More</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="nc">NVM</span><span class="w"> </span><span class="nc">Express</span><span class="w"> </span><span class="mf">1.4</span><span class="w"> </span><span class="nc">Spec</span><span class="o">.</span><span class="w"> </span><span class="nc">Section</span><span class="w"> </span><span class="mf">5.14</span><span class="o">.</span><span class="mf">1.11</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">2044</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">rae</span><span class="w">
+       </span><span class="nc">Retain</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">Asynchronous</span><span class="w"> </span><span class="nc">Event</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">raw</span><span class="o">-</span><span class="n">binary</span><span class="w">
+       </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="nc">Predectible</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">format</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">format</span><span class="o">=</span><span class="o">&lt;</span><span class="n">format</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reporting</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normal</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">binary</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">•</span><span class="w">   </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Predictable</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="nc">Log</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">human</span><span class="w"> </span><span class="n">readable</span><span class="w"> </span><span class="ss">format</span><span class="p">:</span><span class="w">
+
+           </span><span class="c1"># nvme pred-lat-event-agg-log /dev/nvme0</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="nc">Predectible</span><span class="w"> </span><span class="nc">Latency</span><span class="w"> </span><span class="nc">Event</span><span class="w"> </span><span class="nc">Aggregate</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">file</span><span class="p">:</span><span class="w">
+
+           </span><span class="c1"># nvme pred-lat-event-agg-log /dev/nvme0 --raw-binary &gt; pred_lat_agg_log.raw</span><span class="w">
+
+       </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">probably</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="n">idea</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">redirect</span><span class="w"> </span><span class="n">stdout</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span></code></pre><p>NVME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nvme</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">suite</span></code></pre><p>NVMe                                                                                    11/11/2021                                                                    NVME-PRED-LAT-EVE(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="nvme-predictable-lat-log.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+nvme-predictable-lat-log
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="nvme-primary-ctrl-caps.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+nvme-primary-ctrl-caps
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

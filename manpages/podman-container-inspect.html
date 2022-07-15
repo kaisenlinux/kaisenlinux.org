@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>podman-container-inspect — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-2b4b13df41.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>podman-container-inspect</span>
+</h1>
+
+<p>podman-container-inspect(1)()                                                                                                                                podman-container-inspect(1)()</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">inspect</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Display</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">configuration</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="p" data-group-id="1110453692-1">[</span><span class="n">options</span><span class="p" data-group-id="1110453692-1">]</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="p" data-group-id="1110453692-2">[</span><span class="n">container</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1110453692-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w">  </span><span class="n">displays</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">low</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">ID</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">array</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">tem</span><span class="err">‐</span><span class="w">
+   </span><span class="n">plate</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">result</span><span class="o">.</span></code></pre><p>OPTIONS
+   --format, -f=format</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="nc">Go</span><span class="w"> </span><span class="n">template</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="p" data-group-id="3275136894-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">below</span><span class="p" data-group-id="3275136894-1">)</span><span class="o">.</span></code></pre><p>   --latest, -l</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">providing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">ID</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">CRI</span><span class="o">-</span><span class="nc">O</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">last</span><span class="w">  </span><span class="n">started</span><span class="w">  </span><span class="n">container</span><span class="w">
+   </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">methods</span><span class="o">.</span><span class="w">
+
+   </span><span class="p" data-group-id="9113125194-1">(</span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="p" data-group-id="9113125194-1">)</span></code></pre><p>   --size, -s</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">In</span><span class="w"> </span><span class="n">addition</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">foobar</span><span class="w">
+          </span><span class="p" data-group-id="0322470930-1">[</span><span class="w">
+              </span><span class="p" data-group-id="0322470930-2">{</span><span class="w">
+                  </span><span class="ss">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-09-16T06:09:08.936623325-04:00&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-3">[</span><span class="w">
+                      </span><span class="s">&quot;hi&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-3">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;State&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-4">{</span><span class="w">
+                      </span><span class="ss">&quot;OciVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.2-dev&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;exited&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Running&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Paused&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Restarting&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;OOMKilled&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Dead&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Pid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ExitCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;StartedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-09-16T06:09:09.033564436-04:00&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;FinishedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-09-16T06:09:09.036184314-04:00&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Healthcheck&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-5">{</span><span class="w">
+                          </span><span class="ss">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;FailingStreak&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Log&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-5">}</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-4">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14119a10abf4669e8cdbdff324a9f9605d99697215a0d21c360fe8dfa8471bab&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ImageName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;docker.io/library/alpine:latest&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Rootfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Pod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ResolvConfPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/run/user/3267/containers/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/resolv.conf&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;HostnamePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/run/user/3267/containers/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/hostname&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;HostsPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/run/user/3267/containers/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/hosts&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;StaticDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;OCIConfigPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/config.json&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;OCIRuntime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;crun&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ConmonPidFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/run/user/3267/containers/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/conmon.pid&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;PidFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/run/user/3267/containers/overlay-containers/99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6/userdata/pidfile&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;RestartCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;overlay&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;MountLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;system_u:object_r:container_file_t:s0:c25,c695&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ProcessLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;system_u:system_r:container_t:s0:c25,c695&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;AppArmorProfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;EffectiveCaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-6">[</span><span class="w">
+                      </span><span class="s">&quot;CAP_CHOWN&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_DAC_OVERRIDE&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_FOWNER&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_FSETID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_KILL&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_NET_BIND_SERVICE&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETFCAP&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETGID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETPCAP&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETUID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SYS_CHROOT&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-6">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;BoundingCaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-7">[</span><span class="w">
+                      </span><span class="s">&quot;CAP_CHOWN&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_DAC_OVERRIDE&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_FOWNER&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_FSETID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_KILL&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_NET_BIND_SERVICE&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETFCAP&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETGID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETPCAP&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SETUID&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;CAP_SYS_CHROOT&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-7">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ExecIDs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-8">[</span><span class="p" data-group-id="0322470930-8">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;GraphDriver&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-9">{</span><span class="w">
+                      </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;overlay&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-10">{</span><span class="w">
+                          </span><span class="ss">&quot;LowerDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage/overlay/e2eb06d8af8218cfec8210147357a68b7e13f7c485b991c288c2d01dc228bb68/diff&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;UpperDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage/overlay/8f3d70434a3db17410ec4710caf4f251f3e4ed0a96a08124e4b3d4af0a0ea300/diff&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;WorkDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage/overlay/8f3d70434a3db17410ec4710caf4f251f3e4ed0a96a08124e4b3d4af0a0ea300/work&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-10">}</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-9">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Mounts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-11">[</span><span class="p" data-group-id="0322470930-11">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-12">[</span><span class="p" data-group-id="0322470930-12">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;NetworkSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-13">{</span><span class="w">
+                      </span><span class="ss">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IPAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IPPrefixLen&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IPv6Gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;GlobalIPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;GlobalIPv6PrefixLen&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Bridge&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;SandboxID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;HairpinMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;LinkLocalIPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;LinkLocalIPv6PrefixLen&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-14">{</span><span class="p" data-group-id="0322470930-14">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;SandboxKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-13">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;ExitCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-15">[</span><span class="w">
+                      </span><span class="s">&quot;/usr/bin/podman&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--root&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;/home/dwalsh/.local/share/containers/storage&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--runroot&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;/run/user/3267/containers&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--log-level&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;warning&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--cgroup-manager&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;systemd&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--tmpdir&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;/run/user/3267/libpod/tmp&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--runtime&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;crun&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--storage-driver&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;overlay&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;--events-backend&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;journald&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;container&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;cleanup&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="s">&quot;99f66530fe9c7249f7cf29f78e8661669d5831cbe4ee80ea757d5e922dd6a8a6&quot;</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-15">]</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;IsInfra&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-16">{</span><span class="w">
+                      </span><span class="ss">&quot;Hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;99f66530fe9c&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Domainname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;User&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;AttachStdin&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;AttachStdout&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;AttachStderr&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Tty&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;OpenStdin&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;StdinOnce&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-17">[</span><span class="w">
+                          </span><span class="s">&quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;TERM=xterm&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;container=podman&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;HOME=/root&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;HOSTNAME=99f66530fe9c&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-17">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-18">[</span><span class="w">
+                          </span><span class="s">&quot;echo&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;hi&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-18">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;docker.io/library/alpine:latest&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Volumes&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;WorkingDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Entrypoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;OnBuild&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-19">{</span><span class="w">
+                          </span><span class="ss">&quot;io.container.manager&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;libpod&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.kubernetes.cri-o.Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-09-16T06:09:08.936623325-04:00&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.kubernetes.cri-o.TTY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.podman.annotations.autoremove&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FALSE&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.podman.annotations.init&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FALSE&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.podman.annotations.privileged&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FALSE&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;io.podman.annotations.publish-all&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FALSE&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;org.opencontainers.image.stopSignal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;15&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-19">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;StopSignal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CreateCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-20">[</span><span class="w">
+                          </span><span class="s">&quot;podman&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;run&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;--name&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;foobar&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;alpine&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;echo&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;hi&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-20">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;local&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Umask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0022&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Timeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;StopTimeout&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-16">}</span><span class="p">,</span><span class="w">
+                  </span><span class="ss">&quot;HostConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-21">{</span><span class="w">
+                      </span><span class="ss">&quot;Binds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-22">[</span><span class="p" data-group-id="0322470930-22">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CgroupManager&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;systemd&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CgroupMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ContainerIDFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;LogConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-23">{</span><span class="w">
+                          </span><span class="ss">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;journald&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;Size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0B&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-23">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;NetworkMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;slirp4netns&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;PortBindings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-24">{</span><span class="p" data-group-id="0322470930-24">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;RestartPolicy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-25">{</span><span class="w">
+                          </span><span class="ss">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="ss">&quot;MaximumRetryCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-25">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;AutoRemove&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;VolumeDriver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;VolumesFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CapAdd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-26">[</span><span class="p" data-group-id="0322470930-26">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CapDrop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-27">[</span><span class="w">
+                          </span><span class="s">&quot;CAP_AUDIT_WRITE&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;CAP_MKNOD&quot;</span><span class="p">,</span><span class="w">
+                          </span><span class="s">&quot;CAP_NET_RAW&quot;</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-27">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Dns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-28">[</span><span class="p" data-group-id="0322470930-28">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;DnsOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-29">[</span><span class="p" data-group-id="0322470930-29">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;DnsSearch&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-30">[</span><span class="p" data-group-id="0322470930-30">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ExtraHosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-31">[</span><span class="p" data-group-id="0322470930-31">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;GroupAdd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-32">[</span><span class="p" data-group-id="0322470930-32">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IpcMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Cgroup&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Cgroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Links&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;OomScoreAdj&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;PidMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Privileged&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;PublishAllPorts&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ReadonlyRootfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;SecurityOpt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-33">[</span><span class="p" data-group-id="0322470930-33">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Tmpfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-34">{</span><span class="p" data-group-id="0322470930-34">}</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;UTSMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;private&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;UsernsMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ShmSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">65536000</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;oci&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;ConsoleSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-35">[</span><span class="w">
+                          </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                          </span><span class="mi">0</span><span class="w">
+                      </span><span class="p" data-group-id="0322470930-35">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Isolation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuShares&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;NanoCpus&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CgroupParent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user.slice&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioWeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioWeightDevice&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioDeviceReadBps&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioDeviceWriteBps&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioDeviceReadIOps&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;BlkioDeviceWriteIOps&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuPeriod&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuQuota&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuRealtimePeriod&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuRealtimeRuntime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpusetCpus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpusetMems&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-36">[</span><span class="p" data-group-id="0322470930-36">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;DiskQuota&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;KernelMemory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;MemoryReservation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;MemorySwap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;MemorySwappiness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;OomKillDisable&quot;</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;PidsLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;Ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0322470930-37">[</span><span class="p" data-group-id="0322470930-37">]</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CpuPercent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IOMaximumIOps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;IOMaximumBandwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                      </span><span class="ss">&quot;CgroupConf&quot;</span><span class="p">:</span><span class="w"> </span><span class="n">null</span><span class="w">
+                  </span><span class="p" data-group-id="0322470930-21">}</span><span class="w">
+              </span><span class="p" data-group-id="0322470930-2">}</span><span class="w">
+          </span><span class="p" data-group-id="0322470930-1">]</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">nervous_fermi</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;{{.ImageName}}&quot;</span><span class="w">
+          </span><span class="n">registry</span><span class="o">.</span><span class="n">access</span><span class="o">.</span><span class="n">redhat</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ubi8</span><span class="ss">:latest</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="n">foobar</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;{{.GraphDriver.Name}}&quot;</span><span class="w">
+          </span><span class="n">overlay</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">inspect</span><span class="w"> </span><span class="o">--</span><span class="n">latest</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="p" data-group-id="0322470930-38">{</span><span class="p" data-group-id="0322470930-39">{</span><span class="o">.</span><span class="nc">EffectiveCaps</span><span class="p" data-group-id="0322470930-39">}</span><span class="p" data-group-id="0322470930-38">}</span><span class="w">
+          </span><span class="p" data-group-id="0322470930-40">[</span><span class="nc">CAP_CHOWN</span><span class="w"> </span><span class="nc">CAP_DAC_OVERRIDE</span><span class="w"> </span><span class="nc">CAP_FOWNER</span><span class="w"> </span><span class="nc">CAP_FSETID</span><span class="w"> </span><span class="nc">CAP_KILL</span><span class="w"> </span><span class="nc">CAP_NET_BIND_SERVICE</span><span class="w"> </span><span class="nc">CAP_SETFCAP</span><span class="w"> </span><span class="nc">CAP_SETGID</span><span class="w"> </span><span class="nc">CAP_SETPCAP</span><span class="w"> </span><span class="nc">CAP_SETUID</span><span class="w"> </span><span class="nc">CAP_SYS_CHROOT</span><span class="p" data-group-id="0322470930-40">]</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="p" data-group-id="2882305824-1">(</span><span class="mi">1</span><span class="p" data-group-id="2882305824-1">)</span><span class="p">,</span><span class="n">podman</span><span class="o">-</span><span class="n">container</span><span class="p" data-group-id="2882305824-2">(</span><span class="mi">1</span><span class="p" data-group-id="2882305824-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">inspect</span><span class="p" data-group-id="2882305824-3">(</span><span class="mi">1</span><span class="p" data-group-id="2882305824-3">)</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Sep</span><span class="w"> </span><span class="mi">2021</span><span class="p">,</span><span class="w"> </span><span class="nc">Originally</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Dan</span><span class="w"> </span><span class="nc">Walsh</span><span class="w"> </span><span class="n">dwalsh</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="w"> </span><span class="err">⟨</span><span class="n">mailto</span><span class="nc">:dwalsh@redhat</span><span class="o">.</span><span class="n">com</span><span class="err">⟩</span><span class="w">
+
+                                                                                                                                                         </span><span class="n">podman</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">inspect</span><span class="p" data-group-id="7149409313-1">(</span><span class="mi">1</span><span class="p" data-group-id="7149409313-1">)</span><span class="p" data-group-id="7149409313-2">(</span><span class="p" data-group-id="7149409313-2">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="podman-container-exists.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+podman-container-exists
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="podman-container.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+podman-container
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

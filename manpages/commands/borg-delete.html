@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>borg-delete — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>borg-delete</span>
+</h1>
+
+<p>BORG-DELETE(1)                                                                       borg backup tool                                                                       BORG-DELETE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">delete</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Delete</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">archives</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="9201667511-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="9201667511-1">]</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="p" data-group-id="9201667511-2">[</span><span class="n">options</span><span class="p" data-group-id="9201667511-2">]</span><span class="w"> </span><span class="p" data-group-id="9201667511-3">[</span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="p" data-group-id="9201667511-3">]</span><span class="w"> </span><span class="p" data-group-id="9201667511-4">[</span><span class="nc">ARCHIVE</span><span class="n">...</span><span class="p" data-group-id="9201667511-4">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">deletes</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">Important</span><span class="p">:</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">deleting</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">freed</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">compact</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">repository</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p" data-group-id="2811077370-1">(</span><span class="k">if</span><span class="w"> </span><span class="n">any</span><span class="p" data-group-id="2811077370-1">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">deleted</span><span class="o">.</span><span class="w"> </span><span class="nc">Alternatively</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="n">only</span><span class="w">
+   </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="n">info</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">doubt</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">--</span><span class="n">dry</span><span class="o">-</span><span class="n">run</span><span class="w"> </span><span class="o">--</span><span class="n">list</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">deleted</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="o">--</span><span class="n">stats</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Deleted data&quot;</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">interesting</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">your</span><span class="w">  </span><span class="n">reposi</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tory</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">shrink</span><span class="o">.</span><span class="w">  </span><span class="nc">Please</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;All archives&quot;</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">deletion</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w">  </span><span class="n">can</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">prefix</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="nc">PREFIX</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">ar</span><span class="err">‐</span><span class="w">
+   </span><span class="n">chives</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="nc">GLOB</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="p" data-group-id="2811077370-2">(</span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">patterns</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">borg_patterns</span><span class="p" data-group-id="2811077370-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">To</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">accidentally</span><span class="w"> </span><span class="n">deleting</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w"> </span><span class="n">especially</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">patterns</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">helpful</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">dry</span><span class="o">-</span><span class="n">run</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">making</span><span class="w"> </span><span class="n">any</span><span class="w">  </span><span class="n">changes</span><span class="w">
+   </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="8675571699-1">(</span><span class="mi">1</span><span class="p" data-group-id="8675571699-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="w">
+          </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">delete</span><span class="w">
+
+   </span><span class="nc">ARCHIVE</span><span class="w">
+          </span><span class="n">archives</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">delete</span></code></pre><p>   optional arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">dry</span><span class="o">-</span><span class="n">run</span><span class="w">
+          </span><span class="k" data-group-id="0860901410-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">repository</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">list</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">archives</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">stats</span><span class="w">
+          </span><span class="n">print</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cache</span><span class="o">-</span><span class="n">only</span><span class="w">
+          </span><span class="n">delete</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">repository</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">force</span><span class="w">
+          </span><span class="n">force</span><span class="w"> </span><span class="n">deletion</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">corrupted</span><span class="w"> </span><span class="n">archives</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">--</span><span class="n">force</span><span class="w"> </span><span class="o">--</span><span class="n">force</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="o">--</span><span class="n">force</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">work</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">security</span><span class="o">-</span><span class="n">info</span><span class="w">
+          </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">deleting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">repository</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">space</span><span class="w">
+          </span><span class="n">work</span><span class="w"> </span><span class="n">slower</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">space</span></code></pre><p>   Archive filters</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="nc">PREFIX</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="nc">PREFIX</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="nc">GLOB</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="nc">GLOB</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glob</span><span class="o">.</span><span class="w"> </span><span class="ss">sh</span><span class="p">:</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">apply</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="s">&quot;borg help patterns&quot;</span><span class="o">.</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">sort</span><span class="o">-</span><span class="n">by</span><span class="w"> </span><span class="nc">KEYS</span><span class="w">
+          </span><span class="nc">Comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">sorting</span><span class="w"> </span><span class="n">keys</span><span class="p">;</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="c1"># delete a single backup archive:</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="nc">Monday</span><span class="w">
+      </span><span class="c1"># actually free disk space:</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">compact</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+
+      </span><span class="c1"># delete all archives whose names begin with the machine&#39;s hostname followed by &quot;-&quot;</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="sc">&#39;{hostname}-&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+
+      </span><span class="c1"># delete all archives whose names contain &quot;-2012-&quot;</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="sc">&#39;*-2012-*&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+
+      </span><span class="c1"># see what would be deleted if delete was run without --dry-run</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="o">--</span><span class="n">list</span><span class="w"> </span><span class="o">--</span><span class="n">dry</span><span class="o">-</span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="sc">&#39;*-May-*&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+
+      </span><span class="c1"># delete the whole repository and the related local cache:</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+      </span><span class="nc">You</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">completely</span><span class="w"> </span><span class="nc">DELETE</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="o">*</span><span class="n">including</span><span class="o">*</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ss">contains</span><span class="p">:</span><span class="w">
+      </span><span class="n">repo</span><span class="w">                                 </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">54</span><span class="w">
+      </span><span class="n">root</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w">                      </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">29</span><span class="w">
+      </span><span class="n">newname</span><span class="w">                              </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">19</span><span class="w">
+      </span><span class="nc">Type</span><span class="w"> </span><span class="sc">&#39;YES&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ss">continue</span><span class="p">:</span><span class="w"> </span><span class="nc">YES</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="5223354292-1">(</span><span class="mi">1</span><span class="p" data-group-id="5223354292-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">compact</span><span class="p" data-group-id="5223354292-2">(</span><span class="mi">1</span><span class="p" data-group-id="5223354292-2">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
+
+                                                                                    </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">05</span><span class="w">                                                                          </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">DELETE</span><span class="p" data-group-id="6719061819-1">(</span><span class="mi">1</span><span class="p" data-group-id="6719061819-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="borg-create.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+borg-create
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="borg-diff.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+borg-diff
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

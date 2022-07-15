@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>wimdir — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>wimdir</span>
+</h1>
+
+<p>WIMDIR(1)                                                                              User Commands                                                                             WIMDIR(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimdir</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">List</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">image</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimdir</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="w"> </span><span class="p" data-group-id="7919645548-1">[</span><span class="nc">IMAGE</span><span class="p" data-group-id="7919645548-1">]</span><span class="w"> </span><span class="p" data-group-id="7919645548-2">[</span><span class="nc">OPTION</span><span class="n">...</span><span class="p" data-group-id="7919645548-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimdir</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">equivalently</span><span class="w"> </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="w"> </span><span class="n">dir</span><span class="p">,</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Windows</span><span class="w"> </span><span class="nc">Imaging</span><span class="w"> </span><span class="p" data-group-id="7645236679-1">(</span><span class="nc">WIM</span><span class="p" data-group-id="7645236679-1">)</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">IMAGE</span><span class="w">  </span><span class="n">specifies</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">image</span><span class="w">  </span><span class="ow">in</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keyword</span><span class="w"> </span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">images</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">omitted</span><span class="w"> </span><span class="k">if</span><span class="w">
+   </span><span class="nc">WIMFILE</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">wiminfo</span><span class="p" data-group-id="7645236679-2">(</span><span class="mi">1</span><span class="p" data-group-id="7645236679-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">WIMFILE</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">path</span><span class="o">=</span><span class="nc">PATH</span><span class="w">
+         </span><span class="nc">List</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="nc">PATH</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">detailed</span><span class="w">
+         </span><span class="nc">List</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">one</span><span class="o">-</span><span class="n">file</span><span class="o">-</span><span class="n">only</span><span class="w">
+         </span><span class="nc">List</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w">  </span><span class="nc">Intended</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="o">--</span><span class="n">path</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">detailed</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ref</span><span class="o">=</span><span class="s">&quot;GLOB&quot;</span><span class="w">
+         </span><span class="nc">File</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="nc">WIMs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIM</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">from</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">only</span><span class="w">  </span><span class="n">useful</span><span class="w">  </span><span class="ow">when</span><span class="w">  </span><span class="o">--</span><span class="n">detailed</span><span class="w">  </span><span class="n">is</span><span class="w">
+         </span><span class="n">also</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimdir</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIMs</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">split</span><span class="w"> </span><span class="nc">WIM</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Detailed</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">timestamps</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">streams</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">detailed</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">List</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">&#39;boot.wim&#39;</span><span class="p">:</span><span class="w">
+
+          </span><span class="n">wimdir</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="n">wim</span><span class="w"> </span><span class="mi">1</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wimlib</span><span class="o">-</span><span class="n">imagex</span><span class="p" data-group-id="7638007587-1">(</span><span class="mi">1</span><span class="p" data-group-id="7638007587-1">)</span><span class="w"> </span><span class="n">wiminfo</span><span class="p" data-group-id="7638007587-2">(</span><span class="mi">1</span><span class="p" data-group-id="7638007587-2">)</span></code></pre><p>wimlib 1.13.5                                                                          December 2021                                                                             WIMDIR(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="wimdelete.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+wimdelete
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="wimexport.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+wimexport
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

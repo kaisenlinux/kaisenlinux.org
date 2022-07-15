@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>buildah-manifest-create — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>buildah-manifest-create</span>
+</h1>
+
+<p>buildah-manifest-create(1)                                                        General Commands Manual                                                       buildah-manifest-create(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">listNameOrIndexName</span><span class="w"> </span><span class="p" data-group-id="8867144246-1">[</span><span class="n">imageName</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="8867144246-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">stores</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="o">-</span><span class="n">created</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>RETURN VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">randomly</span><span class="o">-</span><span class="n">generated</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="o">-</span><span class="n">created</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">rmi</span><span class="w"> </span><span class="n">command</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">all</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w">  </span><span class="n">any</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">themselves</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">indexes</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">contents</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">will</span><span class="w">
+   </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="o">-</span><span class="n">created</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w">
+          </span><span class="mi">941</span><span class="n">c1259e4b85bebf23580a044e4838aa3c1e627528422c9bf9262ff1661fca9</span><span class="w">
+
+          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
+          </span><span class="mi">941</span><span class="n">c1259e4b85bebf23580a044e4838aa3c1e627528422c9bf9262ff1661fca9</span><span class="w">
+
+          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
+          </span><span class="mi">941</span><span class="n">c1259e4b85bebf23580a044e4838aa3c1e627528422c9bf9262ff1661fca9</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="0604052693-1">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="p" data-group-id="0604052693-2">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">add</span><span class="p" data-group-id="0604052693-3">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">remove</span><span class="p" data-group-id="0604052693-4">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">annotate</span><span class="p" data-group-id="0604052693-5">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">inspect</span><span class="p" data-group-id="0604052693-6">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">push</span><span class="p" data-group-id="0604052693-7">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="w">
+   </span><span class="n">rmi</span><span class="p" data-group-id="0604052693-8">(</span><span class="mi">1</span><span class="p" data-group-id="0604052693-8">)</span></code></pre><p>buildah                                                                               September 2019                                                            buildah-manifest-create(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="buildah-manifest-annotate.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+buildah-manifest-annotate
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="buildah-manifest-inspect.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+buildah-manifest-inspect
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

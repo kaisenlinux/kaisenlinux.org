@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>borg-diff — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-2b4b13df41.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>borg-diff</span>
+</h1>
+
+<p>BORG-DIFF(1)                                                                         borg backup tool                                                                         BORG-DIFF(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">diff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Diff</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">archives</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="9490851500-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="9490851500-1">]</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="p" data-group-id="9490851500-2">[</span><span class="n">options</span><span class="p" data-group-id="9490851500-2">]</span><span class="w"> </span><span class="nc">REPO</span><span class="o">::</span><span class="nc">ARCHIVE1</span><span class="w"> </span><span class="nc">ARCHIVE2</span><span class="w"> </span><span class="p" data-group-id="9490851500-3">[</span><span class="nc">PATH</span><span class="n">...</span><span class="p" data-group-id="9490851500-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">finds</span><span class="w"> </span><span class="n">differences</span><span class="w"> </span><span class="p" data-group-id="0333589645-1">(</span><span class="n">file</span><span class="w"> </span><span class="n">contents</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="o">/</span><span class="n">group</span><span class="o">/</span><span class="n">mode</span><span class="p" data-group-id="0333589645-1">)</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">archives</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">REPO</span><span class="o">::</span><span class="nc">ARCHIVE1</span><span class="o">.</span><span class="w">  </span><span class="nc">ARCHIVE2</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="p" data-group-id="0333589645-2">(</span><span class="n">no</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">allowed</span><span class="p" data-group-id="0333589645-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w">  </span><span class="n">archives</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">newer</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">detects</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">params</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">so</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="nc">IDs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">compared</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w">
+   </span><span class="n">very</span><span class="w"> </span><span class="n">fast</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">prior</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">compared</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">did</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">pass</span><span class="w">  </span><span class="o">--</span><span class="n">same</span><span class="o">-</span><span class="n">chunker</span><span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="w">   </span><span class="nc">Note</span><span class="w">  </span><span class="n">that</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="n">xx</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mf">1.0</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">borg_patterns</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">output</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="5233800650-1">(</span><span class="mi">1</span><span class="p" data-group-id="5233800650-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPO</span><span class="o">::</span><span class="nc">ARCHIVE1</span><span class="w">
+          </span><span class="n">repository</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ARCHIVE1</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="nc">ARCHIVE2</span><span class="w">
+          </span><span class="nc">ARCHIVE2</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="2699254340-1">(</span><span class="n">no</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">allowed</span><span class="p" data-group-id="2699254340-1">)</span><span class="w">
+
+   </span><span class="nc">PATH</span><span class="w">   </span><span class="n">paths</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">compare</span><span class="p">;</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span></code></pre><p>   optional arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">numeric</span><span class="o">-</span><span class="n">owner</span><span class="w">
+          </span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="o">--</span><span class="n">numeric</span><span class="o">-</span><span class="n">ids</span><span class="w"> </span><span class="n">instead</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">numeric</span><span class="o">-</span><span class="n">ids</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">identifiers</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">same</span><span class="o">-</span><span class="n">chunker</span><span class="o">-</span><span class="n">params</span><span class="w">
+          </span><span class="nc">Override</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">sort</span><span class="w"> </span><span class="nc">Sort</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">json</span><span class="o">-</span><span class="n">lines</span><span class="w">
+          </span><span class="nc">Format</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="nc">Lines</span><span class="o">.</span></code></pre><p>   Exclusion options</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">PATTERN</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">exclude</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+          </span><span class="n">exclude</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="n">from</span><span class="w"> </span><span class="nc">EXCLUDEFILE</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">EXCLUDEFILE</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">pattern</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+          </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">patterns</span><span class="o">-</span><span class="n">from</span><span class="w"> </span><span class="nc">PATTERNFILE</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">PATTERNFILE</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="o">=</span><span class="n">none</span><span class="w"> </span><span class="n">testrepo</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="n">testdir</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">testdir</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="n">asdf</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">file1</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="k">if</span><span class="o">=</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">urandom</span><span class="w"> </span><span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="nc">M</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">file2</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">touch</span><span class="w"> </span><span class="n">file3</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">..</span><span class="o">/</span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive1</span><span class="w"> </span><span class="o">.</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">chmod</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">file1</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;something&quot;</span><span class="w"> </span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="n">file2</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">..</span><span class="o">/</span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive2</span><span class="w"> </span><span class="o">.</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;testing 123&quot;</span><span class="w"> </span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="n">file1</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="n">file3</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">touch</span><span class="w"> </span><span class="n">file4</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">..</span><span class="o">/</span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive3</span><span class="w"> </span><span class="o">.</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">..</span><span class="w">
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive1</span><span class="w"> </span><span class="n">archive2</span><span class="w">
+      </span><span class="p" data-group-id="0648890127-1">[</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="p" data-group-id="0648890127-1">]</span><span class="w"> </span><span class="n">file1</span><span class="w">
+         </span><span class="o">+</span><span class="mi">135</span><span class="w"> </span><span class="nc">B</span><span class="w">    </span><span class="o">-</span><span class="mi">252</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file2</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive2</span><span class="w"> </span><span class="n">archive3</span><span class="w">
+          </span><span class="o">+</span><span class="mi">17</span><span class="w"> </span><span class="nc">B</span><span class="w">      </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file1</span><span class="w">
+      </span><span class="n">added</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file4</span><span class="w">
+      </span><span class="n">removed</span><span class="w">         </span><span class="mi">0</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file3</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive1</span><span class="w"> </span><span class="n">archive3</span><span class="w">
+          </span><span class="o">+</span><span class="mi">17</span><span class="w"> </span><span class="nc">B</span><span class="w">      </span><span class="o">-</span><span class="mi">5</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p" data-group-id="0648890127-2">[</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="p" data-group-id="0648890127-2">]</span><span class="w"> </span><span class="n">file1</span><span class="w">
+         </span><span class="o">+</span><span class="mi">135</span><span class="w"> </span><span class="nc">B</span><span class="w">    </span><span class="o">-</span><span class="mi">252</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file2</span><span class="w">
+      </span><span class="n">added</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file4</span><span class="w">
+      </span><span class="n">removed</span><span class="w">         </span><span class="mi">0</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">file3</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">diff</span><span class="w"> </span><span class="o">--</span><span class="n">json</span><span class="o">-</span><span class="n">lines</span><span class="w"> </span><span class="n">testrepo</span><span class="o">::</span><span class="n">archive1</span><span class="w"> </span><span class="n">archive3</span><span class="w">
+      </span><span class="p" data-group-id="0648890127-3">{</span><span class="ss">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;file1&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0648890127-4">[</span><span class="p" data-group-id="0648890127-5">{</span><span class="ss">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;modified&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;added&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;removed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="0648890127-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0648890127-6">{</span><span class="ss">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mode&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;old_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-rw-r--r--&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;new_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-rwxr-xr-x&quot;</span><span class="p" data-group-id="0648890127-6">}</span><span class="p" data-group-id="0648890127-4">]</span><span class="p" data-group-id="0648890127-3">}</span><span class="w">
+      </span><span class="p" data-group-id="0648890127-7">{</span><span class="ss">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;file2&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0648890127-8">[</span><span class="p" data-group-id="0648890127-9">{</span><span class="ss">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;modified&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;added&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;removed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">252</span><span class="p" data-group-id="0648890127-9">}</span><span class="p" data-group-id="0648890127-8">]</span><span class="p" data-group-id="0648890127-7">}</span><span class="w">
+      </span><span class="p" data-group-id="0648890127-10">{</span><span class="ss">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;file4&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0648890127-11">[</span><span class="p" data-group-id="0648890127-12">{</span><span class="ss">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;added&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="0648890127-12">}</span><span class="p" data-group-id="0648890127-11">]</span><span class="p" data-group-id="0648890127-10">}</span><span class="w">
+      </span><span class="err">{</span><span class="ss">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;file3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0648890127-13">[</span><span class="p" data-group-id="0648890127-14">{</span><span class="ss">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;removed&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="0648890127-14">}</span><span class="p" data-group-id="0648890127-13">]</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="3093149669-1">(</span><span class="mi">1</span><span class="p" data-group-id="3093149669-1">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
+
+                                                                                    </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">05</span><span class="w">                                                                            </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">DIFF</span><span class="p" data-group-id="7998109519-1">(</span><span class="mi">1</span><span class="p" data-group-id="7998109519-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="borg-delete.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+borg-delete
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="borg-export-tar.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+borg-export-tar
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

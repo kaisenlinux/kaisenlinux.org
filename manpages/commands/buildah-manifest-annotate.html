@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>buildah-manifest-annotate — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>buildah-manifest-annotate</span>
+</h1>
+
+<p>buildah-manifest-annotate(1)                                                      General Commands Manual                                                     buildah-manifest-annotate(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">annotate</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Add</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">annotate</span><span class="w"> </span><span class="p" data-group-id="2632059698-1">[</span><span class="n">options</span><span class="n">...</span><span class="p" data-group-id="2632059698-1">]</span><span class="w"> </span><span class="n">listNameOrIndexName</span><span class="w"> </span><span class="n">imageManifestDigest</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Adds</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">updates</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>RETURN VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s ID and the digest of the image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">annotation</span><span class="w"> </span><span class="n">annotation</span><span class="o">=</span><span class="n">value</span><span class="w">
+
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">arch</span><span class="w">
+
+   </span><span class="nc">Override</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">architecture</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s configuration information, so
+   it is rarely necessary to use this option.
+
+   --features
+
+   Specify the features list which the list or index records as requirements for the image.  This option is rarely used.
+
+   --os
+
+   Override the OS which the list or index records as a requirement for the image.  This is usually automatically retrieved from the  image&#39;</span><span class="n">s</span><span class="w">  </span><span class="n">configuration</span><span class="w">  </span><span class="n">information</span><span class="p">,</span><span class="w">  </span><span class="n">so</span><span class="w">  </span><span class="n">it</span><span class="w">  </span><span class="n">is</span><span class="w">
+   </span><span class="n">rarely</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">features</span><span class="w">
+
+   </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OS</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">requirements</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">rarely</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">version</span><span class="w">
+
+   </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OS</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">rarely</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">variant</span><span class="w">
+
+   </span><span class="nc">Specify</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">distinguish</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w">
+   </span><span class="n">but</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">expect</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">set</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">annotate</span><span class="w"> </span><span class="o">--</span><span class="n">arch</span><span class="w"> </span><span class="n">arm64</span><span class="w"> </span><span class="o">--</span><span class="n">variant</span><span class="w"> </span><span class="n">v8</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span><span class="w">
+          </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="1209599174-1">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="p" data-group-id="1209599174-2">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">create</span><span class="p" data-group-id="1209599174-3">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">add</span><span class="p" data-group-id="1209599174-4">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">remove</span><span class="p" data-group-id="1209599174-5">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">inspect</span><span class="p" data-group-id="1209599174-6">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-6">)</span><span class="p">,</span><span class="w">  </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">push</span><span class="p" data-group-id="1209599174-7">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-7">)</span><span class="p">,</span><span class="w">  </span><span class="n">buildah</span><span class="o">-</span><span class="w">
+   </span><span class="n">rmi</span><span class="p" data-group-id="1209599174-8">(</span><span class="mi">1</span><span class="p" data-group-id="1209599174-8">)</span></code></pre><p>buildah                                                                               September 2019                                                          buildah-manifest-annotate(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="buildah-manifest-add.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+buildah-manifest-add
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="buildah-manifest-create.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+buildah-manifest-create
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

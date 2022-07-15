@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>podman-generate-kube — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-2b4b13df41.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>podman-generate-kube</span>
+</h1>
+
+<p>podman-generate-kube(1)()                                                                                                                                        podman-generate-kube(1)()</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="o">-</span><span class="n">generate</span><span class="o">-</span><span class="n">kube</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Generate</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">containers</span><span class="p">,</span><span class="w"> </span><span class="n">pods</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">volumes</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="p" data-group-id="8744167442-1">[</span><span class="n">options</span><span class="p" data-group-id="8744167442-1">]</span><span class="w"> </span><span class="n">container</span><span class="n">...</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">pod</span><span class="n">...</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">volume</span><span class="n">...</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="p" data-group-id="5188139117-1">(</span><span class="n">v1</span><span class="w"> </span><span class="n">specification</span><span class="p" data-group-id="5188139117-1">)</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="n">containers</span><span class="p">,</span><span class="w"> </span><span class="n">pods</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">volumes</span><span class="o">.</span><span class="w"> </span><span class="nc">Whether</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">pods</span><span class="p">,</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">gen</span><span class="err">‐</span><span class="w">
+   </span><span class="n">erate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Pod</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">containers</span><span class="p">,</span><span class="w"> </span><span class="n">pods</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">IDs</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Podman</span><span class="w"> </span><span class="nc">Containers</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">Pods</span><span class="w">
+
+   </span><span class="nc">Volumes</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">types</span><span class="o">.</span><span class="w"> </span><span class="nc">Bind</span><span class="o">-</span><span class="n">mounted</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">become</span><span class="w"> </span><span class="n">hostPath</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">become</span><span class="w"> </span><span class="n">persistentVolumeClaim</span><span class="w"> </span><span class="n">vol</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ume</span><span class="w">  </span><span class="n">types</span><span class="o">.</span><span class="w">  </span><span class="nc">Generated</span><span class="w"> </span><span class="n">hostPath</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">subtypes</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="ss">path</span><span class="p">:</span><span class="w"> </span><span class="nc">DirectoryOrCreate</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="p">,</span><span class="w">
+   </span><span class="nc">Directory</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">claimName</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">persistentVolumeClaim</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">registered</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="nc">Pod</span><span class="err">‐</span><span class="w">
+   </span><span class="n">man</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Potential</span><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="n">conflicts</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">avoided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">naming</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">hostPath</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w">
+   </span><span class="n">machine</span><span class="p">,</span><span class="w"> </span><span class="n">replacing</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="n">slashes</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hyphens</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">leading</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">trailing</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="n">slashes</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">translates</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w">  </span><span class="n">root</span><span class="o">.</span><span class="w">  </span><span class="nc">Addition</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ally</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">name</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">suffixed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="n">host</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">naming</span><span class="w"> </span><span class="n">conflicts</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">persistentVolumeClaim</span><span class="w"> </span><span class="n">volumes</span><span class="o">.</span><span class="w"> </span><span class="nc">Each</span><span class="w"> </span><span class="n">persistentVolumeClaim</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">named</span><span class="w">
+   </span><span class="n">volume</span><span class="w"> </span><span class="n">suffixed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="n">pvc</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pod</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">started</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">init</span><span class="w">  </span><span class="n">containers</span><span class="w">
+   </span><span class="n">are</span><span class="w">  </span><span class="n">deleted</span><span class="w">  </span><span class="k">after</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">run</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pod</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">started</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="nc">YAML</span><span class="o">.</span><span class="w">  </span><span class="nc">Init</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">be</span><span class="w">
+   </span><span class="n">generated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="n">deleted</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">completion</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">SELinux</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w">  </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">following</span><span class="w">  </span><span class="n">options</span><span class="w">  </span><span class="n">must</span><span class="w">  </span><span class="n">be</span><span class="w">
+   </span><span class="ss">completed</span><span class="p">:</span><span class="w">
+     </span><span class="o">*</span><span class="w"> </span><span class="nc">Add</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;privileged: true&quot;</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pod</span><span class="w"> </span><span class="n">spec</span><span class="w">
+     </span><span class="o">*</span><span class="w"> </span><span class="nc">Add</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="n">spc_t</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">securityContext</span><span class="w"> </span><span class="n">seLinuxOptions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pod</span><span class="w"> </span><span class="n">spec</span><span class="w">
+     </span><span class="o">*</span><span class="w">  </span><span class="nc">Relabel</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">chcon</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">container_file_t</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">-</span><span class="nc">R</span><span class="w"> </span><span class="o">&lt;</span><span class="n">directory</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Once</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">permissions</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">place</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">pod</span><span class="o">/</span><span class="n">container</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="n">cluster</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">deployment</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">play</span><span class="o">-</span><span class="n">kube</span><span class="p" data-group-id="5188139117-2">(</span><span class="mi">1</span><span class="p" data-group-id="5188139117-2">)</span><span class="o">.</span></code></pre><p>OPTIONS
+   --filename, -f=filename</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Output</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">STDOUT</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">exists</span><span class="p">,</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">refuse</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="o">.</span></code></pre><p>   --service, -s</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">addition</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Pods</span><span class="o">.</span><span class="w"> </span><span class="nc">Used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Service</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="nc">Pod</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">particular</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">object</span><span class="w">  </span><span class="n">has</span><span class="w">  </span><span class="n">portmap</span><span class="w">
+   </span><span class="n">bindings</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">NodePort</span><span class="w"> </span><span class="n">declaration</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">expose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">service</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">assigned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specification</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Create</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">Pod</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">some</span><span class="o">-</span><span class="n">mariadb</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="n">some</span><span class="o">-</span><span class="n">mariadb</span><span class="w">
+          </span><span class="c1"># Save the output of this file and use kubectl create -f to import</span><span class="w">
+          </span><span class="c1"># it into Kubernetes.</span><span class="w">
+          </span><span class="c1">#</span><span class="w">
+          </span><span class="c1"># Created with podman-0.11.2-dev</span><span class="w">
+          </span><span class="ss">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span><span class="w">
+          </span><span class="ss">kind</span><span class="p">:</span><span class="w"> </span><span class="nc">Pod</span><span class="w">
+          </span><span class="ss">metadata</span><span class="p">:</span><span class="w">
+            </span><span class="ss">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span><span class="nc">T19</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">59</span><span class="nc">Z</span><span class="w">
+            </span><span class="ss">labels</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="o">-</span><span class="n">mariadb</span><span class="w">
+            </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="o">-</span><span class="n">mariadb</span><span class="o">-</span><span class="n">libpod</span><span class="w">
+          </span><span class="ss">spec</span><span class="p">:</span><span class="w">
+            </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">entrypoint</span><span class="o">.</span><span class="n">sh</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="n">mysqld</span><span class="w">
+              </span><span class="ss">env</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">HOSTNAME</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">GOSU_VERSION</span><span class="w">
+                </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.10&quot;</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">GPG_KEYS</span><span class="w">
+                </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;199369E5404BD5FC7D2FE43BCBCB082A1BB943DB </span><span class="se">\t</span><span class="s">177F4010FE56CA3336300305F1656F24C74CD1D8
+                  </span><span class="se">\t</span><span class="s">430BDF5C56E7C94E848EE60C1C4CBDCDCD2EFD2A </span><span class="se">\t</span><span class="s">4D1BB29D63D98E422B2113B19334A25F8507EFA5&quot;</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MARIADB_MAJOR</span><span class="w">
+                </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.3&quot;</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MARIADB_VERSION</span><span class="w">
+                </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mf">10.3</span><span class="o">.</span><span class="mi">10</span><span class="o">+</span><span class="n">maria</span><span class="err">~</span><span class="n">bionic</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MYSQL_ROOT_PASSWORD</span><span class="w">
+                </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="w">
+              </span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">baude</span><span class="o">/</span><span class="n">demodb</span><span class="ss">:latest</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="o">-</span><span class="n">mariadb</span><span class="w">
+              </span><span class="ss">ports</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">containerPort</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="w">
+                </span><span class="ss">hostPort</span><span class="p">:</span><span class="w"> </span><span class="mi">36533</span><span class="w">
+              </span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-1">{</span><span class="p" data-group-id="1234210838-1">}</span><span class="w">
+              </span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+                </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+                  </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+              </span><span class="ss">tty</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
+          </span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-2">{</span><span class="p" data-group-id="1234210838-2">}</span><span class="w">
+
+   </span><span class="nc">Create</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">Pod</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">bind</span><span class="o">-</span><span class="n">mounted</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">mounted</span><span class="o">-</span><span class="n">data</span><span class="w">
+          </span><span class="c1"># Save the output of this file and use kubectl create -f to import</span><span class="w">
+          </span><span class="c1"># it into Kubernetes.</span><span class="w">
+          </span><span class="c1">#</span><span class="w">
+          </span><span class="c1"># Created with podman-3.1.0-dev</span><span class="w">
+          </span><span class="ss">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span><span class="w">
+          </span><span class="ss">kind</span><span class="p">:</span><span class="w"> </span><span class="nc">Pod</span><span class="w">
+          </span><span class="ss">metadata</span><span class="p">:</span><span class="w">
+            </span><span class="ss">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-03-18T16:26:08Z&quot;</span><span class="w">
+            </span><span class="ss">labels</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">mounted</span><span class="o">-</span><span class="n">data</span><span class="w">
+            </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">mounted</span><span class="o">-</span><span class="n">data</span><span class="w">
+          </span><span class="ss">spec</span><span class="p">:</span><span class="w">
+            </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w">
+              </span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">alpine</span><span class="ss">:latest</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">test</span><span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">mount</span><span class="w">
+              </span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-3">{</span><span class="p" data-group-id="1234210838-3">}</span><span class="w">
+              </span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+                </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+                  </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+              </span><span class="ss">volumeMounts</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">mountPath</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="w">
+                </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">home</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">host</span><span class="w">
+            </span><span class="ss">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="nc">Never</span><span class="w">
+            </span><span class="ss">volumes</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">hostPath</span><span class="p">:</span><span class="w">
+                </span><span class="ss">path</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">data</span><span class="w">
+                </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="nc">Directory</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">home</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">host</span><span class="w">
+          </span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-4">{</span><span class="p" data-group-id="1234210838-4">}</span><span class="w">
+
+   </span><span class="nc">Create</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">Pod</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">using</span><span class="o">-</span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="w">
+          </span><span class="c1"># Save the output of this file and use kubectl create -f to import</span><span class="w">
+          </span><span class="c1"># it into Kubernetes.</span><span class="w">
+          </span><span class="c1">#</span><span class="w">
+          </span><span class="c1"># Created with podman-3.1.0-dev</span><span class="w">
+          </span><span class="ss">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span><span class="w">
+          </span><span class="ss">kind</span><span class="p">:</span><span class="w"> </span><span class="nc">Pod</span><span class="w">
+          </span><span class="ss">metadata</span><span class="p">:</span><span class="w">
+            </span><span class="ss">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2021-03-18T16:26:08Z&quot;</span><span class="w">
+            </span><span class="ss">labels</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">using</span><span class="o">-</span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="w">
+            </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="o">-</span><span class="n">container</span><span class="o">-</span><span class="n">using</span><span class="o">-</span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="w">
+          </span><span class="ss">spec</span><span class="p">:</span><span class="w">
+            </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w">
+              </span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">alpine</span><span class="ss">:latest</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">test</span><span class="o">-</span><span class="n">bind</span><span class="o">-</span><span class="n">mount</span><span class="w">
+              </span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-5">{</span><span class="p" data-group-id="1234210838-5">}</span><span class="w">
+              </span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+                </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+                  </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+                  </span><span class="o">-</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+              </span><span class="ss">volumeMounts</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="ss">mountPath</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="w">
+                </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">pvc</span><span class="w">
+            </span><span class="ss">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="nc">Never</span><span class="w">
+            </span><span class="ss">volumes</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">pvc</span><span class="w">
+              </span><span class="ss">persistentVolumeClaim</span><span class="p">:</span><span class="w">
+                </span><span class="ss">claimName</span><span class="p">:</span><span class="w"> </span><span class="n">priceless</span><span class="o">-</span><span class="n">data</span><span class="w">
+          </span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-6">{</span><span class="p" data-group-id="1234210838-6">}</span><span class="w">
+
+   </span><span class="nc">Create</span><span class="w"> </span><span class="nc">Kubernetes</span><span class="w"> </span><span class="nc">Pod</span><span class="w"> </span><span class="nc">YAML</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pod</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">demoweb</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">service</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">kube</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="n">demoweb</span><span class="w">
+          </span><span class="c1"># Save the output of this file and use kubectl create -f to import</span><span class="w">
+          </span><span class="c1"># it into Kubernetes.</span><span class="w">
+          </span><span class="c1">#</span><span class="w">
+          </span><span class="c1"># Created with podman-0.12.2-dev</span><span class="w">
+          </span><span class="ss">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span><span class="w">
+          </span><span class="ss">kind</span><span class="p">:</span><span class="w"> </span><span class="nc">Pod</span><span class="w">
+          </span><span class="ss">metadata</span><span class="p">:</span><span class="w">
+            </span><span class="ss">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span><span class="nc">T15</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="nc">Z</span><span class="w">
+            </span><span class="ss">labels</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span><span class="w">
+            </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span><span class="o">-</span><span class="n">libpod</span><span class="w">
+          </span><span class="ss">spec</span><span class="p">:</span><span class="w">
+            </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">command</span><span class="p">:</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="n">python3</span><span class="w">
+              </span><span class="o">-</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">graph</span><span class="o">.</span><span class="n">py</span><span class="w">
+              </span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">baude</span><span class="o">/</span><span class="n">demoweb</span><span class="ss">:latest</span><span class="w">
+              </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">practicalarchimedes</span><span class="w">
+              </span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-7">{</span><span class="p" data-group-id="1234210838-7">}</span><span class="w">
+              </span><span class="ss">tty</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
+              </span><span class="ss">workingDir</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="w">
+          </span><span class="ss">status</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-8">{</span><span class="p" data-group-id="1234210838-8">}</span><span class="w">
+          </span><span class="o">--</span><span class="o">-</span><span class="w">
+          </span><span class="ss">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span><span class="w">
+          </span><span class="ss">kind</span><span class="p">:</span><span class="w"> </span><span class="nc">Service</span><span class="w">
+          </span><span class="ss">metadata</span><span class="p">:</span><span class="w">
+            </span><span class="ss">creationTimestamp</span><span class="p">:</span><span class="w"> </span><span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span><span class="nc">T15</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">06</span><span class="nc">Z</span><span class="w">
+            </span><span class="ss">labels</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span><span class="w">
+            </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span><span class="o">-</span><span class="n">libpod</span><span class="w">
+          </span><span class="ss">spec</span><span class="p">:</span><span class="w">
+            </span><span class="ss">ports</span><span class="p">:</span><span class="w">
+            </span><span class="o">-</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8050&quot;</span><span class="w">
+              </span><span class="ss">nodePort</span><span class="p">:</span><span class="w"> </span><span class="mi">31269</span><span class="w">
+              </span><span class="ss">port</span><span class="p">:</span><span class="w"> </span><span class="mi">8050</span><span class="w">
+              </span><span class="ss">targetPort</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="ss">selector</span><span class="p">:</span><span class="w">
+              </span><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span><span class="w">
+            </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="nc">NodePort</span><span class="w">
+          </span><span class="ss">status</span><span class="p">:</span><span class="w">
+            </span><span class="ss">loadBalancer</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1234210838-9">{</span><span class="p" data-group-id="1234210838-9">}</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="p" data-group-id="9583249999-1">(</span><span class="mi">1</span><span class="p" data-group-id="9583249999-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">container</span><span class="p" data-group-id="9583249999-2">(</span><span class="mi">1</span><span class="p" data-group-id="9583249999-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">pod</span><span class="p" data-group-id="9583249999-3">(</span><span class="mi">1</span><span class="p" data-group-id="9583249999-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">play</span><span class="o">-</span><span class="n">kube</span><span class="p" data-group-id="9583249999-4">(</span><span class="mi">1</span><span class="p" data-group-id="9583249999-4">)</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">December</span><span class="w"> </span><span class="mi">2018</span><span class="p">,</span><span class="w"> </span><span class="nc">Originally</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Brent</span><span class="w"> </span><span class="nc">Baude</span><span class="w"> </span><span class="p" data-group-id="3304860975-1">(</span><span class="n">bbaude</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">redhat</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">com</span><span class="p" data-group-id="3304860975-1">)</span><span class="w">
+
+                                                                                                                                                             </span><span class="n">podman</span><span class="o">-</span><span class="n">generate</span><span class="o">-</span><span class="n">kube</span><span class="p" data-group-id="3304860975-2">(</span><span class="mi">1</span><span class="p" data-group-id="3304860975-2">)</span><span class="p" data-group-id="3304860975-3">(</span><span class="p" data-group-id="3304860975-3">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="podman-export.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+podman-export
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="podman-generate.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+podman-generate
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

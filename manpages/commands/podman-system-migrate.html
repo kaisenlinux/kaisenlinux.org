@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>podman-system-migrate — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>podman-system-migrate</span>
+</h1>
+
+<p>podman-system-migrate(1)()                                                                                                                                      podman-system-migrate(1)()</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">migrate</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Migrate</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">version</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="p" data-group-id="6307863141-1">[</span><span class="n">options</span><span class="p" data-group-id="6307863141-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="n">migrates</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">podman</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">care</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">migrating</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">latest</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">necessary</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">&quot;</span><span class="nc">Rootless</span><span class="w">  </span><span class="nc">Podman</span><span class="w">  </span><span class="n">uses</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">pause</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">namespaces</span><span class="w"> </span><span class="n">alive</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">prevents</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">propagated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">rootless</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">running</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">propagated</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">   </span><span class="nc">In</span><span class="err">‐</span><span class="w">
+   </span><span class="n">stead</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">doing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">manually</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">migrate</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">edited</span><span class="w">
+   </span><span class="ow">or</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">usermod</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">recreate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">mappings</span><span class="o">.</span></code></pre><p>OPTIONS
+   --new-runtime=runtime</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="nc">OCI</span><span class="w"> </span><span class="n">runtime</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">upgrade</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="nc">OCI</span><span class="w"> </span><span class="n">runtime</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">runtime</span><span class="o">.</span><span class="w">  </span><span class="nc">There</span><span class="w">  </span><span class="n">are</span><span class="w">  </span><span class="n">no</span><span class="w">
+   </span><span class="n">guarantees</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">continue</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">runtime</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">runtimes</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">differing</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">configurations</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="p" data-group-id="3951754677-1">(</span><span class="mi">1</span><span class="p" data-group-id="3951754677-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">containers</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="3951754677-2">(</span><span class="mi">5</span><span class="p" data-group-id="3951754677-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">usermod</span><span class="p" data-group-id="3951754677-3">(</span><span class="mi">8</span><span class="p" data-group-id="3951754677-3">)</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">April</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w"> </span><span class="nc">Originally</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Giuseppe</span><span class="w"> </span><span class="nc">Scrivano</span><span class="w"> </span><span class="p" data-group-id="6542865402-1">(</span><span class="n">gscrivan</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">redhat</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="n">com</span><span class="p" data-group-id="6542865402-1">)</span><span class="w">
+
+                                                                                                                                                            </span><span class="n">podman</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">migrate</span><span class="p" data-group-id="6542865402-2">(</span><span class="mi">1</span><span class="p" data-group-id="6542865402-2">)</span><span class="p" data-group-id="6542865402-3">(</span><span class="p" data-group-id="6542865402-3">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="podman-system.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+podman-system
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="podman-system-prune.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+podman-system-prune
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

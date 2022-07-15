@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>borg-list — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>borg-list</span>
+</h1>
+
+<p>BORG-LIST(1)                                                                         borg backup tool                                                                         BORG-LIST(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">list</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">List</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">contents</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="6565511949-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="6565511949-1">]</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p" data-group-id="6565511949-2">[</span><span class="n">options</span><span class="p" data-group-id="6565511949-2">]</span><span class="w"> </span><span class="p" data-group-id="6565511949-3">[</span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="p" data-group-id="6565511949-3">]</span><span class="w"> </span><span class="p" data-group-id="6565511949-4">[</span><span class="nc">PATH</span><span class="n">...</span><span class="p" data-group-id="6565511949-4">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">borg_patterns</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">output</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="2715768221-1">(</span><span class="mi">1</span><span class="p" data-group-id="2715768221-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="w">
+          </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w">
+
+   </span><span class="nc">PATH</span><span class="w">   </span><span class="n">paths</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">list</span><span class="p">;</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span></code></pre><p>   optional arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">consider</span><span class="o">-</span><span class="n">checkpoints</span><span class="w">
+          </span><span class="nc">Show</span><span class="w"> </span><span class="n">checkpoint</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p" data-group-id="6579293245-1">(</span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="n">hidden</span><span class="p" data-group-id="6579293245-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">short</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">file</span><span class="o">/</span><span class="n">directory</span><span class="w"> </span><span class="n">names</span><span class="p">,</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="k">else</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="nc">FORMAT</span><span class="w">
+          </span><span class="n">specify</span><span class="w">  </span><span class="n">format</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">file</span><span class="w">  </span><span class="ow">or</span><span class="w">  </span><span class="n">archive</span><span class="w">  </span><span class="n">listing</span><span class="w">  </span><span class="p" data-group-id="6579293245-2">(</span><span class="n">default</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="ss">files</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;{mode} {user:6} {group:6} {size:8} {mtime} {path}{extra}{NL}&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">archives</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{archive:&lt;36} {time}
+          [{id}]{NL}&quot;</span><span class="p" data-group-id="6579293245-2">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">json</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">contents</span><span class="o">.</span><span class="w"> </span><span class="nc">Format</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">JSON</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="n">keys</span><span class="w">  </span><span class="n">are</span><span class="w">  </span><span class="n">always</span><span class="w">
+          </span><span class="n">present</span><span class="o">.</span><span class="w"> </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">represent</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="s">&quot;barchive&quot;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">available</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">json</span><span class="o">-</span><span class="n">lines</span><span class="w">
+          </span><span class="nc">Only</span><span class="w">  </span><span class="n">valid</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">contents</span><span class="o">.</span><span class="w"> </span><span class="nc">Format</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="nc">Lines</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">al</span><span class="err">‐</span><span class="w">
+          </span><span class="n">ways</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w"> </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">represent</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="s">&quot;bpath&quot;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">available</span><span class="o">.</span></code></pre><p>   Archive filters</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="nc">PREFIX</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="nc">PREFIX</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="nc">GLOB</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="nc">GLOB</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glob</span><span class="o">.</span><span class="w"> </span><span class="ss">sh</span><span class="p">:</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">apply</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="s">&quot;borg help patterns&quot;</span><span class="o">.</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">sort</span><span class="o">-</span><span class="n">by</span><span class="w"> </span><span class="nc">KEYS</span><span class="w">
+          </span><span class="nc">Comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">sorting</span><span class="w"> </span><span class="n">keys</span><span class="p">;</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span></code></pre><p>   Exclusion options</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="nc">PATTERN</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">exclude</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+          </span><span class="n">exclude</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="n">from</span><span class="w"> </span><span class="nc">EXCLUDEFILE</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">EXCLUDEFILE</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">pattern</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+          </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="nc">PATTERN</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">patterns</span><span class="o">-</span><span class="n">from</span><span class="w"> </span><span class="nc">PATTERNFILE</span><span class="w">
+          </span><span class="n">read</span><span class="w"> </span><span class="n">include</span><span class="o">/</span><span class="n">exclude</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">PATTERNFILE</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+      </span><span class="nc">Monday</span><span class="w">                               </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">11</span><span class="w">
+      </span><span class="n">repo</span><span class="w">                                 </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">54</span><span class="w">
+      </span><span class="n">root</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w">                      </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">29</span><span class="w">
+      </span><span class="n">newname</span><span class="w">                              </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">19</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="n">root</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w">
+      </span><span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">17</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">.</span><span class="w">
+      </span><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">49</span><span class="w"> </span><span class="n">bin</span><span class="w">
+      </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">    </span><span class="mi">1029624</span><span class="w"> </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2014</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">13</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">51</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="w">
+      </span><span class="n">lrwxrwxrwx</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Fri</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">26</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">bzcmp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bzdiff</span><span class="w">
+      </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">       </span><span class="mi">2140</span><span class="w"> </span><span class="nc">Fri</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">bzdiff</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="n">root</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="o">--</span><span class="n">pattern</span><span class="w"> </span><span class="s">&quot;- bin/ba*&quot;</span><span class="w">
+      </span><span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">17</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">.</span><span class="w">
+      </span><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Mon</span><span class="p">,</span><span class="w"> </span><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">49</span><span class="w"> </span><span class="n">bin</span><span class="w">
+      </span><span class="n">lrwxrwxrwx</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Fri</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">26</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">bzcmp</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bzdiff</span><span class="w">
+      </span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">root</span><span class="w">   </span><span class="n">root</span><span class="w">       </span><span class="mi">2140</span><span class="w"> </span><span class="nc">Fri</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">20</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">bzdiff</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="n">archiveA</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="o">=</span><span class="s">&quot;{mode} {user:6} {group:6} {size:8d} {isomtime} {path}{extra}{NEWLINE}&quot;</span><span class="w">
+      </span><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="o">.</span><span class="w">
+      </span><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="w">
+      </span><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">          </span><span class="mi">0</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">    </span><span class="mi">1416192</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">ext</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">    </span><span class="mi">1416192</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">text</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="o">::</span><span class="n">archiveA</span><span class="w"> </span><span class="o">--</span><span class="n">pattern</span><span class="w"> </span><span class="sc">&#39;re:</span><span class="se">\.</span><span class="sc">ext$&#39;</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">    </span><span class="mi">1416192</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">ext</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">/</span><span class="o">::</span><span class="n">archiveA</span><span class="w"> </span><span class="o">--</span><span class="n">pattern</span><span class="w"> </span><span class="sc">&#39;re:.ext$&#39;</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">    </span><span class="mi">1416192</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">ext</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w"> </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w">    </span><span class="mi">1416192</span><span class="w"> </span><span class="nc">Sun</span><span class="p">,</span><span class="w"> </span><span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">code</span><span class="o">/</span><span class="n">myproject</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">text</span><span class="w">
+      </span><span class="n">...</span></code></pre><p>NOTES
+   The FORMAT specifier syntax</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="o">--</span><span class="n">format</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">python</span><span class="sc">&#39;s format string syntax.
+
+   Examples:
+
+      $ borg list --format &#39;</span><span class="p" data-group-id="6409753506-1">{</span><span class="n">archive</span><span class="p" data-group-id="6409753506-1">}</span><span class="p" data-group-id="6409753506-2">{</span><span class="nc">NL</span><span class="p" data-group-id="6409753506-2">}</span><span class="sc">&#39; /path/to/repo
+      ArchiveFoo
+      ArchiveBar
+      ...
+
+      # {VAR:NUMBER} - pad to NUMBER columns.
+      # Strings are left-aligned, numbers are right-aligned.
+      # Note: time columns except ``isomtime``, ``isoctime`` and ``isoatime`` cannot be padded.
+      $ borg list --format &#39;</span><span class="p" data-group-id="6409753506-3">{</span><span class="n">archive</span><span class="p">:</span><span class="mi">36</span><span class="p" data-group-id="6409753506-3">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-4">{</span><span class="n">time</span><span class="p" data-group-id="6409753506-4">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-5">[</span><span class="p" data-group-id="6409753506-6">{</span><span class="n">id</span><span class="p" data-group-id="6409753506-6">}</span><span class="p" data-group-id="6409753506-5">]</span><span class="p" data-group-id="6409753506-7">{</span><span class="nc">NL</span><span class="p" data-group-id="6409753506-7">}</span><span class="sc">&#39; /path/to/repo
+      ArchiveFoo                           Thu, 2021-12-09 10:22:28 [0b8e9a312bef3f2f6e2d0fc110c196827786c15eba0188738e81697a7fa3b274]
+      $ borg list --format &#39;</span><span class="p" data-group-id="6409753506-8">{</span><span class="n">mode</span><span class="p" data-group-id="6409753506-8">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-9">{</span><span class="n">user</span><span class="p">:</span><span class="mi">6</span><span class="p" data-group-id="6409753506-9">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-10">{</span><span class="n">group</span><span class="p">:</span><span class="mi">6</span><span class="p" data-group-id="6409753506-10">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-11">{</span><span class="n">size</span><span class="p">:</span><span class="mi">8</span><span class="p" data-group-id="6409753506-11">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-12">{</span><span class="n">mtime</span><span class="p" data-group-id="6409753506-12">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-13">{</span><span class="n">path</span><span class="p" data-group-id="6409753506-13">}</span><span class="p" data-group-id="6409753506-14">{</span><span class="n">extra</span><span class="p" data-group-id="6409753506-14">}</span><span class="p" data-group-id="6409753506-15">{</span><span class="nc">NL</span><span class="p" data-group-id="6409753506-15">}</span><span class="sc">&#39; /path/to/repo::ArchiveFoo
+      -rw-rw-r-- user   user       1024 Thu, 2021-12-09 10:22:17 file-foo
+      ...
+
+      # {VAR:&lt;NUMBER} - pad to NUMBER columns left-aligned.
+      # {VAR:&gt;NUMBER} - pad to NUMBER columns right-aligned.
+      $ borg list --format &#39;</span><span class="p" data-group-id="6409753506-16">{</span><span class="n">mode</span><span class="p" data-group-id="6409753506-16">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-17">{</span><span class="n">user</span><span class="ss">:&gt;</span><span class="mi">6</span><span class="p" data-group-id="6409753506-17">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-18">{</span><span class="n">group</span><span class="ss">:&gt;</span><span class="mi">6</span><span class="p" data-group-id="6409753506-18">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-19">{</span><span class="n">size</span><span class="ss">:&lt;</span><span class="mi">8</span><span class="p" data-group-id="6409753506-19">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-20">{</span><span class="n">mtime</span><span class="p" data-group-id="6409753506-20">}</span><span class="w"> </span><span class="p" data-group-id="6409753506-21">{</span><span class="n">path</span><span class="p" data-group-id="6409753506-21">}</span><span class="p" data-group-id="6409753506-22">{</span><span class="n">extra</span><span class="p" data-group-id="6409753506-22">}</span><span class="p" data-group-id="6409753506-23">{</span><span class="nc">NL</span><span class="p" data-group-id="6409753506-23">}</span><span class="err">&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="nc">ArchiveFoo</span><span class="w">
+      </span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="w">   </span><span class="n">user</span><span class="w">   </span><span class="n">user</span><span class="w"> </span><span class="mi">1024</span><span class="w">     </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">09</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">17</span><span class="w"> </span><span class="n">file</span><span class="o">-</span><span class="n">foo</span><span class="w">
+      </span><span class="n">...</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="ss">available</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">NEWLINE</span><span class="p">:</span><span class="w"> </span><span class="nc">OS</span><span class="w"> </span><span class="n">dependent</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">separator</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">NL</span><span class="p">:</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">NEWLINE</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">NUL</span><span class="p">:</span><span class="w"> </span><span class="nc">NUL</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">print0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">xargs</span><span class="w"> </span><span class="o">-</span><span class="mi">0</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">barchive</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">bpath</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">below</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="nc">SPACE</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="nc">TAB</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="nc">CR</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="nc">LF</span><span class="w">
+
+   </span><span class="nc">Keys</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">repository</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">archive</span><span class="p">:</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p" data-group-id="6409753506-24">(</span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">text</span><span class="w"> </span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">barchive</span><span class="p" data-group-id="6409753506-24">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;archive&quot;</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">barchive</span><span class="p">:</span><span class="w"> </span><span class="n">verbatim</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="nc">NUL</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">comment</span><span class="p">:</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">comment</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p" data-group-id="6409753506-25">(</span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">text</span><span class="w"> </span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">bcomment</span><span class="p" data-group-id="6409753506-25">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">bcomment</span><span class="p">:</span><span class="w"> </span><span class="n">verbatim</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">comment</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="nc">NUL</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">start</span><span class="p">:</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="6409753506-26">(</span><span class="n">start</span><span class="p" data-group-id="6409753506-26">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">time</span><span class="p">:</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;start&quot;</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">end</span><span class="p">:</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="6409753506-27">(</span><span class="k">end</span><span class="p" data-group-id="6409753506-27">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">command_line</span><span class="p">:</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">hostname</span><span class="p">:</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">created</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">username</span><span class="p">:</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">archive</span><span class="w">
+
+   </span><span class="nc">Keys</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="ss">archive</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">mode</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">uid</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">gid</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">user</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">group</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">path</span><span class="p">:</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="p" data-group-id="6409753506-28">(</span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">text</span><span class="w"> </span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">bpath</span><span class="p" data-group-id="6409753506-28">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">bpath</span><span class="p">:</span><span class="w"> </span><span class="n">verbatim</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="nc">NUL</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">source</span><span class="p">:</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="p" data-group-id="6409753506-29">(</span><span class="n">identical</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">linktarget</span><span class="p" data-group-id="6409753506-29">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">linktarget</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">flags</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">csize</span><span class="p">:</span><span class="w"> </span><span class="n">compressed</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">dsize</span><span class="p">:</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">dcsize</span><span class="p">:</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">compressed</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">num_chunks</span><span class="p">:</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">unique_chunks</span><span class="p">:</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">mtime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">ctime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">atime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">isomtime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">isoctime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">isoatime</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">blake2b</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">blake2s</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">md5</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha1</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha224</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha256</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha384</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha3_224</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha3_256</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha3_384</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha3_512</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">sha512</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">xxh64</span><span class="p">:</span><span class="w"> </span><span class="nc">XXH64</span><span class="w"> </span><span class="n">checksum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="6409753506-30">(</span><span class="ss">note</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cryptographic</span><span class="w"> </span><span class="n">hash!</span><span class="p" data-group-id="6409753506-30">)</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">archiveid</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="n">archivename</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">extra</span><span class="p">:</span><span class="w"> </span><span class="n">prepends</span><span class="w"> </span><span class="p" data-group-id="6409753506-31">{</span><span class="n">source</span><span class="p" data-group-id="6409753506-31">}</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="s">&quot; -&gt; &quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">soft</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot; link to &quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">links</span><span class="w">
+
+   </span><span class="err">•</span><span class="w"> </span><span class="ss">health</span><span class="p">:</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="s">&quot;healthy&quot;</span><span class="w"> </span><span class="p" data-group-id="6409753506-32">(</span><span class="n">file</span><span class="w"> </span><span class="n">ok</span><span class="p" data-group-id="6409753506-32">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;broken&quot;</span><span class="w"> </span><span class="p" data-group-id="6409753506-33">(</span><span class="k">if</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">all</span><span class="o">-</span><span class="n">zero</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="n">chunks</span><span class="p" data-group-id="6409753506-33">)</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="0576207376-1">(</span><span class="mi">1</span><span class="p" data-group-id="0576207376-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">info</span><span class="p" data-group-id="0576207376-2">(</span><span class="mi">1</span><span class="p" data-group-id="0576207376-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">diff</span><span class="p" data-group-id="0576207376-3">(</span><span class="mi">1</span><span class="p" data-group-id="0576207376-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">prune</span><span class="p" data-group-id="0576207376-4">(</span><span class="mi">1</span><span class="p" data-group-id="0576207376-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">patterns</span><span class="p" data-group-id="0576207376-5">(</span><span class="mi">1</span><span class="p" data-group-id="0576207376-5">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
+
+                                                                                    </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">05</span><span class="w">                                                                            </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">LIST</span><span class="p" data-group-id="8248119045-1">(</span><span class="mi">1</span><span class="p" data-group-id="8248119045-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="borg-key-migrate-to-repokey.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+borg-key-migrate-to-repokey
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="borg.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+borg
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

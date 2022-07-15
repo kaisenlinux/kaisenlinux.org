@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>borg-info — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-52a2346f08.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>borg-info</span>
+</h1>
+
+<p>BORG-INFO(1)                                                                         borg backup tool                                                                         BORG-INFO(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">info</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Show</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">used</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="5443911244-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="5443911244-1">]</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p" data-group-id="5443911244-2">[</span><span class="n">options</span><span class="p" data-group-id="5443911244-2">]</span><span class="w"> </span><span class="p" data-group-id="5443911244-3">[</span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="p" data-group-id="5443911244-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Please</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k" data-group-id="3507044032-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="p" data-group-id="3507044032-2">(</span><span class="s">&quot;all archives&quot;</span><span class="p" data-group-id="3507044032-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="n">different</span><span class="w">
+   </span><span class="ss">things</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="nc">ONLY</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">archive</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w">  </span><span class="n">stored</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="n">the</span><span class="w">
+   </span><span class="n">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Borg</span><span class="w">  </span><span class="n">archives</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">only</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">metadata</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">factors</span><span class="p">,</span><span class="w"> </span><span class="n">mainly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">lengths</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">utilization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">size</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="4417974124-1">(</span><span class="mi">1</span><span class="p" data-group-id="4417974124-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPOSITORY_OR_ARCHIVE</span><span class="w">
+          </span><span class="n">repository</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span></code></pre><p>   optional arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">json</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">JSON</span></code></pre><p>   Archive filters</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">P</span><span class="w"> </span><span class="nc">PREFIX</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="nc">PREFIX</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="w"> </span><span class="nc">GLOB</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="nc">GLOB</span><span class="w">
+          </span><span class="n">only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glob</span><span class="o">.</span><span class="w"> </span><span class="ss">sh</span><span class="p">:</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">apply</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="s">&quot;borg help patterns&quot;</span><span class="o">.</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">--</span><span class="n">glob</span><span class="o">-</span><span class="n">archives</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mutually</span><span class="w"> </span><span class="n">exclusive</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">sort</span><span class="o">-</span><span class="n">by</span><span class="w"> </span><span class="nc">KEYS</span><span class="w">
+          </span><span class="nc">Comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">sorting</span><span class="w"> </span><span class="n">keys</span><span class="p">;</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w"> </span><span class="n">timestamp</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w">
+          </span><span class="n">consider</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">applied</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="nc">T11</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="n">srv</span><span class="w">
+      </span><span class="nc">Archive</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="nc">T11</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="n">srv</span><span class="w">
+      </span><span class="nc">Archive</span><span class="w"> </span><span class="ss">fingerprint</span><span class="p">:</span><span class="w"> </span><span class="n">b2f1beac2bd553b34e06358afa45a3c1689320d39163890c5bbbd49125f00fe5</span><span class="w">
+      </span><span class="ss">Comment</span><span class="p">:</span><span class="w">
+      </span><span class="ss">Hostname</span><span class="p">:</span><span class="w"> </span><span class="n">myhostname</span><span class="w">
+      </span><span class="ss">Username</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="w">
+      </span><span class="nc">Time</span><span class="w"> </span><span class="p" data-group-id="6616007575-1">(</span><span class="n">start</span><span class="p" data-group-id="6616007575-1">)</span><span class="p">:</span><span class="w"> </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">07</span><span class="w">
+      </span><span class="nc">Time</span><span class="w"> </span><span class="p" data-group-id="6616007575-2">(</span><span class="k">end</span><span class="p" data-group-id="6616007575-2">)</span><span class="p">:</span><span class="w"> </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">13</span><span class="w">
+      </span><span class="ss">Duration</span><span class="p">:</span><span class="w"> </span><span class="mf">5.66</span><span class="w"> </span><span class="n">seconds</span><span class="w">
+      </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="mi">17037</span><span class="w">
+      </span><span class="nc">Command</span><span class="w"> </span><span class="ss">line</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">borg</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="nc">T11</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="n">srv</span><span class="w"> </span><span class="o">/</span><span class="n">srv</span><span class="w">
+      </span><span class="nc">Utilization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">max</span><span class="o">.</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">%</span><span class="w">
+      </span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="w">
+                             </span><span class="nc">Original</span><span class="w"> </span><span class="n">size</span><span class="w">      </span><span class="nc">Compressed</span><span class="w"> </span><span class="n">size</span><span class="w">    </span><span class="nc">Deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w">
+      </span><span class="nc">This</span><span class="w"> </span><span class="ss">archive</span><span class="p">:</span><span class="w">               </span><span class="mf">12.53</span><span class="w"> </span><span class="nc">GB</span><span class="w">             </span><span class="mf">12.49</span><span class="w"> </span><span class="nc">GB</span><span class="w">              </span><span class="mf">1.62</span><span class="w"> </span><span class="n">kB</span><span class="w">
+      </span><span class="nc">All</span><span class="w"> </span><span class="ss">archives</span><span class="p">:</span><span class="w">              </span><span class="mf">121.82</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">112.41</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">215.42</span><span class="w"> </span><span class="nc">GB</span><span class="w">
+
+                             </span><span class="nc">Unique</span><span class="w"> </span><span class="n">chunks</span><span class="w">         </span><span class="nc">Total</span><span class="w"> </span><span class="n">chunks</span><span class="w">
+      </span><span class="nc">Chunk</span><span class="w"> </span><span class="ss">index</span><span class="p">:</span><span class="w">                 </span><span class="mi">1015213</span><span class="w">            </span><span class="mi">626934122</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w"> </span><span class="o">--</span><span class="n">last</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="nc">Archive</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="nc">T11</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="n">srv</span><span class="w">
+      </span><span class="nc">Archive</span><span class="w"> </span><span class="ss">fingerprint</span><span class="p">:</span><span class="w"> </span><span class="n">b2f1beac2bd553b34e06358afa45a3c1689320d39163890c5bbbd49125f00fe5</span><span class="w">
+      </span><span class="ss">Comment</span><span class="p">:</span><span class="w">
+      </span><span class="ss">Hostname</span><span class="p">:</span><span class="w"> </span><span class="n">myhostname</span><span class="w">
+      </span><span class="ss">Username</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="w">
+      </span><span class="nc">Time</span><span class="w"> </span><span class="p" data-group-id="6616007575-3">(</span><span class="n">start</span><span class="p" data-group-id="6616007575-3">)</span><span class="p">:</span><span class="w"> </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">07</span><span class="w">
+      </span><span class="nc">Time</span><span class="w"> </span><span class="p" data-group-id="6616007575-4">(</span><span class="k">end</span><span class="p" data-group-id="6616007575-4">)</span><span class="p">:</span><span class="w"> </span><span class="nc">Thu</span><span class="p">,</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">13</span><span class="w">
+      </span><span class="ss">Duration</span><span class="p">:</span><span class="w"> </span><span class="mf">5.66</span><span class="w"> </span><span class="n">seconds</span><span class="w">
+      </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="mi">17037</span><span class="w">
+      </span><span class="nc">Command</span><span class="w"> </span><span class="ss">line</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">borg</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="o">::</span><span class="mi">2017</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span><span class="nc">T11</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="n">srv</span><span class="w"> </span><span class="o">/</span><span class="n">srv</span><span class="w">
+      </span><span class="nc">Utilization</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">max</span><span class="o">.</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">%</span><span class="w">
+      </span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="w">
+                             </span><span class="nc">Original</span><span class="w"> </span><span class="n">size</span><span class="w">      </span><span class="nc">Compressed</span><span class="w"> </span><span class="n">size</span><span class="w">    </span><span class="nc">Deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w">
+      </span><span class="nc">This</span><span class="w"> </span><span class="ss">archive</span><span class="p">:</span><span class="w">               </span><span class="mf">12.53</span><span class="w"> </span><span class="nc">GB</span><span class="w">             </span><span class="mf">12.49</span><span class="w"> </span><span class="nc">GB</span><span class="w">              </span><span class="mf">1.62</span><span class="w"> </span><span class="n">kB</span><span class="w">
+      </span><span class="nc">All</span><span class="w"> </span><span class="ss">archives</span><span class="p">:</span><span class="w">              </span><span class="mf">121.82</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">112.41</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">215.42</span><span class="w"> </span><span class="nc">GB</span><span class="w">
+
+                             </span><span class="nc">Unique</span><span class="w"> </span><span class="n">chunks</span><span class="w">         </span><span class="nc">Total</span><span class="w"> </span><span class="n">chunks</span><span class="w">
+      </span><span class="nc">Chunk</span><span class="w"> </span><span class="ss">index</span><span class="p">:</span><span class="w">                 </span><span class="mi">1015213</span><span class="w">            </span><span class="mi">626934122</span><span class="w">
+
+      </span><span class="err">$</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+      </span><span class="nc">Repository</span><span class="w"> </span><span class="ss">ID</span><span class="p">:</span><span class="w"> </span><span class="n">d857ce5788c51272c61535062e89eac4e8ef5a884ffbe976e0af9d8765dedfa5</span><span class="w">
+      </span><span class="ss">Location</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">repo</span><span class="w">
+      </span><span class="ss">Encrypted</span><span class="p">:</span><span class="w"> </span><span class="nc">Yes</span><span class="w"> </span><span class="p" data-group-id="6616007575-5">(</span><span class="n">repokey</span><span class="p" data-group-id="6616007575-5">)</span><span class="w">
+      </span><span class="ss">Cache</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="o">.</span><span class="n">cache</span><span class="o">/</span><span class="n">borg</span><span class="o">/</span><span class="n">d857ce5788c51272c61535062e89eac4e8ef5a884ffbe976e0af9d8765dedfa5</span><span class="w">
+      </span><span class="nc">Security</span><span class="w"> </span><span class="ss">dir</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="o">.</span><span class="n">config</span><span class="o">/</span><span class="n">borg</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">d857ce5788c51272c61535062e89eac4e8ef5a884ffbe976e0af9d8765dedfa5</span><span class="w">
+      </span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="o">--</span><span class="w">
+                             </span><span class="nc">Original</span><span class="w"> </span><span class="n">size</span><span class="w">      </span><span class="nc">Compressed</span><span class="w"> </span><span class="n">size</span><span class="w">    </span><span class="nc">Deduplicated</span><span class="w"> </span><span class="n">size</span><span class="w">
+      </span><span class="nc">All</span><span class="w"> </span><span class="ss">archives</span><span class="p">:</span><span class="w">              </span><span class="mf">121.82</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">112.41</span><span class="w"> </span><span class="nc">TB</span><span class="w">            </span><span class="mf">215.42</span><span class="w"> </span><span class="nc">GB</span><span class="w">
+
+                             </span><span class="nc">Unique</span><span class="w"> </span><span class="n">chunks</span><span class="w">         </span><span class="nc">Total</span><span class="w"> </span><span class="n">chunks</span><span class="w">
+      </span><span class="nc">Chunk</span><span class="w"> </span><span class="ss">index</span><span class="p">:</span><span class="w">                 </span><span class="mi">1015213</span><span class="w">            </span><span class="mi">626934122</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="2419393090-1">(</span><span class="mi">1</span><span class="p" data-group-id="2419393090-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">list</span><span class="p" data-group-id="2419393090-2">(</span><span class="mi">1</span><span class="p" data-group-id="2419393090-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">diff</span><span class="p" data-group-id="2419393090-3">(</span><span class="mi">1</span><span class="p" data-group-id="2419393090-3">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
+
+                                                                                    </span><span class="mi">2022</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">05</span><span class="w">                                                                            </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">INFO</span><span class="p" data-group-id="6411914784-1">(</span><span class="mi">1</span><span class="p" data-group-id="6411914784-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="borg-import-tar.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+borg-import-tar
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="borg-init.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+borg-init
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
