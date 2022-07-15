@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>btrfs-filesystem — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-53fbbd7f04.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>btrfs-filesystem</span>
+</h1>
+
+<p>BTRFS-FILESYSTEM(8)                                                                        BTRFS                                                                       BTRFS-FILESYSTEM(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">filesystem</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">primarily</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">filesystems</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="o">&lt;</span><span class="n">subcommand</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w">  </span><span class="n">filesystem</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">resizing</span><span class="p">,</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">stats</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">setting</span><span class="o">/</span><span class="n">getting</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="n">defragmentation</span><span class="o">.</span><span class="w"> </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">scrub</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">grouped</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>SUBCOMMAND</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">df</span><span class="w"> </span><span class="p" data-group-id="9033092121-1">[</span><span class="n">options</span><span class="p" data-group-id="9033092121-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Show</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">terse</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">purpose</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">helper</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">needs</span><span class="w">
+          </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">suitable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">quick</span><span class="w"> </span><span class="n">overview</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="ss">description</span><span class="p">:</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.9</span><span class="nc">TiB</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="nc">RAID</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="ss">size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.9</span><span class="nc">TiB</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ss">with</span><span class="p">:</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">btrfs</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">single</span><span class="w">
+
+             </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="w">
+             </span><span class="nc">Data</span><span class="p">,</span><span class="w"> </span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="n">total</span><span class="o">=</span><span class="mf">1.15</span><span class="nc">TiB</span><span class="p">,</span><span class="w"> </span><span class="n">used</span><span class="o">=</span><span class="mf">1.13</span><span class="nc">TiB</span><span class="w">
+             </span><span class="nc">System</span><span class="p">,</span><span class="w"> </span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="n">total</span><span class="o">=</span><span class="mf">32.00</span><span class="nc">MiB</span><span class="p">,</span><span class="w"> </span><span class="n">used</span><span class="o">=</span><span class="mf">144.00</span><span class="nc">KiB</span><span class="w">
+             </span><span class="nc">Metadata</span><span class="p">,</span><span class="w"> </span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="n">total</span><span class="o">=</span><span class="mf">12.00</span><span class="nc">GiB</span><span class="p">,</span><span class="w"> </span><span class="n">used</span><span class="o">=</span><span class="mf">6.45</span><span class="nc">GiB</span><span class="w">
+             </span><span class="nc">GlobalReserve</span><span class="p">,</span><span class="w"> </span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="n">total</span><span class="o">=</span><span class="mf">512.00</span><span class="nc">MiB</span><span class="p">,</span><span class="w"> </span><span class="n">used</span><span class="o">=</span><span class="mf">0.00</span><span class="nc">B</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="nc">Data</span><span class="p">,</span><span class="w"> </span><span class="nc">System</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Metadata</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">types</span><span class="o">.</span><span class="w">  </span><span class="nc">GlobalReserve</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artificial</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">emergency</span><span class="w"> </span><span class="n">space</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="n">profile</span><span class="p">,</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">time</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">reserved</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="n">profiles</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ie</span><span class="o">.</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="nc">Data</span><span class="o">/</span><span class="n">single</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="sc">&#39;s not total size of filesystem.
+
+          • used -- sum of used space of the above, ie. file extents, metadata blocks
+
+          GlobalReserve  is  an  artificial and internal emergency space. It is used eg.  when the filesystem is full. Its total size is dynamic based on the filesystem size, usually
+          not larger than 512MiB, used may fluctuate.
+
+          The GlobalReserve is a portion of Metadata. In case the filesystem metadata is exhausted, GlobalReserve/total + Metadata/used = Metadata/total. Otherwise there  appears  to
+          be some unused space of Metadata.
+
+          Options
+
+          -b|--raw
+                 raw numbers in bytes, without the B suffix
+
+          -h|--human-readable
+                 print human friendly numbers, base 1024, this is the default
+
+          -H     print human friendly numbers, base 1000
+
+          --iec  select the 1024 base for the following options, according to the IEC standard
+
+          --si   select the 1000 base for the following options, according to the SI standard
+
+          -k|--kbytes
+                 show sizes in KiB, or kB with --si
+
+          -m|--mbytes
+                 show sizes in MiB, or MB with --si
+
+          -g|--gbytes
+                 show sizes in GiB, or GB with --si
+
+          -t|--tbytes
+                 show sizes in TiB, or TB with --si
+
+          If conflicting options are passed, the last one takes precedence.
+
+   defragment [options] &lt;file&gt;|&lt;dir&gt; [&lt;file&gt;|&lt;dir&gt;...]
+          Defragment file data on a mounted filesystem. Requires kernel 2.6.33 and newer.
+
+          If  -r  is  passed, files in dir will be defragmented recursively (not descending to subvolumes, mount points and directory symlinks).  The start position and the number of
+          bytes to defragment can be specified by start and length using -s and -l options below.  Extents bigger than value given by -t will be skipped, otherwise this value is used
+          as  a target extent size, but is only advisory and may not be reached if the free space is too fragmented.  Use 0 to take the kernel default, which is 256KiB but may change
+          in the future.  You can also turn on compression in defragment operations.
+
+          WARNING:
+             Defragmenting with Linux kernel versions &lt; 3.9 or ≥ 3.14-rc2 as well as with Linux stable kernel versions ≥ 3.10.31, ≥ 3.12.12 or ≥ 3.13.4 will break up the reflinks  of
+             COW  data  (for example files copied with cp --reflink, snapshots or de-duplicated data).  This may cause considerable increase of space usage depending on the broken up
+             reflinks.
+
+          NOTE:
+             Directory arguments without -r do not defragment files recursively but will defragment certain internal trees (extent tree and the subvolume tree). This has been confus‐
+             ing and could be removed in the future.
+
+          For start, len, size it is possible to append units designator: K, M, G, T, P, or E, which represent KiB, MiB, GiB, TiB, PiB, or EiB, respectively (case does not matter).
+
+          Options
+
+          -c[&lt;algo&gt;]
+                 compress  file  contents while defragmenting. Optional argument selects the compression algorithm, zlib (default), lzo or zstd. Currently it&#39;</span><span class="n">s</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w">
+                 </span><span class="n">no</span><span class="w"> </span><span class="n">compression</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="nc">EXAMPLES</span><span class="o">.</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">r</span><span class="w">     </span><span class="n">defragment</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">recursively</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">directories</span><span class="p">,</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">descend</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">subvolumes</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">points</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">f</span><span class="w">     </span><span class="n">flush</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">going</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+                 </span><span class="nc">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dirty</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">accumulates</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">load</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w">  </span><span class="n">also</span><span class="w">  </span><span class="n">lead</span><span class="w">  </span><span class="n">to</span><span class="w">
+                 </span><span class="nc">ENOSPC</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="sc">&#39;s too much dirty data to write and it&#39;</span><span class="n">s</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reservations</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p" data-group-id="9033092121-2">(</span><span class="n">ie</span><span class="o">.</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">COW</span><span class="w"> </span><span class="n">design</span><span class="w"> </span><span class="n">works</span><span class="p" data-group-id="9033092121-2">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="n">start</span><span class="o">&gt;</span><span class="p" data-group-id="9033092121-3">[</span><span class="n">kKmMgGtTpPeE</span><span class="p" data-group-id="9033092121-3">]</span><span class="w">
+                 </span><span class="n">defragmentation</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="n">len</span><span class="o">&gt;</span><span class="p" data-group-id="9033092121-4">[</span><span class="n">kKmMgGtTpPeE</span><span class="p" data-group-id="9033092121-4">]</span><span class="w">
+                 </span><span class="n">defragment</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">size</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">size</span><span class="o">&gt;</span><span class="p" data-group-id="9033092121-5">[</span><span class="n">kKmMgGtTpPeE</span><span class="p" data-group-id="9033092121-5">]</span><span class="w">
+                 </span><span class="n">target</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="9033092121-6">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">touch</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">bigger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="ss">default</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="nc">MiB</span><span class="w">
+
+                 </span><span class="nc">The</span><span class="w">  </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">advisory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">differ</span><span class="p">,</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">fragmentation</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">logic</span><span class="o">.</span><span class="w"> </span><span class="nc">Reason</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">able</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">tens</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">hundreds</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">megabytes</span><span class="o">.</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="p" data-group-id="9033092121-7">(</span><span class="n">deprecated</span><span class="p" data-group-id="9033092121-7">)</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w">
+
+   </span><span class="n">du</span><span class="w"> </span><span class="p" data-group-id="9033092121-8">[</span><span class="n">options</span><span class="p" data-group-id="9033092121-8">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9033092121-9">[</span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="o">..</span><span class="p" data-group-id="9033092121-9">]</span><span class="w">
+          </span><span class="nc">Calculate</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">FIEMAP</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exclusive</span><span class="w"> </span><span class="p" data-group-id="9033092121-10">(</span><span class="ow">not</span><span class="w"> </span><span class="n">shared</span><span class="p" data-group-id="9033092121-10">)</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w"> </span><span class="nc">We</span><span class="w">  </span><span class="n">also</span><span class="w">  </span><span class="n">calculate</span><span class="w">  </span><span class="n">a</span><span class="w">
+          </span><span class="sc">&#39;set shared&#39;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Each</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">calculated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="nc">We</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">recursive</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="p" data-group-id="9033092121-11">(</span><span class="n">recursion</span><span class="w">
+          </span><span class="n">descends</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">subvolumes</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">points</span><span class="p" data-group-id="9033092121-11">)</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">referenced</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">set</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">overlapping</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">extents</span><span class="p">,</span><span class="w"> </span><span class="n">hence</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">isn</span><span class="sc">&#39;t as simple as adding up shared extents.
+
+          Options
+
+          -s|--summarize
+                 display only a total for each argument
+
+          --raw  raw numbers in bytes, without the B suffix.
+
+          --human-readable
+                 print human friendly numbers, base 1024, this is the default
+
+          --iec  select the 1024 base for the following options, according to the IEC standard.
+
+          --si   select the 1000 base for the following options, according to the SI standard.
+
+          --kbytes
+                 show sizes in KiB, or kB with --si.
+
+          --mbytes
+                 show sizes in MiB, or MB with --si.
+
+          --gbytes
+                 show sizes in GiB, or GB with --si.
+
+          --tbytes
+                 show sizes in TiB, or TB with --si.
+
+   label [&lt;device&gt;|&lt;mountpoint&gt;] [&lt;newlabel&gt;]
+          Show or update the label of a filesystem. This works on a mounted filesystem or a filesystem image.
+
+          The newlabel argument is optional. Current label is printed if the argument is omitted.
+
+          NOTE:
+             The maximum allowable length shall be less than 256 chars and must not contain a newline. The trailing newline is stripped automatically.
+
+   resize [options] [&lt;devid&gt;:][+/-]&lt;size&gt;[kKmMgGtTpPeE]|[&lt;devid&gt;:]max &lt;path&gt;
+          Resize a mounted filesystem identified by path. A particular device can be resized by specifying a devid.
+
+          WARNING:
+             If path is a file containing a BTRFS image then resize does not work as expected and does not resize the image. This would resize the underlying filesystem instead.
+
+          The devid can be found in the output of btrfs filesystem show and defaults to 1 if not specified.  The size parameter specifies the new size of the filesystem.  If the pre‐
+          fix  +  or - is present the size is increased or decreased by the quantity size.  If no units are specified, bytes are assumed for size.  Optionally, the size parameter may
+          be suffixed by one of the following unit designators: K, M, G, T, P, or E, which represent KiB, MiB, GiB, TiB, PiB, or EiB, respectively (case does not matter).
+
+          If max is passed, the filesystem will occupy all available space on the device respecting devid (remember, devid 1 by default).
+
+          The resize command does not manipulate the size of underlying partition.  If you wish to enlarge/reduce a filesystem, you must make sure you can expand the partition before
+          enlarging the filesystem and shrink the partition after reducing the size of the filesystem.  This can done using fdisk(8) or parted(8) to delete the existing partition and
+          recreate it with the new desired size.  When recreating the partition make sure to use the same starting partition offset as before.
+
+          Growing is usually instant as it only updates the size. However, shrinking could take a long time if there are data in the device area that&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">beyond</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="k" data-group-id="9033092121-6">end</span><span class="o">.</span><span class="w"> </span><span class="nc">Relocation</span><span class="w">
+          </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">See</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="nc">EXAMPLES</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Options</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">enqueue</span><span class="w">
+                 </span><span class="n">wait</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="sc">&#39;s another exclusive operation running, otherwise continue
+
+   show [options] [&lt;path&gt;|&lt;uuid&gt;|&lt;device&gt;|&lt;label&gt;]
+          Show the btrfs filesystem with some additional info about devices and space allocation.
+
+          If no option none of path/uuid/device/label is passed, information about all the BTRFS filesystems is shown, both mounted and unmounted.
+
+          Options
+
+          -m|--mounted
+                 probe kernel for mounted BTRFS filesystems
+
+          -d|--all-devices
+                 scan  all  devices  under  /dev,  otherwise the devices list is extracted from the /proc/partitions file. This is a fallback option if there&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">manager</span><span class="w">
+                 </span><span class="p" data-group-id="9033092121-12">(</span><span class="n">like</span><span class="w"> </span><span class="n">udev</span><span class="p" data-group-id="9033092121-12">)</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">raw</span><span class="w">  </span><span class="n">raw</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">suffix</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">human</span><span class="o">-</span><span class="n">readable</span><span class="w">
+                 </span><span class="n">print</span><span class="w"> </span><span class="n">human</span><span class="w"> </span><span class="n">friendly</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">iec</span><span class="w">  </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">IEC</span><span class="w"> </span><span class="n">standard</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">si</span><span class="w">   </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">SI</span><span class="w"> </span><span class="n">standard</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">kbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">KiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">mbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">MiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">MB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">gbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">GiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">GB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">tbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">TiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">TB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+   </span><span class="n">sync</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Force</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sync</span><span class="p" data-group-id="9033092121-13">(</span><span class="mi">1</span><span class="p" data-group-id="9033092121-13">)</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">cleaning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">deleted</span><span class="w"> </span><span class="n">subvolumes</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subvolume</span><span class="w">  </span><span class="n">deletion</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">com</span><span class="err">‐</span><span class="w">
+          </span><span class="n">plete</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">usage</span><span class="w"> </span><span class="p" data-group-id="9033092121-14">[</span><span class="n">options</span><span class="p" data-group-id="9033092121-14">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9033092121-15">[</span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="n">...</span><span class="p" data-group-id="9033092121-15">]</span><span class="w">
+          </span><span class="nc">Show</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">usage</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">supposed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">run</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w">  </span><span class="n">level</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">differ</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p" data-group-id="9033092121-16">(</span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">restricted</span><span class="w"> </span><span class="n">ioctl</span><span class="p" data-group-id="9033092121-16">)</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">there</span><span class="sc">&#39;s a summary section with information
+          about space usage:
+
+             $ btrfs filesystem usage /path
+             WARNING: cannot read detailed chunk info, RAID5/6 numbers will be incorrect, run as root
+             Overall:
+                 Device size:                   1.82TiB
+                 Device allocated:              1.17TiB
+                 Device unallocated:          669.99GiB
+                 Device missing:                  0.00B
+                 Used:                          1.14TiB
+                 Free (estimated):            692.57GiB      (min: 692.57GiB)
+                 Free (statfs, df)            692.57GiB
+                 Data ratio:                       1.00
+                 Metadata ratio:                   1.00
+                 Global reserve:              512.00MiB      (used: 0.00B)
+                 Multiple profiles:                  no
+
+          • Device size -- sum of raw device capacity available to the filesystem
+
+          • Device allocated -- sum of total space allocated for data/metadata/system profiles, this also accounts space reserved but not yet used for extents
+
+          • Device unallocated -- the remaining unallocated space for future allocations (difference of the above two numbers)
+
+          • Device missing -- sum of capacity of all missing devices
+
+          • Used -- sum of the used space of data/metadata/system profiles, not including the reserved space
+
+          • Free (estimated) -- approximate size of the remaining free space usable for data, including currently allocated space and estimating the usage of  the  unallocated  space
+            based on the block group profiles, the min is the lower bound of the estimate in case multiple profiles are present
+
+          • Free  (statfs,  df)  -- the amount of space available for data as reported by the statfs syscall, also returned as Avail in the output of df. The value is calculated in a
+            different way and may not match the estimate in some cases (eg.  multiple profiles).
+
+          • Data ratio -- ratio of total space for data including redundancy or parity to the effectively usable data space, eg. single is 1.0, RAID1 is 2.0 and for  RAID5/6  it  de‐
+            pends on the number of devices
+
+          • Metadata ratio -- dtto, for metadata
+
+          • Global reserve -- portion of metadata currently used for global block reserve, used for emergency purposes (like deletion on a full filesystem)
+
+          • Multiple  profiles  -- what block group types (data, metadata) have more than one profile (single, raid1, ...), see btrfs(5) section FILESYSTEMS WITH MULTIPLE BLOCK GROUP
+            PROFILES.
+
+          And on a zoned filesystem there are two more lines in the Device section:
+
+             Device zone unusable:          5.13GiB
+             Device zone size:            256.00MiB
+
+          • Device zone unusable -- sum of of space that&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">past</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">COW</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">referenced</span><span class="w"> </span><span class="n">anymory</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chunks</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reclaimed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">zones</span><span class="w"> </span><span class="n">reset</span><span class="w">
+            </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">usable</span><span class="w"> </span><span class="n">again</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="nc">Device</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="o">-</span><span class="n">managed</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">devices</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="ss">types</span><span class="p">:</span><span class="w">
+
+             </span><span class="nc">Data</span><span class="p">,</span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="nc">Size</span><span class="p">:</span><span class="mf">1.15</span><span class="nc">TiB</span><span class="p">,</span><span class="w"> </span><span class="nc">Used</span><span class="p">:</span><span class="mf">1.13</span><span class="nc">TiB</span><span class="w"> </span><span class="p" data-group-id="9033092121-17">(</span><span class="mf">98.26</span><span class="p">%</span><span class="p" data-group-id="9033092121-17">)</span><span class="w">
+                </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span><span class="w">        </span><span class="mf">1.15</span><span class="nc">TiB</span><span class="w">
+
+             </span><span class="nc">Metadata</span><span class="p">,</span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="nc">Size</span><span class="p">:</span><span class="mf">12.00</span><span class="nc">GiB</span><span class="p">,</span><span class="w"> </span><span class="nc">Used</span><span class="p">:</span><span class="mf">6.45</span><span class="nc">GiB</span><span class="w"> </span><span class="p" data-group-id="9033092121-18">(</span><span class="mf">53.75</span><span class="p">%</span><span class="p" data-group-id="9033092121-18">)</span><span class="w">
+                </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span><span class="w">       </span><span class="mf">12.00</span><span class="nc">GiB</span><span class="w">
+
+             </span><span class="nc">System</span><span class="p">,</span><span class="ss">single</span><span class="p">:</span><span class="w"> </span><span class="nc">Size</span><span class="p">:</span><span class="mf">32.00</span><span class="nc">MiB</span><span class="p">,</span><span class="w"> </span><span class="nc">Used</span><span class="p">:</span><span class="mf">144.00</span><span class="nc">KiB</span><span class="w"> </span><span class="p" data-group-id="9033092121-19">(</span><span class="mf">0.44</span><span class="p">%</span><span class="p" data-group-id="9033092121-19">)</span><span class="w">
+                </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span><span class="w">       </span><span class="mf">32.00</span><span class="nc">MiB</span><span class="w">
+
+             </span><span class="ss">Unallocated</span><span class="p">:</span><span class="w">
+                </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span><span class="w">      </span><span class="mf">669.99</span><span class="nc">GiB</span><span class="w">
+
+          </span><span class="nc">Data</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">profile</span><span class="p">,</span><span class="w"> </span><span class="nc">Size</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">occupied</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="nc">Used</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">space</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Used</span><span class="o">/</span><span class="nc">Size</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w">
+          </span><span class="nc">Unallocated</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Options</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">b</span><span class="o">|</span><span class="o">--</span><span class="n">raw</span><span class="w">
+                 </span><span class="n">raw</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="n">suffix</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">h</span><span class="o">|</span><span class="o">--</span><span class="n">human</span><span class="o">-</span><span class="n">readable</span><span class="w">
+                 </span><span class="n">print</span><span class="w"> </span><span class="n">human</span><span class="w"> </span><span class="n">friendly</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w">
+
+          </span><span class="o">-</span><span class="nc">H</span><span class="w">     </span><span class="n">print</span><span class="w"> </span><span class="n">human</span><span class="w"> </span><span class="n">friendly</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">iec</span><span class="w">  </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">IEC</span><span class="w"> </span><span class="n">standard</span><span class="w">
+
+          </span><span class="o">--</span><span class="n">si</span><span class="w">   </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">SI</span><span class="w"> </span><span class="n">standard</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">k</span><span class="o">|</span><span class="o">--</span><span class="n">kbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">KiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">m</span><span class="o">|</span><span class="o">--</span><span class="n">mbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">MiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">MB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">g</span><span class="o">|</span><span class="o">--</span><span class="n">gbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">GiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">GB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">-</span><span class="n">t</span><span class="o">|</span><span class="o">--</span><span class="n">tbytes</span><span class="w">
+                 </span><span class="n">show</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">TiB</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">TB</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">--</span><span class="n">si</span><span class="w">
+
+          </span><span class="o">-</span><span class="nc">T</span><span class="w">     </span><span class="n">show</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tabular</span><span class="w"> </span><span class="n">format</span><span class="w">
+
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">conflicting</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">passed</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">precedence</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">defrag</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="w">
+
+   </span><span class="nc">Recursively</span><span class="w"> </span><span class="n">defragment</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">processed</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">batches</span><span class="p">,</span><span class="w"> </span><span class="n">similarly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">triggered</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="n">defragmentation</span><span class="w">
+   </span><span class="n">will</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">proportional</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">last</span><span class="w">  </span><span class="nc">N</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">dirty</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">throttling</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">slow</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">defragmentation</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">lot</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">may</span><span class="w">
+   </span><span class="n">stall</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">moment</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">defrag</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="w">
+
+   </span><span class="nc">Recursively</span><span class="w"> </span><span class="n">defragment</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">flushed</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">processing</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">slower</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">load</span><span class="w">
+   </span><span class="p" data-group-id="9447047560-1">(</span><span class="n">proportional</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">defragmented</span><span class="w"> </span><span class="n">file</span><span class="p" data-group-id="9447047560-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">defrag</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="n">clzo</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="w">
+
+   </span><span class="nc">Recursively</span><span class="w"> </span><span class="n">defragment</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">verbose</span><span class="p">,</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">flushed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">compression</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">defrag</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="mi">64</span><span class="nc">M</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="w">
+
+   </span><span class="nc">Recursively</span><span class="w">  </span><span class="n">defragment</span><span class="w">  </span><span class="n">files</span><span class="w">  </span><span class="n">under</span><span class="w"> </span><span class="n">dir</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">merge</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="mi">64</span><span class="nc">MiB</span><span class="o">.</span><span class="w"> </span><span class="nc">As</span><span class="w"> </span><span class="n">stated</span><span class="w"> </span><span class="n">above</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">fragmentation</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">guaranteed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">meet</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">repeatedly</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">resize</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="nc">G</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">resize</span><span class="w"> </span><span class="mi">1</span><span class="ss">:-</span><span class="mi">1</span><span class="nc">G</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="w">
+
+   </span><span class="nc">Shrink</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="sc">&#39;s device id 1 by 1GiB. The first syntax expects a device with id 1 to exist, otherwise fails. The second is equivalent and more explicit. For a  sin‐
+   gle-device filesystem it&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">devid</span><span class="w"> </span><span class="n">though</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">resize</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">resize</span><span class="w"> </span><span class="mi">1</span><span class="ss">:max</span><span class="w"> </span><span class="o">/</span><span class="n">path</span><span class="w">
+
+   </span><span class="nc">Let</span><span class="err">&#39;</span><span class="n">s</span><span class="w">  </span><span class="n">assume</span><span class="w">  </span><span class="n">that</span><span class="w">  </span><span class="n">devid</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">occupy</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">eg</span><span class="o">.</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">enlarged</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">grow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="n">as</span><span class="w">
+   </span><span class="n">size</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">achieve</span><span class="w"> </span><span class="n">that</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">NOTE</span><span class="p">:</span><span class="w">
+      </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">ways</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">minimize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">inspect</span><span class="o">-</span><span class="n">internal</span><span class="w"> </span><span class="n">min</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">size</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">iteratively</span><span class="w"> </span><span class="n">shrink</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">steps</span><span class="o">.</span></code></pre><p>EXIT STATUS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">succeeds</span><span class="o">.</span><span class="w"> </span><span class="nc">Non</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">failure</span><span class="o">.</span></code></pre><p>AVAILABILITY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">btrfs</span><span class="o">-</span><span class="n">progs</span><span class="o">.</span><span class="w">  </span><span class="nc">Please</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">wiki</span><span class="w"> </span><span class="n">http</span><span class="ss">://</span><span class="n">btrfs</span><span class="o">.</span><span class="n">wiki</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">details</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">subvolume</span><span class="p" data-group-id="7119149120-1">(</span><span class="mi">8</span><span class="p" data-group-id="7119149120-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">btrfs</span><span class="p" data-group-id="7119149120-2">(</span><span class="mi">8</span><span class="p" data-group-id="7119149120-2">)</span></code></pre><p>COPYRIGHT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="mi">2022</span></code></pre><p>5.18.1                                                                                 Jun 09, 2022                                                                    BTRFS-FILESYSTEM(8)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="btrfs-device.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+btrfs-device
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="btrfs-find-root.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+btrfs-find-root
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

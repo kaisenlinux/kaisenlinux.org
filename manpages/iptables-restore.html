@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>iptables-restore — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-8bad057da9.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>iptables-restore</span>
+</h1>
+
+<p>IPTABLES-RESTORE(8)                                                                   iptables 1.8.8                                                                   IPTABLES-RESTORE(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">iptables</span><span class="o">-</span><span class="n">restore</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="nc">Restore</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="nc">Tables</span><span class="w">
+
+   </span><span class="n">ip6tables</span><span class="o">-</span><span class="n">restore</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="nc">Restore</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="nc">Tables</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">iptables</span><span class="o">-</span><span class="n">restore</span><span class="w"> </span><span class="p" data-group-id="3483668958-1">[</span><span class="o">-</span><span class="n">chntvV</span><span class="p" data-group-id="3483668958-1">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-2">[</span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="n">secs</span><span class="p" data-group-id="3483668958-2">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-3">[</span><span class="o">-</span><span class="nc">W</span><span class="w"> </span><span class="n">usecs</span><span class="p" data-group-id="3483668958-3">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-4">[</span><span class="o">-</span><span class="nc">M</span><span class="w"> </span><span class="n">modprobe</span><span class="p" data-group-id="3483668958-4">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-5">[</span><span class="o">-</span><span class="nc">T</span><span class="w"> </span><span class="n">name</span><span class="p" data-group-id="3483668958-5">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-6">[</span><span class="n">file</span><span class="p" data-group-id="3483668958-6">]</span><span class="w">
+
+   </span><span class="n">ip6tables</span><span class="o">-</span><span class="n">restore</span><span class="w"> </span><span class="p" data-group-id="3483668958-7">[</span><span class="o">-</span><span class="n">chntvV</span><span class="p" data-group-id="3483668958-7">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-8">[</span><span class="o">-</span><span class="n">w</span><span class="w"> </span><span class="n">secs</span><span class="p" data-group-id="3483668958-8">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-9">[</span><span class="o">-</span><span class="nc">W</span><span class="w"> </span><span class="n">usecs</span><span class="p" data-group-id="3483668958-9">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-10">[</span><span class="o">-</span><span class="nc">M</span><span class="w"> </span><span class="n">modprobe</span><span class="p" data-group-id="3483668958-10">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-11">[</span><span class="o">-</span><span class="nc">T</span><span class="w"> </span><span class="n">name</span><span class="p" data-group-id="3483668958-11">]</span><span class="w"> </span><span class="p" data-group-id="3483668958-12">[</span><span class="n">file</span><span class="p" data-group-id="3483668958-12">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">iptables</span><span class="o">-</span><span class="n">restore</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">ip6tables</span><span class="o">-</span><span class="n">restore</span><span class="w">  </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="nc">Tables</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">STDIN</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="nc">I</span><span class="o">/</span><span class="nc">O</span><span class="w"> </span><span class="n">redirection</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w">
+   </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">argument</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">counters</span><span class="w">
+          </span><span class="n">restore</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">counters</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="nc">Print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">summary</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">noflush</span><span class="w">
+          </span><span class="n">don</span><span class="sc">&#39;t flush the previous contents of the table. If not specified, both commands flush (delete) all previous contents of the respective table.
+
+   -t, --test
+          Only parse and construct the ruleset, but do not commit it.
+
+   -v, --verbose
+          Print additional debug info during ruleset processing.  Specify multiple times to increase debug level.
+
+   -V, --version
+          Print the program version number.
+
+   -w, --wait [seconds]
+          Wait for the xtables lock.  To prevent multiple instances of the program from running concurrently, an attempt will be made to obtain an exclusive lock at launch.   By  de‐
+          fault,  the program will exit if the lock cannot be obtained.  This option will make the program wait (indefinitely or for optional seconds) until the exclusive lock can be
+          obtained.
+
+   -M, --modprobe modprobe_program
+          Specify the path to the modprobe program. By default, iptables-restore will inspect /proc/sys/kernel/modprobe to determine the executable&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">table</span><span class="w"> </span><span class="n">name</span><span class="w">
+          </span><span class="nc">Restore</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">ones</span><span class="o">.</span></code></pre><p>BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">None</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">iptables</span><span class="o">-</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">1</span><span class="w"> </span><span class="n">release</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Harald</span><span class="w"> </span><span class="nc">Welte</span><span class="w"> </span><span class="o">&lt;</span><span class="n">laforge</span><span class="na">@gnumonks</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wrote</span><span class="w"> </span><span class="n">iptables</span><span class="o">-</span><span class="n">restore</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Rusty</span><span class="w"> </span><span class="nc">Russell</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Andras</span><span class="w"> </span><span class="nc">Kis</span><span class="o">-</span><span class="nc">Szabo</span><span class="w"> </span><span class="o">&lt;</span><span class="n">kisza</span><span class="na">@sch</span><span class="o">.</span><span class="n">bme</span><span class="o">.</span><span class="n">hu</span><span class="o">&gt;</span><span class="w"> </span><span class="n">contributed</span><span class="w"> </span><span class="n">ip6tables</span><span class="o">-</span><span class="n">restore</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">iptables</span><span class="o">-</span><span class="n">apply</span><span class="p" data-group-id="9355428195-1">(</span><span class="mi">8</span><span class="p" data-group-id="9355428195-1">)</span><span class="p">,</span><span class="n">iptables</span><span class="o">-</span><span class="n">save</span><span class="p" data-group-id="9355428195-2">(</span><span class="mi">8</span><span class="p" data-group-id="9355428195-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">iptables</span><span class="p" data-group-id="9355428195-3">(</span><span class="mi">8</span><span class="p" data-group-id="9355428195-3">)</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">iptables</span><span class="o">-</span><span class="nc">HOWTO</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">iptables</span><span class="w"> </span><span class="n">usage</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NAT</span><span class="o">-</span><span class="nc">HOWTO</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="nc">NAT</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">netfilter</span><span class="o">-</span><span class="n">hacking</span><span class="o">-</span><span class="nc">HOWTO</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">internals</span><span class="o">.</span></code></pre><p>iptables 1.8.8                                                                                                                                                         IPTABLES-RESTORE(8)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="iptables.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+iptables
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="iptables-save.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+iptables-save
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

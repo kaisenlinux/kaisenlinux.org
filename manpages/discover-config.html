@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.4">
+    <meta name="project" content="Manpages v2.1.0">
+
+    <title>discover-config — Manpages v2.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b6f1ed5df9b1d42a7309.css" />
+
+    <script src="dist/sidebar_items-8bad057da9.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/app-bd1cb213813bf4825aa2.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>discover-config</span>
+</h1>
+
+<p>discover-config(1)                                                                General Commands Manual                                                               discover-config(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">discover</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">script</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">discover</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="p" data-group-id="8357534013-1">[</span><span class="n">options</span><span class="p" data-group-id="8357534013-1">]</span></code></pre><p>Description</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">discover</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">stuff</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">configuration</span><span class="o">.</span></code></pre><p>Options</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="nc">VAR</span><span class="w">     </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">VAR</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">newline</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">list</span><span class="o">-</span><span class="n">vars</span><span class="w">
+             </span><span class="nc">List</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span></code></pre><p>Variables</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="err">•</span><span class="w">  </span><span class="n">major_version</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">minor_version</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">micro_version</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">version</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">cppflags</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">ldflags</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">libs</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">prefix</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">exec_prefix</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">bindir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">sbindir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">libexecdir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">datadir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">sysconfdir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">sharedstatedir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">localstatedir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">libdir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">includedir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">oldincludedir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">infodir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">mandir</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">build</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">build_cpu</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">build_vendor</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">build_os</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">host</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">host_cpu</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">host_vendor</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">host_os</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">target</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">target_cpu</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">target_vendor</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">target_os</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">lt_current</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">lt_revision</span><span class="w">
+
+      </span><span class="err">•</span><span class="w">  </span><span class="n">lt_age</span><span class="w">
+
+                                                                                                                                                                    </span><span class="n">discover</span><span class="o">-</span><span class="n">config</span><span class="p" data-group-id="1973991645-1">(</span><span class="mi">1</span><span class="p" data-group-id="1973991645-1">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="cpu-x.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+cpu-x
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="discover.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+discover
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
