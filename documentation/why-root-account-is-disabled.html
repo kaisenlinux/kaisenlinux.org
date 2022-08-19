@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>Why root account is disabled? — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,56 +96,48 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>Why root account is disabled by default?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="the-disable-explanation" class="section-heading">
+  <a href="#the-disable-explanation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">the-disable-explanation</p>
   </a>
-  Why no tool planned for?
+  The disable explanation
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>Thanks to the preseed file used by the insllator, we deactivate the password request for the root user.<br/>The reason is very simple. As a security measure, on UNIX systems, never use the root account but rather use sudo. This allows the increase of the security of the system (also reduces the risks of malware infections), allows to have better control over the actions of the user as well as the traceability of his actions.<br/>We have also based our entire default profile for normal users, especially with zsh, which is the default shell for normal users, but is not that of root (that of root is bash, to facilitate chroot systems).<br/>We have therefore chosen to deactivate this possibility.</p><h2 id="so-how-do-you-get-root-rights" class="section-heading">
+  <a href="#so-how-do-you-get-root-rights" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">so-how-do-you-get-root-rights</p>
   </a>
-  This method
+  So how do you get root rights?
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
+<p>By default, when installing the system with a user and a password entered (which is not offered when we enter a password for root, because root becomes our current user), the installer puts default this user in the sudo group without any restriction on the machine, the sudo command gives you all access.<br/>We have not, despite our attachment to system security, not disabled the possibility of putting a password on root after installation (sudo passwd root command) nor have we disabled the sudo su or su root.<br/>We believe that as users, you are free to use the system as you see fit, without any particular constraints.<br/>However, we always advise you to use sudo when you need root is to leave root disabled (without password), this can save you from some errors that can harm your system.</p><h2 id="advice" class="section-heading">
+  <a href="#advice" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">advice</p>
   </a>
-  WoeUSB method
+  Advice
 </h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>We do not recommend using the root account from a graphical session.<br/>And this because increases the risk of making a false manipulation, creating directories with root rights when root is not necessary, and others.<br/>Some scripts developed for Kaisen Linux are also developed only for regular user accounts (even without sudo rights), because root should not be used from a graphical session.<br/>This will surely never change, admittedly I remove you by default the possibility to put a password on root, but you can entirely use it in command line via the commands sudo <code class="inline">su -</code> or <code class="inline">sudo -i</code>.</p><h2 id="conclusion" class="section-heading">
+  <a href="#conclusion" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">conclusion</p>
+  </a>
+  Conclusion
+</h2>
+<p>Use sudo when you need root.<br/>Log in as root with the <code class="inline">sudo su -</code>, <code class="inline">sudo -i</code>, and su command (su command only works if you have set a root password with the passwd root command).</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="why-no-source-on-some-packages.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+Why no source on some packages?
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
-
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
-        <span class="subheader">
-          Next Page →
-        </span>
-        <span class="title">
-Bad sectors analyses
-        </span>
-      </a>
 
   </div>
 </div>

@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>Informations on rolling version — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,54 +96,44 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>How do I know the number of the rolling version I use?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="with-cat-method" class="section-heading">
+  <a href="#with-cat-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">with-cat-method</p>
   </a>
-  Why no tool planned for?
+  With &quot;cat&quot; method
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>Just do the command <code class="inline">cat /etc/debian_version</code> and read the number marked after Rolling to know your version number.</p><h2 id="with-lsb-release" class="section-heading">
+  <a href="#with-lsb-release" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">with-lsb-release</p>
   </a>
-  This method
+  With lsb-release
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
-  </a>
-  WoeUSB method
-</h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>Just do the command <code class="inline">lsb_release -r</code> and read the number marked after Release to know your version number. 
+The <code class="inline">lsb-release -a</code> command give more informations at release.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="how-to-switch-to-root-directly-with-zsh.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+How to switch to root directly with ZSH?
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
+      <a href="update-kaisen-linux-rolling.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Bad sectors analyses
+Update Kaisen Linux Rolling
         </span>
       </a>
 

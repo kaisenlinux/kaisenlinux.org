@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>Why KDE installed with lightdm by default? — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,54 +96,55 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>Why KDE installed with lightdm by default?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="explanation" class="section-heading">
+  <a href="#explanation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">explanation</p>
   </a>
-  Why no tool planned for?
+  Explanation
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>KDE uses SDDM display manager by default.<br/>I didn't have a problem with that until it started behaving strangely with the <code class="inline">kaisen-interface-switcher</code> script, and its configuration and customization was complicated.<br/>For the sake of simplicity and standardization, I decided using the postinst script on kaisen-kde, to change SDDM to LIGHTDM only when installing the package. This will allow you to reset SDDM or other display manager to default, without updating the package or the entire system, modifying your settings.  </p><h2 id="return-to-sddm" class="section-heading">
+  <a href="#return-to-sddm" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">return-to-sddm</p>
   </a>
-  This method
+  Return to SDDM
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
+<h3 id="universal-method" class="section-heading">
+  <a href="#universal-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">universal-method</p>
   </a>
-  WoeUSB method
+  Universal method
+</h3>
+<p>The universal and potentially error-prone method is to modify the <code class="inline">/etc/X11/default-display-manager</code> file by hand and fill in the new display manager (for this example, replace <code class="inline">/usr/sbin/lightdm</code> by <code class="inline">/usr/bin/sddm</code>) and the changes will be visible the next time you start the computer.</p><h2 id="debian-method" class="section-heading">
+  <a href="#debian-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">debian-method</p>
+  </a>
+  Debian method
 </h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>You just have to use the <code class="inline">sudo dpkg-reconfigure lightdm</code> command and select SDDM. This reconfiguration will be visible the next time you restart the computer. I advice this method, because is less error-prone.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="why-create-user-accounts-only-on-home.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+Why create user accounts only on home?
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
+      <a href="why-no-source-on-some-packages.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Bad sectors analyses
+Why no source on some packages?
         </span>
       </a>
 

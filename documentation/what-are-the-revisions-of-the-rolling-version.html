@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>What are the revisions of the rolling version? — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,54 +96,49 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>What are the revisions of the rolling version?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="explanation" class="section-heading">
+  <a href="#explanation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">explanation</p>
   </a>
-  Why no tool planned for?
+  Explanation
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>Revisions (eg 1.1, 1.2 and so on) are simply a &quot;snapshot&quot; of the project at one point in time.<br/>The revisions of the rolling version are therefore ISOS updated at a given time when the system has had improvements, additions of tools, bug fixes etc ...</p><h2 id="apt-os-update" class="section-heading">
+  <a href="#apt-os-update" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apt-os-update</p>
   </a>
-  This method
+  APT OS update
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
+<p>Since the rolling version and therefore the arrival of the official Kaisen Linux package repositories, the entire system can be updated via APT.<br/>When switching to a &quot;new version&quot;, the base-files package is updated and the / etc / os-release file and the conky will show the current revision.  </p><h2 id="new-isos" class="section-heading">
+  <a href="#new-isos" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">new-isos</p>
   </a>
-  WoeUSB method
+  New ISOS
 </h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>New ISOS are therefore created with each revision to fix any errors on the live system, improvements on the start-up entries, support for a new language, integration of new tools integrated over time on the live etc ...<br/>Even if you have downloaded Kaisen Linux 2.1 and installed the system, and ISOS 2.2 has just been released, you don't have to completely reinstall the system, using the kaisen-update command will suffice to change from revision 2.1 to 2.2 by updating the packages.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="update-kaisen-linux-rolling.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+Update Kaisen Linux Rolling
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
+      <a href="where-can-i-find-documentation-on-the-built-in-tools-or-how-certain-settings-work.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Bad sectors analyses
+Where can I find documentation on the built in tools or how certain settings work?
         </span>
       </a>
 

@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>Why no source on some packages? — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,54 +96,43 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>Why no sources on some packages?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="free-software" class="section-heading">
+  <a href="#free-software" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">free-software</p>
   </a>
-  Why no tool planned for?
+  Free software
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>Some software such as codium, balena-etcher-electron to name a few, are packages downloaded directly from official GitHub sources in the releases section. Software developers have already tampered with this software, so we don't have to package it ourselves.  </p><h2 id="check-the-authenticity-of-the-packages" class="section-heading">
+  <a href="#check-the-authenticity-of-the-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">check-the-authenticity-of-the-packages</p>
   </a>
-  This method
+  Check the authenticity of the packages
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
-  </a>
-  WoeUSB method
-</h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>The safest and most efficient way to check the authenticity of the sourceless packages that we provide to you is to check via the official GitHub repository of the software (for example codium or balena-etcher-electron) the checksum in sha256, md5 or sha1 with sha256sum, md5sum or sha1sum the package we provide as well as the one on GitHub. The amounts are normally the same because the file has not been modified.<br/>You can find the .deb files added for Kaisen Linux and the sha256, md5, and sha1 checksums of these packages (this also includes packages developed for distribution as well as packages recompiled for distribution) <a href="https://deb.kaisenlinux.org/dists/kaisen-devel/main/binary-amd64/Packages">here</a>:<br/><a href="https://deb.kaisenlinux.org/dists/kaisen-devel/main/binary-amd64/Packages">https://deb.kaisenlinux.org/dists/kaisen-devel/main/binary-amd64/Packages</a></p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="why-kde-installed-with-lightdm-by-default.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+Why KDE installed with lightdm by default?
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
+      <a href="why-root-account-is-disabled.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Bad sectors analyses
+Why root account is disabled?
         </span>
       </a>
 

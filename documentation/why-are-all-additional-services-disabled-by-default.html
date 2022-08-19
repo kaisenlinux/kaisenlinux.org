@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.28.5">
     <meta name="project" content="Documentation v2.1.1">
 
-    <title>Windows bootable USB key — Documentation v2.1.1</title>
+    <title>Why are all additional services disabled by default? — Documentation v2.1.1</title>
     <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
 
     <script src="dist/sidebar_items-b97fd208bb.js"></script>
@@ -96,54 +96,50 @@ Documentation
 </button>
 
 
-  <span>Windows USB key</span>
+  <span>Why are all additional services disabled by default?</span>
 </h1>
 
-<p><strong>How to create a USB bootable key for Windows system</strong></p><h2 id="why-no-tool-planned-for" class="section-heading">
-  <a href="#why-no-tool-planned-for" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">why-no-tool-planned-for</p>
+<h2 id="explanation" class="section-heading">
+  <a href="#explanation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">explanation</p>
   </a>
-  Why no tool planned for?
+  Explanation
 </h2>
-<p>The first beta versions of Kaisen Linux included the WoeUSB tool which created a bootable Windows USB key. However, as mentioned on the blog, version 20200206 removes WoeUSB because it caused the impossibility of correctly installing GRUB in UEFI because WoeUSB requires as dependency grub-pc and the latter conflicts with grub-efi therefore caused the error when installing GRUB.</p><h2 id="this-method" class="section-heading">
-  <a href="#this-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">this-method</p>
+<p>We call additional services, services installed by software provided in Kaisen Linux. The reason is simple. It is about optimizing the performance and resources used by the system.<br/>When building the ISO, all services are disabled with systemd hooks, which allows once the ISO is built, to be able to use Kaisen Linux with only 500MB to 550MB of RAM on the live as well as on the installed system , which is suitable for very small configurations.<br/>We also have the vision, despite the wide range of tools provided by default, to let the user choose to use only what they need, so let these services run in the background, is useless and consumes resources unnecessarily. The tool is present (because we provide a complete live), but if not necessary, it therefore does not encumber any resource (except the disk space used by this program).</p><h2 id="management-of-these-services" class="section-heading">
+  <a href="#management-of-these-services" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">management-of-these-services</p>
   </a>
-  This method
+  Management of these services
 </h2>
-<p>The method that will be presented here, will be the easiest way to create a bootable Windows USB key.<br/>However, there are 2 prerequisites.  </p><pre><code class="makeup bash" translate="no"><span class="">*A USB key of 8GB minimum formatted as ntfs
-</span><span class="">*Windows 10 ISO
-</span></code></pre><p>To format your USB key from a GNU/Linux system, I refer you to this tutorial, very simple and clear, on the tool Gparted
-Kaisen Linux provides the Engrapa archive manager allowing to extract also .iso files in a folder.  </p><p>To do this, right click on your Windows 10 ISO, and do 'Extract here' and you will have a folder with the same name as the Windows 10 ISO.  </p><p>Open this folder and copy and paste all the content of the latter on your ntfs formatted USB key.  </p><p>Once the process is complete, you should be able to start on your USB drive.  </p><h2 id="woeusb-method" class="section-heading">
-  <a href="#woeusb-method" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">woeusb-method</p>
+<p>So we have to list these services, as well as to facilitate their management (activation, deactivation) created the <strong>&quot;kaisen-services-management&quot;</strong> package which installs scripts which will be referenced on the menu in the <strong>&quot;Services&quot;</strong> tab which will allow activate and deactivate the services listed by sub-tabs for example <strong>&quot;zfs-fuse, avahi, cups etc ...&quot;</strong> as well as two scripts to activate or deactivate everything.</p><h2 id="problem-resolution" class="section-heading">
+  <a href="#problem-resolution" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">problem-resolution</p>
   </a>
-  WoeUSB method
+  Problem resolution
 </h2>
-<p>The WoeUSB tool integrated by default in the SR version of Kaisen Linux and which can be installed via APT on the installed system, allows to install a Windows bootable USB key with UEFI and classic BIOS support. 
-In this example, the USB stick is /dev/sdb as device file. To use WoeUSB to create a bootable key:
-<code class="inline">woeusb --device Windows10_x64.iso /dev/sdb</code></p>
+<p>If you therefore have an error telling you that the service is not indicated or certain programs (2ping for example) start but are not functional, try to activate the service corresponding to this program (via the menu or simply by typing yourself systemd commands).
+If that doesn't solve your problem, contact support.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="cryptsetup-nuke-password.html" class="bottom-actions-button" rel="prev">
+      <a href="where-can-i-find-more-documentation.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Cryptsetup nuke password
+Where can I find more documentation?
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="bad-sectors-analyses.html" class="bottom-actions-button" rel="next">
+      <a href="why-create-user-accounts-only-on-home.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Bad sectors analyses
+Why create user accounts only on home?
         </span>
       </a>
 

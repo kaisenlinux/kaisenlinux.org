@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.5">
+    <meta name="project" content="Documentation v2.1.1">
+
+    <title>How to change graphical interface? — Documentation v2.1.1</title>
+    <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
+
+    <script src="dist/sidebar_items-b97fd208bb.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-b5f3440501744dc8be3d.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/documentation/">
+        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.1.1
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+  <span>How to change graphical interface?</span>
+</h1>
+
+<h2 id="to-do-what" class="section-heading">
+  <a href="#to-do-what" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">to-do-what</p>
+  </a>
+  To do what?
+</h2>
+<p>The KDE, LXDE and XFCE interfaces arrived some time after the first versions, and migrating to a new graphical interface is not easy.
+You have to purge the old one (not mandatory, but avoids overloading the system and avoiding potential conflicts), and install the new interface.<br/>A package has been created for each GUI officially supported by Kaisen Linux installing all of the predefined configurations.<br/>For this a tool has been created to do it simply and fully automated!<br/>This tool was also created so that the user does not come to reinstall his OS in the event of difficulties.</p><h2 id="kaisen-interface-switcher" class="section-heading">
+  <a href="#kaisen-interface-switcher" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">kaisen-interface-switcher</p>
+  </a>
+  kaisen-interface-switcher
+</h2>
+<p>The script since Kaisen Linux revision 1.4 is designed when the script starts up (after all checks have been made), to update itself if a new, more recent version of the script (installed by the kaisen-kde package, kaisen-lxde, kaisen-mate, kaisen-xfce depending on your current GUI). This is intended if you do not update often, to be able to change your interface and update the list of packages to uninstall. The main purpose of this is to automate the task even more, saving you time.<br/>The kaisen-interface-switcher script allows you to change your graphical interface by installing the one of your choice by removing your current graphical interface. It can be started by the <code class="inline">sudo kaisen-interface-switcher</code> command.<br/>The first versions of this script reinstalled for each user the default profile of each interface (execution of the kaisen-interface-switcher command during the script) but this lost the personalization of the user if he wishes to reinstall his graphical interface. 'original (e.g. switching from MATE to KDE then from KDE to MATE).<br/>This problem has been corrected by replacing the installation of a default profile per interface with a package installing the default profile for all graphical interfaces (see <a href="https://kaisenlinux.org/documentation/packages">kaisen-skeleton</a>. You can therefore change the graphical interface at will, without losing a single one of your settings!</p><h2 id="prerequisites" class="section-heading">
+  <a href="#prerequisites" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">prerequisites</p>
+  </a>
+  Prerequisites
+</h2>
+<p>Since revision 1.4, the <code class="inline">kaisen-interface-switcher</code> script has been corrected to fix some issues that occurred when using the script (eg when using wifi or with wrong proxy settings).<br/>To be able to use kaisen-interface-switcher, the script will check two things:  </p><ul><li>Connectivity to APT (if behind a proxy, only the configuration of the APT proxy is sufficient)</li><li>The network interface through which network packets pass.
+The script will remove all packages installed by your current GUI, it will also remove network-manager, and without network-manager the wifi cannot work. This therefore prevented the installation of your new graphical interface, and the old one was deleted, the next time you restart your machine, you would find yourself without a graphical interface.<br/>So I added as many checks as possible to limit the risk of losing the graphic interface during the process. I strongly advise against modifying the script yourself to modify checks or the like unless you know exactly what you are doing.  </li></ul><h2 id="working" class="section-heading">
+  <a href="#working" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">working</p>
+  </a>
+  Working
+</h2>
+<p>The script will automatically save the graphics settings and profile of all system users who have a home directory in /home, regardless of the UID number and root user.<br/>The directories will be saved in <code class="inline">/usr/share/kaisen-interface-switcher/$users/INTERFACE_NAME</code> depending on the interface selected (and therefore the script launched, therefore MATE, KDE, LXDE or XFCE version).<br/>The selected interface will be installed after uninstalling the initial interface.<br/>Once the installation is complete, if automatic backups of the interface installed by the script exist in the dedicated directory, they will be copied to the users present on the system. In the event of an error (a user has been deleted in the meantime, as well as his home directory, or other reason), the content of the <code class="inline">/etc/skel</code> or <code class="inline">/etc/xdg</code> folder will be copied (only where it failed, if possible).</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="how-to-build-custom-iso.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+How to build custom ISO?
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="how-to-change-login-wallpaper.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+How to change login wallpaper?
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.5) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
