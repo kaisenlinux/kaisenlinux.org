@@ -106,8 +106,8 @@
       <div class="section-heading col-md-4 col-sm-4 col-12">
         <h4>Downloads</h4>
         <div class="text-content-big mt-20">
-        <span>Kaisen Linux 2.2RC1 is available!</span>: <a href="https://iso.kaisenlinux.org/testing" target="_blank">Mirror 1</a><br>
-        <span>Kaisen Linux 2.2RC1 is available!</span>: <a href="https://iso.kaisenlinux.xyz/testing" target="_blank">Mirror 2</a><br>
+<!--        <span>Kaisen Linux 2.2RC1 is available!</span>: <a href="https://iso.kaisenlinux.org/testing" target="_blank">Mirror 1</a><br>
+        <span>Kaisen Linux 2.2RC1 is available!</span>: <a href="https://iso.kaisenlinux.xyz/testing" target="_blank">Mirror 2</a><br> -->
           <p>Architecture: amd64 (Intel and AMD processors)<br>
           Default desktop environment: MATE<br>
           Others desktop environments: KDE, XFCE, LXQT<br>
