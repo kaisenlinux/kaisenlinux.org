@@ -200,6 +200,14 @@
             'link' => 'kaisenlinuxrolling2.1.php',
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
+		[
+            'title' => 'Kaisen Linux Rolling 2.2RC1 release note',
+                'extract' => 'Major bugs fixed with live systems. New cloud tools. Improvements of the GUI defaults profiles.',
+            'date'=> '2022/08/20',
+            'visuel' => '/img/blog/screen-2.1.x.png',
+            'link' => 'kaisenlinuxrolling2.2RC1.php',
+            'author' => 'Kevin Chevreuil - Kaisen',
+        ],
 
 	];
 
