@@ -9,7 +9,7 @@
 	$url = 'https://kaisenlinux.org';
 
 
-	$release_version = 'Rolling 2.2RC1';
+	$release_version = 'Rolling 2.2RC2';
 
 
 	$links_download = [
@@ -18,16 +18,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/mate.png',
-			'size' => '5.0Go',
+			'size' => '5.1Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-MATE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-MATE.iso',
                 ],
 				[
 					'name' => 'Mirror 2',
-					'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-MATE.iso',
+					'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-MATE.iso',
 				],
 
 			],
@@ -38,16 +38,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '5.4Go',
+			'size' => '5.5Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-KDE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-KDE.iso',
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-KDE.iso',
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-KDE.iso',
                 ],
 
 			],
@@ -58,16 +58,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/xfce.png',
-			'size' => '4.9Go',
+			'size' => '5.0Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-XFCE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-XFCE.iso',
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-XFCE.iso',
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-XFCE.iso',
                 ],
 
 			],
@@ -78,16 +78,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/lxqt.png',
-			'size' => '5.0Go',
+			'size' => '5.1Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-LXQT.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-LXQT.iso',
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-LXQT.iso',
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-LXQT.iso',
                 ],
 
 			],
@@ -98,16 +98,16 @@
 
 			'include' => 'No installer, live only',
 			'img'	  => './img/downloads/sr.png',
-			'size' => '2.6Go',
+			'size' => '2.9Go',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-SR.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-SR.iso',
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-SR.iso',
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-SR.iso',
                 ],
 
 			],
@@ -118,16 +118,16 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '409Mo',
+			'size' => '441Mo',
 
 			'links' => [
 				[
                     'name' => 'Mirror 1',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC1-amd64-NETINST.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2RC2-amd64-NETINST.iso',
                 ],
 				[
                     'name' => 'Mirror 2',
-                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC1-amd64-NETINST.iso',
+                    'link' => 'https://iso.kaisenlinux.xyz/rolling/kaisenlinuxrolling2.2RC2-amd64-NETINST.iso',
                 ],
 
 			],

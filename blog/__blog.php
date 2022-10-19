@@ -209,6 +209,15 @@
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
 
+		[
+            'title' => 'Kaisen Linux Rolling 2.2RC2 release note',
+                'extract' => 'Bugs fixed with updates and snapshots. New cloud and DevOps tools. Improvements of hardware support.',
+            'date'=> '2022/10/03',
+            'visuel' => '/img/blog/screen-2.1.x.png',
+            'link' => 'kaisenlinuxrolling2.2RC2.php',
+            'author' => 'Kevin Chevreuil - Kaisen',
+        ],
+
 	];
 
 	$blog = array_reverse($blog);

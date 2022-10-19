@@ -18,7 +18,7 @@
           <h1 id="kaisenlinuxrolling">Kaisen Linux Rolling 2.2RC1 changelog</h1>
 <p>Major bugs fixed with live systems. New cloud tools. Improvements of the GUI defaults profiles.</p>
 <p>Codename: Rolling</p><br>
-<p>This release is the first and the last release candidate before the 2.2 version releasing.</p>
+<p>This release is the first and probably the latest release candidate before the 2.2 version releasing.</p>
 <p>Her exist because some bugs can only be fixed with new ISOS, and it couldn't wait for the 2.2 release. For example, encrypted persistence did not work on live systems before these ISOS.</p>
 <p>The other changes improve the netinstaller and GUI implementation. The default profiles are now installed in the /etc/xdg folder, to make it easier to reset user settings and integrate them for newly created users.<p>
 <p>List of detailled changes:
