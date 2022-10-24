@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.5">
-    <meta name="project" content="Manpages v2.1.1">
+    <meta name="generator" content="ExDoc v0.29.0">
+    <meta name="project" content="Manpages v2.1.2">
 
-    <title>nvme-wdc-namespace-resize — Manpages v2.1.1</title>
-    <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
+    <title>nvme-wdc-namespace-resize — Manpages v2.1.2</title>
+    <link rel="stylesheet" href="dist/html-elixir-2YOS5DIE.css" />
 
-    <script src="dist/sidebar_items-b870e624f4.js"></script>
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
+    <script src="dist/sidebar_items-2E40A9A3.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-b5f3440501744dc8be3d.js"></script>
+    <script async src="dist/html-XN2TSG4M.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
-  <body data-type="extras">
+  <body data-type="extras" class="page-extra">
     <script>
 
       try {
@@ -35,12 +37,11 @@
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
@@ -70,7 +71,7 @@
 Manpages
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v2.1.1
+        v2.1.2
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -99,9 +100,9 @@ Manpages
   <span>nvme-wdc-namespace-resize</span>
 </h1>
 
-<p>NVME-WDC-NAMESPACE(1)                                                                   NVMe Manual                                                                  NVME-WDC-NAMESPACE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">wdc</span><span class="o">-</span><span class="n">namespace</span><span class="o">-</span><span class="n">resize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Resizes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">wdc</span><span class="w"> </span><span class="n">namespace</span><span class="o">-</span><span class="n">resize</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9662439041-1">[</span><span class="o">--</span><span class="n">nsid</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">NAMSPACE</span><span class="w"> </span><span class="nc">ID</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NAMSPACE</span><span class="w"> </span><span class="nc">ID</span><span class="o">&gt;</span><span class="p" data-group-id="9662439041-1">]</span><span class="w"> </span><span class="p" data-group-id="9662439041-2">[</span><span class="o">--</span><span class="n">op_option</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">OP</span><span class="w"> </span><span class="nc">OPTION</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">OP</span><span class="w"> </span><span class="nc">OPTION</span><span class="o">&gt;</span><span class="p" data-group-id="9662439041-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WDC</span><span class="w"> </span><span class="nc">Vendor</span><span class="w"> </span><span class="nc">Specific</span><span class="w"> </span><span class="nc">Command</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">modifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+<p>NVME-WDC-NAMESPACE(1)                                                                   NVMe Manual                                                                  NVME-WDC-NAMESPACE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">wdc</span><span class="o">-</span><span class="n">namespace</span><span class="o">-</span><span class="n">resize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Resizes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">wdc</span><span class="w"> </span><span class="n">namespace</span><span class="o">-</span><span class="n">resize</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="4421858057-1">[</span><span class="o">--</span><span class="n">nsid</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">NAMSPACE</span><span class="w"> </span><span class="nc">ID</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NAMSPACE</span><span class="w"> </span><span class="nc">ID</span><span class="o">&gt;</span><span class="p" data-group-id="4421858057-1">]</span><span class="w"> </span><span class="p" data-group-id="4421858057-2">[</span><span class="o">--</span><span class="n">op_option</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">OP</span><span class="w"> </span><span class="nc">OPTION</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">OP</span><span class="w"> </span><span class="nc">OPTION</span><span class="o">&gt;</span><span class="p" data-group-id="4421858057-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WDC</span><span class="w"> </span><span class="nc">Vendor</span><span class="w"> </span><span class="nc">Specific</span><span class="w"> </span><span class="nc">Command</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">modifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="7121086228-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="7121086228-1">)</span><span class="o">.</span><span class="w">
+   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="7487623837-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="7487623837-1">)</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">WDC</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">supporting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="o">.</span><span class="w"> </span><span class="nc">Results</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">undefined</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NAMSPACE</span><span class="w"> </span><span class="nc">ID</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">namespace</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">NAMSPACE_ID</span><span class="o">&gt;</span><span class="w">
        </span><span class="nc">Namespace</span><span class="w"> </span><span class="nc">ID</span><span class="p">;</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">resize</span><span class="w">
@@ -113,7 +114,7 @@ Manpages
            </span><span class="mh">0x1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Original</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">value</span><span class="w">
            </span><span class="mh">0x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">28</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Original</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">value</span><span class="w">
            </span><span class="mh">0x3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">50</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Original</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">value</span><span class="w">
-           </span><span class="mh">0xF</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">0</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Original</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="7305758083-1">(</span><span class="n">original</span><span class="w"> </span><span class="n">config</span><span class="p" data-group-id="7305758083-1">)</span><span class="w">
+           </span><span class="mh">0xF</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">0</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Original</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="1256335460-1">(</span><span class="n">original</span><span class="w"> </span><span class="n">config</span><span class="p" data-group-id="1256335460-1">)</span><span class="w">
            </span><span class="nc">All</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">reserved</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">•</span><span class="w">   </span><span class="nc">Resizes</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">50</span><span class="p">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">orginal</span><span class="w"> </span><span class="nc">TNVMCAP</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="ss">value</span><span class="p">:</span><span class="w">
 
            </span><span class="c1"># nvme wdc namespace-resize /dev/nvme0 -n 1 -o 3</span><span class="w">
@@ -147,12 +148,11 @@ nvme-wdc-purge
 
   </div>
 </div>
-
       <footer class="footer">
 
         <p>
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.5) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

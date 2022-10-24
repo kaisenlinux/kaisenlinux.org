@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.5">
-    <meta name="project" content="Manpages v2.1.1">
+    <meta name="generator" content="ExDoc v0.29.0">
+    <meta name="project" content="Manpages v2.1.2">
 
-    <title>nvme-lnvm-create — Manpages v2.1.1</title>
-    <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
+    <title>nvme-lnvm-create — Manpages v2.1.2</title>
+    <link rel="stylesheet" href="dist/html-elixir-2YOS5DIE.css" />
 
-    <script src="dist/sidebar_items-57a159ecb1.js"></script>
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
+    <script src="dist/sidebar_items-4E428B88.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-b5f3440501744dc8be3d.js"></script>
+    <script async src="dist/html-XN2TSG4M.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
-  <body data-type="extras">
+  <body data-type="extras" class="page-extra">
     <script>
 
       try {
@@ -35,12 +37,11 @@
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
@@ -70,7 +71,7 @@
 Manpages
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v2.1.1
+        v2.1.2
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -99,11 +100,11 @@ Manpages
   <span>nvme-lnvm-create</span>
 </h1>
 
-<p>NVME-LNVM-CREATE(1)                                                                     NVMe Manual                                                                    NVME-LNVM-CREATE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">lnvm</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Instantiate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LightNVM</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">device</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">lnvm</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="p" data-group-id="7260276699-1">[</span><span class="o">--</span><span class="n">device</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="p" data-group-id="7260276699-1">]</span><span class="w">
-                           </span><span class="p" data-group-id="7260276699-2">[</span><span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">TARGET</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">TARGET</span><span class="o">&gt;</span><span class="p" data-group-id="7260276699-2">]</span><span class="w">
-                           </span><span class="p" data-group-id="7260276699-3">[</span><span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">type</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">TARGETTYPE</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">TARGETTYPE</span><span class="o">&gt;</span><span class="p" data-group-id="7260276699-3">]</span><span class="w">
-                           </span><span class="p" data-group-id="7260276699-4">[</span><span class="o">--</span><span class="n">lun</span><span class="o">-</span><span class="n">begin</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p" data-group-id="7260276699-4">]</span><span class="w">
-                           </span><span class="p" data-group-id="7260276699-5">[</span><span class="o">--</span><span class="n">lun</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p" data-group-id="7260276699-5">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Instantiate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LightNVM</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">exposes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
+<p>NVME-LNVM-CREATE(1)                                                                     NVMe Manual                                                                    NVME-LNVM-CREATE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">lnvm</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Instantiate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LightNVM</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">device</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">lnvm</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="p" data-group-id="4070029649-1">[</span><span class="o">--</span><span class="n">device</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">DEVICE</span><span class="o">&gt;</span><span class="p" data-group-id="4070029649-1">]</span><span class="w">
+                           </span><span class="p" data-group-id="4070029649-2">[</span><span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">name</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">TARGET</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">TARGET</span><span class="o">&gt;</span><span class="p" data-group-id="4070029649-2">]</span><span class="w">
+                           </span><span class="p" data-group-id="4070029649-3">[</span><span class="o">--</span><span class="n">target</span><span class="o">-</span><span class="n">type</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">TARGETTYPE</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">TARGETTYPE</span><span class="o">&gt;</span><span class="p" data-group-id="4070029649-3">]</span><span class="w">
+                           </span><span class="p" data-group-id="4070029649-4">[</span><span class="o">--</span><span class="n">lun</span><span class="o">-</span><span class="n">begin</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p" data-group-id="4070029649-4">]</span><span class="w">
+                           </span><span class="p" data-group-id="4070029649-5">[</span><span class="o">--</span><span class="n">lun</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p" data-group-id="4070029649-5">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Instantiate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">LightNVM</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">exposes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">The</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">exposed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="o">&lt;</span><span class="n">targetname</span><span class="o">&gt;</span><span class="w">
 
@@ -151,12 +152,11 @@ nvme-lnvm-diag-bbtbl
 
   </div>
 </div>
-
       <footer class="footer">
 
         <p>
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.5) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

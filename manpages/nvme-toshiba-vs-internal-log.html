@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.28.5">
-    <meta name="project" content="Manpages v2.1.1">
+    <meta name="generator" content="ExDoc v0.29.0">
+    <meta name="project" content="Manpages v2.1.2">
 
-    <title>nvme-toshiba-vs-internal-log — Manpages v2.1.1</title>
-    <link rel="stylesheet" href="dist/elixir-64c5e2b63575bddb1c5b.css" />
+    <title>nvme-toshiba-vs-internal-log — Manpages v2.1.2</title>
+    <link rel="stylesheet" href="dist/html-elixir-2YOS5DIE.css" />
 
-    <script src="dist/sidebar_items-57a159ecb1.js"></script>
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-X7YVL3G2.js"></script>
+    <script src="dist/sidebar_items-4E428B88.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/app-b5f3440501744dc8be3d.js"></script>
+    <script async src="dist/html-XN2TSG4M.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
-  <body data-type="extras">
+  <body data-type="extras" class="page-extra">
     <script>
 
       try {
@@ -35,12 +37,11 @@
 
 <div class="main">
 
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
 
 <section class="sidebar">
-  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
-    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
-  </button>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
@@ -70,7 +71,7 @@
 Manpages
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v2.1.1
+        v2.1.2
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -100,10 +101,10 @@ Manpages
 </h1>
 
 <p>NVME-TOSHIBA-VS-I(1)                                                                    NVMe Manual                                                                   NVME-TOSHIBA-VS-I(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">toshiba</span><span class="o">-</span><span class="n">vs</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">log</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Retrieve</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Toshiba</span><span class="w"> </span><span class="n">device</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">vendor</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">dump</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="sc">&#39;nvme toshiba vs-internal-log &#39;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
-                   </span><span class="p" data-group-id="7820737757-1">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p" data-group-id="7820737757-1">]</span><span class="w"> </span><span class="p" data-group-id="7820737757-2">(</span><span class="n">optional</span><span class="p" data-group-id="7820737757-2">)</span><span class="w">
-                   </span><span class="p" data-group-id="7820737757-3">[</span><span class="o">--</span><span class="n">saved</span><span class="o">-</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="p" data-group-id="7820737757-3">]</span><span class="w"> </span><span class="p" data-group-id="7820737757-4">(</span><span class="n">optional</span><span class="p" data-group-id="7820737757-4">)</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Toshiba</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">saves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
+                   </span><span class="p" data-group-id="0089544288-1">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">FILE</span><span class="o">&gt;</span><span class="p" data-group-id="0089544288-1">]</span><span class="w"> </span><span class="p" data-group-id="0089544288-2">(</span><span class="n">optional</span><span class="p" data-group-id="0089544288-2">)</span><span class="w">
+                   </span><span class="p" data-group-id="0089544288-3">[</span><span class="o">--</span><span class="n">saved</span><span class="o">-</span><span class="n">log</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="p" data-group-id="0089544288-3">]</span><span class="w"> </span><span class="p" data-group-id="0089544288-4">(</span><span class="n">optional</span><span class="p" data-group-id="0089544288-4">)</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">sends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Toshiba</span><span class="w"> </span><span class="n">internal</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">saves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">dumps</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stdout</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="1516713678-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="1516713678-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="1516713678-2">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1</span><span class="p" data-group-id="1516713678-2">)</span><span class="o">.</span><span class="w">
+   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="4789597828-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="4789597828-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="4789597828-2">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1</span><span class="p" data-group-id="4789597828-2">)</span><span class="o">.</span><span class="w">
 
    </span><span class="nc">The</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">namespaces</span><span class="o">.</span><span class="w">
 
@@ -149,12 +150,11 @@ nvme-toshiba-vs-smart-add-log
 
   </div>
 </div>
-
       <footer class="footer">
 
         <p>
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.5) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
