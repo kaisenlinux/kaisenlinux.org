@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.1">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>podman-kube-generate — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-V2ETBPMB.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-IV5W3OL2.js"></script>
+    <script src="dist/sidebar_items-507A3EB3.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-XN2TSG4M.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>podman-kube-generate</span>
+</h1>
+
+<p>‐% podman‐kube‐generate(1)</p><p>podman‐kube‐generate   ‐   Generate   Kubernetes  YAML  based  on
+containers, pods or volumes</p><p>podman kube generate [options] container... | pod... | volume...</p><p>podman  kube  generate  will   generate   Kubernetes   YAML   (v1
+specification)   from   Podman   containers,   pods  or  volumes.
+Regardless of whether the input is for containers or pods, Podman
+will always generate the specification as a Pod. The input may be
+in the form of one or more containers, pods or volumes  names  or
+IDs.</p><p>Podman Containers or Pods</p><p>Volumes  appear  in the generated YAML according to two different
+volume types. Bind‐mounted volumes become hostPath  volume  types
+and  named  volumes  become  persistentVolumeClaim  volume types.
+Generated hostPath volume types will be  one  of  three  subtypes
+depending  on  the state of the host path: DirectoryOrCreate when
+no file or directory exists at the host, Directory when host path
+is  a  directory, or File when host path is a file. The value for
+claimName for a persistentVolumeClaim is the name  of  the  named
+volume registered in Podman.</p><p>Potential  name  conflicts between volumes are avoided by using a
+standard naming scheme for each volume type. The hostPath  volume
+types  are  named  according  to  the  path  on the host machine,
+replacing forward slashes  with  hyphens  less  any  leading  and
+trailing  forward  slashes.  The  special  case of the filesystem
+root, /, translates to the name root. Additionally, the  name  is
+suffixed    with   ‐host   to   avoid   naming   conflicts   with
+persistentVolumeClaim volumes. Each persistentVolumeClaim  volume
+type  uses  the name of its associated named volume suffixed with
+‐pvc.</p><p>Note that if an init container is created with type once and  the
+pod  has been started, the init container will not show up in the
+generated kube YAML as once  type  init  containers  are  deleted
+after  they  are  run.  If  the pod has only been created and not
+started, it will be in the generated kube YAML.  Init  containers
+created  with  type  always  will always be generated in the kube
+YAML as they are never deleted, even after running to completion.</p><p>Note: When using volumes and generating a Kubernetes YAML for  an
+unprivileged  and rootless podman container on an SELinux enabled
+system,  one of the following options must be completed:</p><ul><li>Add the &quot;privileged: true&quot; option to the pod spec</li><li>Add type: spc_t under the securityContext  seLinuxOptions  in
+the pod spec</li><li>  Relabel   the   volume   via   the  CLI  command  chcon  ‐t
+container_file_t ‐R &lt;directory&gt;</li></ul><p>Once completed, the correct  permissions  will  be  in  place  to
+access  the  volume  when  the  pod/container  is  created  in  a
+Kubernetes cluster.</p><p>Note that the generated Kubernetes YAML file can be used  to  re‐
+run the deployment via podman‐play‐kube(1).</p><p>Output  to the given file, instead of STDOUT. If the file already
+exists, kube generate will refuse to replace  it  and  return  an
+error.</p><p>Generate  a  Kubernetes  service  object in addition to the Pods.
+Used to generate a Service specification  for  the  corresponding
+Pod  output.  In  particular, if the object has portmap bindings,
+the service specification will include a NodePort declaration  to
+expose  the  service.  A random port is assigned by Podman in the
+specification.</p><p>Create Kubernetes Pod YAML for a container called some‐mariadb.</p><p>$ sudo podman kube generate some‐mariadb</p><h1>Save the output of this file and use kubectl create ‐f to import</h1><h1>it into Kubernetes.</h1><p>#</p><h1>Created with podman‐0.11.2‐dev</h1><p>apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: 2018‐12‐03T19:07:59Z
+  labels:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="err">‐</span><span class="n">mariadb</span></code></pre><p>  name: some‐mariadb‐libpod
+spec:
+  containers:
+  ‐ command:</p><pre><code class="makeup elixir" translate="no"><span class="err">‐</span><span class="w"> </span><span class="n">docker</span><span class="err">‐</span><span class="n">entrypoint</span><span class="o">.</span><span class="n">sh</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="n">mysqld</span><span class="w">
+</span><span class="ss">env</span><span class="p">:</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">HOSTNAME</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">GOSU_VERSION</span><span class="w">
+  </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.10&quot;</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">GPG_KEYS</span><span class="w">
+  </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;199369E5404BD5FC7D2FE43BCBCB082A1BB943DB </span><span class="se">\t</span><span class="s">177F4010FE56CA3336300305F1656F24C74CD1D8
+    </span><span class="se">\t</span><span class="s">430BDF5C56E7C94E848EE60C1C4CBDCDCD2EFD2A </span><span class="se">\t</span><span class="s">4D1BB29D63D98E422B2113B19334A25F8507EFA5&quot;</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MARIADB_MAJOR</span><span class="w">
+  </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10.3&quot;</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MARIADB_VERSION</span><span class="w">
+  </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mf">10.3</span><span class="o">.</span><span class="mi">10</span><span class="o">+</span><span class="n">maria</span><span class="err">~</span><span class="n">bionic</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="nc">MYSQL_ROOT_PASSWORD</span><span class="w">
+  </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="w">
+</span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">baude</span><span class="o">/</span><span class="n">demodb</span><span class="ss">:latest</span><span class="w">
+</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="err">‐</span><span class="n">mariadb</span><span class="w">
+</span><span class="ss">ports</span><span class="p">:</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">containerPort</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="w">
+  </span><span class="ss">hostPort</span><span class="p">:</span><span class="w"> </span><span class="mi">36533</span><span class="w">
+</span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4012274079-1">{</span><span class="p" data-group-id="4012274079-1">}</span><span class="w">
+</span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+  </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+    </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+</span><span class="ss">tty</span><span class="p">:</span><span class="w"> </span><span class="no">true</span></code></pre><p>status: {}</p><p>Create Kubernetes Pod YAML for a  container  with  the  directory
+/home/user/my‐data  on  the host bind‐mounted in the container to
+/volume.</p><p>$ podman kube generate my‐container‐with‐bind‐mounted‐data</p><h1>Save the output of this file and use kubectl create ‐f to import</h1><h1>it into Kubernetes.</h1><p>#</p><h1>Created with podman‐3.1.0‐dev</h1><p>apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: &quot;2021‐03‐18T16:26:08Z&quot;
+  labels:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="err">‐</span><span class="n">container</span><span class="err">‐</span><span class="k">with</span><span class="err">‐</span><span class="n">bind</span><span class="err">‐</span><span class="n">mounted</span><span class="err">‐</span><span class="n">data</span></code></pre><p>  name: my‐container‐with‐bind‐mounted‐data
+spec:
+  containers:
+  ‐ command:</p><pre><code class="makeup elixir" translate="no"><span class="err">‐</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w">
+</span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">alpine</span><span class="ss">:latest</span><span class="w">
+</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">test</span><span class="err">‐</span><span class="n">bind</span><span class="err">‐</span><span class="n">mount</span><span class="w">
+</span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6668201720-1">{</span><span class="p" data-group-id="6668201720-1">}</span><span class="w">
+</span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+  </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+    </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+</span><span class="ss">volumeMounts</span><span class="p">:</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">mountPath</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="w">
+  </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">home</span><span class="err">‐</span><span class="n">user</span><span class="err">‐</span><span class="n">my</span><span class="err">‐</span><span class="n">data</span><span class="err">‐</span><span class="n">host</span></code></pre><p>  restartPolicy: Never
+  volumes:
+  ‐ hostPath:</p><pre><code class="makeup elixir" translate="no"><span class="w">  </span><span class="ss">path</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">my</span><span class="err">‐</span><span class="n">data</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="nc">Directory</span><span class="w">
+</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">home</span><span class="err">‐</span><span class="n">user</span><span class="err">‐</span><span class="n">my</span><span class="err">‐</span><span class="n">data</span><span class="err">‐</span><span class="n">host</span></code></pre><p>status: {}</p><p>Create Kubernetes Pod YAML for a container with the named  volume
+priceless‐data mounted in the container at /volume.</p><p>$ podman kube generate my‐container‐using‐priceless‐data</p><h1>Save the output of this file and use kubectl create ‐f to import</h1><h1>it into Kubernetes.</h1><p>#</p><h1>Created with podman‐3.1.0‐dev</h1><p>apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: &quot;2021‐03‐18T16:26:08Z&quot;
+  labels:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">my</span><span class="err">‐</span><span class="n">container</span><span class="err">‐</span><span class="n">using</span><span class="err">‐</span><span class="n">priceless</span><span class="err">‐</span><span class="n">data</span></code></pre><p>  name: my‐container‐using‐priceless‐data
+spec:
+  containers:
+  ‐ command:</p><pre><code class="makeup elixir" translate="no"><span class="err">‐</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w">
+</span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">docker</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">alpine</span><span class="ss">:latest</span><span class="w">
+</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">test</span><span class="err">‐</span><span class="n">bind</span><span class="err">‐</span><span class="n">mount</span><span class="w">
+</span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8606023374-1">{</span><span class="p" data-group-id="8606023374-1">}</span><span class="w">
+</span><span class="ss">securityContext</span><span class="p">:</span><span class="w">
+  </span><span class="ss">capabilities</span><span class="p">:</span><span class="w">
+    </span><span class="ss">drop</span><span class="p">:</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_MKNOD</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_NET_RAW</span><span class="w">
+    </span><span class="err">‐</span><span class="w"> </span><span class="nc">CAP_AUDIT_WRITE</span><span class="w">
+</span><span class="ss">volumeMounts</span><span class="p">:</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="ss">mountPath</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">volume</span><span class="w">
+  </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">priceless</span><span class="err">‐</span><span class="n">data</span><span class="err">‐</span><span class="n">pvc</span></code></pre><p>  restartPolicy: Never
+  volumes:
+  ‐ name: priceless‐data‐pvc</p><pre><code class="makeup elixir" translate="no"><span class="ss">persistentVolumeClaim</span><span class="p">:</span><span class="w">
+  </span><span class="ss">claimName</span><span class="p">:</span><span class="w"> </span><span class="n">priceless</span><span class="err">‐</span><span class="n">data</span></code></pre><p>status: {}</p><p>Create Kubernetes Pod YAML for a pod called demoweb and include a
+service.</p><p>$ sudo podman kube generate ‐s demoweb</p><h1>Save the output of this file and use kubectl create ‐f to import</h1><h1>it into Kubernetes.</h1><p>#</p><h1>Created with podman‐0.12.2‐dev</h1><p>apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: 2018‐12‐18T15:16:06Z
+  labels:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span></code></pre><p>  name: demoweb‐libpod
+spec:
+  containers:
+  ‐ command:</p><pre><code class="makeup elixir" translate="no"><span class="err">‐</span><span class="w"> </span><span class="n">python3</span><span class="w">
+</span><span class="err">‐</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">graph</span><span class="o">.</span><span class="n">py</span><span class="w">
+</span><span class="ss">image</span><span class="p">:</span><span class="w"> </span><span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">baude</span><span class="o">/</span><span class="n">demoweb</span><span class="ss">:latest</span><span class="w">
+</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">practicalarchimedes</span><span class="w">
+</span><span class="ss">resources</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7161685372-1">{</span><span class="p" data-group-id="7161685372-1">}</span><span class="w">
+</span><span class="ss">tty</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
+</span><span class="ss">workingDir</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">code</span></code></pre><p>status: {}
+‐‐‐
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018‐12‐18T15:16:06Z
+  labels:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span></code></pre><p>  name: demoweb‐libpod
+spec:
+  ports:
+  ‐ name: &quot;8050&quot;</p><pre><code class="makeup elixir" translate="no"><span class="ss">nodePort</span><span class="p">:</span><span class="w"> </span><span class="mi">31269</span><span class="w">
+</span><span class="ss">port</span><span class="p">:</span><span class="w"> </span><span class="mi">8050</span><span class="w">
+</span><span class="ss">targetPort</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span></code></pre><p>  selector:</p><pre><code class="makeup elixir" translate="no"><span class="ss">app</span><span class="p">:</span><span class="w"> </span><span class="n">demoweb</span></code></pre><p>  type: NodePort
+status:
+  loadBalancer: {}</p><p>podman(1),   podman‐container(1),   podman‐pod(1),   podman‐kube‐
+play(1), podman‐kube‐down(1)</p><p>December  2018,  Originally  compiled  by  Brent Baude (bbaude at
+redhat dot com)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="podman-kube-down.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+podman-kube-down
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="podman-kube.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+podman-kube
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
