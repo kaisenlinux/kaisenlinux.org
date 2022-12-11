@@ -18,7 +18,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/mate.png',
-			'size' => '5.1Go',
+			'size' => '5.3Go',
 
 			'links' => [
 				[
@@ -38,7 +38,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '5.5Go',
+			'size' => '5.7Go',
 
 			'links' => [
 				[
@@ -58,7 +58,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/xfce.png',
-			'size' => '5.0Go',
+			'size' => '5.1Go',
 
 			'links' => [
 				[
@@ -78,7 +78,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/lxqt.png',
-			'size' => '5.1Go',
+			'size' => '5.3Go',
 
 			'links' => [
 				[
@@ -98,7 +98,7 @@
 
 			'include' => 'No installer, live only',
 			'img'	  => './img/downloads/sr.png',
-			'size' => '2.9Go',
+			'size' => '3.0Go',
 
 			'links' => [
 				[
@@ -118,7 +118,7 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '441Mo',
+			'size' => '456Mo',
 
 			'links' => [
 				[
