@@ -185,8 +185,7 @@ Do this with an Ethernet cable or with a USB Ethernet adapter. The complete unin
 If you are using Kaisen Linux only as a live DVD version, download the ISO again rather 
 than doing the updates.</p><br>
 
-<p>Thank you all for your support, thank you for using Kaisen Linux and for being part 
-of this wonderful adventure!</p>
+<p>Thank you all for your support, thank you for using Kaisen Linux and for being part of this wonderful adventure!</p>
 
 <p>You can report bugs on the forum available at <a href="https://forum.kaisenlinux.org" target="_blank">here</a>.</p>
 

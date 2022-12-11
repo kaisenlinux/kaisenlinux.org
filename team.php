@@ -21,7 +21,7 @@
             <p>Linux sysadmin, he is the main developer of Kaisen Linux, blog and documentation editor. 
                He also takes care of the putting into production of updates of packages and repositories.</p>
             <ul>
-              <li><a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/kevinchevreuil/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
@@ -39,7 +39,7 @@
             <p>Linux sysadmin, he is the core developer of Kaisen Linux. Package and infrastructure maintainer,
             He is also in charge of user support. He also participates in the decision making on the evolution of Kaisen.<p>
             <ul>
-              <li><a href="https://www.linkedin.com/in/kaisencas/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/b12644a6/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
