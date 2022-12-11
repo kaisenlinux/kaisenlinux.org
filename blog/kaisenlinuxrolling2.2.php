@@ -75,6 +75,7 @@
     <li>On the live systems and the system installed, the plocate command now knows all files included in the system</li>
     <li>On KDE, the application of the GTK3 setting for the default dark theme on applications is now disabled to fix bugs with GUI applications with KDE.</li>
     <li>The services menu was updated and improved</li>
+    <li>The memtest86+ tool has been updated to 6.0 version and now supports UEFI and the DDR4 RAM for analysis.</li>
     <li>The BTRFS quotas not enabled error message is now fixed (quotas are enabled by default at the installation of Kaisen)</li>
     <li>On the live systems, the user kaisen is now integrated to the vboxsf group by default to activate the shared folders</li>
     <li>When VirtualBox is installed or updated, all users will be added to the vboxusers to allow the user to use the host's USB devices in the VM.</li>
