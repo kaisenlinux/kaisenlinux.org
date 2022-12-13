@@ -49,6 +49,7 @@
     <li>Velero 1.10.0</li>
     <li>Trivy 0.35.0</li>
     <li>Shadow 4.13</li>
+    <li>Wireshark 4.0.2</li>
   </ul>
 </p>
 <p>List of detailled changes:
