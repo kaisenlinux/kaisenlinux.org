@@ -218,6 +218,15 @@
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
 
+		[
+            'title' => 'Kaisen Linux Rolling 2.2 release note',
+                'extract' => 'The three years old release. Minor bugs fixed. Many improvements of the GUI. Adding the exegol tool!',
+            'date'=> '2022/12/14',
+            'visuel' => '/img/blog/screen-2.1.x.png',
+            'link' => 'kaisenlinuxrolling2.2.php',
+            'author' => 'Kevin Chevreuil - Kaisen',
+        ],
+
 	];
 
 	$blog = array_reverse($blog);
