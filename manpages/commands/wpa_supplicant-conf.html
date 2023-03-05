@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>wpa_supplicant.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>wpa_supplicant.conf</span>
+</h1>
+
+<p>WPA_SUPPLICANT.CONF(5)                                                                                                                                             WPA_SUPPLICANT.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wpa_supplicant</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">wpa_supplicant</span></code></pre><p>OVERVIEW</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wpa_supplicant</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">policies</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">shared</span><span class="w"> </span><span class="n">keys</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">probably</span><span class="w"> </span><span class="ow">in</span><span class="w">
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">fields</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">All</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="p" data-group-id="0842298508-1">(</span><span class="n">absolute</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="p" data-group-id="0842298508-1">)</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">happen</span><span class="w"> </span><span class="k">if</span><span class="w">
+   </span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">background</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Changes</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reloaded</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="nc">SIGHUP</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="p" data-group-id="0842298508-2">(</span><span class="sc">&#39;killall -HUP wpa_supplicant&#39;</span><span class="p" data-group-id="0842298508-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Similarly</span><span class="p">,</span><span class="w"> </span><span class="n">reloading</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">triggered</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">wpa_cli</span><span class="w">
+   </span><span class="n">reconfigure</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="nc">SSID</span><span class="o">.</span><span class="w"> </span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">order</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">network</span><span class="w">
+   </span><span class="n">blocks</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="p" data-group-id="0842298508-3">(</span><span class="nc">WPA</span><span class="o">/</span><span class="nc">WPA2</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preferred</span><span class="p" data-group-id="0842298508-3">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">strength</span><span class="o">.</span></code></pre><p>QUICK EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">WPA</span><span class="o">-</span><span class="nc">Personal</span><span class="w"> </span><span class="p" data-group-id="0023494047-1">(</span><span class="nc">PSK</span><span class="p" data-group-id="0023494047-1">)</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">WPA</span><span class="o">-</span><span class="nc">Enterprise</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">TLS</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w">
+
+      </span><span class="c1"># allow frontend (e.g., wpa_cli) to be used by all users in &#39;netdev&#39; group</span><span class="w">
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="c1">#</span><span class="w">
+      </span><span class="c1"># home network; allow all valid ciphers</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-2">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;home&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">WPA</span><span class="o">-</span><span class="nc">PSK</span><span class="w">
+           </span><span class="n">psk</span><span class="o">=</span><span class="s">&quot;very secret passphrase&quot;</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-2">}</span><span class="w">
+      </span><span class="c1">#</span><span class="w">
+      </span><span class="c1"># work network; use EAP-TLS with WPA; allow only CCMP and TKIP ciphers</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-3">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;work&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">WPA</span><span class="o">-</span><span class="nc">EAP</span><span class="w">
+           </span><span class="n">pairwise</span><span class="o">=</span><span class="nc">CCMP</span><span class="w"> </span><span class="nc">TKIP</span><span class="w">
+           </span><span class="n">group</span><span class="o">=</span><span class="nc">CCMP</span><span class="w"> </span><span class="nc">TKIP</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">TLS</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user@example.com&quot;</span><span class="w">
+           </span><span class="n">ca_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca.pem&quot;</span><span class="w">
+           </span><span class="n">client_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.pem&quot;</span><span class="w">
+           </span><span class="n">private_key</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.prv&quot;</span><span class="w">
+           </span><span class="n">private_key_passwd</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-3">}</span><span class="w">
+
+   </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="nc">WPA</span><span class="o">-</span><span class="nc">RADIUS</span><span class="o">/</span><span class="nc">EAP</span><span class="o">-</span><span class="nc">PEAP</span><span class="o">/</span><span class="nc">MSCHAPv2</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">RADIUS</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">peaplabel</span><span class="w"> </span><span class="p" data-group-id="0023494047-4">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="nc">Funk</span><span class="w"> </span><span class="nc">Odyssey</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SBR</span><span class="p">,</span><span class="w"> </span><span class="nc">Meetinghouse</span><span class="w"> </span><span class="nc">Aegis</span><span class="p">,</span><span class="w"> </span><span class="nc">Interlink</span><span class="w"> </span><span class="nc">RAD</span><span class="o">-</span><span class="nc">Series</span><span class="p" data-group-id="0023494047-4">)</span><span class="w">
+
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-5">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;example&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">WPA</span><span class="o">-</span><span class="nc">EAP</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">PEAP</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user@example.com&quot;</span><span class="w">
+           </span><span class="n">password</span><span class="o">=</span><span class="s">&quot;foobar&quot;</span><span class="w">
+           </span><span class="n">ca_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca.pem&quot;</span><span class="w">
+           </span><span class="n">phase1</span><span class="o">=</span><span class="s">&quot;peaplabel=0&quot;</span><span class="w">
+           </span><span class="n">phase2</span><span class="o">=</span><span class="s">&quot;auth=MSCHAPV2&quot;</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-5">}</span><span class="w">
+
+   </span><span class="mi">3</span><span class="o">.</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">TTLS</span><span class="o">/</span><span class="nc">EAP</span><span class="o">-</span><span class="nc">MD5</span><span class="o">-</span><span class="nc">Challenge</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="n">identity</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unencrypted</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w"> </span><span class="nc">Real</span><span class="w"> </span><span class="n">identity</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="nc">TLS</span><span class="w"> </span><span class="n">tunnel</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-6">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;example&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">WPA</span><span class="o">-</span><span class="nc">EAP</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">TTLS</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user@example.com&quot;</span><span class="w">
+           </span><span class="n">anonymous_identity</span><span class="o">=</span><span class="s">&quot;anonymous@example.com&quot;</span><span class="w">
+           </span><span class="n">password</span><span class="o">=</span><span class="s">&quot;foobar&quot;</span><span class="w">
+           </span><span class="n">ca_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca.pem&quot;</span><span class="w">
+           </span><span class="n">phase2</span><span class="o">=</span><span class="s">&quot;auth=MD5&quot;</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-6">}</span><span class="w">
+
+   </span><span class="mi">4</span><span class="o">.</span><span class="w"> </span><span class="nc">IEEE</span><span class="w"> </span><span class="mf">802.1</span><span class="nc">X</span><span class="w"> </span><span class="p" data-group-id="0023494047-7">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="nc">WPA</span><span class="p" data-group-id="0023494047-7">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">dynamic</span><span class="w"> </span><span class="nc">WEP</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="p" data-group-id="0023494047-8">(</span><span class="kn">require</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">unicast</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">broadcast</span><span class="p" data-group-id="0023494047-8">)</span><span class="p">;</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">TLS</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">authentication</span><span class="w">
+
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-9">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;1x-test&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">IEEE8021X</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">TLS</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user@example.com&quot;</span><span class="w">
+           </span><span class="n">ca_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca.pem&quot;</span><span class="w">
+           </span><span class="n">client_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.pem&quot;</span><span class="w">
+           </span><span class="n">private_key</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.prv&quot;</span><span class="w">
+           </span><span class="n">private_key_passwd</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+           </span><span class="n">eapol_flags</span><span class="o">=</span><span class="mi">3</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-9">}</span><span class="w">
+
+   </span><span class="mi">5</span><span class="o">.</span><span class="w"> </span><span class="nc">Catch</span><span class="w">  </span><span class="n">all</span><span class="w">  </span><span class="n">example</span><span class="w">  </span><span class="n">that</span><span class="w">  </span><span class="n">allows</span><span class="w">  </span><span class="n">more</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">modes</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">policy</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="nc">SSID</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w">
+      </span><span class="n">mostly</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-10">{</span><span class="w">
+           </span><span class="n">ssid</span><span class="o">=</span><span class="s">&quot;example&quot;</span><span class="w">
+           </span><span class="n">scan_ssid</span><span class="o">=</span><span class="mi">1</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">WPA</span><span class="o">-</span><span class="nc">EAP</span><span class="w"> </span><span class="nc">WPA</span><span class="o">-</span><span class="nc">PSK</span><span class="w"> </span><span class="nc">IEEE8021X</span><span class="w"> </span><span class="nc">NONE</span><span class="w">
+           </span><span class="n">pairwise</span><span class="o">=</span><span class="nc">CCMP</span><span class="w"> </span><span class="nc">TKIP</span><span class="w">
+           </span><span class="n">group</span><span class="o">=</span><span class="nc">CCMP</span><span class="w"> </span><span class="nc">TKIP</span><span class="w"> </span><span class="nc">WEP104</span><span class="w"> </span><span class="nc">WEP40</span><span class="w">
+           </span><span class="n">psk</span><span class="o">=</span><span class="s">&quot;very secret passphrase&quot;</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">TTLS</span><span class="w"> </span><span class="nc">PEAP</span><span class="w"> </span><span class="nc">TLS</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user@example.com&quot;</span><span class="w">
+           </span><span class="n">password</span><span class="o">=</span><span class="s">&quot;foobar&quot;</span><span class="w">
+           </span><span class="n">ca_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca.pem&quot;</span><span class="w">
+           </span><span class="n">client_cert</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.pem&quot;</span><span class="w">
+           </span><span class="n">private_key</span><span class="o">=</span><span class="s">&quot;/etc/cert/user.prv&quot;</span><span class="w">
+           </span><span class="n">private_key_passwd</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+           </span><span class="n">phase1</span><span class="o">=</span><span class="s">&quot;peaplabel=0&quot;</span><span class="w">
+           </span><span class="n">ca_cert2</span><span class="o">=</span><span class="s">&quot;/etc/cert/ca2.pem&quot;</span><span class="w">
+           </span><span class="n">client_cert2</span><span class="o">=</span><span class="s">&quot;/etc/cer/user.pem&quot;</span><span class="w">
+           </span><span class="n">private_key2</span><span class="o">=</span><span class="s">&quot;/etc/cer/user.prv&quot;</span><span class="w">
+           </span><span class="n">private_key2_passwd</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-10">}</span><span class="w">
+
+   </span><span class="mi">6</span><span class="o">.</span><span class="w"> </span><span class="nc">Authentication</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">wired</span><span class="w"> </span><span class="nc">Ethernet</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">wired</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">roboswitch</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="p" data-group-id="0023494047-11">(</span><span class="o">-</span><span class="nc">Dwired</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">-</span><span class="nc">Droboswitch</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="p" data-group-id="0023494047-11">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">ctrl_interface</span><span class="o">=</span><span class="nc">DIR</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="nc">GROUP</span><span class="o">=</span><span class="n">netdev</span><span class="w">
+      </span><span class="n">ap_scan</span><span class="o">=</span><span class="mi">0</span><span class="w">
+      </span><span class="n">network</span><span class="o">=</span><span class="p" data-group-id="0023494047-12">{</span><span class="w">
+           </span><span class="n">key_mgmt</span><span class="o">=</span><span class="nc">IEEE8021X</span><span class="w">
+           </span><span class="n">eap</span><span class="o">=</span><span class="nc">MD5</span><span class="w">
+           </span><span class="n">identity</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="w">
+           </span><span class="n">password</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="w">
+           </span><span class="n">eapol_flags</span><span class="o">=</span><span class="mi">0</span><span class="w">
+      </span><span class="p" data-group-id="0023494047-12">}</span></code></pre><p>CERTIFICATES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Some</span><span class="w"> </span><span class="nc">EAP</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">certificates</span><span class="o">.</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">TLS</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="n">whereas</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">PEAP</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">EAP</span><span class="o">-</span><span class="nc">TTLS</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">cer</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tificate</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w">  </span><span class="n">client</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">configuration</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">passphrase</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w">
+   </span><span class="ow">in</span><span class="w"> </span><span class="n">wpa_supplicant</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="p" data-group-id="1870635127-1">(</span><span class="s">&quot;private_key_passwd&quot;</span><span class="p" data-group-id="1870635127-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">wpa_supplicant</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="nc">X</span><span class="o">.</span><span class="mi">509</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PEM</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">DER</span><span class="w"> </span><span class="n">formats</span><span class="o">.</span><span class="w"> </span><span class="nc">User</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#12/PFX format, they need to be converted to suitable PEM/DER format for wpa_supplicant. This can be done,  e.g.,  with</span><span class="w">
+   </span><span class="n">following</span><span class="w"> </span><span class="ss">commands</span><span class="p">:</span><span class="w">
+
+          </span><span class="c1"># convert client certificate and private key to PEM format</span><span class="w">
+          </span><span class="n">openssl</span><span class="w"> </span><span class="n">pkcs12</span><span class="w"> </span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">pfx</span><span class="w"> </span><span class="o">-</span><span class="n">out</span><span class="w"> </span><span class="n">user</span><span class="o">.</span><span class="n">pem</span><span class="w"> </span><span class="o">-</span><span class="n">clcerts</span><span class="w">
+          </span><span class="c1"># convert CA certificate (if included in PFX file) to PEM format</span><span class="w">
+          </span><span class="n">openssl</span><span class="w"> </span><span class="n">pkcs12</span><span class="w"> </span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">pfx</span><span class="w"> </span><span class="o">-</span><span class="n">out</span><span class="w"> </span><span class="n">ca</span><span class="o">.</span><span class="n">pem</span><span class="w"> </span><span class="o">-</span><span class="n">cacerts</span><span class="w"> </span><span class="o">-</span><span class="n">nokeys</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">wpa_supplicant</span><span class="p" data-group-id="3732453983-1">(</span><span class="mi">8</span><span class="p" data-group-id="3732453983-1">)</span><span class="w"> </span><span class="n">openssl</span><span class="p" data-group-id="3732453983-2">(</span><span class="mi">1</span><span class="p" data-group-id="3732453983-2">)</span><span class="w">
+
+                                                                                  </span><span class="mi">07</span><span class="w"> </span><span class="nc">August</span><span class="w"> </span><span class="mi">2019</span><span class="w">                                                               </span><span class="nc">WPA_SUPPLICANT.CONF</span><span class="p" data-group-id="3732453983-3">(</span><span class="mi">5</span><span class="p" data-group-id="3732453983-3">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="wondershaper.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+wondershaper
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="x509v3_config.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+x509v3_config
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

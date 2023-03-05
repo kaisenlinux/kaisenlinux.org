@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>logprof.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>logprof.conf</span>
+</h1>
+
+<p>LOGPROF.CONF(5)                                                                          AppArmor                                                                         LOGPROF.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">logprof</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">AppArmor</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">logprof</span><span class="p" data-group-id="9837285551-1">(</span><span class="mi">1</span><span class="p" data-group-id="9837285551-1">)</span><span class="w"> </span><span class="n">program</span><span class="o">.</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">logprof</span><span class="p" data-group-id="4810734703-1">(</span><span class="mi">1</span><span class="p" data-group-id="4810734703-1">)</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">logprof</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="p" data-group-id="4810734703-2">[</span><span class="n">qualifiers</span><span class="p" data-group-id="4810734703-2">]</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">programs</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">subset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">ix</span><span class="o">/</span><span class="n">px</span><span class="o">/</span><span class="n">ux</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">asking</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">using</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Since</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">dangerous</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="p" data-group-id="4810734703-3">(</span><span class="nc">I</span><span class="p" data-group-id="4810734703-3">)</span><span class="n">nherit</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4810734703-4">(</span><span class="nc">U</span><span class="p" data-group-id="4810734703-4">)</span><span class="n">nconstrained</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p" data-group-id="4810734703-5">(</span><span class="nc">D</span><span class="p" data-group-id="4810734703-5">)</span><span class="n">eny</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">only</span><span class="w">
+   </span><span class="n">those</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">prompt</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">we</span><span class="sc">&#39;re asking about adding that to a profile.
+
+   Likewise, if someone currently exec&#39;</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">mount</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ix</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">px</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="n">things</span><span class="w"> </span><span class="n">won</span><span class="sc">&#39;t work, so we can provide only (U)nconstrained and (D)eny as options.
+
+   And certain apps like grep, awk, sed, cp, and mkdir should always inherit the parent profile rather than having their own profile or running unconfined, so for them we can
+   specify that only (I)nherit and (D)eny are the allowed options.
+
+   Any programs that are not listed in the qualifiers section get the full (I)nherit / (P)rofile / (U)nconstrained / (D)eny option set.
+
+   If the user is doing something tricky and wants different behavior, they can tweak or remove the corresponding line in the conf file.
+
+   The [defaulthat] section lists changehat-aware programs and what hat aa-logprof(1) will collapse the entries to for that program if the user specifies that the access should be
+   allowed, but should not have it&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">hat</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="p" data-group-id="4810734703-6">[</span><span class="n">globs</span><span class="p" data-group-id="4810734703-6">]</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">modification</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">logprof</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">engine</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">respect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">globbing</span><span class="w"> </span><span class="n">suggestions</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">prompted</span><span class="w"> </span><span class="k">with</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">is</span><span class="o">--</span><span class="w"> </span><span class="s">&quot;&lt;perl glob&gt; = &lt;apparmor glob&gt;&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">logprof</span><span class="p" data-group-id="4810734703-7">(</span><span class="mi">1</span><span class="p" data-group-id="4810734703-7">)</span><span class="w"> </span><span class="n">asks</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">perl</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">replaces</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">matched</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">apparmor</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">it</span><span class="w">
+   </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">globbing</span><span class="w"> </span><span class="n">suggestions</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Lines</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="c1"># are comments and are ignored.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">     </span><span class="p" data-group-id="2762724356-1">[</span><span class="n">qualifiers</span><span class="p" data-group-id="2762724356-1">]</span><span class="w">
+       </span><span class="c1"># things will very likely be painfully broken if bash has it&#39;s own profile</span><span class="w">
+       </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">iu</span><span class="w">
+
+       </span><span class="c1"># mount doesn&#39;t work if it&#39;s confined</span><span class="w">
+       </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">mount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="w">
+
+       </span><span class="c1"># these helper utilities should inherit the parent profile and</span><span class="w">
+       </span><span class="c1"># shouldn&#39;t have their own profiles</span><span class="w">
+       </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">awk</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w">
+       </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">grep</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w">
+       </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sed</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w">
+
+     </span><span class="p" data-group-id="2762724356-2">[</span><span class="n">defaulthat</span><span class="p" data-group-id="2762724356-2">]</span><span class="w">
+       </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">sshd</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nc">EXEC</span><span class="w">
+       </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">httpd2</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nc">DEFAULT_URI</span><span class="w">
+       </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">httpd2</span><span class="o">-</span><span class="n">prefork</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">DEFAULT_URI</span><span class="w">
+
+     </span><span class="p" data-group-id="2762724356-3">[</span><span class="n">globs</span><span class="p" data-group-id="2762724356-3">]</span><span class="w">
+       </span><span class="c1"># /foo/bar/lib/libbaz.so -&gt; /foo/bar/lib/lib*</span><span class="w">
+       </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">lib</span><span class="p" data-group-id="2762724356-4">[</span><span class="o">^</span><span class="err">\</span><span class="o">/</span><span class="p" data-group-id="2762724356-4">]</span><span class="o">+</span><span class="n">so</span><span class="p" data-group-id="2762724356-5">[</span><span class="o">^</span><span class="err">\</span><span class="o">/</span><span class="p" data-group-id="2762724356-5">]</span><span class="o">*</span><span class="err">$</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">lib</span><span class="o">*</span><span class="n">so</span><span class="o">*</span><span class="w">
+
+       </span><span class="c1"># strip kernel version numbers from kernel module accesses</span><span class="w">
+       </span><span class="o">^</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="p" data-group-id="2762724356-6">[</span><span class="o">^</span><span class="err">\</span><span class="o">/</span><span class="p" data-group-id="2762724356-6">]</span><span class="o">+</span><span class="err">\</span><span class="o">/</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="o">*</span><span class="o">/</span><span class="w">
+
+       </span><span class="c1"># strip pid numbers from /proc accesses</span><span class="w">
+       </span><span class="o">^</span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="err">\</span><span class="n">d</span><span class="o">+</span><span class="o">/</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="o">*</span><span class="o">/</span></code></pre><p>BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">bugs</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">://</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apparmor</span><span class="o">/</span><span class="n">apparmor</span><span class="o">/</span><span class="o">-</span><span class="o">/</span><span class="n">issues</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">apparmor</span><span class="p" data-group-id="3234557185-1">(</span><span class="mi">7</span><span class="p" data-group-id="3234557185-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">apparmor</span><span class="o">.</span><span class="n">d</span><span class="p" data-group-id="3234557185-2">(</span><span class="mi">5</span><span class="p" data-group-id="3234557185-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">enforce</span><span class="p" data-group-id="3234557185-3">(</span><span class="mi">1</span><span class="p" data-group-id="3234557185-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">complain</span><span class="p" data-group-id="3234557185-4">(</span><span class="mi">1</span><span class="p" data-group-id="3234557185-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">disable</span><span class="p" data-group-id="3234557185-5">(</span><span class="mi">1</span><span class="p" data-group-id="3234557185-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa_change_hat</span><span class="p" data-group-id="3234557185-6">(</span><span class="mi">2</span><span class="p" data-group-id="3234557185-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">logprof</span><span class="p" data-group-id="3234557185-7">(</span><span class="mi">1</span><span class="p" data-group-id="3234557185-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">aa</span><span class="o">-</span><span class="n">genprof</span><span class="p" data-group-id="3234557185-8">(</span><span class="mi">1</span><span class="p" data-group-id="3234557185-8">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">://</span><span class="n">wiki</span><span class="o">.</span><span class="n">apparmor</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>AppArmor 3.0.8                                                                          2023-02-14                                                                        LOGPROF.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="login-defs.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+login.defs
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="logrotate-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+logrotate.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>apt_auth.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>apt_auth.conf</span>
+</h1>
+
+<p>APT_AUTH.CONF(5)                                                                           APT                                                                           APT_AUTH.CONF(5)</p><p>NOM</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">apt_auth</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">connexion</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">sources</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">mandataires</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="nc">APT</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Les</span><span class="w"> </span><span class="n">fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;APT tels que sources.list(5) ou apt.conf(5) doivent pouvoir être accessibles à tous ceux qui utilisent les outils d&#39;</span><span class="nc">APT</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">système</span><span class="w"> </span><span class="n">pour</span><span class="w">
+   </span><span class="n">accéder</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">toutes</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">informations</span><span class="w"> </span><span class="n">relatives</span><span class="w"> </span><span class="n">aux</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">telles</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">disponibles</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">dépôt</span><span class="o">.</span><span class="w"> </span><span class="nc">Les</span><span class="w"> </span><span class="n">informations</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">connexion</span><span class="w"> </span><span class="n">nécessaires</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">connecter</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">un</span><span class="w">
+   </span><span class="n">mandataire</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">télécharger</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">données</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">partir</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;un dépôt, d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">autre</span><span class="w"> </span><span class="n">côté</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">devraient</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">toujours</span><span class="w"> </span><span class="n">être</span><span class="w"> </span><span class="n">accessibles</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">tous</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">peuvent</span><span class="w"> </span><span class="n">donc</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">être</span><span class="w"> </span><span class="n">mises</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">un</span><span class="w">
+   </span><span class="n">fichier</span><span class="w"> </span><span class="n">doté</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">droits</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">lecture</span><span class="w"> </span><span class="n">universels</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Le</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">auth</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;APT /etc/apt/auth.conf ainsi que les fichiers .conf dans /etc/apt/auth.conf.d peuvent être utilisés pour stocker les informations de connexion dans un
+   format de type netrc avec des droits d&#39;</span><span class="n">accès</span><span class="w"> </span><span class="n">restreints</span><span class="o">.</span></code></pre><p>FORMAT DE TYPE NETRC</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Le</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">défini</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">analogue</span><span class="w"> </span><span class="n">au</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">netrc</span><span class="w"> </span><span class="n">utilisé</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">ftp</span><span class="p" data-group-id="2656048590-1">(</span><span class="mi">1</span><span class="p" data-group-id="2656048590-1">)</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">programmes</span><span class="w"> </span><span class="n">similaires</span><span class="w"> </span><span class="n">interagissant</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">serveurs</span><span class="o">.</span><span class="w"> </span><span class="nc">C</span><span class="sc">&#39;est un format simple basé sur
+   les jetons qui reconnaît les jetons suivants ; les jetons inconnus seront ignorés. Les jetons peuvent être séparés par des espaces, des tabulations ou des changements de ligne.
+
+   machine [protocol://]hostname[:port][/path]
+       Les entrées sont trouvées en recherchant le jeton de machine correspondant au nom d&#39;</span><span class="n">hôte</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;URI qui fournit les informations de connexion dont APT a besoin. Comme extension
+       du format netrc, un numéro de port peut être défini. Si ce n&#39;</span><span class="n">est</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">cas</span><span class="p">,</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">jeton</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">valide</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">tous</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">ports</span><span class="o">.</span><span class="w"> </span><span class="nc">De</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">manière</span><span class="p">,</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">chemin</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">facultatif</span><span class="w"> </span><span class="n">et</span><span class="w">
+       </span><span class="n">seulement</span><span class="w"> </span><span class="n">nécessaire</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">utile</span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="n">plusieurs</span><span class="w"> </span><span class="n">dépôts</span><span class="p">,</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">informations</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">connexion</span><span class="w"> </span><span class="n">différentes</span><span class="p">,</span><span class="w"> </span><span class="n">sont</span><span class="w"> </span><span class="n">hébergées</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">serveur</span><span class="o">.</span><span class="w"> </span><span class="nc">Un</span><span class="w"> </span><span class="n">jeton</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">chemin</span><span class="w">
+       </span><span class="n">correspond</span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">chemin</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;URI débute par le chemin donné dans le jeton. Une fois qu&#39;</span><span class="n">une</span><span class="w"> </span><span class="n">correspondance</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">établie</span><span class="p">,</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">jetons</span><span class="w"> </span><span class="n">suivants</span><span class="w"> </span><span class="n">sont</span><span class="w"> </span><span class="n">traités</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="sc">&#39;arrêtant lorsque
+       la fin du fichier est atteinte ou qu&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">autre</span><span class="w"> </span><span class="n">jeton</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">rencontré</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">If</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">https</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tor</span><span class="o">+</span><span class="n">https</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">login</span><span class="w"> </span><span class="n">nom</span><span class="w">
+       </span><span class="nc">L</span><span class="err">&#39;</span><span class="n">identifiant</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">utiliser</span><span class="w">
+
+   </span><span class="n">password</span><span class="w"> </span><span class="n">chaîne</span><span class="w">
+       </span><span class="nc">Le</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">utiliser</span><span class="o">.</span></code></pre><p>EXEMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">La</span><span class="w"> </span><span class="n">fourniture</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;informations de connexion pour un utilisateur nommé apt avec le mot de passe debian pour l&#39;</span><span class="n">entrée</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="p" data-group-id="0701659953-1">(</span><span class="mi">5</span><span class="p" data-group-id="0701659953-1">)</span><span class="w">
+
+       </span><span class="n">deb</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">debian</span><span class="w"> </span><span class="n">bullseye</span><span class="w"> </span><span class="n">main</span><span class="w">
+
+   </span><span class="n">peut</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">faire</span><span class="w"> </span><span class="n">directement</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;entrée :
+
+       deb https://apt:debian@example.org/debian bullseye main
+
+   Autrement, une entrée dans le fichier auth.conf telle que la suivante peut être utilisée :
+
+       machine example.org
+       login apt
+       password debian
+
+   Ou enfin, en une seule ligne :
+
+       machine example.org login apt password debian
+
+   . Si vous avez besoin d&#39;</span><span class="n">être</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="n">précis</span><span class="p">,</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">contenu</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">ces</span><span class="w"> </span><span class="n">lignes</span><span class="w"> </span><span class="n">s</span><span class="sc">&#39;appliquera également à l&#39;</span><span class="n">entrée</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;exemple :
+
+       machine example.org/deb login apt password debian
+       machine example.org/debian login apt password debian
+       machine example.org/debian/ login apt password debian
+
+   En revanche, aucune des lignes suivantes ne s&#39;</span><span class="n">applique</span><span class="w"> </span><span class="p">:</span><span class="w">
+
+       </span><span class="n">machine</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">443</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">debian</span><span class="w">
+       </span><span class="n">machine</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">deb</span><span class="o">/</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">debian</span><span class="w">
+       </span><span class="n">machine</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ubuntu</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">debian</span><span class="w">
+       </span><span class="n">machine</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">orga</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">debian</span><span class="w">
+       </span><span class="n">machine</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">net</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">debian</span></code></pre><p>REMARQUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Une</span><span class="w"> </span><span class="n">prise</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">basique</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">cette</span><span class="w"> </span><span class="n">fonctionnalité</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">présente</span><span class="w"> </span><span class="n">depuis</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mf">0.7</span><span class="o">.</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="n">mais</span><span class="w"> </span><span class="n">n</span><span class="sc">&#39;était pas documentée depuis des années. La documentation a été ajoutée dans la
+   version 1.5, modifiant aussi légèrement l&#39;</span><span class="n">implémentation</span><span class="o">.</span><span class="w"> </span><span class="nc">Pour</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">compatibilité</span><span class="w"> </span><span class="n">ascendante</span><span class="w"> </span><span class="n">maximale</span><span class="p">,</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">devriez</span><span class="w"> </span><span class="n">éviter</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;avoir plusieurs jetons de machine avec le même nom
+   d&#39;</span><span class="n">hôte</span><span class="p">,</span><span class="w"> </span><span class="n">mais</span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">devez</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">avoir</span><span class="w"> </span><span class="n">plusieurs</span><span class="p">,</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="n">faudrait</span><span class="w"> </span><span class="n">qu</span><span class="err">&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">chemin</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">précisé</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">jeton</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">machine</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Login</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">auth</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">flexible</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">only</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">redirects</span><span class="w"> </span><span class="n">elsewhere</span><span class="p">,</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">redirect</span><span class="w"> </span><span class="n">destination</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supplied</span><span class="o">.</span></code></pre><p>FICHIERS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">conf</span><span class="w">
+       </span><span class="nc">Informations</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">connexion</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">sources</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">mandataires</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;APT dans un format de type netrc. Élément de configuration : Dir::Etc::netrc.
+
+   /etc/apt/auth.conf.d/*.conf
+       Informations de connexion pour les sources et les mandataires d&#39;</span><span class="nc">APT</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">netrc</span><span class="o">.</span><span class="w"> </span><span class="err">É</span><span class="n">lément</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Dir</span><span class="o">::</span><span class="nc">Etc</span><span class="o">::</span><span class="n">netrcparts</span><span class="o">.</span></code></pre><p>VOIR AUSSI</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">apt</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="1798566984-1">(</span><span class="mi">5</span><span class="p" data-group-id="1798566984-1">)</span><span class="w"> </span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="p" data-group-id="1798566984-2">(</span><span class="mi">5</span><span class="p" data-group-id="1798566984-2">)</span></code></pre><p>BOGUES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Page</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">bogues</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;APT[1]. Si vous souhaitez signaler un bogue à propos d&#39;</span><span class="nc">APT</span><span class="p">,</span><span class="w"> </span><span class="n">veuillez</span><span class="w"> </span><span class="n">lire</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">debian</span><span class="o">/</span><span class="n">bug</span><span class="o">-</span><span class="n">reporting</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">utiliser</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="n">reportbug</span><span class="p" data-group-id="6298162971-1">(</span><span class="mi">1</span><span class="p" data-group-id="6298162971-1">)</span><span class="o">.</span></code></pre><p>TRADUCTEURS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">J</span><span class="n">érôme</span><span class="w"> </span><span class="nc">Marant</span><span class="p">,</span><span class="w"> </span><span class="nc">Philippe</span><span class="w"> </span><span class="nc">Batailler</span><span class="p">,</span><span class="w"> </span><span class="nc">Christian</span><span class="w"> </span><span class="nc">Perrier</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bubulle</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="3538615454-1">(</span><span class="mi">2000</span><span class="p">,</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w"> </span><span class="mi">2009</span><span class="p">,</span><span class="w"> </span><span class="mi">2010</span><span class="p" data-group-id="3538615454-1">)</span><span class="p">,</span><span class="w"> </span><span class="err">É</span><span class="n">quipe</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">traduction</span><span class="w"> </span><span class="n">francophone</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="nc">Debian</span><span class="w">
+   </span><span class="o">&lt;</span><span class="n">debian</span><span class="o">-</span><span class="n">l10n</span><span class="o">-</span><span class="n">french</span><span class="na">@lists</span><span class="o">.</span><span class="n">debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">Veuillez</span><span class="w"> </span><span class="n">noter</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">cette</span><span class="w"> </span><span class="n">traduction</span><span class="w"> </span><span class="n">peut</span><span class="w"> </span><span class="n">contenir</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">parties</span><span class="w"> </span><span class="n">non</span><span class="w"> </span><span class="n">traduites</span><span class="o">.</span><span class="w"> </span><span class="nc">Cela</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">volontaire</span><span class="p">,</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">éviter</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">perdre</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">contenu</span><span class="w"> </span><span class="n">quand</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">traduction</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">légèrement</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">retard</span><span class="w">
+   </span><span class="n">sur</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">contenu</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">origine</span><span class="o">.</span></code></pre><p>AUTEUR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">É</span><span class="n">quipe</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">développement</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="nc">APT</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">Page</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">bogues</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="nc">APT</span><span class="w">
+       </span><span class="n">http</span><span class="ss">://</span><span class="n">bugs</span><span class="o">.</span><span class="n">debian</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">src</span><span class="ss">:apt</span></code></pre><p>APT 2.5.6                                                                            02 décembre 2019                                                                    APT_AUTH.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="apparmor-vim.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+apparmor.vim
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="apt-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+apt.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

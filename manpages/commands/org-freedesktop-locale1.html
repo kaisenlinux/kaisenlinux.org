@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>org.freedesktop.locale1 — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>org.freedesktop.locale1</span>
+</h1>
+
+<p>ORG.FREEDESKTOP.LOCALE1(5)                                                       org.freedesktop.locale1                                                       ORG.FREEDESKTOP.LOCALE1(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">localed</span></code></pre><p>INTRODUCTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">systemd</span><span class="o">-</span><span class="n">localed</span><span class="o">.</span><span class="n">service</span><span class="p" data-group-id="3434145358-1">(</span><span class="mi">8</span><span class="p" data-group-id="3434145358-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">programs</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span></code></pre><p>THE D-BUS API</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">exposes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">bus</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">node</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">locale1</span><span class="w"> </span><span class="p" data-group-id="0468549276-1">{</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="w"> </span><span class="p" data-group-id="0468549276-2">{</span><span class="w">
+           </span><span class="ss">methods</span><span class="p">:</span><span class="w">
+             </span><span class="nc">SetLocale</span><span class="p" data-group-id="0468549276-3">(</span><span class="ow">in</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">locale</span><span class="p">,</span><span class="w">
+                       </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">interactive</span><span class="p" data-group-id="0468549276-3">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="0468549276-4">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">keymap</span><span class="p">,</span><span class="w">
+                                 </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">keymap_toggle</span><span class="p">,</span><span class="w">
+                                 </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">convert</span><span class="p">,</span><span class="w">
+                                 </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">interactive</span><span class="p" data-group-id="0468549276-4">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="0468549276-5">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">layout</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">variant</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">convert</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">interactive</span><span class="p" data-group-id="0468549276-5">)</span><span class="p">;</span><span class="w">
+           </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">Locale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0468549276-6">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="0468549276-6">]</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">X11Layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">X11Model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">X11Variant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">X11Options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">VConsoleKeymap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">VConsoleKeymapToggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+         </span><span class="p" data-group-id="0468549276-2">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Peer</span><span class="w"> </span><span class="p" data-group-id="0468549276-7">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="0468549276-7">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Introspectable</span><span class="w"> </span><span class="p" data-group-id="0468549276-8">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="0468549276-8">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Properties</span><span class="w"> </span><span class="p" data-group-id="0468549276-9">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="0468549276-9">}</span><span class="p">;</span><span class="w">
+       </span><span class="p" data-group-id="0468549276-1">}</span><span class="p">;</span></code></pre><p>   Methods</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">dropped</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">manager</span><span class="p">,</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">subsequently</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="n">daemons</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">inherit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">daemons</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">learn</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="7115481084-1">(</span><span class="p" data-group-id="7115481084-1">)</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">console</span><span class="o">.</span><span class="w"> </span><span class="nc">Similarly</span><span class="p">,</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="7115481084-2">(</span><span class="p" data-group-id="7115481084-2">)</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">X11</span><span class="w">
+   </span><span class="n">servers</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="7115481084-3">(</span><span class="p" data-group-id="7115481084-3">)</span><span class="w"> </span><span class="n">instantly</span><span class="w"> </span><span class="n">applies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="p">,</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="7115481084-4">(</span><span class="p" data-group-id="7115481084-4">)</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">sessions</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">X11</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">mappings</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">vice</span><span class="w"> </span><span class="n">versa</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="7115481084-5">(</span><span class="p" data-group-id="7115481084-5">)</span><span class="w"> </span><span class="n">is</span><span class="w">
+   </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nearest</span><span class="w"> </span><span class="nc">X11</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chosen</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="7115481084-6">(</span><span class="p" data-group-id="7115481084-6">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nearest</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chosen</span><span class="w"> </span><span class="nc">X11</span><span class="w">
+   </span><span class="n">setting</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w"> </span><span class="nc">Hence</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">sufficient</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">functions</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">graphical</span><span class="w"> </span><span class="nc">UIs</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">keyboard</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">invoke</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="7115481084-7">(</span><span class="p" data-group-id="7115481084-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">convert</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="7115481084-8">(</span><span class="p" data-group-id="7115481084-8">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">wish</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">polkit</span><span class="p" data-group-id="7115481084-9">[</span><span class="mi">1</span><span class="p" data-group-id="7115481084-9">]</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">interactively</span><span class="w"> </span><span class="n">ask</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">required</span><span class="o">.</span></code></pre><p>   Signals</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Whenever</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="p">,</span><span class="w"> </span><span class="nc">PropertyChanged</span><span class="w"> </span><span class="n">signals</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">subscribe</span><span class="o">.</span></code></pre><p>   Properties</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Locale</span><span class="w"> </span><span class="n">property</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">environment</span><span class="o">-</span><span class="n">variable</span><span class="o">-</span><span class="n">assignment</span><span class="o">-</span><span class="n">like</span><span class="w"> </span><span class="n">strings</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ss">known</span><span class="p">:</span><span class="w"> </span><span class="nc">LANG</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_CTYPE</span><span class="o">=</span><span class="p">,</span><span class="w">
+   </span><span class="nc">LC_NUMERIC</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_TIME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_COLLATE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MONETARY</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MESSAGES</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_PAPER</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_NAME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_ADDRESS</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_TELEPHONE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MEASUREMENT</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_IDENTIFICATION</span><span class="o">=</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">X11Layout</span><span class="p">,</span><span class="w"> </span><span class="nc">X11Model</span><span class="p">,</span><span class="w"> </span><span class="nc">X11Variant</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">X11Options</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">configurable</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="2743309127-1">(</span><span class="p" data-group-id="2743309127-1">)</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="p" data-group-id="2743309127-2">(</span><span class="ow">or</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="2743309127-3">(</span><span class="p" data-group-id="2743309127-3">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">convert</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="2743309127-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w">
+   </span><span class="nc">VConsoleKeymap</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">VConsoleKeymapToggle</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">configurable</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="2743309127-4">(</span><span class="p" data-group-id="2743309127-4">)</span><span class="w"> </span><span class="p" data-group-id="2743309127-5">(</span><span class="ow">or</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="2743309127-6">(</span><span class="p" data-group-id="2743309127-6">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">convert</span><span class="o">=</span><span class="no">true</span><span class="p" data-group-id="2743309127-5">)</span><span class="o">.</span></code></pre><p>   Security</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Changing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">authenticated</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">polkit</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">polkit</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">SetLocale</span><span class="p" data-group-id="1113275234-1">(</span><span class="p" data-group-id="1113275234-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="o">.</span><span class="n">set</span><span class="o">-</span><span class="n">locale</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">polkit</span><span class="w"> </span><span class="n">action</span><span class="w">
+   </span><span class="k">for</span><span class="w"> </span><span class="nc">SetX11Keyboard</span><span class="p" data-group-id="1113275234-2">(</span><span class="p" data-group-id="1113275234-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SetVConsoleKeyboard</span><span class="p" data-group-id="1113275234-3">(</span><span class="p" data-group-id="1113275234-3">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="o">.</span><span class="n">set</span><span class="o">-</span><span class="n">keyboard</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">Introspect</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bus</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">gdbus</span><span class="w"> </span><span class="n">introspect</span><span class="w"> </span><span class="o">--</span><span class="n">system</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">dest</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">locale1</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">object</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">locale1</span></code></pre><p>VERSIONING</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usual</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">versioning</span><span class="w"> </span><span class="n">guidelines</span><span class="p" data-group-id="1285935564-1">[</span><span class="mi">2</span><span class="p" data-group-id="1285935564-1">]</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="n">polkit</span><span class="w">
+       </span><span class="n">https</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">polkit</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="w">
+
+    </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usual</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">versioning</span><span class="w"> </span><span class="n">guidelines</span><span class="w">
+       </span><span class="n">http</span><span class="ss">://</span><span class="mi">0</span><span class="n">pointer</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">versioning</span><span class="o">-</span><span class="n">dbus</span><span class="o">.</span><span class="n">html</span></code></pre><p>systemd 252                                                                                                                                                    ORG.FREEDESKTOP.LOCALE1(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-freedesktop-import1.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.freedesktop.import1
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-freedesktop-logcontrol1.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.freedesktop.LogControl1
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

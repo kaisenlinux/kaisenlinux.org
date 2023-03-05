@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>default.pa — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>default.pa</span>
+</h1>
+
+<p>default.pa(5)                                                                      File Formats Manual                                                                      default.pa(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">default</span><span class="o">.</span><span class="n">pa</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="nc">Sound</span><span class="w"> </span><span class="nc">Server</span><span class="w"> </span><span class="nc">Startup</span><span class="w"> </span><span class="nc">Script</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">config</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">pa</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">pa</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">system</span><span class="o">.</span><span class="n">pa</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="n">sound</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">interprets</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">startup</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mainly</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">load</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">per</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">config</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">pa</span><span class="w"> </span><span class="n">exists</span><span class="p">,</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="n">runs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">per</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">exist</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">pa</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w">  </span><span class="nc">PulseAudio</span><span class="w">  </span><span class="n">runs</span><span class="w">
+   </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pulse</span><span class="o">/</span><span class="n">system</span><span class="o">.</span><span class="n">pa</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">directives</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="n">language</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">documented</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pulse</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">syntax</span><span class="p" data-group-id="0147569706-1">(</span><span class="mi">5</span><span class="p" data-group-id="0147569706-1">)</span><span class="o">.</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="nc">Developers</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pulseaudio</span><span class="o">-</span><span class="n">discuss</span><span class="w"> </span><span class="p" data-group-id="7263347185-1">(</span><span class="n">at</span><span class="p" data-group-id="7263347185-1">)</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="p" data-group-id="7263347185-2">(</span><span class="n">dot</span><span class="p" data-group-id="7263347185-2">)</span><span class="w"> </span><span class="n">freedesktop</span><span class="w"> </span><span class="p" data-group-id="7263347185-3">(</span><span class="n">dot</span><span class="p" data-group-id="7263347185-3">)</span><span class="w"> </span><span class="n">org</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="nc">PulseAudio</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">http</span><span class="ss">://</span><span class="n">pulseaudio</span><span class="o">.</span><span class="n">org</span><span class="o">/</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pulse</span><span class="o">-</span><span class="n">cli</span><span class="o">-</span><span class="n">syntax</span><span class="p" data-group-id="9159071116-1">(</span><span class="mi">5</span><span class="p" data-group-id="9159071116-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">pulse</span><span class="o">-</span><span class="n">daemon</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="9159071116-2">(</span><span class="mi">5</span><span class="p" data-group-id="9159071116-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">pulseaudio</span><span class="p" data-group-id="9159071116-3">(</span><span class="mi">1</span><span class="p" data-group-id="9159071116-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">pacmd</span><span class="p" data-group-id="9159071116-4">(</span><span class="mi">1</span><span class="p" data-group-id="9159071116-4">)</span></code></pre><p>Manuals                                                                                    User                                                                             default.pa(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="deb-triggers.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+deb-triggers
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="deluser-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+deluser.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

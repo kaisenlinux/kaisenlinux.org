@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>updatedb.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>updatedb.conf</span>
+</h1>
+
+<p>updatedb.conf(5)                                                                   File Formats Manual                                                                   updatedb.conf(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">updatedb</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="6407915658-1">(</span><span class="mi">8</span><span class="p" data-group-id="6407915658-1">)</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">updatedb</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">Blank</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="c1"># character outside of a quoted string starts a comment extending until end of line.</span><span class="w">
+
+   </span><span class="nc">Other</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">form</span><span class="p">:</span><span class="w">
+          </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;VALUE&quot;</span><span class="w">
+
+   </span><span class="nc">White</span><span class="w">  </span><span class="n">space</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">  </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alphanumeric</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">digit</span><span class="o">.</span><span class="w">  </span><span class="nc">VALUE</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="err">&quot;</span><span class="o">.</span><span class="w">  </span><span class="nc">No</span><span class="w"> </span><span class="n">escape</span><span class="w"> </span><span class="n">mechanism</span><span class="w">
+   </span><span class="n">is</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="nc">VALUE</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="nc">VALUE</span><span class="w"> </span><span class="n">spanning</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Unknown</span><span class="w"> </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">considered</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">PRUNEFS</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">whitespace</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="p" data-group-id="4131054521-1">(</span><span class="n">as</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mtab</span><span class="p" data-group-id="4131054521-1">)</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="4131054521-2">(</span><span class="mi">8</span><span class="p" data-group-id="4131054521-2">)</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">case</span><span class="o">-</span><span class="n">insensitive</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w">
+          </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">skipped</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">When</span><span class="w"> </span><span class="n">scanning</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">skipped</span><span class="p">,</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">skipped</span><span class="w"> </span><span class="n">too</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PRUNEFS</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">PRUNENAMES</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">whitespace</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="4131054521-3">(</span><span class="n">without</span><span class="w"> </span><span class="n">paths</span><span class="p" data-group-id="4131054521-3">)</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="4131054521-4">(</span><span class="mi">8</span><span class="p" data-group-id="4131054521-4">)</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">skipped</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">mechanism</span><span class="w"> </span><span class="p" data-group-id="4131054521-5">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w">  </span><span class="n">globbing</span><span class="p" data-group-id="4131054521-5">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">PRUNEPATHS</span><span class="w">
+          </span><span class="nc">A</span><span class="w">  </span><span class="n">whitespace</span><span class="o">-</span><span class="n">separated</span><span class="w">  </span><span class="n">list</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">path</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="4131054521-6">(</span><span class="mi">8</span><span class="p" data-group-id="4131054521-6">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Each</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w">
+          </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">locate</span><span class="p" data-group-id="4131054521-7">(</span><span class="mi">1</span><span class="p" data-group-id="4131054521-7">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">skipped</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">PRUNE_BIND_MOUNTS</span><span class="w">
+          </span><span class="nc">One</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">yes</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="nc">PRUNE_BIND_MOUNTS</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="4131054521-8">(</span><span class="mi">8</span><span class="p" data-group-id="4131054521-8">)</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mount</span><span class="w">
+          </span><span class="n">are</span><span class="w">  </span><span class="n">skipped</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="p">,</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mounts</span><span class="o">.</span><span class="w">  </span><span class="nc">As</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">skipped</span><span class="o">.</span><span class="w">  </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">Btrfs</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">han</span><span class="err">‐</span><span class="w">
+          </span><span class="n">dled</span><span class="w"> </span><span class="n">internally</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="p" data-group-id="4131054521-9">(</span><span class="n">see</span><span class="w"> </span><span class="n">btrfs</span><span class="o">-</span><span class="n">subvolume</span><span class="p" data-group-id="4131054521-10">(</span><span class="mi">8</span><span class="p" data-group-id="4131054521-10">)</span><span class="p" data-group-id="4131054521-9">)</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">thus</span><span class="p">,</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">skipped</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">itself</span><span class="o">.</span><span class="w">  </span><span class="nc">To</span><span class="w"> </span><span class="n">counteract</span><span class="w">  </span><span class="n">this</span><span class="p">,</span><span class="w">
+          </span><span class="n">make</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Btrfs</span><span class="w"> </span><span class="n">subvolume</span><span class="p">,</span><span class="w"> </span><span class="n">too</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="n">mounts</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">skipped</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">When</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">matched</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">PRUNEFS</span><span class="p">,</span><span class="w"> </span><span class="nc">PRUNENAMES</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">PRUNEPATHS</span><span class="p">,</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="7715850498-1">(</span><span class="mi">8</span><span class="p" data-group-id="7715850498-1">)</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="n">however</span><span class="p">,</span><span class="w"> </span><span class="n">entered</span><span class="w">
+   </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PRUNEPATHS</span><span class="p">,</span><span class="w"> </span><span class="n">locate</span><span class="p" data-group-id="7715850498-2">(</span><span class="mi">1</span><span class="p" data-group-id="7715850498-2">)</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">differs</span><span class="w"> </span><span class="n">from</span><span class="w">
+   </span><span class="n">traditional</span><span class="w"> </span><span class="n">locate</span><span class="w"> </span><span class="n">implementations</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="7715850498-3">(</span><span class="mi">8</span><span class="p" data-group-id="7715850498-3">)</span><span class="w"> </span><span class="n">implementations</span><span class="w"> </span><span class="nc">PRUNEPATHS</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">directory</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">implementation</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">updatedb</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">implementations</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">flexibility</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">defining</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span><span class="w">  </span><span class="nc">Equivalent</span><span class="w"> </span><span class="n">functionality</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">achieved</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">command</span><span class="o">-</span><span class="n">line</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="7715850498-4">(</span><span class="mi">8</span><span class="p" data-group-id="7715850498-4">)</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Miloslav</span><span class="w"> </span><span class="nc">Trmac</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mitr</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">locate</span><span class="p" data-group-id="9344256895-1">(</span><span class="mi">1</span><span class="p" data-group-id="9344256895-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">updatedb</span><span class="p" data-group-id="9344256895-2">(</span><span class="mi">8</span><span class="p" data-group-id="9344256895-2">)</span></code></pre><p>plocate                                                                                  Oct 2020                                                                        updatedb.conf(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="udisks2-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+udisks2.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="update-exim4-conf-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+update-exim4.conf.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

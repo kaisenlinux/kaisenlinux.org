@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>org.freedesktop.network1 — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>org.freedesktop.network1</span>
+</h1>
+
+<p>ORG.FREEDESKTOP.NETWORK1(5)                                                      org.freedesktop.network1                                                     ORG.FREEDESKTOP.NETWORK1(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">networkd</span></code></pre><p>INTRODUCTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">systemd</span><span class="o">-</span><span class="n">networkd</span><span class="o">.</span><span class="n">service</span><span class="p" data-group-id="0924963510-1">(</span><span class="mi">8</span><span class="p" data-group-id="0924963510-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">manages</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interfaces</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span></code></pre><p>THE MANAGER OBJECT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">exposes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Manager</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">bus</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">node</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="w"> </span><span class="p" data-group-id="6534903812-1">{</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">Manager</span><span class="w"> </span><span class="p" data-group-id="6534903812-2">{</span><span class="w">
+           </span><span class="ss">methods</span><span class="p">:</span><span class="w">
+             </span><span class="nc">ListLinks</span><span class="p" data-group-id="6534903812-3">(</span><span class="n">out</span><span class="w"> </span><span class="n">a</span><span class="p" data-group-id="6534903812-4">(</span><span class="n">iso</span><span class="p" data-group-id="6534903812-4">)</span><span class="w"> </span><span class="n">links</span><span class="p" data-group-id="6534903812-3">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">GetLinkByName</span><span class="p" data-group-id="6534903812-5">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w">
+                           </span><span class="n">out</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                           </span><span class="n">out</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="n">path</span><span class="p" data-group-id="6534903812-5">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">GetLinkByIndex</span><span class="p" data-group-id="6534903812-6">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                            </span><span class="n">out</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w">
+                            </span><span class="n">out</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="n">path</span><span class="p" data-group-id="6534903812-6">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkNTP</span><span class="p" data-group-id="6534903812-7">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                        </span><span class="ow">in</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">servers</span><span class="p" data-group-id="6534903812-7">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDNS</span><span class="p" data-group-id="6534903812-8">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                        </span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="6534903812-9">(</span><span class="n">iay</span><span class="p" data-group-id="6534903812-9">)</span><span class="w"> </span><span class="n">addresses</span><span class="p" data-group-id="6534903812-8">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDNSEx</span><span class="p" data-group-id="6534903812-10">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                          </span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="6534903812-11">(</span><span class="n">iayqs</span><span class="p" data-group-id="6534903812-11">)</span><span class="w"> </span><span class="n">addresses</span><span class="p" data-group-id="6534903812-10">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDomains</span><span class="p" data-group-id="6534903812-12">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                            </span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="6534903812-13">(</span><span class="n">sb</span><span class="p" data-group-id="6534903812-13">)</span><span class="w"> </span><span class="n">domains</span><span class="p" data-group-id="6534903812-12">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDefaultRoute</span><span class="p" data-group-id="6534903812-14">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                                 </span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">enable</span><span class="p" data-group-id="6534903812-14">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkLLMNR</span><span class="p" data-group-id="6534903812-15">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                          </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="6534903812-15">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkMulticastDNS</span><span class="p" data-group-id="6534903812-16">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                                 </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="6534903812-16">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDNSOverTLS</span><span class="p" data-group-id="6534903812-17">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                               </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="6534903812-17">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDNSSEC</span><span class="p" data-group-id="6534903812-18">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                           </span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="6534903812-18">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLinkDNSSECNegativeTrustAnchors</span><span class="p" data-group-id="6534903812-19">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                                               </span><span class="ow">in</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">names</span><span class="p" data-group-id="6534903812-19">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">RevertLinkNTP</span><span class="p" data-group-id="6534903812-20">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p" data-group-id="6534903812-20">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">RevertLinkDNS</span><span class="p" data-group-id="6534903812-21">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p" data-group-id="6534903812-21">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">RenewLink</span><span class="p" data-group-id="6534903812-22">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p" data-group-id="6534903812-22">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">ForceRenewLink</span><span class="p" data-group-id="6534903812-23">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p" data-group-id="6534903812-23">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">ReconfigureLink</span><span class="p" data-group-id="6534903812-24">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p" data-group-id="6534903812-24">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">Reload</span><span class="p" data-group-id="6534903812-25">(</span><span class="p" data-group-id="6534903812-25">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">DescribeLink</span><span class="p" data-group-id="6534903812-26">(</span><span class="ow">in</span><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="n">ifindex</span><span class="p">,</span><span class="w">
+                          </span><span class="n">out</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">json</span><span class="p" data-group-id="6534903812-26">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">Describe</span><span class="p" data-group-id="6534903812-27">(</span><span class="n">out</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">json</span><span class="p" data-group-id="6534903812-27">)</span><span class="p">;</span><span class="w">
+           </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">OperationalState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">CarrierState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">IPv4AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">IPv6AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">OnlineState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="6534903812-28">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="6534903812-28">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="nc">NamespaceId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">...</span><span class="p">;</span><span class="w">
+         </span><span class="p" data-group-id="6534903812-2">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Peer</span><span class="w"> </span><span class="p" data-group-id="6534903812-29">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6534903812-29">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Introspectable</span><span class="w"> </span><span class="p" data-group-id="6534903812-30">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6534903812-30">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Properties</span><span class="w"> </span><span class="p" data-group-id="6534903812-31">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="6534903812-31">}</span><span class="p">;</span><span class="w">
+       </span><span class="p" data-group-id="6534903812-1">}</span><span class="p">;</span><span class="w">
+
+   </span><span class="nc">Provides</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">manager</span><span class="o">.</span></code></pre><p>LINK OBJECT</p><pre><code class="makeup elixir" translate="no"><span class="w">       </span><span class="n">node</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="o">/</span><span class="n">link</span><span class="o">/</span><span class="c">_1</span><span class="w"> </span><span class="p" data-group-id="7977653232-1">{</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">Link</span><span class="w"> </span><span class="p" data-group-id="7977653232-2">{</span><span class="w">
+           </span><span class="ss">methods</span><span class="p">:</span><span class="w">
+             </span><span class="nc">SetNTP</span><span class="p" data-group-id="7977653232-3">(</span><span class="ow">in</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">servers</span><span class="p" data-group-id="7977653232-3">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDNS</span><span class="p" data-group-id="7977653232-4">(</span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="7977653232-5">(</span><span class="n">iay</span><span class="p" data-group-id="7977653232-5">)</span><span class="w"> </span><span class="n">addresses</span><span class="p" data-group-id="7977653232-4">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDNSEx</span><span class="p" data-group-id="7977653232-6">(</span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="7977653232-7">(</span><span class="n">iayqs</span><span class="p" data-group-id="7977653232-7">)</span><span class="w"> </span><span class="n">addresses</span><span class="p" data-group-id="7977653232-6">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDomains</span><span class="p" data-group-id="7977653232-8">(</span><span class="ow">in</span><span class="w">  </span><span class="n">a</span><span class="p" data-group-id="7977653232-9">(</span><span class="n">sb</span><span class="p" data-group-id="7977653232-9">)</span><span class="w"> </span><span class="n">domains</span><span class="p" data-group-id="7977653232-8">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDefaultRoute</span><span class="p" data-group-id="7977653232-10">(</span><span class="ow">in</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="n">enable</span><span class="p" data-group-id="7977653232-10">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetLLMNR</span><span class="p" data-group-id="7977653232-11">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="7977653232-11">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetMulticastDNS</span><span class="p" data-group-id="7977653232-12">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="7977653232-12">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDNSOverTLS</span><span class="p" data-group-id="7977653232-13">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="7977653232-13">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDNSSEC</span><span class="p" data-group-id="7977653232-14">(</span><span class="ow">in</span><span class="w">  </span><span class="n">s</span><span class="w"> </span><span class="n">mode</span><span class="p" data-group-id="7977653232-14">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">SetDNSSECNegativeTrustAnchors</span><span class="p" data-group-id="7977653232-15">(</span><span class="ow">in</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">names</span><span class="p" data-group-id="7977653232-15">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">RevertNTP</span><span class="p" data-group-id="7977653232-16">(</span><span class="p" data-group-id="7977653232-16">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">RevertDNS</span><span class="p" data-group-id="7977653232-17">(</span><span class="p" data-group-id="7977653232-17">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">Renew</span><span class="p" data-group-id="7977653232-18">(</span><span class="p" data-group-id="7977653232-18">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">ForceRenew</span><span class="p" data-group-id="7977653232-19">(</span><span class="p" data-group-id="7977653232-19">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">Reconfigure</span><span class="p" data-group-id="7977653232-20">(</span><span class="p" data-group-id="7977653232-20">)</span><span class="p">;</span><span class="w">
+             </span><span class="nc">Describe</span><span class="p" data-group-id="7977653232-21">(</span><span class="n">out</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">json</span><span class="p" data-group-id="7977653232-21">)</span><span class="p">;</span><span class="w">
+           </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">OperationalState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">CarrierState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">IPv4AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">IPv6AddressState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">OnlineState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">AdministrativeState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="7977653232-22">(</span><span class="s">&quot;false&quot;</span><span class="p" data-group-id="7977653232-22">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="p" data-group-id="7977653232-23">(</span><span class="n">tt</span><span class="p" data-group-id="7977653232-23">)</span><span class="w"> </span><span class="nc">BitRates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">...</span><span class="p">;</span><span class="w">
+         </span><span class="p" data-group-id="7977653232-2">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Peer</span><span class="w"> </span><span class="p" data-group-id="7977653232-24">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="7977653232-24">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Introspectable</span><span class="w"> </span><span class="p" data-group-id="7977653232-25">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="7977653232-25">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Properties</span><span class="w"> </span><span class="p" data-group-id="7977653232-26">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="7977653232-26">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">DHCPServer</span><span class="w"> </span><span class="p" data-group-id="7977653232-27">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="7977653232-27">}</span><span class="p">;</span><span class="w">
+       </span><span class="p" data-group-id="7977653232-1">}</span><span class="p">;</span><span class="w">
+
+   </span><span class="nc">Provides</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">interfaces</span><span class="o">.</span></code></pre><p>NETWORK OBJECT</p><pre><code class="makeup elixir" translate="no"><span class="w">       </span><span class="n">node</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="c">_1</span><span class="w"> </span><span class="p" data-group-id="4753183962-1">{</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">Network</span><span class="w"> </span><span class="p" data-group-id="4753183962-2">{</span><span class="w">
+           </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-3">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-3">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-4">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-4">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="nc">SourcePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;...&#39;</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-5">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-5">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">MatchMAC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4753183962-6">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4753183962-6">]</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-7">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-7">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">MatchPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4753183962-8">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4753183962-8">]</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-9">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-9">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">MatchDriver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4753183962-10">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4753183962-10">]</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-11">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-11">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">MatchType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4753183962-12">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4753183962-12">]</span><span class="p">;</span><span class="w">
+             </span><span class="na">@org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Property.EmitsChangedSignal</span><span class="p" data-group-id="4753183962-13">(</span><span class="s">&quot;const&quot;</span><span class="p" data-group-id="4753183962-13">)</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">MatchName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4753183962-14">[</span><span class="sc">&#39;...&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="4753183962-14">]</span><span class="p">;</span><span class="w">
+         </span><span class="p" data-group-id="4753183962-2">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Peer</span><span class="w"> </span><span class="p" data-group-id="4753183962-15">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="4753183962-15">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Introspectable</span><span class="w"> </span><span class="p" data-group-id="4753183962-16">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="4753183962-16">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Properties</span><span class="w"> </span><span class="p" data-group-id="4753183962-17">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="4753183962-17">}</span><span class="p">;</span><span class="w">
+       </span><span class="p" data-group-id="4753183962-1">}</span><span class="p">;</span><span class="w">
+
+   </span><span class="nc">Provides</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="o">.</span><span class="n">network</span><span class="w"> </span><span class="n">files</span><span class="o">.</span></code></pre><p>DHCP SERVER OBJECT</p><pre><code class="makeup elixir" translate="no"><span class="w">       </span><span class="n">node</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="o">/</span><span class="n">link</span><span class="o">/</span><span class="c">_1</span><span class="w"> </span><span class="p" data-group-id="9450027532-1">{</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">DHCPServer</span><span class="w"> </span><span class="p" data-group-id="9450027532-2">{</span><span class="w">
+           </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+             </span><span class="n">readonly</span><span class="w"> </span><span class="n">a</span><span class="p" data-group-id="9450027532-3">(</span><span class="n">uayayayayt</span><span class="p" data-group-id="9450027532-3">)</span><span class="w"> </span><span class="nc">Leases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="9450027532-4">[</span><span class="n">...</span><span class="p" data-group-id="9450027532-4">]</span><span class="p">;</span><span class="w">
+         </span><span class="p" data-group-id="9450027532-2">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Peer</span><span class="w"> </span><span class="p" data-group-id="9450027532-5">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="9450027532-5">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Introspectable</span><span class="w"> </span><span class="p" data-group-id="9450027532-6">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="9450027532-6">}</span><span class="p">;</span><span class="w">
+         </span><span class="n">interface</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="nc">DBus.Properties</span><span class="w"> </span><span class="p" data-group-id="9450027532-7">{</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="p" data-group-id="9450027532-7">}</span><span class="p">;</span><span class="w">
+       </span><span class="p" data-group-id="9450027532-1">}</span><span class="p">;</span><span class="w">
+
+   </span><span class="nc">Provides</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">leases</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">Introspect</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">Manager</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bus</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">gdbus</span><span class="w"> </span><span class="n">introspect</span><span class="w"> </span><span class="o">--</span><span class="n">system</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">dest</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">object</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="nc">Introspect</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="o">.</span><span class="nc">Link</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bus</span><span class="w">
+
+       </span><span class="err">$</span><span class="w"> </span><span class="n">gdbus</span><span class="w"> </span><span class="n">introspect</span><span class="w"> </span><span class="o">--</span><span class="n">system</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">dest</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">freedesktop</span><span class="o">.</span><span class="n">network1</span><span class="w"> </span><span class="err">\</span><span class="w">
+         </span><span class="o">--</span><span class="n">object</span><span class="o">-</span><span class="n">path</span><span class="w"> </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">freedesktop</span><span class="o">/</span><span class="n">network1</span><span class="o">/</span><span class="n">link</span><span class="o">/</span><span class="c">_11</span></code></pre><p>VERSIONING</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usual</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">versioning</span><span class="w"> </span><span class="n">guidelines</span><span class="p" data-group-id="8722304390-1">[</span><span class="mi">1</span><span class="p" data-group-id="8722304390-1">]</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usual</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">versioning</span><span class="w"> </span><span class="n">guidelines</span><span class="w">
+       </span><span class="n">http</span><span class="ss">://</span><span class="mi">0</span><span class="n">pointer</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">versioning</span><span class="o">-</span><span class="n">dbus</span><span class="o">.</span><span class="n">html</span></code></pre><p>systemd 252                                                                                                                                                   ORG.FREEDESKTOP.NETWORK1(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-freedesktop-machine1.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.freedesktop.machine1
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-freedesktop-portable1.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.freedesktop.portable1
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

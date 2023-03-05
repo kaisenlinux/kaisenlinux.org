@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>shadow — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>shadow</span>
+</h1>
+
+<p>SHADOW(5)                                                                     File Formats and Configuration                                                                    SHADOW(5)</p><p>NOM</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">shadow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">mots</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">cachés</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">shadow</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="sc">&#39;s accounts and optional aging information.
+
+   Ce fichier ne doit pas être accessible en lecture par les utilisateurs normaux afin de maintenir la sécurité des mots de passe, en particuliers pour prévenir les attaques par
+   dictionnaires.
+
+   Each line of this file contains 9 fields, separated by colons (« : »), in the following order:
+
+   nom de connexion de l&#39;</span><span class="n">utilisateur</span><span class="w"> </span><span class="p" data-group-id="5899057533-1">(</span><span class="err">«</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="err">»</span><span class="p" data-group-id="5899057533-1">)</span><span class="w">
+       </span><span class="nc">Ce</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">être</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">compte</span><span class="w"> </span><span class="n">valable</span><span class="p">,</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">existe</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">système</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">chiffré</span><span class="w">
+       </span><span class="nc">This</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w"> </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">may</span><span class="w">
+       </span><span class="n">decide</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">permit</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">empty</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Un</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">commence</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;exclamation indique que le mot de passe est bloqué. Les caractères restants sur la ligne représentent le champ de mot de
+       passe avant que le mot de passe n&#39;</span><span class="n">ait</span><span class="w"> </span><span class="n">été</span><span class="w"> </span><span class="n">bloqué</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">crypt</span><span class="p" data-group-id="5899057533-2">(</span><span class="mi">3</span><span class="p" data-group-id="5899057533-2">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">interpreted</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">crypt</span><span class="p" data-group-id="5899057533-3">(</span><span class="mi">3</span><span class="p" data-group-id="5899057533-3">)</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">unix</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p" data-group-id="5899057533-4">(</span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w">
+       </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">means</span><span class="p" data-group-id="5899057533-4">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">date</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">dernier</span><span class="w"> </span><span class="n">changement</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">change</span><span class="p">,</span><span class="w"> </span><span class="n">expressed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="nc">Jan</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1970</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="nc">UTC</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">La</span><span class="w"> </span><span class="n">valeur</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">signification</span><span class="w"> </span><span class="n">particulière</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;utilisateur devra changer son mot de passe la prochaine fois qu&#39;</span><span class="n">il</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">connectera</span><span class="w"> </span><span class="n">au</span><span class="w"> </span><span class="n">système</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Un</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="n">indique</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">fonctionnalités</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">vieillissement</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">sont</span><span class="w"> </span><span class="n">désactivées</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">âge</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w">
+       </span><span class="nc">L</span><span class="sc">&#39;âge minimum du mot de passe est la durée (en jour) que l&#39;</span><span class="n">utilisateur</span><span class="w"> </span><span class="n">devra</span><span class="w"> </span><span class="n">attendre</span><span class="w"> </span><span class="n">avant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">pouvoir</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">changer</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">nouveau</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">An</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">age</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">âge</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w">
+       </span><span class="nc">L</span><span class="sc">&#39;âge maximum du mot de passe est la durée (en jour) après laquelle l&#39;</span><span class="n">utilisateur</span><span class="w"> </span><span class="n">devra</span><span class="w"> </span><span class="n">changer</span><span class="w"> </span><span class="n">son</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Une</span><span class="w"> </span><span class="n">fois</span><span class="w"> </span><span class="n">cette</span><span class="w"> </span><span class="n">durée</span><span class="w"> </span><span class="n">écoulée</span><span class="p">,</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">restera</span><span class="w"> </span><span class="n">valable</span><span class="o">.</span><span class="w"> </span><span class="nc">Il</span><span class="w"> </span><span class="n">sera</span><span class="w"> </span><span class="n">demandé</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;utilisateur de le changer la prochaine fois qu&#39;</span><span class="n">il</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">connectera</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Un</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="n">signifie</span><span class="w"> </span><span class="n">qu</span><span class="sc">&#39;il n&#39;</span><span class="n">y</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">aucune</span><span class="w"> </span><span class="n">limite</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;âge, aucune période d&#39;</span><span class="n">avertissement</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;expiration et aucune période d&#39;</span><span class="n">inactivité</span><span class="w"> </span><span class="p" data-group-id="5899057533-5">(</span><span class="n">voir</span><span class="w"> </span><span class="n">ci</span><span class="o">-</span><span class="n">dessous</span><span class="p" data-group-id="5899057533-5">)</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Si</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;âge maximum du mot de passe est plus petit que l&#39;</span><span class="n">âge</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;utilisateur ne pourra pas changer son mot de passe.
+
+   période d&#39;</span><span class="n">avertissement</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;expiration du mot de passe
+       La durée (en jour) pendant laquelle l&#39;</span><span class="n">utilisateur</span><span class="w"> </span><span class="n">sera</span><span class="w"> </span><span class="n">averti</span><span class="w"> </span><span class="n">avant</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">n</span><span class="sc">&#39;expire (voir l&#39;</span><span class="n">âge</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">ci</span><span class="o">-</span><span class="n">dessus</span><span class="p">)</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Un</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">valeur</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">signifie</span><span class="w"> </span><span class="n">qu</span><span class="sc">&#39;il n&#39;</span><span class="n">y</span><span class="w"> </span><span class="n">aura</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">période</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;avertissement d&#39;</span><span class="n">expiration</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">période</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;inactivité du mot de passe
+       La durée (en jour) pendant laquelle le mot de passe sera quand même accepté après son expiration (voir l&#39;</span><span class="n">âge</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="w"> </span><span class="n">ci</span><span class="o">-</span><span class="n">dessus</span><span class="p">)</span><span class="o">.</span><span class="w"> </span><span class="nc">L</span><span class="sc">&#39;utilisateur devra mettre à
+       jour son mot de passe à la prochaine connexion.
+
+       After expiration of the password and this expiration period is elapsed, no login is possible for the user. The user should contact her administrator.
+
+       Un champ vide signifie qu&#39;</span><span class="n">aucune</span><span class="w"> </span><span class="n">période</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;inactivité n&#39;</span><span class="n">est</span><span class="w"> </span><span class="n">imposée</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">date</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">fin</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">validité</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">compte</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">expiration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="n">expressed</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="nc">Jan</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1970</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="nc">UTC</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Veuillez</span><span class="w"> </span><span class="n">noter</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;expiration d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">compte</span><span class="w"> </span><span class="n">diffère</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;expiration d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passe</span><span class="o">.</span><span class="w"> </span><span class="nc">En</span><span class="w"> </span><span class="n">cas</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;expiration d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">compte</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;utilisateur ne sera plus autorisé à se connecter. En
+       cas d&#39;</span><span class="n">expiration</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;un mot de passe, l&#39;</span><span class="n">utilisateur</span><span class="w"> </span><span class="n">n</span><span class="sc">&#39;est pas autorisé à se connecter en utilisant son mot de passe.
+
+       Un champ vide signifie que le compte n&#39;</span><span class="n">expirera</span><span class="w"> </span><span class="n">jamais</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">La</span><span class="w"> </span><span class="n">valeur</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">être</span><span class="w"> </span><span class="n">utilisée</span><span class="w"> </span><span class="n">puisqu</span><span class="err">&#39;</span><span class="n">elle</span><span class="w"> </span><span class="n">peut</span><span class="w"> </span><span class="n">être</span><span class="w"> </span><span class="n">interprétée</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">comme</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">compte</span><span class="w"> </span><span class="n">sans</span><span class="w"> </span><span class="n">expiration</span><span class="p">,</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">comme</span><span class="w"> </span><span class="n">ayant</span><span class="w"> </span><span class="n">expiré</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="mi">1</span><span class="n">er</span><span class="w"> </span><span class="n">janvier</span><span class="w"> </span><span class="mi">1970</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">champ</span><span class="w"> </span><span class="n">réservé</span><span class="w">
+       </span><span class="nc">Ce</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">réservé</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">utilisation</span><span class="w"> </span><span class="n">future</span><span class="o">.</span></code></pre><p>FICHIERS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="w">
+       </span><span class="nc">Informations</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">comptes</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">utilisateurs</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span><span class="w">
+       </span><span class="nc">Informations</span><span class="w"> </span><span class="n">sécurisées</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">comptes</span><span class="w"> </span><span class="n">utilisateurs</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span><span class="o">-</span><span class="w">
+       </span><span class="nc">Fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">sauvegarde</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Notez</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">utilisé</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">outils</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;outils shadow, mais pas par tous les outils de gestion d&#39;</span><span class="n">utilisateurs</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">mot</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">passes</span><span class="o">.</span></code></pre><p>VOIR AUSSI</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">chage</span><span class="p" data-group-id="3847431195-1">(</span><span class="mi">1</span><span class="p" data-group-id="3847431195-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">login</span><span class="p" data-group-id="3847431195-2">(</span><span class="mi">1</span><span class="p" data-group-id="3847431195-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="p" data-group-id="3847431195-3">(</span><span class="mi">1</span><span class="p" data-group-id="3847431195-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="p" data-group-id="3847431195-4">(</span><span class="mi">5</span><span class="p" data-group-id="3847431195-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">pwck</span><span class="p" data-group-id="3847431195-5">(</span><span class="mi">8</span><span class="p" data-group-id="3847431195-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">pwconv</span><span class="p" data-group-id="3847431195-6">(</span><span class="mi">8</span><span class="p" data-group-id="3847431195-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">pwunconv</span><span class="p" data-group-id="3847431195-7">(</span><span class="mi">8</span><span class="p" data-group-id="3847431195-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">su</span><span class="p" data-group-id="3847431195-8">(</span><span class="mi">1</span><span class="p" data-group-id="3847431195-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">sulogin</span><span class="p" data-group-id="3847431195-9">(</span><span class="mi">8</span><span class="p" data-group-id="3847431195-9">)</span><span class="o">.</span></code></pre><p>shadow-utils 4.13                                                                       23/11/2022                                                                              SHADOW(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="sgdisk.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+sgdisk
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="shells.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+shells
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

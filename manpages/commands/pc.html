@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>pc — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>pc</span>
+</h1>
+
+<p>PC(5)                                                                            BSD File Formats Manual                                                                            PC(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">format</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="n">mechanism</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">storing</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">libraries</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">packages</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">  </span><span class="nc">Information</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="ow">and</span><span class="w">
+ </span><span class="n">linker</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">library</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">relevant</span><span class="w"> </span><span class="n">metadata</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">These</span><span class="w"> </span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">processed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">implementation</span><span class="o">.</span></code></pre><p>   FILE SYNTAX</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">follows</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">inspired</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">RFC822</span><span class="o">.</span><span class="w">  </span><span class="nc">Comments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">prefixed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pound</span><span class="w"> </span><span class="n">sign</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">octothorpe</span><span class="w"> </span><span class="p" data-group-id="4789490285-1">(</span><span class="c1">#), and variable assignment is similar to POSIX shell.  Proper‐</span><span class="w">
+ </span><span class="n">ties</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">RFC822</span><span class="o">-</span><span class="n">style</span><span class="w"> </span><span class="n">stanzas</span><span class="o">.</span></code></pre><p>   VARIABLES</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">Variable</span><span class="w"> </span><span class="n">definitions</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alphanumeric</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">sign</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">contain</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">Variable</span><span class="w"> </span><span class="n">references</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;${variable}&quot;</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">escape</span><span class="w"> </span><span class="n">literal</span><span class="w"> </span><span class="s">&quot;${&quot;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;$${&quot;</span><span class="o">.</span></code></pre><p>   PROPERTIES</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">Properties</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">RFC822</span><span class="o">-</span><span class="n">style</span><span class="w"> </span><span class="n">stanzas</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">consist</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">keyword</span><span class="p">,</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">colon</span><span class="w"> </span><span class="p" data-group-id="9785357262-1">(</span><span class="p">:</span><span class="p" data-group-id="9785357262-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">  </span><span class="nc">Variable</span><span class="w"> </span><span class="n">substitution</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w">
+ </span><span class="n">performed</span><span class="w"> </span><span class="n">regardless</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">three</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">property</span><span class="p">:</span><span class="w">
+
+ </span><span class="nc">Literal</span><span class="w">
+         </span><span class="nc">The</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">Dependency</span><span class="w"> </span><span class="nc">List</span><span class="w">
+         </span><span class="nc">The</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w">  </span><span class="nc">Dependency</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">ABNF</span><span class="w"> </span><span class="ss">syntax</span><span class="p">:</span><span class="w">
+
+         </span><span class="n">package</span><span class="o">-</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="nc">WSP</span><span class="w"> </span><span class="o">*</span><span class="p" data-group-id="9785357262-2">(</span><span class="w"> </span><span class="n">package</span><span class="o">-</span><span class="n">spec</span><span class="w"> </span><span class="o">*</span><span class="p" data-group-id="9785357262-3">(</span><span class="w"> </span><span class="n">package</span><span class="o">-</span><span class="n">sep</span><span class="w"> </span><span class="p" data-group-id="9785357262-3">)</span><span class="w"> </span><span class="p" data-group-id="9785357262-2">)</span><span class="w">
+         </span><span class="n">package</span><span class="o">-</span><span class="n">sep</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nc">WSP</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w">
+         </span><span class="n">package</span><span class="o">-</span><span class="n">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">package</span><span class="o">-</span><span class="n">key</span><span class="w"> </span><span class="p" data-group-id="9785357262-4">[</span><span class="w"> </span><span class="n">ver</span><span class="o">-</span><span class="n">op</span><span class="w"> </span><span class="n">package</span><span class="o">-</span><span class="n">version</span><span class="w"> </span><span class="p" data-group-id="9785357262-4">]</span><span class="w">
+         </span><span class="n">ver</span><span class="o">-</span><span class="n">op</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;&lt;=&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;=&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;!=&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;&gt;=&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="w">
+
+ </span><span class="nc">Fragment</span><span class="w"> </span><span class="nc">List</span><span class="w">
+         </span><span class="nc">The</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">fragments</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">text</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">suitable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">passing</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">shell</span><span class="w">
+         </span><span class="n">expansions</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">substitution</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">done</span><span class="o">.</span></code></pre><p>   PROPERTY KEYWORDS</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">Name</span><span class="w">    </span><span class="nc">The</span><span class="w"> </span><span class="n">displayed</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-1">(</span><span class="n">mandatory</span><span class="p">;</span><span class="w"> </span><span class="n">literal</span><span class="p" data-group-id="7077944586-1">)</span><span class="w">
+
+ </span><span class="nc">Version</span><span class="w">
+         </span><span class="nc">The</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-2">(</span><span class="n">mandatory</span><span class="p">;</span><span class="w"> </span><span class="n">literal</span><span class="p" data-group-id="7077944586-2">)</span><span class="w">
+
+ </span><span class="nc">Description</span><span class="w">
+         </span><span class="nc">A</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-3">(</span><span class="n">mandatory</span><span class="p">;</span><span class="w"> </span><span class="n">literal</span><span class="p" data-group-id="7077944586-3">)</span><span class="w">
+
+ </span><span class="nc">URL</span><span class="w">     </span><span class="nc">A</span><span class="w"> </span><span class="nc">URL</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">webpage</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">recommend</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">newer</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">acquired</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-4">(</span><span class="n">mandatory</span><span class="p">;</span><span class="w"> </span><span class="n">literal</span><span class="p" data-group-id="7077944586-4">)</span><span class="w">
+
+ </span><span class="nc">Cflags</span><span class="w">  </span><span class="nc">Required</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="n">flags</span><span class="o">.</span><span class="w">  </span><span class="nc">These</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">regardless</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">compilation</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">requested</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-5">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">fragment</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-5">)</span><span class="w">
+
+ </span><span class="nc">Cflags</span><span class="o">.</span><span class="n">private</span><span class="w">
+         </span><span class="nc">Required</span><span class="w"> </span><span class="n">compiler</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">compilation</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-6">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">fragment</span><span class="w"> </span><span class="n">list</span><span class="p">;</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">extension</span><span class="p" data-group-id="7077944586-6">)</span><span class="w">
+
+ </span><span class="nc">Libs</span><span class="w">    </span><span class="nc">Required</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="nc">Libraries</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">here</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-7">(</span><span class="n">op</span><span class="err">‐</span><span class="w">
+         </span><span class="n">tional</span><span class="p">;</span><span class="w"> </span><span class="n">fragment</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-7">)</span><span class="w">
+
+ </span><span class="nc">Libs</span><span class="o">.</span><span class="n">private</span><span class="w">
+         </span><span class="nc">Required</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="n">statically</span><span class="o">.</span><span class="w">  </span><span class="nc">Libraries</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">linking</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">statically</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w">
+         </span><span class="n">described</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">here</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-8">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">fragment</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-8">)</span><span class="w">
+
+ </span><span class="nc">Requires</span><span class="w">
+         </span><span class="nc">Required</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">met</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">usable</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">satisfied</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-9">(</span><span class="n">op</span><span class="err">‐</span><span class="w">
+         </span><span class="n">tional</span><span class="p">;</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-9">)</span><span class="w">
+
+ </span><span class="nc">Requires</span><span class="o">.</span><span class="n">private</span><span class="w">
+         </span><span class="nc">Required</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">met</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">usable</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">linking</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">satisfied</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w">
+         </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">linking</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-10">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-10">)</span><span class="w">
+
+ </span><span class="nc">Conflicts</span><span class="w">
+         </span><span class="nc">Dependencies</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">met</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">usable</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">proposed</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">solution</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Conflicts</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">package</span><span class="w">
+         </span><span class="n">being</span><span class="w"> </span><span class="n">considered</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">usable</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-11">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">list</span><span class="p" data-group-id="7077944586-11">)</span><span class="w">
+
+ </span><span class="nc">Provides</span><span class="w">
+         </span><span class="nc">Dependencies</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">alternate</span><span class="w"> </span><span class="n">package</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">providers</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">re</span><span class="err">‐</span><span class="w">
+         </span><span class="n">quested</span><span class="w"> </span><span class="n">dependency</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="7077944586-12">(</span><span class="n">optional</span><span class="p">;</span><span class="w"> </span><span class="n">dependency</span><span class="w"> </span><span class="n">list</span><span class="p">;</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">extension</span><span class="p" data-group-id="7077944586-12">)</span></code></pre><p>   EXTENSIONS</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">Features</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">marked</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">guaranteed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="o">.</span><span class="w">  </span><span class="nc">Other</span><span class="w"> </span><span class="n">implementations</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">the</span><span class="w">
+ </span><span class="n">extensions</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">Accordingly</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">suggested</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">absolutely</span><span class="w"> </span><span class="n">depend</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">extensions</span><span class="w"> </span><span class="n">declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pkgconf</span><span class="w"> </span><span class="n">virtual</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="o">.</span><span class="n">pc</span><span class="w"> </span><span class="ss">file</span><span class="p">:</span><span class="w">
+
+ </span><span class="c1"># This is a comment</span><span class="w">
+ </span><span class="n">prefix</span><span class="o">=</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">kaniini</span><span class="o">/</span><span class="n">pkg</span><span class="w">   </span><span class="c1"># this defines a variable</span><span class="w">
+ </span><span class="n">exec_prefix</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="2872036400-1">{</span><span class="n">prefix</span><span class="p" data-group-id="2872036400-1">}</span><span class="w">      </span><span class="c1"># defining another variable with a substitution</span><span class="w">
+ </span><span class="n">libdir</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="2872036400-2">{</span><span class="n">exec_prefix</span><span class="p" data-group-id="2872036400-2">}</span><span class="o">/</span><span class="n">lib</span><span class="w">
+ </span><span class="n">includedir</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="2872036400-3">{</span><span class="n">prefix</span><span class="p" data-group-id="2872036400-3">}</span><span class="o">/</span><span class="n">include</span><span class="w">
+
+ </span><span class="ss">Name</span><span class="p">:</span><span class="w"> </span><span class="n">libfoo</span><span class="w">                                  </span><span class="c1"># human-readable name</span><span class="w">
+ </span><span class="ss">Description</span><span class="p">:</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">libfoo</span><span class="w"> </span><span class="c1"># human-readable description</span><span class="w">
+ </span><span class="ss">Version</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+ </span><span class="ss">URL</span><span class="p">:</span><span class="w"> </span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">pkgconf</span><span class="o">.</span><span class="n">org</span><span class="w">
+ </span><span class="ss">Requires</span><span class="p">:</span><span class="w"> </span><span class="n">libbar</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">2.0</span><span class="o">.</span><span class="mi">0</span><span class="w">
+ </span><span class="ss">Conflicts</span><span class="p">:</span><span class="w"> </span><span class="n">libbaz</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3.0</span><span class="o">.</span><span class="mi">0</span><span class="w">
+ </span><span class="ss">Libs</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="nc">L</span><span class="err">$</span><span class="p" data-group-id="2872036400-4">{</span><span class="n">libdir</span><span class="p" data-group-id="2872036400-4">}</span><span class="w"> </span><span class="o">-</span><span class="n">lfoo</span><span class="w">
+ </span><span class="nc">Libs</span><span class="o">.</span><span class="ss">private</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="n">lm</span><span class="w">
+ </span><span class="ss">Cflags</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="nc">I</span><span class="err">$</span><span class="p" data-group-id="2872036400-5">{</span><span class="n">includedir</span><span class="p" data-group-id="2872036400-5">}</span><span class="o">/</span><span class="n">libfoo</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="n">pkgconf</span><span class="p" data-group-id="9006026557-1">(</span><span class="mi">1</span><span class="p" data-group-id="9006026557-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">pkg</span><span class="o">.</span><span class="n">m4</span><span class="p" data-group-id="9006026557-2">(</span><span class="mi">7</span><span class="p" data-group-id="9006026557-2">)</span></code></pre><p>BSD                                                                                 December 15, 2017                                                                                 BSD</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="pci-ids.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+pci.ids
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="pdfcrack.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+pdfcrack
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

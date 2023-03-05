@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>namespace.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>namespace.conf</span>
+</h1>
+
+<p>NAMESPACE.CONF(5)                                                                    Linux-PAM Manual                                                                   NAMESPACE.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">namespace</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">pam_namespace</span><span class="o">.</span><span class="n">so</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">setup</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">namespaces</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">polyinstantiated</span><span class="w"> </span><span class="n">directories</span><span class="o">.</span><span class="w"> </span><span class="nc">Directories</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">polyinstantiated</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w">
+   </span><span class="nc">SELinux</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sensitivity</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">context</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">executable</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">namespace</span><span class="o">.</span><span class="n">init</span><span class="w"> </span><span class="n">exists</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">initialize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">time</span><span class="w">
+   </span><span class="n">an</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">receives</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">polyinstantiated</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">arguments</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">namespace</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">polyinstantiated</span><span class="p">,</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">polyinstantiated</span><span class="p">,</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">named</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">for</span><span class="w">
+   </span><span class="n">whom</span><span class="w"> </span><span class="n">polyinstantiation</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">performed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">someone</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="ow">in</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w"> </span><span class="nc">Comments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">marked</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="c1"># characters. Each non comment line represents one polyinstantiated directory. The fields are</span><span class="w">
+   </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">quoted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="s">&quot; characters also escape sequences </span><span class="se">\b</span><span class="s">, </span><span class="se">\n</span><span class="s">, and </span><span class="se">\t</span><span class="s"> are recognized. The fields are as follows:
+
+   polydir instance_prefix method list_of_uids
+
+   The first field, polydir, is the absolute pathname of the directory to polyinstantiate. The special string $HOME is replaced with the user&#39;s home directory, and $USER with the
+   username. This field cannot be blank.
+
+   The second field, instance_prefix is the string prefix used to build the pathname for the instantiation of &lt;polydir&gt;. Depending on the polyinstantiation method it is then
+   appended with &quot;</span><span class="n">instance</span><span class="w"> </span><span class="n">differentiation</span><span class="w"> </span><span class="n">string</span><span class="s">&quot; to generate the final instance directory path. This directory is created if it did not exist already, and is then bind mounted on
+   the &lt;polydir&gt; to provide an instance of &lt;polydir&gt; based on the &lt;method&gt; column. The special string $HOME is replaced with the user&#39;s home directory, and $USER with the username.
+   This field cannot be blank.
+
+   The third field, method, is the method used for polyinstantiation. It can take these values; &quot;</span><span class="n">user</span><span class="s">&quot; for polyinstantiation based on user name, &quot;</span><span class="n">level</span><span class="s">&quot; for polyinstantiation based
+   on process MLS level and user name, &quot;</span><span class="n">context</span><span class="s">&quot; for polyinstantiation based on process security context and user name, &quot;</span><span class="n">tmpfs</span><span class="s">&quot; for mounting tmpfs filesystem as an instance dir, and
+   &quot;</span><span class="n">tmpdir</span><span class="s">&quot; for creating temporary directory as an instance dir which is removed when the user&#39;s session is closed. Methods &quot;</span><span class="n">context</span><span class="s">&quot; and &quot;</span><span class="n">level</span><span class="s">&quot; are only available with SELinux.
+   This field cannot be blank.
+
+   The fourth field, list_of_uids, is a comma separated list of user names for whom the polyinstantiation is not performed. If left blank, polyinstantiation will be performed for
+   all users. If the list is preceded with a single &quot;</span><span class="err">~</span><span class="s">&quot; character, polyinstantiation is performed only for users in the list.
+
+   The method field can contain also following optional flags separated by : characters.
+
+   create=mode,owner,group - create the polyinstantiated directory. The mode, owner and group parameters are optional. The default for mode is determined by umask, the default owner
+   is the user whose session is opened, the default group is the primary group of the user.
+
+   iscript=path - path to the instance directory init script. The base directory for relative paths is /etc/security/namespace.d.
+
+   noinit - instance directory init script will not be executed.
+
+   shared - the instance directories for &quot;</span><span class="n">context</span><span class="s">&quot; and &quot;</span><span class="n">level</span><span class="s">&quot; methods will not contain the user name and will be shared among all users.
+
+   mntopts=value - value of this flag is passed to the mount call when the tmpfs mount is done. It allows for example the specification of the maximum size of the tmpfs instance
+   that is created by the mount call. In addition to options specified in the tmpfs(5) manual the nosuid, noexec, and nodev flags can be used to respectively disable setuid bit
+   effect, disable running executables, and disable devices to be interpreted on the mounted tmpfs filesystem.
+
+   The directory where polyinstantiated instances are to be created, must exist and must have, by default, the mode of 0000. The requirement that the instance parent be of mode 0000
+   can be overridden with the command line option ignore_instance_parent_mode
+
+   In case of context or level polyinstantiation the SELinux context which is used for polyinstantiation is the context used for executing a new process as obtained by getexeccon.
+   This context must be set by the calling application or pam_selinux.so module. If this context is not set the polyinstatiation will be based just on user name.
+
+   The &quot;</span><span class="n">instance</span><span class="w"> </span><span class="n">differentiation</span><span class="w"> </span><span class="n">string</span><span class="s">&quot; is &lt;user name&gt; for &quot;</span><span class="n">user</span><span class="s">&quot; method and &lt;user name&gt;_&lt;raw directory context&gt; for &quot;</span><span class="n">context</span><span class="s">&quot; and &quot;</span><span class="n">level</span><span class="err">&quot;</span><span class="w"> </span><span class="n">methods</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">long</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">md5sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">itself</span><span class="o">.</span><span class="w"> </span><span class="nc">Also</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">gen_hash</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">whole</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">md5sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">itself</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">namespace</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="w">
+
+             </span><span class="c1"># The following three lines will polyinstantiate /tmp,</span><span class="w">
+             </span><span class="c1"># /var/tmp and user&#39;s home directories. /tmp and /var/tmp</span><span class="w">
+             </span><span class="c1"># will be polyinstantiated based on the security level</span><span class="w">
+             </span><span class="c1"># as well as user name, whereas home directory will be</span><span class="w">
+             </span><span class="c1"># polyinstantiated based on the full security context and user name.</span><span class="w">
+             </span><span class="c1"># Polyinstantiation will not be performed for user root</span><span class="w">
+             </span><span class="c1"># and adm for directories /tmp and /var/tmp, whereas home</span><span class="w">
+             </span><span class="c1"># directories will be polyinstantiated for all users.</span><span class="w">
+             </span><span class="c1">#</span><span class="w">
+             </span><span class="c1"># Note that instance directories do not have to reside inside</span><span class="w">
+             </span><span class="c1"># the polyinstantiated directory. In the examples below,</span><span class="w">
+             </span><span class="c1"># instances of /tmp will be created in /tmp-inst directory,</span><span class="w">
+             </span><span class="c1"># where as instances of /var/tmp and users home directories</span><span class="w">
+             </span><span class="c1"># will reside within the directories that are being</span><span class="w">
+             </span><span class="c1"># polyinstantiated.</span><span class="w">
+             </span><span class="c1">#</span><span class="w">
+             </span><span class="o">/</span><span class="n">tmp</span><span class="w">     </span><span class="o">/</span><span class="n">tmp</span><span class="o">-</span><span class="n">inst</span><span class="o">/</span><span class="w">               </span><span class="n">level</span><span class="w">      </span><span class="n">root</span><span class="p">,</span><span class="n">adm</span><span class="w">
+             </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">tmp</span><span class="o">-</span><span class="n">inst</span><span class="o">/</span><span class="w">       </span><span class="n">level</span><span class="w">      </span><span class="n">root</span><span class="p">,</span><span class="n">adm</span><span class="w">
+             </span><span class="err">$</span><span class="nc">HOME</span><span class="w">    </span><span class="err">$</span><span class="nc">HOME</span><span class="o">/</span><span class="err">$</span><span class="nc">USER</span><span class="o">.</span><span class="n">inst</span><span class="o">/</span><span class="n">inst</span><span class="o">-</span><span class="w"> </span><span class="n">context</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="n">s</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">polyinstantiation</span><span class="w"> </span><span class="p" data-group-id="4908236983-1">(</span><span class="n">login</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="p" data-group-id="4908236983-1">)</span><span class="w"> </span><span class="n">put</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="o">&lt;</span><span class="n">service</span><span class="o">&gt;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="ss">group</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">session</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">pam_namespace</span><span class="o">.</span><span class="n">so</span><span class="w"> </span><span class="p" data-group-id="4908236983-2">[</span><span class="n">arguments</span><span class="p" data-group-id="4908236983-2">]</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">pam_selinux</span><span class="o">.</span><span class="n">so</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">context</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pam_namespace</span><span class="p" data-group-id="8890426102-1">(</span><span class="mi">8</span><span class="p" data-group-id="8890426102-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="p" data-group-id="8890426102-2">(</span><span class="mi">5</span><span class="p" data-group-id="8890426102-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">pam</span><span class="p" data-group-id="8890426102-3">(</span><span class="mi">7</span><span class="p" data-group-id="8890426102-3">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Janak</span><span class="w"> </span><span class="nc">Desai</span><span class="w"> </span><span class="o">&lt;</span><span class="n">janak</span><span class="na">@us</span><span class="o">.</span><span class="n">ibm</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span><span class="w"> </span><span class="nc">More</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Tomas</span><span class="w"> </span><span class="nc">Mraz</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tmraz</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>Linux-PAM Manual                                                                        09/03/2021                                                                      NAMESPACE.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="muttrc.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+muttrc
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="nanorc.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+nanorc
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

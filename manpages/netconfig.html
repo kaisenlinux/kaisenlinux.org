@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>netconfig — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>netconfig</span>
+</h1>
+
+<p>NETCONFIG(5)                                                                     BSD File Formats Manual                                                                     NETCONFIG(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="n">netconfig</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">base</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">netconfig</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">netconfig</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="err">“</span><span class="n">transport</span><span class="w"> </span><span class="n">names</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">describing</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">semantics</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">protocol</span><span class="o">.</span><span class="w">  </span><span class="nc">In</span><span class="w"> </span><span class="nc">FreeBSD</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">RPC</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">Entries</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">format</span><span class="p">:</span><span class="w">
+
+ </span><span class="n">network_id</span><span class="w"> </span><span class="n">semantics</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">protoname</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">libraries</span><span class="w">
+
+ </span><span class="nc">Entries</span><span class="w"> </span><span class="n">consist</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">fields</span><span class="p">:</span><span class="w">
+
+ </span><span class="n">network_id</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">described</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">semantics</span><span class="w">   </span><span class="nc">Describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">semantics</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">transport</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ss">of</span><span class="p">:</span><span class="w">
+
+                   </span><span class="n">tpi_clts</span><span class="w">      </span><span class="nc">Connectionless</span><span class="w"> </span><span class="n">transport</span><span class="o">.</span><span class="w">
+
+                   </span><span class="n">tpi_cots</span><span class="w">      </span><span class="nc">Connection</span><span class="o">-</span><span class="n">oriented</span><span class="w"> </span><span class="n">transport</span><span class="w">
+
+                   </span><span class="n">tpi_cots_ord</span><span class="w">  </span><span class="nc">Connection</span><span class="o">-</span><span class="n">oriented</span><span class="p">,</span><span class="w"> </span><span class="n">ordered</span><span class="w"> </span><span class="n">transport</span><span class="o">.</span><span class="w">
+
+                   </span><span class="n">tpi_raw</span><span class="w">       </span><span class="nc">A</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">connection</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">flags</span><span class="w">       </span><span class="nc">This</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="p" data-group-id="6631103896-1">(</span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="err">“</span><span class="o">-</span><span class="err">”</span><span class="p" data-group-id="6631103896-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">“</span><span class="n">v</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">getnetconfig</span><span class="p" data-group-id="6631103896-2">(</span><span class="mi">3</span><span class="p" data-group-id="6631103896-2">)</span><span class="w"> </span><span class="n">function</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">family</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">transport</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ss">of</span><span class="p">:</span><span class="w">
+
+                   </span><span class="n">inet6</span><span class="w">     </span><span class="nc">The</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="p" data-group-id="6631103896-3">(</span><span class="nc">PF_INET6</span><span class="p" data-group-id="6631103896-3">)</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">protocols</span><span class="o">.</span><span class="w">
+
+                   </span><span class="n">inet</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="nc">IPv4</span><span class="w"> </span><span class="p" data-group-id="6631103896-4">(</span><span class="nc">PF_INET</span><span class="p" data-group-id="6631103896-4">)</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">protocols</span><span class="o">.</span><span class="w">
+
+                   </span><span class="n">loopback</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="nc">PF_LOCAL</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">family</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">protoname</span><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">transport</span><span class="o">.</span><span class="w">  </span><span class="nc">Can</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">udp</span><span class="p">,</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">empty</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">device</span><span class="w">      </span><span class="nc">This</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">FreeBSD</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">libraries</span><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">FreeBSD</span><span class="o">.</span><span class="w">
+
+ </span><span class="nc">The</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">RPC</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sample</span><span class="w">
+ </span><span class="n">network</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">look</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="ss">this</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">udp6</span><span class="w">       </span><span class="n">tpi_clts</span><span class="w">      </span><span class="n">v</span><span class="w">     </span><span class="n">inet6</span><span class="w">    </span><span class="n">udp</span><span class="w">     </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+       </span><span class="n">tcp6</span><span class="w">       </span><span class="n">tpi_cots_ord</span><span class="w">  </span><span class="n">v</span><span class="w">     </span><span class="n">inet6</span><span class="w">    </span><span class="n">tcp</span><span class="w">     </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+       </span><span class="n">udp</span><span class="w">        </span><span class="n">tpi_clts</span><span class="w">      </span><span class="n">v</span><span class="w">     </span><span class="n">inet</span><span class="w">     </span><span class="n">udp</span><span class="w">     </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+       </span><span class="n">tcp</span><span class="w">        </span><span class="n">tpi_cots_ord</span><span class="w">  </span><span class="n">v</span><span class="w">     </span><span class="n">inet</span><span class="w">     </span><span class="n">tcp</span><span class="w">     </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+       </span><span class="n">rawip</span><span class="w">      </span><span class="n">tpi_raw</span><span class="w">       </span><span class="o">-</span><span class="w">     </span><span class="n">inet</span><span class="w">      </span><span class="o">-</span><span class="w">      </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+       </span><span class="n">local</span><span class="w">      </span><span class="n">tpi_cots_ord</span><span class="w">  </span><span class="o">-</span><span class="w">     </span><span class="n">loopback</span><span class="w">  </span><span class="o">-</span><span class="w">      </span><span class="o">-</span><span class="w">       </span><span class="o">-</span><span class="w">
+
+ </span><span class="n">then</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">udp</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">RPC</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="p" data-group-id="6631103896-5">(</span><span class="n">see</span><span class="w"> </span><span class="n">rpc</span><span class="p" data-group-id="6631103896-6">(</span><span class="mi">3</span><span class="p" data-group-id="6631103896-6">)</span><span class="p" data-group-id="6631103896-5">)</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">udp6</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">udp</span><span class="o">.</span><span class="w">
+
+ </span><span class="n">getnetconfig</span><span class="p" data-group-id="6631103896-7">(</span><span class="mi">3</span><span class="p" data-group-id="6631103896-7">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">functions</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">parse</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">structures</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">format</span><span class="p">:</span><span class="w">
+
+ </span><span class="n">struct</span><span class="w"> </span><span class="n">netconfig</span><span class="w"> </span><span class="p" data-group-id="6631103896-8">{</span><span class="w">
+     </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="n">nc_netid</span><span class="p">;</span><span class="w">              </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Network</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">unsigned</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">nc_semantics</span><span class="p">;</span><span class="w">  </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Semantics</span><span class="w"> </span><span class="p" data-group-id="6631103896-9">(</span><span class="n">see</span><span class="w"> </span><span class="n">below</span><span class="p" data-group-id="6631103896-9">)</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">unsigned</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">nc_flag</span><span class="p">;</span><span class="w">       </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Flags</span><span class="w"> </span><span class="p" data-group-id="6631103896-10">(</span><span class="n">see</span><span class="w"> </span><span class="n">below</span><span class="p" data-group-id="6631103896-10">)</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="n">nc_protofmly</span><span class="p">;</span><span class="w">          </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="n">nc_proto</span><span class="p">;</span><span class="w">              </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="n">nc_device</span><span class="p">;</span><span class="w">             </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Network</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">pathname</span><span class="w"> </span><span class="p" data-group-id="6631103896-11">(</span><span class="n">unused</span><span class="p" data-group-id="6631103896-11">)</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">unsigned</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">nc_nlookups</span><span class="p">;</span><span class="w">   </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">lookup</span><span class="w"> </span><span class="n">libs</span><span class="w"> </span><span class="p" data-group-id="6631103896-12">(</span><span class="n">unused</span><span class="p" data-group-id="6631103896-12">)</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="o">*</span><span class="n">nc_lookups</span><span class="p">;</span><span class="w">           </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="nc">Names</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">libraries</span><span class="w"> </span><span class="p" data-group-id="6631103896-13">(</span><span class="n">unused</span><span class="p" data-group-id="6631103896-13">)</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+     </span><span class="n">unsigned</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">nc_unused</span><span class="p" data-group-id="6631103896-14">[</span><span class="mi">9</span><span class="p" data-group-id="6631103896-14">]</span><span class="p">;</span><span class="w">  </span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="n">reserved</span><span class="w"> </span><span class="o">*</span><span class="o">/</span><span class="w">
+ </span><span class="p" data-group-id="6631103896-8">}</span><span class="p">;</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">netconfig</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w"> </span><span class="n">getnetconfig</span><span class="p" data-group-id="6976135372-1">(</span><span class="mi">3</span><span class="p" data-group-id="6976135372-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">getnetpath</span><span class="p" data-group-id="6976135372-2">(</span><span class="mi">3</span><span class="p" data-group-id="6976135372-2">)</span></code></pre><p>BSD                                                                                 November 17, 2000                                                                                 BSD</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="nanorc.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+nanorc
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="networkd-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+networkd.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

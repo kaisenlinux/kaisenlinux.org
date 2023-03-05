@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>menufile — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>menufile</span>
+</h1>
+
+<p>FICHIER DE MENUS(5)                                                                File Formats Manual                                                                FICHIER DE MENUS(5)</p><p>NOM</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">menufile</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">entrée</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">système</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="nc">Debian</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="o">*</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Les</span><span class="w">  </span><span class="n">fichiers</span><span class="w">  </span><span class="n">de</span><span class="w">  </span><span class="n">menus</span><span class="w"> </span><span class="n">ajoutent</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">entrées</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">système</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="nc">Debian</span><span class="o">.</span><span class="w"> </span><span class="nc">L</span><span class="sc">&#39;administrateur système peut placer des fichiers de menus dans /etc/menu/ qui auront priorité sur
+   les fichiers de menus que les paquets ajoutent à /usr/share/menu/. Un utilisateur peut placer des fichiers de menus dans ~/.menu/ qui auront priorité sur tous les autres fichiers
+   de menus.
+
+   Veuillez consulter le manuel des menus Debian présent dans /usr/share/doc/menu/html pour les spécifications complètes des fichiers de menus.
+
+   Les  fichiers de menus portent d&#39;</span><span class="n">habitude</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">paquet</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">contient</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">programmes</span><span class="w"> </span><span class="n">qu</span><span class="sc">&#39;ils listent. Ils peuvent contenir plusieurs «  entrées de menus », qui spécifient
+   un élément particulier de la structure d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">menu</span><span class="o">.</span><span class="w"> </span><span class="nc">Chaque</span><span class="w"> </span><span class="n">entrée</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="n">spécifie</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">dont</span><span class="w"> </span><span class="n">elle</span><span class="w"> </span><span class="n">dépend</span><span class="p">,</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">permet</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">update</span><span class="o">-</span><span class="n">menus</span><span class="p" data-group-id="3980780350-1">(</span><span class="mi">1</span><span class="p" data-group-id="3980780350-1">)</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;ignorer le menu si ces paquets ne
+   sont  pas  installés.  (Dans une entrée de menu vous pouvez spécifier des pseudo-paquets qui commencent par « local. », ce qui indique à update-menus de toujours utiliser ces me‐
+   nus). Si vous voulez supprimer entièrement tous les éléments d&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="p">,</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">pouvez</span><span class="w"> </span><span class="n">créer</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="n">portant</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="o">.</span></code></pre><p>Exemples</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Dosemu</span><span class="w"> </span><span class="n">peut</span><span class="w"> </span><span class="n">installer</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">suivant</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="n">dosemu</span><span class="w"> </span><span class="p">:</span><span class="w">
+
+    </span><span class="sc">?p</span><span class="n">ackage</span><span class="p" data-group-id="8252442697-1">(</span><span class="n">dosemu</span><span class="p" data-group-id="8252442697-1">)</span><span class="ss">:needs</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">=</span><span class="s">&quot;Applications/Emulators&quot;</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Dosemu&quot;</span><span class="w"> </span><span class="n">command</span><span class="o">=</span><span class="s">&quot;dosemu&quot;</span><span class="w">
+    </span><span class="sc">?p</span><span class="n">ackage</span><span class="p" data-group-id="8252442697-2">(</span><span class="n">dosemu</span><span class="p" data-group-id="8252442697-2">)</span><span class="ss">:needs</span><span class="o">=</span><span class="s">&quot;x11&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">=</span><span class="s">&quot;Applications/Emulators&quot;</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Dosemu&quot;</span><span class="w"> </span><span class="n">command</span><span class="o">=</span><span class="s">&quot;xdos&quot;</span><span class="w">
+
+   </span><span class="nc">L</span><span class="sc">&#39;administrateur système peut vouloir remplacer ce fichier pour changer la façon dont dosemu est exécuté, il crée alors le fichier /etc/menu/dosemu suivant :
+
+    ?package(dosemu):needs=&quot;text&quot; section=&quot;Applications/Emulators&quot; title=&quot;Dosemu&quot; command=&quot;dosemu -A&quot;
+    ?package(dosemu):needs=&quot;x11&quot;  section=&quot;Applications/Emulators&quot; title=&quot;Dosemu&quot; command=&quot;xdos -A&quot;
+
+   Il se peut également qu&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">utilisateur</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">veuille</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">voir</span><span class="w"> </span><span class="n">apparaître</span><span class="w"> </span><span class="nc">Dosemu</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">ses</span><span class="w"> </span><span class="n">menus</span><span class="o">.</span><span class="w"> </span><span class="nc">Il</span><span class="w"> </span><span class="n">peut</span><span class="w"> </span><span class="n">alors</span><span class="w"> </span><span class="n">créer</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="n">nommé</span><span class="w"> </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">menu</span><span class="o">/</span><span class="n">dosemu</span><span class="o">.</span></code></pre><p>FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">consiste</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">plusieurs</span><span class="w"> </span><span class="n">lignes</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">suivant</span><span class="w"> </span><span class="p">:</span><span class="w">
+
+          </span><span class="sc">?p</span><span class="n">ackage</span><span class="p" data-group-id="5565273947-1">(</span><span class="n">nom_paquet</span><span class="p" data-group-id="5565273947-1">)</span><span class="ss">:var1</span><span class="o">=</span><span class="n">value1</span><span class="w"> </span><span class="n">var2</span><span class="o">=</span><span class="n">value2</span><span class="w">  </span><span class="n">...</span><span class="w">
+
+          </span><span class="n">needs</span><span class="w">  </span><span class="nc">Indique</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;environnement que le programme nécessite. Cette variable est obligatoire et peut valoir :
+
+                 needs=&quot;text&quot;
+                        Le programme nécessite un terminal
+
+                 needs=&quot;x11&quot;
+                        Le programme nécessite un serveur X
+
+                 needs=&quot;vc&quot;
+                        Le programme nécessite une console Linux (c&#39;</span><span class="n">est</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">dire</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">programme</span><span class="w"> </span><span class="n">utilisant</span><span class="w"> </span><span class="n">svgalib</span><span class="p">)</span><span class="o">.</span><span class="w">
+
+                 </span><span class="n">needs</span><span class="o">=</span><span class="s">&quot;wm&quot;</span><span class="w">
+                        </span><span class="nc">Le</span><span class="w"> </span><span class="n">programme</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">gestionnaire</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">fenêtres</span><span class="o">.</span><span class="w">
+
+                 </span><span class="n">needs</span><span class="o">=</span><span class="s">&quot;fvwmmodule&quot;</span><span class="w">
+                        </span><span class="nc">Le</span><span class="w"> </span><span class="n">programme</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">compatible</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">fvwm</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">section</span><span class="w">
+                 </span><span class="nc">La</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">laquelle</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;entrée de menu doit être affichée. Reportez-vous à la section DISPOSITION DES MENUS pour les noms de section.
+
+          icon   Une icône pour cette entrée de menu. Si aucune icône n&#39;</span><span class="n">est</span><span class="w"> </span><span class="n">disponible</span><span class="p">,</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="n">suffit</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">définir</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">champ</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="5565273947-2">(</span><span class="n">icon</span><span class="o">=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">également</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w"> </span><span class="n">mais</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">préfé</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">rable</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">placer</span><span class="w"> </span><span class="n">cette</span><span class="w"> </span><span class="n">ligne</span><span class="p" data-group-id="5565273947-2">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">title</span><span class="w">  </span><span class="nc">Le</span><span class="w">  </span><span class="n">titre</span><span class="w">  </span><span class="n">du</span><span class="w"> </span><span class="n">programme</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">apparaîtra</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">menu</span><span class="o">.</span><span class="w"> </span><span class="nc">Essayez</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">garder</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">champ</span><span class="w"> </span><span class="n">court</span><span class="o">.</span><span class="w"> </span><span class="nc">Si</span><span class="w"> </span><span class="n">deux</span><span class="w"> </span><span class="n">entrées</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="n">partagent</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">titre</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">section</span><span class="p">,</span><span class="w"> </span><span class="n">celle</span><span class="w"> </span><span class="n">qui</span><span class="w">
+                 </span><span class="n">est</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">mieux</span><span class="w"> </span><span class="n">adaptée</span><span class="w"> </span><span class="n">au</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;affichage est conservée. De cette façon, dans l&#39;</span><span class="n">exemple</span><span class="w"> </span><span class="n">précédent</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">deux</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">ont</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">titre</span><span class="p">,</span><span class="w"> </span><span class="n">si</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">disponible</span><span class="p">,</span><span class="w">  </span><span class="n">l</span><span class="sc">&#39;en‐
+                 trée dépendant de X11 est utilisée, sinon celle pour un affichage texte est utilisée. Ce champ est obligatoire.
+
+          command
+                 La commande à exécuter lorsque cette entrée est sélectionnée.
+
+          hints  Une liste d&#39;</span><span class="n">indications</span><span class="w"> </span><span class="n">séparées</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">virgules</span><span class="p">,</span><span class="w"> </span><span class="n">permettant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">grouper</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">menus</span><span class="o">.</span><span class="w"> </span><span class="nc">Veuillez</span><span class="w"> </span><span class="n">consulter</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">manuel</span><span class="o">.</span></code></pre><p>DISPOSITION DES MENUS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">La</span><span class="w">  </span><span class="n">liste</span><span class="w"> </span><span class="n">officielle</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">maintenue</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">sous</span><span class="o">-</span><span class="n">charte</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="p" data-group-id="9740204919-1">(</span><span class="err">«</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">Menu</span><span class="w"> </span><span class="n">sub</span><span class="o">-</span><span class="n">policy</span><span class="w"> </span><span class="err">»</span><span class="p" data-group-id="9740204919-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">fait</span><span class="w"> </span><span class="n">partie</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">paquet</span><span class="w"> </span><span class="nc">Debian</span><span class="w"> </span><span class="nc">Policy</span><span class="o">.</span><span class="w"> </span><span class="nc">La</span><span class="w">
+   </span><span class="n">structure</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">ci</span><span class="o">-</span><span class="n">dessous</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">incluse</span><span class="w"> </span><span class="p" data-group-id="9740204919-2">(</span><span class="n">et</span><span class="w"> </span><span class="n">traduite</span><span class="p" data-group-id="9740204919-2">)</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">raisons</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commodité</span><span class="o">.</span><span class="w"> </span><span class="nc">Veuillez</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">placer</span><span class="w"> </span><span class="n">vos</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">d</span><span class="sc">&#39;autres sections.
+
+   NDT : les noms de sections officiels sont automatiquement traduits au moment de la génération des menus.
+
+   Utilisez `/&#39;</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">séparer</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">noms</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">sous</span><span class="o">-</span><span class="n">menus</span><span class="o">.</span><span class="w"> </span><span class="nc">Par</span><span class="w"> </span><span class="n">exemple</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Applications/Editors&quot;</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="s">&quot;Games/Action&quot;</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">Applications</span><span class="w">
+      </span><span class="nc">Accessibility</span><span class="w">
+      </span><span class="nc">Amateur</span><span class="w"> </span><span class="nc">Radio</span><span class="w">
+      </span><span class="nc">Data</span><span class="w"> </span><span class="nc">Management</span><span class="w">
+      </span><span class="nc">Editors</span><span class="w">
+      </span><span class="nc">Education</span><span class="w">
+      </span><span class="nc">Emulators</span><span class="w">
+      </span><span class="nc">File</span><span class="w"> </span><span class="nc">Management</span><span class="w">
+      </span><span class="nc">Graphics</span><span class="w">
+      </span><span class="nc">Mobile</span><span class="w"> </span><span class="nc">Devices</span><span class="w">
+      </span><span class="nc">Network</span><span class="w">
+        </span><span class="nc">Communication</span><span class="w">
+        </span><span class="nc">File</span><span class="w"> </span><span class="nc">Transfer</span><span class="w">
+        </span><span class="nc">Monitoring</span><span class="w">
+        </span><span class="nc">Web</span><span class="w"> </span><span class="nc">Browsing</span><span class="w">
+        </span><span class="nc">Web</span><span class="w"> </span><span class="nc">News</span><span class="w">
+      </span><span class="nc">Office</span><span class="w">
+      </span><span class="nc">Programming</span><span class="w">
+      </span><span class="nc">Project</span><span class="w"> </span><span class="nc">Management</span><span class="w">
+      </span><span class="nc">Science</span><span class="w">
+        </span><span class="nc">Astronomy</span><span class="w">
+        </span><span class="nc">Biology</span><span class="w">
+        </span><span class="nc">Chemistry</span><span class="w">
+        </span><span class="nc">Data</span><span class="w"> </span><span class="nc">Analysis</span><span class="w">
+        </span><span class="nc">Electronics</span><span class="w">
+        </span><span class="nc">Engineering</span><span class="w">
+        </span><span class="nc">Geoscience</span><span class="w">
+        </span><span class="nc">Mathematics</span><span class="w">
+        </span><span class="nc">Medicine</span><span class="w">
+        </span><span class="nc">Physics</span><span class="w">
+        </span><span class="nc">Social</span><span class="w">
+      </span><span class="nc">Shells</span><span class="w">
+      </span><span class="nc">Sound</span><span class="w">
+      </span><span class="nc">System</span><span class="w">
+        </span><span class="nc">Administration</span><span class="w">
+        </span><span class="nc">Hardware</span><span class="w">
+        </span><span class="nc">Language</span><span class="w"> </span><span class="nc">Environment</span><span class="w">
+        </span><span class="nc">Monitoring</span><span class="w">
+        </span><span class="nc">Package</span><span class="w"> </span><span class="nc">Management</span><span class="w">
+        </span><span class="nc">Security</span><span class="w">
+      </span><span class="nc">Terminal</span><span class="w"> </span><span class="nc">Emulators</span><span class="w">
+      </span><span class="nc">Text</span><span class="w">
+      </span><span class="nc">TV</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Radio</span><span class="w">
+      </span><span class="nc">Viewers</span><span class="w">
+      </span><span class="nc">Video</span><span class="w">
+      </span><span class="nc">Web</span><span class="w"> </span><span class="nc">Development</span><span class="w">
+    </span><span class="nc">Games</span><span class="w">
+      </span><span class="nc">Action</span><span class="w">
+      </span><span class="nc">Adventure</span><span class="w">
+      </span><span class="nc">Blocks</span><span class="w">
+      </span><span class="nc">Board</span><span class="w">
+      </span><span class="nc">Card</span><span class="w">
+      </span><span class="nc">Puzzles</span><span class="w">
+      </span><span class="nc">Simulation</span><span class="w">
+      </span><span class="nc">Strategy</span><span class="w">
+      </span><span class="nc">Tools</span><span class="w">
+      </span><span class="nc">Toys</span><span class="w">
+    </span><span class="nc">Help</span><span class="w">
+    </span><span class="nc">Screen</span><span class="w">
+      </span><span class="nc">Saving</span><span class="w">
+      </span><span class="nc">Locking</span><span class="w">
+    </span><span class="nc">Window</span><span class="w"> </span><span class="nc">Managers</span><span class="w">
+    </span><span class="nc">FVWM</span><span class="w"> </span><span class="nc">Modules</span><span class="w">
+    </span><span class="nc">Window</span><span class="w"> </span><span class="nc">Maker</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Si</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">voulez</span><span class="w"> </span><span class="n">spécifier</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">icône</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">raccourci</span><span class="w"> </span><span class="n">clavier</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">sous</span><span class="o">-</span><span class="n">menu</span><span class="w"> </span><span class="p" data-group-id="2831952022-1">(</span><span class="n">par</span><span class="w"> </span><span class="n">exemple</span><span class="p">,</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">sous</span><span class="o">-</span><span class="n">menu</span><span class="w"> </span><span class="nc">Editors</span><span class="p" data-group-id="2831952022-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">utilisez</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">syntaxe</span><span class="p">,</span><span class="w"> </span><span class="n">mais</span><span class="w"> </span><span class="n">laissez</span><span class="w"> </span><span class="n">le</span><span class="w">  </span><span class="n">champ</span><span class="w">  </span><span class="n">command</span><span class="w">  </span><span class="n">vide</span><span class="p">,</span><span class="w">
+   </span><span class="n">comme</span><span class="w"> </span><span class="n">ceci</span><span class="w"> </span><span class="p">:</span><span class="w">
+
+   </span><span class="sc">?p</span><span class="n">ackage</span><span class="p" data-group-id="2831952022-2">(</span><span class="n">monpaquet</span><span class="p" data-group-id="2831952022-2">)</span><span class="ss">:needs</span><span class="o">=</span><span class="s">&quot;X11&quot;</span><span class="w"> </span><span class="n">section</span><span class="o">=</span><span class="s">&quot;Applications&quot;</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </span><span class="n">icon</span><span class="o">=</span><span class="s">&quot;/usr/share/pixmaps/icon.xpm&quot;</span><span class="w"> </span><span class="n">hotkey</span><span class="o">=</span><span class="s">&quot;E&quot;</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Editors&quot;</span><span class="w">
+
+   </span><span class="err">À</span><span class="w"> </span><span class="n">chaque</span><span class="w"> </span><span class="n">fois</span><span class="w"> </span><span class="n">qu</span><span class="err">&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">modifié</span><span class="p">,</span><span class="w"> </span><span class="n">vous</span><span class="w"> </span><span class="n">devez</span><span class="w"> </span><span class="n">exécuter</span><span class="w"> </span><span class="n">update</span><span class="o">-</span><span class="n">menus</span><span class="p" data-group-id="2831952022-3">(</span><span class="mi">1</span><span class="p" data-group-id="2831952022-3">)</span><span class="o">.</span></code></pre><p>FICHIERS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="p" data-group-id="9031707745-1">(</span><span class="nc">Fichiers</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">ordre</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">priorité</span><span class="w"> </span><span class="n">décroissante</span><span class="p" data-group-id="9031707745-1">)</span><span class="w">
+
+   </span><span class="err">~</span><span class="o">/</span><span class="o">.</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+          </span><span class="nc">Fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">ajoutés</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;utilisateur.
+   /etc/menu/*
+          Fichiers de menus ajoutés par l&#39;</span><span class="n">administrateur</span><span class="w"> </span><span class="n">système</span><span class="o">.</span><span class="w">
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+          </span><span class="nc">Fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">dépendants</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture fournis par d&#39;</span><span class="n">autres</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="nc">Debian</span><span class="o">.</span><span class="w">
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="o">*</span><span class="w">
+          </span><span class="nc">Fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">indépendants</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture fournis par d&#39;</span><span class="n">autres</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="nc">Debian</span><span class="o">.</span><span class="w">
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="o">*</span><span class="w">
+          </span><span class="nc">Fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">menus</span><span class="w"> </span><span class="n">fournis</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">paquet</span><span class="w"> </span><span class="n">menu</span><span class="o">.</span></code></pre><p>AUTEURS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Joost</span><span class="w"> </span><span class="nc">Witteveen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joostje</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">basé</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">travaux</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="nc">Lars</span><span class="w"> </span><span class="nc">Wirzenius</span><span class="w"> </span><span class="o">&lt;</span><span class="n">liw</span><span class="na">@iki</span><span class="o">.</span><span class="n">fi</span><span class="o">&gt;</span><span class="o">.</span><span class="w"> </span><span class="nc">Il</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">désormais</span><span class="w"> </span><span class="n">maintenu</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="nc">Bill</span><span class="w"> </span><span class="nc">Allombert</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ballombe</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Page</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">manuel</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="nc">Joey</span><span class="w"> </span><span class="nc">Hess</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joeyh</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">Ce</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">basé</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="n">une</span><span class="w"> </span><span class="n">traduction</span><span class="w"> </span><span class="n">réalisée</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="nc">Nicolas</span><span class="w"> </span><span class="nc">Fran</span><span class="n">çois</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">septembre</span><span class="w"> </span><span class="mi">2005</span><span class="o">.</span></code></pre><p>VOIR AUSSI</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">update</span><span class="o">-</span><span class="n">menus</span><span class="p" data-group-id="2631543384-1">(</span><span class="mi">1</span><span class="p" data-group-id="2631543384-1">)</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span></code></pre><p>DEBIAN                                                                              Formats de fichier                                                                FICHIER DE MENUS(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="mdadm-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+mdadm.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="mib2c-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+mib2c.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

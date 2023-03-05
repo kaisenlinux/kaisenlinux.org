@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>time.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>time.conf</span>
+</h1>
+
+<p>TIME.CONF(5)                                                                         Linux-PAM Manual                                                                        TIME.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">time</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pam_time</span><span class="w"> </span><span class="n">module</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">pam_time</span><span class="w"> </span><span class="nc">PAM</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">restricts</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">days</span><span class="w">
+   </span><span class="ow">or</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">lines</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">deny</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p" data-group-id="3175282469-1">(</span><span class="n">individual</span><span class="p" data-group-id="3175282469-1">)</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">week</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w">
+   </span><span class="n">applying</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">making</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">time</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w"> </span><span class="nc">White</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ignored</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">maybe</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="sc">&#39;</span><span class="se">\&#39;</span><span class="sc">
+   (escaped newlines). Text following a &#39;</span><span class="c1">#&#39; is ignored to the end of the line.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">services</span><span class="p">;</span><span class="n">ttys</span><span class="p">;</span><span class="n">users</span><span class="p">;</span><span class="n">times</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">words</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">occupies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">newline</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comment</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="sc">&#39;#&#39;</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">four</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">semicolons</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;;&#39;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PAM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">applies</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tty</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">applies</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">netgroup</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">whom</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">applies</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">namely</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">prefixed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="sc">&#39;!&#39;</span><span class="w"> </span><span class="p" data-group-id="3175282469-2">(</span><span class="n">logical</span><span class="w"> </span><span class="ow">not</span><span class="p" data-group-id="3175282469-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="sc">&#39;&amp;&#39;</span><span class="w"> </span><span class="p" data-group-id="3175282469-3">(</span><span class="n">logical</span><span class="w"> </span><span class="ow">and</span><span class="p" data-group-id="3175282469-3">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="sc">&#39;|&#39;</span><span class="w"> </span><span class="p" data-group-id="3175282469-4">(</span><span class="n">logical</span><span class="w"> </span><span class="ow">or</span><span class="p" data-group-id="3175282469-4">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">wildcard</span><span class="w"> </span><span class="sc">&#39;*&#39;</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">once</span><span class="o">.</span><span class="w"> </span><span class="nc">With</span><span class="w"> </span><span class="n">netgroups</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">wildcards</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">operators</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">indicate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">applies</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">day</span><span class="o">/</span><span class="n">time</span><span class="o">-</span><span class="n">range</span><span class="w"> </span><span class="n">entries</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w">
+   </span><span class="n">character</span><span class="w"> </span><span class="n">entries</span><span class="p">,</span><span class="w"> </span><span class="nc">MoTuSa</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">Monday</span><span class="w"> </span><span class="nc">Tuesday</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Saturday</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">unset</span><span class="w"> </span><span class="nc">MoMo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">MoWk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">weekdays</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="nc">Monday</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">character</span><span class="w">
+   </span><span class="n">combinations</span><span class="w"> </span><span class="n">accepted</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="nc">Mo</span><span class="w"> </span><span class="nc">Tu</span><span class="w"> </span><span class="nc">We</span><span class="w"> </span><span class="nc">Th</span><span class="w"> </span><span class="nc">Fr</span><span class="w"> </span><span class="nc">Sa</span><span class="w"> </span><span class="nc">Su</span><span class="w"> </span><span class="nc">Wk</span><span class="w"> </span><span class="nc">Wd</span><span class="w"> </span><span class="nc">Al</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">week</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">week</span><span class="w"> </span><span class="n">respectively</span><span class="o">.</span><span class="w"> </span><span class="nc">As</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="nc">AlFr</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">except</span><span class="w">
+   </span><span class="nc">Friday</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="n">day</span><span class="o">/</span><span class="n">time</span><span class="o">-</span><span class="n">range</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">prefixed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="sc">&#39;!&#39;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">indicate</span><span class="w"> </span><span class="s">&quot;anything but&quot;</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">time</span><span class="o">-</span><span class="n">range</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="mi">24</span><span class="o">-</span><span class="n">hour</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="nc">HHMM</span><span class="p">,</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hyphen</span><span class="p">,</span><span class="w"> </span><span class="n">indicating</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">finish</span><span class="w">
+   </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="3175282469-5">(</span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">finish</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">deemed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">day</span><span class="p" data-group-id="3175282469-5">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">active</span><span class="p">,</span><span class="w"> </span><span class="nc">ALL</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">service</span><span class="o">+</span><span class="n">ttys</span><span class="o">+</span><span class="n">users</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">satisfied</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">applying</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="p">,</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">enforcing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">session</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">needs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">remedied</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Poorly</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">logged</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">syslog</span><span class="p" data-group-id="3175282469-6">(</span><span class="mi">3</span><span class="p" data-group-id="3175282469-6">)</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">These</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">time</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">All</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">console</span><span class="o">-</span><span class="n">login</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="ss">times</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">login</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">tty</span><span class="o">*</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">ttyp</span><span class="o">*</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">!</span><span class="n">root</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">!</span><span class="nc">Al0000</span><span class="o">-</span><span class="mi">2400</span><span class="w">
+
+   </span><span class="nc">Games</span><span class="w"> </span><span class="p" data-group-id="0407567649-1">(</span><span class="n">configured</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="nc">PAM</span><span class="p" data-group-id="0407567649-1">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">accessed</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">hours</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ss">waster</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">games</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">!</span><span class="n">waster</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nc">Wd0000</span><span class="o">-</span><span class="mi">2400</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nc">Wk1800</span><span class="o">-</span><span class="mi">0800</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pam_time</span><span class="p" data-group-id="6151736392-1">(</span><span class="mi">8</span><span class="p" data-group-id="6151736392-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="p" data-group-id="6151736392-2">(</span><span class="mi">5</span><span class="p" data-group-id="6151736392-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">pam</span><span class="p" data-group-id="6151736392-3">(</span><span class="mi">7</span><span class="p" data-group-id="6151736392-3">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pam_time</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Andrew</span><span class="w"> </span><span class="nc">G</span><span class="o">.</span><span class="w"> </span><span class="nc">Morgan</span><span class="w"> </span><span class="o">&lt;</span><span class="n">morgan</span><span class="na">@kernel</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>Linux-PAM Manual                                                                        09/03/2021                                                                           TIME.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="testdisk.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+testdisk
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="timeshift.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+timeshift
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

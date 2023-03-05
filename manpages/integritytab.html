@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>integritytab — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>integritytab</span>
+</h1>
+
+<p>INTEGRITYTAB(5)                                                                        integritytab                                                                       INTEGRITYTAB(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">integritytab</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">devices</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Empty</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;#&quot;</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w"> </span><span class="nc">Each</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">verity</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">Fields</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">delimited</span><span class="w"> </span><span class="n">by</span><span class="w">
+   </span><span class="n">white</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w">
+
+       </span><span class="n">volume</span><span class="o">-</span><span class="n">name</span><span class="w"> </span><span class="n">block</span><span class="o">-</span><span class="n">device</span><span class="w">
+           </span><span class="p" data-group-id="2953383141-1">[</span><span class="n">keyfile</span><span class="o">|</span><span class="o">-</span><span class="p" data-group-id="2953383141-1">]</span><span class="w"> </span><span class="p" data-group-id="2953383141-2">[</span><span class="n">options</span><span class="o">|</span><span class="o">-</span><span class="p" data-group-id="2953383141-2">]</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mandatory</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remaining</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">default</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">resulting</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">volume</span><span class="p">;</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mapper</span><span class="o">/</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">underlying</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="s">&quot;UUID=&quot;</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">UUID</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PARTUUID=&quot;</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w">
+   </span><span class="nc">UUID</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LABEL=&quot;</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PARTLABEL=&quot;</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="n">label</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">third</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">none</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">present</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;integrity-algorithm&quot;</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w">
+   </span><span class="s">&quot;hmac-sha256&quot;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">derived</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">At</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">hmac</span><span class="o">-</span><span class="n">sha256</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w">
+   </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">fourth</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">present</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">delimited</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">none</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ss">recognized</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">allow</span><span class="o">-</span><span class="n">discards</span><span class="w">
+       </span><span class="nc">Allow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">discard</span><span class="w"> </span><span class="p" data-group-id="2953383141-3">(</span><span class="nc">TRIM</span><span class="p" data-group-id="2953383141-3">)</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mf">5.7</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">journal</span><span class="o">-</span><span class="n">watermark</span><span class="o">=</span><span class="p" data-group-id="2953383141-4">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">100</span><span class="p" data-group-id="2953383141-4">]</span><span class="p">%</span><span class="w">
+       </span><span class="nc">Journal</span><span class="w"> </span><span class="n">watermark</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">percent</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">percentage</span><span class="w"> </span><span class="n">exceeds</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">watermark</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">flush</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">started</span><span class="o">.</span><span class="w"> </span><span class="nc">Setting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;0%&quot;</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">journal</span><span class="o">-</span><span class="n">commit</span><span class="o">-</span><span class="n">time</span><span class="o">=</span><span class="p" data-group-id="2953383141-5">[</span><span class="mi">0</span><span class="o">..</span><span class="nc">N</span><span class="p" data-group-id="2953383141-5">]</span><span class="w">
+       </span><span class="nc">Commit</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">milliseconds</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">passes</span><span class="w"> </span><span class="p" data-group-id="2953383141-6">(</span><span class="ow">and</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">explicit</span><span class="w"> </span><span class="n">flush</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">issued</span><span class="p" data-group-id="2953383141-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">journal</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">written</span><span class="o">.</span><span class="w"> </span><span class="nc">Setting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">data</span><span class="o">-</span><span class="n">device</span><span class="o">=</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">...</span><span class="w">
+       </span><span class="nc">Specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integritytab</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">calculated</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w">
+       </span><span class="n">journal</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">data</span><span class="o">-</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">integrity</span><span class="o">-</span><span class="n">algorithm</span><span class="o">=</span><span class="p" data-group-id="2953383141-7">[</span><span class="n">crc32c</span><span class="o">|</span><span class="n">crc32</span><span class="o">|</span><span class="n">sha1</span><span class="o">|</span><span class="n">sha256</span><span class="o">|</span><span class="n">hmac</span><span class="o">-</span><span class="n">sha256</span><span class="p" data-group-id="2953383141-7">]</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">checking</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">crc32c</span><span class="o">.</span><span class="w"> </span><span class="nc">Must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">At</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">reloaded</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">translated</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">native</span><span class="w"> </span><span class="n">systemd</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">integritysetup</span><span class="o">-</span><span class="n">generator</span><span class="p" data-group-id="2953383141-8">(</span><span class="mi">8</span><span class="p" data-group-id="2953383141-8">)</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span><span class="w">
+
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">home</span><span class="w"> </span><span class="nc">PARTUUID</span><span class="o">=</span><span class="mi">4973</span><span class="n">d0b8</span><span class="o">-</span><span class="mi">1</span><span class="n">b15</span><span class="o">-</span><span class="n">c449</span><span class="o">-</span><span class="mi">96</span><span class="n">ec</span><span class="o">-</span><span class="mi">94</span><span class="n">bab7f6a7b8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">journal</span><span class="o">-</span><span class="n">commit</span><span class="o">-</span><span class="n">time</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">allow</span><span class="o">-</span><span class="n">discards</span><span class="p">,</span><span class="n">journal</span><span class="o">-</span><span class="n">watermark</span><span class="o">=</span><span class="mi">55</span><span class="p">%</span><span class="w">
+       </span><span class="n">data</span><span class="w"> </span><span class="nc">PARTUUID</span><span class="o">=</span><span class="mi">5</span><span class="n">d4b1808</span><span class="o">-</span><span class="n">be76</span><span class="o">-</span><span class="mi">774</span><span class="n">d</span><span class="o">-</span><span class="mi">88</span><span class="n">af</span><span class="o">-</span><span class="mi">03</span><span class="n">c4c3a41761</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">allow</span><span class="o">-</span><span class="n">discards</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span><span class="w">
+
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">defaults</span><span class="w">
+
+       </span><span class="n">home</span><span class="w"> </span><span class="nc">PARTUUID</span><span class="o">=</span><span class="mi">4973</span><span class="n">d0b8</span><span class="o">-</span><span class="mi">1</span><span class="n">b15</span><span class="o">-</span><span class="n">c449</span><span class="o">-</span><span class="mi">96</span><span class="n">ec</span><span class="o">-</span><span class="mi">94</span><span class="n">bab7f6a7b8</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span><span class="w">
+
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">data</span><span class="w">
+
+       </span><span class="n">home</span><span class="w"> </span><span class="nc">PARTUUID</span><span class="o">=</span><span class="mi">4973</span><span class="n">d0b8</span><span class="o">-</span><span class="mi">1</span><span class="n">b15</span><span class="o">-</span><span class="n">c449</span><span class="o">-</span><span class="mi">96</span><span class="n">ec</span><span class="o">-</span><span class="mi">94</span><span class="n">bab7f6a7b8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">data</span><span class="o">-</span><span class="n">device</span><span class="o">=</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">uuid</span><span class="o">/</span><span class="mi">9276</span><span class="n">d9c0</span><span class="o">-</span><span class="n">d4e3</span><span class="o">-</span><span class="mi">4297</span><span class="o">-</span><span class="n">b4ff</span><span class="o">-</span><span class="mi">3307</span><span class="n">cd0d092f</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">4</span><span class="o">.</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">integritytab</span><span class="w">
+
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">integrity</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">HMAC</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">defaults</span><span class="w">
+
+       </span><span class="n">home</span><span class="w"> </span><span class="nc">PARTUUID</span><span class="o">=</span><span class="mi">4973</span><span class="n">d0b8</span><span class="o">-</span><span class="mi">1</span><span class="n">b15</span><span class="o">-</span><span class="n">c449</span><span class="o">-</span><span class="mi">96</span><span class="n">ec</span><span class="o">-</span><span class="mi">94</span><span class="n">bab7f6a7b8</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hmac</span><span class="o">.</span><span class="n">key</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">systemd</span><span class="p" data-group-id="2392237400-1">(</span><span class="mi">1</span><span class="p" data-group-id="2392237400-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">integritysetup</span><span class="err">@</span><span class="o">.</span><span class="n">service</span><span class="p" data-group-id="2392237400-2">(</span><span class="mi">8</span><span class="p" data-group-id="2392237400-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">integritysetup</span><span class="o">-</span><span class="n">generator</span><span class="p" data-group-id="2392237400-3">(</span><span class="mi">8</span><span class="p" data-group-id="2392237400-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">integritysetup</span><span class="p" data-group-id="2392237400-4">(</span><span class="mi">8</span><span class="p" data-group-id="2392237400-4">)</span><span class="p">,</span></code></pre><p>systemd 252                                                                                                                                                               INTEGRITYTAB(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="initramfs-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+initramfs.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="interfaces.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+interfaces
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

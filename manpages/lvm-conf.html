@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>lvm.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>lvm.conf</span>
+</h1>
+
+<p>LVM.CONF(5)                                                                        File Formats Manual                                                                        LVM.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">LVM2</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">loaded</span><span class="w">  </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initialisation</span><span class="w"> </span><span class="n">phase</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">lvm</span><span class="p" data-group-id="3713371471-1">(</span><span class="mi">8</span><span class="p" data-group-id="3713371471-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="n">lead</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">earlier</span><span class="w"> </span><span class="n">settings</span><span class="o">.</span><span class="w">  </span><span class="nc">File</span><span class="w">
+   </span><span class="n">timestamps</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">checked</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">changed</span><span class="p">,</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">reloaded</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="3713371471-2">(</span><span class="mi">5</span><span class="p" data-group-id="3713371471-2">)</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="ss">run</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">typeconfig</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">--</span><span class="n">withcomments</span><span class="w"> </span><span class="o">--</span><span class="n">withspaces</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="ss">methods</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">direct</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="w"> </span><span class="nc">ConfigurationString</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">ConfigurationString</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">representation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">configura</span><span class="err">‐</span><span class="w">
+          </span><span class="n">tion</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">ConfigurationString</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">LVM</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">profile</span><span class="w"> </span><span class="n">config</span><span class="w">
+          </span><span class="nc">A</span><span class="w">  </span><span class="n">profile</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">customizable</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">aimed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">achieve</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">characteristics</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">environments</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">uses</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="sc">&#39;s used to over‐
+          ride existing configuration.  Normally, the name of the profile should reflect that environment or use.
+
+   There are two groups of profiles recognised: command profiles and metadata profiles.
+
+   The command profile is used to override selected configuration settings at global LVM command level - it is applied at the very beginning of LVM command execution and it is  used
+   throughout  the  whole  time of LVM command execution. The command profile is applied by using the --commandprofile ProfileName command line option that is recognised by all LVM2
+   commands.
+
+   The metadata profile is used to override selected configuration settings at Volume Group/Logical Volume level - it is applied independently for each Volume  Group/Logical  Volume
+   that  is being processed. As such, each Volume Group/Logical Volume can store the profile name used in its metadata so next time the Volume Group/Logical Volume is processed, the
+   profile is applied automatically. If Volume Group and any of its Logical Volumes have different profiles defined, the profile defined for the Logical  Volume  is  preferred.  The
+   metadata profile can be attached/detached by using the lvchange and vgchange commands and their --metadataprofile ProfileName and --detachprofile options or the --metadataprofile
+   option during creation when using vgcreate or lvcreate command.  The vgs and lvs reporting commands provide -o vg_profile and -o lv_profile output options to  show  the  metadata
+   profile currently attached to a Volume Group or a Logical Volume.
+
+   The  set  of  options  allowed for command profiles is mutually exclusive when compared to the set of options allowed for metadata profiles. The settings that belong to either of
+   these two sets can&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mixed</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">LVM</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">reject</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">profiles</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">LVM</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">few</span><span class="w"> </span><span class="n">predefined</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">profiles</span><span class="o">.</span><span class="w">  </span><span class="nc">Users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">profiles</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">needed</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">purpose</span><span class="p">,</span><span class="w"> </span><span class="n">there</span><span class="sc">&#39;s the  command_pro‐
+   file_template.profile (for command profiles) and metadata_profile_template.profile (for metadata profiles) which contain all settings that are customizable by profiles of certain
+   type. Users are encouraged to copy these template profiles and edit them as needed. Alternatively, the lvmconfig --file &lt;ProfileName.profile&gt; --type profilable-command  &lt;section&gt;
+   or  lvmconfig  --file  &lt;ProfileName.profile&gt; --type profilable-metadata &lt;section&gt; can be used to generate a configuration with profilable settings in either of the type for given
+   section and save it to new ProfileName.profile (if the section is not specified, all profilable settings are reported).
+
+   The profiles are stored in /etc/lvm/profile directory by default.  This location can be changed by using the config/profile_dir setting.  Each profile configuration is stored  in
+   ProfileName.profile file in the profile directory. When referencing the profile, the .profile suffix is left out.
+
+   tag config
+          See tags configuration setting description below.
+
+   When several configuration methods are used at the same time and when LVM looks for the value of a particular setting, it traverses this config cascade from left to right:
+
+   direct config override on command line → command profile config → metadata profile config → tag config → lvmlocal.conf → lvm.conf
+
+   No  part  of  this cascade is compulsory. If there&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cascade</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">setting</span><span class="o">.</span><span class="w">  </span><span class="nc">Use</span><span class="w"> </span><span class="n">lvmconfig</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">set</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tings</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="o">.</span></code></pre><p>SYNTAX</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">syntax</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Whitespace</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">significant</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">quotes</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">wide</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">acceptable</span><span class="w"> </span><span class="n">indentation</span><span class="w"> </span><span class="n">styles</span><span class="o">.</span><span class="w">  </span><span class="nc">Comments</span><span class="w"> </span><span class="n">begin</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="c1"># and continue to  the  end  of  the</span><span class="w">
+   </span><span class="n">line</span><span class="o">.</span><span class="w">  </span><span class="nc">They</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">whitespace</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Here</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">informal</span><span class="w"> </span><span class="ss">grammar</span><span class="p">:</span><span class="w">
+
+   </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="o">*</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">assignment</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">section</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">assignment</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">section</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="sc">&#39;{&#39;</span><span class="w"> </span><span class="n">value</span><span class="o">*</span><span class="w"> </span><span class="sc">&#39;}&#39;</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">together</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">encountered</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">concatenated</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ap</span><span class="err">‐</span><span class="w">
+          </span><span class="n">pearance</span><span class="o">.</span><span class="w">
+          </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">denoted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">delimited</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">curly</span><span class="w"> </span><span class="n">brackets</span><span class="o">.</span><span class="w">
+          </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">backup</span><span class="w"> </span><span class="p" data-group-id="5613908593-1">{</span><span class="w">
+                    </span><span class="n">...</span><span class="w">
+               </span><span class="p" data-group-id="5613908593-1">}</span><span class="w">
+
+   </span><span class="n">assignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="sc">&#39;=&#39;</span><span class="w"> </span><span class="p" data-group-id="5613908593-2">(</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="5613908593-2">)</span><span class="w">
+          </span><span class="nc">An</span><span class="w"> </span><span class="n">assignment</span><span class="w"> </span><span class="n">associates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">identifier</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="n">slashes</span><span class="p">,</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">interpreted</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">delimiters</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="n">section</span><span class="o">/</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w">
+          </span><span class="n">is</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="p" data-group-id="5613908593-3">{</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="5613908593-3">}</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">instances</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">encountered</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="5613908593-4">(</span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">warning</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">issued</span><span class="p" data-group-id="5613908593-4">)</span><span class="o">.</span><span class="w">
+          </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w">
+
+   </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="sc">&#39;[&#39;</span><span class="w"> </span><span class="p" data-group-id="5613908593-5">(</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="sc">&#39;,&#39;</span><span class="p" data-group-id="5613908593-5">)</span><span class="o">*</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="sc">&#39;]&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;[&#39;</span><span class="w"> </span><span class="sc">&#39;]&#39;</span><span class="w">
+          </span><span class="nc">Inhomogeneous</span><span class="w"> </span><span class="n">arrays</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Elements</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">commas</span><span class="o">.</span><span class="w">
+          </span><span class="nc">An</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">acceptable</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integer</span><span class="o">|</span><span class="n">float</span><span class="o">|</span><span class="n">string</span><span class="w">
+          </span><span class="n">integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="5613908593-6">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p" data-group-id="5613908593-6">]</span><span class="o">*</span><span class="w">
+          </span><span class="n">float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="5613908593-7">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p" data-group-id="5613908593-7">]</span><span class="o">*</span><span class="sc">&#39;.&#39;</span><span class="p" data-group-id="5613908593-8">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p" data-group-id="5613908593-8">]</span><span class="o">*</span><span class="w">
+          </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;&quot;&#39;</span><span class="w"> </span><span class="o">.</span><span class="o">*</span><span class="w"> </span><span class="sc">&#39;&quot;&#39;</span><span class="w">
+
+          </span><span class="nc">Strings</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enclosed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">quotes</span><span class="p">,</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">letter</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">unquoted</span><span class="o">.</span></code></pre><p>SETTINGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">lvmconfig</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">LVM</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">ways</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">man</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">lvmconfig</span><span class="p" data-group-id="6525758416-1">(</span><span class="mi">8</span><span class="p" data-group-id="6525758416-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">default</span><span class="w">
+
+   </span><span class="nc">Command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">comment</span><span class="p">:</span><span class="w">
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">--</span><span class="n">withcomments</span><span class="w">
+
+   </span><span class="nc">Command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p" data-group-id="6525758416-2">(</span><span class="n">configured</span><span class="p">,</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">shown</span><span class="p" data-group-id="6525758416-2">)</span><span class="p">:</span><span class="w">
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">current</span><span class="w">
+
+   </span><span class="nc">Command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="p" data-group-id="6525758416-3">(</span><span class="n">configured</span><span class="p">,</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">shown</span><span class="p" data-group-id="6525758416-3">)</span><span class="p">:</span><span class="w">
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">diff</span><span class="w">
+
+   </span><span class="nc">Command</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">description</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="s">&quot;Section&quot;</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">section</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">global</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot;Setting&quot;</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="ss">umask</span><span class="p">:</span><span class="w">
+   </span><span class="n">lvmconfig</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="o">--</span><span class="n">withcomments</span><span class="w"> </span><span class="nc">Section</span><span class="o">/</span><span class="nc">Setting</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">lvm</span><span class="o">.</span><span class="n">conf</span><span class="w">
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">lvmlocal</span><span class="o">.</span><span class="n">conf</span><span class="w">
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">archive</span><span class="w">
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">backup</span><span class="w">
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="o">.</span><span class="n">cache</span><span class="w">
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lvm</span><span class="o">/</span><span class="n">profile</span><span class="w">
+   </span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">lock</span><span class="o">/</span><span class="n">lvm</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lvm</span><span class="p" data-group-id="3468167506-1">(</span><span class="mi">8</span><span class="p" data-group-id="3468167506-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">lvmconfig</span><span class="p" data-group-id="3468167506-2">(</span><span class="mi">8</span><span class="p" data-group-id="3468167506-2">)</span></code></pre><p>Red Hat, Inc.                                                               LVM TOOLS 2.03.16(2) (2022-05-18)                                                                 LVM.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="ltrace-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+ltrace.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="lxc-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+lxc.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>clamd.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>clamd.conf</span>
+</h1>
+
+<p>clamd.conf(5)                                                                         Clam AntiVirus                                                                        clamd.conf(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Clam</span><span class="w"> </span><span class="nc">AntiVirus</span><span class="w"> </span><span class="nc">Daemon</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Clam</span><span class="w"> </span><span class="nc">AntiVirus</span><span class="w"> </span><span class="n">daemon</span><span class="p">,</span><span class="w"> </span><span class="n">clamd</span><span class="p" data-group-id="4272791152-1">(</span><span class="mi">8</span><span class="p" data-group-id="4272791152-1">)</span><span class="o">.</span></code></pre><p>FILE FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">comments</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">arguments</span><span class="o">.</span><span class="w"> </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="p" data-group-id="2205277845-1">(</span><span class="c1">#) symbol is ignored by the parser. Options and arguments are case sensitive and of</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="nc">Option</span><span class="w"> </span><span class="nc">Argument</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">types</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">BOOL</span><span class="w">   </span><span class="nc">Boolean</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="2205277845-2">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="no">true</span><span class="o">/</span><span class="no">false</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p" data-group-id="2205277845-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">STRING</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">characters</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">SIZE</span><span class="w">   </span><span class="nc">Size</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="sc">&#39;M&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="sc">&#39;m&#39;</span><span class="w"> </span><span class="n">modifiers</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">megabytes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="sc">&#39;K&#39;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="sc">&#39;k&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">kilobytes</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">modifiers</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">NUMBER</span><span class="w"> </span><span class="nc">Unsigned</span><span class="w"> </span><span class="n">integer</span><span class="o">.</span></code></pre><p>DIRECTIVES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">When</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="8308260185-1">(</span><span class="n">commented</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">all</span><span class="p" data-group-id="8308260185-1">)</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">action</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">run</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">LogFile</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Save</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">LogFileUnlock</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LogFileMaxSize</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">limit</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">1048576</span><span class="w">
+
+   </span><span class="nc">LogTime</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Log</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">message</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LogClean</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Log</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Useful</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">drastically</span><span class="w"> </span><span class="n">increases</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LogSyslog</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="p" data-group-id="8308260185-2">(</span><span class="n">can</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">LogFile</span><span class="p" data-group-id="8308260185-2">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LogFacility</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="n">messages</span><span class="w">
+          </span><span class="nc">Please</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="sc">&#39;man syslog&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">facility</span><span class="w"> </span><span class="n">names</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="nc">LOG_LOCAL6</span><span class="w">
+
+   </span><span class="nc">LogVerbose</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">logging</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LogRotate</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Rotate</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">Requires</span><span class="w"> </span><span class="nc">LogFileMaxSize</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">prior</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">ExtendedDetectionInfo</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Log</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">infected</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">virus</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">PidFile</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Save</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">listening</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="p" data-group-id="8308260185-3">(</span><span class="n">main</span><span class="w"> </span><span class="n">thread</span><span class="p" data-group-id="8308260185-3">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">TemporaryDirectory</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="p" data-group-id="8308260185-4">(</span><span class="n">usually</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="p" data-group-id="8308260185-4">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">DatabaseDirectory</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">freshclam</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="p" data-group-id="8308260185-5">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">clamav</span><span class="p" data-group-id="8308260185-5">)</span><span class="w">
+
+   </span><span class="nc">OfficialDatabaseOnly</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Only</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">official</span><span class="w"> </span><span class="n">signatures</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">ClamAV</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LocalSocket</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="p" data-group-id="8308260185-6">(</span><span class="nc">Unix</span><span class="p" data-group-id="8308260185-6">)</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">LocalSocketGroup</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">ownership</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unix</span><span class="w"> </span><span class="n">socket</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">clamd</span><span class="w">
+
+   </span><span class="nc">LocalSocketMode</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">permissions</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unix</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">world</span><span class="w"> </span><span class="n">readable</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">writable</span><span class="w">
+
+   </span><span class="nc">FixStaleSocket</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Remove</span><span class="w"> </span><span class="n">stale</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">unclean</span><span class="w"> </span><span class="n">shutdown</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">yes</span><span class="w">
+
+   </span><span class="nc">TCPSocket</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">TCP</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">listen</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">TCPAddr</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">binds</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">INADDR_ANY</span><span class="o">.</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">restrict</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">degree</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="n">world</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w">  </span><span class="ow">in</span><span class="w">  </span><span class="n">order</span><span class="w">  </span><span class="n">to</span><span class="w">
+          </span><span class="n">listen</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="nc">IPs</span><span class="o">.</span><span class="w"> </span><span class="nc">IPv6</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">MaxConnectionQueueLength</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">pending</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">grow</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+
+   </span><span class="nc">StreamMaxLength</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">Close</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">STREAM</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">exceeded</span><span class="o">.</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">MTA</span><span class="sc">&#39;s limit for the maximum attachment size.
+          Default: 100M
+
+   StreamMinPort NUMBER
+          The STREAM command uses an FTP-like protocol.
+          This option sets the lower boundary for the port range.
+          Default: 1024
+
+   StreamMaxPort NUMBER
+          This option sets the upper boundary for the port range.
+          Default: 2048
+
+   MaxThreads NUMBER
+          Maximum number of threads running at the same time.
+          Default: 10
+
+   ReadTimeout NUMBER
+          This option specifies the time (in seconds) after which clamd should timeout if a client doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="w">
+
+   </span><span class="nc">CommandReadTimeout</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="8308260185-7">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="8308260185-7">)</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t provide any initial command after connecting.  The default is set to 30 to
+          avoid timeouts with TCP sockets when processing large messages.  If using a Unix socket, the value can be changed to 5.  Note: the timeout for subsequents commands, and/or
+          data chunks is specified by ReadTimeout.
+          Default: 30
+
+   SendBufTimeout NUMBER
+          This option specifies how long to wait (in milliseconds) if the send buffer is full.  Keep this value low to prevent clamd hanging.
+          Default: 500
+
+   MaxQueue NUMBER
+          Maximum number of queued items (including those being processed by MaxThreads threads).  It is recommended to have this value at least twice MaxThreads if possible.
+          WARNING:  you  shouldn&#39;</span><span class="n">t</span><span class="w">  </span><span class="n">increase</span><span class="w">  </span><span class="n">this</span><span class="w">  </span><span class="n">too</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptors</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ss">hold</span><span class="p">:</span><span class="w"> </span><span class="nc">MaxThreads</span><span class="o">*</span><span class="nc">MaxRecursion</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nc">MaxQueue</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Max</span><span class="err">‐</span><span class="w">
+          </span><span class="nc">Threads</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nc">RLIMIT_NOFILE</span><span class="o">.</span><span class="w">  </span><span class="nc">RLIMIT_NOFILE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptors</span><span class="w"> </span><span class="p" data-group-id="8308260185-8">(</span><span class="n">usually</span><span class="w"> </span><span class="mi">1024</span><span class="p" data-group-id="8308260185-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">ulimit</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+
+   </span><span class="nc">IdleTimeout</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="p" data-group-id="8308260185-9">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="8308260185-9">)</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">job</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+
+   </span><span class="nc">ExcludePath</span><span class="w"> </span><span class="nc">REGEX</span><span class="w">
+          </span><span class="nc">Don</span><span class="sc">&#39;t scan files and directories matching REGEX. This directive can be used multiple times.
+          Default: disabled
+
+   MaxDirectoryRecursion NUMBER
+          Maximum depth directories are scanned at.
+          Default: 15
+
+   FollowDirectorySymlinks BOOL
+          Follow directory symlinks.
+          Default: no
+
+   CrossFilesystems BOOL
+          Scan files and directories on other filesystems.
+          Default: yes
+
+   FollowFileSymlinks BOOL
+          Follow regular file symlinks.
+          Default: no
+
+   SelfCheck NUMBER
+          This option specifies the time intervals (in seconds) in which clamd should perform a database check.
+          Default: 600
+
+   ConcurrentDatabaseReload BOOL
+          Enable non-blocking (multi-threaded/concurrent) database reloads. This feature will temporarily load a second scanning engine while scanning continues using the first  en‐
+          gine.  Once  loaded, the new engine takes over. The old engine is removed as soon as all scans using the old engine have completed. This feature requires more RAM, so this
+          option is provided in case users are willing to block scans during reload in exchange for lower RAM requirements.
+          Default: yes
+
+   VirusEvent COMMAND
+          Execute a command when a virus is found. In the command string %v will be replaced with the virus name and %f will be replaced with the file name.  Additionally, two envi‐
+          ronment variables will be defined: $CLAM_VIRUSEVENT_FILENAME and $CLAM_VIRUSEVENT_VIRUSNAME.
+          Default: disabled
+
+   ExitOnOOM BOOL
+          Stop daemon when libclamav reports out of memory condition.
+          Default: no
+
+   AllowAllMatchScan BOOL
+          Permit use of the ALLMATCHSCAN command.
+          Default: yes
+
+   Foreground BOOL
+          Don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">fork</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">background</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">Debug</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">libclamav</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">LeaveTemporaryFiles</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="8308260185-10">(</span><span class="k">for</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">purpose</span><span class="p" data-group-id="8308260185-10">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">GenerateMetadataJson</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Record</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">  </span><span class="nc">Scan</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">purposes</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">behavior</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="nc">JSON</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="k">after</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">Debug</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">metadata</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">LeaveTemporaryFiles</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">User</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p" data-group-id="8308260185-11">(</span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">root</span><span class="p" data-group-id="8308260185-11">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">Bytecode</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">With</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="nc">ClamAV</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="n">bytecode</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">database</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">highly</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">on</span><span class="p">,</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">miss</span><span class="w"> </span><span class="n">detections</span><span class="w">  </span><span class="k">for</span><span class="w">  </span><span class="n">many</span><span class="w">
+          </span><span class="n">new</span><span class="w"> </span><span class="n">viruses</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">yes</span><span class="w">
+
+   </span><span class="nc">BytecodeSecurity</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">bytecode</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">level</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+              </span><span class="nc">TrustSigned</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">trust</span><span class="w"> </span><span class="n">bytecode</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">signed</span><span class="w"> </span><span class="o">.</span><span class="n">c</span><span class="p" data-group-id="8308260185-12">[</span><span class="n">lv</span><span class="p" data-group-id="8308260185-12">]</span><span class="n">d</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">runtime</span><span class="w"> </span><span class="n">safety</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">bytecode</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">sources</span><span class="p">,</span><span class="w">
+              </span><span class="nc">Paranoid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">don</span><span class="sc">&#39;t trust any bytecode, insert runtime checks for all.
+          Recommended: TrustSigned, because bytecode in .cvd files already has these checks.
+          Default: TrustSigned
+
+   BytecodeTimeout NUMBER
+          Set bytecode timeout in milliseconds.
+          Default: 10000
+
+   BytecodeUnsigned BOOL
+          Allow  loading bytecode from outside digitally signed .c[lv]d files.  **Caution**: You should NEVER run bytecode signatures from untrusted sources.  Doing so may result in
+          arbitrary code execution.
+          Default: no
+
+   BytecodeMode STRING
+          Set bytecode execution mode.
+          Possible values:
+              Auto - automatically choose JIT if possible, fallback to interpreter
+              ForceJIT - always choose JIT, fail if not possible
+              ForceInterpreter - always choose interpreter
+              Test - run with both JIT and interpreter and compare results. Make all failures fatal.
+          Default: Auto
+
+   DetectPUA BOOL
+          Detect Possibly Unwanted Applications.
+          Default: No
+
+   ExcludePUA CATEGORY
+          Exclude a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories.
+          Default: disabled
+
+   IncludePUA CATEGORY
+          Only include a specific PUA category. This directive can be used multiple times. See https://docs.clamav.net/faq/faq-pua.html for the complete list of PUA categories.
+          Default: disabled
+
+   HeuristicAlerts BOOL
+          In some cases (eg. complex malware, exploits in graphic files, and others), ClamAV uses special algorithms to provide accurate detection. This option  controls  the  algo‐
+          rithmic detection.
+          Default: yes
+
+   HeuristicScanPrecedence BOOL
+          Allow  heuristic  match  to  take precedence. When enabled, if a heuristic scan (such as phishingScan) detects a possible virus/phishing it will stop scanning immediately.
+          Recommended, saves CPU scan-time. When disabled, virus/phishing detected by heuristic scans will be reported only at the end of a scan.  If  an  archive  contains  both  a
+          heuristically  detected virus/phishing, and a real malware, the real malware will be reported. Keep this disabled if you intend to handle &quot;*.Heuristics.*&quot; viruses  differ‐
+          ently from &quot;real&quot; malware. If a non-heuristically-detected virus (signature-based) is found first, the scan is interrupted immediately, regardless of this config option.
+          Default: no
+
+   ScanPE BOOL
+          PE stands for Portable Executable - it&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">executable</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">64</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Windows</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">systems</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="nc">ClamAV</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="w">  </span><span class="n">a</span><span class="w">
+          </span><span class="n">deeper</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">executable</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">it</span><span class="sc">&#39;s also required for decompression of popular executable packers such as UPX.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanELF BOOL
+          Executable and Linking Format is a standard format for UN*X executables. This option allows you to control the scanning of ELF files.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanMail BOOL
+          Enable scanning of mail files.
+          If you turn off this option, the original files will still be scanned, but without parsing individual messages/attachments.
+          Default: yes
+
+   ScanPartialMessages BOOL
+          Scan  RFC1341 messages split over many emails. You will need to periodically clean up $TemporaryDirectory/clamav-partial directory. WARNING: This option may open your sys‐
+          tem to a DoS attack. Never use it on loaded servers.
+          Default: no
+
+   PhishingSignatures BOOL
+          Enable email signature-based phishing detection.
+          Default: yes
+
+   PhishingScanURLs BOOL
+          Enable URL signature-based phishing detection (Heuristics.Phishing.Email.*)
+          Default: yes
+
+   StructuredDataDetection BOOL
+          Enable the DLP module.
+          Default: no
+
+   StructuredMinCreditCardCount NUMBER
+          This option sets the lowest number of Credit Card numbers found in a file to generate a detect.
+          Default: 3
+
+   StructuredCCOnly BOOL
+          With this option enabled the DLP module will search for valid Credit Card0umbers only. Debit and Private Label cards will not be searched.
+          Default: No
+
+   StructuredMinSSNCount NUMBER
+          This option sets the lowest number of Social Security Numbers found in a file to generate a detect.
+          Default: 3
+
+   StructuredSSNFormatNormal BOOL
+          With this option enabled the DLP module will search for valid SSNs formatted as xxx-yy-zzzz.
+          Default: Yes
+
+   StructuredSSNFormatStripped BOOL
+          With this option enabled the DLP module will search for valid SSNs formatted as xxxyyzzzz.
+          Default: No
+
+   ScanHTML BOOL
+          Perform HTML/JavaScript/ScriptEncoder normalisation and decryption.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanOLE2 BOOL
+          This option enables scanning of OLE2 files, such as Microsoft Office documents and .msi files.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanPDF BOOL
+          This option enables scanning within PDF files.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanSWF BOOL
+          This option enables scanning within SWF files.
+          If you turn off this option, the original files will still be scanned, but without decoding and additional processing.
+          Default: yes
+
+   ScanXMLDOCS BOOL
+          This option enables scanning xml-based document files supported by libclamav.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanHWP3 BOOL
+          This option enables scanning HWP3 files.
+          If you turn off this option, the original files will still be scanned, but without additional processing.
+          Default: yes
+
+   ScanArchive BOOL
+          Scan within archives and compressed files.
+          If you turn off this option, the original files will still be scanned, but without unpacking and additional processing.
+          Default: yes
+
+   AlertBrokenExecutables BOOL
+          Alert on broken executable files (PE &amp; ELF).
+          Default: no
+
+   AlertBrokenMedia BOOL
+          Alert on broken graphics files (JPEG, TIFF, PNG, GIF).
+          Default: no
+
+   AlertEncrypted BOOL
+          Alert on encrypted archives and documents (encrypted .zip, .7zip, .rar, .pdf).
+          Default: no
+
+   AlertEncryptedArchive BOOL
+          Alert on encrypted archives (encrypted .zip, .7zip, .rar).
+          Default: no
+
+   AlertEncryptedDoc BOOL
+          Alert on encrypted documents (encrypted .pdf).
+          Default: no
+
+   AlertOLE2Macros BOOL
+          Alert on OLE2 files containing VBA macros (Heuristics.OLE2.ContainsMacros).
+          Default: no
+
+   AlertExceedsMax BOOL
+          When AlertExceedsMax is set, files exceeding the MaxFileSize, MaxScanSize, or MaxRecursion limit will be flagged with the virus name starting  with  &quot;Heuristics.Limits.Ex‐
+          ceeded&quot;.
+          Default: no
+
+   AlertPhishingSSLMismatch BOOL
+          Alert on emails containing SSL mismatches in URLs (might lead to false positives!).
+          Default: no
+
+   AlertPhishingCloak BOOL
+          Alert on emails containing cloaked URLs (might lead to some false positives).
+          Default: no
+
+   AlertPartitionIntersection BOOL
+          Alert on raw DMG image files containing partition intersections.
+          Default: no
+
+   ForceToDisk
+          This option causes memory or nested map scans to dump the content to disk.
+          If you turn on this option, more data is written to disk and is available when the leave-temps option is enabled at the cost of more disk writes.
+          Default: no
+
+   MaxScanTime SIZE
+          This  option sets the maximum amount of time a scan may take to complete. The value is in milliseconds. The value of 0 disables the limit. WARNING: disabling this limit or
+          setting it too high may result allow scanning of certain files to lock up the scanning process/threads resulting in a Denial of Service.
+          Default: 120000
+
+   MaxScanSize SIZE
+          Sets the maximum amount of data to be scanned for each input file. Archives and other containers are recursively extracted and scanned up to this value. The size of an ar‐
+          chive  plus the sum of the sizes of all files within archive count toward the scan size. For example, a 1M uncompressed archive containing a single 1M inner file counts as
+          2M toward the max scan size. Warning: disabling this limit or setting it too high may result in severe damage to the system.
+          Default: 400M
+
+   MaxFileSize SIZE
+          Files larger than this limit won&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w"> </span><span class="nc">Affects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p" data-group-id="8308260185-13">(</span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="n">document</span><span class="w">  </span><span class="ow">or</span><span class="w">  </span><span class="n">some</span><span class="w">
+          </span><span class="n">other</span><span class="w">  </span><span class="n">kind</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">container</span><span class="p" data-group-id="8308260185-13">)</span><span class="o">.</span><span class="w"> </span><span class="ss">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">disabling</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="nc">Technical</span><span class="w"> </span><span class="n">design</span><span class="w"> </span><span class="n">limitations</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="nc">ClamAV</span><span class="w"> </span><span class="n">from</span><span class="w">
+          </span><span class="n">scanning</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nc">GB</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxRecursion</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Nested</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">recursively</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Zip</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">RAR</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">deeply</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w">
+          </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">continued</span><span class="o">.</span><span class="w"> </span><span class="ss">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+
+   </span><span class="nc">MaxFiles</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">archive</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">kind</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w"> </span><span class="ss">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">disabling</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">dam</span><span class="err">‐</span><span class="w">
+          </span><span class="n">age</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+
+   </span><span class="nc">MaxEmbeddedPE</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">embedded</span><span class="w"> </span><span class="nc">PE</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Files</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">step</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxHTMLNormalize</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">HTML</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normalize</span><span class="o">.</span><span class="w">
+          </span><span class="nc">HTML</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxHTMLNoTags</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="nc">HTML</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">scan</span><span class="o">.</span><span class="w">
+          </span><span class="nc">HTML</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">normalization</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxScriptNormalize</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normalize</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Script</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">normalized</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxZipTypeRcg</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">ZIP</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reanalyze</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">recognition</span><span class="o">.</span><span class="w">
+          </span><span class="nc">ZIP</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">potentially</span><span class="w"> </span><span class="n">reanalyze</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">PE</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">MaxPartitions</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Raw</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+
+   </span><span class="nc">MaxIconsPE</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">icons</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">PE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">PE</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">icons</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">icons</span><span class="w"> </span><span class="n">scanned</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+
+   </span><span class="nc">MaxRecHWP3</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">recursive</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">HWP3</span><span class="w"> </span><span class="n">parsing</span><span class="w"> </span><span class="n">function</span><span class="o">.</span><span class="w">
+          </span><span class="nc">HWP3</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Scans</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">unable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">HWP3</span><span class="w"> </span><span class="n">attachments</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">recursive</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">reached</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">severe</span><span class="w"> </span><span class="n">damage</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+
+   </span><span class="nc">PCREMatchLimit</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">regex</span><span class="w"> </span><span class="n">matching</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Instances</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">continue</span><span class="o">.</span><span class="w">
+          </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">match_limit</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">documentation</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">severely</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+
+   </span><span class="nc">PCRERecMatchLimit</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">recursive</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">regex</span><span class="w"> </span><span class="n">matching</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Instances</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">continue</span><span class="o">.</span><span class="w">
+          </span><span class="nc">For</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">match_limit_recursion</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">documentation</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nc">PCREMatchLimit</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">superfluous</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">severely</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
+
+   </span><span class="nc">PCREMaxFileSize</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">filesize</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">subsigs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">executed</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Files</span><span class="w"> </span><span class="n">exceeding</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="nc">PCRE</span><span class="w"> </span><span class="n">subsigs</span><span class="w"> </span><span class="n">executed</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">subsig</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">encompassed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">buffer</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Negative</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">limit</span><span class="o">.</span><span class="w">
+          </span><span class="ss">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">high</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">disabling</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">severely</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">performance</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">OnAccessIncludePath</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="8308260185-14">(</span><span class="n">including</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">it</span><span class="p" data-group-id="8308260185-14">)</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">access</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessExcludePath</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">excluding</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">access</span><span class="w"> </span><span class="n">scanning</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessExcludeRootUID</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">With</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="p" data-group-id="8308260185-15">(</span><span class="mi">0</span><span class="p" data-group-id="8308260185-15">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Processes</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">triggering</span><span class="w"> </span><span class="n">scans</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="n">events</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">access</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p" data-group-id="8308260185-16">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="nc">OnAccessPrevention</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">enabled</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">process</span><span class="w">  </span><span class="n">already</span><span class="w">
+          </span><span class="n">exited</span><span class="p" data-group-id="8308260185-16">)</span><span class="p">,</span><span class="w">  </span><span class="n">clamd</span><span class="w">  </span><span class="n">will</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">scan</span><span class="o">.</span><span class="w">  </span><span class="nc">Thus</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="nc">OnAccessExcludeRootUID</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">guaranteed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">triggering</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="p" data-group-id="8308260185-17">(</span><span class="k">unless</span><span class="w"> </span><span class="nc">OnAc</span><span class="err">‐</span><span class="w">
+          </span><span class="n">cessPrevention</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="p" data-group-id="8308260185-17">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">OnAccessExcludeUID</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">With</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">UIDs</span><span class="o">.</span><span class="w"> </span><span class="nc">Processes</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="nc">UIDs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">triggering</span><span class="w"> </span><span class="n">scans</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="n">events</span><span class="o">.</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="p" data-group-id="8308260185-18">(</span><span class="n">one</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="p" data-group-id="8308260185-18">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">entirely</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="p" data-group-id="8308260185-19">(</span><span class="mi">0</span><span class="p" data-group-id="8308260185-19">)</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OnAccessExcludeRootUID</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Also</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">access</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="p" data-group-id="8308260185-20">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="nc">OnAccessPrevention</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">enabled</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">process</span><span class="w">  </span><span class="n">al</span><span class="err">‐</span><span class="w">
+          </span><span class="n">ready</span><span class="w">  </span><span class="n">exited</span><span class="p" data-group-id="8308260185-20">)</span><span class="p">,</span><span class="w">  </span><span class="n">clamd</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">scan</span><span class="o">.</span><span class="w">  </span><span class="nc">Thus</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="nc">OnAccessExcludeUID</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">guaranteed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">triggering</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="p" data-group-id="8308260185-21">(</span><span class="k">unless</span><span class="w">
+          </span><span class="nc">OnAccessPrevention</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="p" data-group-id="8308260185-21">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessExcludeUname</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">exclusions</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">on</span><span class="o">-</span><span class="n">access</span><span class="w"> </span><span class="n">scanning</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">potential</span><span class="w"> </span><span class="n">race</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="n">limitations</span><span class="w">
+          </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OnAccessExcludeUID</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessMaxFileSize</span><span class="w"> </span><span class="nc">SIZE</span><span class="w">
+          </span><span class="nc">Files</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">access</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="nc">M</span><span class="w">
+
+   </span><span class="nc">OnAccessMaxThreads</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Max</span><span class="w">  </span><span class="n">number</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">scanning</span><span class="w">  </span><span class="n">threads</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OnAccess</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">startup</span><span class="o">.</span><span class="w"> </span><span class="nc">These</span><span class="w"> </span><span class="n">threads</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ones</span><span class="w"> </span><span class="n">responsible</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="ow">and</span><span class="w">
+          </span><span class="n">kicking</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="n">scanning</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">processed</span><span class="o">.</span><span class="w"> </span><span class="nc">To</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">clamonacc</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">consuming</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">clamd</span><span class="sc">&#39;s resources keep this lower than clamd&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="n">threads</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+
+   </span><span class="nc">OnAccessCurlTimeout</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Max</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="p" data-group-id="8308260185-22">(</span><span class="ow">in</span><span class="w"> </span><span class="n">milliseconds</span><span class="p" data-group-id="8308260185-22">)</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OnAccess</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">spend</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">connect</span><span class="p">,</span><span class="w"> </span><span class="n">send</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">recieve</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">communicating</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">curl</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="p" data-group-id="8308260185-23">(</span><span class="mi">5</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="8308260185-23">)</span><span class="w">
+
+   </span><span class="nc">OnAccessMountPath</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="p" data-group-id="8308260185-24">(</span><span class="n">including</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">it</span><span class="p" data-group-id="8308260185-24">)</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">scanned</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">access</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">times</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessDisableDDD</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Disables</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">dynamic</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">determination</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">recursively</span><span class="w"> </span><span class="n">watching</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">paths</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">OnAccessPrevention</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Enables</span><span class="w"> </span><span class="n">fanotify</span><span class="w"> </span><span class="n">blocking</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">malicious</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">found</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">disabled</span><span class="w">
+
+   </span><span class="nc">OnAccessRetryAttempts</span><span class="w"> </span><span class="nc">NUMBER</span><span class="w">
+          </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OnAccess</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">retry</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">problems</span><span class="w"> </span><span class="p" data-group-id="8308260185-25">(</span><span class="ow">or</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">issues</span><span class="p" data-group-id="8308260185-25">)</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+
+   </span><span class="nc">OnAccessDenyOnError</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">When</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">prevention</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">on</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">occur</span><span class="w"> </span><span class="n">during</span><span class="w">  </span><span class="n">scanning</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">denied</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">could</span><span class="w">  </span><span class="n">potentially</span><span class="w">  </span><span class="n">lead</span><span class="w">  </span><span class="n">to</span><span class="w">
+          </span><span class="n">unwanted</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">behaviour</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">configurations</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">prefers</span><span class="w"> </span><span class="n">allowing</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">OnAccessExtraScanning</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Toggles</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">scanning</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">moved</span><span class="o">.</span><span class="w">
+          </span><span class="nc">Requires</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="nc">DDD</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">kick</span><span class="o">-</span><span class="n">off</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">scans</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w">
+
+   </span><span class="nc">DisableCertCheck</span><span class="w"> </span><span class="nc">BOOL</span><span class="w">
+          </span><span class="nc">Disable</span><span class="w"> </span><span class="n">authenticode</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">chain</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PE</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">All</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">expressing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="mi">4</span><span class="nc">GB</span><span class="o">.</span><span class="w"> </span><span class="nc">Values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">excess</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">clamav</span><span class="o">/</span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Tomasz</span><span class="w"> </span><span class="nc">Kojm</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tkojm</span><span class="na">@clamav</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nc">Kevin</span><span class="w"> </span><span class="nc">Lin</span><span class="w"> </span><span class="o">&lt;</span><span class="n">klin</span><span class="na">@sourcefire</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="p" data-group-id="7179828473-1">(</span><span class="mi">8</span><span class="p" data-group-id="7179828473-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">clamdscan</span><span class="p" data-group-id="7179828473-2">(</span><span class="mi">1</span><span class="p" data-group-id="7179828473-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">clamav</span><span class="o">-</span><span class="n">milter</span><span class="p" data-group-id="7179828473-3">(</span><span class="mi">8</span><span class="p" data-group-id="7179828473-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">freshclam</span><span class="p" data-group-id="7179828473-4">(</span><span class="mi">1</span><span class="p" data-group-id="7179828473-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">freshclam</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="7179828473-5">(</span><span class="mi">5</span><span class="p" data-group-id="7179828473-5">)</span></code></pre><p>ClamAV 1.0.1                                                                         December 4, 2013                                                                       clamd.conf(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="clamconf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+clamconf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="clamd.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+clamd
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

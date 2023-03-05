@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>Compose — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-06493C4F.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Compose</span>
+</h1>
+
+<p>Compose(5)                                                                         File Formats Manual                                                                         Compose(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Compose</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">mappings</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">key</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">sequences</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="nc">X</span><span class="w">  </span><span class="n">library</span><span class="p">,</span><span class="w">  </span><span class="n">libX11</span><span class="p">,</span><span class="w">  </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">beyond</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">represented</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">typical</span><span class="w"> </span><span class="n">keyboards</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">sequences</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">strokes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enter</span><span class="w"> </span><span class="n">a</span><span class="w">
+   </span><span class="n">single</span><span class="w"> </span><span class="n">character</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">searched</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ow">in</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">order</span><span class="p">:</span><span class="w">
+
+   </span><span class="o">-</span><span class="w">      </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="err">$</span><span class="nc">XCOMPOSEFILE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Compose</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="w">      </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="sc">&#39;s home directory has a file named .XCompose, it is used as the Compose file.
+
+   -      The system provided compose file is used by mapping the locale to a compose file from the list in /usr/share/X11/locale/compose.dir.
+
+   Compose files can use an &quot;include&quot; instruction.  This allows local modifications to be made to existing compose files without including all of the content directly.  For example,
+   the system&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">iso8859</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="ss">this</span><span class="p">:</span><span class="w">
+       </span><span class="n">include</span><span class="w"> </span><span class="s">&quot;%S/iso8859-1/Compose&quot;</span><span class="w">
+
+   </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">substitutions</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="ss">instruction</span><span class="p">:</span><span class="w">
+
+   </span><span class="p">%</span><span class="nc">H</span><span class="w">  </span><span class="n">expands</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="1428355031-1">(</span><span class="n">the</span><span class="w"> </span><span class="err">$</span><span class="nc">HOME</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="p" data-group-id="1428355031-1">)</span><span class="w">
+
+   </span><span class="p">%</span><span class="nc">L</span><span class="w">  </span><span class="n">expands</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">Compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="1428355031-2">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/usr/share/X11/locale/&lt;localename&gt;/Compose&quot;</span><span class="p" data-group-id="1428355031-2">)</span><span class="w">
+
+   </span><span class="p">%</span><span class="nc">S</span><span class="w">  </span><span class="n">expands</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Compose</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="1428355031-3">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/usr/share/X11/locale&quot;</span><span class="p" data-group-id="1428355031-3">)</span><span class="w">
+
+   </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="nc">Compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="ss">using</span><span class="p">:</span><span class="w">
+          </span><span class="n">include</span><span class="w"> </span><span class="s">&quot;%L&quot;</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">rewrite</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">few</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="o">.</span><span class="w">  </span><span class="nc">New</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">rules</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">ones</span><span class="w"> </span><span class="n">replaced</span><span class="o">.</span></code></pre><p>FILE FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Compose</span><span class="w">  </span><span class="n">files</span><span class="w">  </span><span class="n">are</span><span class="w"> </span><span class="n">plain</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">sequence</span><span class="o">.</span><span class="w">  </span><span class="nc">Comments</span><span class="w"> </span><span class="n">begin</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="c1"># characters.  Each compose sequence specifies one or more events and a</span><span class="w">
+   </span><span class="n">resulting</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">sequence</span><span class="p">,</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">comment</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">line</span><span class="p">:</span><span class="w">
+          </span><span class="nc">EVENT</span><span class="w"> </span><span class="p" data-group-id="6952810516-1">[</span><span class="nc">EVENT</span><span class="n">...</span><span class="p" data-group-id="6952810516-1">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">RESULT</span><span class="w"> </span><span class="p" data-group-id="6952810516-2">[</span><span class="c1"># COMMENT]</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">keysym</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="ss">states</span><span class="p">:</span><span class="w">
+          </span><span class="p" data-group-id="6952810516-3">[</span><span class="p" data-group-id="6952810516-4">(</span><span class="p" data-group-id="6952810516-5">[</span><span class="o">!</span><span class="p" data-group-id="6952810516-5">]</span><span class="w"> </span><span class="p" data-group-id="6952810516-6">(</span><span class="p" data-group-id="6952810516-7">[</span><span class="err">~</span><span class="p" data-group-id="6952810516-7">]</span><span class="w"> </span><span class="nc">MODIFIER</span><span class="p" data-group-id="6952810516-6">)</span><span class="n">...</span><span class="p" data-group-id="6952810516-4">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nc">None</span><span class="p" data-group-id="6952810516-3">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">keysym</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preceded</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">exactly</span><span class="o">.</span><span class="w">  </span><span class="nc">MODIFIER</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Ctrl</span><span class="p">,</span><span class="w"> </span><span class="nc">Lock</span><span class="p">,</span><span class="w"> </span><span class="nc">Caps</span><span class="p">,</span><span class="w"> </span><span class="nc">Shift</span><span class="p">,</span><span class="w"> </span><span class="nc">Alt</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">Meta</span><span class="o">.</span><span class="w">  </span><span class="nc">Each</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">preceded</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;~&quot;</span><span class="w"> </span><span class="n">character</span><span class="w">  </span><span class="n">to</span><span class="w">
+   </span><span class="n">indicate</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="s">&quot;None&quot;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">keysym</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">both</span><span class="p">,</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">receives</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">events</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ss">input</span><span class="p">:</span><span class="w">
+          </span><span class="s">&quot;STRING&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">keysym</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span><span class="w"> </span><span class="n">keysym</span><span class="w">
+
+   </span><span class="nc">Keysyms</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">XK_</span><span class="w"> </span><span class="n">prefix</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Strings</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">direct</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">encoded</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">escaped</span><span class="w"> </span><span class="n">octal</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="w">  </span><span class="nc">Octal</span><span class="w"> </span><span class="n">codes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\1</span><span class="s">23&quot;</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">codes</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x</span><span class="s">3a&quot;</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">encoded</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">addition</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keysym</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">string</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">omitted</span><span class="p">,</span><span class="w">
+   </span><span class="nc">Xlib</span><span class="w"> </span><span class="n">figures</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keysym</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="w">  </span><span class="nc">I</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="ss">like</span><span class="p">:</span><span class="w">
+          </span><span class="o">&lt;</span><span class="n">dead_grave</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">A</span><span class="o">&gt;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\3</span><span class="s">00&quot;</span><span class="w"> </span><span class="nc">Agrave</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">composition</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">letter</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\3</span><span class="s">00&quot;</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="w">  </span><span class="nc">But</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rule</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w">
+          </span><span class="o">&lt;</span><span class="n">dead_grave</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">A</span><span class="o">&gt;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Agrave</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="nc">Agrave</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mapped</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span></code></pre><p>ENVIRONMENT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">XCOMPOSEFILE</span><span class="w">
+          </span><span class="nc">File</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">sequences</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">XCOMPOSECACHE</span><span class="w">
+          </span><span class="nc">Directory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">caching</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">files</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">$</span><span class="nc">HOME</span><span class="o">/</span><span class="o">.</span><span class="nc">XCompose</span><span class="w">
+          </span><span class="nc">User</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">XCOMPOSEFILE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="nc">X11</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">compose</span><span class="o">.</span><span class="n">dir</span><span class="w">
+          </span><span class="nc">File</span><span class="w"> </span><span class="n">listing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="nc">X11</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="o">&lt;</span><span class="n">localemapping</span><span class="o">&gt;</span><span class="o">/</span><span class="nc">Compose</span><span class="w">
+          </span><span class="nc">System</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locale</span><span class="p">,</span><span class="w"> </span><span class="n">mapped</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">compose</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">libx11</span><span class="o">/</span><span class="n">compose</span><span class="o">/</span><span class="w">
+          </span><span class="nc">System</span><span class="o">-</span><span class="n">wide</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">$</span><span class="nc">HOME</span><span class="o">/</span><span class="o">.</span><span class="n">compose</span><span class="o">-</span><span class="n">cache</span><span class="o">/</span><span class="w">
+          </span><span class="nc">Per</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">compose</span><span class="w"> </span><span class="n">files</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">XLookupString</span><span class="p" data-group-id="8366948237-1">(</span><span class="mi">3</span><span class="p" data-group-id="8366948237-1">)</span><span class="p">,</span><span class="w"> </span><span class="nc">XmbLookupString</span><span class="p" data-group-id="8366948237-2">(</span><span class="mi">3</span><span class="p" data-group-id="8366948237-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">XwcLookupString</span><span class="p" data-group-id="8366948237-3">(</span><span class="mi">3</span><span class="p" data-group-id="8366948237-3">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Xutf8LookupString</span><span class="p" data-group-id="8366948237-4">(</span><span class="mi">3</span><span class="p" data-group-id="8366948237-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkcomposecache</span><span class="p" data-group-id="8366948237-5">(</span><span class="mi">1</span><span class="p" data-group-id="8366948237-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="p" data-group-id="8366948237-6">(</span><span class="mi">7</span><span class="p" data-group-id="8366948237-6">)</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Xlib</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="nc">Language</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="nc">Interface</span></code></pre><p>X Version 11                                                                           libX11 1.8.4                                                                            Compose(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="client-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+client.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="config.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+config
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

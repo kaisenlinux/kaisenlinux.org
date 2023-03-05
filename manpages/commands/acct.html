@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.2">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>acct — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-ZA3CNPHL.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XRYTXUVD.js"></script>
+    <script src="dist/sidebar_items-B73095D2.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-3CAFJ3W7.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>acct</span>
+</h1>
+
+<p>acct(2)                                                                            System Calls Manual                                                                            acct(2)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">acct</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">accounting</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">off</span></code></pre><p>LIBRARY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Standard</span><span class="w"> </span><span class="nc">C</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="p" data-group-id="9505531465-1">(</span><span class="n">libc</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">lc</span><span class="p" data-group-id="9505531465-1">)</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="c1">#include &lt;unistd.h&gt;</span><span class="w">
+
+   </span><span class="n">int</span><span class="w"> </span><span class="n">acct</span><span class="p" data-group-id="5261894609-1">(</span><span class="n">const</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="o">*</span><span class="c">_Nullable</span><span class="w"> </span><span class="n">filename</span><span class="p" data-group-id="5261894609-1">)</span><span class="p">;</span></code></pre><p>   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">acct</span><span class="p" data-group-id="1026145400-1">(</span><span class="p" data-group-id="1026145400-1">)</span><span class="p">:</span><span class="w">
+       </span><span class="nc">Since</span><span class="w"> </span><span class="n">glibc</span><span class="w"> </span><span class="mf">2.21</span><span class="p">:</span><span class="w">
+           </span><span class="c">_DEFAULT_SOURCE</span><span class="w">
+       </span><span class="nc">In</span><span class="w"> </span><span class="n">glibc</span><span class="w"> </span><span class="mf">2.19</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mf">2.20</span><span class="p">:</span><span class="w">
+           </span><span class="c">_DEFAULT_SOURCE</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p" data-group-id="1026145400-2">(</span><span class="c">_XOPEN_SOURCE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c">_XOPEN_SOURCE</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">500</span><span class="p" data-group-id="1026145400-2">)</span><span class="w">
+       </span><span class="nc">Up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">glibc</span><span class="w"> </span><span class="mf">2.19</span><span class="p">:</span><span class="w">
+           </span><span class="c">_BSD_SOURCE</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p" data-group-id="1026145400-3">(</span><span class="c">_XOPEN_SOURCE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c">_XOPEN_SOURCE</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">500</span><span class="p" data-group-id="1026145400-3">)</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">acct</span><span class="p" data-group-id="4329111306-1">(</span><span class="p" data-group-id="4329111306-1">)</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">enables</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">disables</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">accounting</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">argument</span><span class="p">,</span><span class="w"> </span><span class="n">accounting</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">on</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">termi</span><span class="err">‐</span><span class="w">
+   </span><span class="n">nating</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">appended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">terminates</span><span class="o">.</span><span class="w">  </span><span class="nc">An</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">NULL</span><span class="w"> </span><span class="n">causes</span><span class="w"> </span><span class="n">accounting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">off</span><span class="o">.</span></code></pre><p>RETURN VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">On</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="o">.</span><span class="w">  </span><span class="nc">On</span><span class="w"> </span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">errno</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">indicate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">error</span><span class="o">.</span></code></pre><p>ERRORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">EACCES</span><span class="w"> </span><span class="nc">Write</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="p" data-group-id="2551710428-1">(</span><span class="n">see</span><span class="w"> </span><span class="n">also</span><span class="w">  </span><span class="n">path_resolution</span><span class="p" data-group-id="2551710428-2">(</span><span class="mi">7</span><span class="p" data-group-id="2551710428-2">)</span><span class="p" data-group-id="2551710428-1">)</span><span class="p">,</span><span class="w">
+          </span><span class="ow">or</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EFAULT</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">accessible</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EIO</span><span class="w">    </span><span class="nc">Error</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">filename</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EISDIR</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ELOOP</span><span class="w">  </span><span class="nc">Too</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">encountered</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">resolving</span><span class="w"> </span><span class="n">filename</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENAMETOOLONG</span><span class="w">
+          </span><span class="n">filename</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">long</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENFILE</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">system</span><span class="o">-</span><span class="n">wide</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">reached</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENOENT</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exist</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENOMEM</span><span class="w"> </span><span class="nc">Out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENOSYS</span><span class="w"> </span><span class="nc">BSD</span><span class="w">  </span><span class="n">process</span><span class="w">  </span><span class="n">accounting</span><span class="w">  </span><span class="n">has</span><span class="w">  </span><span class="ow">not</span><span class="w">  </span><span class="n">been</span><span class="w">  </span><span class="n">enabled</span><span class="w">  </span><span class="ow">when</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">operating</span><span class="w">  </span><span class="n">system</span><span class="w">  </span><span class="n">kernel</span><span class="w">  </span><span class="n">was</span><span class="w"> </span><span class="n">compiled</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">controlling</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">CON</span><span class="err">‐</span><span class="w">
+          </span><span class="nc">FIG_BSD_PROCESS_ACCT</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ENOTDIR</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">component</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EPERM</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">calling</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">insufficient</span><span class="w"> </span><span class="n">privilege</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">accounting</span><span class="o">.</span><span class="w">  </span><span class="nc">On</span><span class="w"> </span><span class="nc">Linux</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CAP_SYS_PACCT</span><span class="w"> </span><span class="n">capability</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EROFS</span><span class="w">  </span><span class="n">filename</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">EUSERS</span><span class="w"> </span><span class="nc">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">structures</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">ran</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span></code></pre><p>STANDARDS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">SVr4</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="nc">BSD</span><span class="w"> </span><span class="p" data-group-id="5848041173-1">(</span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nc">POSIX</span><span class="p" data-group-id="5848041173-1">)</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">No</span><span class="w"> </span><span class="n">accounting</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">produced</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">programs</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">crash</span><span class="w"> </span><span class="n">occurs</span><span class="o">.</span><span class="w">  </span><span class="nc">In</span><span class="w"> </span><span class="n">particular</span><span class="p">,</span><span class="w"> </span><span class="n">nonterminating</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="n">accounted</span><span class="w"> </span><span class="k">for</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">accounting</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">acct</span><span class="p" data-group-id="0766101074-1">(</span><span class="mi">5</span><span class="p" data-group-id="0766101074-1">)</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">acct</span><span class="p" data-group-id="3415112614-1">(</span><span class="mi">5</span><span class="p" data-group-id="3415112614-1">)</span></code></pre><p>Linux man-pages 6.03                                                                    2022-12-03                                                                                acct(2)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="access-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+access.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="acl.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+acl
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
