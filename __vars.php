@@ -9,7 +9,7 @@
 	$url = 'https://kaisenlinux.org';
 
 
-	$release_version = 'Rolling 2.2';
+	$release_version = 'Rolling 2.3RC1';
 
 
 	$links_download = [
@@ -23,11 +23,11 @@
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-MATE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-MATE.iso',
                 ],
 				[
 				//	'name' => 'Torrent',
-				//	'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-MATE.iso.torrent',
+				//	'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-MATE.iso.torrent',
 				],
 
 			],
@@ -38,16 +38,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '5.7GB',
+			'size' => '5.8GB',
 
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-KDE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-KDE.iso',
                 ],
 				[
                 //    'name' => 'Torrent',
-                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-KDE.iso.torrent',
+                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-KDE.iso.torrent',
                 ],
 
 			],
@@ -58,16 +58,16 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/xfce.png',
-			'size' => '5.1GB',
+			'size' => '5.2GB',
 
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-XFCE.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-XFCE.iso',
                 ],
 				[
                 //    'name' => 'Torrent',
-                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-XFCE.iso.torrent',
+                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-XFCE.iso.torrent',
                 ],
 
 			],
@@ -83,11 +83,11 @@
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-LXQT.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-LXQT.iso',
                 ],
 				[
                 //    'name' => 'Torrent',
-                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-LXQT.iso.torrent',
+                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-LXQT.iso.torrent',
                 ],
 
 			],
@@ -98,16 +98,16 @@
 
 			'include' => 'No installer, live only',
 			'img'	  => './img/downloads/sr.png',
-			'size' => '3.0GB',
+			'size' => '2.9GB',
 
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-SR.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-SR.iso',
                 ],
 				[
                 //    'name' => 'Torrent',
-                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-SR.iso.torrent',
+                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-SR.iso.torrent',
                 ],
 
 			],
@@ -118,16 +118,16 @@
 
 			'include' => 'Network required',
 			'img'	  => './img/downloads/netinst.png',
-			'size' => '456MB',
+			'size' => '449MB',
 
 			'links' => [
 				[
                     'name' => 'HTTP',
-                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-NETINST.iso',
+                    'link' => 'https://iso.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-NETINST.iso',
                 ],
 				[
                 //    'name' => 'Torrent',
-                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.2-amd64-NETINST.iso.torrent',
+                //    'link' => 'https://torrent.kaisenlinux.org/rolling/kaisenlinuxrolling2.3RC1-amd64-NETINST.iso.torrent',
                 ],
 
 			],
