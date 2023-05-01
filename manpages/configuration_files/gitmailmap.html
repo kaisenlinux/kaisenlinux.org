@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>gitmailmap — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>gitmailmap</span>
+</h1>
+
+<p>GITMAILMAP(5)                                                                Git Manual                                                                GITMAILMAP(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">gitmailmap</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Map</span><span class="w"> </span><span class="n">author</span><span class="o">/</span><span class="n">committer</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="nc">E</span><span class="o">-</span><span class="nc">Mail</span><span class="w"> </span><span class="n">addresses</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">$</span><span class="nc">GIT_WORK_TREE</span><span class="o">/</span><span class="o">.</span><span class="n">mailmap</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">.</span><span class="n">mailmap</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">toplevel</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">pointed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mailmap</span><span class="o">.</span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mailmap</span><span class="o">.</span><span class="n">blob</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p" data-group-id="5684280616-1">(</span><span class="n">see</span><span class="w">
+   </span><span class="n">git</span><span class="o">-</span><span class="n">config</span><span class="p" data-group-id="5684280616-2">(</span><span class="mi">1</span><span class="p" data-group-id="5684280616-2">)</span><span class="p" data-group-id="5684280616-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">committer</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">canonical</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">addresses</span><span class="o">.</span></code></pre><p>SYNTAX</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="c1"># character begins a comment to the end of line, blank lines are ignored.</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">form</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">canonical</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">author</span><span class="p">,</span><span class="w"> </span><span class="n">whitespace</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="p" data-group-id="5822948837-1">(</span><span class="n">enclosed</span><span class="w"> </span><span class="n">by</span><span class="w">
+   </span><span class="o">&lt;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">&gt;</span><span class="p" data-group-id="5822948837-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Proper</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">commit</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">complex</span><span class="w"> </span><span class="n">forms</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+       </span><span class="o">&lt;</span><span class="n">proper</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">commit</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="n">which</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">mailmap</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">commit</span><span class="p">,</span><span class="w"> </span><span class="ss">and</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Proper</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">proper</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">commit</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="n">which</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">mailmap</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="ss">and</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Proper</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">proper</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Commit</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">commit</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="n">which</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">mailmap</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Both</span><span class="w"> </span><span class="nc">E</span><span class="o">-</span><span class="nc">Mails</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">matched</span><span class="w"> </span><span class="k">case</span><span class="o">-</span><span class="n">insensitively</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Commit</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">commit</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">above</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Proper</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="o">&lt;</span><span class="n">proper</span><span class="na">@email</span><span class="o">.</span><span class="n">xx</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">CoMmIt</span><span class="w"> </span><span class="nc">NaMe</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">CoMmIt</span><span class="err">@</span><span class="nc">EmAiL</span><span class="o">.</span><span class="n">xX</span><span class="o">&gt;</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Git</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">symbolic</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">accessing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">.</span><span class="n">mailmap</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">tree</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">keeps</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">consistent</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">accessed</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">index</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">versus</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Your</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">authors</span><span class="p">,</span><span class="w"> </span><span class="nc">Jane</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Joe</span><span class="p">,</span><span class="w"> </span><span class="n">whose</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="ss">forms</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">R</span><span class="o">.</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@laptop</span><span class="o">.</span><span class="p" data-group-id="5727114077-1">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-1">)</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">D</span><span class="o">.</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@desktop</span><span class="o">.</span><span class="p" data-group-id="5727114077-2">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-2">)</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">Now</span><span class="w"> </span><span class="n">suppose</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">Joe</span><span class="w"> </span><span class="n">wants</span><span class="w"> </span><span class="n">his</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Jane</span><span class="w"> </span><span class="n">prefers</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">fully</span><span class="w"> </span><span class="n">spelled</span><span class="w"> </span><span class="n">out</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">.</span><span class="n">mailmap</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">look</span><span class="w">
+   </span><span class="ss">like</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">R</span><span class="o">.</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@desktop</span><span class="o">.</span><span class="p" data-group-id="5727114077-3">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-3">)</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">there</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@laptop</span><span class="o">.</span><span class="p" data-group-id="5727114077-4">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-4">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">names</span><span class="o">.</span><span class="w"> </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">leaving</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">obviously</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@laptop</span><span class="o">.</span><span class="p" data-group-id="5727114077-5">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-5">)</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@desktop</span><span class="o">.</span><span class="p" data-group-id="5727114077-6">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-6">)</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">E</span><span class="o">-</span><span class="nc">Mails</span><span class="w"> </span><span class="n">as</span><span class="o">-</span><span class="n">is</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="o">.</span><span class="n">mailmap</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">corrects</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="ss">is</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">R</span><span class="o">.</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@laptop</span><span class="o">.</span><span class="p" data-group-id="5727114077-7">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-7">)</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@desktop</span><span class="o">.</span><span class="p" data-group-id="5727114077-8">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-8">)</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">Finally</span><span class="p">,</span><span class="w"> </span><span class="n">let</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">say</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">Joe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Jane</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">E</span><span class="o">-</span><span class="nc">Mail</span><span class="w"> </span><span class="n">address</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">having</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">commits</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">reporting</span><span class="w">
+   </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="nc">I</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">appearing</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="ss">as</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bugs</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bugs</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">A</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="o">.</span><span class="n">mailmap</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">handles</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">cases</span><span class="w"> </span><span class="p" data-group-id="5727114077-9">(</span><span class="n">an</span><span class="w"> </span><span class="n">addition</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">example</span><span class="p" data-group-id="5727114077-9">)</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="ss">be</span><span class="p">:</span><span class="w">
+
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">R</span><span class="o">.</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@laptop</span><span class="o">.</span><span class="p" data-group-id="5727114077-10">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-10">)</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@desktop</span><span class="o">.</span><span class="p" data-group-id="5727114077-11">(</span><span class="n">none</span><span class="p" data-group-id="5727114077-11">)</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Joe</span><span class="w"> </span><span class="nc">R</span><span class="o">.</span><span class="w"> </span><span class="nc">Developer</span><span class="w"> </span><span class="o">&lt;</span><span class="n">joe</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Joe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bugs</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Jane</span><span class="w"> </span><span class="nc">Doe</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jane</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Jane</span><span class="w"> </span><span class="o">&lt;</span><span class="n">bugs</span><span class="na">@example</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">git</span><span class="o">-</span><span class="n">check</span><span class="o">-</span><span class="n">mailmap</span><span class="p" data-group-id="5536369375-1">(</span><span class="mi">1</span><span class="p" data-group-id="5536369375-1">)</span></code></pre><p>GIT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">git</span><span class="p" data-group-id="7920584378-1">(</span><span class="mi">1</span><span class="p" data-group-id="7920584378-1">)</span><span class="w"> </span><span class="n">suite</span></code></pre><p>Git 2.39.2                                                                   02/28/2023                                                                GITMAILMAP(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="gitignore.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+gitignore
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="gitmodules.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+gitmodules
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

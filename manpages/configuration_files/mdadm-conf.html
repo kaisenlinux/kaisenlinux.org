@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>mdadm.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>mdadm.conf</span>
+</h1>
+
+<p>MDADM.CONF(5)                                                            File Formats Manual                                                           MDADM.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mdadm</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">RAID</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">mdadm</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mdadm</span><span class="o">/</span><span class="n">mdadm</span><span class="o">.</span><span class="n">conf</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mdadm</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">creating</span><span class="p">,</span><span class="w"> </span><span class="n">managing</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">monitoring</span><span class="w"> </span><span class="nc">RAID</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">md</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Linux</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Some</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">assembling</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">arrays</span><span class="p">,</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">simplified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">describing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">arrays</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><p>   SYNTAX</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">seen</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">white</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="p" data-group-id="0494327228-1">(</span><span class="n">space</span><span class="p">,</span><span class="w"> </span><span class="n">tab</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">newline</span><span class="p" data-group-id="0494327228-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Any</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">beings</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="p" data-group-id="0494327228-2">(</span><span class="c1">#) starts a com‐</span><span class="w">
+   </span><span class="n">ment</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Spaces</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">quotation</span><span class="w"> </span><span class="n">characters</span><span class="o">.</span><span class="w">  </span><span class="nc">Either</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="p" data-group-id="0494327228-3">(</span><span class="sc">&#39;) or double quotes (&quot;) may be used.  All the characters from one  quota‐
+   tion  character  to  next identical character are protected and will not be used to separate words to start new quoted strings.  To include a single quote it
+   must be between double quotes.  To include a double quote it must be between single quotes.
+
+   Any line that starts with white space (space or tab) is treated as though it were a continuation of the previous line.
+
+   Empty lines are ignored, but otherwise each (non continuation) line must start with a keyword as listed below.  The keywords are case insensitive and can  be
+   abbreviated to 3 characters.
+
+   The keywords are:
+
+   DEVICE A  device  line  lists the devices (whole devices or partitions) that might contain a component of an MD array.  When looking for the components of an
+          array, mdadm will scan these devices (or any devices listed on the command line).
+
+          The device line may contain a number of different devices (separated by spaces) and each device name can contain wild cards as defined by glob(7).
+
+          Also, there may be several device lines present in the file.
+
+          Alternatively, a device line can contain either or both of the  words containers and partitions.  The word containers will cause mdadm to look for as‐
+          sembled CONTAINER arrays and included them as a source for assembling further arrays.
+
+          The word partitions will cause mdadm to read /proc/partitions and include all devices and partitions found therein.  mdadm does not use the names from
+          /proc/partitions but only the major and minor device numbers.  It scans /dev to find the name that matches the numbers.
+
+          If no DEVICE line is present, then &quot;DEVICE partitions containers&quot; is assumed.
+
+          For example:
+
+          DEVICE /dev/hda* /dev/hdc*
+          DEV    /dev/sd*
+          DEVICE /dev/disk/by-path/pci*
+          DEVICE partitions
+
+   ARRAY  The ARRAY lines identify actual arrays.  The second word on the line may be the name of the device where the array  is  normally  assembled,  such  as
+          /dev/md1  or  /dev/md/backup.  If the name does not start with a slash (&#39;</span><span class="o">/</span><span class="sc">&#39;), it is treated as being in /dev/md/.  Alternately the word &lt;ignore&gt; (com‐
+          plete with angle brackets) can be given in which case any array which matches the rest of the line will never be automatically assembled.  If  no  de‐
+          vice name is given, mdadm will use various heuristics to determine an appropriate name.
+
+          Subsequent  words  identify  the  array,  or identify the array as a member of a group. If multiple identities are given, then a component device must
+          match ALL identities to be considered a match.  Each identity word has a tag, and equals sign, and some value.  The tags are:
+
+       uuid=  The value should be a 128 bit uuid in hexadecimal, with punctuation interspersed if desired.  This must match the uuid stored in the superblock.
+
+       name=  The value should be a simple textual name as was given to mdadm when the array was created.  This must match the name stored in the superblock  on
+              a device for that device to be included in the array.  Not all superblock formats support names.
+
+       super-minor=
+              The value is an integer which indicates the minor number that was stored in the superblock when the array was created. When an array is created as
+              /dev/mdX, then the minor number X is stored.
+
+       devices=
+              The value is a comma separated list of device names or device name patterns.  Only devices with names which match one entry in the  list  will  be
+              used to assemble the array.  Note that the devices listed there must also be listed on a DEVICE line.
+
+       level= The value is a RAID level.  This is not normally used to identify an array, but is supported so that the output of
+
+              mdadm --examine --scan
+
+              can be use directly in the configuration file.
+
+       num-devices=
+              The value is the number of devices in a complete active array.  As with level= this is mainly for compatibility with the output of
+
+              mdadm --examine --scan.
+
+       spares=
+              The  value  is  a number of spare devices to expect the array to have.  The sole use of this keyword and value is as follows: mdadm --monitor will
+              report an array if it is found to have fewer than this number of spares when --monitor starts or when --oneshot is used.
+
+       spare-group=
+              The value is a textual name for a group of arrays.  All arrays with the same spare-group name are considered to be part of the  same  group.   The
+              significance of a group of arrays is that mdadm will, when monitoring the arrays, move a spare drive from one array in a group to another array in
+              that group if the first array had a failed or missing drive but no spare.
+
+       auto=  This option is rarely needed with mdadm-3.0, particularly if use with the Linux kernel v2.6.28 or later.  It tells mdadm whether to use partition‐
+              able  array  or  non-partitionable arrays and, in the absence of udev, how many partition devices to create.  From 2.6.28 all md array devices are
+              partitionable, hence this option is not needed.
+
+              The value of this option can be &quot;yes&quot; or &quot;md&quot; to indicate that a traditional, non-partitionable md array should be created, or  &quot;mdp&quot;,  &quot;part&quot;  or
+              &quot;partition&quot; to indicate that a partitionable md array (only available in linux 2.6 and later) should be used.  This later set can also have a num‐
+              ber appended to indicate how many partitions to create device files for, e.g.  auto=mdp5.  The default is 4.
+
+       bitmap=
+              The option specifies a file in which a write-intent bitmap should be found.  When assembling the array, mdadm will provide this  file  to  the  md
+              driver as the bitmap file.  This has the same function as the --bitmap-file option to --assemble.
+
+       metadata=
+              Specify the metadata format that the array has.  This is mainly recognised for comparability with the output of mdadm -Es.
+
+       container=
+              Specify that this array is a member array of some container.  The value given can be either a path name in /dev, or a UUID of the container array.
+
+       member=
+              Specify  that  this array is a member array of some container.  Each type of container has some way to enumerate member arrays, often a simple se‐
+              quence number.  The value identifies which member of a container the array is.  It will usually accompany a &quot;container=&quot; word.
+
+   MAILADDR
+          The mailaddr line gives an E-mail address that alerts should be sent to when mdadm is running in --monitor mode (and was  given  the  --scan  option).
+          There should only be one MAILADDR line and it should have only one address.  Any subsequent addresses are silently ignored.
+
+   MAILFROM
+          The mailfrom line (which can only be abbreviated to at least 5 characters) gives an address to appear in the &quot;From&quot; address for alert mails.  This can
+          be useful if you want to explicitly set a domain, as the default from address is &quot;root&quot; with no domain.  All words on this  line  are  catenated  with
+          spaces to form the address.
+
+          Note that this value cannot be set via the mdadm commandline.  It is only settable via the config file.
+
+   PROGRAM
+          The  program  line  gives  the name of a program to be run when mdadm --monitor detects potentially interesting events on any of the arrays that it is
+          monitoring.  This program gets run with two or three arguments, they being the Event, the md device, and possibly the related component device.
+
+          There should only be one program line and it should be give only one program.
+
+   CREATE The create line gives default values to be used when creating arrays, new members of arrays, and device entries for arrays.  These include:
+
+       owner=
+
+       group= These can give user/group ids or names to use instead of system defaults (root/wheel or root/disk).
+
+       mode=  An octal file mode such as 0660 can be given to override the default of 0600.
+
+       auto=  This corresponds to the --auto flag to mdadm.  Give yes, md, mdp, part — possibly followed by a number of partitions — to indicate how missing de‐
+              vice entries should be created.
+
+       metadata=
+              The name of the metadata format to use if none is explicitly given.  This can be useful to impose a system-wide default of version-1 superblocks.
+
+       symlinks=no
+              Normally  when  creating  devices in /dev/md/ mdadm will create a matching symlink from /dev/ with a name starting md or md_.  Give symlinks=no to
+              suppress this symlink creation.
+
+       names=yes
+              Since Linux 2.6.29 it has been possible to create md devices with a name like md_home rather than just a number, like md3.  mdadm will use the nu‐
+              meric  alternative by default as other tools that interact with md arrays may expect only numbers.  If names=yes is given in mdadm.conf then mdadm
+              will use a name when appropriate.  If names=no is given, then non-numeric md device names will not be used even if the default changes in a future
+              release of mdadm.
+
+       bbl=no By  default,  mdadm  will  reserve  space for a bad block list (bbl) on all devices included in or added to any array that supports them.  Setting
+              bbl=no will prevent this, so newly added devices will not have a bad block log.
+
+   HOMEHOST
+          The homehost line gives a default value for the --homehost= option to mdadm.  There should normally be only one other word on the line.  It should ei‐
+          ther  be  a host name, or one of the special words &lt;system&gt;, &lt;none&gt; and &lt;ignore&gt;.  If &lt;system&gt; is given, then the gethostname(2) systemcall is used to
+          get the host name.  This is the default.
+
+          If &lt;ignore&gt; is given, then a flag is set so that when arrays are being auto-assembled the checking of the recorded homehost is disabled.  If  &lt;ignore&gt;
+          is  given it is also possible to give an explicit name which will be used when creating arrays.  This is the only case when there can be more that one
+          other word on the HOMEHOST line.  If there are other words, or other HOMEHOST lines, they are silently ignored.
+
+          If &lt;none&gt; is given, then the default of using gethostname(2) is over-ridden and no homehost name is assumed.
+
+          When arrays are created, this host name will be stored in the metadata.  When arrays are assembled using auto-assembly, arrays which do not record the
+          correct  homehost name in their metadata will be assembled using a &quot;foreign&quot; name.  A &quot;foreign&quot; name alway ends with a digit string preceded by an un‐
+          derscore to differentiate it from any possible local name. e.g.  /dev/md/1_1 or /dev/md/home_0.
+
+   AUTO   A list of names of metadata format can be given, each preceded by a plus or minus sign.  Also the word homehost is allowed as is all preceded by  plus
+          or minus sign.  all is usually last.
+
+          When  mdadm  is  auto-assembling  an array, either via --assemble or --incremental and it finds metadata of a given type, it checks that metadata type
+          against those listed in this line.  The first match wins, where all matches anything.  If a match is found that was preceded by a plus sign, the  auto
+          assembly is allowed.  If the match was preceded by a minus sign, the auto assembly is disallowed.  If no match is found, the auto assembly is allowed.
+
+          If the metadata indicates that the array was created for this host, and the word homehost appears before any other match, then the array is treated as
+          a valid candidate for auto-assembly.
+
+          This can be used to disable all auto-assembly (so that only arrays explicitly listed in mdadm.conf or on the command line are assembled), or  to  dis‐
+          able  assembly  of  certain  metadata types which might be handled by other software.  It can also be used to disable assembly of all foreign arrays -
+          normally such arrays are assembled but given a non-deterministic name in /dev/md/.
+
+          The known metadata types are 0.90, 1.x, ddf, imsm.
+
+          AUTO should be given at most once.  Subsequent lines are silently ignored.  Thus an earlier config file in a config directory will over-ride the  set‐
+          ting in a later config file.
+
+   POLICY This  is  used to specify what automatic behavior is allowed on devices newly appearing in the system and provides a way of marking spares that can be
+          moved to other arrays as well as the migration domains.  Domain can be defined through policy line by specifying a domain name for a number  of  paths
+          from  /dev/disk/by-path/.  A device may belong to several domains. The domain of an array is a union of domains of all devices in that array.  A spare
+          can be automatically moved from one array to another if the set of the destination array&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">domains</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">domains</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">both</span><span class="w">
+          </span><span class="n">arrays</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">spare</span><span class="o">-</span><span class="n">group</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">To</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">hot</span><span class="w"> </span><span class="n">plug</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">mdadm</span><span class="w"> </span><span class="o">--</span><span class="n">udev</span><span class="o">-</span><span class="n">rules</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w">
+
+          </span><span class="nc">Keywords</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">POLICY</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">domain</span><span class="o">=</span><span class="w">
+              </span><span class="n">any</span><span class="w"> </span><span class="n">arbitrary</span><span class="w"> </span><span class="n">string</span><span class="w">
+
+       </span><span class="n">metadata</span><span class="o">=</span><span class="w">
+              </span><span class="mf">0.9</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="n">ddf</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">imsm</span><span class="w">
+
+       </span><span class="n">path</span><span class="o">=</span><span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="n">glob</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">disk</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">path</span><span class="w">
+
+       </span><span class="n">type</span><span class="o">=</span><span class="w">  </span><span class="n">either</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">part</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">action</span><span class="o">=</span><span class="w">
+              </span><span class="n">include</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">add</span><span class="p">,</span><span class="w"> </span><span class="n">spare</span><span class="p">,</span><span class="w"> </span><span class="n">spare</span><span class="o">-</span><span class="n">same</span><span class="o">-</span><span class="n">slot</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">force</span><span class="o">-</span><span class="n">spare</span><span class="w">
+
+       </span><span class="n">auto</span><span class="o">=</span><span class="w">  </span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">homehost</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">The</span><span class="w">  </span><span class="n">action</span><span class="w">  </span><span class="n">item</span><span class="w">  </span><span class="n">determines</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">automatic</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">lines</span><span class="w">
+       </span><span class="k">with</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">actions</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">permissive</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">apply</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">ordering</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">policy</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">irrelevant</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">include</span><span class="w">
+              </span><span class="n">allows</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">array</span><span class="w">
+
+       </span><span class="n">re</span><span class="o">-</span><span class="n">add</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">member</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">recently</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="n">write</span><span class="o">-</span><span class="n">intent</span><span class="o">-</span><span class="w">
+              </span><span class="n">bitmap</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">add</span><span class="w"> </span><span class="n">functionality</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">spare</span><span class="w">  </span><span class="n">as</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ss">additionally</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">bare</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">become</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">spare</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">candidate</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">domains</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">meta</span><span class="err">‐</span><span class="w">
+              </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">spare</span><span class="o">-</span><span class="n">same</span><span class="o">-</span><span class="n">slot</span><span class="w">
+              </span><span class="n">as</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">additionally</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">slot</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">went</span><span class="w"> </span><span class="n">degraded</span><span class="w"> </span><span class="n">recently</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">plugged</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w">
+              </span><span class="n">automatically</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="p" data-group-id="0494327228-4">(</span><span class="ow">or</span><span class="w"> </span><span class="n">it</span><span class="sc">&#39;s container)
+
+       force-spare
+              as above and the disk will become a spare in remaining cases
+
+   PART-POLICY
+          This  is similar to POLICY and accepts the same keyword assignments.  It allows a consistent set of policies to applied to each of the partitions of a
+          device.
+
+          A PART-POLICY line should set type=disk and identify the path to one or more disk devices.  Each partition on these disks will be treated according to
+          the  action=  setting  from this line.  If a domain is set in the line, then the domain associated with each patition will be based on the domain, but
+          with &quot;-partN&quot; appended, when N is the partition number for the partition that was found.
+
+   SYSFS  The SYSFS line lists custom values of MD device&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">sysfs</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">sysfs</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">assembled</span><span class="o">.</span><span class="w"> </span><span class="nc">Multiple</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">are</span><span class="w">  </span><span class="n">al</span><span class="err">‐</span><span class="w">
+          </span><span class="n">lowed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">relates</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">uuid</span><span class="o">=</span><span class="w">  </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">MD</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">superblock</span><span class="o">.</span><span class="w">
+
+       </span><span class="n">name</span><span class="o">=</span><span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MD</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">mdadm</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">created</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">ignored</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">empty</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">MONITORDELAY</span><span class="w">
+          </span><span class="nc">The</span><span class="w">  </span><span class="n">monitordelay</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">gives</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">delay</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">mdadm</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">pooling</span><span class="w"> </span><span class="n">md</span><span class="w"> </span><span class="n">arrays</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">mdadm</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">--</span><span class="n">monitor</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">  </span><span class="o">-</span><span class="n">d</span><span class="o">/</span><span class="o">--</span><span class="n">delay</span><span class="w"> </span><span class="n">command</span><span class="w">
+          </span><span class="n">line</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">precedence</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">DEVICE</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sd</span><span class="p" data-group-id="2478456451-1">[</span><span class="n">bcdjkl</span><span class="p" data-group-id="2478456451-1">]</span><span class="mi">1</span><span class="w">
+   </span><span class="nc">DEVICE</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda1</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb1</span><span class="w">
+
+   </span><span class="c1"># /dev/md0 is known by its UUID.</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md0</span><span class="w"> </span><span class="nc">UUID</span><span class="o">=</span><span class="mi">3</span><span class="n">aaa0122</span><span class="p">:</span><span class="mi">29827</span><span class="n">cfa</span><span class="p">:</span><span class="mi">5331</span><span class="n">ad66</span><span class="ss">:ca767371</span><span class="w">
+   </span><span class="c1"># /dev/md1 contains all devices with a minor number of</span><span class="w">
+   </span><span class="c1">#   1 in the superblock.</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md1</span><span class="w"> </span><span class="n">superminor</span><span class="o">=</span><span class="mi">1</span><span class="w">
+   </span><span class="c1"># /dev/md2 is made from precisely these two devices</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md2</span><span class="w"> </span><span class="n">devices</span><span class="o">=</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda1</span><span class="p">,</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hdb1</span><span class="w">
+
+   </span><span class="c1"># /dev/md4 and /dev/md5 are a spare-group and spares</span><span class="w">
+   </span><span class="c1">#  can be moved between them</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md4</span><span class="w"> </span><span class="n">uuid</span><span class="o">=</span><span class="n">b23f3c6d</span><span class="ss">:aec43a9f</span><span class="ss">:fd65db85</span><span class="p">:</span><span class="mi">369432</span><span class="n">df</span><span class="w">
+              </span><span class="n">spare</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">group1</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md5</span><span class="w"> </span><span class="n">uuid</span><span class="o">=</span><span class="mi">19464854</span><span class="p">:</span><span class="mi">03</span><span class="n">f71b1b</span><span class="ss">:e0df2edd</span><span class="p">:</span><span class="mi">246</span><span class="n">cc977</span><span class="w">
+              </span><span class="n">spare</span><span class="o">-</span><span class="n">group</span><span class="o">=</span><span class="n">group1</span><span class="w">
+   </span><span class="c1"># /dev/md/home is created if need to be a partitionable md array</span><span class="w">
+   </span><span class="c1"># any spare device number is allocated.</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md</span><span class="o">/</span><span class="n">home</span><span class="w"> </span><span class="nc">UUID</span><span class="o">=</span><span class="mi">9187</span><span class="n">a482</span><span class="p">:</span><span class="mi">5</span><span class="n">dde19d9</span><span class="ss">:eea3cc4a</span><span class="ss">:d646ab8b</span><span class="w">
+              </span><span class="n">auto</span><span class="o">=</span><span class="n">part</span><span class="w">
+   </span><span class="c1"># The name of this array contains a space.</span><span class="w">
+   </span><span class="nc">ARRAY</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md9</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="sc">&#39;Data Storage&#39;</span><span class="w">
+
+   </span><span class="nc">POLICY</span><span class="w"> </span><span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="w"> </span><span class="n">metadata</span><span class="o">=</span><span class="n">imsm</span><span class="w"> </span><span class="n">path</span><span class="o">=</span><span class="n">pci</span><span class="o">-</span><span class="mi">0000</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">1</span><span class="n">f</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">scsi</span><span class="o">-</span><span class="o">*</span><span class="w">
+              </span><span class="n">action</span><span class="o">=</span><span class="n">spare</span><span class="w">
+   </span><span class="nc">POLICY</span><span class="w"> </span><span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="w"> </span><span class="n">metadata</span><span class="o">=</span><span class="n">imsm</span><span class="w"> </span><span class="n">path</span><span class="o">=</span><span class="n">pci</span><span class="o">-</span><span class="mi">0000</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mf">00.0</span><span class="o">-</span><span class="n">scsi</span><span class="o">-</span><span class="p" data-group-id="2478456451-2">[</span><span class="mi">01</span><span class="p" data-group-id="2478456451-2">]</span><span class="o">*</span><span class="w">
+              </span><span class="n">action</span><span class="o">=</span><span class="n">include</span><span class="w">
+   </span><span class="c1"># One domain comprising of devices attached to specified paths is defined.</span><span class="w">
+   </span><span class="c1"># Bare device matching first path will be made an imsm spare on hot plug.</span><span class="w">
+   </span><span class="c1"># If more than one array is created on devices belonging to domain1 and</span><span class="w">
+   </span><span class="c1"># one of them becomes degraded, then any imsm spare matching any path for</span><span class="w">
+   </span><span class="c1"># given domain name can be migrated.</span><span class="w">
+   </span><span class="nc">MAILADDR</span><span class="w"> </span><span class="n">root</span><span class="na">@mydomain</span><span class="o">.</span><span class="n">tld</span><span class="w">
+   </span><span class="nc">PROGRAM</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">handle</span><span class="o">-</span><span class="n">mdadm</span><span class="o">-</span><span class="n">events</span><span class="w">
+   </span><span class="nc">CREATE</span><span class="w"> </span><span class="n">group</span><span class="o">=</span><span class="n">system</span><span class="w"> </span><span class="n">mode</span><span class="o">=</span><span class="mi">0640</span><span class="w"> </span><span class="n">auto</span><span class="o">=</span><span class="n">part</span><span class="o">-</span><span class="mi">8</span><span class="w">
+   </span><span class="nc">HOMEHOST</span><span class="w"> </span><span class="o">&lt;</span><span class="n">system</span><span class="o">&gt;</span><span class="w">
+   </span><span class="nc">AUTO</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="n">homehost</span><span class="w"> </span><span class="o">-</span><span class="n">all</span><span class="w">
+   </span><span class="nc">SYSFS</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">md</span><span class="o">/</span><span class="n">raid5</span><span class="w"> </span><span class="n">group_thread_cnt</span><span class="o">=</span><span class="mi">4</span><span class="w"> </span><span class="n">sync_speed_max</span><span class="o">=</span><span class="mi">1000000</span><span class="w">
+   </span><span class="nc">SYSFS</span><span class="w"> </span><span class="n">uuid</span><span class="o">=</span><span class="n">bead5eb6</span><span class="p">:</span><span class="mi">31</span><span class="n">c17a27</span><span class="ss">:da120ba2</span><span class="p">:</span><span class="mi">7</span><span class="n">dfda40d</span><span class="w"> </span><span class="n">group_thread_cnt</span><span class="o">=</span><span class="mi">4</span><span class="w"> </span><span class="n">sync_speed_max</span><span class="o">=</span><span class="mi">1000000</span><span class="w">
+   </span><span class="nc">MONITORDELAY</span><span class="w"> </span><span class="mi">60</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mdadm</span><span class="p" data-group-id="5433275059-1">(</span><span class="mi">8</span><span class="p" data-group-id="5433275059-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">md</span><span class="p" data-group-id="5433275059-2">(</span><span class="mi">4</span><span class="p" data-group-id="5433275059-2">)</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                   </span><span class="nc">MDADM.CONF</span><span class="p" data-group-id="5433275059-3">(</span><span class="mi">5</span><span class="p" data-group-id="5433275059-3">)</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="mbox.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+mbox
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="mib2c-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+mib2c.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

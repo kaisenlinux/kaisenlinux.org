@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>nfsrahead — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>nfsrahead</span>
+</h1>
+
+<p>man(5)                                                                   nfsrahead man page                                                                   man(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nfsrahead</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Configure</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">readahead</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">NFS</span><span class="w"> </span><span class="n">mounts</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nfsrahead</span><span class="w"> </span><span class="p" data-group-id="3161692421-1">[</span><span class="o">-</span><span class="nc">F</span><span class="p" data-group-id="3161692421-1">]</span><span class="w"> </span><span class="p" data-group-id="3161692421-2">[</span><span class="o">-</span><span class="n">d</span><span class="p" data-group-id="3161692421-2">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nfsrahead</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tool</span><span class="w"> </span><span class="n">intended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">udev</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">read_ahead_kb</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">NFS</span><span class="w"> </span><span class="n">mounts</span><span class="p">,</span><span class="w"> </span><span class="n">according</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="3204488548-1">(</span><span class="n">see</span><span class="w"> </span><span class="nc">CONFIGURATION</span><span class="p" data-group-id="3204488548-1">)</span><span class="o">.</span><span class="w">
+   </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NFS</span><span class="w"> </span><span class="n">backing</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="nc">F</span><span class="w">     </span><span class="nc">Send</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stderr</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">syslog</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w">     </span><span class="nc">Increase</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">debugging</span><span class="w"> </span><span class="n">level</span><span class="o">.</span></code></pre><p>CONFIGURATION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nfsrahead</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nfs</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">titled</span><span class="w"> </span><span class="n">nfsrahead</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">accepts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">configurations</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">nfs</span><span class="o">=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">readahead</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">NFSv3</span><span class="w"> </span><span class="n">mounts</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">nfs4</span><span class="o">=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">readahead</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">NFSv4</span><span class="w"> </span><span class="n">mounts</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">default</span><span class="o">=</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="o">.</span></code></pre><p>EXAMPLE CONFIGURATION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="p" data-group-id="7320476725-1">[</span><span class="n">nfsrahead</span><span class="p" data-group-id="7320476725-1">]</span><span class="w">
+   </span><span class="n">nfs</span><span class="o">=</span><span class="mi">15000</span><span class="w">              </span><span class="c1"># readahead of 15000 for NFSv3 mounts</span><span class="w">
+   </span><span class="n">nfs4</span><span class="o">=</span><span class="mi">16000</span><span class="w">             </span><span class="c1"># readahead of 16000 for NFSv4 mounts</span><span class="w">
+   </span><span class="n">default</span><span class="o">=</span><span class="mi">128</span><span class="w">            </span><span class="c1"># default is 128</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mount</span><span class="o">.</span><span class="n">nfs</span><span class="p" data-group-id="5661713977-1">(</span><span class="mi">8</span><span class="p" data-group-id="5661713977-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">nfs</span><span class="p" data-group-id="5661713977-2">(</span><span class="mi">5</span><span class="p" data-group-id="5661713977-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">nfs</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="5661713977-3">(</span><span class="mi">5</span><span class="p" data-group-id="5661713977-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">udev</span><span class="p" data-group-id="5661713977-4">(</span><span class="mi">7</span><span class="p" data-group-id="5661713977-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">bcc</span><span class="o">-</span><span class="n">readahead</span><span class="p" data-group-id="5661713977-5">(</span><span class="mi">8</span><span class="p" data-group-id="5661713977-5">)</span></code></pre><p>BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">No</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="n">bugs</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Thiago</span><span class="w"> </span><span class="nc">Rafael</span><span class="w"> </span><span class="nc">Becker</span><span class="w"> </span><span class="o">&lt;</span><span class="n">trbecker</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span></code></pre><p>1.0                                                                          08 Mar 2022                                                                      man(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="nfsmount-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+nfsmount.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="nilfs_cleanerd-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+nilfs_cleanerd.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

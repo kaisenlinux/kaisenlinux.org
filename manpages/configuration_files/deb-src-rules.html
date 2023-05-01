@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>deb-src-rules — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>deb-src-rules</span>
+</h1>
+
+<p>deb-src-rules(5)                                                             dpkg suite                                                             deb-src-rules(5)</p><p>NOM</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">deb</span><span class="o">-</span><span class="n">src</span><span class="o">-</span><span class="n">rules</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">règles</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="nc">Debian</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">debian</span><span class="o">/</span><span class="n">rules</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Ce</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">fournit</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="n">nécessaires</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">construction</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">binaires</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">partir</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">sources</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Le</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">debian</span><span class="o">/</span><span class="n">rules</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="nc">Makefile</span><span class="w"> </span><span class="n">exécutable</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="err">«</span><span class="err"> </span><span class="n">shebang</span><span class="err"> </span><span class="err">»</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">habituellement</span><span class="w"> </span><span class="n">positionné</span><span class="w"> </span><span class="n">sur</span><span class="w"> </span><span class="err">«</span><span class="err"> </span><span class="c1">#!/usr/bin/make -f ».</span><span class="w">
+
+   </span><span class="nc">Il</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">prendre</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">cibles</span><span class="w"> </span><span class="err">«</span><span class="err"> </span><span class="n">make</span><span class="err"> </span><span class="err">»</span><span class="w"> </span><span class="n">suivantes</span><span class="err"> </span><span class="p">:</span><span class="w">
+
+   </span><span class="n">clean</span><span class="w">
+       </span><span class="nc">Nettoyer</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;arborescence des sources, en supprimant toutes les modifications réalisées par toutes les constructions et cibles binaires. Cette cible sera
+       appelée avec les droits du superutilisateur.
+
+   build-indep
+       Construction des fichiers indépendants de l&#39;</span><span class="n">architecture</span><span class="w"> </span><span class="n">requis</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">construire</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">paquet</span><span class="w"> </span><span class="n">binaire</span><span class="w"> </span><span class="n">indépendant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture. S&#39;</span><span class="n">il</span><span class="w"> </span><span class="n">n</span><span class="sc">&#39;y a pas de
+       paquet binaire indépendant de l&#39;</span><span class="n">architecture</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">créer</span><span class="p">,</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">exister</span><span class="w"> </span><span class="n">mais</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">fait</span><span class="w"> </span><span class="n">rien</span><span class="o">.</span><span class="w"> </span><span class="nc">Cette</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">requérir</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">droits</span><span class="w">
+       </span><span class="n">du</span><span class="w"> </span><span class="n">superutilisateur</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">build</span><span class="o">-</span><span class="n">arch</span><span class="w">
+       </span><span class="nc">Construction</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">fichiers</span><span class="w"> </span><span class="n">dépendants</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture requis pour construire tout paquet binaire dépendant de l&#39;</span><span class="n">architecture</span><span class="o">.</span><span class="w"> </span><span class="nc">S</span><span class="sc">&#39;il n&#39;</span><span class="n">y</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">paquet</span><span class="w">
+       </span><span class="n">binaire</span><span class="w"> </span><span class="n">dépendant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture à créer, la cible doit tout de même exister mais ne fait rien. Cette cible ne doit pas requérir les droits du
+       superutilisateur.
+
+   build
+       Construction des fichiers indépendants et dépendants de l&#39;</span><span class="n">architecture</span><span class="p">,</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">dépendant</span><span class="w"> </span><span class="p" data-group-id="1172930069-1">(</span><span class="n">au</span><span class="w"> </span><span class="n">moins</span><span class="w"> </span><span class="n">transitivement</span><span class="p" data-group-id="1172930069-1">)</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">indep</span><span class="w"> </span><span class="n">et</span><span class="o">/</span><span class="n">ou</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">arch</span><span class="p">,</span><span class="w">
+       </span><span class="n">ou</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">entrant</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">ligne</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">cibles</span><span class="w"> </span><span class="n">feront</span><span class="o">.</span><span class="w"> </span><span class="nc">Cette</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="n">ne</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">requérir</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">droits</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">superutilisateur</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">binary</span><span class="o">-</span><span class="n">indep</span><span class="w">
+       </span><span class="nc">Construction</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">binaires</span><span class="w"> </span><span class="n">indépendants</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="sc">&#39;architecture. Cette cible doit dépendre (au moins transitivement) soit de build-indep, soit de build.
+       Cette cible sera appelée avec les droits du superutilisateur.
+
+   binary-arch
+       Construction des paquets dépendants de l&#39;</span><span class="n">architecture</span><span class="o">.</span><span class="w"> </span><span class="nc">Cette</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="n">doit</span><span class="w"> </span><span class="n">dépendre</span><span class="w"> </span><span class="p" data-group-id="1172930069-2">(</span><span class="n">au</span><span class="w"> </span><span class="n">moins</span><span class="w"> </span><span class="n">transitivement</span><span class="p" data-group-id="1172930069-2">)</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">arch</span><span class="p">,</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">build</span><span class="o">.</span><span class="w"> </span><span class="nc">Cette</span><span class="w"> </span><span class="n">cible</span><span class="w">
+       </span><span class="n">sera</span><span class="w"> </span><span class="n">appelée</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">droits</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">superutilisateur</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">binary</span><span class="w">
+       </span><span class="nc">Construction</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">paquets</span><span class="w"> </span><span class="n">binaires</span><span class="w"> </span><span class="n">indépendants</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">dépendants</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">architecture</span><span class="p">,</span><span class="w"> </span><span class="n">soit</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">dépendant</span><span class="w"> </span><span class="p" data-group-id="1172930069-3">(</span><span class="n">au</span><span class="w"> </span><span class="n">moins</span><span class="w"> </span><span class="n">transitivement</span><span class="p" data-group-id="1172930069-3">)</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">binary</span><span class="o">-</span><span class="n">indep</span><span class="w"> </span><span class="n">et</span><span class="o">/</span><span class="n">ou</span><span class="w"> </span><span class="n">de</span><span class="w">
+       </span><span class="n">binary</span><span class="o">-</span><span class="n">arch</span><span class="p">,</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">entrant</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">ligne</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">cibles</span><span class="w"> </span><span class="n">feront</span><span class="o">.</span><span class="w"> </span><span class="nc">Cette</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="n">sera</span><span class="w"> </span><span class="n">appelée</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">droits</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">superutilisateur</span><span class="o">.</span></code></pre><p>VOIR AUSSI</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">dpkg</span><span class="o">-</span><span class="n">architecture</span><span class="p" data-group-id="0785855307-1">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">vendor</span><span class="p" data-group-id="0785855307-2">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">buildflags</span><span class="p" data-group-id="0785855307-3">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">parsechangelog</span><span class="p" data-group-id="0785855307-4">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">shlibdeps</span><span class="p" data-group-id="0785855307-5">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">gencontrol</span><span class="p" data-group-id="0785855307-6">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">deb</span><span class="p" data-group-id="0785855307-7">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">dpkg</span><span class="o">-</span><span class="n">distaddfile</span><span class="p" data-group-id="0785855307-8">(</span><span class="mi">1</span><span class="p" data-group-id="0785855307-8">)</span><span class="o">.</span></code></pre><p>TRADUCTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Ariel</span><span class="w"> </span><span class="nc">VARDI</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ariel</span><span class="o">.</span><span class="n">vardi</span><span class="na">@freesbee</span><span class="o">.</span><span class="n">fr</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">2002</span><span class="o">.</span><span class="w"> </span><span class="nc">Philippe</span><span class="w"> </span><span class="nc">Batailler</span><span class="p">,</span><span class="w"> </span><span class="mi">2006</span><span class="o">.</span><span class="w"> </span><span class="nc">Nicolas</span><span class="w"> </span><span class="nc">Fran</span><span class="n">çois</span><span class="p">,</span><span class="w"> </span><span class="mi">2006</span><span class="o">.</span><span class="w"> </span><span class="nc">Veuillez</span><span class="w"> </span><span class="n">signaler</span><span class="w"> </span><span class="n">toute</span><span class="w"> </span><span class="n">erreur</span><span class="w"> </span><span class="n">à</span><span class="w">
+   </span><span class="o">&lt;</span><span class="n">debian</span><span class="o">-</span><span class="n">l10n</span><span class="o">-</span><span class="n">french</span><span class="na">@lists</span><span class="o">.</span><span class="n">debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>1.21.21                                                                      2023-02-25                                                             deb-src-rules(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="deb-src-files.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+deb-src-files
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="deb-src-symbols.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+deb-src-symbols
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

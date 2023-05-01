@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>locale.conf — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>locale.conf</span>
+</h1>
+
+<p>LOCALE.CONF(5)                                                               locale.conf                                                              LOCALE.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="n">system</span><span class="o">-</span><span class="n">wide</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">systemd</span><span class="p" data-group-id="0027645712-1">(</span><span class="mi">1</span><span class="p" data-group-id="0027645712-1">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">newline</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">environment</span><span class="o">-</span><span class="n">like</span><span class="w"> </span><span class="n">shell</span><span class="o">-</span><span class="n">compatible</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">assignments</span><span class="p">,</span><span class="w"> </span><span class="n">ignoring</span><span class="w"> </span><span class="n">comments</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">lines</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w">
+   </span><span class="n">possible</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">scripts</span><span class="p">,</span><span class="w"> </span><span class="n">however</span><span class="p">,</span><span class="w"> </span><span class="n">beyond</span><span class="w"> </span><span class="n">mere</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">assignments</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="p">,</span><span class="w"> </span><span class="n">allowing</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="n">to</span><span class="w">
+   </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">implementing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="n">compatible</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">engine</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">os</span><span class="o">-</span><span class="n">release</span><span class="p" data-group-id="0027645712-2">(</span><span class="mi">5</span><span class="p" data-group-id="0027645712-2">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LANG</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LANGUAGE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_CTYPE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_NUMERIC</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_TIME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_COLLATE</span><span class="o">=</span><span class="p">,</span><span class="w">
+   </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_MONETARY</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_MESSAGES</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_PAPER</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_NAME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_ADDRESS</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_TELEPHONE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_MEASUREMENT</span><span class="o">=</span><span class="p">,</span><span class="w">
+   </span><span class="n">locale</span><span class="o">.</span><span class="nc">LC_IDENTIFICATION</span><span class="o">=</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">boot</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">system</span><span class="o">-</span><span class="n">wide</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">inherited</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">unset</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">individual</span><span class="w">
+   </span><span class="n">programs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">users</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">checked</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="p">,</span><span class="w"> </span><span class="n">however</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">fallback</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">localed</span><span class="o">.</span><span class="n">service</span><span class="p" data-group-id="0027645712-3">(</span><span class="mi">8</span><span class="p" data-group-id="0027645712-3">)</span><span class="o">.</span><span class="w">  </span><span class="n">localectl</span><span class="p" data-group-id="0027645712-4">(</span><span class="mi">1</span><span class="p" data-group-id="0027645712-4">)</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">alter</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">runtime</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w"> </span><span class="nc">Use</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">firstboot</span><span class="p" data-group-id="0027645712-5">(</span><span class="mi">1</span><span class="p" data-group-id="0027645712-5">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">customize</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mounted</span><span class="w"> </span><span class="p" data-group-id="0027645712-6">(</span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">booted</span><span class="p" data-group-id="0027645712-6">)</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">images</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="ss">conf</span><span class="p">:</span><span class="w"> </span><span class="nc">LANG</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LANGUAGE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_CTYPE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_NUMERIC</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_TIME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_COLLATE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MONETARY</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MESSAGES</span><span class="o">=</span><span class="p">,</span><span class="w">
+   </span><span class="nc">LC_PAPER</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_NAME</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_ADDRESS</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_TELEPHONE</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_MEASUREMENT</span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="nc">LC_IDENTIFICATION</span><span class="o">=</span><span class="o">.</span><span class="w"> </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">LC_ALL</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">about</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">meaning</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">semantics</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">locale</span><span class="p" data-group-id="3486924569-1">(</span><span class="mi">7</span><span class="p" data-group-id="3486924569-1">)</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Example</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">German</span><span class="w"> </span><span class="n">locale</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">English</span><span class="w"> </span><span class="n">messages</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">locale</span><span class="o">.</span><span class="ss">conf</span><span class="p">:</span><span class="w">
+
+       </span><span class="c1"># Custom settings</span><span class="w">
+
+       </span><span class="nc">LANG</span><span class="o">=</span><span class="n">de_DE</span><span class="o">.</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span><span class="w">
+       </span><span class="nc">LC_MESSAGES</span><span class="o">=</span><span class="n">en_US</span><span class="o">.</span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">systemd</span><span class="p" data-group-id="0214813474-1">(</span><span class="mi">1</span><span class="p" data-group-id="0214813474-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">locale</span><span class="p" data-group-id="0214813474-2">(</span><span class="mi">7</span><span class="p" data-group-id="0214813474-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">localectl</span><span class="p" data-group-id="0214813474-3">(</span><span class="mi">1</span><span class="p" data-group-id="0214813474-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">localed</span><span class="o">.</span><span class="n">service</span><span class="p" data-group-id="0214813474-4">(</span><span class="mi">8</span><span class="p" data-group-id="0214813474-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">systemd</span><span class="o">-</span><span class="n">firstboot</span><span class="p" data-group-id="0214813474-5">(</span><span class="mi">1</span><span class="p" data-group-id="0214813474-5">)</span></code></pre><p>systemd 252                                                                                                                                           LOCALE.CONF(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="locale.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+locale
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="locale-gen.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+locale.gen
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>build.xml — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-2FA1BC71.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>build.xml</span>
+</h1>
+
+<p>build.xml(5)                                                             File Formats Manual                                                            build.xml(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">build</span><span class="o">.</span><span class="n">xml</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Apache</span><span class="w"> </span><span class="nc">Ant</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">projects</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">build</span><span class="o">.</span><span class="n">xml</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">ant</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">project</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">considered</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ant</span><span class="w"> </span><span class="n">equivalent</span><span class="w">
+   </span><span class="n">of</span><span class="w"> </span><span class="nc">Makefile</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ant</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">XML</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">constructed</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">buildfile</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">tasks</span><span class="o">.</span><span class="w"> </span><span class="nc">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">&lt;</span><span class="n">project</span><span class="w"> </span><span class="n">default</span><span class="o">=</span><span class="s">&quot;compile&quot;</span><span class="o">&gt;</span><span class="w">
+
+     </span><span class="o">&lt;</span><span class="n">target</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;compile&quot;</span><span class="o">&gt;</span><span class="w">
+       </span><span class="o">&lt;</span><span class="n">javac</span><span class="w"> </span><span class="n">srcdir</span><span class="o">=</span><span class="s">&quot;src&quot;</span><span class="o">/</span><span class="o">&gt;</span><span class="w">
+     </span><span class="o">&lt;</span><span class="o">/</span><span class="n">target</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="o">&lt;</span><span class="o">/</span><span class="n">project</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">defaulted</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">javac</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">compiles</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span></code></pre><p>TARGETS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Targets</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">depend</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">targets</span><span class="o">.</span><span class="w"> </span><span class="nc">These</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">target</span><span class="o">&gt;</span><span class="w"> </span><span class="n">element</span><span class="o">.</span></code></pre><p>TASKS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">A</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">piece</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">executed</span><span class="o">.</span><span class="w">  </span><span class="nc">Ant</span><span class="w"> </span><span class="n">recognizes</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">tasks</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">tasks</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">tasks</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w"> </span><span class="nc">Ant</span><span class="p">,</span><span class="w"> </span><span class="nc">AntCall</span><span class="p">,</span><span class="w"> </span><span class="nc">AntStructure</span><span class="p">,</span><span class="w"> </span><span class="nc">AntVersion</span><span class="p">,</span><span class="w"> </span><span class="nc">Apply</span><span class="p">,</span><span class="w"> </span><span class="nc">Apt</span><span class="p">,</span><span class="w"> </span><span class="nc">Available</span><span class="p">,</span><span class="w"> </span><span class="nc">Basename</span><span class="p">,</span><span class="w"> </span><span class="nc">BuildNumber</span><span class="p">,</span><span class="w"> </span><span class="nc">BUnzip2</span><span class="p">,</span><span class="w"> </span><span class="nc">BZip2</span><span class="p">,</span><span class="w"> </span><span class="nc">Checksum</span><span class="p">,</span><span class="w"> </span><span class="nc">Chmod</span><span class="p">,</span><span class="w"> </span><span class="nc">Concat</span><span class="p">,</span><span class="w"> </span><span class="nc">Condi</span><span class="err">‐</span><span class="w">
+   </span><span class="n">tion</span><span class="p">,</span><span class="w">  </span><span class="nc">Copy</span><span class="p">,</span><span class="w">  </span><span class="nc">Componentdef</span><span class="p">,</span><span class="w"> </span><span class="nc">Cvs</span><span class="p">,</span><span class="w"> </span><span class="nc">CvsChangeLog</span><span class="p">,</span><span class="w"> </span><span class="nc">CvsVersion</span><span class="p">,</span><span class="w"> </span><span class="nc">CVSPass</span><span class="p">,</span><span class="w"> </span><span class="nc">CvsTagDiff</span><span class="p">,</span><span class="w"> </span><span class="nc">Defaultexcludes</span><span class="p">,</span><span class="w"> </span><span class="nc">Delete</span><span class="p">,</span><span class="w"> </span><span class="nc">Deltree</span><span class="p">,</span><span class="w"> </span><span class="nc">Dependset</span><span class="p">,</span><span class="w"> </span><span class="nc">Diagnostics</span><span class="p">,</span><span class="w"> </span><span class="nc">Dirname</span><span class="p">,</span><span class="w"> </span><span class="nc">Ear</span><span class="p">,</span><span class="w"> </span><span class="nc">Echo</span><span class="p">,</span><span class="w">
+   </span><span class="nc">EchoXML</span><span class="p">,</span><span class="w"> </span><span class="nc">Exec</span><span class="p">,</span><span class="w"> </span><span class="nc">Fail</span><span class="p">,</span><span class="w"> </span><span class="nc">Filter</span><span class="p">,</span><span class="w"> </span><span class="nc">FixCRLF</span><span class="p">,</span><span class="w"> </span><span class="nc">GenKey</span><span class="p">,</span><span class="w"> </span><span class="nc">Get</span><span class="p">,</span><span class="w"> </span><span class="nc">HostInfo</span><span class="p">,</span><span class="w"> </span><span class="nc">GUnzip</span><span class="p">,</span><span class="w"> </span><span class="nc">GZip</span><span class="p">,</span><span class="w"> </span><span class="nc">Import</span><span class="p">,</span><span class="w"> </span><span class="nc">Include</span><span class="p">,</span><span class="w"> </span><span class="nc">Input</span><span class="p">,</span><span class="w"> </span><span class="nc">Jar</span><span class="p">,</span><span class="w"> </span><span class="nc">Java</span><span class="p">,</span><span class="w"> </span><span class="nc">Javac</span><span class="p">,</span><span class="w"> </span><span class="nc">Javadoc</span><span class="p">,</span><span class="w"> </span><span class="nc">Length</span><span class="p">,</span><span class="w">  </span><span class="nc">LoadFile</span><span class="p">,</span><span class="w">  </span><span class="nc">LoadProper</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ties</span><span class="p">,</span><span class="w">  </span><span class="nc">LoadResource</span><span class="p">,</span><span class="w"> </span><span class="nc">Local</span><span class="p">,</span><span class="w"> </span><span class="nc">MakeURL</span><span class="p">,</span><span class="w"> </span><span class="nc">Mail</span><span class="p">,</span><span class="w"> </span><span class="nc">MacroDef</span><span class="p">,</span><span class="w"> </span><span class="nc">Manifest</span><span class="p">,</span><span class="w"> </span><span class="nc">ManifestClassPath</span><span class="p">,</span><span class="w"> </span><span class="nc">Mkdir</span><span class="p">,</span><span class="w"> </span><span class="nc">Move</span><span class="p">,</span><span class="w"> </span><span class="nc">Nice</span><span class="p">,</span><span class="w"> </span><span class="nc">Parallel</span><span class="p">,</span><span class="w"> </span><span class="nc">Patch</span><span class="p">,</span><span class="w"> </span><span class="nc">PathConvert</span><span class="p">,</span><span class="w"> </span><span class="nc">PreSetDef</span><span class="p">,</span><span class="w"> </span><span class="nc">Property</span><span class="p">,</span><span class="w"> </span><span class="nc">Prop</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ertyHelper</span><span class="p">,</span><span class="w"> </span><span class="nc">Record</span><span class="p">,</span><span class="w"> </span><span class="nc">Replace</span><span class="p">,</span><span class="w"> </span><span class="nc">ResourceCount</span><span class="p">,</span><span class="w"> </span><span class="nc">Retry</span><span class="p">,</span><span class="w"> </span><span class="nc">Rmic</span><span class="p">,</span><span class="w"> </span><span class="nc">Sequential</span><span class="p">,</span><span class="w"> </span><span class="nc">SignJar</span><span class="p">,</span><span class="w"> </span><span class="nc">Sleep</span><span class="p">,</span><span class="w"> </span><span class="nc">Sql</span><span class="p">,</span><span class="w"> </span><span class="nc">SubAnt</span><span class="p">,</span><span class="w"> </span><span class="nc">Sync</span><span class="p">,</span><span class="w"> </span><span class="nc">Tar</span><span class="p">,</span><span class="w">  </span><span class="nc">Taskdef</span><span class="p">,</span><span class="w">  </span><span class="nc">Tempfile</span><span class="p">,</span><span class="w">  </span><span class="nc">Touch</span><span class="p">,</span><span class="w">  </span><span class="nc">Truncate</span><span class="p">,</span><span class="w">  </span><span class="nc">TStamp</span><span class="p">,</span><span class="w">
+   </span><span class="nc">Typedef</span><span class="p">,</span><span class="w"> </span><span class="nc">Unjar</span><span class="p">,</span><span class="w"> </span><span class="nc">Untar</span><span class="p">,</span><span class="w"> </span><span class="nc">Unwar</span><span class="p">,</span><span class="w"> </span><span class="nc">Unzip</span><span class="p">,</span><span class="w"> </span><span class="nc">Uptodate</span><span class="p">,</span><span class="w"> </span><span class="nc">Waitfor</span><span class="p">,</span><span class="w"> </span><span class="nc">WhichResource</span><span class="p">,</span><span class="w"> </span><span class="nc">War</span><span class="p">,</span><span class="w"> </span><span class="nc">XmlProperty</span><span class="p">,</span><span class="w"> </span><span class="nc">XSLT</span><span class="p">,</span><span class="w"> </span><span class="nc">Zip</span><span class="w">
+
+   </span><span class="nc">Java</span><span class="w">   </span><span class="nc">Executes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Java</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="p" data-group-id="2374207888-1">(</span><span class="nc">Ant</span><span class="p" data-group-id="2374207888-1">)</span><span class="w"> </span><span class="nc">VM</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">forks</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="nc">VM</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span><span class="w"> </span><span class="nc">Below</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">java</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">element</span><span class="p">:</span><span class="w">
+
+          </span><span class="n">classname</span><span class="w"> </span><span class="p" data-group-id="2374207888-2">(</span><span class="n">required</span><span class="p" data-group-id="2374207888-2">)</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Java</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w">
+
+          </span><span class="n">fork</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">triggers</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="nc">VM</span><span class="w"> </span><span class="p" data-group-id="2374207888-3">(</span><span class="n">disabled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p" data-group-id="2374207888-3">)</span><span class="w">
+
+          </span><span class="n">jvm</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">command</span><span class="w">  </span><span class="n">used</span><span class="w">  </span><span class="n">to</span><span class="w"> </span><span class="n">invoke</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Java</span><span class="w"> </span><span class="nc">Virtual</span><span class="w"> </span><span class="nc">Machine</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">resolved</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="nc">Runtime</span><span class="o">.</span><span class="n">exec</span><span class="p" data-group-id="2374207888-4">(</span><span class="p" data-group-id="2374207888-4">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Ignored</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">fork</span><span class="w"> </span><span class="n">is</span><span class="w">
+          </span><span class="n">disabled</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Other</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">classpath</span><span class="p">,</span><span class="w"> </span><span class="n">classpathref</span><span class="p">,</span><span class="w"> </span><span class="n">maxmemory</span><span class="p">,</span><span class="w"> </span><span class="n">failonerror</span><span class="p">,</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">output</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Javac</span><span class="w">  </span><span class="nc">Compiles</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="p" data-group-id="2374207888-5">(</span><span class="nc">Ant</span><span class="p" data-group-id="2374207888-5">)</span><span class="w"> </span><span class="nc">VM</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">srcdir</span><span class="w"> </span><span class="p" data-group-id="2374207888-6">(</span><span class="n">required</span><span class="p" data-group-id="2374207888-6">)</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">java</span><span class="w"> </span><span class="n">files</span><span class="w">
+
+          </span><span class="n">destdir</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">files</span><span class="w">
+
+          </span><span class="n">debug</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">information</span><span class="p">;</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">off</span><span class="w">
+
+          </span><span class="n">target</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="nc">VM</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p" data-group-id="2374207888-7">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="mf">1.4</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="p" data-group-id="2374207888-7">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">includes</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">included</span><span class="p">;</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">omitted</span><span class="w">
+
+          </span><span class="n">excludes</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">patterns</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">excluded</span><span class="p">;</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="2374207888-8">(</span><span class="n">except</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">excludes</span><span class="p" data-group-id="2374207888-8">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">excluded</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">omitted</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">defaultexcludes</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">excludes</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="2374207888-9">(</span><span class="n">yes</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">no</span><span class="p" data-group-id="2374207888-9">)</span><span class="p">;</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">excludes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">omitted</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Other</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">includesfile</span><span class="p">,</span><span class="w"> </span><span class="n">excludesfile</span><span class="p">,</span><span class="w"> </span><span class="n">classpath</span><span class="p">,</span><span class="w"> </span><span class="n">bootclasspath</span><span class="p">,</span><span class="w"> </span><span class="n">classpathref</span><span class="p">,</span><span class="w"> </span><span class="n">bootclasspathref</span><span class="p">,</span><span class="w"> </span><span class="n">extdirs</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="p">,</span><span class="w"> </span><span class="n">deprecation</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="err">‐</span><span class="w">
+          </span><span class="n">cludeAntRuntime</span><span class="p">,</span><span class="w"> </span><span class="n">includeJavaRuntime</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">failonerror</span><span class="o">.</span></code></pre><p>Properties</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">A</span><span class="w">  </span><span class="n">project</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">properties</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">consist</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">combination</span><span class="o">.</span><span class="w"> </span><span class="nc">Within</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">placing</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="s">&quot;${&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot;}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ow">in</span><span class="w">
+   </span><span class="s">&quot;${builddir}/classes&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="nc">Properties</span><span class="w">
+
+   </span><span class="nc">Ant</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">had</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="n">property</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="p" data-group-id="2479674227-1">{</span><span class="n">os</span><span class="o">.</span><span class="n">name</span><span class="p" data-group-id="2479674227-1">}</span><span class="w"> </span><span class="n">expands</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">operat</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ing</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">basedir</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">project</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">basedir</span><span class="w"> </span><span class="p" data-group-id="2479674227-2">(</span><span class="n">as</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">basedir</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">&lt;</span><span class="n">project</span><span class="o">&gt;</span><span class="p" data-group-id="2479674227-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">ant</span><span class="o">.</span><span class="n">file</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">buildfile</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">ant</span><span class="o">.</span><span class="n">version</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Ant</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">ant</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">name</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">executing</span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">&lt;</span><span class="n">project</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">ant</span><span class="o">.</span><span class="n">java</span><span class="o">.</span><span class="n">version</span><span class="w">
+          </span><span class="n">the</span><span class="w"> </span><span class="nc">JVM</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="nc">Ant</span><span class="w"> </span><span class="n">detected</span><span class="o">.</span></code></pre><p>Classpath</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">classpath</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">&lt;</span><span class="n">classpath</span><span class="o">&gt;</span><span class="w"> </span><span class="ss">element</span><span class="p">:</span><span class="w">
+
+   </span><span class="o">&lt;</span><span class="n">classpath</span><span class="o">&gt;</span><span class="w">
+     </span><span class="o">&lt;</span><span class="n">pathelement</span><span class="w"> </span><span class="n">path</span><span class="o">=</span><span class="s">&quot;${classpath}&quot;</span><span class="o">/</span><span class="o">&gt;</span><span class="w">
+     </span><span class="o">&lt;</span><span class="n">pathelement</span><span class="w"> </span><span class="n">location</span><span class="o">=</span><span class="s">&quot;lib/helper.jar&quot;</span><span class="o">/</span><span class="o">&gt;</span><span class="w">
+     </span><span class="o">&lt;</span><span class="n">fileset</span><span class="w"> </span><span class="n">dir</span><span class="o">=</span><span class="s">&quot;lib&quot;</span><span class="o">&gt;</span><span class="w">
+       </span><span class="o">&lt;</span><span class="n">include</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;**/*.jar&quot;</span><span class="o">/</span><span class="o">&gt;</span><span class="w">
+     </span><span class="o">&lt;</span><span class="o">/</span><span class="n">fileset</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="o">/</span><span class="n">classpath</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">ant</span><span class="p" data-group-id="5321864413-1">(</span><span class="mi">1</span><span class="p" data-group-id="5321864413-1">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manpage</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Egon</span><span class="w"> </span><span class="nc">Willighagen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">egonw</span><span class="na">@sci</span><span class="o">.</span><span class="n">kun</span><span class="o">.</span><span class="n">nl</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Ant</span><span class="w"> </span><span class="nc">Manual</span><span class="w"> </span><span class="o">&lt;</span><span class="n">http</span><span class="ss">://</span><span class="n">ant</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">manual</span><span class="o">/</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>Debian Linux                                                                February 2010                                                               build.xml(5)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="btrfs.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+btrfs
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="charmap.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+charmap
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

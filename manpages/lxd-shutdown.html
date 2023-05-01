@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Manpages v2.2.0">
+
+    <title>lxd.shutdown — Manpages v2.2.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-99EBE3BF.js"></script>
+
+      <script src="doc-versions.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="https://kaisenlinux.org/manpages/">
+        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v2.2.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>lxd.shutdown</span>
+</h1>
+
+<p>LXD - Container server(1)                                                                                                                  LXD - Container server(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxd</span><span class="o">-</span><span class="n">shutdown</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Tell</span><span class="w"> </span><span class="nc">LXD</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxd</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="p" data-group-id="4918696370-1">[</span><span class="n">flags</span><span class="p" data-group-id="4918696370-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="ss">Description</span><span class="p">:</span><span class="w">
+     </span><span class="nc">Tell</span><span class="w"> </span><span class="nc">LXD</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">tell</span><span class="w"> </span><span class="nc">LXD</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">containers</span><span class="p">,</span><span class="w">
+     </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">having</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">quite</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">containers</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">to</span><span class="w">
+     </span><span class="n">shutdown</span><span class="p">,</span><span class="w"> </span><span class="n">especially</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">standard</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">them</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">force</span><span class="p" data-group-id="1754598272-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="1754598272-1">]</span><span class="w">      </span><span class="nc">Force</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">finish</span><span class="err">`</span><span class="err">`</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="w">      </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">giving</span><span class="w"> </span><span class="n">up</span><span class="err">`</span><span class="err">`</span></code></pre><p>OPTIONS INHERITED FROM PARENT COMMANDS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">debug</span><span class="p" data-group-id="0379170724-1">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="0379170724-1">]</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="p" data-group-id="0379170724-2">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="0379170724-2">]</span><span class="w">      </span><span class="nc">Print</span><span class="w"> </span><span class="n">help</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">logfile</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">file</span><span class="err">`</span><span class="err">`</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">syslog</span><span class="p" data-group-id="0379170724-3">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="0379170724-3">]</span><span class="w">      </span><span class="nc">Log</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">syslog</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">trace</span><span class="o">=</span><span class="p" data-group-id="0379170724-4">[</span><span class="p" data-group-id="0379170724-4">]</span><span class="w">      </span><span class="nc">Log</span><span class="w"> </span><span class="n">tracing</span><span class="w"> </span><span class="n">targets</span><span class="err">`</span><span class="err">`</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="p" data-group-id="0379170724-5">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="0379170724-5">]</span><span class="w">      </span><span class="nc">Show</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">messages</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">version</span><span class="p" data-group-id="0379170724-6">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="0379170724-6">]</span><span class="w">      </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxd</span><span class="p" data-group-id="1464930599-1">(</span><span class="mi">1</span><span class="p" data-group-id="1464930599-1">)</span></code></pre><p>HISTORY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="mi">9</span><span class="o">-</span><span class="nc">Apr</span><span class="o">-</span><span class="mi">2023</span><span class="w"> </span><span class="nc">Auto</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">spf13</span><span class="o">/</span><span class="n">cobra</span></code></pre><p>Auto generated by spf13/cobra                                                 Apr 2023                                                     LXD - Container server(1)</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="lxd-recover.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+lxd.recover
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="lxd-user.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+lxd-user
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
