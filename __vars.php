@@ -38,7 +38,7 @@
 
 			'include' => 'All tools included',
 			'img'	  => './img/downloads/kde.png',
-			'size' => '5.8GB',
+			'size' => '5.9GB',
 
 			'links' => [
 				[
