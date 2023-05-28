@@ -93,7 +93,7 @@ This is the default behavior included in Linux 6.2, but we've gone one step furt
     <li>The /etc/debian_version file was replaced by the /etc/kaisen_version file</li>
     <li>The user documentation is updated</li>
     <li>The centralized manpages contains over 1618 manpages. The man5 (configuration files) have been added to the centralized manpages</li>
-    <li>The kaisen-timeshift-apt software now disable by defualt BTRFS quotas to enhancing BTRFS performances</li>
+    <li>The kaisen-timeshift-apt software now disable by default BTRFS quotas to enhancing BTRFS performances</li>
     <li>The plocate databse is updated directly during the installation</li>
     <li>LXQt no longer installs automatically if not selected in the install menu (for the NETINST ISO only)</li>
   </ul>
