@@ -46,7 +46,7 @@ Overlayfs replaces the BTRFS system (which is still active, but in the lower lay
   <ul>
     <li>Linux 6.1.15</li>
     <li>Minikube 1.29</li>
-    <li>Kubernetes 1.25.10</li>
+    <li>Kubernetes 1.25.9</li>
     <li>Virtualbox 7.0.6</li>
     <li>Vagrant 2.3.6</li>
     <li>Velero 1.11.0</li>
