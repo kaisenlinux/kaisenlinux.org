@@ -5,15 +5,15 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.29.4">
-    <meta name="project" content="Documentation v2.2.3">
+    <meta name="project" content="Documentation v2.3.0">
 
-    <title>Packages — Documentation v2.2.3</title>
+    <title>Packages — Documentation v2.3.0</title>
     <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-77905A89.js"></script>
+    <script src="dist/sidebar_items-0FD74F65.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -72,7 +72,7 @@
 Documentation
       </a>
       <div class="sidebar-projectVersion" translate="no">
-        v2.2.3
+        v2.3.0
       </div>
     </div>
     <ul class="sidebar-listNav">
@@ -108,35 +108,26 @@ Documentation
   </a>
   Forked packages
 </h2>
-<h3 id="adduser" class="section-heading">
-  <a href="#adduser" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">adduser</p>
-  </a>
-  adduser
-</h3>
-<p>This package allows user creation via the adduser command (the binary is a perl script) and also to delete a user with the deluser command. I modified this package to modify the following configurations:</p><pre><code class="makeup bash" translate="no"><span class="">*Replace the default bash shell on zsh for user levels in file /etc/adduser.conf
-</span><span class="">*Allow the deletion of the folder associated with a deleted user (/home/userdelete) when it is deleted with the delsuer command in file /etc/deluser.conf
-</span></code></pre><h3 id="base-files" class="section-heading">
+<h3 id="base-files" class="section-heading">
   <a href="#base-files" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">base-files</p>
   </a>
   base-files
 </h3>
-<p>The base-files package will simply provide the following files on the system:</p><pre><code class="makeup bash" translate="no"><span class="">*/etc/debian_version
+<p>The base-files package will simply provide the following files on the system:</p><pre><code class="makeup bash" translate="no"><span class="">*/etc/kaisen_version
 </span><span class="">*/etc/issue
 </span><span class="">*/etc/issue.net
 </span><span class="">*/etc/os-release
 </span></code></pre><p>These files are used to identify the system version in details, such as the system version number, distribution name, code name, etc.
 These files are used by the live system during the welcome message on the system (here Debian has been replaced by Kaisen Linux).
-They are also used to customize GRUB thanks to the lsb_release package which, in its default configuration will read the /etc/os-release file to find out the version of the OS.   </p><p>By consequently, personalize the GRUB entries in its default configuration by the command lsb_release -i -s (information present in /etc/default/grub at the line GRUB_DISTRIBUTOR) when executing the update-grub command. The goal here was to replace Debian with Kaisen on the GRUB entries of the installed system. This package surely has many other uses, but I have not encountered them so far.  </p><p>The package has therefore been recompiled to formalize the name of the distribution on the system and customize it a little more.</p><h3 id="linux" class="section-heading">
+They are also used to customize GRUB thanks to the lsb_release package which, in its default configuration will read the /etc/os-release file to find out the version of the OS.   </p><p>By consequently, personalize the GRUB entries in its default configuration by the command lsb_release -i -s (information present in /etc/default/grub at the line GRUB_DISTRIBUTOR) when executing the update-grub command. The goal here was to replace Debian with Kaisen on the GRUB entries of the installed system. This package surely has many other uses, but I have not encountered them so far.  </p><p>The package has therefore been recompiled to formalize the name of the distribution on the system and customize it a little more.</p><p>The file /etc/debian_version is replaced by the /etc/kaisen_version file in the Kaisen base-files package.</p><h3 id="linux" class="section-heading">
   <a href="#linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">linux</p>
   </a>
   linux
 </h3>
 <p>The kernel has been recompiled to generate .udeb files (used by the Debian installer) as well as .deb files needed to install it via apt or dpkg.<br/>The Kaisen Linux kernel has its own lean configuration.
-The kernel is also recompiled to disable signing modules because signing modules breaks GRUB
-with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-heading">
+The kernel is also recompiled to disable signing modules because signing modules breaks GRUB with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-heading">
   <a href="#debian-installer" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">debian-installer</p>
   </a>
@@ -166,8 +157,7 @@ with Kaisen Linux configuration.</p><h3 id="debian-installer" class="section-hea
   </a>
   partman-auto
 </h3>
-<p>This package, as its name suggests, allows you to automatically partition the disk during installation.
-This package was forked for three things:  </p><ul><li>Use of BTRFS as default file system on all partitions of the disk (except /boot if the partition is separated)</li><li>Definition of EXT4 as the default file system for /boot if the partition is separate from / (this is the case for example during the installation of the system with LVM and cryptsetup).</li><li>Modification of the size of the partitions allocated by partman to adapt it to the size required by Kaisen Linux and thus limit any problems that may appear on insufficient disk space (especially in case of separation of the partitions /home /var /tmp and /).</li></ul><h3 id="debootstrap" class="section-heading">
+<p>Forked to define BTRFS as default filesystem and reworked default schemes.</p><h3 id="debootstrap" class="section-heading">
   <a href="#debootstrap" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">debootstrap</p>
   </a>
@@ -203,7 +193,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   </a>
   shadow
 </h3>
-<p>This package was forked because the /etc/default/useradd file was modified to support /bin/zsh as the default terminal when adding a user.<br/>The number of users to add to the system has also been changed. Maximum 100 users can be added (by default, 58999 users can be added).</p><h3 id="live-installer" class="section-heading">
+<p>This package was forked to use the /bin/bash shell by default when a user is created.  </p><h3 id="live-installer" class="section-heading">
   <a href="#live-installer" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">live-installer</p>
   </a>
@@ -221,7 +211,7 @@ This package was forked for three things:  </p><ul><li>Use of BTRFS as default f
   </a>
   partman-btrfs
 </h3>
-<p>Forked to create BTRFS subvolumes</p><h3 id="simple-cdd" class="section-heading">
+<p>Forked to automatically create BTRFS subvolumes.</p><h3 id="simple-cdd" class="section-heading">
   <a href="#simple-cdd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">simple-cdd</p>
   </a>
@@ -276,19 +266,13 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   </a>
   virtualbox-ext-pack
 </h3>
-<p>Forked to change the default response provided by debconf</p><h3 id="virtualbox-guest-additions" class="section-heading">
-  <a href="#virtualbox-guest-additions" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">virtualbox-guest-additions</p>
+<p>Forked to change the default response provided by debconf</p><h3 id="virtualbox-guest-additions-iso" class="section-heading">
+  <a href="#virtualbox-guest-additions-iso" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">virtualbox-guest-additions-iso</p>
   </a>
-  virtualbox-guest-additions
+  virtualbox-guest-additions-iso
 </h3>
-<p>Forked to adapt the dependencies to the rest of the VirtualBox packages</p><h3 id="virtualbox-ext-pack-1" class="section-heading">
-  <a href="#virtualbox-ext-pack-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">virtualbox-ext-pack-1</p>
-  </a>
-  virtualbox-ext-pack
-</h3>
-<p>Forked to change default debconf </p><h3 id="python-async-timeout" class="section-heading">
+<p>Forked to adapt the dependencies to the rest of the VirtualBox packages</p><h3 id="python-async-timeout" class="section-heading">
   <a href="#python-async-timeout" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">python-async-timeout</p>
   </a>
@@ -300,19 +284,31 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   </a>
   netsniff-ng
 </h3>
-<p>Forked to replace ntpsec by chrony as recommanded package</p><h2 id="kaisen-linux-packages" class="section-heading">
+<p>Forked to replace ntpsec by chrony as recommanded package</p><h3 id="timeshift" class="section-heading">
+  <a href="#timeshift" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">timeshift</p>
+  </a>
+  timeshift
+</h3>
+<p>Forked to add few Kaisen specific patches</p><h3 id="spice-vdagent" class="section-heading">
+  <a href="#spice-vdagent" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">spice-vdagent</p>
+  </a>
+  spice-vdagent
+</h3>
+<p>Forked to fix the desktop launcher</p><h3 id="python-psutil" class="section-heading">
+  <a href="#python-psutil" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">python-psutil</p>
+  </a>
+  python-psutil
+</h3>
+<p>Cross-platform lib for process and system monitoring in Python</p><h2 id="kaisen-linux-packages" class="section-heading">
   <a href="#kaisen-linux-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">kaisen-linux-packages</p>
   </a>
   Kaisen Linux packages
 </h2>
-<h3 id="kaisen-basemenu-purge" class="section-heading">
-  <a href="#kaisen-basemenu-purge" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">kaisen-basemenu-purge</p>
-  </a>
-  kaisen-basemenu-purge
-</h3>
-<p>This package removes &quot;double&quot; launchers. These duplicate icons appear when updating packages containing a launcher for a graphical application, for example ettercap, lftp, kismet etc ... Custom launchers have been created for the Kaisen menu to organize them by categories (monitoring, scanner etc). The custom launchers are also launched with sudo if necessary by the software.<br/>This package therefore removes the original launchers contained in <code class="inline">/usr/share/applications</code></p><h3 id="kaisen-grub-configuration" class="section-heading">
+<h3 id="kaisen-grub-configuration" class="section-heading">
   <a href="#kaisen-grub-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">kaisen-grub-configuration</p>
   </a>
@@ -336,7 +332,7 @@ and add a postinst script to exec a few actions after the installation.</p><h3 i
   </a>
   kaisen-services-management
 </h3>
-<p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br/>The scripts are installed in <code class="inline">/opt/services</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
+<p>This package provides various bash scripts allowing you to easily manage additional services (added by software supplied with the distribution).<br/>The scripts are installed in <code class="inline">/usr/share/kaisen-services-management</code>. This package coupled with the &quot;kaisen-menu&quot; package allows you to reference and execute directly via the menu the scripts classified by service to activate or deactivate additional services. Two activation and deactivation scripts exist for all services.</p><h3 id="kaisen-update" class="section-heading">
   <a href="#kaisen-update" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">kaisen-update</p>
   </a>
@@ -559,19 +555,13 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   </a>
   sentry-python
 </h3>
-<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="python-cpuinfo" class="section-heading">
-  <a href="#python-cpuinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">python-cpuinfo</p>
+<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="python3-cpuinfo" class="section-heading">
+  <a href="#python3-cpuinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">python3-cpuinfo</p>
   </a>
-  python-cpuinfo
+  python3-cpuinfo
 </h3>
-<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="pystatgrab" class="section-heading">
-  <a href="#pystatgrab" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">pystatgrab</p>
-  </a>
-  pystatgrab
-</h3>
-<p>Packaged tool because is a dependency of certain features offered by Conkycolors.</p><h3 id="python3-getdevinfo" class="section-heading">
+<p>Updated tool for integrating GNS3 tools in Kaisen Linux.</p><h3 id="python3-getdevinfo" class="section-heading">
   <a href="#python3-getdevinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">python3-getdevinfo</p>
   </a>
@@ -601,13 +591,7 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   </a>
   nassl
 </h3>
-<p>Packaged because is a dependancy of sslyze</p><h3 id="i3-gaps" class="section-heading">
-  <a href="#i3-gaps" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">i3-gaps</p>
-  </a>
-  i3-gaps
-</h3>
-<p>i3 fork with more features</p><h3 id="ddrescue" class="section-heading">
+<p>Packaged because is a dependancy of sslyze</p><h3 id="ddrescue" class="section-heading">
   <a href="#ddrescue" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">ddrescue</p>
   </a>
@@ -637,13 +621,7 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   </a>
   terragrunt
 </h3>
-<p>Wrapper for Terraform</p><h3 id="notwireshark" class="section-heading">
-  <a href="#notwireshark" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">notwireshark</p>
-  </a>
-  notwireshark
-</h3>
-<p>A packet analyzer like tshark but developped in python</p><h3 id="kyverno" class="section-heading">
+<p>Wrapper for Terraform</p><h3 id="kyverno" class="section-heading">
   <a href="#kyverno" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">kyverno</p>
   </a>
@@ -865,7 +843,25 @@ This package installs the kaisen-update-skel command.  </p><h3 id="kaisen-manpag
   </a>
   kubeshark
 </h3>
-<p>Wireshark for Kubernetes</p><h2 id="source-of-packages" class="section-heading">
+<p>Wireshark for Kubernetes</p><h3 id="apfsprogs" class="section-heading">
+  <a href="#apfsprogs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">apfsprogs</p>
+  </a>
+  apfsprogs
+</h3>
+<p>Experimental APFS tools for Linux</p><h3 id="sedutil" class="section-heading">
+  <a href="#sedutil" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">sedutil</p>
+  </a>
+  sedutil
+</h3>
+<p>DTA sedutil Self encrypting drive software</p><h3 id="sshs" class="section-heading">
+  <a href="#sshs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">sshs</p>
+  </a>
+  sshs
+</h3>
+<p>Terminal user interface for SSH</p><h2 id="source-of-packages" class="section-heading">
   <a href="#source-of-packages" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">source-of-packages</p>
   </a>

@@ -5,15 +5,15 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.29.4">
-    <meta name="project" content="Documentation v2.2.3">
+    <meta name="project" content="Documentation v2.3.0">
 
-    <title>How to change graphical interface? — Documentation v2.2.3</title>
+    <title>How to change graphical interface? — Documentation v2.3.0</title>
     <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-77905A89.js"></script>
+    <script src="dist/sidebar_items-0FD74F65.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -72,7 +72,7 @@
 Documentation
       </a>
       <div class="sidebar-projectVersion" translate="no">
-        v2.2.3
+        v2.3.0
       </div>
     </div>
     <ul class="sidebar-listNav">
@@ -115,13 +115,13 @@ You have to purge the old one (not mandatory, but avoids overloading the system 
   </a>
   kaisen-interface-switcher
 </h2>
-<p>The script since Kaisen Linux revision 1.4 is designed when the script starts up (after all checks have been made), to update itself if a new, more recent version of the script (installed by the kaisen-kde package, kaisen-lxde, kaisen-mate, kaisen-xfce depending on your current GUI). This is intended if you do not update often, to be able to change your interface and update the list of packages to uninstall. The main purpose of this is to automate the task even more, saving you time.<br/>The kaisen-interface-switcher script allows you to change your graphical interface by installing the one of your choice by removing your current graphical interface. It can be started by the <code class="inline">sudo kaisen-interface-switcher</code> command.<br/>The first versions of this script reinstalled for each user the default profile of each interface (execution of the kaisen-interface-switcher command during the script) but this lost the personalization of the user if he wishes to reinstall his graphical interface. 'original (e.g. switching from MATE to KDE then from KDE to MATE).<br/>This problem has been corrected by replacing the installation of a default profile per interface with a package installing the default profile for all graphical interfaces (see <a href="https://kaisenlinux.org/documentation/packages">kaisen-skeleton</a>. You can therefore change the graphical interface at will, without losing a single one of your settings!</p><h2 id="prerequisites" class="section-heading">
+<p>The script since Kaisen Linux 1.4 revision is designed when the script starts up (after all checks have been made), to update itself if a new, more recent version of the script (installed by the kaisen-kde package, kaisen-lxde, kaisen-mate, kaisen-xfce depending on your current GUI). This is intended if you do not update often, to be able to change your interface and update the list of packages to uninstall. The main purpose of this is to automate the task even more, saving you time.<br/>The kaisen-interface-switcher script allows you to change your graphical interface by installing the one of your choice by removing your current graphical interface. It can be started by the <code class="inline">sudo kaisen-interface-switcher</code> command.<br/>The first versions of this script reinstalled for each user the default profile of each interface (execution of the kaisen-interface-switcher command during the script) but this lost the personalization of the user if he wishes to reinstall his graphical interface. 'original (e.g. switching from MATE to KDE then from KDE to MATE).<br/>This problem has been corrected by replacing the installation of a default profile per interface with a package installing the default profile for all graphical interfaces (see <a href="https://kaisenlinux.org/documentation/packages">kaisen-skeleton</a>. You can therefore change the graphical interface at will, without losing a single one of your settings!</p><h2 id="prerequisites" class="section-heading">
   <a href="#prerequisites" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">prerequisites</p>
   </a>
   Prerequisites
 </h2>
-<p>Since revision 1.4, the <code class="inline">kaisen-interface-switcher</code> script has been corrected to fix some issues that occurred when using the script (eg when using wifi or with wrong proxy settings).<br/>To be able to use kaisen-interface-switcher, the script will check two things:  </p><ul><li>Connectivity to APT (if behind a proxy, only the configuration of the APT proxy is sufficient)</li><li>The network interface through which network packets pass.
+<p>Since the 1.4 revision, the <code class="inline">kaisen-interface-switcher</code> script has been corrected to fix some issues that occurred when using the script (eg when using wifi or with wrong proxy settings).<br/>To be able to use kaisen-interface-switcher, the script will check two things:  </p><ul><li>Connectivity to APT (if behind a proxy, only the configuration of the APT proxy is sufficient)</li><li>The network interface through which network packets pass.
 The script will remove all packages installed by your current GUI, it will also remove network-manager, and without network-manager the wifi cannot work. This therefore prevented the installation of your new graphical interface, and the old one was deleted, the next time you restart your machine, you would find yourself without a graphical interface.<br/>So I added as many checks as possible to limit the risk of losing the graphic interface during the process. I strongly advise against modifying the script yourself to modify checks or the like unless you know exactly what you are doing.</li></ul>
 <div class="bottom-actions">
   <div class="bottom-actions-item">

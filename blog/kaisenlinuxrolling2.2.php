@@ -21,14 +21,13 @@
 <p>This release is the final of the 2.2 revision of Kaisen Linux Rolling.</p><br>
 <p>To begin with, let's wish Kaisen Linux a happy birthday! Kaisen Linux is now three years old! 
   As tradition dictates, the 2.2 release and its batch of new features and the specifications of the features planned for 2.2 are available for the 3 years of the project!</p><br>
-<p>This changelog will resume the changelog of the 2.2RC1 and the 2.2RC2 releases (Release Candidate of the 2.2 version) and will add all changes after the releasing of the 2.2RC2 version.</p><br>
 <p>The big news of this release is the arrival of the Exegol tool on Kaisen Linux!</p><br>
 <p>Exegol is a french tool to deploy Docker containers very quickly to have a hacking environment with over 300 tools installed! 
   Kaisen is not intended to provide dedicated tools for slotters by default, for this reason only the Python wrapper is installed. 
   The integration of Exegol into Kaisen Linux is there to meet the needs of our growing community of people who work as system administrators, but need to do more extensive security testing than with dedicated administrator tools. 
   Useful also for our users who are fans of CTF (like Kaisen developers ^^). The HTML documentation of the Exegol tool is also included by default in Kaisen.</p><br>
 <p>The Kaisen Linux team is growing too! A new developer has joined our ranks, notably to maintain the integration of Exegol in Kaisen!</p><br>
-<p>New tools are now included by default:
+<p>New tools included by default:
   <ul>
     <li>lazydocker</li>
     <li>lazygit</li>
@@ -36,6 +35,7 @@
     <li>yq</li>
     <li>ansible-lint</li>
     <li>tflint</li>
+    <li>openstack-client</li>
   </ul>
 </p>
 <p>Importants updates of softwares:
@@ -55,7 +55,7 @@
 <p>List of detailled changes:
   <ul>
     <li>Almost 100 menu launchers have been improved or fixed.</li>
-    <li>Since the 2.2RC2, say hello to kaisen-timeshift-apt! The kaisen-timeshift-apt package replaces apt-btrfs-snapshot for APT snapshots! 
+    <li>Say hello to kaisen-timeshift-apt! The kaisen-timeshift-apt package replaces apt-btrfs-snapshot for APT snapshots! 
       This package aims to fix performance issues with APT snapshots and be able to delete restored snapshots!  What was previously not possible is now a thing of the past!</li>
     <li>The kaisen-timeshift-apt package provides a timer and a service systemd units files to automatically delete all snapshots that are 7 days old or more to the second! 
       This timer runs randomly every hour to maximize the chances to remove snapshots that are 7 days old or more. 
@@ -90,7 +90,6 @@
       This has mainly allowed to allow a finer management of the default profile configuration files, deletion of useless files, and especially to avoid conflicts between the different graphical interfaces.</li>
     <li>Deletion of the kaisen-update-skel command (because default profiles are now installed in the /etc/xdg folder)</li>
     <li>Fix encrypted persistence did not work on live systems</li>
-    <li>Add the openstack-client tool</li>
     <li>Improvements of the XFCE and the KDE default GUI</li>
     <li>Creation of the default Kaisen theme for KDE</li>
     <li>Addition of more of 700 manpages to improve the documentation provided with Kaisen. Today with the 2.2 release, 1300 manpages are available from the centralized manpages.</li>

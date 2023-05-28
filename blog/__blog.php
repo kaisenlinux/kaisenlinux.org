@@ -200,23 +200,6 @@
             'link' => 'kaisenlinuxrolling2.1.php',
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
-		[
-            'title' => 'Kaisen Linux Rolling 2.2RC1 release note',
-                'extract' => 'Major bugs fixed with live systems. New cloud tools. Improvements of the GUI defaults profiles.',
-            'date'=> '2022/08/20',
-            'visuel' => '/img/blog/screen-2.1.x.png',
-            'link' => 'kaisenlinuxrolling2.2RC1.php',
-            'author' => 'Kevin Chevreuil - Kaisen',
-        ],
-
-		[
-            'title' => 'Kaisen Linux Rolling 2.2RC2 release note',
-                'extract' => 'Bugs fixed with updates and snapshots. New cloud and DevOps tools. Improvements of hardware support.',
-            'date'=> '2022/10/03',
-            'visuel' => '/img/blog/screen-2.1.x.png',
-            'link' => 'kaisenlinuxrolling2.2RC2.php',
-            'author' => 'Kevin Chevreuil - Kaisen',
-        ],
 
 		[
             'title' => 'Kaisen Linux Rolling 2.2 release note',
@@ -224,6 +207,15 @@
             'date'=> '2022/12/14',
             'visuel' => '/img/blog/screen-2.1.x.png',
             'link' => 'kaisenlinuxrolling2.2.php',
+            'author' => 'Kevin Chevreuil - Kaisen',
+        ],
+
+                [
+            'title' => 'Kaisen Linux Rolling 2.3 release note',
+                'extract' => 'The latest version of the 2.x serie. Major and minor bugs fixed. Immutables snapshots. New cloud tools.',
+            'date'=> '2023/05/29',
+            'visuel' => '/img/blog/screen-2.1.x.png',
+            'link' => 'kaisenlinuxrolling2.3.php',
             'author' => 'Kevin Chevreuil - Kaisen',
         ],
 
