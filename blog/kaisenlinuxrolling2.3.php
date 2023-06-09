@@ -22,7 +22,7 @@
 <p>This release comes at the same time as the full freeze of Debian bookworm (Debian 12), and makes it possible to put this release on Debian 12.</p></br>
 <p>Say hello to own private torrent tracker to download Kaisen Linux ISO via the P2P protocol (it's can be found <a href="https://torrent.kaisenlinux.org" target="_blank">here</a>)! 
   Only the latest version of Kaisen Linux will be downloadable via the P2P protocol.</p></br>
-<p>Say hello to our new official community Discord server, where we bring together the Kaisen Linux community from all over the world! You can find it <a href="https://discord.gg/rCg6jjzPwj" target="_blank">here</a>.</p></br>
+<p>Say hello to our new official community Discord server, where we bring together the Kaisen Linux community from all over the world! You can find it <a href="https://discord.gg/H7jbWzFrJ8" target="_blank">here</a>.</p></br>
 <p>One of the great new features of Kaisen Linux 2.3 is the addition of an immutability layer to BTRFS snapshots, when started on GRUB!</br>
 Indeed, version 2.2 contained a major bug when snapshots were restored and then deleted, GRUB would point to the snapshot's sub-volume... 
 This bug has been fixed and the overall behavior of grub-btrfs has been improved. Many of our patches have now been integrated upstream into grub-btrfs!</br>
@@ -97,6 +97,8 @@ This is the default behavior included in Linux 6.2, but we've gone one step furt
     <li>The kaisen-timeshift-apt software now disable by default BTRFS quotas to enhancing BTRFS performances</li>
     <li>The plocate databse is updated directly during the installation</li>
     <li>LXQt no longer installs automatically if not selected in the install menu (for the NETINST ISO only)</li>
+    <li>The tftp-hpa has replaced atftp as default TFTP client</li>
+    <li>The tftpd-hpa is installed as default TFTP server on Kaisen</li>
   </ul>
 </p></br>
 

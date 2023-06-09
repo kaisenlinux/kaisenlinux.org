@@ -92,7 +92,7 @@
         <li><a href="#">Community</a>
         	<ul class="nav-dropdown">
 
-		<li><a href="https://discord.gg/rCg6jjzPwj" target="_blank">Discord</a></li>
+		<li><a href="https://discord.gg/H7jbWzFrJ8" target="_blank">Discord</a></li>
           	<li><a href="https://forum.kaisenlinux.org" target="_blank">Forum</a></li>
           	<li><a href="https://gitlab.com/kaisenlinux" target="_blank">Gitlab</a></li>
           	<li><a href="https://github.com/kaisenlinux" target="_blank">Github (Gitlab mirror)</a></li>

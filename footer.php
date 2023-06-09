@@ -22,7 +22,7 @@
         <div class="mt-25">
           <div class="footer-social-icons mt-25">
             <ul>
-	      <li><a href="https://discord.gg/rCg6jjzPwj" target="_blank"><i class="fab fa-discord"></i></a></li>
+	      <li><a href="https://discord.gg/H7jbWzFrJ8" target="_blank"><i class="fab fa-discord"></i></a></li>
 	      <li><a href="https://forum.kaisenlinux.org" target ="_blank"><i class="fab fa-discourse"></i></a></li>
               <li><a href="https://gitlab.com/kaisenlinux" target="_blank"><i class="fab fa-gitlab"></i></a></li>
               <li><a href="https://github.com/kaisenlinux" target="_blank"><i class="fab fa-github"></i></a></li>
