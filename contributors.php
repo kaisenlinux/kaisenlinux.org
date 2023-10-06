@@ -8,7 +8,23 @@
       <p>This section is created in honor of our importants contributors, who help us to develop this project.</p>
       <p>We thank them all personally!</p>
     </div>
+
     <div class="row mt-50 justify-content-md-center">
+      <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
+            <img src="img/contributors/tobas.jpg" alt="image of tomi bequet">
+          </div>
+          <div class="team-member-text">
+            <h4>Tomi Bequet</h4>
+            <p>Creator of official wallpapers. He is the one who reworked our official logo.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/tomibequet/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
