@@ -9,6 +9,20 @@
       <p>We thank them all personally!</p>
     </div>
     <div class="row mt-50 justify-content-md-center">
+      <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
+            <img src="img/contributors/kaisen.jpg" alt="image of arnaud cormier">
+          </div>
+          <div class="team-member-text">
+            <h4>Arnaud Cormier</h4>
+            <p>Creator of manpages documentation. Today, he help us to maintain it.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/arnaudcormier/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
