@@ -24,7 +24,7 @@
                 innovative technological solutions in the fields of technologies and sciences. This is our official support.</p>
                   <div class="blog-grid-simple-content">
                     <div class="center-holder">
-                      <a href="https://scalarx.com/">Go to website</a>
+                      <a href="https://scalarx.com/" target="_blank">Go to website</a>
                     </div>
                   </div>
               </div>
@@ -49,7 +49,7 @@
                    administrators. Their students are trained on Kaisen Linux, and we provide them with personalized ISOS adapted to their training.</p>
                    <div class="blog-grid-simple-content">
                       <div class="center-holder">
-                        <a href="https://www.ldnr.fr">Go to website</a>
+                        <a href="https://www.ldnr.fr" target="_blank">Go to website</a>
                       </div>
                     </div>
               </div>
