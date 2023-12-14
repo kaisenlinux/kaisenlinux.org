@@ -4,20 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.31.0">
     <meta name="project" content="Documentation v2.3.0">
 
+
     <title>Bad sectors analyses — Documentation v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
     <script src="dist/sidebar_items-0FD74F65.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-CILPWI2Q.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -38,95 +39,104 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="https://kaisenlinux.org/documentation/">
-        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
-      </a>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Documentation" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
 Documentation
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v2.3.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v2.3.0
+        </div>
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Guides
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of Documentation</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+      </div>
+      <div class="autocomplete">
+      </div>
 
 <h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
-
 
 
   <span>Bad sectors analyses</span>
 </h1>
 
 <p><strong>This section is intended to explain how to analyze bad storage space on a storage device.</strong></p><h2 id="softwares" class="section-heading">
-  <a href="#softwares" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">softwares</p>
+  <a href="#softwares" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Softwares
+  <span class="text">Softwares</span>
 </h2>
 <h3 id="gsmartcontrol" class="section-heading">
-  <a href="#gsmartcontrol" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">gsmartcontrol</p>
+  <a href="#gsmartcontrol" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  gsmartcontrol
+  <span class="text">gsmartcontrol</span>
 </h3>
 <p>You can use gsmartcontrol for analyse general condition of the hard drive or SSD. It uses the smartmontools service to display the health status of the storage device. This software have GUI and a lot informations are given.<br/>Gsmartcontrol will not display the number of bad sectors, but the SMART of the hard disk will indicate a problem with storage sectors.  He is rarely mistaken, but a false positive is possible. Use badblocks to perform an additional test.  </p><h3 id="badblocks" class="section-heading">
-  <a href="#badblocks" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">badblocks</p>
+  <a href="#badblocks" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  badblocks
+  <span class="text">badblocks</span>
 </h3>
 <p>You can use badblocks tools with fdisk to detect bad sectors of a storage device. Follow this guide:</p><pre><code class="makeup bash" translate="no"><span class="">* sudo fdisk -l (spot storage device at analyse, for example /dev/sda)
 </span><span class="">* sudo badblocks -v /dev/sda
 </span></code></pre><p>This command display in stdout bad sectors. If not sector display (for example, 250059, 250059095 etc), is that there is not bad sector.</p><h3 id="whdd" class="section-heading">
-  <a href="#whdd" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">whdd</p>
+  <a href="#whdd" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  whdd
+  <span class="text">whdd</span>
 </h3>
 <p>You can use whdd to detect bad sectors of a storage device. WHDD is a tool with a ncurses interfaces and can support SATA, memory card and NVME disks!
 To start whdd, you can launch this command : <code class="inline">sudo whdd</code> and select the disk to analyze.</p>
@@ -169,7 +179,7 @@ Repair GRUB
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -177,7 +187,7 @@ Repair GRUB
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 
