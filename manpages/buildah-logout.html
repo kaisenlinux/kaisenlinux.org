@@ -4,20 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.31.0">
     <meta name="project" content="Manpages v2.3.0">
 
+
     <title>buildah-logout — Manpages v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-23DEA0E4.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
+    <script src="dist/sidebar_items-BAAB9852.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-CILPWI2Q.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -38,87 +39,98 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v2.3.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v2.3.0
+        </div>
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+MANUALS
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of Manpages</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+      </div>
+      <div class="autocomplete">
+      </div>
 
 <h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
-
 
 
   <span>buildah-logout</span>
 </h1>
 
-<p>buildah-logout(1)                                                                 General Commands Manual                                                                buildah-logout(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">logout</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Logout</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">registry</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="1968577818-1">[</span><span class="n">options</span><span class="p" data-group-id="1968577818-1">]</span><span class="w"> </span><span class="n">registry</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w">  </span><span class="n">logout</span><span class="w">  </span><span class="n">logs</span><span class="w">  </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">registry</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">deleting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w">
-   </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authfile</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w">  </span><span class="n">path</span><span class="w">  </span><span class="n">used</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="err">$</span><span class="p" data-group-id="1213186188-1">{</span><span class="nc">XDG_RUNTIME_DIR</span><span class="p" data-group-id="1213186188-1">}</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">   </span><span class="nc">If</span><span class="w">  </span><span class="nc">XDG_RUNTIME_DIR</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="ow">not</span><span class="w">  </span><span class="n">set</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">default</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">contain</span><span class="err">‐</span><span class="w">
-   </span><span class="n">ers</span><span class="o">/</span><span class="err">$</span><span class="nc">UID</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w">
+<p>buildah-logout(1)                                                      General Commands Manual                                                     buildah-logout(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">logout</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Logout</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">registry</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="2320409599-1">[</span><span class="n">options</span><span class="p" data-group-id="2320409599-1">]</span><span class="w"> </span><span class="n">registry</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w">  </span><span class="n">logout</span><span class="w">  </span><span class="n">logs</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">registry</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">deleting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authfile</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">$</span><span class="p" data-group-id="8284150286-1">{</span><span class="nc">XDG_RUNTIME_DIR</span><span class="p" data-group-id="8284150286-1">}</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">   </span><span class="nc">If</span><span class="w">  </span><span class="nc">XDG_RUNTIME_DIR</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="ow">not</span><span class="w">
+   </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="err">$</span><span class="nc">UID</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span><span class="w">
 
-   </span><span class="n">buildah</span><span class="w"> </span><span class="p" data-group-id="1213186188-2">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="1213186188-2">]</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="p" data-group-id="8284150286-2">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="8284150286-2">]</span><span class="w">
 
-   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="1213186188-3">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="1213186188-3">]</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="8284150286-3">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="8284150286-3">]</span><span class="w">
 
-   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="1213186188-4">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="1213186188-4">]</span><span class="w"> </span><span class="nc">REGISTRY</span><span class="w"> </span><span class="p" data-group-id="1213186188-5">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="1213186188-5">]</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">all</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="p" data-group-id="8284150286-4">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="8284150286-4">]</span><span class="w"> </span><span class="nc">REGISTRY</span><span class="w"> </span><span class="p" data-group-id="8284150286-5">[</span><span class="nc">GLOBAL</span><span class="w"> </span><span class="nc">OPTIONS</span><span class="p" data-group-id="8284150286-5">]</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">all</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w">
 
    </span><span class="nc">Remove</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">registries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="n">file</span><span class="w">
 
    </span><span class="o">--</span><span class="n">authfile</span><span class="w">
 
-   </span><span class="nc">Path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">Default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">$</span><span class="p" data-group-id="8320408571-1">{</span><span class="nc">XDG_</span><span class="err">\</span><span class="nc">RUNTIME_DIR</span><span class="p" data-group-id="8320408571-1">}</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="nc">XDG_RUNTIME_DIR</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="err">$</span><span class="nc">UID</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Path</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">authentication</span><span class="w">  </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">Default</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="err">$</span><span class="p" data-group-id="9198306977-1">{</span><span class="nc">XDG_</span><span class="err">\</span><span class="nc">RUNTIME_DIR</span><span class="p" data-group-id="9198306977-1">}</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">   </span><span class="nc">If</span><span class="w">  </span><span class="nc">XDG_RUNTIME_DIR</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">contain</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ers</span><span class="o">/</span><span class="err">$</span><span class="nc">UID</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="w">
 
-   </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">REGISTRY_AUTH_FILE</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="nc">REGISTRY_AUTH_FILE</span><span class="o">=</span><span class="n">path</span><span class="w">
+   </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="nc">You</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">also</span><span class="w">  </span><span class="n">override</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">default</span><span class="w">  </span><span class="n">path</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">authentication</span><span class="w">  </span><span class="n">file</span><span class="w">  </span><span class="n">by</span><span class="w">  </span><span class="n">setting</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="nc">REGISTRY_AUTH_FILE</span><span class="w">  </span><span class="n">environment</span><span class="w">  </span><span class="n">variable</span><span class="o">.</span><span class="w">  </span><span class="n">export</span><span class="w">  </span><span class="nc">REG</span><span class="err">‐</span><span class="w">
+   </span><span class="nc">ISTRY_AUTH_FILE</span><span class="o">=</span><span class="n">path</span><span class="w">
 
    </span><span class="o">--</span><span class="n">help</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w">
 
@@ -129,7 +141,7 @@ Manpages
           </span><span class="nc">Removed</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">quay</span><span class="o">.</span><span class="n">io</span><span class="w">
 
           </span><span class="err">$</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">logout</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w">
-          </span><span class="nc">Remove</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">registries</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="2774160337-1">(</span><span class="mi">1</span><span class="p" data-group-id="2774160337-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="2774160337-2">(</span><span class="mi">1</span><span class="p" data-group-id="2774160337-2">)</span></code></pre><p>buildah                                                                                  Apr 2019                                                                        buildah-logout(1)</p>
+          </span><span class="nc">Remove</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="n">credentials</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">registries</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="2208684848-1">(</span><span class="mi">1</span><span class="p" data-group-id="2208684848-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="2208684848-2">(</span><span class="mi">1</span><span class="p" data-group-id="2208684848-2">)</span></code></pre><p>buildah                                                                       Apr 2019                                                             buildah-logout(1)</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -169,7 +181,7 @@ buildah-manifest-add
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -177,7 +189,7 @@ buildah-manifest-add
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

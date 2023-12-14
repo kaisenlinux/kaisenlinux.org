@@ -4,20 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.31.0">
     <meta name="project" content="Manpages v2.3.0">
 
+
     <title>borg-change-passphrase — Manpages v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-23DEA0E4.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
+    <script src="dist/sidebar_items-BAAB9852.js"></script>
 
       <script src="doc-versions.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-CILPWI2Q.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -38,76 +39,85 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="https://kaisenlinux.org/manpages/">
-        <img src="assets/logo.jpg" alt="Manpages" class="sidebar-projectImage">
-      </a>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
 Manpages
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v2.3.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v2.3.0
+        </div>
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">MANUALS</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+MANUALS
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of Manpages</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+      </div>
+      <div class="autocomplete">
+      </div>
 
 <h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
-
 
 
   <span>borg-change-passphrase</span>
 </h1>
 
-<p>BORG-CHANGE-PASSPHRASE(1)                                                            borg backup tool                                                            BORG-CHANGE-PASSPHRASE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">change</span><span class="o">-</span><span class="n">passphrase</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Change</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">passphrase</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="8304213392-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="8304213392-1">]</span><span class="w"> </span><span class="n">change</span><span class="o">-</span><span class="n">passphrase</span><span class="w"> </span><span class="p" data-group-id="8304213392-2">[</span><span class="n">options</span><span class="p" data-group-id="8304213392-2">]</span><span class="w"> </span><span class="p" data-group-id="8304213392-3">[</span><span class="nc">REPOSITORY</span><span class="p" data-group-id="8304213392-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="n">protected</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">passphrase</span><span class="o">.</span><span class="w">
+<p>BORG-CHANGE-PASSPHRASE(1)                                                 borg backup tool                                                 BORG-CHANGE-PASSPHRASE(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">change</span><span class="o">-</span><span class="n">passphrase</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Change</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">passphrase</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="w"> </span><span class="p" data-group-id="0024060434-1">[</span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="p" data-group-id="0024060434-1">]</span><span class="w"> </span><span class="n">change</span><span class="o">-</span><span class="n">passphrase</span><span class="w"> </span><span class="p" data-group-id="0024060434-2">[</span><span class="n">options</span><span class="p" data-group-id="0024060434-2">]</span><span class="w"> </span><span class="p" data-group-id="0024060434-3">[</span><span class="nc">REPOSITORY</span><span class="p" data-group-id="0024060434-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">optionally</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="n">protected</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">passphrase</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">Please</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p" data-group-id="4618031684-1">(</span><span class="n">like</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">encryption</span><span class="o">/</span><span class="nc">MAC</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">seed</span><span class="p" data-group-id="4618031684-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Thus</span><span class="p">,</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="k">after</span><span class="w">
-   </span><span class="n">passphrase</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">got</span><span class="w"> </span><span class="n">compromised</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="p" data-group-id="4618031684-2">(</span><span class="n">nor</span><span class="w"> </span><span class="n">past</span><span class="p" data-group-id="4618031684-2">)</span><span class="w"> </span><span class="n">backups</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="4784002319-1">(</span><span class="mi">1</span><span class="p" data-group-id="4784002319-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPOSITORY</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="5851954176-1">(</span><span class="mi">1</span><span class="p" data-group-id="5851954176-1">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
+   </span><span class="nc">Please</span><span class="w">  </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p" data-group-id="1017254229-1">(</span><span class="n">like</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">encryption</span><span class="o">/</span><span class="nc">MAC</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">chunker</span><span class="w"> </span><span class="n">seed</span><span class="p" data-group-id="1017254229-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Thus</span><span class="p">,</span><span class="w"> </span><span class="n">chang</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">borg</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">got</span><span class="w"> </span><span class="n">compromised</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="p" data-group-id="1017254229-2">(</span><span class="n">nor</span><span class="w"> </span><span class="n">past</span><span class="p" data-group-id="1017254229-2">)</span><span class="w"> </span><span class="n">backups</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">repository</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">See</span><span class="w"> </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="1586133332-1">(</span><span class="mi">1</span><span class="p" data-group-id="1586133332-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span></code></pre><p>   arguments</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">REPOSITORY</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">borg</span><span class="o">-</span><span class="n">common</span><span class="p" data-group-id="7289409347-1">(</span><span class="mi">1</span><span class="p" data-group-id="7289409347-1">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="nc">Borg</span><span class="w"> </span><span class="nc">Collective</span><span class="w">
 
-                                                                                    </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">25</span><span class="w">                                                               </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">CHANGE</span><span class="o">-</span><span class="nc">PASSPHRASE</span><span class="p" data-group-id="1202796332-1">(</span><span class="mi">1</span><span class="p" data-group-id="1202796332-1">)</span></code></pre>
+                                                                         </span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">25</span><span class="w">                                                    </span><span class="nc">BORG</span><span class="o">-</span><span class="nc">CHANGE</span><span class="o">-</span><span class="nc">PASSPHRASE</span><span class="p" data-group-id="5504794300-1">(</span><span class="mi">1</span><span class="p" data-group-id="5504794300-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -147,7 +157,7 @@ borg-check
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -155,7 +165,7 @@ borg-check
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

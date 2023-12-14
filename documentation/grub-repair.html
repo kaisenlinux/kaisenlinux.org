@@ -4,20 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.31.0">
     <meta name="project" content="Documentation v2.3.0">
 
+
     <title>Repair GRUB — Documentation v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
     <script src="dist/sidebar_items-0FD74F65.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-CILPWI2Q.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -38,81 +39,90 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="https://kaisenlinux.org/documentation/">
-        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
-      </a>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Documentation" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
 Documentation
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v2.3.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v2.3.0
+        </div>
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Guides
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of Documentation</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+      </div>
+      <div class="autocomplete">
+      </div>
 
 <h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
-
 
 
   <span>GRUB repair</span>
 </h1>
 
 <p><strong>GRUB repair with CLI method</strong><br/>Once the system is installed but after the impossibility of installing GRUB on a system in UEFI, here is the procedure to follow for the installer according to your partitioning.  </p><p>You can help yourself with Gparted software for this tutorial.  </p><p>Only the CLI method will be presented, because it is the most efficient, relevant, and few tools or none can replace this method.  </p><h2 id="grub-efi" class="section-heading">
-  <a href="#grub-efi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">grub-efi</p>
+  <a href="#grub-efi" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  GRUB EFI
+  <span class="text">GRUB EFI</span>
 </h2>
 <h3 id="classic-partition" class="section-heading">
-  <a href="#classic-partition" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">classic-partition</p>
+  <a href="#classic-partition" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Classic partition
+  <span class="text">Classic partition</span>
 </h3>
 <pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo mount /dev/sdX /mnt (X represents the drive letter)
@@ -129,10 +139,10 @@ Documentation
 </span><span class="">sudo reboot
 </span></code></pre><p>Once the system has started, reinstall GRUB correctly with:</p><pre><code class="makeup bash" translate="no"><span class="">sudo apt install grub-efi
 </span></code></pre><p>The problem should be solved</p><h3 id="lvm-without-luks-encryption" class="section-heading">
-  <a href="#lvm-without-luks-encryption" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">lvm-without-luks-encryption</p>
+  <a href="#lvm-without-luks-encryption" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  LVM without LUKS encryption
+  <span class="text">LVM without LUKS encryption</span>
 </h3>
 <pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo vgscan
@@ -159,10 +169,10 @@ Documentation
 </span><span class="">sudo reboot
 </span></code></pre><p>Once the system has started, reinstall GRUB correctly with:  </p><pre><code class="makeup bash" translate="no"><span class="">sudo apt install grub-efi
 </span></code></pre><p>The problem should be solved  </p><h3 id="lvm-with-luks-encryption" class="section-heading">
-  <a href="#lvm-with-luks-encryption" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">lvm-with-luks-encryption</p>
+  <a href="#lvm-with-luks-encryption" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  LVM with LUKS encryption
+  <span class="text">LVM with LUKS encryption</span>
 </h3>
 <pre><code class="makeup bash" translate="no"><span class="">sudo fdisk -l (Locate the EFI Linux partition and /)
 </span><span class="">sudo cryptsetup luksOpen /dev/sdXY sdxy_crypt (X represents the drive letter, Y the partition / encrypted number)
@@ -231,7 +241,7 @@ Kaisen Terminal shortcuts
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -239,7 +249,7 @@ Kaisen Terminal shortcuts
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

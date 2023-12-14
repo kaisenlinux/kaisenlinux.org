@@ -57,33 +57,7 @@
           </div>
         </div>
       </div>
-
-    <!--  <div class="col-md-6 col-sm-6 col-12">
-        <div class="partner-box">
-          <div class="row">
-            <div class="col-md-6 col-sm-12 col-12">
-              <div class="partner-img">
-                <img src="img/partners/hackersploit.jpg" alt="hackersploit logo">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-12">
-              <div class="partner-text">
-                <span>Company</span>
-                <h4>HackerSploit</h4>
-                <p>HackerSploit is the leading provider of free Infosec and cybersecurity training. We are their partner 
-                  for the creation of their distribution based on Kaisen Linux. 
-                  We help them with infrastructure, packaging and development.</p>
-                  <div class="blog-grid-simple-content">
-                    <div class="center-holder">
-                      <a href="https://hackersploit.org/">Go to website</a>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
+      
     </div>
   </div>
 </div>

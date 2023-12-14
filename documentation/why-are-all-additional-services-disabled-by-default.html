@@ -4,20 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.31.0">
     <meta name="project" content="Documentation v2.3.0">
 
+
     <title>Why are all additional services disabled by default? — Documentation v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
     <script src="dist/sidebar_items-0FD74F65.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-CILPWI2Q.js"></script>
 
 <link rel="stylesheet" href="assets/doc.css">
   </head>
@@ -38,87 +39,96 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
-    </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
+<nav id="sidebar" class="sidebar">
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="https://kaisenlinux.org/documentation/">
-        <img src="assets/logo.jpg" alt="Documentation" class="sidebar-projectImage">
-      </a>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Documentation" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
 Documentation
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v2.3.0
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v2.3.0
+        </div>
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Guides</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Guides
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
+      <div class="top-search">
+        <div class="search-settings">
+          <form class="search-bar" action="search.html">
+            <label class="search-label">
+              <span class="sr-only">Search documentation of Documentation</span>
+              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            </label>
+            <button type="submit" class="search-button" aria-label="Submit Search">
+              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+            </button>
+            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+              <i class="ri-close-line ri-lg" title="Cancel search"></i>
+            </button>
+          </form>
+          <button class="icon-settings display-settings">
+            <i class="ri-settings-3-line"></i>
+            <span class="sr-only">Settings</span>
+          </button>
+        </div>
+      </div>
+      <div class="autocomplete">
+      </div>
 
 <h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
-
 
 
   <span>Why are all additional services disabled by default?</span>
 </h1>
 
 <h2 id="explanation" class="section-heading">
-  <a href="#explanation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">explanation</p>
+  <a href="#explanation" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Explanation
+  <span class="text">Explanation</span>
 </h2>
 <p>We call additional services, services installed by software provided in Kaisen Linux. The reason is simple. It is about optimizing the performance and resources used by the system.<br/>When building the ISO, all services are disabled with systemd hooks, which allows once the ISO is built, to be able to use Kaisen Linux with only 500MB to 550MB of RAM on the live as well as on the installed system , which is suitable for very small configurations.<br/>We also have the vision, despite the wide range of tools provided by default, to let the user choose to use only what they need, so let these services run in the background, is useless and consumes resources unnecessarily. The tool is present (because we provide a complete live), but if not necessary, it therefore does not encumber any resource (except the disk space used by this program).</p><h2 id="management-of-these-services" class="section-heading">
-  <a href="#management-of-these-services" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">management-of-these-services</p>
+  <a href="#management-of-these-services" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Management of these services
+  <span class="text">Management of these services</span>
 </h2>
 <p>So we have to list these services, as well as to facilitate their management (activation, deactivation) created the <strong>&quot;kaisen-services-management&quot;</strong> package which installs scripts which will be referenced on the menu in the <strong>&quot;Services&quot;</strong> tab which will allow activate and deactivate the services listed by sub-tabs for example <strong>&quot;zfs-fuse, avahi, cups etc ...&quot;</strong> as well as two scripts to activate or deactivate everything.</p><h2 id="problem-resolution" class="section-heading">
-  <a href="#problem-resolution" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">problem-resolution</p>
+  <a href="#problem-resolution" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Problem resolution
+  <span class="text">Problem resolution</span>
 </h2>
 <p>If you therefore have an error telling you that the service is not indicated or certain programs (2ping for example) start but are not functional, try to activate the service corresponding to this program (via the menu or simply by typing yourself systemd commands).
 If that doesn't solve your problem, contact the support.</p>
@@ -161,7 +171,7 @@ Why create user accounts only on home?
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -169,7 +179,7 @@ Why create user accounts only on home?
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 
