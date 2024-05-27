@@ -143,7 +143,7 @@
       <div class="section-single-heading">
         <h4>Project Description</h4>
         <div class="text-content-big mt-20">
-          <p><b>Kaisen Linux</b> is a distribution for <b>IT professional</b> based on the Debian GNU/Linux distribution.
+          <p><b>Kaisen Linux</b> is a distribution for <b>infrastructure worker</b> based on the Debian GNU/Linux distribution.
             It is a complete operating system whose originality is to provide a set of tools dedicated to system 
             administration and covering all the needs for diagnosing and dealing with faults or failures of an installed 
             system and its components. The most important system tools are available. It is thus possible to modify the 
