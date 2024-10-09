@@ -43,6 +43,22 @@
       <div class="col-md-3 col-sm-6 col-12">
         <div class="team-member">
           <div class="team-member-img">
+            <img src="img/contributors/cybsemik.jpg" alt="image of arnaud cormier">
+          </div>
+          <div class="team-member-text">
+            <h4>Louis Bourquin</h4>
+            <p>It's the creator of new 3.0 wallpapers and he is the hyprland WM tester.</p>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/louis-bourquin-6238601a4/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 col-sm-6 col-12">
+        <div class="team-member">
+          <div class="team-member-img">
             <img src="img/contributors/beemo.jpg" alt="image of noe flatreaud">
           </div>
           <div class="team-member-text">
