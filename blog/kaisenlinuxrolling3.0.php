@@ -16,7 +16,7 @@
       <div class="col-lg-8 offset-lg-2">
         <div class="post-single-content">
           <h1 id="kaisenlinuxrolling">Kaisen Linux Rolling 3.0 changelog</h1>
-<p>The ultime and the last release of Kaisen Linux. Major and minor bugs fixed. End of the project with this release.</p></br>
+<p>The ultime and the last release of Kaisen Linux. Major and minor bugs fixed. End of the project.</p></br>
 <p>Codename: Rolling</p></br>
 <p><strong>I would like to begin this blog post by announcing the end of the Kaisen Linux project with this latest release.<br>
 I wish to embark on other professional and personal projects that will take up a considerable amount of my time, and for this reason, I can no longer continue developing Kaisen Linux.

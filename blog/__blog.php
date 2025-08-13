@@ -220,7 +220,7 @@
         ],
                 [
             'title' => 'Kaisen Linux Rolling 3.0 release note',
-                'extract' => 'The ultime and the last release of Kaisen Linux. Major and minor bugs fixed. End of the project whis this release.',
+                'extract' => 'The ultime and the last release of Kaisen Linux. Major and minor bugs fixed. End of the project.',
             'date'=> '2025/08/13',
             'visuel' => '/img/blog/screen-3.0.jpg',
             'link' => 'kaisenlinuxrolling3.0.php',
