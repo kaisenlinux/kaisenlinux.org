@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>clamd — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>clamd</h1>
+
+
+  </div>
+
+
+<p>Clam Daemon(8)                                                                          Clam AntiVirus                                                                          Clam Daemon(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">anti</span><span class="o">-</span><span class="n">virus</span><span class="w"> </span><span class="n">daemon</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="w"> </span><span class="p" data-group-id="7975339784-1">[</span><span class="n">options</span><span class="p" data-group-id="7975339784-1">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">listens</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">incoming</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nc">Unix</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">scans</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">demand</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">clamav</span><span class="o">/</span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span></code></pre><p>COMMANDS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">It</span><span class="sc">&#39;s  recommended to prefix clamd commands with the letter z (eg. zSCAN) to indicate that the command will be delimited by a NULL character and that clamd should continue reading com‐
+   mand data until a NULL character is read. The null delimiter assures that the complete command and its entire argument will be processed as a single  command.  Alternatively  commands
+   may be prefixed with the letter n (e.g. nSCAN) to use a newline character as the delimiter. Clamd replies will honour the requested terminator in turn.  If clamd doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">recognize</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t follow the requirements specified below, it will reply with an error message, and close the connection.
+
+   Clamd recognizes the following commands:
+
+   PING   Check the server&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">reply</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="s">&quot;PONG&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">VERSION</span><span class="w">
+          </span><span class="nc">Print</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">versions</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">RELOAD</span><span class="w"> </span><span class="nc">Reload</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">virus</span><span class="w"> </span><span class="n">databases</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">SHUTDOWN</span><span class="w">
+          </span><span class="nc">Perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">SCAN</span><span class="w"> </span><span class="n">file</span><span class="o">/</span><span class="n">directory</span><span class="w">
+          </span><span class="nc">Scan</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="1257776201-1">(</span><span class="n">recursively</span><span class="p" data-group-id="1257776201-1">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="p" data-group-id="1257776201-2">(</span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="1257776201-2">)</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">CONTSCAN</span><span class="w"> </span><span class="n">file</span><span class="o">/</span><span class="n">directory</span><span class="w">
+          </span><span class="nc">Scan</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p" data-group-id="1257776201-3">(</span><span class="n">recursively</span><span class="p" data-group-id="1257776201-3">)</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">don</span><span class="sc">&#39;t stop the scanning when a virus is found.
+
+   MULTISCAN file/directory
+          Scan file in a standard way or scan directory (recursively) using multiple threads (to make the scanning faster on SMP machines).
+
+   ALLMATCHSCAN file/directory
+          ALLMATCHSCAN works just like SCAN except that it sets a mode where scanning continues after finding a match within a file.
+
+   INSTREAM
+          It is mandatory to prefix this command with n or z.
+
+          Scan  a  stream  of data. The stream is sent to clamd in chunks, after INSTREAM, on the same socket on which the command was sent.  This avoids the overhead of establishing new
+          TCP connections and problems with NAT. The format of the chunk is: &#39;</span><span class="o">&lt;</span><span class="n">length</span><span class="o">&gt;</span><span class="o">&lt;</span><span class="n">data</span><span class="o">&gt;</span><span class="sc">&#39; where &lt;length&gt; is the size of the following data in bytes expressed as a 4 byte unsigned in‐
+          teger in network byte order and &lt;data&gt; is the actual chunk. Streaming is terminated by sending  a  zero-length  chunk.  Note:  do  not  exceed  StreamMaxLength  as  defined  in
+          clamd.conf, otherwise clamd will reply with INSTREAM size limit exceeded and close the connection.
+
+   FILDES It is mandatory to newline terminate this command, or prefix with n or z.
+
+          This  command only works on UNIX domain sockets.  Scan a file descriptor. After issuing a FILDES command a subsequent rfc2292/bsd4.4 style packet (with at least one dummy char‐
+          acter) is sent to clamd carrying the file descriptor to be scanned inside the ancillary data.  Alternatively the file descriptor may be sent in the same packet,  including  the
+          extra character.
+
+   STATS  It is mandatory to newline terminate this command, or prefix with n or z, it is recommended to only use the z prefix.
+
+          Replies with statistics about the scan queue, contents of scan queue, and memory usage. The exact reply format is subject to change in future releases.
+
+   IDSESSION, END
+          It is mandatory to prefix this command with n or z, and all commands inside IDSESSION must be prefixed.
+
+          Start/end  a  clamd  session.  Within a session multiple SCAN, INSTREAM, FILDES, VERSION, STATS commands can be sent on the same socket without opening new connections. Replies
+          from clamd will be in the form &#39;</span><span class="o">&lt;</span><span class="n">id</span><span class="ss">&gt;</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">response</span><span class="o">&gt;</span><span class="sc">&#39; where &lt;id&gt; is the request number (in ascii, starting from 1) and &lt;response&gt; is the usual clamd reply.  The  reply  lines  have
+          same delimiter as the corresponding command had.  Clamd will process the commands asynchronously, and reply as soon as it has finished processing.
+
+          Clamd  requires clients to read all the replies it sent, before sending more commands to prevent send() deadlocks. The recommended way to implement a client that uses IDSESSION
+          is with non-blocking sockets, and a select()/poll() loop: whenever send would block, sleep in select/poll until either you can write more data, or read more replies.  Note that
+          using non-blocking sockets without the select/poll loop and alternating recv()/send() doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">comply</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">clamd</span><span class="sc">&#39;s requirements.
+
+          If clamd detects that a client has deadlocked,  it will close the connection. Note that clamd may close an IDSESSION connection too if you don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">follow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">protocol</span><span class="err">&#39;</span><span class="n">s</span><span class="w">  </span><span class="kn">require</span><span class="err">‐</span><span class="w">
+          </span><span class="n">ments</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PING</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">alive</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">VERSIONCOMMANDS</span><span class="w">
+          </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">z</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">nVERSIONCOMMANDS</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Print</span><span class="w">  </span><span class="n">program</span><span class="w">  </span><span class="ow">and</span><span class="w">  </span><span class="n">database</span><span class="w"> </span><span class="n">versions</span><span class="p">,</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="s">&quot;| COMMANDS:&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">space</span><span class="o">-</span><span class="n">delimited</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span><span class="w">  </span><span class="nc">Clamd</span><span class="w"> </span><span class="o">&lt;</span><span class="mf">0.95</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">recognize</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">VERSION</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w">
+          </span><span class="n">reply</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">easy</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">IDSESSION</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">DEPRECATED</span><span class="w"> </span><span class="nc">COMMANDS</span><span class="w">
+
+   </span><span class="nc">STREAM</span><span class="w"> </span><span class="nc">Scan</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="s">&quot;PORT number&quot;</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">scan</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="1257776201-4">(</span><span class="nc">DEPRECATED</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="nc">INSTREAM</span><span class="w"> </span><span class="n">instead</span><span class="p" data-group-id="1257776201-4">)</span><span class="w">
+
+   </span><span class="nc">NOT</span><span class="w"> </span><span class="nc">SUPPORTED</span><span class="w"> </span><span class="nc">COMMANDS</span><span class="w">
+
+   </span><span class="nc">SESSION</span><span class="p">,</span><span class="w"> </span><span class="nc">END</span><span class="w">
+          </span><span class="nc">Start</span><span class="o">/</span><span class="k">end</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clamd</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="nc">TCP</span><span class="w"> </span><span class="n">session</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="1257776201-5">(</span><span class="kn">use</span><span class="w"> </span><span class="nc">IDSESSION</span><span class="w"> </span><span class="n">instead</span><span class="p" data-group-id="1257776201-5">)</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="nc">Output</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="nc">Print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">foreground</span><span class="w">
+          </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">foreground</span><span class="p">;</span><span class="w"> </span><span class="k" data-group-id="4086001536-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">daemonize</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">debug</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="nc">FILE</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">file</span><span class="o">=</span><span class="nc">FILE</span><span class="w">
+          </span><span class="nc">Read</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">FILE</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">fail</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">cvd</span><span class="o">-</span><span class="n">older</span><span class="o">-</span><span class="n">than</span><span class="o">=</span><span class="n">days</span><span class="w">
+          </span><span class="nc">Return</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">nonzero</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">virus</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">older</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">days</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">datadir</span><span class="o">=</span><span class="nc">DIRECTORY</span><span class="w">
+          </span><span class="nc">Load</span><span class="w"> </span><span class="n">signatures</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">DIRECTORY</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="nc">FILE</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">pid</span><span class="o">=</span><span class="nc">FILE</span><span class="w">
+          </span><span class="nc">Write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">daemon</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">FILE</span><span class="o">.</span></code></pre><p>ENVIRONMENT VARIABLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="ss">variables</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">LD_LIBRARY_PATH</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">May</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">startup</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">libclamunrar_iface</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="nc">RAR</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">support</span><span class="o">.</span></code></pre><p>SIGNALS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Clamd</span><span class="w"> </span><span class="n">recognizes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">signals</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">SIGHUP</span><span class="w"> </span><span class="nc">Reopen</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">logfile</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">SIGUSR2</span><span class="w">
+          </span><span class="nc">Reload</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="n">databases</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">SIGTERM</span><span class="w">
+          </span><span class="nc">Perform</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">clamav</span><span class="o">/</span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span></code></pre><p>CREDITS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Please</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">credits</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Tomasz</span><span class="w"> </span><span class="nc">Kojm</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tkojm</span><span class="na">@clamav</span><span class="o">.</span><span class="n">net</span><span class="o">&gt;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">clamd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="0944911360-1">(</span><span class="mi">5</span><span class="p" data-group-id="0944911360-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">clamdscan</span><span class="p" data-group-id="0944911360-2">(</span><span class="mi">1</span><span class="p" data-group-id="0944911360-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">freshclam</span><span class="p" data-group-id="0944911360-3">(</span><span class="mi">1</span><span class="p" data-group-id="0944911360-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">freshclam</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="0944911360-4">(</span><span class="mi">5</span><span class="p" data-group-id="0944911360-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">clamav</span><span class="o">-</span><span class="n">milter</span><span class="p" data-group-id="0944911360-5">(</span><span class="mi">8</span><span class="p" data-group-id="0944911360-5">)</span></code></pre><p>ClamAV 1.4.3                                                                           February 12, 2009                                                                        Clam Daemon(8)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="clamconf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+clamconf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="clamdscan.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+clamdscan
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

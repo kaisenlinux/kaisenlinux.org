@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>org.bluez.GattDescriptor — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>org.bluez.GattDescriptor</h1>
+
+
+  </div>
+
+
+<p>ORG.BLUEZ.GATTDESCRIPTOR(5)                                                       Linux System Administration                                                      ORG.BLUEZ.GATTDESCRIPTOR(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattDescriptor</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">BlueZ</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">GattDescriptor</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">documentation</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">GATT</span><span class="w"> </span><span class="n">local</span><span class="o">/</span><span class="n">server</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">remote</span><span class="o">/</span><span class="n">client</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">representation</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">high</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">API</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Local</span><span class="o">/</span><span class="nc">Server</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">descriptors</span><span class="w"> </span><span class="n">exported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">application</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Remote</span><span class="o">/</span><span class="nc">Client</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">descriptors</span><span class="w"> </span><span class="n">exported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">peer</span><span class="o">.</span></code></pre><p>INTERFACE
+   Client</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattDescriptor1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="p" data-group-id="6560500729-1">[</span><span class="n">variable</span><span class="w"> </span><span class="n">prefix</span><span class="p" data-group-id="6560500729-1">]</span><span class="o">/</span><span class="p" data-group-id="6560500729-2">{</span><span class="n">hci0</span><span class="p">,</span><span class="n">hci1</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="6560500729-2">}</span><span class="o">/</span><span class="n">dev_XX_XX_XX_XX_XX_XX</span><span class="o">/</span><span class="n">serviceXX</span><span class="o">/</span><span class="n">charYYYY</span><span class="o">/</span><span class="n">descriptorZZZ</span></code></pre><p>   Server</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">unique</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattDescriptor1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="n">freely</span><span class="w"> </span><span class="n">definable</span></code></pre><p>   Methods
+   array{byte} ReadValue(dict flags)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Issues</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">uint16_t</span><span class="w"> </span><span class="n">offset</span><span class="w">
+             </span><span class="nc">Read</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="0588945664-1">(</span><span class="n">server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="0588945664-1">)</span><span class="w">
+             </span><span class="nc">Device</span><span class="w"> </span><span class="n">object</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="0588945664-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="0588945664-2">)</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InProgress</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotAuthorized</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span></code></pre><p>   void WriteValue(array{byte} value, dict flags)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Issues</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">descriptor</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">flags</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">offset</span><span class="w">
+             </span><span class="nc">Write</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">mtu</span><span class="w">
+             </span><span class="nc">Exchanged</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="p" data-group-id="6413154260-1">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="6413154260-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w">
+             </span><span class="nc">Device</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p" data-group-id="6413154260-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="6413154260-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="6413154260-3">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="6413154260-3">)</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="n">boolean</span><span class="w"> </span><span class="n">prepare</span><span class="o">-</span><span class="n">authorize</span><span class="w">
+             </span><span class="nc">True</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">prepare</span><span class="w"> </span><span class="n">authorization</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InProgress</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InvalidValueLength</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotAuthorized</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.ImproperlyConfigured</span></code></pre><p>   Properties
+   string UUID [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="mi">128</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="nc">UUID</span><span class="o">.</span></code></pre><p>   object Characteristic [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">belongs</span><span class="w"> </span><span class="n">to</span><span class="o">.</span></code></pre><p>   array{byte} Value [read-only, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">descriptor</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">PropertiesChanged</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">emitted</span><span class="o">.</span></code></pre><p>   array{string} Flags [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Defines</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;secure-read&quot;</span><span class="w"> </span><span class="p" data-group-id="1375938102-1">(</span><span class="nc">Server</span><span class="w"> </span><span class="nc">Only</span><span class="p" data-group-id="1375938102-1">)</span><span class="w">
+
+      </span><span class="s">&quot;secure-write&quot;</span><span class="w"> </span><span class="p" data-group-id="1375938102-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="nc">Only</span><span class="p" data-group-id="1375938102-2">)</span><span class="w">
+
+      </span><span class="s">&quot;authorize&quot;</span></code></pre><p>   uint16 Handle [read-only] (Client Only)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Descriptor</span><span class="w"> </span><span class="n">handle</span><span class="o">.</span></code></pre><p>   uint16 Handle [read-write, optional] (Server Only)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Descriptor</span><span class="w">  </span><span class="n">handle</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w">  </span><span class="n">available</span><span class="w">  </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">fail</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">auto</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="mh">0x0000</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w">
+      </span><span class="n">cause</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">registered</span><span class="o">.</span></code></pre><p>BlueZ                                                                                    October 2023                                                              ORG.BLUEZ.GATTDESCRIPTOR(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-gattcharacteristic.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.bluez.GattCharacteristic
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-gattmanager.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.bluez.GattManager
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

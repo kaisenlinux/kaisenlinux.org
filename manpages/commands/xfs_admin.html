@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>xfs_admin — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>xfs_admin</h1>
+
+
+  </div>
+
+
+<p>xfs_admin(8)                                                                        System Manager's Manual                                                                       xfs_admin(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_admin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">filesystem</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_admin</span><span class="w"> </span><span class="p" data-group-id="2721713908-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">eflpu</span><span class="w"> </span><span class="p" data-group-id="2721713908-1">]</span><span class="w"> </span><span class="p" data-group-id="2721713908-2">[</span><span class="w"> </span><span class="o">-</span><span class="nc">O</span><span class="w"> </span><span class="n">featurelist</span><span class="w"> </span><span class="p" data-group-id="2721713908-2">]</span><span class="w"> </span><span class="p" data-group-id="2721713908-3">[</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="mi">0</span><span class="o">|</span><span class="mi">1</span><span class="w"> </span><span class="p" data-group-id="2721713908-3">]</span><span class="w"> </span><span class="p" data-group-id="2721713908-4">[</span><span class="w"> </span><span class="o">-</span><span class="nc">L</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="p" data-group-id="2721713908-4">]</span><span class="w"> </span><span class="p" data-group-id="2721713908-5">[</span><span class="w"> </span><span class="o">-</span><span class="nc">U</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="p" data-group-id="2721713908-5">]</span><span class="w"> </span><span class="p" data-group-id="2721713908-6">[</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">rtdev</span><span class="w"> </span><span class="p" data-group-id="2721713908-6">]</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="2721713908-7">[</span><span class="w"> </span><span class="n">logdev</span><span class="w"> </span><span class="p" data-group-id="2721713908-7">]</span><span class="w">
+   </span><span class="n">xfs_admin</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_admin</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">xfs_db</span><span class="p" data-group-id="5946187697-1">(</span><span class="mi">8</span><span class="p" data-group-id="5946187697-1">)</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Devices</span><span class="w">  </span><span class="n">that</span><span class="w">  </span><span class="n">are</span><span class="w">  </span><span class="n">mounted</span><span class="w">  </span><span class="n">cannot</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">modified</span><span class="o">.</span><span class="w">   </span><span class="nc">Administrators</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">unmount</span><span class="w"> </span><span class="n">filesystems</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">xfs_admin</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">xfs_db</span><span class="p" data-group-id="5946187697-2">(</span><span class="mi">8</span><span class="p" data-group-id="5946187697-2">)</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mounted</span><span class="w">
+   </span><span class="n">filesystem</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">examined</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">xfs_growfs</span><span class="p" data-group-id="5946187697-3">(</span><span class="mi">8</span><span class="p" data-group-id="5946187697-3">)</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">logdev</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">resides</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">filesystems</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">log</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w">  </span><span class="n">the</span><span class="w">
+   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="5946187697-4">(</span><span class="mi">5</span><span class="p" data-group-id="5946187697-4">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">log</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">e</span><span class="w">     </span><span class="nc">Enables</span><span class="w"> </span><span class="n">unwritten</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="p" data-group-id="2180689490-1">(</span><span class="k">for</span><span class="w"> </span><span class="n">legacy</span><span class="w"> </span><span class="n">filesystems</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="sc">&#39;t be disabled anymore at mkfs time).
+
+          This option only applies to the deprecated V4 format.
+
+   -f     Specifies that the filesystem image to be processed is stored in a regular file at device (see the mkfs.xfs -d file option).
+
+   -j     Enables version 2 log format (journal format supporting larger log buffers).
+
+          This option only applies to the deprecated V4 format.
+
+   -l     Print the current filesystem label.
+
+   -p     Enable 32bit project identifier support (PROJID32BIT feature).
+
+          This option only applies to the deprecated V4 format.
+
+   -u     Print the current filesystem UUID (Universally Unique IDentifier).
+
+   -c 0|1 Enable (1) or disable (0) lazy-counters in the filesystem.
+
+          Lazy-counters may not be disabled on Version 5 superblock filesystems (i.e. those with metadata CRCs enabled).
+
+          In other words, this option only applies to the deprecated V4 format.
+
+          This operation may take quite a bit of time on large filesystems as the entire filesystem needs to be scanned when this option is changed.
+
+          With lazy-counters enabled, the superblock is not modified or logged on every change of the free-space and inode counters. Instead, enough information is kept in other parts of
+          the  filesystem  to be able to maintain the counter values without needing to keep them in the superblock. This gives significant improvements in performance on some configura‐
+          tions and metadata intensive workloads.
+
+   -L label
+          Set the filesystem label to label.  XFS filesystem labels can be at most 12 characters long; if label is longer than 12 characters, xfs_admin will truncate it and print a warn‐
+          ing message.  The filesystem label can be cleared using the special &quot;--&quot; value for label.
+
+   -O feature1=status,feature2=status...
+          Add or remove features on an existing V5 filesystem.  The features should be specified as a comma-separated list.  status should be either 0 to disable the feature or 1 to  en‐
+          able the feature.  Note, however, that most features cannot be disabled.
+
+          NOTE:  Administrators  must  ensure  the filesystem is clean by running xfs_repair -n to inspect the filesystem before performing the upgrade.  If corruption is found, recovery
+          procedures (e.g. reformat followed by restoration from backup; or running xfs_repair without the -n) must be followed to clean the filesystem.
+
+          Supported features are as follows:
+
+          inobtcount
+              Keep a count the number of blocks in each inode btree in the AGI.  This reduces mount time by speeding up metadata space reservation calculations.  The filesystem cannot be
+              downgraded after this feature is enabled.  Once enabled, the filesystem will not be writable by older kernels.  This feature was added to Linux 5.10.
+
+          bigtime
+              Upgrade a filesystem to support larger timestamps up to the year 2486.  The filesystem cannot be downgraded after this feature is enabled.   Once  enabled,  the  filesystem
+              will not be mountable by older kernels.  This feature was added to Linux 5.10.
+
+          nrext64
+              Upgrade  a filesystem to support large per-inode extent counters. The maximum data fork extent count will be 2^48 - 1, while the maximum attribute fork extent count will be
+              2^32 - 1. The filesystem cannot be downgraded after this feature is enabled. Once enabled, the filesystem will not be mountable by older kernels.  This feature was added to
+              Linux 5.19.
+
+          exchange
+              Upgrade a filesystem to support atomic file content exchanges through the XFS_IOC_EXCHANGE_RANGE ioctl, and to support online repairs of directories,  extended  attributes,
+              symbolic links, and realtime free space metadata.  The filesystem cannot be downgraded after this feature is enabled.  Once enabled, the filesystem will not be mountable by
+              older kernels.
+
+   -U uuid
+          Set the UUID of the filesystem to uuid.  A sample UUID looks like this: &quot;c1b9d5a2-f162-11cf-9ece-0020afc76f16&quot;.  The uuid may also be nil, which will set the filesystem UUID to
+          the null UUID.  The uuid may also be generate, which will generate a new UUID for the filesystem.  Note that on CRC-enabled filesystems, this will set an incompatible flag such
+          that  older  kernels  will not be able to mount the filesystem.  To remove this incompatible flag, use restore, which will restore the original UUID and remove the incompatible
+          feature flag as needed.
+
+   -r rtdev
+          Specifies the device special file where the filesystem&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">resides</span><span class="o">.</span><span class="w">  </span><span class="nc">Only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">filesystems</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">realtime</span><span class="w"> </span><span class="n">section</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="2180689490-2">(</span><span class="mi">8</span><span class="p" data-group-id="2180689490-2">)</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">describes</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">UUID</span><span class="p">,</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">name</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="p" data-group-id="5547968463-1">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mount</span><span class="p" data-group-id="5547968463-2">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_db</span><span class="p" data-group-id="5547968463-3">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_growfs</span><span class="p" data-group-id="5547968463-4">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_repair</span><span class="p" data-group-id="5547968463-5">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="5547968463-6">(</span><span class="mi">5</span><span class="p" data-group-id="5547968463-6">)</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                                              </span><span class="n">xfs_admin</span><span class="p" data-group-id="5547968463-7">(</span><span class="mi">8</span><span class="p" data-group-id="5547968463-7">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="xca.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+xca
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="xfs_bmap.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+xfs_bmap
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

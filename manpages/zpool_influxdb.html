@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>zpool_influxdb — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-C9959D41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>zpool_influxdb</h1>
+
+
+  </div>
+
+
+<p>ZPOOL_INFLUXDB(8)                                                                   System Manager's Manual                                                                  ZPOOL_INFLUXDB(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">zpool_influxdb</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">collect</span><span class="w"> </span><span class="nc">ZFS</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">InfluxDB</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">format</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">zpool_influxdb</span><span class="w"> </span><span class="p" data-group-id="0436668821-1">[</span><span class="o">-</span><span class="n">e</span><span class="o">|</span><span class="o">--</span><span class="n">execd</span><span class="p" data-group-id="0436668821-1">]</span><span class="w"> </span><span class="p" data-group-id="0436668821-2">[</span><span class="o">-</span><span class="n">n</span><span class="o">|</span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">histogram</span><span class="p" data-group-id="0436668821-2">]</span><span class="w"> </span><span class="p" data-group-id="0436668821-3">[</span><span class="o">-</span><span class="n">s</span><span class="o">|</span><span class="o">--</span><span class="n">sum</span><span class="o">-</span><span class="n">histogram</span><span class="o">-</span><span class="n">buckets</span><span class="p" data-group-id="0436668821-3">]</span><span class="w"> </span><span class="p" data-group-id="0436668821-4">[</span><span class="o">-</span><span class="n">t</span><span class="o">|</span><span class="o">--</span><span class="n">tags</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="0436668821-5">[</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="0436668821-5">]</span><span class="err">…</span><span class="p" data-group-id="0436668821-4">]</span><span class="w"> </span><span class="p" data-group-id="0436668821-6">[</span><span class="n">pool</span><span class="p" data-group-id="0436668821-6">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">zpool_influxdb</span><span class="w">  </span><span class="n">produces</span><span class="w"> </span><span class="nc">InfluxDB</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">protocol</span><span class="o">-</span><span class="n">compatible</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">zpools</span><span class="o">.</span><span class="w">  </span><span class="nc">Like</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="n">zpool_influxdb</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">statistics</span><span class="o">.</span><span class="w">  </span><span class="nc">Unlike</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zpool</span><span class="w">
+   </span><span class="n">command</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">intended</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">humans</span><span class="p">,</span><span class="w"> </span><span class="n">zpool_influxdb</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">InfluxDB</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">protocol</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="n">collector</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">aggregator</span><span class="p">,</span><span class="w">  </span><span class="n">such</span><span class="w">  </span><span class="n">as</span><span class="w">
+   </span><span class="nc">Telegraf</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">zpool_influxdb</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">InfluxDB</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">pools</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">printed</span><span class="p">,</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">  </span><span class="nc">Providing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">re</span><span class="err">‐</span><span class="w">
+   </span><span class="n">stricts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">pool</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">execd</span><span class="w">  </span><span class="nc">Run</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">daemon</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">compatible</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Telegraf</span><span class="sc">&#39;s execd plugin.  In this mode, the pools are sampled every time a newline appears on the standard input.
+
+   -n, --no-histogram
+                Do  not  print  latency and I/O size histograms.  This can reduce the total amount of data, but one should consider the value brought by the insights that latency and I/O
+                size distributions provide.  The resulting values are suitable for graphing with Grafana&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">heatmap</span><span class="w"> </span><span class="n">plugin</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">sum</span><span class="o">-</span><span class="n">histogram</span><span class="o">-</span><span class="n">buckets</span><span class="w">
+                </span><span class="nc">Accumulates</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">accumulated</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">raw</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">zpool</span><span class="w"> </span><span class="n">iostat</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Grafana</span><span class="err">&#39;</span><span class="n">s</span><span class="w">  </span><span class="n">heatmap</span><span class="w">  </span><span class="n">plugin</span><span class="o">.</span><span class="w">
+                </span><span class="nc">Summing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="n">produces</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Prometheus</span><span class="w"> </span><span class="n">histograms</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">tags</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="6012582611-1">[</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p" data-group-id="6012582611-1">]</span><span class="err">…</span><span class="w">
+                </span><span class="nc">Adds</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">  </span><span class="nc">No</span><span class="w"> </span><span class="n">sanity</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">performed</span><span class="o">.</span><span class="w">  </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">InfluxDB</span><span class="w"> </span><span class="nc">Line</span><span class="w"> </span><span class="nc">Protocol</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">escaping</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">used</span><span class="w">
+                </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">   </span><span class="nc">Print</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">summary</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">zpool</span><span class="o">-</span><span class="n">iostat</span><span class="p" data-group-id="0127921086-1">(</span><span class="mi">8</span><span class="p" data-group-id="0127921086-1">)</span><span class="p">,</span><span class="w">  </span><span class="n">zpool</span><span class="o">-</span><span class="n">status</span><span class="p" data-group-id="0127921086-2">(</span><span class="mi">8</span><span class="p" data-group-id="0127921086-2">)</span><span class="p">,</span><span class="w">  </span><span class="ss">InfluxDB</span><span class="p">:</span><span class="w">  </span><span class="n">https</span><span class="ss">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">influxdata</span><span class="o">/</span><span class="n">influxdb</span><span class="p">,</span><span class="w">  </span><span class="ss">Telegraf</span><span class="p">:</span><span class="w">  </span><span class="n">https</span><span class="ss">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">influxdata</span><span class="o">/</span><span class="n">telegraf</span><span class="p">,</span><span class="w">  </span><span class="ss">Grafana</span><span class="p">:</span><span class="w">  </span><span class="n">https</span><span class="ss">://</span><span class="n">grafana</span><span class="o">.</span><span class="n">com</span><span class="p">,</span><span class="w">  </span><span class="ss">Prometheus</span><span class="p">:</span><span class="w">
+   </span><span class="n">https</span><span class="ss">://</span><span class="n">prometheus</span><span class="o">.</span><span class="n">io</span></code></pre><p>OpenZFS                                                                                  May 26, 2021                                                                        ZPOOL_INFLUXDB(8)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="zinject.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+zinject
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="zpool.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+zpool
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

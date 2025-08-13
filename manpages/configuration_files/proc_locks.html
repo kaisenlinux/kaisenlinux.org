@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>proc_locks — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>proc_locks</h1>
+
+
+  </div>
+
+
+<p>proc_locks(5)                                                                         File Formats Manual                                                                        proc_locks(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">locks</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">locks</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">leases</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">locks</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">locks</span><span class="w"> </span><span class="p" data-group-id="9428336425-1">(</span><span class="n">flock</span><span class="p" data-group-id="9428336425-2">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">fcntl</span><span class="p" data-group-id="9428336425-3">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-3">)</span><span class="p" data-group-id="9428336425-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">leases</span><span class="w"> </span><span class="p" data-group-id="9428336425-4">(</span><span class="n">fcntl</span><span class="p" data-group-id="9428336425-5">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-5">)</span><span class="p" data-group-id="9428336425-4">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">An</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">following</span><span class="p">:</span><span class="w">
+
+              </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">READ</span><span class="w">  </span><span class="mi">5433</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">7864448</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="mi">128</span><span class="w">
+              </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="nc">FLOCK</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">WRITE</span><span class="w"> </span><span class="mi">2001</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">7864554</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nc">EOF</span><span class="w">
+              </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="nc">FLOCK</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">WRITE</span><span class="w"> </span><span class="mi">1568</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">2</span><span class="n">f</span><span class="p">:</span><span class="mi">32388</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nc">EOF</span><span class="w">
+              </span><span class="mi">4</span><span class="p">:</span><span class="w"> </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">WRITE</span><span class="w"> </span><span class="mi">699</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">28457</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nc">EOF</span><span class="w">
+              </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">WRITE</span><span class="w"> </span><span class="mi">764</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">16</span><span class="p">:</span><span class="mi">21448</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w">
+              </span><span class="mi">6</span><span class="p">:</span><span class="w"> </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">READ</span><span class="w">  </span><span class="mi">3548</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">7867240</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">READ</span><span class="w">  </span><span class="mi">3548</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">7865567</span><span class="w"> </span><span class="mi">1826</span><span class="w"> </span><span class="mi">2335</span><span class="w">
+              </span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="nc">OFDLCK</span><span class="w"> </span><span class="nc">ADVISORY</span><span class="w">  </span><span class="nc">WRITE</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">8713209</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="mi">191</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-6">[</span><span class="mi">1</span><span class="p" data-group-id="9428336425-6">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">ordinal</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-7">[</span><span class="mi">2</span><span class="p" data-group-id="9428336425-7">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">  </span><span class="nc">Values</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="ss">include</span><span class="p">:</span><span class="w">
+
+               </span><span class="nc">FLOCK</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">flock</span><span class="p" data-group-id="9428336425-8">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-8">)</span><span class="o">.</span><span class="w">
+
+               </span><span class="nc">OFDLCK</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="p" data-group-id="9428336425-9">(</span><span class="nc">OFD</span><span class="p" data-group-id="9428336425-9">)</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">fcntl</span><span class="p" data-group-id="9428336425-10">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-10">)</span><span class="o">.</span><span class="w">
+
+               </span><span class="nc">POSIX</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">byte</span><span class="o">-</span><span class="n">range</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">fcntl</span><span class="p" data-group-id="9428336425-11">(</span><span class="mi">2</span><span class="p" data-group-id="9428336425-11">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-12">[</span><span class="mi">3</span><span class="p" data-group-id="9428336425-12">]</span><span class="w">  </span><span class="nc">Among</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">following</span><span class="p">:</span><span class="w">
+
+               </span><span class="nc">ADVISORY</span><span class="w">
+                      </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">advisory</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+
+               </span><span class="nc">MANDATORY</span><span class="w">
+                      </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-13">[</span><span class="mi">4</span><span class="p" data-group-id="9428336425-13">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">  </span><span class="nc">Values</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+               </span><span class="nc">READ</span><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">OFD</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">lock</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+
+               </span><span class="nc">WRITE</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">OFD</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">lock</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">exclusive</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-14">[</span><span class="mi">5</span><span class="p" data-group-id="9428336425-14">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">owns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">
+
+               </span><span class="nc">Because</span><span class="w"> </span><span class="nc">OFD</span><span class="w"> </span><span class="n">locks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">owned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="p" data-group-id="9428336425-15">(</span><span class="n">since</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptors</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">description</span><span class="p" data-group-id="9428336425-15">)</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">dis</span><span class="err">‐</span><span class="w">
+               </span><span class="n">played</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">OFD</span><span class="w"> </span><span class="n">locks</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="9428336425-16">(</span><span class="nc">Before</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">4.14</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">meant</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">initially</span><span class="w"> </span><span class="n">acquired</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">displayed</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="p" data-group-id="9428336425-16">)</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-17">[</span><span class="mi">6</span><span class="p" data-group-id="9428336425-17">]</span><span class="w">  </span><span class="nc">Three</span><span class="w">  </span><span class="n">colon</span><span class="o">-</span><span class="n">separated</span><span class="w">  </span><span class="n">subfields</span><span class="w">  </span><span class="n">that</span><span class="w"> </span><span class="n">identify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">minor</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">resides</span><span class="p">,</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">inode</span><span class="w">
+               </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-18">[</span><span class="mi">7</span><span class="p" data-group-id="9428336425-18">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">locks</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="w">
+
+          </span><span class="p" data-group-id="9428336425-19">[</span><span class="mi">8</span><span class="p" data-group-id="9428336425-19">]</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span><span class="w">  </span><span class="nc">EOF</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">extends</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="nc">BSD</span><span class="w"> </span><span class="n">locks</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="nc">EOF</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">4.9</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">locks</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">locks</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="p" data-group-id="9428336425-20">(</span><span class="n">see</span><span class="w"> </span><span class="n">pid_namespaces</span><span class="p" data-group-id="9428336425-21">(</span><span class="mi">7</span><span class="p" data-group-id="9428336425-21">)</span><span class="p" data-group-id="9428336425-20">)</span><span class="w"> </span><span class="k">for</span><span class="w">  </span><span class="n">which</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="o">/</span><span class="n">proc</span><span class="w">
+          </span><span class="n">filesystem</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">mounted</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="9428336425-22">(</span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">namespace</span><span class="p">,</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">filtering</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="p" data-group-id="9428336425-22">)</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">lslocks</span><span class="p" data-group-id="9428336425-23">(</span><span class="mi">8</span><span class="p" data-group-id="9428336425-23">)</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">lock</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">proc</span><span class="p" data-group-id="9644857500-1">(</span><span class="mi">5</span><span class="p" data-group-id="9644857500-1">)</span></code></pre><p>Linux man-pages 6.9.1                                                                     2024-05-02                                                                             proc_locks(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="proc_loadavg.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+proc_loadavg
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="procmailex.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+procmailex
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

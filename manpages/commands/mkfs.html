@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>mkfs — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>mkfs</h1>
+
+
+  </div>
+
+
+<p>MKFS(8)                                                                              System Administration                                                                             MKFS(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">filesystem</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">mkfs</span><span class="w"> </span><span class="p" data-group-id="1551068005-1">[</span><span class="n">options</span><span class="p" data-group-id="1551068005-1">]</span><span class="w"> </span><span class="p" data-group-id="1551068005-2">[</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">type</span><span class="p" data-group-id="1551068005-2">]</span><span class="w"> </span><span class="p" data-group-id="1551068005-3">[</span><span class="n">fs</span><span class="o">-</span><span class="n">options</span><span class="p" data-group-id="1551068005-3">]</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="1551068005-4">[</span><span class="n">size</span><span class="p" data-group-id="1551068005-4">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">frontend</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">deprecated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">favour</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">utils</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">mkfs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="0177486299-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">hda1</span><span class="p">,</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb2</span><span class="p" data-group-id="0177486299-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w">
+   </span><span class="n">shall</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">failure</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">actuality</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">simply</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">front</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">builders</span><span class="w"> </span><span class="p" data-group-id="0177486299-2">(</span><span class="n">mkfs</span><span class="o">.</span><span class="n">fstype</span><span class="p" data-group-id="0177486299-2">)</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="nc">Linux</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">searched</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">PATH</span><span class="w">
+   </span><span class="n">environment</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">only</span><span class="o">.</span><span class="w"> </span><span class="nc">Please</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">details</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">type</span><span class="w"> </span><span class="n">type</span><span class="w">
+       </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">built</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="2563923701-1">(</span><span class="n">currently</span><span class="w"> </span><span class="n">ext2</span><span class="p" data-group-id="2563923701-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">fs</span><span class="o">-</span><span class="n">options</span><span class="w">
+       </span><span class="nc">Filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">builder</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="w">
+       </span><span class="nc">Produce</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">executed</span><span class="o">.</span><span class="w"> </span><span class="nc">Specifying</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">inhibits</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">commands</span><span class="o">.</span><span class="w">
+       </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">really</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">testing</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+       </span><span class="nc">Display</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+       </span><span class="nc">Display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="2563923701-2">(</span><span class="nc">Option</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">parameter</span><span class="p">,</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="o">.</span><span class="p" data-group-id="2563923701-2">)</span></code></pre><p>BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">All</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">precede</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="n">filesystem</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">programs</span><span class="w"> </span><span class="k" data-group-id="0030322097-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">detect</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kn">require</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">size</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">David</span><span class="w"> </span><span class="nc">Engel</span><span class="w"> </span><span class="o">&lt;</span><span class="n">david</span><span class="na">@ods</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nc">Fred</span><span class="w"> </span><span class="nc">N</span><span class="o">.</span><span class="w"> </span><span class="n">van</span><span class="w"> </span><span class="nc">Kempen</span><span class="w"> </span><span class="o">&lt;</span><span class="n">waltje</span><span class="na">@uwalt</span><span class="o">.</span><span class="n">nl</span><span class="o">.</span><span class="n">mugnet</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nc">Ron</span><span class="w"> </span><span class="nc">Sommeling</span><span class="w"> </span><span class="o">&lt;</span><span class="n">sommel</span><span class="na">@sci</span><span class="o">.</span><span class="n">kun</span><span class="o">.</span><span class="n">nl</span><span class="o">&gt;</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">shamelessly</span><span class="w"> </span><span class="n">adapted</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Remy</span><span class="w"> </span><span class="nc">Card</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ext2</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">fs</span><span class="p" data-group-id="9075631068-1">(</span><span class="mi">5</span><span class="p" data-group-id="9075631068-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">badblocks</span><span class="p" data-group-id="9075631068-2">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">fsck</span><span class="p" data-group-id="9075631068-3">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkdosfs</span><span class="p" data-group-id="9075631068-4">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">mke2fs</span><span class="p" data-group-id="9075631068-5">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">bfs</span><span class="p" data-group-id="9075631068-6">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">ext2</span><span class="p" data-group-id="9075631068-7">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">ext3</span><span class="p" data-group-id="9075631068-8">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">ext4</span><span class="p" data-group-id="9075631068-9">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-9">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">minix</span><span class="p" data-group-id="9075631068-10">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-10">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">msdos</span><span class="p" data-group-id="9075631068-11">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-11">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">vfat</span><span class="p" data-group-id="9075631068-12">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-12">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">xfs</span><span class="p" data-group-id="9075631068-13">(</span><span class="mi">8</span><span class="p" data-group-id="9075631068-13">)</span></code></pre><p>REPORTING BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">bug</span><span class="w"> </span><span class="n">reports</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="n">tracker</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="n">issues</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>AVAILABILITY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">mkfs</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">downloaded</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="nc">Kernel</span><span class="w"> </span><span class="nc">Archive</span><span class="w"> </span><span class="o">&lt;</span><span class="n">https</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">util</span><span class="o">-</span><span class="n">linux</span><span class="o">/</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>util-linux 2.41                                                                           2025-02-26                                                                                   MKFS(8)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="mkfs-jfs.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+mkfs.jfs
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="mkfs-nilfs2.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+mkfs.nilfs2
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

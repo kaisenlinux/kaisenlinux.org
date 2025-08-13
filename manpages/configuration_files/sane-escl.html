@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>sane-escl — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>sane-escl</h1>
+
+
+  </div>
+
+
+<p>sane-escl(5)                                                                     SANE Scanner Access Now Easy                                                                     sane-escl(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sane</span><span class="o">-</span><span class="n">escl</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">SANE</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">eSCL</span><span class="w"> </span><span class="n">scanners</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">sane</span><span class="o">-</span><span class="n">escl</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">implements</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">SANE</span><span class="w"> </span><span class="p" data-group-id="3353744588-1">(</span><span class="nc">Scanner</span><span class="w"> </span><span class="nc">Access</span><span class="w"> </span><span class="nc">Now</span><span class="w"> </span><span class="nc">Easy</span><span class="p" data-group-id="3353744588-1">)</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">eSCL</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">scanners</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Currently</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">models</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p" data-group-id="3353744588-2">(</span><span class="nc">This</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">exhaustive</span><span class="p" data-group-id="3353744588-2">)</span><span class="p">:</span><span class="w">
+
+          </span><span class="nc">BROTHER</span><span class="w"> </span><span class="nc">DCP</span><span class="o">-</span><span class="nc">J772DW</span><span class="p">,</span><span class="w"> </span><span class="nc">DCP</span><span class="o">-</span><span class="nc">L2530DW</span><span class="w">
+          </span><span class="nc">BROTHER</span><span class="w"> </span><span class="nc">HL</span><span class="o">-</span><span class="nc">L2590DW</span><span class="w">
+          </span><span class="nc">BROTHER</span><span class="w"> </span><span class="nc">MFC</span><span class="o">-</span><span class="nc">J985DW</span><span class="p">,</span><span class="w"> </span><span class="nc">MFC</span><span class="o">-</span><span class="nc">J1300DW</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">IR</span><span class="w"> </span><span class="nc">C3520</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">MG5765</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">G4511</span><span class="p">,</span><span class="w"> </span><span class="nc">G7050</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">TR4520</span><span class="p">,</span><span class="w"> </span><span class="nc">TR4540</span><span class="p">,</span><span class="w"> </span><span class="nc">TR4550</span><span class="p">,</span><span class="w"> </span><span class="nc">TR4551</span><span class="p">,</span><span class="w"> </span><span class="nc">TR7500</span><span class="p">,</span><span class="w"> </span><span class="nc">TR8500</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">TR8520</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">TS3100</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3150</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3151</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3152</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3300</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3350</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">TS3351</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3352</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3450</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3451</span><span class="p">,</span><span class="w"> </span><span class="nc">TS3452</span><span class="p">,</span><span class="w"> </span><span class="nc">TS5350</span><span class="w">
+          </span><span class="nc">CANON</span><span class="w"> </span><span class="nc">PIXMA</span><span class="w"> </span><span class="nc">TS5351</span><span class="p">,</span><span class="w"> </span><span class="nc">TS6150</span><span class="p">,</span><span class="w"> </span><span class="nc">TS8050</span><span class="p">,</span><span class="w"> </span><span class="nc">TS8350</span><span class="p">,</span><span class="w"> </span><span class="nc">TS9100</span><span class="w">
+          </span><span class="nc">EPSON</span><span class="w"> </span><span class="nc">ET</span><span class="o">-</span><span class="mi">2750</span><span class="p">,</span><span class="w"> </span><span class="nc">ET</span><span class="o">-</span><span class="mi">3750</span><span class="p">,</span><span class="w"> </span><span class="nc">ET</span><span class="o">-</span><span class="mi">4750</span><span class="w">
+          </span><span class="nc">EPSON</span><span class="w"> </span><span class="nc">EcoTank</span><span class="w"> </span><span class="nc">L3160</span><span class="w">
+          </span><span class="nc">EPSON</span><span class="w"> </span><span class="nc">XP</span><span class="o">-</span><span class="mi">6100</span><span class="w">
+          </span><span class="nc">HP</span><span class="w"> </span><span class="nc">DESKJET</span><span class="w"> </span><span class="mi">2710</span><span class="p">,</span><span class="w"> </span><span class="nc">DESKJET</span><span class="w"> </span><span class="mi">2723</span><span class="p">,</span><span class="w"> </span><span class="nc">DESKJET</span><span class="w"> </span><span class="mi">3760</span><span class="w">
+          </span><span class="nc">HP</span><span class="w"> </span><span class="nc">LASERJET</span><span class="w"> </span><span class="nc">ENTREPRISE</span><span class="w"> </span><span class="nc">FLOW</span><span class="w"> </span><span class="nc">MFP</span><span class="w"> </span><span class="nc">M578</span><span class="p">,</span><span class="w">
+          </span><span class="nc">HP</span><span class="w"> </span><span class="nc">LASERJET</span><span class="w"> </span><span class="nc">MFP</span><span class="w"> </span><span class="nc">M28W</span><span class="p">,</span><span class="w"> </span><span class="nc">LASERJET</span><span class="w"> </span><span class="nc">MFP</span><span class="w"> </span><span class="nc">M630</span><span class="w">
+          </span><span class="nc">HP</span><span class="w"> </span><span class="nc">OFFICEJET</span><span class="w"> </span><span class="mi">4630</span><span class="p">,</span><span class="w"> </span><span class="nc">OFFICEJET</span><span class="w"> </span><span class="nc">PRO</span><span class="w"> </span><span class="mi">8610</span><span class="w">
+          </span><span class="nc">RICOH</span><span class="w"> </span><span class="nc">SP3710S</span><span class="w">
+          </span><span class="nc">XEROX</span><span class="w"> </span><span class="nc">VERSALINK</span><span class="w"> </span><span class="nc">C7220</span><span class="w">
+
+   </span><span class="nc">The</span><span class="o">.</span><span class="w">   </span><span class="n">sane</span><span class="o">-</span><span class="n">escl</span><span class="w">  </span><span class="n">backend</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nc">SANE</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="nc">AirScan</span><span class="o">/</span><span class="n">eSCL</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">announce</span><span class="w"> </span><span class="n">themselves</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mDNS</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="c">_uscan</span><span class="o">.</span><span class="c">_utcp</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="c">_uscans</span><span class="o">.</span><span class="c">_utcp</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sane</span><span class="o">-</span><span class="n">escl</span><span class="w"> </span><span class="n">backend</span><span class="w">
+   </span><span class="n">recovers</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">capacities</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">scanning</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">eSCL</span><span class="w"> </span><span class="n">protocol</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w">  </span><span class="n">found</span><span class="w">  </span><span class="n">at</span><span class="w">  </span><span class="n">https</span><span class="ss">://</span><span class="n">support</span><span class="o">.</span><span class="n">apple</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">-</span><span class="n">us</span><span class="o">/</span><span class="nc">HT201311</span><span class="o">.</span><span class="w">   </span><span class="nc">While</span><span class="w">
+   </span><span class="n">these</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">work</span><span class="p">,</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">mileage</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">vary</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sane</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">escl</span><span class="o">.</span><span class="n">conf</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">sane</span><span class="o">/</span><span class="n">libsane</span><span class="o">-</span><span class="n">escl</span><span class="o">.</span><span class="n">a</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">implementing</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">backend</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">sane</span><span class="o">/</span><span class="n">libsane</span><span class="o">-</span><span class="n">escl</span><span class="o">.</span><span class="n">so</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">implementing</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p" data-group-id="2211645163-1">(</span><span class="n">present</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">dynamic</span><span class="w"> </span><span class="n">loading</span><span class="p" data-group-id="2211645163-1">)</span><span class="o">.</span></code></pre><p>ENVIRONMENT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">SANE_DEBUG_ESCL</span><span class="w">
+          </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">enabled</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">backend</span><span class="o">.</span><span class="w">  </span><span class="nc">E</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">to</span><span class="w">
+          </span><span class="n">be</span><span class="w"> </span><span class="n">printed</span><span class="o">.</span><span class="w">  </span><span class="nc">Smaller</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="n">reduce</span><span class="w"> </span><span class="n">verbosity</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sane</span><span class="p" data-group-id="0747257800-1">(</span><span class="mi">7</span><span class="p" data-group-id="0747257800-1">)</span><span class="w"> </span><span class="n">scanimage</span><span class="p" data-group-id="0747257800-2">(</span><span class="mi">1</span><span class="p" data-group-id="0747257800-2">)</span><span class="w"> </span><span class="n">xscanimage</span><span class="p" data-group-id="0747257800-3">(</span><span class="mi">1</span><span class="p" data-group-id="0747257800-3">)</span><span class="w"> </span><span class="n">xsane</span><span class="p" data-group-id="0747257800-4">(</span><span class="mi">1</span><span class="p" data-group-id="0747257800-4">)</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Touboul</span><span class="w"> </span><span class="nc">Nathane</span><span class="p">,</span><span class="w"> </span><span class="nc">Thierry</span><span class="w"> </span><span class="nc">HUCHARD</span><span class="w">
+
+                                                                                      </span><span class="mi">14</span><span class="w"> </span><span class="nc">Dec</span><span class="w"> </span><span class="mi">2019</span><span class="w">                                                                             </span><span class="n">sane</span><span class="o">-</span><span class="n">escl</span><span class="p" data-group-id="4765123662-1">(</span><span class="mi">5</span><span class="p" data-group-id="4765123662-1">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="sane-epson.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+sane-epson
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="sane-fujitsu.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+sane-fujitsu
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

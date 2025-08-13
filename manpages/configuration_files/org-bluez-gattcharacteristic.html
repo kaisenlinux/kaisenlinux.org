@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>org.bluez.GattCharacteristic — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>org.bluez.GattCharacteristic</h1>
+
+
+  </div>
+
+
+<p>ORG.BLUEZ.GATTCHARACTERISTIC(5)                                                   Linux System Administration                                                  ORG.BLUEZ.GATTCHARACTERISTIC(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattCharacteristic</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">BlueZ</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">GattCharacteristic</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">documentation</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">GATT</span><span class="w"> </span><span class="n">local</span><span class="o">/</span><span class="n">server</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">remote</span><span class="o">/</span><span class="n">client</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">representation</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">high</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">API</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Local</span><span class="o">/</span><span class="nc">Server</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">characteristics</span><span class="w"> </span><span class="n">exported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">plugin</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">application</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Remote</span><span class="o">/</span><span class="nc">Client</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">characteristics</span><span class="w"> </span><span class="n">exported</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">peer</span><span class="o">.</span></code></pre><p>INTERFACE
+   Client</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattCharacteristic1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="p" data-group-id="7153658807-1">[</span><span class="n">variable</span><span class="w"> </span><span class="n">prefix</span><span class="p" data-group-id="7153658807-1">]</span><span class="o">/</span><span class="p" data-group-id="7153658807-2">{</span><span class="n">hci0</span><span class="p">,</span><span class="n">hci1</span><span class="p">,</span><span class="n">...</span><span class="p" data-group-id="7153658807-2">}</span><span class="o">/</span><span class="n">dev_XX_XX_XX_XX_XX_XX</span><span class="o">/</span><span class="n">serviceXX</span><span class="o">/</span><span class="n">charYYYY</span></code></pre><p>   Server</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">unique</span><span class="w"> </span><span class="n">name</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">GattCharacteristic1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="n">freely</span><span class="w"> </span><span class="n">definable</span></code></pre><p>   Methods
+   array{byte} ReadValue(dict options)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Issues</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">uint16_t</span><span class="w"> </span><span class="n">offset</span><span class="w">
+             </span><span class="nc">Read</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16_t</span><span class="w"> </span><span class="n">mtu</span><span class="w"> </span><span class="p" data-group-id="4839949448-1">(</span><span class="n">server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4839949448-1">)</span><span class="w">
+             </span><span class="nc">Exchange</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="4839949448-2">(</span><span class="n">server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4839949448-2">)</span><span class="w">
+             </span><span class="nc">Device</span><span class="w"> </span><span class="n">object</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="p" data-group-id="4839949448-3">(</span><span class="n">server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="4839949448-3">)</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="mh">0x80</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mh">0x9f</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InProgress</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotAuthorized</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InvalidOffset</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span></code></pre><p>   void WriteValue(array{byte} value, dict options)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Issues</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">characteristic</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">offset</span><span class="w">
+             </span><span class="nc">Write</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">type</span><span class="w">
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;command&quot;</span><span class="w">
+                    </span><span class="nc">Use</span><span class="w"> </span><span class="nc">Write</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">procedure</span><span class="o">.</span><span class="w">
+
+             </span><span class="s">&quot;request&quot;</span><span class="w">
+                    </span><span class="nc">Use</span><span class="w"> </span><span class="nc">Write</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">procedure</span><span class="o">.</span><span class="w">
+
+             </span><span class="s">&quot;reliable&quot;</span><span class="w">
+                    </span><span class="nc">Use</span><span class="w"> </span><span class="nc">Reliable</span><span class="w"> </span><span class="nc">Write</span><span class="w"> </span><span class="n">procedure</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">mtu</span><span class="w">
+             </span><span class="nc">Exchanged</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="p" data-group-id="8477952363-1">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="8477952363-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w">
+             </span><span class="nc">Device</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p" data-group-id="8477952363-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="8477952363-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="8477952363-3">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="8477952363-3">)</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="n">boolean</span><span class="w"> </span><span class="n">prepare</span><span class="o">-</span><span class="n">authorize</span><span class="w">
+             </span><span class="nc">True</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">prepare</span><span class="w"> </span><span class="n">authorization</span><span class="w"> </span><span class="n">request</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="mh">0x80</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mh">0x9f</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InProgress</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InvalidValueLength</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotAuthorized</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.ImproperlyConfigured</span></code></pre><p>   fd, uint16 AcquireWrite(dict options) [optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Acquire</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">writing</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">sockets</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span><span class="w">  </span><span class="nc">Usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">WriteValue</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="n">causing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nc">NotPermitted</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">negotiated</span><span class="w"> </span><span class="nc">MTU</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="nc">WriteAcquired</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">relies</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">write</span><span class="o">-</span><span class="n">without</span><span class="o">-</span><span class="n">response</span><span class="w"> </span><span class="nc">Flag</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">To</span><span class="w"> </span><span class="n">release</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">HUP</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">disconnected</span><span class="o">.</span><span class="w">
+
+      </span><span class="ss">Note</span><span class="p">:</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">negotiated</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">symmetric</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">delayed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">exchange</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">is</span><span class="w">
+      </span><span class="n">closed</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">reconnections</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">renegotiated</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w">
+             </span><span class="nc">Object</span><span class="w"> </span><span class="nc">Device</span><span class="w"> </span><span class="p" data-group-id="0109871134-1">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="0109871134-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">mtu</span><span class="w">
+             </span><span class="nc">Exchanged</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="p" data-group-id="0109871134-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="0109871134-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="0109871134-3">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="0109871134-3">)</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span></code></pre><p>   fd, uint16 AcquireNotify(dict options) [optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Acquire</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">notify</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">sockets</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">support</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">StartNotify</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="n">causing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">negotiated</span><span class="w"> </span><span class="nc">MTU</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Only</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="nc">NotifyAcquired</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">relies</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">presence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;notify&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;indicate&quot;</span><span class="w"> </span><span class="nc">Flag</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="nc">StartNotify</span><span class="p" data-group-id="5362683792-1">(</span><span class="p" data-group-id="5362683792-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Notification</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">procedure</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="nc">StartNotify</span><span class="p" data-group-id="5362683792-2">(</span><span class="p" data-group-id="5362683792-2">)</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">called</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">dispatched</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Value</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">af</span><span class="err">‐</span><span class="w">
+      </span><span class="n">fected</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">notify</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">acquired</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">To</span><span class="w"> </span><span class="n">release</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">HUP</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">disconnected</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">As</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">indication</span><span class="w"> </span><span class="n">procedure</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">confirmation</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">received</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="p" data-group-id="5362683792-3">(</span><span class="nc">POLLOUT</span><span class="p" data-group-id="5362683792-3">)</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">receiving</span><span class="w">
+      </span><span class="n">a</span><span class="w"> </span><span class="n">confirmation</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="p" data-group-id="5362683792-4">(</span><span class="mh">0x01</span><span class="p" data-group-id="5362683792-4">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="o">.</span><span class="w">
+
+      </span><span class="ss">Note</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">negotiated</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">symmetric</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">delayed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">exchange</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">completed</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">descriptor</span><span class="w">  </span><span class="n">is</span><span class="w">
+      </span><span class="n">closed</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">reconnections</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">renegotiated</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">options</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">object</span><span class="w"> </span><span class="n">device</span><span class="w">
+             </span><span class="nc">Object</span><span class="w"> </span><span class="nc">Device</span><span class="w"> </span><span class="p" data-group-id="5362683792-5">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="5362683792-5">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="n">mtu</span><span class="w">
+             </span><span class="nc">Exchanged</span><span class="w"> </span><span class="nc">MTU</span><span class="w"> </span><span class="p" data-group-id="5362683792-6">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="5362683792-6">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="n">link</span><span class="w">
+             </span><span class="nc">Link</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p" data-group-id="5362683792-7">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="5362683792-7">)</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;BR/EDR&quot;</span><span class="w">
+
+             </span><span class="s">&quot;LE&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span></code></pre><p>   void StartNotify()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Starts</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">indications</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotPermitted</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InProgress</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotConnected</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.NotSupported</span></code></pre><p>   void StopNotify()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Stops</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">cancel</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">StartNotify</span><span class="p" data-group-id="5048405153-1">(</span><span class="p" data-group-id="5048405153-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">shared</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">sessions</span><span class="w"> </span><span class="n">thus</span><span class="w"> </span><span class="n">calling</span><span class="w"> </span><span class="nc">StopNotify</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">release</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">session</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   void Confirm() [noreply, optional] (Server only)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Confirms</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">received</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">Errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   Properties
+   string UUID [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="mi">128</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="nc">UUID</span><span class="o">.</span></code></pre><p>   object Service [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GATT</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">belongs</span><span class="w"> </span><span class="n">to</span><span class="o">.</span></code></pre><p>   array{byte} Value [read-only, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">The</span><span class="w">  </span><span class="n">cached</span><span class="w">  </span><span class="n">value</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">characteristic</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">notification</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">indication</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">received</span><span class="p">,</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Properti</span><span class="err">‐</span><span class="w">
+      </span><span class="n">esChanged</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">emitted</span><span class="o">.</span></code></pre><p>   boolean WriteAcquired [read-only, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">True</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">acquired</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">AcquireWrite</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ommited</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;write-without-response&#39;</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">presence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">AcquireWrite</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span></code></pre><p>   boolean NotifyAcquired [read-only, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">True</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">acquired</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">AcquireNotify</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ommited</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;notify&#39;</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">For</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">presence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">property</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="nc">AcquireNotify</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span></code></pre><p>   boolean Notifying [read-only, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">True</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">indications</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span></code></pre><p>   array{string} Flags [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Defines</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="nc">Core</span><span class="w"> </span><span class="n">spec</span><span class="w"> </span><span class="s">&quot;Table 3.5: Characteristic Properties bit field&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot;Table 3.8: Characteristic Extended Properties bit field&quot;</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="s">&quot;x-notify&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s">&quot;x-indicate&quot;</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">restrict</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">indications</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">imposing</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">restrictions</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">characteristic</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">characteristic</span><span class="w"> </span><span class="n">configuration</span><span class="w">  </span><span class="n">de</span><span class="err">‐</span><span class="w">
+      </span><span class="n">scriptor</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;broadcast&quot;</span><span class="w">
+
+      </span><span class="s">&quot;read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;write-without-response&quot;</span><span class="w">
+
+      </span><span class="s">&quot;write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;notify&quot;</span><span class="w">
+
+      </span><span class="s">&quot;indicate&quot;</span><span class="w">
+
+      </span><span class="s">&quot;authenticated-signed-writes&quot;</span><span class="w">
+
+      </span><span class="s">&quot;extended-properties&quot;</span><span class="w">
+
+      </span><span class="s">&quot;reliable-write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;writable-auxiliaries&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-notify&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-1">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-1">)</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-indicate&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-2">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-2">)</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-read&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-write&quot;</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-notify&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-3">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-3">)</span><span class="w">
+
+      </span><span class="s">&quot;encrypt-authenticated-indicate&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-4">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-4">)</span><span class="w">
+
+      </span><span class="s">&quot;secure-read&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-5">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-5">)</span><span class="w">
+
+      </span><span class="s">&quot;secure-write&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-6">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-6">)</span><span class="w">
+
+      </span><span class="s">&quot;secure-notify&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-7">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-7">)</span><span class="w">
+
+      </span><span class="s">&quot;secure-indicate&quot;</span><span class="w"> </span><span class="p" data-group-id="2733618789-8">(</span><span class="nc">Server</span><span class="w"> </span><span class="n">only</span><span class="p" data-group-id="2733618789-8">)</span><span class="w">
+
+      </span><span class="s">&quot;authorize&quot;</span></code></pre><p>   uint16 Handle [read-only] (Client Only)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Characteristic</span><span class="w"> </span><span class="n">handle</span><span class="o">.</span></code></pre><p>   uint16 Handle [read-write, optional] (Server Only)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Characteristic</span><span class="w"> </span><span class="n">handle</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">fail</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">auto</span><span class="w"> </span><span class="n">allocate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="mh">0x0000</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w">
+      </span><span class="n">cause</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">registered</span><span class="o">.</span></code></pre><p>   uint16 MTU [read-only]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Characteristic</span><span class="w"> </span><span class="nc">MTU</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">ReadValue</span><span class="p" data-group-id="7462834542-1">(</span><span class="p" data-group-id="7462834542-1">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">WriteValue</span><span class="p" data-group-id="7462834542-2">(</span><span class="p" data-group-id="7462834542-2">)</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">procedures</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span></code></pre><p>BlueZ                                                                                    October 2023                                                          ORG.BLUEZ.GATTCHARACTERISTIC(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-deviceset.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.bluez.DeviceSet
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-gattdescriptor.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.bluez.GattDescriptor
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

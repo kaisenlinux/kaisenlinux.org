@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>passwd — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>passwd</h1>
+
+
+  </div>
+
+
+<p>PASSWD(1)                                                                                User Commands                                                                               PASSWD(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">passwd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">password</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">passwd</span><span class="w"> </span><span class="p" data-group-id="0278851975-1">[</span><span class="n">options</span><span class="p" data-group-id="0278851975-1">]</span><span class="w"> </span><span class="p" data-group-id="0278851975-2">[</span><span class="nc">LOGIN</span><span class="p" data-group-id="0278851975-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">accounts</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">own</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">superuser</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">account</span><span class="o">.</span><span class="w">
+   </span><span class="n">passwd</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">validity</span><span class="w"> </span><span class="n">period</span><span class="o">.</span></code></pre><p>   Password Changes</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">prompted</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">compared</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">chance</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enter</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">superuser</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">permitted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bypass</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">forgotten</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">After</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">entered</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">aging</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">checked</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">permitted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">refuses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">the</span><span class="w">
+   </span><span class="n">password</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">prompted</span><span class="w"> </span><span class="n">twice</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">replacement</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">compared</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Then</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">tested</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">complexity</span><span class="o">.</span><span class="w">  </span><span class="n">passwd</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">reject</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">suitably</span><span class="w"> </span><span class="n">complex</span><span class="o">.</span><span class="w"> </span><span class="nc">Care</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">taken</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">erase</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">kill</span><span class="w">
+   </span><span class="n">characters</span><span class="o">.</span></code></pre><p>   Hints for user passwords</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strength</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">legacy</span><span class="w"> </span><span class="nc">UNIX</span><span class="w"> </span><span class="nc">System</span><span class="w"> </span><span class="n">encryption</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NBS</span><span class="w"> </span><span class="nc">DES</span><span class="w">
+   </span><span class="n">algorithm</span><span class="o">.</span><span class="w"> </span><span class="nc">More</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="p" data-group-id="6922350689-1">(</span><span class="n">see</span><span class="w"> </span><span class="nc">ENCRYPT_METHOD</span><span class="p" data-group-id="6922350689-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">depends</span><span class="w"> </span><span class="n">upon</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">randomness</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">selected</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Compromises</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">careless</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">selection</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">handling</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">reason</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dictionary</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">which</span><span class="w">
+   </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">down</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">proper</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">license</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">birth</span><span class="w"> </span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">street</span><span class="w"> </span><span class="n">address</span><span class="o">.</span><span class="w"> </span><span class="nc">Any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">guesses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">violate</span><span class="w"> </span><span class="n">system</span><span class="w">
+   </span><span class="n">security</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">As</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">guideline</span><span class="p">,</span><span class="w"> </span><span class="n">passwords</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">random</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="sc">&#39;s fine to use simple character sets, such as passwords consisting only of lowercase letters, if that helps memorizing
+   longer passwords. For a password consisting only of lowercase English letters randomly chosen, and a length of 32, there are 26^32 (approximately 2^150) different possible
+   combinations. Being an exponential equation, it&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">apparent</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">exponent</span><span class="w"> </span><span class="p" data-group-id="6922350689-2">(</span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="p" data-group-id="6922350689-2">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="p" data-group-id="6922350689-3">(</span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">set</span><span class="p" data-group-id="6922350689-3">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">advice</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">choose</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">strong</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="nc">Password_strength</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w">
+       </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="nc">S</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">causes</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">users</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">delete</span><span class="w">
+       </span><span class="nc">Delete</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="sc">&#39;s password (make it empty). This is a quick way to disable a password for an account. It will set the named account passwordless.
+
+   -e, --expire
+       Immediately expire an account&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="sc">&#39;s next login.
+
+   -h, --help
+       Display help message and exit.
+
+   -i, --inactive INACTIVE
+       This option is used to disable an account after the password has been expired for a number of days. After a user account has had an expired password for INACTIVE days, the user
+       may no longer sign on to the account.
+
+   -k, --keep-tokens
+       Indicate password change should be performed only for expired authentication tokens (passwords). The user wishes to keep their non-expired tokens as before.
+
+   -l, --lock
+       Lock the password of the named account. This option disables a password by changing it to a value which matches no possible encrypted value (it adds a ´!´ at the beginning of the
+       password).
+
+       Note that this does not disable the account. The user may still be able to login using another authentication token (e.g. an SSH key). To disable the account, administrators
+       should use usermod --expiredate 1 (this sets the account&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">expire</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Jan</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1970</span><span class="p">)</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Users</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">password</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">mindays</span><span class="w"> </span><span class="nc">MIN_DAYS</span><span class="w">
+       </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">MIN_DAYS</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">quiet</span><span class="w">
+       </span><span class="nc">Quiet</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">repository</span><span class="w"> </span><span class="nc">REPOSITORY</span><span class="w">
+       </span><span class="n">change</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">REPOSITORY</span><span class="w"> </span><span class="n">repository</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">root</span><span class="w"> </span><span class="nc">CHROOT_DIR</span><span class="w">
+       </span><span class="nc">Apply</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CHROOT_DIR</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CHROOT_DIR</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">absolute</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">P</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">prefix</span><span class="w"> </span><span class="nc">PREFIX_DIR</span><span class="w">
+       </span><span class="nc">Apply</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="nc">PREFIX_DIR</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">chroot</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">intended</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">preparing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cross</span><span class="o">-</span><span class="n">compilation</span><span class="w">
+       </span><span class="n">target</span><span class="o">.</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="ss">limitations</span><span class="p">:</span><span class="w"> </span><span class="nc">NIS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">LDAP</span><span class="w"> </span><span class="n">users</span><span class="o">/</span><span class="n">groups</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">verified</span><span class="o">.</span><span class="w"> </span><span class="nc">No</span><span class="w"> </span><span class="nc">PAM</span><span class="w"> </span><span class="n">support</span><span class="o">.</span><span class="w"> </span><span class="nc">No</span><span class="w"> </span><span class="nc">SELINUX</span><span class="w"> </span><span class="n">support</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">status</span><span class="w">
+       </span><span class="nc">Display</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">fields</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="sc">&#39;s login name. The second field indicates if the user account has a
+       locked password (L), has no password (NP), or has a usable password (P). The third field gives the date of the last password change. The next four fields are the minimum age,
+       maximum age, warning period, and inactivity period for the password. These ages are expressed in days.
+
+   -u, --unlock
+       Unlock the password of the named account. This option re-enables a password by changing the password back to its previous value (to the value before using the -l option).
+
+   -w, --warndays WARN_DAYS
+       Set the number of days of warning before a password change is required. The WARN_DAYS option is the number of days prior to the password expiring that a user will be warned that
+       their password is about to expire.
+
+   -x, --maxdays MAX_DAYS
+       Set the maximum number of days a password remains valid. After MAX_DAYS, the password is required to be changed.
+
+       Passing the number -1 as MAX_DAYS will remove checking a password&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">validity</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">stdin</span><span class="w">
+       </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">indicate</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pipe</span><span class="o">.</span></code></pre><p>CAVEATS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Password</span><span class="w"> </span><span class="n">complexity</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">vary</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">site</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">urged</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">complex</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">he</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">feels</span><span class="w"> </span><span class="n">comfortable</span><span class="w"> </span><span class="k">with</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Users</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nc">NIS</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">logged</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NIS</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">passwd</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="nc">PAM</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">passwords</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="w">
+       </span><span class="nc">User</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span><span class="w">
+       </span><span class="nc">Secure</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pam</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">passwd</span><span class="w">
+       </span><span class="nc">PAM</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">passwd</span><span class="o">.</span></code></pre><p>EXIT VALUES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">exits</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+   </span><span class="mi">0</span><span class="w">
+       </span><span class="n">success</span><span class="w">
+
+   </span><span class="mi">1</span><span class="w">
+       </span><span class="n">permission</span><span class="w"> </span><span class="n">denied</span><span class="w">
+
+   </span><span class="mi">2</span><span class="w">
+       </span><span class="n">invalid</span><span class="w"> </span><span class="n">combination</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="mi">3</span><span class="w">
+       </span><span class="n">unexpected</span><span class="w"> </span><span class="n">failure</span><span class="p">,</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="n">done</span><span class="w">
+
+   </span><span class="mi">4</span><span class="w">
+       </span><span class="n">unexpected</span><span class="w"> </span><span class="n">failure</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">missing</span><span class="w">
+
+   </span><span class="mi">5</span><span class="w">
+       </span><span class="n">passwd</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">busy</span><span class="p">,</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">again</span><span class="w">
+
+   </span><span class="mi">6</span><span class="w">
+       </span><span class="n">invalid</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">option</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">chpasswd</span><span class="p" data-group-id="2062570630-1">(</span><span class="mi">8</span><span class="p" data-group-id="2062570630-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">makepasswd</span><span class="p" data-group-id="2062570630-2">(</span><span class="mi">1</span><span class="p" data-group-id="2062570630-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="p" data-group-id="2062570630-3">(</span><span class="mi">5</span><span class="p" data-group-id="2062570630-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">shadow</span><span class="p" data-group-id="2062570630-4">(</span><span class="mi">5</span><span class="p" data-group-id="2062570630-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">usermod</span><span class="p" data-group-id="2062570630-5">(</span><span class="mi">8</span><span class="p" data-group-id="2062570630-5">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">comically</span><span class="w"> </span><span class="p" data-group-id="2062570630-6">(</span><span class="n">yet</span><span class="w"> </span><span class="n">correctly</span><span class="p" data-group-id="2062570630-6">)</span><span class="w"> </span><span class="n">compares</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strength</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">choosing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://xkcd.com/936/&quot;</span></code></pre><p>shadow-utils 4.17.4                                                                       04/19/2025                                                                                 PASSWD(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="paperspecs.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+paperspecs
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="pbm.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+pbm
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

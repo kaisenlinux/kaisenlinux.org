@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>nvme-zns-finish-zone — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>nvme-zns-finish-zone</h1>
+
+
+  </div>
+
+
+<p>NVME-ZNS-FINISH-Z(1)                                                                      NVMe Manual                                                                     NVME-ZNS-FINISH-Z(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">zns</span><span class="o">-</span><span class="n">finish</span><span class="o">-</span><span class="n">zone</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Finishes</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">zones</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">zns</span><span class="w"> </span><span class="n">finish</span><span class="o">-</span><span class="n">zone</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="2585348474-1">[</span><span class="o">--</span><span class="n">namespace</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p" data-group-id="2585348474-1">]</span><span class="w">
+                                                   </span><span class="p" data-group-id="2585348474-2">[</span><span class="o">--</span><span class="n">start</span><span class="o">-</span><span class="n">lba</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">LBA</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">LBA</span><span class="o">&gt;</span><span class="p" data-group-id="2585348474-2">]</span><span class="w">
+                                                   </span><span class="p" data-group-id="2585348474-3">[</span><span class="o">--</span><span class="n">select</span><span class="o">-</span><span class="n">all</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="p" data-group-id="2585348474-3">]</span><span class="w">
+                                                   </span><span class="p" data-group-id="2585348474-4">[</span><span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span><span class="p" data-group-id="2585348474-4">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">issues</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Zone</span><span class="w"> </span><span class="nc">Management</span><span class="w"> </span><span class="nc">Send</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Finish Zone&quot;</span><span class="w"> </span><span class="n">action</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">transition</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">success</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="4687455188-1">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0</span><span class="p" data-group-id="4687455188-1">)</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p" data-group-id="4687455188-2">(</span><span class="ss">ex</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1</span><span class="p" data-group-id="4687455188-2">)</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">namespace</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="o">&lt;</span><span class="nc">NUM</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">provided</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">issued</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">block</span><span class="w"> </span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w">
+       </span><span class="n">required</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="n">lba</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">start</span><span class="o">-</span><span class="n">lba</span><span class="o">=</span><span class="o">&lt;</span><span class="n">lba</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="nc">LBA</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">zone</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">finish</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">select</span><span class="o">-</span><span class="n">all</span><span class="w">
+       </span><span class="nc">Select</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">zones</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">action</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">timeout</span><span class="o">=</span><span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Override</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">milliseconds</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">•</span><span class="w">   </span><span class="nc">Finish</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">zones</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w">
+
+           </span><span class="c1"># nvme zns finish-zone /dev/nvme0 -a -n 1</span></code></pre><p>NVME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">nvme</span><span class="o">-</span><span class="n">cli</span></code></pre><p>NVMe                                                                                      05/02/2025                                                                      NVME-ZNS-FINISH-Z(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="nvme-zns-close-zone.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+nvme-zns-close-zone
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="nvme-zns-id-ctrl.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+nvme-zns-id-ctrl
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

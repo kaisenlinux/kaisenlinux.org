@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>whois.conf — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>whois.conf</h1>
+
+
+  </div>
+
+
+<p>WHOIS.CONF(5)                                                                          Debian GNU/Linux                                                                          WHOIS.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">whois</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="nc">WHOIS</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">whois</span><span class="w"> </span><span class="n">client</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">whois</span><span class="o">.</span><span class="n">conf</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">WHOIS</span><span class="w"> </span><span class="n">servers</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">augment</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">It</span><span class="sc">&#39;s a plain text file in ASCII encoding. Each line consists of two fields: a pattern to match WHOIS object identifier and a corresponding WHOIS server domain name.
+
+   Fields are separated by non-empty sequence of space or a tabular characters.  A line starting with a hash character is a free comment and it&#39;</span><span class="n">s</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">considered</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">case</span><span class="o">-</span><span class="n">insensitive</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">whois</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">expressions</span><span class="w"> </span><span class="n">support</span><span class="o">.</span><span class="w"> </span><span class="nc">Otherwise</span><span class="p">,</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="k">case</span><span class="o">-</span><span class="n">insensitive</span><span class="w"> </span><span class="n">suffix</span><span class="w"> </span><span class="n">compar</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ison</span><span class="w"> </span><span class="n">against</span><span class="w"> </span><span class="nc">WHOIS</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Internationalized</span><span class="w"> </span><span class="n">domain</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="p" data-group-id="3060856010-1">(</span><span class="nc">IDN</span><span class="p" data-group-id="3060856010-1">)</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ascii</span><span class="o">-</span><span class="n">compatible</span><span class="w"> </span><span class="n">encoding</span><span class="w"> </span><span class="p" data-group-id="3060856010-2">(</span><span class="nc">ACE</span><span class="p" data-group-id="3060856010-2">)</span><span class="w"> </span><span class="n">format</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">\</span><span class="o">.</span><span class="n">nz</span><span class="err">$</span><span class="w">             </span><span class="n">nz</span><span class="o">.</span><span class="n">whois</span><span class="o">-</span><span class="n">servers</span><span class="o">.</span><span class="n">net</span><span class="w">
+   </span><span class="c1"># Hangul Korean TLD</span><span class="w">
+   </span><span class="err">\</span><span class="o">.</span><span class="n">xn</span><span class="o">--</span><span class="mi">3</span><span class="n">e0b707e</span><span class="err">$</span><span class="w">   </span><span class="n">whois</span><span class="o">.</span><span class="n">kr</span><span class="w">
+   </span><span class="c1"># Private ASNs</span><span class="w">
+   </span><span class="o">^</span><span class="n">as645</span><span class="p" data-group-id="4413387201-1">(</span><span class="mi">1</span><span class="p" data-group-id="4413387201-2">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">9</span><span class="p" data-group-id="4413387201-2">]</span><span class="o">|</span><span class="mi">2</span><span class="p" data-group-id="4413387201-3">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p" data-group-id="4413387201-3">]</span><span class="o">|</span><span class="mi">3</span><span class="p" data-group-id="4413387201-4">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="p" data-group-id="4413387201-4">]</span><span class="p" data-group-id="4413387201-1">)</span><span class="err">$</span><span class="w">    </span><span class="n">whois</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">net</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">whois</span><span class="o">.</span><span class="n">conf</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">whois</span><span class="p" data-group-id="3212640180-1">(</span><span class="mi">1</span><span class="p" data-group-id="3212640180-1">)</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Petr</span><span class="w"> </span><span class="nc">P</span><span class="n">ísař</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ppisar</span><span class="na">@redhat</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">licensed</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">higher</span><span class="o">.</span></code></pre><p>Petr Písař                                                                                2019-12-30                                                                             WHOIS.CONF(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="vdev_id-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+vdev_id.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="wpa_supplicant-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+wpa_supplicant.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

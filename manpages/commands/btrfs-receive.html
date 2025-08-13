@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>btrfs-receive — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>btrfs-receive</h1>
+
+
+  </div>
+
+
+<p>BTRFS-RECEIVE(8)                                                                             BTRFS                                                                            BTRFS-RECEIVE(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="k">receive</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">subvolumes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">stream</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="p" data-group-id="2243611906-1">[</span><span class="n">options</span><span class="p" data-group-id="2243611906-1">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w">
+
+   </span><span class="ow">or</span><span class="w">
+
+   </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="o">--</span><span class="n">dump</span><span class="w"> </span><span class="p" data-group-id="2243611906-2">[</span><span class="n">options</span><span class="p" data-group-id="2243611906-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Receive</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">stream</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">changes</span><span class="w">  </span><span class="ow">and</span><span class="w"> </span><span class="n">replicate</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">subvolumes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">send</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">subvolumes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="o">--</span><span class="n">dump</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w">
+   </span><span class="n">given</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w"> </span><span class="o">--</span><span class="n">dump</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k" data-group-id="6328832945-1">do</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">validation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">metadata</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">cases</span><span class="p">:</span><span class="w">
+
+   </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="n">receiving</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">exists</span><span class="w">
+
+   </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="k" data-group-id="6328832945-1">after</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">received</span><span class="w">
+
+   </span><span class="mi">3</span><span class="o">.</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">didn</span><span class="sc">&#39;t mount the filesystem at the toplevel subvolume
+
+   A subvolume is made read-only after the receiving process finishes successfully (see BUGS below).
+
+   Options
+
+   -f &lt;FILE&gt;
+          read the stream from FILE instead of stdin,
+
+   -C|--chroot
+          confine the process to path using chroot(1)
+
+   -e     terminate after receiving an end cmd marker in the stream.
+
+          Without this option the receiver side terminates only in case of an error on end of file.
+
+   -E|--max-errors &lt;NERR&gt;
+          terminate as soon as NERR errors occur while stream processing commands from the stream
+
+          Default value is 1. A value of 0 means no limit.
+
+   -m &lt;ROOTMOUNT&gt;
+          the root mount point of the destination filesystem
+
+          By default the mount point is searched in :file:/proc/self/mounts`.  If /proc is not accessible, e.g. in a chroot environment, use this option to tell us where this  filesystem
+          is mounted.
+
+   --force-decompress
+          if the stream contains compressed data (see --compressed-data in btrfs-send(8)), always decompress it instead of writing it with encoded I/O
+
+   --dump dump the stream metadata, one line per operation
+
+          Does not require the path parameter. The filesystem remains unchanged.  Each stream command is on one line in the form of key=value and separated by one or more spaces.  Values
+          that  contain  special  characters (like paths or extended attributes) are encoded in C-like way, e.g. &#39;</span><span class="err">\</span><span class="n">n</span><span class="sc">&#39; or octal escape sequence like &#39;</span><span class="err">\</span><span class="nc">NNN</span><span class="err">&#39;</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="nc">N</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w"> </span><span class="nc">Same</span><span class="w">
+          </span><span class="n">encoding</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">q</span><span class="o">|</span><span class="o">--</span><span class="n">quiet</span><span class="w">
+          </span><span class="p" data-group-id="6328832945-2">(</span><span class="n">deprecated</span><span class="p" data-group-id="6328832945-2">)</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="o">-</span><span class="n">q</span><span class="w"> </span><span class="n">option</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="p" data-group-id="6328832945-3">(</span><span class="n">deprecated</span><span class="p" data-group-id="6328832945-3">)</span><span class="w"> </span><span class="kn">alias</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w">
+
+   </span><span class="nc">Global</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="o">|</span><span class="o">--</span><span class="n">verbose</span><span class="w">
+          </span><span class="n">increase</span><span class="w"> </span><span class="n">verbosity</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">actions</span><span class="p">,</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">operation</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">q</span><span class="o">|</span><span class="o">--</span><span class="n">quiet</span><span class="w">
+          </span><span class="n">suppress</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">errors</span></code></pre><p>BUGS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">completes</span><span class="w"> </span><span class="n">successfully</span><span class="o">.</span><span class="w">  </span><span class="nc">However</span><span class="p">,</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">progress</span><span class="p">,</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">re</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ceiving</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">add</span><span class="p">,</span><span class="w"> </span><span class="n">remove</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">resulting</span><span class="w"> </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">exact</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">subvolume</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">intention</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">create</span><span class="w">  </span><span class="n">an</span><span class="w">  </span><span class="n">exact</span><span class="w">  </span><span class="n">copy</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">receiving</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subvolume</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w">
+   </span><span class="n">read</span><span class="o">-</span><span class="n">only</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Additionally</span><span class="p">,</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="k" data-group-id="7530257621-1">do</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">job</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">validating</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">incremental</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">sense</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">thus</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="n">specially</span><span class="w">  </span><span class="n">crafted</span><span class="w">  </span><span class="n">send</span><span class="w">
+   </span><span class="n">stream</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="n">create</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">subvolume</span><span class="w">  </span><span class="k">with</span><span class="w">  </span><span class="n">reflinks</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">arbitrary</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">  </span><span class="nc">Because</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">advised</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">streams</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">untrusted</span><span class="w">
+   </span><span class="n">sources</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">trusted</span><span class="w"> </span><span class="n">streams</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">untrusted</span><span class="w"> </span><span class="n">networks</span><span class="o">.</span></code></pre><p>EXIT STATUS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="k">receive</span><span class="w"> </span><span class="n">returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">succeeds</span><span class="o">.</span><span class="w"> </span><span class="nc">Non</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">failure</span><span class="o">.</span></code></pre><p>AVAILABILITY</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">btrfs</span><span class="o">-</span><span class="n">progs</span><span class="o">.</span><span class="w">  </span><span class="nc">Please</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">btrfs</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">send</span><span class="p" data-group-id="4861669339-1">(</span><span class="mi">8</span><span class="p" data-group-id="4861669339-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkfs</span><span class="o">.</span><span class="n">btrfs</span><span class="p" data-group-id="4861669339-2">(</span><span class="mi">8</span><span class="p" data-group-id="4861669339-2">)</span></code></pre><p>6.14                                                                                     Apr 17, 2025                                                                         BTRFS-RECEIVE(8)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="btrfs-quota.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+btrfs-quota
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="btrfs-replace.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+btrfs-replace
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

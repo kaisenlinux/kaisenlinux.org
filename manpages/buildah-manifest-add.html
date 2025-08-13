@@ -4,42 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Manpages v2.3.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
 
 
-    <title>buildah-manifest-add — Manpages v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>buildah-manifest-add — Manpages v3.0.0</title>
 
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-BAAB9852.js"></script>
-
-      <script src="doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script defer src="dist/sidebar_items-C9959D41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
 <link rel="stylesheet" href="assets/doc.css">
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+<div class="body-wrapper">
 
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
-
-<div class="main">
-
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -57,84 +41,109 @@
 Manpages
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v2.3.0
+          v3.0.0
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-MANUALS
-        </button>
-      </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Manpages</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>buildah-manifest-add</h1>
 
 
-  <span>buildah-manifest-add</span>
-</h1>
+  </div>
 
-<p>buildah-manifest-add(1)                                                General Commands Manual                                               buildah-manifest-add(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">add</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Add</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">listNameOrIndexName</span><span class="w"> </span><span class="n">imageName</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Adds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>RETURN VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s ID and the digest of the image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">all</span><span class="w">
 
-   </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">image</span><span class="w">  </span><span class="n">which</span><span class="w">  </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">image</span><span class="w">
-   </span><span class="n">from</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="o">.</span><span class="w">  </span><span class="nc">Combining</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="n">recommended</span><span class="o">.</span><span class="w">
+<p>buildah-manifest-add(1)                                                             General Commands Manual                                                            buildah-manifest-add(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">add</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Add</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="p" data-group-id="3611759593-1">[</span><span class="n">options</span><span class="n">...</span><span class="p" data-group-id="3611759593-1">]</span><span class="w"> </span><span class="n">listNameOrIndexName</span><span class="w"> </span><span class="n">imageOrArtifactName</span><span class="w"> </span><span class="p" data-group-id="3611759593-2">[</span><span class="n">...</span><span class="p" data-group-id="3611759593-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Adds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">adds</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="o">.</span></code></pre><p>RETURN VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s ID and the digest of the image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">all</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">image</span><span class="w">  </span><span class="n">which</span><span class="w">  </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">list</span><span class="o">.</span><span class="w">  </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w">
+   </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="o">.</span><span class="w">  </span><span class="nc">Combining</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">NOT</span><span class="w"> </span><span class="n">recommended</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">annotation</span><span class="w"> </span><span class="n">annotation</span><span class="o">=</span><span class="n">value</span><span class="w">
 
-   </span><span class="nc">Set</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="o">-</span><span class="n">added</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Set</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="o">-</span><span class="n">added</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">arch</span><span class="w">
 
-   </span><span class="nc">Override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">imageName</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">archi</span><span class="err">‐</span><span class="w">
-   </span><span class="n">tecture</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">  </span><span class="nc">Otherwise</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s configuration information.
+   </span><span class="nc">Override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">imageName</span><span class="w"> </span><span class="n">refers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">will</span><span class="w">  </span><span class="n">be</span><span class="w">
+   </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w">  </span><span class="nc">Otherwise</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="sc">&#39;s configuration information.
+
+   --artifact
+
+   Create  an  artifact manifest and add it to the image index.  Arguments after the index name will be interpreted as file names rather than as image references.  In most scenarios, the
+   --artifact-type option should also be specified.
+
+   --artifact-annotation annotation=value
+
+   When creating an artifact manifest and adding it to the image index, set an annotation in the artifact manifest.
+
+   --artifact-config filename
+
+   When creating an artifact manifest and adding it to the image index, use the specified file&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">blob</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span><span class="w">  </span><span class="nc">In</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">scenarios</span><span class="p">,</span><span class="w">  </span><span class="n">leaving</span><span class="w">
+   </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">signifies</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span><span class="w"> </span><span class="n">unchanged</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">artifact</span><span class="o">-</span><span class="n">config</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w">  </span><span class="n">creating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">MIME</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mediaType</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">blob</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="o">.</span><span class="w">  </span><span class="nc">In</span><span class="w">
+   </span><span class="n">most</span><span class="w"> </span><span class="n">scenarios</span><span class="p">,</span><span class="w"> </span><span class="n">leaving</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">signifies</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="nc">OCI</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">unchanged</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">artifact</span><span class="o">-</span><span class="n">exclude</span><span class="o">-</span><span class="n">titles</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="0048360613-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="s">&quot;org.opencontainers.image.title&quot;</span><span class="w"> </span><span class="n">annotations</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="sc">&#39;s basename for each file  added  to  the
+   artifact  manifest.  Tools which retrieve artifacts from a registry may use these values to choose names for files when saving artifacts to disk, so this option is not recommended un‐
+   less it is required for interoperability with a particular registry.
+
+   --artifact-layer-type type
+
+   When creating an artifact manifest and adding it to the image index, use the specified MIME type as the mediaType associated with the files&#39;</span><span class="w"> </span><span class="n">contents</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">guesses</span><span class="w"> </span><span class="n">based</span><span class="w">
+   </span><span class="n">on</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">certainty</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">needed</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">artifact</span><span class="o">-</span><span class="n">subject</span><span class="w"> </span><span class="n">imageName</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">adding</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">mark</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">speci</span><span class="err">‐</span><span class="w">
+   </span><span class="n">fied</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">way</span><span class="o">.</span><span class="w">  </span><span class="nc">An</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">most</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">subject</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">artifact</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">type</span><span class="w">
+
+   </span><span class="nc">When</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">artifact</span><span class="w"> </span><span class="n">manifest</span><span class="p">,</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">MIME</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">manifest</span><span class="sc">&#39;s artifactType value instead of the less informative default value.
 
    --authfile path
 
-   Path  of  the  authentication  file.  Default  is  ${XDG_</span><span class="se">\R</span><span class="sc">UNTIME_DIR}/containers/auth.json.  If  XDG_RUNTIME_DIR  is  not  set, the default is /run/contain‐
-   ers/$UID/auth.json. This file is created using buildah login.
+   Path of the authentication file. Default is ${XDG_RUNTIME_DIR}/containers/auth.json. See containers-auth.json(5) for more information. This file is created using buildah login.
 
    If the authorization state is not found there, $HOME/.docker/config.json is checked, which is set using docker login.
 
-   Note: You  can  also  override  the  default  path  of  the  authentication  file  by  setting  the  REGISTRY_AUTH_FILE  environment  variable.  export  REG‐
-   ISTRY_AUTH_FILE=path
+   Note: You can also override the default path of the authentication file by setting the REGISTRY_AUTH_FILE environment variable. export REGISTRY_AUTH_FILE=path
 
    --cert-dir path
 
@@ -142,8 +151,8 @@ MANUALS
 
    --creds creds
 
-   The  [username[:password]]  to  use to authenticate with the registry if required.  If one or both values are not supplied, a command line prompt will appear
-   and the value can be entered.  The password is entered without echo.
+   The  [username[:password]]  to  use  to authenticate with the registry if required.  If one or both values are not supplied, a command line prompt will appear and the value can be en‐
+   tered.  The password is entered without echo.
 
    --features
 
@@ -151,8 +160,8 @@ MANUALS
 
    --os
 
-   Override the OS which the list or index records as a requirement for the image.  If imageName refers to a manifest list or image index,  the  OS  information
-   will be retrieved from it.  Otherwise, it will be retrieved from the image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
+   Override the OS which the list or index records as a requirement for the image.  If imageName refers to a manifest list or image index, the OS information will be retrieved  from  it.
+   Otherwise, it will be retrieved from the image&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">features</span><span class="w">
 
@@ -164,22 +173,27 @@ MANUALS
 
    </span><span class="o">--</span><span class="n">tls</span><span class="o">-</span><span class="n">verify</span><span class="w"> </span><span class="n">bool</span><span class="o">-</span><span class="n">value</span><span class="w">
 
-   </span><span class="nc">Require</span><span class="w">  </span><span class="nc">HTTPS</span><span class="w">  </span><span class="ow">and</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">talking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">registries</span><span class="w"> </span><span class="p" data-group-id="1400032970-1">(</span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="1400032970-1">)</span><span class="o">.</span><span class="w">  </span><span class="nc">TLS</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">talking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">an</span><span class="w">
-   </span><span class="n">insecure</span><span class="w"> </span><span class="n">registry</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Require</span><span class="w"> </span><span class="nc">HTTPS</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">talking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">registries</span><span class="w"> </span><span class="p" data-group-id="0048360613-2">(</span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="0048360613-2">)</span><span class="o">.</span><span class="w">  </span><span class="nc">TLS</span><span class="w"> </span><span class="n">verification</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">talking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">insecure</span><span class="w"> </span><span class="n">registry</span><span class="o">.</span><span class="w">
 
    </span><span class="o">--</span><span class="n">variant</span><span class="w">
 
-   </span><span class="nc">Specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">distinguish</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">multiple</span><span class="w">  </span><span class="n">entries</span><span class="w">  </span><span class="n">which</span><span class="w">  </span><span class="n">share</span><span class="w">  </span><span class="n">the</span><span class="w">
-   </span><span class="n">same</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">expect</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">set</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
-          </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:f81f09918379d5442d20dff82a298f29698197035e737f76e511d5af422cabd7</span><span class="w">
+   </span><span class="nc">Specify</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">variant</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">distinguish</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">architecture</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w">
+   </span><span class="n">which</span><span class="w"> </span><span class="n">expect</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">instruction</span><span class="w"> </span><span class="n">set</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
+   </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:f81f09918379d5442d20dff82a298f29698197035e737f76e511d5af422cabd7</span><span class="w">
 
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
-          </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:f81f09918379d5442d20dff82a298f29698197035e737f76e511d5af422cabd7</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">all</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="w">
+   </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:f81f09918379d5442d20dff82a298f29698197035e737f76e511d5af422cabd7</span><span class="w">
 
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">arch</span><span class="w"> </span><span class="n">arm64</span><span class="w"> </span><span class="o">--</span><span class="n">variant</span><span class="w"> </span><span class="n">v8</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="na">@sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span><span class="w">
-          </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="4880042315-1">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="4880042315-2">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="p" data-group-id="4880042315-3">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">create</span><span class="p" data-group-id="4880042315-4">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">remove</span><span class="p" data-group-id="4880042315-5">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">annotate</span><span class="p" data-group-id="4880042315-6">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="ow">in</span><span class="err">‐</span><span class="w">
-   </span><span class="n">spect</span><span class="p" data-group-id="4880042315-7">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">push</span><span class="p" data-group-id="4880042315-8">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">rmi</span><span class="p" data-group-id="4880042315-9">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-9">)</span><span class="p">,</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="4880042315-10">(</span><span class="mi">1</span><span class="p" data-group-id="4880042315-10">)</span></code></pre><p>buildah                                                                    September 2019                                                    buildah-manifest-add(1)</p>
-<div class="bottom-actions">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">arch</span><span class="w"> </span><span class="n">arm64</span><span class="w"> </span><span class="o">--</span><span class="n">variant</span><span class="w"> </span><span class="n">v8</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="n">docker</span><span class="ss">://</span><span class="n">fedora</span><span class="na">@sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span><span class="w">
+   </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="ss">:c829b1810d2dbb456e74a695fd3847530c8319e5a95dca623e9f1b1b89020d8b</span><span class="w">
+
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">manifest</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">--</span><span class="n">artifact</span><span class="w"> </span><span class="o">--</span><span class="n">artifact</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">cd</span><span class="o">-</span><span class="n">image</span><span class="w"> </span><span class="n">mylist</span><span class="ss">:v1</span><span class="o">.</span><span class="mi">11</span><span class="w"> </span><span class="o">.</span><span class="o">/</span><span class="n">imagefile</span><span class="o">.</span><span class="n">iso</span><span class="w">
+   </span><span class="mi">506</span><span class="ss">d8f4bb54931ea03a7e70173a0ed6302e3fb92dfadb3955ba5c17812e95c51</span><span class="p">:</span><span class="w"> </span><span class="n">sha256</span><span class="p">:</span><span class="mi">1768</span><span class="n">fae728f6f8ff3d0f8c7df409d7f4f0ca5c89b070810bd4aa4a2ed2eca8bb</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="1129218872-1">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="1129218872-2">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="p" data-group-id="1129218872-3">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">create</span><span class="p" data-group-id="1129218872-4">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">remove</span><span class="p" data-group-id="1129218872-5">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">annotate</span><span class="p" data-group-id="1129218872-6">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="n">inspect</span><span class="p" data-group-id="1129218872-7">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">manifest</span><span class="o">-</span><span class="w">
+   </span><span class="n">push</span><span class="p" data-group-id="1129218872-8">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">rmi</span><span class="p" data-group-id="1129218872-9">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-9">)</span><span class="p">,</span><span class="w"> </span><span class="n">docker</span><span class="o">-</span><span class="n">login</span><span class="p" data-group-id="1129218872-10">(</span><span class="mi">1</span><span class="p" data-group-id="1129218872-10">)</span><span class="p">,</span><span class="w"> </span><span class="n">containers</span><span class="o">-</span><span class="n">auth</span><span class="o">.</span><span class="n">json</span><span class="p" data-group-id="1129218872-11">(</span><span class="mi">5</span><span class="p" data-group-id="1129218872-11">)</span></code></pre><p>buildah                                                                                 September 2019                                                                 buildah-manifest-add(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
       <a href="buildah-logout.html" class="bottom-actions-button" rel="prev">
@@ -205,30 +219,29 @@ buildah-manifest-annotate
 
   </div>
 </div>
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 
   </body>
 </html>

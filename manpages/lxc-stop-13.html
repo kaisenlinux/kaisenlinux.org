@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>lxc-stop — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-C9959D41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>lxc-stop</h1>
+
+
+  </div>
+
+
+<p>lxc-stop(1)                                                                                                                                                                        lxc-stop(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w"> </span><span class="p" data-group-id="3985624317-1">{</span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">name</span><span class="p" data-group-id="3985624317-1">}</span><span class="w"> </span><span class="p" data-group-id="3985624317-2">[</span><span class="o">-</span><span class="nc">W</span><span class="p" data-group-id="3985624317-2">]</span><span class="w"> </span><span class="p" data-group-id="3985624317-3">[</span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="3985624317-3">]</span><span class="w"> </span><span class="p" data-group-id="3985624317-4">[</span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">timeout</span><span class="p" data-group-id="3985624317-4">]</span><span class="w"> </span><span class="p" data-group-id="3985624317-5">[</span><span class="o">-</span><span class="n">k</span><span class="p" data-group-id="3985624317-5">]</span><span class="w"> </span><span class="p" data-group-id="3985624317-6">[</span><span class="o">--</span><span class="n">nokill</span><span class="p" data-group-id="3985624317-6">]</span><span class="w"> </span><span class="p" data-group-id="3985624317-7">[</span><span class="o">--</span><span class="n">nolock</span><span class="p" data-group-id="3985624317-7">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w">  </span><span class="n">reboots</span><span class="p">,</span><span class="w">  </span><span class="n">cleanly</span><span class="w">  </span><span class="n">shuts</span><span class="w"> </span><span class="n">down</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">kills</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">processes</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">lxc</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">halt</span><span class="w"> </span><span class="p" data-group-id="5379236474-1">(</span><span class="n">de</span><span class="err">‐</span><span class="w">
+   </span><span class="n">faults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">SIGPWR</span><span class="p" data-group-id="5379236474-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="sc">&#39;s init process, waiting up to 60 seconds for the container to exit, and then returning. If the container fails to cleanly exit  in  60  seconds,  it
+   will  be  sent  the  lxc.signal.stop  (defaults  to SIGKILL) to force it to shut down. A request to reboot will send the lxc.signal.reboot (defaults to SIGINT) to the container&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">init</span><span class="w">
+   </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="p" data-group-id="5379236474-2">[</span><span class="o">-</span><span class="nc">W</span><span class="p" data-group-id="5379236474-2">]</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5379236474-3">[</span><span class="o">-</span><span class="n">r</span><span class="p" data-group-id="5379236474-3">]</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5379236474-4">[</span><span class="o">-</span><span class="n">k</span><span class="p" data-group-id="5379236474-4">]</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p" data-group-id="5379236474-5">[</span><span class="o">--</span><span class="n">nokill</span><span class="p" data-group-id="5379236474-5">]</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="5379236474-6">[</span><span class="o">-</span><span class="nc">W</span><span class="p" data-group-id="5379236474-6">]</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">performing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w">  </span><span class="n">should</span><span class="w">  </span><span class="n">immediately</span><span class="w">  </span><span class="n">exit</span><span class="p">,</span><span class="w">  </span><span class="n">while</span><span class="w">  </span><span class="p" data-group-id="5379236474-7">[</span><span class="o">-</span><span class="n">t</span><span class="w">
+   </span><span class="nc">TIMEOUT</span><span class="p" data-group-id="5379236474-7">]</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">reboot</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">r</span><span class="p">,</span><span class="o">--</span><span class="n">reboot</span><span class="w">
+          </span><span class="nc">Request</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">reboot</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="o">--</span><span class="n">kill</span><span class="w">
+          </span><span class="nc">Rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">requesting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">explicitly</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">legacy</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w"> </span><span class="n">behavior</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">nokill</span><span class="w">
+          </span><span class="nc">Only</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">shutdown</span><span class="p">,</span><span class="w"> </span><span class="k" data-group-id="4776393650-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">kill</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">tasks</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">shutdown</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">nolock</span><span class="w">
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">avoids</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">lxc</span><span class="w"> </span><span class="n">locking</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">hanging</span><span class="w"> </span><span class="n">due</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">state</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">W</span><span class="p">,</span><span class="o">--</span><span class="n">nowait</span><span class="w">
+          </span><span class="nc">Simply</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requestion</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="p" data-group-id="4776393650-2">(</span><span class="n">reboot</span><span class="p">,</span><span class="w"> </span><span class="n">shutdown</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">kill</span><span class="p" data-group-id="4776393650-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="o">--</span><span class="n">timeout</span><span class="w"> </span><span class="nc">TIMEOUT</span><span class="w">
+          </span><span class="nc">Wait</span><span class="w"> </span><span class="nc">TIMEOUT</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">hard</span><span class="o">-</span><span class="n">stopping</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span></code></pre><p>EXIT VALUE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="mi">0</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">stopped</span><span class="o">.</span><span class="w">
+
+   </span><span class="mi">1</span><span class="w">      </span><span class="nc">An</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurred</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">stopping</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="o">.</span><span class="w">
+
+   </span><span class="mi">2</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">running</span><span class="o">.</span></code></pre><p>DIAGNOSTIC</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">found</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="n">command</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">lxc</span><span class="p" data-group-id="6367498625-1">(</span><span class="mi">7</span><span class="p" data-group-id="6367498625-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">create</span><span class="p" data-group-id="6367498625-2">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">copy</span><span class="p" data-group-id="6367498625-3">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">destroy</span><span class="p" data-group-id="6367498625-4">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">start</span><span class="p" data-group-id="6367498625-5">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="p" data-group-id="6367498625-6">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-6">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">execute</span><span class="p" data-group-id="6367498625-7">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-7">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">console</span><span class="p" data-group-id="6367498625-8">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-8">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">monitor</span><span class="p" data-group-id="6367498625-9">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-9">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">wait</span><span class="p" data-group-id="6367498625-10">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-10">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">cgroup</span><span class="p" data-group-id="6367498625-11">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-11">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">ls</span><span class="p" data-group-id="6367498625-12">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-12">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">info</span><span class="p" data-group-id="6367498625-13">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-13">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="w">
+   </span><span class="n">freeze</span><span class="p" data-group-id="6367498625-14">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-14">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">unfreeze</span><span class="p" data-group-id="6367498625-15">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-15">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">-</span><span class="n">attach</span><span class="p" data-group-id="6367498625-16">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-16">)</span><span class="p">,</span><span class="w"> </span><span class="n">lxc</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="6367498625-17">(</span><span class="mi">5</span><span class="p" data-group-id="6367498625-17">)</span><span class="w">
+
+                                                                                      </span><span class="mi">2025</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">30</span><span class="w">                                                                               </span><span class="n">lxc</span><span class="o">-</span><span class="n">stop</span><span class="p" data-group-id="6367498625-18">(</span><span class="mi">1</span><span class="p" data-group-id="6367498625-18">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="lxc-start.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+lxc.start
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="lxc-stop-14.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+lxc.stop
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

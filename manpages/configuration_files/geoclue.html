@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>geoclue — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>geoclue</h1>
+
+
+  </div>
+
+
+<p>GEOCLUE CONFIGURATION(5)                                                              File Formats Manual                                                             GEOCLUE CONFIGURATION(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">geoclue</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geoclue</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">parameters</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Main</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="ss">file</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">geoclue</span><span class="o">/</span><span class="n">geoclue</span><span class="o">.</span><span class="n">conf</span><span class="w">
+   </span><span class="nc">Overwriting</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="ss">files</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">geoclue</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">main</span><span class="w">  </span><span class="nc">GeoClue</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="sc">&#39;geoclue.conf&#39;</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">geoclue</span><span class="o">.</span><span class="w"> </span><span class="nc">Parameters</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overwritten</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">placing</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="w">
+   </span><span class="n">directory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">alphabetic</span><span class="w"> </span><span class="n">order</span><span class="o">.</span><span class="w"> </span><span class="nc">Thus</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="sc">&#39;90-config.conf&#39;</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="sc">&#39;50-config.conf&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="w">
+   </span><span class="n">directory</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">All</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">edit</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">geoclue</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">around</span><span class="p">,</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">comment</span><span class="w">
+   </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">appropriate</span><span class="w"> </span><span class="n">line</span><span class="p" data-group-id="1120653394-1">(</span><span class="n">s</span><span class="p" data-group-id="1120653394-1">)</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">them</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Missing</span><span class="w"> </span><span class="sc">&#39;enable&#39;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">causes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="o">.</span><span class="w"> </span><span class="nc">Adding</span><span class="w"> </span><span class="sc">&#39;enable&#39;</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">any</span><span class="w">  </span><span class="n">further</span><span class="w">  </span><span class="n">config</span><span class="w">  </span><span class="n">file</span><span class="w">  </span><span class="n">can</span><span class="w">
+   </span><span class="n">overwrite</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">default</span><span class="o">.</span></code></pre><p>AGENT CONFIGURATION OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="p" data-group-id="2638279574-1">[</span><span class="n">agent</span><span class="p" data-group-id="2638279574-1">]</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">begin</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">configuration</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">whitelist</span><span class="w">
+          </span><span class="nc">Whitelist</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">desktop</span><span class="w"> </span><span class="nc">IDs</span><span class="w"> </span><span class="p" data-group-id="2638279574-2">(</span><span class="n">without</span><span class="w"> </span><span class="o">.</span><span class="n">desktop</span><span class="w"> </span><span class="n">part</span><span class="p" data-group-id="2638279574-2">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">agents</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">recognise</span><span class="p">,</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="sc">&#39;;&#39;</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">whitelist</span><span class="o">=</span><span class="n">geoclue</span><span class="o">-</span><span class="n">demo</span><span class="o">-</span><span class="n">agent</span><span class="p">;</span><span class="n">gnome</span><span class="o">-</span><span class="n">shell</span><span class="p">;</span><span class="n">io</span><span class="o">.</span><span class="n">elementary</span><span class="o">.</span><span class="n">desktop</span><span class="o">.</span><span class="n">agent</span><span class="o">-</span><span class="n">geoclue2</span><span class="w">
+
+   </span><span class="p" data-group-id="2638279574-3">[</span><span class="n">network</span><span class="o">-</span><span class="n">nmea</span><span class="p" data-group-id="2638279574-3">]</span><span class="w">
+          </span><span class="nc">Network</span><span class="w"> </span><span class="nc">NMEA</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Fetch</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">NMEA</span><span class="w"> </span><span class="n">sources</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">network?</span><span class="w">
+
+          </span><span class="n">nmea</span><span class="o">-</span><span class="n">socket</span><span class="o">=</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">gps</span><span class="o">-</span><span class="n">share</span><span class="o">.</span><span class="n">sock</span><span class="w">
+          </span><span class="nc">Use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">nmea</span><span class="w"> </span><span class="n">unix</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">source</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">unix</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="p" data-group-id="2638279574-4">[</span><span class="mi">3</span><span class="n">g</span><span class="p" data-group-id="2638279574-4">]</span><span class="w">
+          </span><span class="mi">3</span><span class="nc">G</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="mi">3</span><span class="nc">G</span><span class="w"> </span><span class="n">source</span><span class="w">
+
+   </span><span class="p" data-group-id="2638279574-5">[</span><span class="n">cdma</span><span class="p" data-group-id="2638279574-5">]</span><span class="w">
+          </span><span class="nc">CDMA</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="nc">CDMA</span><span class="w"> </span><span class="n">source</span><span class="w">
+
+   </span><span class="p" data-group-id="2638279574-6">[</span><span class="n">modem</span><span class="o">-</span><span class="n">gps</span><span class="p" data-group-id="2638279574-6">]</span><span class="w">
+          </span><span class="nc">Modem</span><span class="w"> </span><span class="nc">GPS</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="nc">Modem</span><span class="o">-</span><span class="nc">GPS</span><span class="w"> </span><span class="n">source</span><span class="w">
+
+   </span><span class="p" data-group-id="2638279574-7">[</span><span class="n">wifi</span><span class="p" data-group-id="2638279574-7">]</span><span class="w">
+          </span><span class="nc">WiFi</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="nc">WiFi</span><span class="w"> </span><span class="n">source</span><span class="w">
+
+          </span><span class="n">url</span><span class="o">=</span><span class="n">https</span><span class="ss">://</span><span class="n">location</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">mozilla</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">geolocate?</span><span class="n">key</span><span class="o">=</span><span class="nc">YOUR_KEY</span><span class="w">
+          </span><span class="nc">URL</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">WiFi</span><span class="w"> </span><span class="n">geolocation</span><span class="w"> </span><span class="n">service</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">Mozilla</span><span class="sc">&#39;s Location Service with a hardcoded key. To use a custom key, uncomment this URL while changing YOUR_KEY to
+          your MLS API key.
+
+          submit-data=false Submit data to Mozilla Location Service
+          If set to true, geoclue will automatically submit network data to Mozilla each time it gets a GPS lock.
+
+          submission-url=https://location.services.mozilla.com/v2/geosubmit?key=YOUR_KEY
+          URL to submission API of Mozilla Location Service
+
+          submission-nick=geoclue
+          A nickname to submit network data with. If empty, omitted from the submission. Otherwise, must be 2 to 32 characters long. Defaults to &quot;geoclue&quot;.
+
+   [compass]
+          Compass configuration options
+
+          enable=true
+          Enable Compass
+
+   [static-source]
+          Static source configuration options.
+          This  source  reads  location from &quot;geolocation&quot; file in /etc. While this file is constantly monitored for changes during geoclue operation, and the reported static location is
+          updated accordingly, this source isn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">meant</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inputting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dynamically</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">geoclue</span><span class="w"> </span><span class="p" data-group-id="2638279574-8">(</span><span class="n">please</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Network</span><span class="w"> </span><span class="nc">NMEA</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">that</span><span class="p" data-group-id="2638279574-8">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">enable</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="nc">Enable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">source</span><span class="o">.</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">probably</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">sources</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">geoclue</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">won</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">location</span><span class="o">.</span></code></pre><p>APPLICATION CONFIGURATION OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Having</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">geoclue</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">ask</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authorize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">applications</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w">  </span><span class="n">autho</span><span class="err">‐</span><span class="w">
+   </span><span class="n">rization</span><span class="w"> </span><span class="n">mechanism</span><span class="w"> </span><span class="p" data-group-id="5312688012-1">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">browsers</span><span class="p" data-group-id="5312688012-1">)</span><span class="w"> </span><span class="k" data-group-id="5312688012-2">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">bound</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">agents</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">If</span><span class="w">  </span><span class="n">your</span><span class="w">  </span><span class="n">application</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t provide any mechanism to change that, it is likely a bug in your operation system (or
+   geoclue). The solution is to report the issue with all details, rather than adding your application to this list.
+
+   Format:
+          [random-app]
+          Desktop ID of application without .desktop part
+
+          allowed=true|false
+          Allowed access to location information?
+
+          system=true|false
+          Is application a system component?
+
+          users=
+          List of UIDs of all users for which this application is allowed location info access, separate by &#39;</span><span class="p">;</span><span class="err">&#39;</span><span class="o">.</span><span class="w"> </span><span class="nc">Keep</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">allowing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">users</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">Examples</span><span class="p">:</span><span class="w">
+          </span><span class="p" data-group-id="5312688012-3">[</span><span class="n">gnome</span><span class="o">-</span><span class="n">datetime</span><span class="o">-</span><span class="n">panel</span><span class="p" data-group-id="5312688012-3">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span><span class="w">
+
+          </span><span class="p" data-group-id="5312688012-4">[</span><span class="n">gnome</span><span class="o">-</span><span class="n">color</span><span class="o">-</span><span class="n">panel</span><span class="p" data-group-id="5312688012-4">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span><span class="w">
+
+          </span><span class="p" data-group-id="5312688012-5">[</span><span class="n">org</span><span class="o">.</span><span class="n">gnome</span><span class="o">.</span><span class="nc">Shell</span><span class="p" data-group-id="5312688012-5">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span><span class="w">
+
+          </span><span class="p" data-group-id="5312688012-6">[</span><span class="n">io</span><span class="o">.</span><span class="n">elementary</span><span class="o">.</span><span class="n">desktop</span><span class="o">.</span><span class="n">agent</span><span class="o">-</span><span class="n">geoclue2</span><span class="p" data-group-id="5312688012-6">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span><span class="w">
+
+          </span><span class="p" data-group-id="5312688012-7">[</span><span class="n">epiphany</span><span class="p" data-group-id="5312688012-7">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">false</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span><span class="w">
+
+          </span><span class="p" data-group-id="5312688012-8">[</span><span class="n">firefox</span><span class="p" data-group-id="5312688012-8">]</span><span class="w">
+          </span><span class="n">allowed</span><span class="o">=</span><span class="no">true</span><span class="w">
+          </span><span class="n">system</span><span class="o">=</span><span class="no">false</span><span class="w">
+          </span><span class="n">users</span><span class="o">=</span></code></pre><p>STATIC LOCATION FILE
+   Basic format:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="w"> </span><span class="p" data-group-id="3017215569-1">(</span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">source</span><span class="p" data-group-id="3017215569-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consisting</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">following</span><span class="p">:</span><span class="w">
+
+   </span><span class="mi">1</span><span class="w">      </span><span class="nc">Latitude</span><span class="w"> </span><span class="p" data-group-id="3017215569-2">(</span><span class="n">floating</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="n">north</span><span class="p">,</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">south</span><span class="p" data-group-id="3017215569-2">)</span><span class="w">
+
+   </span><span class="mi">2</span><span class="w">      </span><span class="nc">Longitude</span><span class="w"> </span><span class="p" data-group-id="3017215569-3">(</span><span class="n">floating</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="n">east</span><span class="p">,</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">west</span><span class="p" data-group-id="3017215569-3">)</span><span class="w">
+
+   </span><span class="mi">3</span><span class="w">      </span><span class="nc">Altitude</span><span class="w"> </span><span class="p" data-group-id="3017215569-4">(</span><span class="n">floating</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">meters</span><span class="p" data-group-id="3017215569-4">)</span><span class="w">
+
+   </span><span class="mi">4</span><span class="w">      </span><span class="nc">Accuracy</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="p" data-group-id="3017215569-5">(</span><span class="n">floating</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">meters</span><span class="p" data-group-id="3017215569-5">)</span><span class="w">
+
+   </span><span class="nc">These</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">newline</span><span class="w"> </span><span class="n">characters</span><span class="o">.</span></code></pre><p>   Additional format information:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">•</span><span class="w">      </span><span class="nc">The</span><span class="w"> </span><span class="sc">&#39;#&#39;</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comment</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">continues</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">      </span><span class="nc">Leading</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">trailing</span><span class="w"> </span><span class="n">white</span><span class="o">-</span><span class="n">space</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">      </span><span class="nc">Empty</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="p" data-group-id="1097240683-1">(</span><span class="ow">or</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">white</span><span class="o">-</span><span class="n">space</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comment</span><span class="p" data-group-id="1097240683-1">)</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span></code></pre><p>   Example:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="c1"># Example static location file for a machine inside Statue of Liberty torch</span><span class="w">
+
+   </span><span class="mf">40.6893129</span><span class="w">   </span><span class="c1"># latitude</span><span class="w">
+   </span><span class="o">-</span><span class="mf">74.0445531</span><span class="w">  </span><span class="c1"># longitude</span><span class="w">
+   </span><span class="mi">96</span><span class="w">           </span><span class="c1"># altitude</span><span class="w">
+   </span><span class="mf">1.83</span><span class="w">         </span><span class="c1"># accuracy radius (the diameter of the torch is 12 feet)</span></code></pre><p>   Notes:</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">For</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">security</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">readable</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">geoclue</span><span class="w"> </span><span class="ss">user</span><span class="p">:</span><span class="w">
+   </span><span class="c1"># chown geoclue /etc/geolocation</span><span class="w">
+   </span><span class="c1"># chmod 600 /etc/geolocation</span></code></pre><p>CLIENT LIST</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Sending</span><span class="w"> </span><span class="nc">SIGUSR1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">geoclue</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">log</span><span class="o">.</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Sachin</span><span class="w"> </span><span class="nc">Chand</span><span class="w">
+
+                                                                                                                                                                  </span><span class="nc">GEOCLUE</span><span class="w"> </span><span class="nc">CONFIGURATION</span><span class="p" data-group-id="6248383501-1">(</span><span class="mi">5</span><span class="p" data-group-id="6248383501-1">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="genisoimagerc.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+genisoimagerc
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="gfs2.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+gfs2
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

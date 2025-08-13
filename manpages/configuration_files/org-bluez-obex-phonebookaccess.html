@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>org.bluez.obex.PhonebookAccess — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>org.bluez.obex.PhonebookAccess</h1>
+
+
+  </div>
+
+
+<p>ORG.BLUEZ.OBEX.PHONEBOOKACCESS(5)                                                 Linux System Administration                                                ORG.BLUEZ.OBEX.PHONEBOOKACCESS(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">PhonebookAccess</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">BlueZ</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">OBEX</span><span class="w"> </span><span class="nc">PhonebookAccess</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">documentation</span></code></pre><p>INTERFACE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">PhonebookAccess1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="p" data-group-id="6912869570-1">[</span><span class="nc">Session</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p" data-group-id="6912869570-1">]</span></code></pre><p>   Methods
+   void Select(string location, string phonebook)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Selects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">phonebook</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">operations</span><span class="o">.</span><span class="w"> </span><span class="nc">Should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">operations</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;int&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;internal&quot;</span><span class="w"> </span><span class="p" data-group-id="3721042180-1">(</span><span class="n">default</span><span class="p" data-group-id="3721042180-1">)</span><span class="w">
+             </span><span class="nc">Store</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Internal</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;sim{#}&quot;</span><span class="w">
+             </span><span class="nc">Store</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sim</span><span class="w"> </span><span class="n">number</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">phonebook</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;pb&quot;</span><span class="w">   </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">contact</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;ich&quot;</span><span class="w">  </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">incoming</span><span class="w"> </span><span class="n">call</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;och&quot;</span><span class="w">  </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">outgoing</span><span class="w"> </span><span class="n">call</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;mch&quot;</span><span class="w">  </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">call</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;cch&quot;</span><span class="w">  </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">combination</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">incoming</span><span class="p">,</span><span class="w"> </span><span class="n">outgoing</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">missing</span><span class="w"> </span><span class="n">call</span><span class="o">.</span><span class="w">
+
+      </span><span class="ss">&quot;spd&quot;</span><span class="p">:</span><span class="w">
+          </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="n">dials</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p" data-group-id="3721042180-2">(</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s">&quot;internal&quot;</span><span class="w"> </span><span class="p" data-group-id="3721042180-2">)</span><span class="w">
+
+      </span><span class="ss">&quot;fav&quot;</span><span class="p">:</span><span class="w">
+          </span><span class="nc">Store</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">favorites</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p" data-group-id="3721042180-3">(</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s">&quot;internal&quot;</span><span class="w"> </span><span class="p" data-group-id="3721042180-3">)</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   object, dict PullAll(string targetfile, dict filters)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Returns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="n">phonebook</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PSE</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">plain</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">transfer</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">transferred</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GetProperties</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Transfer</span><span class="p" data-group-id="0035080005-1">(</span><span class="mi">5</span><span class="p" data-group-id="0035080005-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">properties</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">filters</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Format</span><span class="w">
+             </span><span class="nc">Items</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;vcard21&quot;</span><span class="w"> </span><span class="p" data-group-id="0035080005-2">(</span><span class="n">default</span><span class="p" data-group-id="0035080005-2">)</span><span class="w">
+
+             </span><span class="s">&quot;vcard30&quot;</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Order</span><span class="w">
+             </span><span class="nc">Items</span><span class="w"> </span><span class="n">order</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;&quot;</span><span class="w">
+
+             </span><span class="s">&quot;indexed&quot;</span><span class="w">
+
+             </span><span class="s">&quot;alphanumeric&quot;</span><span class="w">
+
+             </span><span class="s">&quot;phonetic&quot;</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Offset</span><span class="w"> </span><span class="p" data-group-id="0035080005-3">(</span><span class="n">default</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="0035080005-3">)</span><span class="w">
+             </span><span class="nc">Offset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">item</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">MaxCount</span><span class="w"> </span><span class="p" data-group-id="0035080005-4">(</span><span class="n">default</span><span class="w"> </span><span class="mi">65535</span><span class="p" data-group-id="0035080005-4">)</span><span class="w">
+             </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">items</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">array</span><span class="p" data-group-id="0035080005-5">{</span><span class="n">string</span><span class="p" data-group-id="0035080005-5">}</span><span class="w"> </span><span class="nc">Fields</span><span class="w"> </span><span class="p" data-group-id="0035080005-6">(</span><span class="n">default</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">fields</span><span class="p" data-group-id="0035080005-6">)</span><span class="w">
+             </span><span class="nc">Item</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="n">fields</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">See</span><span class="w"> </span><span class="nc">ListFilterFields</span><span class="p" data-group-id="0035080005-7">(</span><span class="p" data-group-id="0035080005-7">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">array</span><span class="p" data-group-id="0035080005-8">{</span><span class="n">string</span><span class="p" data-group-id="0035080005-8">}</span><span class="w"> </span><span class="nc">FilterAll</span><span class="w">
+             </span><span class="nc">Filter</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">AND</span><span class="w"> </span><span class="n">logic</span><span class="p">,</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">FilterAny</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">See</span><span class="w"> </span><span class="nc">ListFilterFields</span><span class="p" data-group-id="0035080005-9">(</span><span class="p" data-group-id="0035080005-9">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">array</span><span class="p" data-group-id="0035080005-10">{</span><span class="n">string</span><span class="p" data-group-id="0035080005-10">}</span><span class="w"> </span><span class="nc">FilterAny</span><span class="w">
+             </span><span class="nc">Filter</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">OR</span><span class="w"> </span><span class="n">logic</span><span class="p">,</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">together</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">FilterAll</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">See</span><span class="w"> </span><span class="nc">ListFilterFields</span><span class="p" data-group-id="0035080005-11">(</span><span class="p" data-group-id="0035080005-11">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">bool</span><span class="w"> </span><span class="nc">ResetNewMissedCalls</span><span class="w">
+             </span><span class="nc">Reset</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">missed</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">items</span><span class="p">,</span><span class="w"> </span><span class="n">shall</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">folders</span><span class="w"> </span><span class="n">mch</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cch</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Forbidden</span></code></pre><p>   array{string vcard, string name} List(dict filters)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Returns</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">vcard</span><span class="o">-</span><span class="n">listing</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contact</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;1.vcf&quot;</span><span class="w">
+             </span><span class="s">&quot;John&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">filters</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Order</span><span class="w">
+             </span><span class="nc">Contact</span><span class="w"> </span><span class="n">order</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;&quot;</span><span class="w">
+
+             </span><span class="s">&quot;indexed&quot;</span><span class="w">
+
+             </span><span class="s">&quot;alphanumeric&quot;</span><span class="w">
+
+             </span><span class="s">&quot;phonetic&quot;</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Offset</span><span class="w">
+             </span><span class="nc">Start</span><span class="w"> </span><span class="n">offset</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">MaxCount</span><span class="w">
+             </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">contacts</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Forbidden</span></code></pre><p>   object, dict Pull(string vcard, string targetfile, dict filters)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Retrieves</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">phonebook</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">transfer</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">transferred</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GetProperties</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Transfer</span><span class="p" data-group-id="8247757676-1">(</span><span class="mi">5</span><span class="p" data-group-id="8247757676-1">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">properties</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">filters</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Format</span><span class="w">
+             </span><span class="nc">Contact</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;&quot;</span><span class="w">
+
+             </span><span class="s">&quot;vcard21&quot;</span><span class="w">
+
+             </span><span class="s">&quot;vcard30&quot;</span><span class="w">
+
+      </span><span class="n">array</span><span class="p" data-group-id="8247757676-2">{</span><span class="n">string</span><span class="p" data-group-id="8247757676-2">}</span><span class="w"> </span><span class="nc">Fields</span><span class="w">
+             </span><span class="nc">See</span><span class="w"> </span><span class="nc">ListFilterFields</span><span class="p" data-group-id="8247757676-3">(</span><span class="p" data-group-id="8247757676-3">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Forbidden</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   array{string vcard, string name} Search(string field, string value, dict filters)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Searches</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">vcard</span><span class="o">-</span><span class="n">listing</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vcard</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">con</span><span class="err">‐</span><span class="w">
+      </span><span class="n">tact</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+          </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="p" data-group-id="8605313784-1">(</span><span class="n">default</span><span class="p" data-group-id="8605313784-1">)</span><span class="w">
+                 </span><span class="nc">Search</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">name</span><span class="o">.</span><span class="w">
+
+          </span><span class="s">&quot;number&quot;</span><span class="w">
+                 </span><span class="nc">Search</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">number</span><span class="o">.</span><span class="w">
+
+          </span><span class="s">&quot;sound&quot;</span><span class="w">
+                 </span><span class="nc">Search</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">sound</span><span class="o">.</span><span class="w">
+
+      </span><span class="ss">value</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="k">for</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">filters</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Order</span><span class="w">
+             </span><span class="nc">Contact</span><span class="w"> </span><span class="n">order</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;&quot;</span><span class="w">
+
+             </span><span class="s">&quot;indexed&quot;</span><span class="w">
+
+             </span><span class="s">&quot;alphanumeric&quot;</span><span class="w">
+
+             </span><span class="s">&quot;phonetic&quot;</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Offset</span><span class="w">
+             </span><span class="nc">Start</span><span class="w"> </span><span class="n">offset</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">MaxCount</span><span class="w">
+             </span><span class="nc">Maximum</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">contacts</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Forbidden</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   uint16 GetSize()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Returns</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">phonebook</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="7293385003-1">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="w"> </span><span class="n">indexes</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">correspond</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="nc">NULL</span><span class="w"> </span><span class="n">entries</span><span class="p" data-group-id="7293385003-1">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Forbidden</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   void UpdateVersion()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Attempts</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="nc">PrimaryCounter</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">SecondaryCounter</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.NotSupported</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Forbidden</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   array{string} ListFilterFields()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Returns</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="nc">Available</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Fields</span><span class="w"> </span><span class="n">filter</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">return</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;VERSION&quot;</span><span class="w">
+
+      </span><span class="s">&quot;FN&quot;</span><span class="w">
+
+      </span><span class="s">&quot;N&quot;</span><span class="w">
+
+      </span><span class="s">&quot;PHOTO&quot;</span><span class="w">
+
+      </span><span class="s">&quot;BDAY&quot;</span><span class="w">
+
+      </span><span class="s">&quot;ADR&quot;</span><span class="w">
+
+      </span><span class="s">&quot;LABEL&quot;</span><span class="w">
+
+      </span><span class="s">&quot;TEL&quot;</span><span class="w">
+
+      </span><span class="s">&quot;EMAIL&quot;</span><span class="w">
+
+      </span><span class="s">&quot;MAILER&quot;</span><span class="w">
+
+      </span><span class="s">&quot;TZ&quot;</span><span class="w">
+
+      </span><span class="s">&quot;GEO&quot;</span><span class="w">
+
+      </span><span class="s">&quot;TITLE&quot;</span><span class="w">
+
+      </span><span class="s">&quot;ROLE&quot;</span><span class="w">
+
+      </span><span class="s">&quot;LOGO&quot;</span><span class="w">
+
+      </span><span class="s">&quot;AGENT&quot;</span><span class="w">
+
+      </span><span class="s">&quot;ORG&quot;</span><span class="w">
+
+      </span><span class="s">&quot;NOTE&quot;</span><span class="w">
+
+      </span><span class="s">&quot;REV&quot;</span><span class="w">
+
+      </span><span class="s">&quot;SOUND&quot;</span><span class="w">
+
+      </span><span class="s">&quot;URL&quot;</span><span class="w">
+
+      </span><span class="s">&quot;UID&quot;</span><span class="w">
+
+      </span><span class="s">&quot;KEY&quot;</span><span class="w">
+
+      </span><span class="s">&quot;NICKNAME&quot;</span><span class="w">
+
+      </span><span class="s">&quot;CATEGORIES&quot;</span><span class="w">
+
+      </span><span class="s">&quot;PROID&quot;</span><span class="w">
+
+      </span><span class="s">&quot;CLASS&quot;</span><span class="w">
+
+      </span><span class="s">&quot;SORT-STRING&quot;</span><span class="w">
+
+      </span><span class="s">&quot;X-IRMC-CALL-DATETIME&quot;</span><span class="w">
+
+      </span><span class="s">&quot;X-BT-SPEEDDIALKEY&quot;</span><span class="w">
+
+      </span><span class="s">&quot;X-BT-UCI&quot;</span><span class="w">
+
+      </span><span class="s">&quot;X-BT-UID&quot;</span><span class="w">
+
+      </span><span class="s">&quot;BIT-{#}&quot;</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="nc">None</span></code></pre><p>   Properties
+   string Folder [readonly]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Current</span><span class="w"> </span><span class="n">folder</span><span class="o">.</span></code></pre><p>   string DatabaseIdentifier [readonly, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="mi">128</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="n">persistent</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">identifier</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+          </span><span class="mi">32</span><span class="o">-</span><span class="n">character</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">A1A2A3A4B1B2C1C2D1D2E1E2E3E4E5E6</span></code></pre><p>   string PrimaryCounter [readonly, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="mi">128</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">counter</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+          </span><span class="mi">32</span><span class="o">-</span><span class="n">character</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">A1A2A3A4B1B2C1C2D1D2E1E2E3E4E5E6</span></code></pre><p>   string SecondaryCounter [readonly, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="mi">128</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="n">secondary</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">counter</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+          </span><span class="mi">32</span><span class="o">-</span><span class="n">character</span><span class="w"> </span><span class="n">hexadecimal</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">A1A2A3A4B1B2C1C2D1D2E1E2E3E4E5E6</span></code></pre><p>   bool FixedImageSize [readonly, optional]</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Indicate</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">size</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+          </span><span class="nc">True</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">JPEG</span><span class="w"> </span><span class="mi">300</span><span class="n">x300</span><span class="w"> </span><span class="n">pixels</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="nc">False</span><span class="o">.</span></code></pre><p>BlueZ                                                                                    October 2023                                                        ORG.BLUEZ.OBEX.PHONEBOOKACCESS(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-obex-objectpush.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.bluez.obex.ObjectPush
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-obex-session.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.bluez.obex.Session
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>proc_vmstat — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>proc_vmstat</h1>
+
+
+  </div>
+
+
+<p>proc_vmstat(5)                                                                        File Formats Manual                                                                       proc_vmstat(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">vmstat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">statistics</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">vmstat</span><span class="w"> </span><span class="p" data-group-id="2065713602-1">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-1">)</span><span class="w">
+          </span><span class="nc">This</span><span class="w">  </span><span class="n">file</span><span class="w">  </span><span class="n">displays</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">virtual</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">statistics</span><span class="o">.</span><span class="w">  </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">name</span><span class="o">-</span><span class="n">value</span><span class="w"> </span><span class="n">pair</span><span class="p">,</span><span class="w"> </span><span class="n">delimited</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">white</span><span class="w"> </span><span class="n">space</span><span class="o">.</span><span class="w">  </span><span class="nc">Some</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w">
+          </span><span class="n">kernel</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">suitable</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="2065713602-2">(</span><span class="nc">In</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">versions</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">listed</span><span class="w">  </span><span class="n">here</span><span class="o">.</span><span class="w">   </span><span class="nc">De</span><span class="err">‐</span><span class="w">
+          </span><span class="n">tails</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">consulting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="p" data-group-id="2065713602-2">)</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ss">present</span><span class="p">:</span><span class="w">
+
+          </span><span class="n">nr_free_pages</span><span class="w"> </span><span class="p" data-group-id="2065713602-3">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">31</span><span class="p" data-group-id="2065713602-3">)</span><span class="w">
+
+          </span><span class="n">nr_alloc_batch</span><span class="w"> </span><span class="p" data-group-id="2065713602-4">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.12</span><span class="p" data-group-id="2065713602-4">)</span><span class="w">
+
+          </span><span class="n">nr_inactive_anon</span><span class="w"> </span><span class="p" data-group-id="2065713602-5">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-5">)</span><span class="w">
+
+          </span><span class="n">nr_active_anon</span><span class="w"> </span><span class="p" data-group-id="2065713602-6">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-6">)</span><span class="w">
+
+          </span><span class="n">nr_inactive_file</span><span class="w"> </span><span class="p" data-group-id="2065713602-7">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-7">)</span><span class="w">
+
+          </span><span class="n">nr_active_file</span><span class="w"> </span><span class="p" data-group-id="2065713602-8">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-8">)</span><span class="w">
+
+          </span><span class="n">nr_unevictable</span><span class="w"> </span><span class="p" data-group-id="2065713602-9">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-9">)</span><span class="w">
+
+          </span><span class="n">nr_mlock</span><span class="w"> </span><span class="p" data-group-id="2065713602-10">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-10">)</span><span class="w">
+
+          </span><span class="n">nr_anon_pages</span><span class="w"> </span><span class="p" data-group-id="2065713602-11">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-11">)</span><span class="w">
+
+          </span><span class="n">nr_mapped</span><span class="w"> </span><span class="p" data-group-id="2065713602-12">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-12">)</span><span class="w">
+
+          </span><span class="n">nr_file_pages</span><span class="w"> </span><span class="p" data-group-id="2065713602-13">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-13">)</span><span class="w">
+
+          </span><span class="n">nr_dirty</span><span class="w"> </span><span class="p" data-group-id="2065713602-14">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-14">)</span><span class="w">
+
+          </span><span class="n">nr_writeback</span><span class="w"> </span><span class="p" data-group-id="2065713602-15">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-15">)</span><span class="w">
+
+          </span><span class="n">nr_slab_reclaimable</span><span class="w"> </span><span class="p" data-group-id="2065713602-16">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">19</span><span class="p" data-group-id="2065713602-16">)</span><span class="w">
+
+          </span><span class="n">nr_slab_unreclaimable</span><span class="w"> </span><span class="p" data-group-id="2065713602-17">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">19</span><span class="p" data-group-id="2065713602-17">)</span><span class="w">
+
+          </span><span class="n">nr_page_table_pages</span><span class="w"> </span><span class="p" data-group-id="2065713602-18">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-18">)</span><span class="w">
+
+          </span><span class="n">nr_kernel_stack</span><span class="w"> </span><span class="p" data-group-id="2065713602-19">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="2065713602-19">)</span><span class="w">
+                 </span><span class="nc">Amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">allocated</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">stacks</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">nr_unstable</span><span class="w"> </span><span class="p" data-group-id="2065713602-20">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-20">)</span><span class="w">
+
+          </span><span class="n">nr_bounce</span><span class="w"> </span><span class="p" data-group-id="2065713602-21">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">12</span><span class="p" data-group-id="2065713602-21">)</span><span class="w">
+
+          </span><span class="n">nr_vmscan_write</span><span class="w"> </span><span class="p" data-group-id="2065713602-22">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">19</span><span class="p" data-group-id="2065713602-22">)</span><span class="w">
+
+          </span><span class="n">nr_vmscan_immediate_reclaim</span><span class="w"> </span><span class="p" data-group-id="2065713602-23">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.2</span><span class="p" data-group-id="2065713602-23">)</span><span class="w">
+
+          </span><span class="n">nr_writeback_temp</span><span class="w"> </span><span class="p" data-group-id="2065713602-24">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p" data-group-id="2065713602-24">)</span><span class="w">
+
+          </span><span class="n">nr_isolated_anon</span><span class="w"> </span><span class="p" data-group-id="2065713602-25">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="2065713602-25">)</span><span class="w">
+
+          </span><span class="n">nr_isolated_file</span><span class="w"> </span><span class="p" data-group-id="2065713602-26">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="2065713602-26">)</span><span class="w">
+
+          </span><span class="n">nr_shmem</span><span class="w"> </span><span class="p" data-group-id="2065713602-27">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="2065713602-27">)</span><span class="w">
+                 </span><span class="nc">Pages</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">shmem</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tmpfs</span><span class="p" data-group-id="2065713602-28">(</span><span class="mi">5</span><span class="p" data-group-id="2065713602-28">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">nr_dirtied</span><span class="w"> </span><span class="p" data-group-id="2065713602-29">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">37</span><span class="p" data-group-id="2065713602-29">)</span><span class="w">
+
+          </span><span class="n">nr_written</span><span class="w"> </span><span class="p" data-group-id="2065713602-30">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">37</span><span class="p" data-group-id="2065713602-30">)</span><span class="w">
+
+          </span><span class="n">nr_pages_scanned</span><span class="w"> </span><span class="p" data-group-id="2065713602-31">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.17</span><span class="p" data-group-id="2065713602-31">)</span><span class="w">
+
+          </span><span class="n">numa_hit</span><span class="w"> </span><span class="p" data-group-id="2065713602-32">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-32">)</span><span class="w">
+
+          </span><span class="n">numa_miss</span><span class="w"> </span><span class="p" data-group-id="2065713602-33">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-33">)</span><span class="w">
+
+          </span><span class="n">numa_foreign</span><span class="w"> </span><span class="p" data-group-id="2065713602-34">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-34">)</span><span class="w">
+
+          </span><span class="n">numa_interleave</span><span class="w"> </span><span class="p" data-group-id="2065713602-35">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-35">)</span><span class="w">
+
+          </span><span class="n">numa_local</span><span class="w"> </span><span class="p" data-group-id="2065713602-36">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-36">)</span><span class="w">
+
+          </span><span class="n">numa_other</span><span class="w"> </span><span class="p" data-group-id="2065713602-37">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">18</span><span class="p" data-group-id="2065713602-37">)</span><span class="w">
+
+          </span><span class="n">workingset_refault</span><span class="w"> </span><span class="p" data-group-id="2065713602-38">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.15</span><span class="p" data-group-id="2065713602-38">)</span><span class="w">
+
+          </span><span class="n">workingset_activate</span><span class="w"> </span><span class="p" data-group-id="2065713602-39">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.15</span><span class="p" data-group-id="2065713602-39">)</span><span class="w">
+
+          </span><span class="n">workingset_nodereclaim</span><span class="w"> </span><span class="p" data-group-id="2065713602-40">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.15</span><span class="p" data-group-id="2065713602-40">)</span><span class="w">
+
+          </span><span class="n">nr_anon_transparent_hugepages</span><span class="w"> </span><span class="p" data-group-id="2065713602-41">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">38</span><span class="p" data-group-id="2065713602-41">)</span><span class="w">
+
+          </span><span class="n">nr_free_cma</span><span class="w"> </span><span class="p" data-group-id="2065713602-42">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.7</span><span class="p" data-group-id="2065713602-42">)</span><span class="w">
+                 </span><span class="nc">Number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="nc">CMA</span><span class="w"> </span><span class="p" data-group-id="2065713602-43">(</span><span class="nc">Contiguous</span><span class="w"> </span><span class="nc">Memory</span><span class="w"> </span><span class="nc">Allocator</span><span class="p" data-group-id="2065713602-43">)</span><span class="w"> </span><span class="n">pages</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">nr_dirty_threshold</span><span class="w"> </span><span class="p" data-group-id="2065713602-44">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">37</span><span class="p" data-group-id="2065713602-44">)</span><span class="w">
+
+          </span><span class="n">nr_dirty_background_threshold</span><span class="w"> </span><span class="p" data-group-id="2065713602-45">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">37</span><span class="p" data-group-id="2065713602-45">)</span><span class="w">
+
+          </span><span class="n">pgpgin</span><span class="w"> </span><span class="p" data-group-id="2065713602-46">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-46">)</span><span class="w">
+
+          </span><span class="n">pgpgout</span><span class="w"> </span><span class="p" data-group-id="2065713602-47">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-47">)</span><span class="w">
+
+          </span><span class="n">pswpin</span><span class="w"> </span><span class="p" data-group-id="2065713602-48">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-48">)</span><span class="w">
+
+          </span><span class="n">pswpout</span><span class="w"> </span><span class="p" data-group-id="2065713602-49">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-49">)</span><span class="w">
+
+          </span><span class="n">pgalloc_dma</span><span class="w"> </span><span class="p" data-group-id="2065713602-50">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-50">)</span><span class="w">
+
+          </span><span class="n">pgalloc_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-51">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">16</span><span class="p" data-group-id="2065713602-51">)</span><span class="w">
+
+          </span><span class="n">pgalloc_normal</span><span class="w"> </span><span class="p" data-group-id="2065713602-52">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-52">)</span><span class="w">
+
+          </span><span class="n">pgalloc_high</span><span class="w"> </span><span class="p" data-group-id="2065713602-53">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-53">)</span><span class="w">
+
+          </span><span class="n">pgalloc_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-54">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">23</span><span class="p" data-group-id="2065713602-54">)</span><span class="w">
+
+          </span><span class="n">pgfree</span><span class="w"> </span><span class="p" data-group-id="2065713602-55">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-55">)</span><span class="w">
+
+          </span><span class="n">pgactivate</span><span class="w"> </span><span class="p" data-group-id="2065713602-56">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-56">)</span><span class="w">
+
+          </span><span class="n">pgdeactivate</span><span class="w"> </span><span class="p" data-group-id="2065713602-57">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-57">)</span><span class="w">
+
+          </span><span class="n">pgfault</span><span class="w"> </span><span class="p" data-group-id="2065713602-58">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-58">)</span><span class="w">
+
+          </span><span class="n">pgmajfault</span><span class="w"> </span><span class="p" data-group-id="2065713602-59">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-59">)</span><span class="w">
+
+          </span><span class="n">pgrefill_dma</span><span class="w"> </span><span class="p" data-group-id="2065713602-60">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-60">)</span><span class="w">
+
+          </span><span class="n">pgrefill_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-61">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">16</span><span class="p" data-group-id="2065713602-61">)</span><span class="w">
+
+          </span><span class="n">pgrefill_normal</span><span class="w"> </span><span class="p" data-group-id="2065713602-62">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-62">)</span><span class="w">
+
+          </span><span class="n">pgrefill_high</span><span class="w"> </span><span class="p" data-group-id="2065713602-63">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-63">)</span><span class="w">
+
+          </span><span class="n">pgrefill_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-64">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">23</span><span class="p" data-group-id="2065713602-64">)</span><span class="w">
+
+          </span><span class="n">pgsteal_kswapd_dma</span><span class="w"> </span><span class="p" data-group-id="2065713602-65">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-65">)</span><span class="w">
+
+          </span><span class="n">pgsteal_kswapd_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-66">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-66">)</span><span class="w">
+
+          </span><span class="n">pgsteal_kswapd_normal</span><span class="w"> </span><span class="p" data-group-id="2065713602-67">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-67">)</span><span class="w">
+
+          </span><span class="n">pgsteal_kswapd_high</span><span class="w"> </span><span class="p" data-group-id="2065713602-68">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-68">)</span><span class="w">
+
+          </span><span class="n">pgsteal_kswapd_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-69">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-69">)</span><span class="w">
+
+          </span><span class="n">pgsteal_direct_dma</span><span class="w">
+
+          </span><span class="n">pgsteal_direct_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-70">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-70">)</span><span class="w">
+
+          </span><span class="n">pgsteal_direct_normal</span><span class="w"> </span><span class="p" data-group-id="2065713602-71">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-71">)</span><span class="w">
+
+          </span><span class="n">pgsteal_direct_high</span><span class="w"> </span><span class="p" data-group-id="2065713602-72">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.4</span><span class="p" data-group-id="2065713602-72">)</span><span class="w">
+
+          </span><span class="n">pgsteal_direct_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-73">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">23</span><span class="p" data-group-id="2065713602-73">)</span><span class="w">
+
+          </span><span class="n">pgscan_kswapd_dma</span><span class="w">
+
+          </span><span class="n">pgscan_kswapd_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-74">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">16</span><span class="p" data-group-id="2065713602-74">)</span><span class="w">
+
+          </span><span class="n">pgscan_kswapd_normal</span><span class="w"> </span><span class="p" data-group-id="2065713602-75">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-75">)</span><span class="w">
+
+          </span><span class="n">pgscan_kswapd_high</span><span class="w">
+
+          </span><span class="n">pgscan_kswapd_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-76">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">23</span><span class="p" data-group-id="2065713602-76">)</span><span class="w">
+
+          </span><span class="n">pgscan_direct_dma</span><span class="w">
+
+          </span><span class="n">pgscan_direct_dma32</span><span class="w"> </span><span class="p" data-group-id="2065713602-77">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">16</span><span class="p" data-group-id="2065713602-77">)</span><span class="w">
+
+          </span><span class="n">pgscan_direct_normal</span><span class="w">
+
+          </span><span class="n">pgscan_direct_high</span><span class="w">
+
+          </span><span class="n">pgscan_direct_movable</span><span class="w"> </span><span class="p" data-group-id="2065713602-78">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">23</span><span class="p" data-group-id="2065713602-78">)</span><span class="w">
+
+          </span><span class="n">pgscan_direct_throttle</span><span class="w"> </span><span class="p" data-group-id="2065713602-79">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.6</span><span class="p" data-group-id="2065713602-79">)</span><span class="w">
+
+          </span><span class="n">zone_reclaim_failed</span><span class="w"> </span><span class="p" data-group-id="2065713602-80">(</span><span class="n">since</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">31</span><span class="p" data-group-id="2065713602-80">)</span><span class="w">
+
+          </span><span class="n">pginodesteal</span><span class="w"> </span><span class="p" data-group-id="2065713602-81">(</span><span class="n">since</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-81">)</span><span class="w">
+
+          </span><span class="n">slabs_scanned</span><span class="w"> </span><span class="p" data-group-id="2065713602-82">(</span><span class="n">since</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">5</span><span class="p" data-group-id="2065713602-82">)</span><span class="w">
+
+          </span><span class="n">kswapd_inodesteal</span><span class="w"> </span><span class="p" data-group-id="2065713602-83">(</span><span class="n">since</span><span class="w"> </span><span class="n">linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-83">)</span><span class="w">
+
+          </span><span class="n">kswapd_low_wmark_hit_quickly</span><span class="w"> </span><span class="p" data-group-id="2065713602-84">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">33</span><span class="p" data-group-id="2065713602-84">)</span><span class="w">
+
+          </span><span class="n">kswapd_high_wmark_hit_quickly</span><span class="w"> </span><span class="p" data-group-id="2065713602-85">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">33</span><span class="p" data-group-id="2065713602-85">)</span><span class="w">
+
+          </span><span class="n">pageoutrun</span><span class="w"> </span><span class="p" data-group-id="2065713602-86">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-86">)</span><span class="w">
+
+          </span><span class="n">allocstall</span><span class="w"> </span><span class="p" data-group-id="2065713602-87">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-87">)</span><span class="w">
+
+          </span><span class="n">pgrotated</span><span class="w"> </span><span class="p" data-group-id="2065713602-88">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p" data-group-id="2065713602-88">)</span><span class="w">
+
+          </span><span class="n">drop_pagecache</span><span class="w"> </span><span class="p" data-group-id="2065713602-89">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.15</span><span class="p" data-group-id="2065713602-89">)</span><span class="w">
+
+          </span><span class="n">drop_slab</span><span class="w"> </span><span class="p" data-group-id="2065713602-90">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.15</span><span class="p" data-group-id="2065713602-90">)</span><span class="w">
+
+          </span><span class="n">numa_pte_updates</span><span class="w"> </span><span class="p" data-group-id="2065713602-91">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-91">)</span><span class="w">
+
+          </span><span class="n">numa_huge_pte_updates</span><span class="w"> </span><span class="p" data-group-id="2065713602-92">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.13</span><span class="p" data-group-id="2065713602-92">)</span><span class="w">
+
+          </span><span class="n">numa_hint_faults</span><span class="w"> </span><span class="p" data-group-id="2065713602-93">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-93">)</span><span class="w">
+
+          </span><span class="n">numa_hint_faults_local</span><span class="w"> </span><span class="p" data-group-id="2065713602-94">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-94">)</span><span class="w">
+
+          </span><span class="n">numa_pages_migrated</span><span class="w"> </span><span class="p" data-group-id="2065713602-95">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-95">)</span><span class="w">
+
+          </span><span class="n">pgmigrate_success</span><span class="w"> </span><span class="p" data-group-id="2065713602-96">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-96">)</span><span class="w">
+
+          </span><span class="n">pgmigrate_fail</span><span class="w"> </span><span class="p" data-group-id="2065713602-97">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-97">)</span><span class="w">
+
+          </span><span class="n">compact_migrate_scanned</span><span class="w"> </span><span class="p" data-group-id="2065713602-98">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-98">)</span><span class="w">
+
+          </span><span class="n">compact_free_scanned</span><span class="w"> </span><span class="p" data-group-id="2065713602-99">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-99">)</span><span class="w">
+
+          </span><span class="n">compact_isolated</span><span class="w"> </span><span class="p" data-group-id="2065713602-100">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-100">)</span><span class="w">
+
+          </span><span class="n">compact_stall</span><span class="w"> </span><span class="p" data-group-id="2065713602-101">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">35</span><span class="p" data-group-id="2065713602-101">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">compact_fail</span><span class="w"> </span><span class="p" data-group-id="2065713602-102">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">35</span><span class="p" data-group-id="2065713602-102">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">compact_success</span><span class="w"> </span><span class="p" data-group-id="2065713602-103">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">35</span><span class="p" data-group-id="2065713602-103">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">htlb_buddy_alloc_success</span><span class="w"> </span><span class="p" data-group-id="2065713602-104">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p" data-group-id="2065713602-104">)</span><span class="w">
+
+          </span><span class="n">htlb_buddy_alloc_fail</span><span class="w"> </span><span class="p" data-group-id="2065713602-105">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">26</span><span class="p" data-group-id="2065713602-105">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_culled</span><span class="w"> </span><span class="p" data-group-id="2065713602-106">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-106">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_scanned</span><span class="w"> </span><span class="p" data-group-id="2065713602-107">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-107">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_rescued</span><span class="w"> </span><span class="p" data-group-id="2065713602-108">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-108">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_mlocked</span><span class="w"> </span><span class="p" data-group-id="2065713602-109">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-109">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_munlocked</span><span class="w"> </span><span class="p" data-group-id="2065713602-110">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-110">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_cleared</span><span class="w"> </span><span class="p" data-group-id="2065713602-111">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-111">)</span><span class="w">
+
+          </span><span class="n">unevictable_pgs_stranded</span><span class="w"> </span><span class="p" data-group-id="2065713602-112">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">28</span><span class="p" data-group-id="2065713602-112">)</span><span class="w">
+
+          </span><span class="n">thp_fault_alloc</span><span class="w"> </span><span class="p" data-group-id="2065713602-113">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">39</span><span class="p" data-group-id="2065713602-113">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_fault_fallback</span><span class="w"> </span><span class="p" data-group-id="2065713602-114">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">39</span><span class="p" data-group-id="2065713602-114">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_collapse_alloc</span><span class="w"> </span><span class="p" data-group-id="2065713602-115">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">39</span><span class="p" data-group-id="2065713602-115">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_collapse_alloc_failed</span><span class="w"> </span><span class="p" data-group-id="2065713602-116">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">39</span><span class="p" data-group-id="2065713602-116">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_split</span><span class="w"> </span><span class="p" data-group-id="2065713602-117">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">39</span><span class="p" data-group-id="2065713602-117">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_zero_page_alloc</span><span class="w"> </span><span class="p" data-group-id="2065713602-118">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-118">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">thp_zero_page_alloc_failed</span><span class="w"> </span><span class="p" data-group-id="2065713602-119">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.8</span><span class="p" data-group-id="2065713602-119">)</span><span class="w">
+                 </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="nc">Documentation</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">guide</span><span class="o">/</span><span class="n">mm</span><span class="o">/</span><span class="n">transhuge</span><span class="o">.</span><span class="n">rst</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">balloon_inflate</span><span class="w"> </span><span class="p" data-group-id="2065713602-120">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.18</span><span class="p" data-group-id="2065713602-120">)</span><span class="w">
+
+          </span><span class="n">balloon_deflate</span><span class="w"> </span><span class="p" data-group-id="2065713602-121">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.18</span><span class="p" data-group-id="2065713602-121">)</span><span class="w">
+
+          </span><span class="n">balloon_migrate</span><span class="w"> </span><span class="p" data-group-id="2065713602-122">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.18</span><span class="p" data-group-id="2065713602-122">)</span><span class="w">
+
+          </span><span class="n">nr_tlb_remote_flush</span><span class="w"> </span><span class="p" data-group-id="2065713602-123">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.12</span><span class="p" data-group-id="2065713602-123">)</span><span class="w">
+
+          </span><span class="n">nr_tlb_remote_flush_received</span><span class="w"> </span><span class="p" data-group-id="2065713602-124">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.12</span><span class="p" data-group-id="2065713602-124">)</span><span class="w">
+
+          </span><span class="n">nr_tlb_local_flush_all</span><span class="w"> </span><span class="p" data-group-id="2065713602-125">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.12</span><span class="p" data-group-id="2065713602-125">)</span><span class="w">
+
+          </span><span class="n">nr_tlb_local_flush_one</span><span class="w"> </span><span class="p" data-group-id="2065713602-126">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.12</span><span class="p" data-group-id="2065713602-126">)</span><span class="w">
+
+          </span><span class="n">vmacache_find_calls</span><span class="w"> </span><span class="p" data-group-id="2065713602-127">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.16</span><span class="p" data-group-id="2065713602-127">)</span><span class="w">
+
+          </span><span class="n">vmacache_find_hits</span><span class="w"> </span><span class="p" data-group-id="2065713602-128">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.16</span><span class="p" data-group-id="2065713602-128">)</span><span class="w">
+
+          </span><span class="n">vmacache_full_flushes</span><span class="w"> </span><span class="p" data-group-id="2065713602-129">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.19</span><span class="p" data-group-id="2065713602-129">)</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">proc</span><span class="p" data-group-id="2328270521-1">(</span><span class="mi">5</span><span class="p" data-group-id="2328270521-1">)</span></code></pre><p>Linux man-pages 6.9.1                                                                     2024-05-02                                                                            proc_vmstat(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="proc_version.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+proc_version
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="proc_zoneinfo.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+proc_zoneinfo
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

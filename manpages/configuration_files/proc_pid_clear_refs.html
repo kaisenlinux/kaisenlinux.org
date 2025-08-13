@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>proc_pid_clear_refs — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>proc_pid_clear_refs</h1>
+
+
+  </div>
+
+
+<p>proc_pid_clear_refs(5)                                                                File Formats Manual                                                               proc_pid_clear_refs(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">clear_refs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">clear_refs</span><span class="w"> </span><span class="p" data-group-id="0350356609-1">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">22</span><span class="p" data-group-id="0350356609-1">)</span><span class="w">
+
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">write</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">writable</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">file</span><span class="p">:</span><span class="w">
+
+          </span><span class="mi">1</span><span class="w"> </span><span class="p" data-group-id="0350356609-2">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">22</span><span class="p" data-group-id="0350356609-2">)</span><span class="w">
+                 </span><span class="nc">Reset</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">  </span><span class="p" data-group-id="0350356609-3">(</span><span class="nc">Before</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">writing</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">nonzero</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">had</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">ef</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">fect</span><span class="o">.</span><span class="p" data-group-id="0350356609-3">)</span><span class="w">
+
+          </span><span class="mi">2</span><span class="w"> </span><span class="p" data-group-id="0350356609-4">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="0350356609-4">)</span><span class="w">
+                 </span><span class="nc">Reset</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+          </span><span class="mi">3</span><span class="w"> </span><span class="p" data-group-id="0350356609-5">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">2.6</span><span class="o">.</span><span class="mi">32</span><span class="p" data-group-id="0350356609-5">)</span><span class="w">
+                 </span><span class="nc">Reset</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">file</span><span class="o">-</span><span class="n">mapped</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Clearing</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">measure</span><span class="w"> </span><span class="n">approximately</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">using</span><span class="o">.</span><span class="w">  </span><span class="nc">One</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">inspects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Refer‐
+          enced&quot;</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">VMAs</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">smaps</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">idea</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">footprint</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">  </span><span class="nc">One</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">clears</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PG_Referenced</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ACCESSED</span><span class="o">/</span><span class="nc">YOUNG</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="ow">and</span><span class="p">,</span><span class="w"> </span><span class="k">after</span><span class="w">
+          </span><span class="n">some</span><span class="w"> </span><span class="n">measured</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">interval</span><span class="p">,</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">again</span><span class="w"> </span><span class="n">inspects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;Referenced&quot;</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">idea</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="n">footprint</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w">  </span><span class="n">measured</span><span class="w">  </span><span class="ow">in</span><span class="err">‐</span><span class="w">
+          </span><span class="n">terval</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">interested</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">inspecting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Further</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">affect</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="ss">properties</span><span class="p">:</span><span class="w">
+
+          </span><span class="mi">4</span><span class="w"> </span><span class="p" data-group-id="0350356609-6">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.11</span><span class="p" data-group-id="0350356609-6">)</span><span class="w">
+                 </span><span class="nc">Clear</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">soft</span><span class="o">-</span><span class="n">dirty</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="0350356609-7">(</span><span class="ow">in</span><span class="w"> </span><span class="n">conjunction</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">pagemap</span><span class="p" data-group-id="0350356609-7">)</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">check</span><span class="o">-</span><span class="n">point</span><span class="w"> </span><span class="n">restore</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">dis</span><span class="err">‐</span><span class="w">
+                 </span><span class="n">cover</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">dirtied</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">clear_refs</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">to</span><span class="o">.</span><span class="w">
+
+          </span><span class="mi">5</span><span class="w"> </span><span class="p" data-group-id="0350356609-8">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">4.0</span><span class="p" data-group-id="0350356609-8">)</span><span class="w">
+                 </span><span class="nc">Reset</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">peak</span><span class="w"> </span><span class="n">resident</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p" data-group-id="0350356609-9">(</span><span class="s">&quot;high water mark&quot;</span><span class="p" data-group-id="0350356609-9">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">resident</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Writing</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">clear_refs</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">effect</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">clear_refs</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CONFIG_PROC_PAGE_MONITOR</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">enabled</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">proc</span><span class="p" data-group-id="2564399076-1">(</span><span class="mi">5</span><span class="p" data-group-id="2564399076-1">)</span></code></pre><p>Linux man-pages 6.9.1                                                                     2024-05-02                                                                    proc_pid_clear_refs(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="proc_pid_cgroup.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+proc_pid_cgroup
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="proc_pid_cmdline.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+proc_pid_cmdline
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

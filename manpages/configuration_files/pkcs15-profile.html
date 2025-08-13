@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>pkcs15-profile — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>pkcs15-profile</h1>
+
+
+  </div>
+
+
+<p>PKCS15-PROFILE(5)                                                                     OpenSC File Formats                                                                    PKCS15-PROFILE(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">profile</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">init</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">init</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">PKCS</span><span class="w"> </span><span class="c1">#15 smart card personalization is controlled via profiles. When starting, it will read two such profiles at the moment, a generic application profile,</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">profile</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span><span class="o">-</span><span class="n">specific</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">selected</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">detected</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">layout</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="nc">DF</span><span class="p">,</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="nc">PKCS</span><span class="w"> </span><span class="c1">#15 files within that directory, and the access</span><span class="w">
+   </span><span class="n">conditions</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="nc">PIN</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">objects</span><span class="o">.</span><span class="w"> </span><span class="nc">Currently</span><span class="p">,</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">profile</span><span class="p">,</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">initialization</span><span class="p">,</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">references</span><span class="w"> </span><span class="n">etc</span><span class="o">.</span><span class="w"> </span><span class="nc">Profiles</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="n">reside</span><span class="w"> </span><span class="ow">in</span><span class="w">
+   </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">opensc</span><span class="w">
+
+   </span><span class="nc">Basic</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 terminology:</span><span class="w">
+
+    </span><span class="mi">1</span><span class="o">.</span><span class="w"> </span><span class="nc">MF</span><span class="w"> </span><span class="p" data-group-id="3692062227-1">(</span><span class="nc">Master</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="3692062227-1">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">hierarchy</span><span class="w">
+
+    </span><span class="mi">2</span><span class="o">.</span><span class="w"> </span><span class="nc">DF</span><span class="p" data-group-id="3692062227-2">(</span><span class="nc">PKCS</span><span class="c1">#15) is directory containing the PKCS#15 files and directories</span><span class="w">
+
+    </span><span class="mi">3</span><span class="o">.</span><span class="w"> </span><span class="nc">EF</span><span class="p" data-group-id="3692062227-3">(</span><span class="nc">ODF</span><span class="p" data-group-id="3692062227-3">)</span><span class="w"> </span><span class="p" data-group-id="3692062227-4">(</span><span class="nc">Object</span><span class="w"> </span><span class="nc">Directory</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="3692062227-4">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">pointers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p" data-group-id="3692062227-5">(</span><span class="nc">PrKDFs</span><span class="p">,</span><span class="w"> </span><span class="nc">PuKDFs</span><span class="p">,</span><span class="w"> </span><span class="nc">SKDFs</span><span class="p">,</span><span class="w"> </span><span class="nc">CDFs</span><span class="p">,</span><span class="w"> </span><span class="nc">DODFs</span><span class="p">,</span><span class="w"> </span><span class="nc">AODFs</span><span class="p" data-group-id="3692062227-5">)</span><span class="w">
+
+    </span><span class="mi">4</span><span class="o">.</span><span class="w"> </span><span class="nc">PrKDF</span><span class="w"> </span><span class="p" data-group-id="3692062227-6">(</span><span class="nc">Private</span><span class="w"> </span><span class="nc">Key</span><span class="w"> </span><span class="nc">Directory</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="3692062227-6">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">pointers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">keys</span><span class="w">
+
+    </span><span class="mi">5</span><span class="o">.</span><span class="w"> </span><span class="nc">PubKDF</span><span class="w"> </span><span class="p" data-group-id="3692062227-7">(</span><span class="nc">Public</span><span class="w"> </span><span class="nc">Key</span><span class="w"> </span><span class="nc">Directory</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="3692062227-7">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">pointers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">keys</span><span class="w">
+
+    </span><span class="mi">6</span><span class="o">.</span><span class="w"> </span><span class="nc">CDF</span><span class="w"> </span><span class="p" data-group-id="3692062227-8">(</span><span class="nc">Certificate</span><span class="w"> </span><span class="nc">Directory</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="3692062227-8">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">pointers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">certificates</span><span class="w">
+
+    </span><span class="mi">7</span><span class="o">.</span><span class="w"> </span><span class="nc">EF</span><span class="p" data-group-id="3692062227-9">(</span><span class="nc">TokenInfo</span><span class="p" data-group-id="3692062227-9">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span></code></pre><p>SYNTAX AND SEMANTICS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">composed</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">general</span><span class="p">,</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">format</span><span class="p">:</span><span class="w">
+
+       </span><span class="n">key</span><span class="w"> </span><span class="p" data-group-id="3453403936-1">[</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="n">...</span><span class="p" data-group-id="3453403936-1">]</span><span class="w"> </span><span class="p" data-group-id="3453403936-2">{</span><span class="w">
+            </span><span class="n">block_contents</span><span class="w">
+       </span><span class="p" data-group-id="3453403936-2">}</span><span class="w">
+
+   </span><span class="n">block_contents</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">block_items</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">block_item</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="c1"># comment string</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="n">key</span><span class="p" data-group-id="3453403936-3">[</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="n">...</span><span class="p" data-group-id="3453403936-3">]</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="n">block</span><span class="w">
+
+   </span><span class="nc">At</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">blocks</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="ss">follows</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">cardinfo</span><span class="p">:</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">card</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">pkcs15</span><span class="p">:</span><span class="w"> </span><span class="nc">Control</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">aspects</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 put onto the card.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">option</span><span class="p">:</span><span class="w"> </span><span class="nc">Profile</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">profile</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">PIN</span><span class="p">:</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">limits</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="n">type</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="ss">filesystem</span><span class="p">:</span><span class="w"> </span><span class="nc">Specification</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span><span class="o">.</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="n">macros</span></code></pre><p>   Profile file configuration</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Card</span><span class="w"> </span><span class="nc">Information</span><span class="w">
+
+       </span><span class="n">cardinfo</span><span class="w"> </span><span class="p" data-group-id="9244605206-1">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-1">}</span><span class="w">
+           </span><span class="nc">Configuration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="ss">card</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Card</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="p" data-group-id="9244605206-2">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="nc">OpenSC</span><span class="w"> </span><span class="nc">Card</span><span class="p" data-group-id="9244605206-2">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">manufacturer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Card</span><span class="w"> </span><span class="n">manufacturer</span><span class="w"> </span><span class="p" data-group-id="9244605206-3">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="nc">OpenSC</span><span class="w"> </span><span class="nc">Project</span><span class="p" data-group-id="9244605206-3">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">min</span><span class="o">-</span><span class="n">pin</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Minimal</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="9244605206-4">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p" data-group-id="9244605206-4">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">max</span><span class="o">-</span><span class="n">pin</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Maximal</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="p">,</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">per</span><span class="o">-</span><span class="n">card</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="p" data-group-id="9244605206-5">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="9244605206-5">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">pin</span><span class="o">-</span><span class="n">encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Encoding</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="o">.</span><span class="w"> </span><span class="nc">Known</span><span class="w"> </span><span class="ss">parameters</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="ss">BCD</span><span class="p">:</span><span class="w"> </span><span class="n">binary</span><span class="o">-</span><span class="n">coded</span><span class="w"> </span><span class="n">decimal</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">ascii</span><span class="o">-</span><span class="ss">numeric</span><span class="p">:</span><span class="w"> </span><span class="nc">ASCII</span><span class="w"> </span><span class="n">numerical</span><span class="w"> </span><span class="n">values</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">utf8</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">half</span><span class="o">-</span><span class="n">nibble</span><span class="o">-</span><span class="n">bcd</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">iso9564</span><span class="o">-</span><span class="mi">1</span><span class="w">
+
+               </span><span class="p" data-group-id="9244605206-6">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">ascii</span><span class="o">-</span><span class="n">numeric</span><span class="p" data-group-id="9244605206-6">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">pin</span><span class="o">-</span><span class="n">pad</span><span class="o">-</span><span class="n">char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Character</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="p" data-group-id="9244605206-7">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mh">0x00</span><span class="p" data-group-id="9244605206-7">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">pin</span><span class="o">-</span><span class="n">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bool</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Some</span><span class="w"> </span><span class="n">cards</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">keep</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="nc">PINs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">directories</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">domain</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">put</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="nc">PIN</span><span class="o">.</span><span class="w"> </span><span class="p" data-group-id="9244605206-8">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="p" data-group-id="9244605206-8">)</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15</span><span class="w">
+
+       </span><span class="n">pkcs15</span><span class="w"> </span><span class="p" data-group-id="9244605206-9">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-9">}</span><span class="w">
+           </span><span class="nc">Control</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">general</span><span class="w"> </span><span class="n">aspects</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 put onto the card. Parameters in this block are:</span><span class="w">
+
+           </span><span class="n">direct</span><span class="o">-</span><span class="n">certificates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bool</span><span class="p">;</span><span class="w">
+               </span><span class="nc">The</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 system must contain at least one CDF, it contains the certificates directly or references to certificates. This options defines whether the certificates should</span><span class="w">
+               </span><span class="n">be</span><span class="w"> </span><span class="n">put</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CDF</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="p" data-group-id="9244605206-10">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="p" data-group-id="9244605206-10">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">encode</span><span class="o">-</span><span class="n">df</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bool</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Save</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="nc">ODF</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="nc">Useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">certificates</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CDF</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">performance</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">robustness</span><span class="w"> </span><span class="p" data-group-id="9244605206-11">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="p" data-group-id="9244605206-11">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="k" data-group-id="9244605206-12">do</span><span class="o">-</span><span class="n">last</span><span class="o">-</span><span class="n">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Store</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">EF</span><span class="p" data-group-id="9244605206-13">(</span><span class="nc">TokenInfo</span><span class="p" data-group-id="9244605206-13">)</span><span class="w"> </span><span class="p" data-group-id="9244605206-14">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">yes</span><span class="p" data-group-id="9244605206-14">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">id</span><span class="o">-</span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Method</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">calculate</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">crypto</span><span class="w"> </span><span class="n">objects</span><span class="o">.</span><span class="w"> </span><span class="nc">Known</span><span class="w"> </span><span class="ss">parameters</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="ss">native</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">number_of_present_objects_of_the_same_type</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="ss">mozilla</span><span class="p">:</span><span class="w"> </span><span class="nc">SHA1</span><span class="p" data-group-id="9244605206-15">(</span><span class="n">modulus</span><span class="p" data-group-id="9244605206-15">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">RSA</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">rfc2459</span><span class="w"> </span><span class="nc">SHA1</span><span class="p" data-group-id="9244605206-16">(</span><span class="nc">SequenceASN1</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nc">ASN1</span><span class="w"> </span><span class="n">integers</span><span class="p" data-group-id="9244605206-16">)</span><span class="w">
+                                                                           </span><span class="p" data-group-id="9244605206-17">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">native</span><span class="p" data-group-id="9244605206-17">)</span><span class="w">                                                        </span><span class="o">.</span><span class="n">sp</span><span class="w">
+
+           </span><span class="n">minidriver</span><span class="o">-</span><span class="n">support</span><span class="o">-</span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Style</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">init</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">minidriver</span><span class="o">.</span><span class="w"> </span><span class="nc">Known</span><span class="w"> </span><span class="ss">parameters</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">none</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">gemalto</span><span class="w">
+
+               </span><span class="p" data-group-id="9244605206-18">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">none</span><span class="p" data-group-id="9244605206-18">)</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Profile</span><span class="w"> </span><span class="nc">Option</span><span class="w">
+
+       </span><span class="n">option</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="9244605206-19">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-19">}</span><span class="w">  </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">behavior</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">profile</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="o">.</span><span class="n">sp</span><span class="w"> </span><span class="o">.</span><span class="nc">RS</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">.</span><span class="n">ie</span><span class="err">•</span><span class="n">n</span><span class="w">
+
+           </span><span class="n">macros</span><span class="w"> </span><span class="p" data-group-id="9244605206-20">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-20">}</span><span class="w">
+               </span><span class="nc">Macros</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="n">pairs</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">pkcs15</span><span class="w"> </span><span class="p" data-group-id="9244605206-21">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-21">}</span><span class="w">
+               </span><span class="nc">Inner</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 structure.</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PINs</span><span class="w">
+
+       </span><span class="nc">PIN</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="9244605206-22">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-22">}</span><span class="w">  </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="o">.</span><span class="n">sp</span><span class="w"> </span><span class="o">.</span><span class="nc">RS</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">.</span><span class="n">ie</span><span class="err">•</span><span class="n">n</span><span class="w">
+           </span><span class="nc">Known</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="ss">are</span><span class="p">:</span><span class="w">
+
+           </span><span class="n">attempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Defines</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">attempts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="9244605206-23">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="9244605206-23">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="n">...</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Flags</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PIN</span><span class="o">.</span><span class="w"> </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">flags</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="k">case</span><span class="o">-</span><span class="n">sensitive</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">local</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">change</span><span class="o">-</span><span class="n">disabled</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">unblock</span><span class="o">-</span><span class="n">disabled</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">initialized</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">needs</span><span class="o">-</span><span class="n">padding</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">unblockingPin</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">soPin</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">disable</span><span class="o">-</span><span class="n">allowed</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">integrity</span><span class="o">-</span><span class="n">protected</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">confidentiality</span><span class="o">-</span><span class="n">protected</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">exchangeRefData</span><span class="w">
+
+               </span><span class="p" data-group-id="9244605206-24">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">local</span><span class="p">,</span><span class="n">initialized</span><span class="p">,</span><span class="n">needs</span><span class="o">-</span><span class="n">padding</span><span class="p" data-group-id="9244605206-24">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">auth</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Value</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="p" data-group-id="9244605206-25">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="9244605206-25">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">min</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Minimal</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="9244605206-26">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">min</span><span class="o">-</span><span class="n">pin</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cardinfo</span><span class="w"> </span><span class="n">block</span><span class="p" data-group-id="9244605206-26">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">max</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Maximal</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="9244605206-27">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">max</span><span class="o">-</span><span class="n">pin</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cardinfo</span><span class="w"> </span><span class="n">block</span><span class="p" data-group-id="9244605206-27">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="p" data-group-id="9244605206-28">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">driver</span><span class="p" data-group-id="9244605206-28">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+               </span><span class="nc">File</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">PIN</span><span class="p">,</span><span class="w"> </span><span class="n">obsolete</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="p" data-group-id="9244605206-29">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="nc">None</span><span class="p" data-group-id="9244605206-29">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Offset</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PIN</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">obsolete</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="p" data-group-id="9244605206-30">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="9244605206-30">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Encoding</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">PIN</span><span class="o">.</span><span class="w"> </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">BCD</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">ascii</span><span class="o">-</span><span class="n">numeric</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">utf8</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">half</span><span class="o">-</span><span class="n">nibble</span><span class="o">-</span><span class="n">bcd</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="n">iso9564</span><span class="o">-</span><span class="mi">1</span><span class="w">
+
+               </span><span class="p" data-group-id="9244605206-31">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">pin</span><span class="o">-</span><span class="n">encoding</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cardinfo</span><span class="w"> </span><span class="n">block</span><span class="p" data-group-id="9244605206-31">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">stored</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="p" data-group-id="9244605206-32">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">max</span><span class="o">-</span><span class="n">pin</span><span class="o">-</span><span class="n">length</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">cardinfo</span><span class="w"> </span><span class="n">block</span><span class="p" data-group-id="9244605206-32">)</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">max</span><span class="o">-</span><span class="n">unlocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="p" data-group-id="9244605206-33">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="9244605206-33">)</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">Values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">macros</span><span class="o">.</span><span class="w"> </span><span class="nc">That</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">option</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Filesystem</span><span class="w">
+       </span><span class="n">filesystem</span><span class="w"> </span><span class="p" data-group-id="9244605206-34">{</span><span class="w">                          </span><span class="n">block_contents</span><span class="w">                          </span><span class="p" data-group-id="9244605206-34">}</span><span class="w">                     </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specification</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w">
+       </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">card</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">nested</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">representing</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">EF</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">DFs</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">EFs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">card</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">profile</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w">
+       </span><span class="n">system</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">profile</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">EF</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="9244605206-35">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-35">}</span><span class="w">  </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 file hierarchy. The name can be one of: .sp .RS 4 .ie•n</span><span class="w">
+
+           </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">EF</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Type</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">acl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">ACL</span><span class="w"> </span><span class="p" data-group-id="9244605206-36">(</span><span class="nc">Access</span><span class="w"> </span><span class="nc">Control</span><span class="w"> </span><span class="nc">List</span><span class="p" data-group-id="9244605206-36">)</span><span class="w"> </span><span class="p" data-group-id="9244605206-37">(</span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="nc">NONE</span><span class="p" data-group-id="9244605206-37">)</span><span class="w">
+
+           </span><span class="n">file</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">EF</span><span class="p">;</span><span class="w">
+               </span><span class="nc">File</span><span class="w"> </span><span class="nc">ID</span><span class="p">,</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">structure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">File</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ss">of</span><span class="p">:</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">TRANSPARENT</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">LINEAR</span><span class="o">-</span><span class="nc">FIXED</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">LINEAR</span><span class="o">-</span><span class="nc">FIXED</span><span class="o">-</span><span class="nc">TLV</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">LINEAR</span><span class="o">-</span><span class="nc">VARIABLE</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">LINEAR</span><span class="o">-</span><span class="nc">VARIABLE</span><span class="o">-</span><span class="nc">TLV</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">CYCLIC</span><span class="w">
+
+               </span><span class="err">•</span><span class="w">   </span><span class="nc">CYCLIC</span><span class="o">-</span><span class="nc">TLV</span><span class="w">
+
+       </span><span class="nc">DF</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="9244605206-38">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-38">}</span><span class="w">  </span><span class="o">.</span><span class="nc">PP</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">PKCS</span><span class="c1">#15 file hierarchy. The name can be one of: .sp .RS 4 .ie•n</span><span class="w">
+
+           </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">DF</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Type</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Specification</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">file</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">File</span><span class="w"> </span><span class="nc">ID</span><span class="p">,</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">aid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">AID</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">XX</span><span class="ss">:XX</span><span class="ss">:XX</span><span class="ss">:...</span><span class="ss">:XX</span><span class="ss">:XX</span><span class="ss">:XX</span><span class="w"> </span><span class="n">notation</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">acl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Type</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int</span><span class="p">;</span><span class="w">
+               </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">EF</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p" data-group-id="9244605206-39">{</span><span class="w"> </span><span class="n">block_contents</span><span class="w"> </span><span class="p" data-group-id="9244605206-39">}</span><span class="w">
+               </span><span class="nc">Block</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="n">nested</span><span class="w"> </span><span class="n">elementary</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">Typically</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">MF</span><span class="o">.</span><span class="w">
+
+           </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">MF</span><span class="w"> </span><span class="p" data-group-id="9244605206-40">(</span><span class="nc">Master</span><span class="w"> </span><span class="nc">File</span><span class="p" data-group-id="9244605206-40">)</span><span class="o">.</span><span class="w"> </span><span class="nc">Otherwise</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">incomplete</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+       </span><span class="nc">The</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="nc">DF</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">MF</span><span class="w"> </span><span class="n">blocks</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">look</span><span class="w"> </span><span class="n">like</span><span class="p">,</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">refer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">.</span><span class="n">profile</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">file</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">init</span><span class="p" data-group-id="9657279977-1">(</span><span class="mi">1</span><span class="p" data-group-id="9657279977-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">pkcs15</span><span class="o">-</span><span class="n">crypt</span><span class="p" data-group-id="9657279977-2">(</span><span class="mi">1</span><span class="p" data-group-id="9657279977-2">)</span></code></pre><p>opensc                                                                                    06/06/2025                                                                         PKCS15-PROFILE(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="pkcs11-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+pkcs11.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="pkgconf-personality.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+pkgconf-personality
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

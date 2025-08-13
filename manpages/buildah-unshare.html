@@ -4,42 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.31.0">
-    <meta name="project" content="Manpages v2.3.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
 
 
-    <title>buildah-unshare — Manpages v2.3.0</title>
-    <link rel="stylesheet" href="dist/html-elixir-3ZLIM5JF.css" />
+    <title>buildah-unshare — Manpages v3.0.0</title>
 
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-43PMFBC7.js"></script>
-    <script src="dist/sidebar_items-BAAB9852.js"></script>
-
-      <script src="doc-versions.js"></script>
-
-    <script async src="dist/html-CILPWI2Q.js"></script>
-
+    <script defer src="dist/sidebar_items-C9959D41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
 <link rel="stylesheet" href="assets/doc.css">
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+<div class="body-wrapper">
 
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
-
-<div class="main">
-
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
@@ -57,72 +41,59 @@
 Manpages
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v2.3.0
+          v3.0.0
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-MANUALS
-        </button>
-      </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
-      <div class="top-search">
-        <div class="search-settings">
-          <form class="search-bar" action="search.html">
-            <label class="search-label">
-              <span class="sr-only">Search documentation of Manpages</span>
-              <input name="q" type="text" class="search-input" placeholder="Search Documentation (press /)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            </label>
-            <button type="submit" class="search-button" aria-label="Submit Search">
-              <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-            </button>
-            <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-              <i class="ri-close-line ri-lg" title="Cancel search"></i>
-            </button>
-          </form>
-          <button class="icon-settings display-settings">
-            <i class="ri-settings-3-line"></i>
-            <span class="sr-only">Settings</span>
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
           </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
         </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
       </div>
-      <div class="autocomplete">
-      </div>
+    </div>
 
-<h1>
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>buildah-unshare</h1>
 
 
-  <span>buildah-unshare</span>
-</h1>
+  </div>
 
-<p>buildah-unshare(1)                                                     General Commands Manual                                                    buildah-unshare(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">unshare</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="p" data-group-id="4556535703-1">[</span><span class="n">options</span><span class="p" data-group-id="4556535703-1">]</span><span class="w"> </span><span class="p" data-group-id="4556535703-2">[</span><span class="o">--</span><span class="p" data-group-id="4556535703-2">]</span><span class="w"> </span><span class="p" data-group-id="4556535703-3">[</span><span class="n">command</span><span class="p" data-group-id="4556535703-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Launches</span><span class="w">  </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="p" data-group-id="8912443248-1">(</span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="nc">SHELL</span><span class="p" data-group-id="8912443248-1">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">invoking</span><span class="w"> </span><span class="n">user</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="nc">GID</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">to</span><span class="w">
-   </span><span class="n">be</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GID</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">respectively</span><span class="o">.</span><span class="w">  </span><span class="nc">Any</span><span class="w"> </span><span class="n">ranges</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">mapped</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">themselves</span><span class="w"> </span><span class="k">with</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">help</span><span class="w">
-   </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newuidmap</span><span class="p" data-group-id="8912443248-2">(</span><span class="mi">1</span><span class="p" data-group-id="8912443248-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">newgidmap</span><span class="p" data-group-id="8912443248-3">(</span><span class="mi">1</span><span class="p" data-group-id="8912443248-3">)</span><span class="w"> </span><span class="n">helpers</span><span class="o">.</span><span class="w">
+
+<p>buildah-unshare(1)                                                                  General Commands Manual                                                                 buildah-unshare(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="o">-</span><span class="n">unshare</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="p" data-group-id="5332132226-1">[</span><span class="n">options</span><span class="p" data-group-id="5332132226-1">]</span><span class="w"> </span><span class="p" data-group-id="5332132226-2">[</span><span class="o">--</span><span class="p" data-group-id="5332132226-2">]</span><span class="w"> </span><span class="p" data-group-id="5332132226-3">[</span><span class="n">command</span><span class="p" data-group-id="5332132226-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Launches</span><span class="w">  </span><span class="n">a</span><span class="w">  </span><span class="n">process</span><span class="w">  </span><span class="p" data-group-id="5826863158-1">(</span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="nc">SHELL</span><span class="p" data-group-id="5826863158-1">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">invoking</span><span class="w"> </span><span class="n">user</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="nc">GID</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GID</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">re</span><span class="err">‐</span><span class="w">
+   </span><span class="n">spectively</span><span class="o">.</span><span class="w">  </span><span class="nc">Any</span><span class="w"> </span><span class="n">ranges</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">mapped</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">themselves</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newuidmap</span><span class="p" data-group-id="5826863158-2">(</span><span class="mi">1</span><span class="p" data-group-id="5826863158-2">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">newgidmap</span><span class="p" data-group-id="5826863158-3">(</span><span class="mi">1</span><span class="p" data-group-id="5826863158-3">)</span><span class="w"> </span><span class="n">helpers</span><span class="o">.</span><span class="w">
 
    </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">troubleshooting</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="n">clearing</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">related</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">images</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">containers</span><span class="o">.</span><span class="w">
 
-   </span><span class="nc">It</span><span class="w">  </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">wants</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w">
-   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="o">.</span><span class="w">  </span><span class="nc">Executing</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">session</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">mount</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="p" data-group-id="5217336662-1">[</span><span class="nc">VARIABLE</span><span class="o">=</span><span class="p" data-group-id="5217336662-1">]</span><span class="n">containerNameOrID</span><span class="w">
+   </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">command</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">wants</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="o">.</span><span class="w">   </span><span class="nc">Execut</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ing</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">fails</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unprivileged</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">session</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">mount</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="p" data-group-id="0867285950-1">[</span><span class="nc">VARIABLE</span><span class="o">=</span><span class="p" data-group-id="0867285950-1">]</span><span class="n">containerNameOrID</span><span class="w">
 
-   </span><span class="nc">Mount</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">containerNameOrID</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">while</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mountpoint</span><span class="o">.</span><span class="w">   </span><span class="nc">If</span><span class="w">  </span><span class="nc">VARIABLE</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="ow">not</span><span class="w">
-   </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">containerNameOrID</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">id</span><span class="w">
+   </span><span class="nc">Mount</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">containerNameOrID</span><span class="w">  </span><span class="n">container</span><span class="w">  </span><span class="n">while</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">command</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mountpoint</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="nc">VARIABLE</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="n">to</span><span class="w">
+   </span><span class="n">containerNameOrID</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">environment</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">id</span><span class="w">
 
    </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">pwd</span><span class="w">
 
@@ -134,21 +105,24 @@ MANUALS
 
    </span><span class="nc">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">buildah</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="ss">like</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">cat</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">sh</span><span class="w"> </span><span class="p" data-group-id="9442404194-1">&lt;&lt;</span><span class="w"> </span><span class="c">_EOF</span><span class="w">
-          </span><span class="c1">#!/bin/sh</span><span class="w">
-          </span><span class="n">ctr</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="9442404194-2">(</span><span class="n">buildah</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">scratch</span><span class="p" data-group-id="9442404194-2">)</span><span class="w">
-          </span><span class="n">mnt</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="9442404194-3">(</span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="p" data-group-id="9442404194-3">)</span><span class="w">
-          </span><span class="n">dnf</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">installroot</span><span class="o">=</span><span class="err">$</span><span class="n">mnt</span><span class="w"> </span><span class="nc">PACKAGES</span><span class="w">
-          </span><span class="n">dnf</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">--</span><span class="n">installroot</span><span class="o">=</span><span class="err">$</span><span class="n">mnt</span><span class="w">
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">entrypoint</span><span class="o">=</span><span class="s">&quot;/bin/PACKAGE&quot;</span><span class="w"> </span><span class="o">--</span><span class="n">env</span><span class="w"> </span><span class="s">&quot;FOO=BAR&quot;</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w">
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w"> </span><span class="n">imagename</span><span class="w">
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">unmount</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w">
-          </span><span class="c">_EOF</span><span class="w">
+   </span><span class="n">cat</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">sh</span><span class="w"> </span><span class="p" data-group-id="1018278536-1">&lt;&lt;</span><span class="w"> </span><span class="c">_EOF</span><span class="w">
+   </span><span class="c1">#!/bin/sh</span><span class="w">
+   </span><span class="n">ctr</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="1018278536-2">(</span><span class="n">buildah</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">scratch</span><span class="p" data-group-id="1018278536-2">)</span><span class="w">
+   </span><span class="n">mnt</span><span class="o">=</span><span class="err">$</span><span class="p" data-group-id="1018278536-3">(</span><span class="n">buildah</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="p" data-group-id="1018278536-3">)</span><span class="w">
+   </span><span class="n">dnf</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">installroot</span><span class="o">=</span><span class="err">$</span><span class="n">mnt</span><span class="w"> </span><span class="nc">PACKAGES</span><span class="w">
+   </span><span class="n">dnf</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="o">--</span><span class="n">installroot</span><span class="o">=</span><span class="err">$</span><span class="n">mnt</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">entrypoint</span><span class="o">=</span><span class="s">&quot;/bin/PACKAGE&quot;</span><span class="w"> </span><span class="o">--</span><span class="n">env</span><span class="w"> </span><span class="s">&quot;FOO=BAR&quot;</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">commit</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w"> </span><span class="n">imagename</span><span class="w">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unmount</span><span class="w"> </span><span class="err">$</span><span class="n">ctr</span><span class="w">
+   </span><span class="c">_EOF</span><span class="w">
 
    </span><span class="nc">Then</span><span class="w"> </span><span class="n">execute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ss">with</span><span class="p">:</span><span class="w">
 
-          </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">sh</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="8842792265-1">(</span><span class="mi">1</span><span class="p" data-group-id="8842792265-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">mount</span><span class="p" data-group-id="8842792265-2">(</span><span class="mi">1</span><span class="p" data-group-id="8842792265-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">namespaces</span><span class="p" data-group-id="8842792265-3">(</span><span class="mi">7</span><span class="p" data-group-id="8842792265-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">newuidmap</span><span class="p" data-group-id="8842792265-4">(</span><span class="mi">1</span><span class="p" data-group-id="8842792265-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">newgidmap</span><span class="p" data-group-id="8842792265-5">(</span><span class="mi">1</span><span class="p" data-group-id="8842792265-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">user_namespaces</span><span class="p" data-group-id="8842792265-6">(</span><span class="mi">7</span><span class="p" data-group-id="8842792265-6">)</span></code></pre><p>buildah                                                                       June 2018                                                           buildah-unshare(1)</p>
-<div class="bottom-actions">
+   </span><span class="n">buildah</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">sh</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">buildah</span><span class="p" data-group-id="6311975879-1">(</span><span class="mi">1</span><span class="p" data-group-id="6311975879-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">buildah</span><span class="o">-</span><span class="n">mount</span><span class="p" data-group-id="6311975879-2">(</span><span class="mi">1</span><span class="p" data-group-id="6311975879-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">namespaces</span><span class="p" data-group-id="6311975879-3">(</span><span class="mi">7</span><span class="p" data-group-id="6311975879-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">newuidmap</span><span class="p" data-group-id="6311975879-4">(</span><span class="mi">1</span><span class="p" data-group-id="6311975879-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">newgidmap</span><span class="p" data-group-id="6311975879-5">(</span><span class="mi">1</span><span class="p" data-group-id="6311975879-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">user_namespaces</span><span class="p" data-group-id="6311975879-6">(</span><span class="mi">7</span><span class="p" data-group-id="6311975879-6">)</span></code></pre><p>buildah                                                                                    June 2018                                                                        buildah-unshare(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
       <a href="buildah-umount.html" class="bottom-actions-button" rel="prev">
@@ -174,30 +148,29 @@ buildah-version
 
   </div>
 </div>
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.31.0) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 
   </body>
 </html>

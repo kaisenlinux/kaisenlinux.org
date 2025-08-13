@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>fwupd-remotes.d — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>fwupd-remotes.d</h1>
+
+
+  </div>
+
+
+<p>fwupd-remotes.d(5)                                                                    Remote File Format                                                                    fwupd-remotes.d(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">fwupd</span><span class="o">-</span><span class="n">remotes</span><span class="o">.</span><span class="n">d</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">remotes</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">fwupd</span><span class="w"> </span><span class="n">daemon</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fwupd</span><span class="o">/</span><span class="n">remotes</span><span class="o">.</span><span class="n">d</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">fwupd</span><span class="o">/</span><span class="n">remotes</span><span class="o">.</span><span class="n">d</span><span class="w"> </span><span class="n">directories</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">sources</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">pa</span><span class="err">‐</span><span class="w">
+   </span><span class="n">rameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">documented</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">purposes</span><span class="o">.</span></code></pre><p>FILE FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">consists</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">sections</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">parameters</span><span class="o">.</span><span class="w"> </span><span class="nc">Parameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">form</span><span class="p">:</span><span class="w">
+
+   </span><span class="p" data-group-id="0297154356-1">[</span><span class="n">section</span><span class="p" data-group-id="0297154356-1">]</span><span class="w">
+   </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">line</span><span class="o">-</span><span class="n">based</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">newline</span><span class="o">-</span><span class="n">terminated</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comment</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">parameter</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Section</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">sensitive</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Only</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">first</span><span class="w">  </span><span class="n">equals</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">significant</span><span class="o">.</span><span class="w">  </span><span class="nc">Whitespace</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">equals</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">discarded</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">leading</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">trailing</span><span class="w"> </span><span class="n">whitespace</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="w">
+   </span><span class="nc">Internal</span><span class="w"> </span><span class="n">whitespace</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">retained</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Any</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="p" data-group-id="0297154356-2">(</span><span class="c1">#) character is ignored, as are lines containing only whitespace.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">equals</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p" data-group-id="0297154356-3">(</span><span class="n">no</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="n">needed</span><span class="p" data-group-id="0297154356-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">unsigned</span><span class="w"> </span><span class="n">integers</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">boolean</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="no">false</span><span class="o">.</span><span class="w">  </span><span class="nc">Case</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w">  </span><span class="n">sig</span><span class="err">‐</span><span class="w">
+   </span><span class="n">nificant</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">boolean</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">preserved</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">values</span><span class="o">.</span></code></pre><p>REMOTE PARAMETERS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="p" data-group-id="6025644576-1">[</span><span class="n">fwupd</span><span class="w"> </span><span class="nc">Remote</span><span class="p" data-group-id="6025644576-1">]</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">parameters</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">Enabled</span><span class="o">=</span><span class="no">false</span><span class="w">
+
+     </span><span class="nc">If</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">remote</span><span class="w">  </span><span class="n">should</span><span class="w">  </span><span class="n">be</span><span class="w">  </span><span class="n">considered</span><span class="w">  </span><span class="ow">when</span><span class="w"> </span><span class="n">finding</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">    </span><span class="nc">Only</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="n">remotes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">refreshed</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">fwupdmgr</span><span class="w"> </span><span class="n">refresh</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">considering</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">updates</span><span class="w">   </span><span class="n">are</span><span class="w">
+   </span><span class="n">available</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">fwupdmgr</span><span class="w"> </span><span class="n">enable</span><span class="o">-</span><span class="n">remote</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Title</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">UI</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">MetadataURI</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w"> </span><span class="nc">URL</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">AppStream</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">suffix</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">gz</span><span class="w"> </span><span class="k">for</span><span class="w">   </span><span class="n">legacy</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">xz</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">modern</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">    </span><span class="nc">Only</span><span class="w">  </span><span class="n">prefixes</span><span class="w">  </span><span class="n">of</span><span class="w">  </span><span class="n">http</span><span class="ss">://</span><span class="p">,</span><span class="w">
+   </span><span class="n">https</span><span class="ss">://</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">file</span><span class="ss">://</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="w"> </span><span class="n">here</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ApprovalRequired</span><span class="o">=</span><span class="no">false</span><span class="w">
+
+     </span><span class="nc">If</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="n">allow</span><span class="o">-</span><span class="n">listed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">fwupdmgr</span><span class="w"> </span><span class="n">set</span><span class="o">-</span><span class="n">approved</span><span class="o">-</span><span class="n">firmware</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">show</span><span class="w">   </span><span class="ow">in</span><span class="w"> </span><span class="nc">CLI</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GUI</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">ReportURI</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">endpoint</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">obtained</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">remote</span><span class="p">,</span><span class="w">   </span><span class="ow">or</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">AutomaticReports</span><span class="o">=</span><span class="no">false</span><span class="w">
+
+     </span><span class="nc">If</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">obtained</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w">   </span><span class="n">firmware</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">completed</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">AutomaticSecurityReports</span><span class="o">=</span><span class="no">false</span><span class="w">
+
+     </span><span class="nc">If</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="nc">HSI</span><span class="w"> </span><span class="n">platform</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="n">fwupdmgr</span><span class="w"> </span><span class="n">security</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">OrderBefore</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">This</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">ordered</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">remotes</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">here</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">commas</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">delimiter</span><span class="o">.</span><span class="w">
+
+     </span><span class="ss">NOTE</span><span class="p">:</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">release</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">remotes</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w">   </span><span class="n">highest</span><span class="w"> </span><span class="n">priority</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">OrderAfter</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">This</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">ordered</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">remotes</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">here</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">commas</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">delimiter</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Username</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">BASIC</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">downloading</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w">   </span><span class="n">remote</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">uploading</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="n">reports</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Password</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w">  </span><span class="n">password</span><span class="w">  </span><span class="p" data-group-id="6025644576-2">(</span><span class="n">although</span><span class="p">,</span><span class="w">  </span><span class="ow">in</span><span class="w"> </span><span class="n">practice</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">*</span><span class="n">token</span><span class="o">*</span><span class="p" data-group-id="6025644576-2">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">BASIC</span><span class="w"> </span><span class="n">authentication</span><span class="w">   </span><span class="ow">when</span><span class="w"> </span><span class="n">downloading</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">firmware</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">remote</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">uploading</span><span class="w">
+   </span><span class="n">success</span><span class="w"> </span><span class="n">reports</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">RefreshInterval</span><span class="o">=</span><span class="w">
+
+     </span><span class="nc">The</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">download</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">signature</span><span class="p">,</span><span class="w">   </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">re</span><span class="o">-</span><span class="n">download</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">time</span><span class="o">.</span></code></pre><p>NOTES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">basename</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="nc">ID</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">instance</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fwupd</span><span class="o">/</span><span class="n">remotes</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">lvfs</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">lvfs</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">&lt;</span><span class="n">fwupd</span><span class="o">.</span><span class="n">conf</span><span class="p" data-group-id="7393987224-1">(</span><span class="mi">5</span><span class="p" data-group-id="7393987224-1">)</span><span class="o">&gt;</span></code></pre><p>2.0.8                                                                                                                                                                       fwupd-remotes.d(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="fwupd-conf.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+fwupd.conf
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="fzdefaults-xml.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+fzdefaults.xml
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

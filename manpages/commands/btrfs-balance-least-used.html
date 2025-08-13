@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>btrfs-balance-least-used — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>btrfs-balance-least-used</h1>
+
+
+  </div>
+
+
+<p>BTRFS-BALANCE-LEAST-USED(1)                                                  Btrfs Balance Least Used Block Groups                                                 BTRFS-BALANCE-LEAST-USED(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">balance</span><span class="o">-</span><span class="n">least</span><span class="o">-</span><span class="n">used</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Feed</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">first</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">btrfs</span><span class="o">-</span><span class="n">balance</span><span class="o">-</span><span class="n">least</span><span class="o">-</span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="6494713975-1">[</span><span class="n">args</span><span class="p" data-group-id="6494713975-1">]</span><span class="w"> </span><span class="n">mountpoint</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">btrfs</span><span class="o">-</span><span class="n">balance</span><span class="o">-</span><span class="n">least</span><span class="o">-</span><span class="n">used</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">implement</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">filters</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">looks</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="n">asks</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">usage</span><span class="p">,</span><span class="w"> </span><span class="n">lowest</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">first</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">In</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">cases</span><span class="w"> </span><span class="p" data-group-id="5898992391-1">(</span><span class="ow">when</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">conversion</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">profiles</span><span class="p" data-group-id="5898992391-1">)</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">optimal</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">quickest</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reclaim</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">because</span><span class="w">
+   </span><span class="n">data</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">rewritten</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">What</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">effectively</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">feeding</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">allocator</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">writes</span><span class="p">,</span><span class="w"> </span><span class="n">blacklisting</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">location</span><span class="o">.</span><span class="w"> </span><span class="nc">Implementing</span><span class="w">
+   </span><span class="n">user</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">highly</span><span class="w"> </span><span class="n">optimized</span><span class="w"> </span><span class="n">workflow</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reclaim</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="n">space</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">minimize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">rewritten</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">rebalance</span><span class="w"> </span><span class="n">complex</span><span class="w">
+   </span><span class="n">filesystems</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">devices</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">btrfs</span><span class="o">-</span><span class="n">balance</span><span class="o">-</span><span class="n">least</span><span class="o">-</span><span class="n">used</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">invocations</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">increased</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">values</span><span class="o">.</span><span class="w"> </span><span class="nc">Additionally</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">live</span><span class="w"> </span><span class="n">progress</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">balance</span><span class="w">
+   </span><span class="n">operation</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="nc">API</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">btrfs</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">privileged</span><span class="w"> </span><span class="n">operation</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">root</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Example</span><span class="w"> </span><span class="ss">output</span><span class="p">:</span><span class="w">
+
+       </span><span class="o">-</span><span class="c1"># balance_least_used.py -u 40 /</span><span class="w">
+       </span><span class="nc">Loading</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="mi">20</span><span class="w">
+       </span><span class="nc">Balance</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">603497431040</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">212</span><span class="w">
+       </span><span class="nc">Balance</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">488607055872</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">211</span><span class="w">
+       </span><span class="nc">Balance</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">576653885440</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">210</span><span class="w">
+       </span><span class="p" data-group-id="5898992391-2">[</span><span class="n">...</span><span class="p" data-group-id="5898992391-2">]</span><span class="w">
+       </span><span class="nc">Postponing</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">659332005888</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">36</span><span class="w">
+       </span><span class="nc">Balance</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">560547758080</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">206</span><span class="w">
+       </span><span class="p" data-group-id="5898992391-3">[</span><span class="n">...</span><span class="p" data-group-id="5898992391-3">]</span><span class="w">
+       </span><span class="nc">Ignoring</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">606718656512</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="mi">34</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">63</span><span class="w">
+       </span><span class="nc">Balance</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">vaddr</span><span class="w"> </span><span class="mi">714126393344</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">35</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">sec</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">196</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="n">shows</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">packs</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">going</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Also</span><span class="p">,</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">gone</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">they</span><span class="sc">&#39;re still in the usage range, we just postpone them again, throwing them back into
+   the work queue. If their usage has gone up above the usage limit, ignore them.
+
+   When there&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="5898992391-4">do</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lowest</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="ss">found</span><span class="p">:</span><span class="w">
+
+       </span><span class="o">-</span><span class="c1"># balance_least_used.py -u 10 /</span><span class="w">
+       </span><span class="nc">Loading</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">...</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="mi">0</span><span class="w">
+       </span><span class="nc">Nothing</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k" data-group-id="5898992391-5">do</span><span class="p">,</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">used_pct</span><span class="w"> </span><span class="mi">12</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w">
+          </span><span class="nc">Show</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">usage</span><span class="w"> </span><span class="nc">USAGE</span><span class="w">
+          </span><span class="nc">Only</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">percentage</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">python</span><span class="o">-</span><span class="n">btrfs</span><span class="w"> </span><span class="n">library</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Source</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="ss">github</span><span class="p">:</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">knorrie</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">btrfs</span><span class="w">
+
+                                                                                         </span><span class="mi">2017</span><span class="w">                                                                  </span><span class="nc">BTRFS</span><span class="o">-</span><span class="nc">BALANCE</span><span class="o">-</span><span class="nc">LEAST</span><span class="o">-</span><span class="nc">USED</span><span class="p" data-group-id="3407744936-1">(</span><span class="mi">1</span><span class="p" data-group-id="3407744936-1">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="btop.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+btop
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="btrfs-balance.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+btrfs-balance
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>proc_pid_timers — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>proc_pid_timers</h1>
+
+
+  </div>
+
+
+<p>proc_pid_timers(5)                                                                    File Formats Manual                                                                   proc_pid_timers(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">timers</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">timers</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">timers</span><span class="w"> </span><span class="p" data-group-id="9393395382-1">(</span><span class="n">since</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="mf">3.10</span><span class="p" data-group-id="9393395382-1">)</span><span class="w">
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">POSIX</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">  </span><span class="nc">Each</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="s">&quot;ID:&quot;</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="ss">example</span><span class="p">:</span><span class="w">
+
+              </span><span class="ss">ID</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="ss">signal</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="o">/</span><span class="mi">00007</span><span class="n">fff86e452a8</span><span class="w">
+              </span><span class="ss">notify</span><span class="p">:</span><span class="w"> </span><span class="n">signal</span><span class="o">/</span><span class="n">pid</span><span class="o">.</span><span class="mi">2634</span><span class="w">
+              </span><span class="ss">ClockID</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+              </span><span class="ss">ID</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+              </span><span class="ss">signal</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="o">/</span><span class="mi">00007</span><span class="n">fff86e452a8</span><span class="w">
+              </span><span class="ss">notify</span><span class="p">:</span><span class="w"> </span><span class="n">signal</span><span class="o">/</span><span class="n">pid</span><span class="o">.</span><span class="mi">2634</span><span class="w">
+              </span><span class="ss">ClockID</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">meanings</span><span class="p">:</span><span class="w">
+
+          </span><span class="nc">ID</span><span class="w">     </span><span class="nc">The</span><span class="w">  </span><span class="nc">ID</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="w">  </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">timer_create</span><span class="p" data-group-id="9393395382-2">(</span><span class="mi">2</span><span class="p" data-group-id="9393395382-2">)</span><span class="p">;</span><span class="w"> </span><span class="n">rather</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">kernel</span><span class="o">-</span><span class="n">internal</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">si_timerid</span><span class="w">
+                 </span><span class="n">field</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">siginfo_t</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="p" data-group-id="9393395382-3">(</span><span class="n">see</span><span class="w"> </span><span class="n">sigaction</span><span class="p" data-group-id="9393395382-4">(</span><span class="mi">2</span><span class="p" data-group-id="9393395382-4">)</span><span class="p" data-group-id="9393395382-3">)</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">signal</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">deliver</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">slash</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sigev_value</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="n">handler</span><span class="o">.</span><span class="w">   </span><span class="nc">Valid</span><span class="w">  </span><span class="n">only</span><span class="w">
+                 </span><span class="k">for</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">notify</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">notify</span><span class="w"> </span><span class="nc">The</span><span class="w">  </span><span class="n">part</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">slash</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mechanism</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">deliver</span><span class="w"> </span><span class="n">notifications</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="s">&quot;thread&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;signal&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="o">.</span><span class="w">  </span><span class="nc">Immediately</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">the</span><span class="w">
+                 </span><span class="n">slash</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="s">&quot;tid&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">SIGEV_THREAD_ID</span><span class="w"> </span><span class="n">notification</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;pid&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">notify</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">mechanisms</span><span class="o">.</span><span class="w">  </span><span class="nc">Following</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">PID</span><span class="w"> </span><span class="n">of</span><span class="w">  </span><span class="n">the</span><span class="w">
+                 </span><span class="n">process</span><span class="w"> </span><span class="p" data-group-id="9393395382-5">(</span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">thread</span><span class="p" data-group-id="9393395382-5">)</span><span class="w">  </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">delivered</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">delivers</span><span class="w"> </span><span class="n">notifications</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signal</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">ClockID</span><span class="w">
+                 </span><span class="nc">This</span><span class="w">  </span><span class="n">field</span><span class="w">  </span><span class="n">identifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">clock</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">measuring</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">  </span><span class="nc">For</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">clocks</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="o">-</span><span class="n">space</span><span class="w"> </span><span class="nc">CLOCK_</span><span class="o">*</span><span class="w"> </span><span class="n">constants</span><span class="w"> </span><span class="n">exposed</span><span class="w">
+                 </span><span class="n">via</span><span class="w"> </span><span class="o">&lt;</span><span class="n">time</span><span class="o">.</span><span class="n">h</span><span class="o">&gt;</span><span class="o">.</span><span class="w">  </span><span class="nc">CLOCK_PROCESS_CPUTIME_ID</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="o">.</span><span class="w">  </span><span class="nc">CLOCK_THREAD_CPUTIME_ID</span><span class="w"> </span><span class="n">timers</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">CONFIG_CHECKPOINT_RESTORE</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">proc</span><span class="p" data-group-id="8451544287-1">(</span><span class="mi">5</span><span class="p" data-group-id="8451544287-1">)</span></code></pre><p>Linux man-pages 6.9.1                                                                     2024-05-02                                                                        proc_pid_timers(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="proc_pid_timerslack_ns.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+proc_pid_timerslack_ns
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="proc_pid_uid_map.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+proc_pid_uid_map
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

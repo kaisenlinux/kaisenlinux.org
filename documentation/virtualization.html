@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Documentation v3.0.0">
+
+
+    <title>Using Virtualization — Documentation v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-0B4BC6CB.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Documentation" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/documentation/" class="sidebar-projectName" translate="no">
+Documentation
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Guides"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Documentation</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Virtualisation</h1>
+
+
+  </div>
+
+
+<p>In a nutshell, here's how to virtualize Kaisen Linux.<br/>We assume here that you know what a hypervisor is, as well as creating a virtual machine.<br/>We recommends to use VirtualBox, VMWare Workstation or QEMU/KVM hypervisors.<br/>The VMWare, Virtualbox and QEMU/KVM guests daemons are activated by default when Kaisen Linux is executed in them.  </p><h2 id="virtualbox" class="section-heading"><a href="#virtualbox" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">VirtualBox</span></h2><p>You can virtualize Kaisen Linux with VirtualBox hypervisor.<br/>Following this step:</p><h3 id="minimal-configuration" class="section-heading"><a href="#minimal-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Minimal Configuration</span></h3><pre><code class="makeup bash" translate="no"><span class="">1)  New virtual machine
+</span><span class="">2)  Name: Your choice
+</span><span class="">3)  Folder: Your choice
+</span><span class="">4)  Type: Linux
+</span><span class="">5)  System: Debian 10 (64 bits)
+</span><span class="">6)  RAM: 1Go
+</span><span class="">7)  Create Virtual Disk
+</span><span class="">8)  Disk type : VDI (or VMDK)
+</span><span class="">9)  Dynamic allocated
+</span><span class="">10) Hard Drive: 10Go
+</span><span class="">11) Click at : Configuration =&gt; Network =&gt; Adapter1
+</span><span class="">12) Network configuration: NAT, Bridge, Host-only, NAT network, or not (the installer not using network and all tools are included) (optional parameter)
+</span><span class="">13) System =&gt; Processor =&gt; CPU: 1 core
+</span><span class="">14) You can use EFI (optional parameter)
+</span><span class="">15) Leave the other default settings (except if you have specific needs)
+</span></code></pre><h3 id="recommend-configuration" class="section-heading"><a href="#recommend-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Recommend configuration</span></h3><pre><code class="makeup bash" translate="no"><span class="">1)  New virtual machine
+</span><span class="">2)  Name: Your choice
+</span><span class="">3)  Folder: Your choice
+</span><span class="">4)  Type: Linux
+</span><span class="">5)  System: Debian 10 (64 bits)
+</span><span class="">6)  RAM: 4Go
+</span><span class="">7)  Create Virtual Disk
+</span><span class="">8)  Disk type : VDI (or VMDK)
+</span><span class="">9)  Dynamic allocated
+</span><span class="">10) Hard Drive: 30Go
+</span><span class="">11) Click at : Configuration =&gt; Network =&gt; Adapter1
+</span><span class="">12) Network configuration: NAT, Bridge, Host-only, NAT network, or not (the installer not using network and all tools are included) (optional parameter)
+</span><span class="">13) System =&gt; Processor =&gt; CPU: 2 core
+</span><span class="">14) You can use EFI (optional parameter)
+</span><span class="">15) Leave the other default settings (except if you have specific needs)
+</span></code></pre><h3 id="install-guest-additions-from-a-host-system-other-than-kaisen-linux" class="section-heading"><a href="#install-guest-additions-from-a-host-system-other-than-kaisen-linux" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Install guest additions from a host system other than Kaisen Linux</span></h3><p>To install the VirtualBox Guest Additions from a host system other than Kaisen Linux, you must use the Guest Additions ISO provided by Oracle which can be downloaded here: <a href="https://download.virtualbox.org/virtualbox/6.1.34/VBoxGuestAdditions_6.1.34.iso">https://download.virtualbox.org/virtualbox/6.1.34/VBoxGuestAdditions_6.1.34.iso</a> (Version 6.1.34 is the latest version as of this writing).
+Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir /tmp/vboxguests
+</span><span class="">sudo cp -rf /media/cdrom0/* /tmp/vboxguests
+</span><span class="">sudo /tmp/vboxguests/autorun.sh
+</span></code></pre><p>Let the process complete and follow the given steps.
+Once all this is done, you must restart the VM and you will be able to enjoy the full guest additions installed on the VM!</p><h3 id="install-guest-additions-from-a-kaisen-linux-system-host" class="section-heading"><a href="#install-guest-additions-from-a-kaisen-linux-system-host" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Install guest additions from a Kaisen Linux system host</span></h3><p>To install the VirtualBox Guest Additions from a Kaisen Linux system host, you can find the ISO of guest additions here: <strong>/usr/share/virtualbox/VBoxGuestAdditions.iso</strong>
+Once the CD is inserted into the VM, run these commands:</p><pre><code class="makeup bash" translate="no"><span class="">sudo mkdir /tmp/vboxguests
+</span><span class="">sudo cp -rf /media/cdrom0/* /tmp/vboxguests
+</span><span class="">sudo /tmp/vboxguests/autorun.sh
+</span></code></pre><p>Let the process complete and follow the given steps.
+Once all this is done, you must restart the VM and you will be able to enjoy the full guest additions installed on the VM!</p><h2 id="vmware-workstation" class="section-heading"><a href="#vmware-workstation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">VMWare Workstation</span></h2><p>You can virtualize Kaisen Linux with VMWare Workstation hypervisor.
+Following this step:</p><h3 id="minimal-configuration-1" class="section-heading"><a href="#minimal-configuration-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Minimal configuration</span></h3><pre><code class="makeup bash" translate="no"><span class="">1)  New Vitual Machine
+</span><span class="">2)  Typical
+</span><span class="">3)  Use ISO image (select your ISO with browse button)
+</span><span class="">4)  Guest Operating System: Debian 10 64 bits
+</span><span class="">5)  Name: Your choice
+</span><span class="">6)  Location: Your choice
+</span><span class="">7)  Disk Size: 10Go
+</span><span class="">8)  Select: &quot;Store virtual disk as a single file&quot;
+</span><span class="">9)  Select: &quot;Customize hardware&quot;
+</span><span class="">10) RAM: 1Go
+</span><span class="">11) CPU: 1 core and 1 CPU
+</span><span class="">12) Network: NAT, Bridge, LAN segment, Host-Only or not (the installer not using network and all tools are included) (optional parameter)
+</span><span class="">13) Leave the other default settings (except if you have specific needs)
+</span><span class="">14) Click in: Finish
+</span><span class="">15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI
+</span></code></pre><h3 id="recommend-configuration-1" class="section-heading"><a href="#recommend-configuration-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Recommend configuration</span></h3><pre><code class="makeup bash" translate="no"><span class="">1)  New Vitual Machine
+</span><span class="">2)  Typical
+</span><span class="">3)  Use ISO image (select your ISO with browse button)
+</span><span class="">4)  Guest Operating System: Debian 10 64 bits
+</span><span class="">5)  Name: Your choice
+</span><span class="">6)  Location: Your choice
+</span><span class="">7)  Disk Size: 30Go
+</span><span class="">8)  Select: &quot;Store virtual disk as a single file&quot;
+</span><span class="">9)  Select: &quot;Customize hardware&quot;
+</span><span class="">10) RAM: 4Go
+</span><span class="">11) CPU: 2 core and 1 CPU
+</span><span class="">12) Network: NAT, Bridge, LAN segment, Host-Only or not (the installer not using network and all tools are included) (optional parameter)
+</span><span class="">13) Leave the other default settings (except if you have specific needs)
+</span><span class="">14) Click in: Finish
+</span><span class="">15) For activate UEFI: Shutdown VM and click at =&gt; &quot;Edit virtual machine settings&quot; =&gt; Options =&gt; Advanced =&gt; UEFI
+</span></code></pre><h2 id="informations-for-qemu-kvm" class="section-heading"><a href="#informations-for-qemu-kvm" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Informations for QEMU/KVM</span></h2><h3 id="tools-and-daemons" class="section-heading"><a href="#tools-and-daemons" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Tools and daemons</span></h3><p>To facilitate the creation of a virtualized virtual machine with QEMU/KVM, all virtual machines can be created through virt-manager. Full support for different agents like QEMU agent, SPICE, are integrated by default but disabled.<br/>SPICE agents allow you to activate the shared clipboard, put the virtual machine in full screen when viewing it via the console. This is the equivalent of the virtualbox and vmware agents.<br/>SPICE agents are managed by a systemd service.<br/>The integrated services are named <strong>spice-vdagent</strong> as well as <strong>spice-webdavd</strong>.
+The <strong>spice-vdagent</strong> daemon allows you to enable copy and paste as well as to adjust the resolution of the virtual machine screen in relation to the resolution of the host. This daemon is useful for guest guests (using a graphical interface).<br/>The <strong>spice-webdavd</strong> daemon is used to support file sharing between the host and the virtual machine.  </p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="install.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Install OS
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="menu.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Menu and Tools overview
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

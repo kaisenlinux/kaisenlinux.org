@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>initramfs.conf — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>initramfs.conf</h1>
+
+
+  </div>
+
+
+<p>INITRAMFS.CONF(5)                                                                     File Formats Manual                                                                    INITRAMFS.CONF(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">initramfs</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">mkinitramfs</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">behaviour</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">mkinitramfs</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">comment</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">assigned</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">statement</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="ss">form</span><span class="p">:</span><span class="w"> </span><span class="n">name</span><span class="o">=</span><span class="p" data-group-id="7161990005-1">[</span><span class="n">value</span><span class="p" data-group-id="7161990005-1">]</span><span class="w">
+
+   </span><span class="nc">Configuration</span><span class="w">  </span><span class="n">options</span><span class="w">  </span><span class="n">can</span><span class="w">  </span><span class="n">be</span><span class="w"> </span><span class="n">broken</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">snippets</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">placed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="w"> </span><span class="n">directory</span><span class="o">.</span><span class="w">  </span><span class="nc">Files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">always</span><span class="w">
+   </span><span class="n">read</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">editing</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">directly</span><span class="o">.</span></code></pre><p>GENERAL VARIABLES</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="nc">MODULES</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">modules</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">Modules</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">modules</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">modules</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="o">*</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+          </span><span class="n">list</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t load any additional modules at boot time, other than those listed in the above files.
+
+          most adds most file system, all ata, sata, scsi and usb drivers.
+
+          dep tries to guess which modules are necessary for the running box and only adds those modules.
+
+          netboot adds the base and network modules, but skips block devices.
+
+          The default setting is most.
+
+    BUSYBOX
+          Include busybox utilities for the boot scripts.  If set to &#39;</span><span class="n">n</span><span class="sc">&#39; mkinitramfs will build an initramfs without busybox.  Beware that many boot scripts need busybox utilities.
+
+    KEYMAP
+          If set to &#39;</span><span class="n">y</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">console</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">stage</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">keymap</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">anyway</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">loaded</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initscripts</span><span class="w"> </span><span class="n">later</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">packages</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">need</span><span class="w">  </span><span class="n">input</span><span class="w">
+          </span><span class="n">will</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">automatically</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">this</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">COMPRESS</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="n">mkinitramfs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">gzip</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">kernel</span><span class="w"> </span><span class="n">lacks</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="p" data-group-id="3475757468-1">(</span><span class="nc">CONFIG_RD</span><span class="p" data-group-id="3475757468-1">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">userspace</span><span class="w"> </span><span class="n">utility</span><span class="w">
+          </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">present</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">COMPRESSLEVEL</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">compression</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">image</span><span class="o">.</span><span class="w">  </span><span class="n">mkinitramfs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">lz4</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">zstd</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">builtin</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">others</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">UMASK</span><span class="w"> </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">umask</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">  </span><span class="nc">Useful</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">disclose</span><span class="w"> </span><span class="n">eventual</span><span class="w"> </span><span class="n">keys</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">BOOT</span><span class="w">  </span><span class="nc">Allows</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">nfs</span><span class="w"> </span><span class="n">drive</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">drive</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">boot</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="p" data-group-id="3475757468-2">(</span><span class="n">hard</span><span class="w"> </span><span class="n">drive</span><span class="p">,</span><span class="w"> </span><span class="nc">USB</span><span class="w"> </span><span class="n">stick</span><span class="p" data-group-id="3475757468-2">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">nfs</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">NFS</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">share</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">RUNSIZE</span><span class="w">
+          </span><span class="nc">The</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">/</span><span class="n">run</span><span class="w"> </span><span class="n">tmpfs</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="p" data-group-id="3475757468-3">(</span><span class="n">suffixes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">supported</span><span class="p" data-group-id="3475757468-3">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">percentage</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">physical</span><span class="w"> </span><span class="nc">RAM</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">option</span><span class="w">  </span><span class="n">to</span><span class="w">
+          </span><span class="n">tmpfs</span><span class="o">.</span><span class="w"> </span><span class="nc">See</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="nc">Documentation</span><span class="o">/</span><span class="n">filesystems</span><span class="o">/</span><span class="n">tmpfs</span><span class="o">.</span><span class="n">txt</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w"> </span><span class="nc">Can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">overridden</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">initramfs</span><span class="o">.</span><span class="n">runsize</span><span class="o">=</span><span class="w"> </span><span class="n">bootarg</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">10</span><span class="p">%</span><span class="o">.</span></code></pre><p>VARIABLES FOR LOCAL BOOT</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="nc">RESUME</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">suspend</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">disk</span><span class="w"> </span><span class="p" data-group-id="3219766706-1">(</span><span class="n">hibernation</span><span class="p" data-group-id="3219766706-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initramfs</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">resume</span><span class="w"> </span><span class="n">from</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">auto</span><span class="p">,</span><span class="w"> </span><span class="n">mkinitramfs</span><span class="w"> </span><span class="n">will</span><span class="w">
+          </span><span class="n">automatically</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">largest</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">swap</span><span class="w"> </span><span class="n">partition</span><span class="o">.</span><span class="w">  </span><span class="nc">Set</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">none</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="n">resume</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">disk</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">FSTYPE</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">filesystem</span><span class="w">  </span><span class="n">type</span><span class="p" data-group-id="3219766706-2">(</span><span class="n">s</span><span class="p" data-group-id="3219766706-2">)</span><span class="w">  </span><span class="n">to</span><span class="w"> </span><span class="n">support</span><span class="p">,</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">commas</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">auto</span><span class="p">,</span><span class="w"> </span><span class="n">mkinitramfs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">detect</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="w">
+          </span><span class="n">filesystem</span><span class="w"> </span><span class="n">types</span><span class="o">.</span></code></pre><p>VARIABLES FOR NFS BOOT</p><pre><code class="makeup elixir" translate="no"><span class="w">    </span><span class="nc">DEVICE</span><span class="w">
+          </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="p">,</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">eth0</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">BOOTIF</span><span class="w"> </span><span class="n">bootargs</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">this</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">ROOT</span><span class="w">  </span><span class="nc">Allows</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">bootarg</span><span class="w"> </span><span class="n">hardcoding</span><span class="p">,</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">bootarg</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">passed</span><span class="o">.</span><span class="w">  </span><span class="nc">A</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">bootarg</span><span class="w"> </span><span class="n">overrides</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">setting</span><span class="o">.</span><span class="w">
+
+    </span><span class="nc">NFSROOT</span><span class="w">
+          </span><span class="nc">Defaults</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">auto</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pick</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">DHCP</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">  </span><span class="nc">Otherwise</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="nc">HOST</span><span class="ss">:MOUNT</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">initramfs</span><span class="o">.</span><span class="n">conf</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Maximilian</span><span class="w"> </span><span class="nc">Attems</span><span class="w"> </span><span class="o">&lt;</span><span class="n">maks</span><span class="na">@debian</span><span class="o">.</span><span class="n">org</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nc">Jeff</span><span class="w"> </span><span class="nc">Bailey</span><span class="w"> </span><span class="o">&lt;</span><span class="n">jbailey</span><span class="na">@raspberryginger</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">numerous</span><span class="w"> </span><span class="n">others</span><span class="o">.</span><span class="w">  </span><span class="nc">Loosely</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">mkinitrd</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Herbert</span><span class="w"> </span><span class="nc">Xu</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">initramfs</span><span class="o">-</span><span class="n">tools</span><span class="p" data-group-id="9646783741-1">(</span><span class="mi">7</span><span class="p" data-group-id="9646783741-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">mkinitramfs</span><span class="p" data-group-id="9646783741-2">(</span><span class="mi">8</span><span class="p" data-group-id="9646783741-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">update</span><span class="o">-</span><span class="n">initramfs</span><span class="p" data-group-id="9646783741-3">(</span><span class="mi">8</span><span class="p" data-group-id="9646783741-3">)</span><span class="o">.</span></code></pre><p>initramfs-tools                                                                           2018/07/18                                                                         INITRAMFS.CONF(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="init-d-script.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+init-d-script
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="initrd-release.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+initrd-release
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

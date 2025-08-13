@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>docker-create — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>docker-create</h1>
+
+
+  </div>
+
+
+<p>DOCKER(1)                                                                             Docker User Manuals                                                                            DOCKER(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="o">-</span><span class="n">create</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">container</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="p" data-group-id="0192302780-1">[</span><span class="nc">OPTIONS</span><span class="p" data-group-id="0192302780-1">]</span><span class="w"> </span><span class="nc">IMAGE</span><span class="w"> </span><span class="p" data-group-id="0192302780-2">[</span><span class="nc">COMMAND</span><span class="p" data-group-id="0192302780-2">]</span><span class="w"> </span><span class="p" data-group-id="0192302780-3">[</span><span class="nc">ARG</span><span class="n">...</span><span class="p" data-group-id="0192302780-3">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Alias</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">create</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">host</span><span class="o">=</span><span class="w">      </span><span class="nc">Add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">host</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="nc">IP</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="p" data-group-id="9454024640-1">(</span><span class="n">host</span><span class="ss">:ip</span><span class="p" data-group-id="9454024640-1">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">annotation</span><span class="o">=</span><span class="n">map</span><span class="p" data-group-id="9454024640-2">[</span><span class="p" data-group-id="9454024640-2">]</span><span class="w">      </span><span class="nc">Add</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">annotation</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="p" data-group-id="9454024640-3">(</span><span class="n">passed</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">OCI</span><span class="w"> </span><span class="n">runtime</span><span class="p" data-group-id="9454024640-3">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">attach</span><span class="o">=</span><span class="w">      </span><span class="nc">Attach</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">STDIN</span><span class="p">,</span><span class="w"> </span><span class="nc">STDOUT</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">STDERR</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">blkio</span><span class="o">-</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="w">      </span><span class="nc">Block</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="p" data-group-id="9454024640-4">(</span><span class="n">relative</span><span class="w"> </span><span class="n">weight</span><span class="p" data-group-id="9454024640-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disable</span><span class="w"> </span><span class="p" data-group-id="9454024640-5">(</span><span class="n">default</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="9454024640-5">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">blkio</span><span class="o">-</span><span class="n">weight</span><span class="o">-</span><span class="n">device</span><span class="o">=</span><span class="p" data-group-id="9454024640-6">[</span><span class="p" data-group-id="9454024640-6">]</span><span class="w">      </span><span class="nc">Block</span><span class="w"> </span><span class="nc">IO</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="p" data-group-id="9454024640-7">(</span><span class="n">relative</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">weight</span><span class="p" data-group-id="9454024640-7">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cap</span><span class="o">-</span><span class="n">add</span><span class="o">=</span><span class="w">      </span><span class="nc">Add</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">capabilities</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cap</span><span class="o">-</span><span class="n">drop</span><span class="o">=</span><span class="w">      </span><span class="nc">Drop</span><span class="w"> </span><span class="nc">Linux</span><span class="w"> </span><span class="n">capabilities</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cgroup</span><span class="o">-</span><span class="n">parent</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Optional</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="n">cgroup</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">cgroupns</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">       </span><span class="nc">Cgroup</span><span class="w">  </span><span class="n">namespace</span><span class="w">  </span><span class="n">to</span><span class="w">  </span><span class="kn">use</span><span class="w"> </span><span class="p" data-group-id="9454024640-8">(</span><span class="n">host</span><span class="o">|</span><span class="n">private</span><span class="p" data-group-id="9454024640-8">)</span><span class="w"> </span><span class="ss">&#39;host&#39;</span><span class="p">:</span><span class="w">    </span><span class="nc">Run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Docker</span><span class="w"> </span><span class="n">host</span><span class="sc">&#39;s cgroup namespace &#39;</span><span class="n">private</span><span class="sc">&#39;: Run the container in its own private cgroup
+   namespace &#39;</span><span class="sc">&#39;:        Use the cgroup namespace as configured by the
+              default-cgroupns-mode option on the daemon (default)
+
+   --cidfile=&quot;&quot;      Write the container ID to the file
+
+   --cpu-count=0      CPU count (Windows only)
+
+   --cpu-percent=0      CPU percent (Windows only)
+
+   --cpu-period=0      Limit CPU CFS (Completely Fair Scheduler) period
+
+   --cpu-quota=0      Limit CPU CFS (Completely Fair Scheduler) quota
+
+   --cpu-rt-period=0      Limit CPU real-time period in microseconds
+
+   --cpu-rt-runtime=0      Limit CPU real-time runtime in microseconds
+
+   -c, --cpu-shares=0      CPU shares (relative weight)
+
+   --cpus=      Number of CPUs
+
+   --cpuset-cpus=&quot;&quot;      CPUs in which to allow execution (0-3, 0,1)
+
+   --cpuset-mems=&quot;&quot;      MEMs in which to allow execution (0-3, 0,1)
+
+   --device=      Add a host device to the container
+
+   --device-cgroup-rule=      Add a rule to the cgroup allowed devices list
+
+   --device-read-bps=[]      Limit read rate (bytes per second) from a device
+
+   --device-read-iops=[]      Limit read rate (IO per second) from a device
+
+   --device-write-bps=[]      Limit write rate (bytes per second) to a device
+
+   --device-write-iops=[]      Limit write rate (IO per second) to a device
+
+   --disable-content-trust[=true]      Skip image verification
+
+   --dns=      Set custom DNS servers
+
+   --dns-option=      Set DNS options
+
+   --dns-search=      Set custom DNS search domains
+
+   --domainname=&quot;&quot;      Container NIS domain name
+
+   --entrypoint=&quot;&quot;      Overwrite the default ENTRYPOINT of the image
+
+   -e, --env=      Set environment variables
+
+   --env-file=      Read in a file of environment variables
+
+   --expose=      Expose a port or a range of ports
+
+   --gpus=      GPU devices to add to the container (&#39;</span><span class="n">all</span><span class="sc">&#39; to pass all GPUs)
+
+   --group-add=      Add additional groups to join
+
+   --health-cmd=&quot;&quot;      Command to run to check health
+
+   --health-interval=0s      Time between running the check (ms|s|m|h) (default 0s)
+
+   --health-retries=0      Consecutive failures needed to report unhealthy
+
+   --health-start-interval=0s      Time between running the check during the start period (ms|s|m|h) (default 0s)
+
+   --health-start-period=0s      Start period for the container to initialize before starting health-retries countdown (ms|s|m|h) (default 0s)
+
+   --health-timeout=0s      Maximum time to allow one check to run (ms|s|m|h) (default 0s)
+
+   --help[=false]      Print usage
+
+   -h, --hostname=&quot;&quot;      Container host name
+
+   --init[=false]      Run an init inside the container that forwards signals and reaps processes
+
+   -i, --interactive[=false]      Keep STDIN open even if not attached
+
+   --io-maxbandwidth=0      Maximum IO bandwidth limit for the system drive (Windows only)
+
+   --io-maxiops=0      Maximum IOps limit for the system drive (Windows only)
+
+   --ip=&quot;&quot;      IPv4 address (e.g., 172.30.100.104)
+
+   --ip6=&quot;&quot;      IPv6 address (e.g., 2001:db8::33)
+
+   --ipc=&quot;&quot;      IPC mode to use
+
+   --isolation=&quot;&quot;      Container isolation technology
+
+   --kernel-memory=0      Kernel memory limit
+
+   -l, --label=      Set meta data on a container
+
+   --label-file=      Read in a line delimited file of labels
+
+   --link=      Add link to another container
+
+   --link-local-ip=      Container IPv4/IPv6 link-local addresses
+
+   --log-driver=&quot;&quot;      Logging driver for the container
+
+   --log-opt=      Log driver options
+
+   --mac-address=&quot;&quot;      Container MAC address (e.g., 92:d0:c6:0a:29:33)
+
+   -m, --memory=0      Memory limit
+
+   --memory-reservation=0      Memory soft limit
+
+   --memory-swap=0      Swap limit equal to memory plus swap: &#39;</span><span class="o">-</span><span class="mi">1</span><span class="sc">&#39; to enable unlimited swap
+
+   --memory-swappiness=-1      Tune container memory swappiness (0 to 100)
+
+   --mount=      Attach a filesystem mount to the container
+
+   --name=&quot;&quot;      Assign a name to the container
+
+   --network=      Connect a container to a network
+
+   --network-alias=      Add network-scoped alias for the container
+
+   --no-healthcheck[=false]      Disable any container-specified HEALTHCHECK
+
+   --oom-kill-disable[=false]      Disable OOM Killer
+
+   --oom-score-adj=0      Tune host&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">OOM</span><span class="w"> </span><span class="n">preferences</span><span class="w"> </span><span class="p" data-group-id="9454024640-9">(</span><span class="o">-</span><span class="mi">1000</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">1000</span><span class="p" data-group-id="9454024640-9">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">pid</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">PID</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">pids</span><span class="o">-</span><span class="n">limit</span><span class="o">=</span><span class="mi">0</span><span class="w">      </span><span class="nc">Tune</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">pids</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="p" data-group-id="9454024640-10">(</span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">unlimited</span><span class="p" data-group-id="9454024640-10">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">platform</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Set</span><span class="w"> </span><span class="n">platform</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">platform</span><span class="w"> </span><span class="n">capable</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">privileged</span><span class="p" data-group-id="9454024640-11">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="9454024640-11">]</span><span class="w">      </span><span class="nc">Give</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">privileges</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">publish</span><span class="o">=</span><span class="w">      </span><span class="nc">Publish</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="sc">&#39;s port(s) to the host
+
+   -P, --publish-all[=false]      Publish all exposed ports to random ports
+
+   --pull=&quot;missing&quot;      Pull image before creating (&quot;always&quot;, &quot;|missing&quot;, &quot;never&quot;)
+
+   -q, --quiet[=false]      Suppress the pull output
+
+   --read-only[=false]      Mount the container&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">only</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">restart</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="w">      </span><span class="nc">Restart</span><span class="w"> </span><span class="n">policy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">exits</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">rm</span><span class="p" data-group-id="9454024640-12">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="9454024640-12">]</span><span class="w">      </span><span class="nc">Automatically</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">exits</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">runtime</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Runtime</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">security</span><span class="o">-</span><span class="n">opt</span><span class="o">=</span><span class="w">      </span><span class="nc">Security</span><span class="w"> </span><span class="nc">Options</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">shm</span><span class="o">-</span><span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="w">      </span><span class="nc">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">shm</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">stop</span><span class="o">-</span><span class="n">signal</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Signal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">stop</span><span class="o">-</span><span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="w">      </span><span class="nc">Timeout</span><span class="w"> </span><span class="p" data-group-id="9454024640-13">(</span><span class="ow">in</span><span class="w"> </span><span class="n">seconds</span><span class="p" data-group-id="9454024640-13">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">storage</span><span class="o">-</span><span class="n">opt</span><span class="o">=</span><span class="w">      </span><span class="nc">Storage</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">sysctl</span><span class="o">=</span><span class="n">map</span><span class="p" data-group-id="9454024640-14">[</span><span class="p" data-group-id="9454024640-14">]</span><span class="w">      </span><span class="nc">Sysctl</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">tmpfs</span><span class="o">=</span><span class="w">      </span><span class="nc">Mount</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tmpfs</span><span class="w"> </span><span class="n">directory</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">tty</span><span class="p" data-group-id="9454024640-15">[</span><span class="o">=</span><span class="no">false</span><span class="p" data-group-id="9454024640-15">]</span><span class="w">      </span><span class="nc">Allocate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pseudo</span><span class="o">-</span><span class="nc">TTY</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">ulimit</span><span class="o">=</span><span class="p" data-group-id="9454024640-16">[</span><span class="p" data-group-id="9454024640-16">]</span><span class="w">      </span><span class="nc">Ulimit</span><span class="w"> </span><span class="n">options</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Username</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">UID</span><span class="w"> </span><span class="p" data-group-id="9454024640-17">(</span><span class="ss">format</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9454024640-18">[</span><span class="p">:</span><span class="p" data-group-id="9454024640-18">]</span><span class="p" data-group-id="9454024640-17">)</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">userns</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">User</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">uts</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">UTS</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">volume</span><span class="o">=</span><span class="w">      </span><span class="nc">Bind</span><span class="w"> </span><span class="n">mount</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">volume</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">volume</span><span class="o">-</span><span class="n">driver</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Optional</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w">
+
+   </span><span class="o">--</span><span class="n">volumes</span><span class="o">-</span><span class="n">from</span><span class="o">=</span><span class="w">      </span><span class="nc">Mount</span><span class="w"> </span><span class="n">volumes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">container</span><span class="p" data-group-id="9454024640-19">(</span><span class="n">s</span><span class="p" data-group-id="9454024640-19">)</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">workdir</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="w">      </span><span class="nc">Working</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">docker</span><span class="p" data-group-id="4436179492-1">(</span><span class="mi">1</span><span class="p" data-group-id="4436179492-1">)</span></code></pre><p>Docker Community                                                                           Aug 2024                                                                                  DOCKER(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="docker-cp.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+docker-cp
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="docker-diff.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+docker-diff
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

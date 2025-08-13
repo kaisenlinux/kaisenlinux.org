@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>sslsplit.conf — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>sslsplit.conf</h1>
+
+
+  </div>
+
+
+<p>sslsplit.conf(5)                                                                           SSLsplit                                                                           sslsplit.conf(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslsplit</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Configuration</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">SSLsplit</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">sslsplit</span><span class="o">.</span><span class="n">conf</span><span class="w"> </span><span class="n">configures</span><span class="w"> </span><span class="nc">SSLsplit</span><span class="p">,</span><span class="w"> </span><span class="n">sslsplit</span><span class="p" data-group-id="3550870223-1">(</span><span class="mi">1</span><span class="p" data-group-id="3550870223-1">)</span><span class="o">.</span></code></pre><p>FILE FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w">  </span><span class="n">file</span><span class="w">  </span><span class="n">consists</span><span class="w">  </span><span class="n">of</span><span class="w"> </span><span class="n">comments</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">arguments</span><span class="o">.</span><span class="w"> </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="p" data-group-id="1402451384-1">(</span><span class="c1">#) symbol is ignored by the parser. Options and arguments are of the form Option Argu‐</span><span class="w">
+   </span><span class="n">ment</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">types</span><span class="p">:</span><span class="w">
+
+   </span><span class="nc">BOOL</span><span class="w">   </span><span class="nc">Boolean</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p" data-group-id="1402451384-2">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="p" data-group-id="1402451384-2">)</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">STRING</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span></code></pre><p>DIRECTIVES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">When</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="p" data-group-id="1199058716-1">(</span><span class="n">hashed</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">doesn</span><span class="sc">&#39;t exist in the configuration file) sslsplit takes a default action. If an option does not have a command line equivalent, -o opt=val option
+   can be used to override it on the command line.
+
+   CACert STRING
+          Use CA cert (and key) to sign forged certs. Equivalent to -c command line option.
+
+   CAKey STRING
+          Use CA key (and cert) to sign forged certs. Equivalent to -k command line option.
+
+   ClientCert STRING
+          Use cert from pemfile when destination requests client certs. Equivalent to -a command line option.
+
+   ClientKey STRING
+          Use key from pemfile when destination requests client certs. Equivalent to -b command line option.
+
+   CAChain STRING
+          Use CA chain from pemfile (intermediate and root CA certs). Equivalent to -C command line option.
+
+   LeafKey STRING
+          Use key from pemfile for generating leaf certs. Equivalent to -K command line option.
+          Default: generate
+
+   LeafCRLURL STRING
+          Use URL as CRL distribution point for all forged leaf certs. Equivalent to -q command line option.
+
+   LeafCertDir STRING
+          Use cert+chain+key PEM files from certdir to target all sites matching the common names (non-matching: generate if CA). Equivalent to -t command line option.
+
+   DefaultLeafCert STRING
+          Use cert+chain+key from PEM file for leaf certificates if there is no match in LeafCertDir. Equivalent to -A command line option.
+
+   WriteGenCertsDir STRING
+          Write leaf key and only generated certificates to gendir. Equivalent to -w command line option.
+
+   WriteAllCertsDir STRING
+          Write leaf key and all certificates to gendir. Equivalent to -W command line option.
+
+   DenyOCSP BOOL
+          Deny all OCSP requests on all proxyspecs. Equivalent to -O command line option.
+
+   Passthrough BOOL
+          Passthrough SSL connections if they cannot be split because of client cert auth or no matching cert and no CA. Equivalent to -P command line option.
+          Default: drop
+
+   DHGroupParams STRING
+          Use DH group params from pemfile. Equivalent to -g command line option.
+          Default: keyfiles or auto
+
+   ECDHCurve STRING
+          Use ECDH named curve. Equivalent to -G command line option.
+          Default: prime256v1
+
+   SSLCompression BOOL
+          Enable/disable SSL/TLS compression on all connections. Equivalent to -Z command line option.
+
+   ForceSSLProto STRING
+          Force SSL/TLS protocol version only. Equivalent to -r command line option.
+          Default: all
+
+   DisableSSLProto STRING
+          Disable SSL/TLS protocol version. Equivalent to -R command line option.
+          Default: none
+
+   Ciphers STRING
+          Use the given OpenSSL cipher suite spec. Equivalent to -s command line option.
+          Default: ALL:-aNULL
+
+   OpenSSLEngine STRING
+          The OpenSSL engine to activate, either the ID or the full path to the shared library implementing the engine.  If an ID is given, the engine needs to be known  to  the  system-
+          wide OpenSSL configuration.  Only available if built against a version of OpenSSL with engine support.  Equivalent to -x command line option.
+
+   NATEngine STRING
+          Specify default NAT engine to use. Equivalent to -e command line option.
+
+   User STRING
+          Drop privileges to user. Equivalent to -u command line option.
+          Default: nobody, if run as root
+
+   Group STRING
+          Drop privileges to group. Equivalent to -m command line option.
+          Default: Primary group of user
+
+   Chroot STRING
+          chroot() to jaildir (impacts sni proxyspecs, see sslsplit(1)). Equivalent to -j command line option.
+
+   PidFile STRING
+          Write pid to file. Equivalent to -p command line option.
+
+   ConnectLog STRING
+          Connect log: log one line summary per connection to logfile. Equivalent to -l command line option.
+
+   ContentLog STRING
+          Content log: full data to file or named pipe (excludes ContentLogDir/ContentLogPathSpec). Equivalent to -L command line option.
+
+   ContentLogDir STRING
+          Content log: full data to separate files in dir (excludes ContentLog/ContentLogPathSpec). Equivalent to -S command line option.
+
+   ContentLogPathSpec STRING
+          Content log: full data to sep files with % subst (excludes ContentLog/ContentLogDir). Equivalent to -F command line option.
+
+   LogProcInfo BOOL
+          Look up local process owning each connection for logging. Equivalent to -i command line option.
+
+   PcapLog STRING
+          Pcap log: packets to pcapfile (excludes PcapLogDir/PcapLogPathSpec). Equivalent to -X command line option.
+
+   PcapLogDir STRING
+          Pcap log: packets to separate files in dir (excludes PcapLog/PcapLogPathSpec). Equivalent to -Y command line option.
+
+   PcapLogPathSpec STRING
+          Pcap log: packets to sep files with % subst (excludes PcapLog/PcapLogDir). Equivalent to -y command line option.
+
+   MirrorIf STRING
+          Mirror packets to interface. Equivalent to -I command line option.
+
+   MirrorTarget STRING
+          Mirror packets to target address (used with MirrorIf). Equivalent to -T command line option.
+
+   MasterKeyLog STRING
+          Log master keys to logfile in SSLKEYLOGFILE format. Equivalent to -M command line option.
+
+   Daemon BOOL
+          Daemon mode: run in background, log error messages to syslog. Equivalent to -d command line option.
+
+   Debug BOOL
+          Debug mode: run in foreground, log debug messages on stderr. Equivalent to -D command line option.
+
+   VerifyPeer BOOL
+          Verify peer using default certificates.
+          Default: no
+
+   AddSNIToCertificate BOOL
+          When  disabled,  never add the SNI to forged certificates, even if the SNI provided by the client does not match the server certificate&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">CN</span><span class="o">/</span><span class="nc">SAN</span><span class="o">.</span><span class="w"> </span><span class="nc">Helps</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">wrong</span><span class="o">.</span><span class="n">host</span><span class="w"> </span><span class="n">test</span><span class="w">
+          </span><span class="n">at</span><span class="w"> </span><span class="n">https</span><span class="ss">://</span><span class="n">badssl</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="w">
+          </span><span class="ss">Default</span><span class="p">:</span><span class="w"> </span><span class="n">yes</span><span class="w">
+
+   </span><span class="nc">ProxySpec</span><span class="w"> </span><span class="nc">STRING</span><span class="w">
+          </span><span class="nc">Proxy</span><span class="w"> </span><span class="ss">specification</span><span class="p">:</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">listenaddr</span><span class="o">+</span><span class="n">port</span><span class="w"> </span><span class="p" data-group-id="1199058716-2">[</span><span class="n">natengine</span><span class="o">|</span><span class="n">targetaddr</span><span class="o">+</span><span class="n">port</span><span class="o">|</span><span class="s">&quot;sni&quot;</span><span class="o">+</span><span class="n">port</span><span class="p" data-group-id="1199058716-2">]</span><span class="o">.</span><span class="w"> </span><span class="nc">Multiple</span><span class="w"> </span><span class="n">specs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">allowed</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="o">.</span></code></pre><p>FILES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sslsplit</span><span class="o">/</span><span class="n">sslsplit</span><span class="o">.</span><span class="n">conf</span></code></pre><p>AUTHOR</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">facility</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="nc">Soner</span><span class="w"> </span><span class="nc">Tari</span><span class="w"> </span><span class="o">&lt;</span><span class="n">sonertari</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">sslsplit</span><span class="p" data-group-id="9591237528-1">(</span><span class="mi">1</span><span class="p" data-group-id="9591237528-1">)</span></code></pre><p>sslsplit 0.5.5                                                                            2024-03-11                                                                          sslsplit.conf(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="sshd_config.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+sshd_config
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="subgid.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+subgid
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

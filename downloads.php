@@ -113,7 +113,7 @@
           Live credentials: <span>kaisen/kaisen</span><br>
           Old versions: <a href="https://iso.kaisenlinux.org" target="_blank">here</a><br>
           All checksums <a href="https://kaisenlinux.org/checksums.txt" target="_blank">here</a><br>
-          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling2.3.php" target="_blank">here</a><br>
+          Last changelog <a href="https://kaisenlinux.org/blog/kaisenlinuxrolling3.0.php" target="_blank">here</a><br>
           </div>
         <div class="section-heading-line-left"></div>
       </div>

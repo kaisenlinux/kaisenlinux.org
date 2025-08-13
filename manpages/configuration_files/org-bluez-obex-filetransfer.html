@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>org.bluez.obex.FileTransfer — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>org.bluez.obex.FileTransfer</h1>
+
+
+  </div>
+
+
+<p>ORG.BLUEZ.OBEX.FILETRANSFER(5)                                                    Linux System Administration                                                   ORG.BLUEZ.OBEX.FILETRANSFER(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">FileTransfer</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">BlueZ</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">OBEX</span><span class="w"> </span><span class="nc">FileTransfer</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">documentation</span></code></pre><p>INTERFACE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">FileTransfer1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="p" data-group-id="1269016078-1">[</span><span class="nc">Session</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p" data-group-id="1269016078-1">]</span></code></pre><p>   Methods
+   void ChangeFolder(string folder)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Changes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   void CreateFolder(string folder)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   array{dict} ListFolder()</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">dictionary</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">folder</span><span class="w"> </span><span class="n">content</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Name</span><span class="w">
+             </span><span class="nc">Object</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">UTF</span><span class="o">-</span><span class="mi">8</span><span class="w"> </span><span class="n">format</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Type</span><span class="w">
+             </span><span class="nc">Either</span><span class="w"> </span><span class="s">&quot;folder&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;file&quot;</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint64</span><span class="w"> </span><span class="nc">Size</span><span class="w">
+             </span><span class="nc">Object</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">folder</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Permission</span><span class="w">
+             </span><span class="nc">Group</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">permission</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint64</span><span class="w"> </span><span class="nc">Modified</span><span class="w">
+             </span><span class="nc">Last</span><span class="w"> </span><span class="n">change</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint64</span><span class="w"> </span><span class="nc">Accessed</span><span class="w">
+             </span><span class="nc">Last</span><span class="w"> </span><span class="n">access</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint64</span><span class="w"> </span><span class="nc">Created</span><span class="w">
+             </span><span class="nc">Creation</span><span class="w"> </span><span class="n">date</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   object, dict GetFile(string targetfile, string sourcefile)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Copies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="9104411973-1">(</span><span class="n">from</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="p" data-group-id="9104411973-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="9104411973-2">(</span><span class="n">on</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">filesystem</span><span class="p" data-group-id="9104411973-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">transfer</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">transferred</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GetProperties</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Transfer</span><span class="p" data-group-id="9104411973-3">(</span><span class="mi">5</span><span class="p" data-group-id="9104411973-3">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">properties</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   object, dict PutFile(string sourcefile, string targetfile)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Copies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="4965950275-1">(</span><span class="n">from</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">filesystem</span><span class="p" data-group-id="4965950275-1">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p" data-group-id="4965950275-2">(</span><span class="n">on</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="p" data-group-id="4965950275-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">represents</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">newly</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">transfer</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">content</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">successfully</span><span class="w"> </span><span class="n">transferred</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">fails</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nc">GetProperties</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Transfer</span><span class="p" data-group-id="4965950275-3">(</span><span class="mi">5</span><span class="p" data-group-id="4965950275-3">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">possible</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">properties</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   void CopyFile(string sourcefile, string targetfile)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Copies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">contents</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>   void MoveFile(string sourcefile, string targetfile)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Moves</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="p">;</span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="p">:</span><span class="w"> </span><span class="nc">:org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span><span class="p">:</span></code></pre><p>   void Delete(string file)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Deletes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">file</span><span class="o">/</span><span class="n">folder</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="n">obex</span><span class="o">.</span><span class="nc">Error.Failed</span></code></pre><p>BlueZ                                                                                    October 2023                                                           ORG.BLUEZ.OBEX.FILETRANSFER(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-obex-client.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.bluez.obex.Client
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-obex-image.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.bluez.obex.Image
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

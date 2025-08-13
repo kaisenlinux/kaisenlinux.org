@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>xfs_bmap — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>xfs_bmap</h1>
+
+
+  </div>
+
+
+<p>xfs_bmap(8)                                                                         System Manager's Manual                                                                        xfs_bmap(8)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">file</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="p" data-group-id="5785066994-1">[</span><span class="w"> </span><span class="o">-</span><span class="n">adelpv</span><span class="w"> </span><span class="p" data-group-id="5785066994-1">]</span><span class="w"> </span><span class="p" data-group-id="5785066994-2">[</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">num_extents</span><span class="w"> </span><span class="p" data-group-id="5785066994-2">]</span><span class="w"> </span><span class="n">file</span><span class="w">
+   </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="o">-</span><span class="nc">V</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="n">prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">XFS</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w">  </span><span class="nc">The</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k" data-group-id="2674034056-1">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">correspond</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ing</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="p" data-group-id="2674034056-2">(</span><span class="n">holes</span><span class="p" data-group-id="2674034056-2">)</span><span class="o">.</span><span class="w">  </span><span class="nc">Each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">listings</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">form</span><span class="p">:</span><span class="w">
+
+          </span><span class="ss">extent</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2674034056-3">[</span><span class="n">startoffset</span><span class="o">..</span><span class="n">endoffset</span><span class="p" data-group-id="2674034056-3">]</span><span class="p">:</span><span class="w"> </span><span class="n">startblock</span><span class="o">..</span><span class="n">endblock</span><span class="w">
+
+   </span><span class="nc">Holes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">marked</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">replacing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">startblock</span><span class="o">..</span><span class="n">endblock</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hole</span><span class="o">.</span><span class="w">  </span><span class="nc">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">offsets</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">blocks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">512</span><span class="o">-</span><span class="n">byte</span><span class="w"> </span><span class="n">blocks</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">matter</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">filesystem</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">is</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">a</span><span class="w">     </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="n">fork</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">fork</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">e</span><span class="w">     </span><span class="nc">If</span><span class="w">  </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="n">obtains</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">delayed</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="n">extents</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">flush</span><span class="w"> </span><span class="n">dirty</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">querying</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">With</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">col</span><span class="err">‐</span><span class="w">
+          </span><span class="n">umn</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">yet</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">allocated</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="w">     </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w">
+
+               </span><span class="o">&lt;</span><span class="n">nblocks</span><span class="o">&gt;</span><span class="w">  </span><span class="n">blocks</span><span class="w">
+
+          </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">appended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="o">.</span><span class="w">  </span><span class="n">nblocks</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">described</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">512</span><span class="o">-</span><span class="n">byte</span><span class="w"> </span><span class="n">blocks</span><span class="o">.</span><span class="w">
+
+          </span><span class="nc">This</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">num_extents</span><span class="w">
+          </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">num_extents</span><span class="w"> </span><span class="n">extents</span><span class="o">.</span><span class="w"> </span><span class="nc">In</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">absence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">p</span><span class="w">     </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">xfs_bmap</span><span class="w"> </span><span class="n">obtains</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">unwritten</span><span class="w"> </span><span class="p" data-group-id="5162188012-1">(</span><span class="n">preallocated</span><span class="p" data-group-id="5162188012-1">)</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k" data-group-id="5162188012-2">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w"> </span><span class="nc">With</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">extents</span><span class="w"> </span><span class="n">are</span><span class="w">
+          </span><span class="n">preallocated</span><span class="o">/</span><span class="n">unwritten</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="w">     </span><span class="nc">Shows</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="n">information</span><span class="o">.</span><span class="w"> </span><span class="nc">When</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">specified</span><span class="p">,</span><span class="w"> </span><span class="n">additional</span><span class="w"> </span><span class="nc">AG</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">appended</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="ss">form</span><span class="p">:</span><span class="w">
+
+               </span><span class="n">agno</span><span class="w"> </span><span class="p" data-group-id="5162188012-3">(</span><span class="n">startagoffset</span><span class="o">..</span><span class="n">endagoffset</span><span class="p" data-group-id="5162188012-3">)</span><span class="w"> </span><span class="n">nblocks</span><span class="w"> </span><span class="n">flags</span><span class="w">
+
+          </span><span class="nc">A</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">flags</span><span class="w"> </span><span class="n">legend</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="nc">V</span><span class="w">     </span><span class="nc">Prints</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exits</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">xfs_fsr</span><span class="p" data-group-id="1140203181-1">(</span><span class="mi">8</span><span class="p" data-group-id="1140203181-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">xfs</span><span class="p" data-group-id="1140203181-2">(</span><span class="mi">5</span><span class="p" data-group-id="1140203181-2">)</span><span class="o">.</span><span class="w">
+
+                                                                                                                                                                               </span><span class="n">xfs_bmap</span><span class="p" data-group-id="1140203181-3">(</span><span class="mi">8</span><span class="p" data-group-id="1140203181-3">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="xfs_admin.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+xfs_admin
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="xfs_copy.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+xfs_copy
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

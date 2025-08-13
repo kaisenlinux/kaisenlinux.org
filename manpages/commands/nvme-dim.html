@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>nvme-dim — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>nvme-dim</h1>
+
+
+  </div>
+
+
+<p>NVME-DIM(1)                                                                               NVMe Manual                                                                              NVME-DIM(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">dim</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Send</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Information</span><span class="w"> </span><span class="nc">Management</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controllers</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="w"> </span><span class="n">dim</span><span class="w"> </span><span class="p" data-group-id="4191317370-1">[</span><span class="o">--</span><span class="n">task</span><span class="o">=</span><span class="o">&lt;</span><span class="n">task</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">task</span><span class="o">&gt;</span><span class="p" data-group-id="4191317370-1">]</span><span class="w"> </span><span class="p" data-group-id="4191317370-2">[</span><span class="o">--</span><span class="n">nqn</span><span class="o">=</span><span class="o">&lt;</span><span class="n">nqn</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="n">nqn</span><span class="o">&gt;</span><span class="p" data-group-id="4191317370-2">]</span><span class="w">
+                           </span><span class="p" data-group-id="4191317370-3">[</span><span class="o">--</span><span class="n">device</span><span class="o">=</span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="p" data-group-id="4191317370-3">]</span><span class="w">
+                           </span><span class="p" data-group-id="4191317370-4">[</span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">format</span><span class="o">=</span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="p" data-group-id="4191317370-4">]</span><span class="w"> </span><span class="p" data-group-id="4191317370-5">[</span><span class="o">--</span><span class="n">verbose</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="p" data-group-id="4191317370-5">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Send</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Information</span><span class="w"> </span><span class="nc">Management</span><span class="w"> </span><span class="p" data-group-id="9856451625-1">(</span><span class="nc">DIM</span><span class="p" data-group-id="9856451625-1">)</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controllers</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="nc">DIM</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">performing</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">types</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="ss">tasks</span><span class="p">:</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">deregister</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">The</span><span class="w"> </span><span class="nc">DIM</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">explicitly</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controllers</span><span class="w"> </span><span class="p" data-group-id="9856451625-2">(</span><span class="nc">DC</span><span class="p" data-group-id="9856451625-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">especially</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">Central</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controllers</span><span class="w"> </span><span class="p" data-group-id="9856451625-3">(</span><span class="nc">CDC</span><span class="p" data-group-id="9856451625-3">)</span><span class="o">.</span><span class="w"> </span><span class="nc">CDCs</span><span class="w"> </span><span class="n">maintain</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="p" data-group-id="9856451625-4">(</span><span class="nc">DB</span><span class="p" data-group-id="9856451625-4">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Hosts</span><span class="w"> </span><span class="ow">and</span><span class="w">
+   </span><span class="nc">Storage</span><span class="w"> </span><span class="nc">Subsystems</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">network</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CDC</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="nc">DB</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">deregister</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CDC</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="nc">DB</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">During</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="n">mandatory</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Host</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="nc">NQN</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">ID</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Host</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Operating</span><span class="w"> </span><span class="nc">System</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w">
+   </span><span class="n">running</span><span class="w"> </span><span class="n">on</span><span class="o">.</span><span class="w"> </span><span class="nc">There</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="nc">Host</span><span class="w"> </span><span class="nc">Symbolic</span><span class="w"> </span><span class="nc">Name</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">CDC</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">applied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="nc">DC</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nvme</span><span class="o">-</span><span class="n">discover</span><span class="p" data-group-id="9856451625-5">(</span><span class="mi">1</span><span class="p" data-group-id="9856451625-5">)</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">--</span><span class="n">persistent</span><span class="w"> </span><span class="n">option</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">&lt;</span><span class="n">task</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">task</span><span class="w"> </span><span class="o">&lt;</span><span class="n">task</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="ss">perform</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;register&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s">&quot;deregister&quot;</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="n">subnqn</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">nqn</span><span class="w"> </span><span class="o">&lt;</span><span class="n">nqn</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="nc">DIM</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controller</span><span class="w"> </span><span class="p" data-group-id="6799034204-1">(</span><span class="nc">DC</span><span class="p" data-group-id="6799034204-1">)</span><span class="w"> </span><span class="n">matching</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">NQN</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="nc">NQNs</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="nc">DC</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">device</span><span class="w"> </span><span class="o">&lt;</span><span class="n">device</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">The</span><span class="w"> </span><span class="nc">DIM</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">sent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controllers</span><span class="w"> </span><span class="p" data-group-id="6799034204-2">(</span><span class="nc">DC</span><span class="p" data-group-id="6799034204-2">)</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">NVMe</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">handle</span><span class="o">.</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">comma</span><span class="o">-</span><span class="n">separated</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">handles</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">supplied</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">the</span><span class="w">
+       </span><span class="n">command</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="nc">DC</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="n">format</span><span class="o">=</span><span class="o">&lt;</span><span class="n">fmt</span><span class="o">&gt;</span><span class="w">
+       </span><span class="nc">Set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reporting</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">normal</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">binary</span><span class="o">.</span><span class="w"> </span><span class="nc">Only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">verbose</span><span class="w">
+       </span><span class="nc">Increase</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="o">.</span></code></pre><p>EXAMPLES</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="err">•</span><span class="w">   </span><span class="nc">Register</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Central</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controller</span><span class="w"> </span><span class="p" data-group-id="6448743763-1">(</span><span class="nc">CDC</span><span class="p" data-group-id="6448743763-1">)</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">nqn</span><span class="o">.</span><span class="mi">1988</span><span class="o">-</span><span class="mi">11</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">dell</span><span class="ss">:SFSS</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">20220118125153</span><span class="ss">e8</span><span class="p">:</span><span class="w">
+
+           </span><span class="c1"># nvme dim --task=register --nqn=nqn.1988-11.com.dell:SFSS:1:20220118125153e8</span><span class="w">
+
+   </span><span class="err">•</span><span class="w">   </span><span class="nc">Deregister</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="nc">Central</span><span class="w"> </span><span class="nc">Discovery</span><span class="w"> </span><span class="nc">Controller</span><span class="w"> </span><span class="p" data-group-id="6448743763-2">(</span><span class="nc">CDC</span><span class="p" data-group-id="6448743763-2">)</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">nvme4</span><span class="w">
+
+           </span><span class="c1"># nvme dim --task=deregister --device=nvme4</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">nvme</span><span class="o">-</span><span class="n">discover</span><span class="p" data-group-id="9074732319-1">(</span><span class="mi">1</span><span class="p" data-group-id="9074732319-1">)</span></code></pre><p>NVME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nvme</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">suite</span></code></pre><p>NVMe                                                                                      05/02/2025                                                                               NVME-DIM(1)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="nvme-device-self-test.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+nvme-device-self-test
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="nvme-dir-receive.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+nvme-dir-receive
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

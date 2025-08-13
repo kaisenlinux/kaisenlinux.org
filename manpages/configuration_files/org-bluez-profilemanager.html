@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>org.bluez.ProfileManager — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>org.bluez.ProfileManager</h1>
+
+
+  </div>
+
+
+<p>ORG.BLUEZ.PROFILEMANAGER(5)                                                       Linux System Administration                                                      ORG.BLUEZ.PROFILEMANAGER(5)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">ProfileManager</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">BlueZ</span><span class="w"> </span><span class="nc">D</span><span class="o">-</span><span class="nc">Bus</span><span class="w"> </span><span class="nc">ProfileManager</span><span class="w"> </span><span class="nc">API</span><span class="w"> </span><span class="n">documentation</span></code></pre><p>INTERFACE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Service</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="w">
+
+   </span><span class="nc">Interface</span><span class="w">
+          </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">ProfileManager1</span><span class="w">
+
+   </span><span class="nc">Object</span><span class="w"> </span><span class="n">path</span><span class="w">
+          </span><span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">bluez</span></code></pre><p>   Methods
+   void RegisterProfile(object profile, string uuid, dict options)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Registers</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">agent</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">defines</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">implement</span><span class="w"> </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Profile</span><span class="p" data-group-id="5949628716-1">(</span><span class="mi">5</span><span class="p" data-group-id="5949628716-1">)</span><span class="w"> </span><span class="n">interface</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">application</span><span class="w"> </span><span class="n">disconnects</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bus</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="n">profiles</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">removed</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">uuid</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="s">&quot;0000111f-0000-1000-8000-00805f9b34fb&quot;</span><span class="w">
+             </span><span class="nc">HFP</span><span class="w"> </span><span class="nc">AG</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">1.7</span><span class="p">,</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Features</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mb">0b001001</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">13</span><span class="o">.</span><span class="w"> </span><span class="nc">Authentication</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;0000111e-0000-1000-8000-00805f9b34fb&quot;</span><span class="w">
+             </span><span class="nc">HFP</span><span class="w"> </span><span class="nc">HS</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">1.7</span><span class="p">,</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Features</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mb">0b000000</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">7</span><span class="o">.</span><span class="w"> </span><span class="nc">Authentication</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;00001112-0000-1000-8000-00805f9b34fb&quot;</span><span class="w">
+             </span><span class="nc">HSP</span><span class="w"> </span><span class="nc">AG</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Authentication</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w"> </span><span class="nc">Does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="nc">Features</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ignored</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;00001108-0000-1000-8000-00805f9b34fb&quot;</span><span class="w">
+             </span><span class="nc">HSP</span><span class="w"> </span><span class="nc">HS</span><span class="p">,</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">Features</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mb">0b0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">6</span><span class="o">.</span><span class="w"> </span><span class="nc">Authentication</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="o">.</span><span class="w">  </span><span class="nc">Features</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">capability</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">Remote</span><span class="w">
+             </span><span class="nc">Audio</span><span class="w"> </span><span class="nc">Volume</span><span class="w"> </span><span class="nc">Control</span><span class="w"> </span><span class="p" data-group-id="5949628716-2">(</span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">turned</span><span class="w"> </span><span class="n">off</span><span class="p" data-group-id="5949628716-2">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="s">&quot;&lt;vendor UUID&gt;&quot;</span><span class="w">
+             </span><span class="nc">Vendor</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="nc">UUID</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">defaults</span><span class="p">,</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">options</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Name</span><span class="w">
+             </span><span class="nc">Human</span><span class="w"> </span><span class="n">readable</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">profile</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Service</span><span class="w">
+             </span><span class="nc">The</span><span class="w"> </span><span class="n">primary</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="nc">UUID</span><span class="w"> </span><span class="p" data-group-id="5949628716-3">(</span><span class="k">if</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="nc">UUID</span><span class="p" data-group-id="5949628716-3">)</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">Role</span><span class="w">
+             </span><span class="nc">For</span><span class="w"> </span><span class="n">asymmetric</span><span class="w"> </span><span class="n">profiles</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k" data-group-id="5949628716-4">do</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="nc">UUIDs</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">uniquely</span><span class="w"> </span><span class="n">identify</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">specifying</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">precise</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">role</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">values</span><span class="p">:</span><span class="w">
+
+             </span><span class="s">&quot;client&quot;</span><span class="w">
+
+             </span><span class="s">&quot;server&quot;</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Channel</span><span class="w">
+             </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="nc">UUIDs</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">If</span><span class="w"> </span><span class="n">applicable</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">SDP</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">PSM</span><span class="w">
+             </span><span class="nc">PSM</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="nc">UUIDs</span><span class="o">.</span><span class="w">
+
+             </span><span class="nc">If</span><span class="w"> </span><span class="n">applicable</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">SDP</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">boolean</span><span class="w"> </span><span class="nc">RequireAuthentication</span><span class="w">
+             </span><span class="nc">Pairing</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">established</span><span class="o">.</span><span class="w">  </span><span class="nc">No</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">connected</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">paired</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">boolean</span><span class="w"> </span><span class="nc">RequireAuthorization</span><span class="w">
+             </span><span class="nc">Request</span><span class="w"> </span><span class="n">authorization</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">established</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">boolean</span><span class="w"> </span><span class="nc">AutoConnect</span><span class="w">
+             </span><span class="nc">In</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="nc">UUID</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">RFCOMM</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">L2CAP</span><span class="w"> </span><span class="n">channels</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">connected</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">string</span><span class="w"> </span><span class="nc">ServiceRecord</span><span class="w">
+             </span><span class="nc">Provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="nc">SDP</span><span class="w"> </span><span class="n">record</span><span class="o">.</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Version</span><span class="w">
+             </span><span class="nc">Profile</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p" data-group-id="5949628716-5">(</span><span class="k">for</span><span class="w"> </span><span class="nc">SDP</span><span class="w"> </span><span class="n">record</span><span class="p" data-group-id="5949628716-5">)</span><span class="w">
+
+      </span><span class="n">uint16</span><span class="w"> </span><span class="nc">Features</span><span class="w">
+             </span><span class="nc">Profile</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p" data-group-id="5949628716-6">(</span><span class="k">for</span><span class="w"> </span><span class="nc">SDP</span><span class="w"> </span><span class="n">record</span><span class="p" data-group-id="5949628716-6">)</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.InvalidArguments</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.AlreadyExists</span></code></pre><p>   void UnregisterProfile(object profile)</p><pre><code class="makeup elixir" translate="no"><span class="w">      </span><span class="nc">Unregisters</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">registered</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="nc">RegisterProfile</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">The</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">registration</span><span class="o">.</span><span class="w">
+
+      </span><span class="nc">Possible</span><span class="w"> </span><span class="ss">errors</span><span class="p">:</span><span class="w">
+
+      </span><span class="n">org</span><span class="o">.</span><span class="n">bluez</span><span class="o">.</span><span class="nc">Error.DoesNotExist</span></code></pre><p>BlueZ                                                                                    October 2023                                                              ORG.BLUEZ.PROFILEMANAGER(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-obex-transfer.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+org.bluez.obex.Transfer
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="org-bluez-profile.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+org.bluez.Profile
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

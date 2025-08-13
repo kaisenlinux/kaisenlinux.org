@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>podman-unshare — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-65F766E3.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>podman-unshare</h1>
+
+
+  </div>
+
+
+<p>podman-unshare(1)                                                                   General Commands Manual                                                                  podman-unshare(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="o">-</span><span class="n">unshare</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Run</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">inside</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">modified</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="p" data-group-id="9792457557-1">[</span><span class="n">options</span><span class="p" data-group-id="9792457557-1">]</span><span class="w"> </span><span class="p" data-group-id="9792457557-2">[</span><span class="n">command</span><span class="p" data-group-id="9792457557-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Launches</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="p" data-group-id="2547791328-1">(</span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">,</span><span class="w"> </span><span class="err">$</span><span class="nc">SHELL</span><span class="p" data-group-id="2547791328-1">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">configured</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">invoking</span><span class="w"> </span><span class="n">user</span><span class="sc">&#39;s UID and primary GID appear to be UID 0 and GID 0, respec‐
+   tively.  Any ranges which match that user and group in /etc/subuid and /etc/subgid are also mapped in as themselves with the help of the newuidmap(1) and newgidmap(1) helpers.
+
+   podman unshare is useful for troubleshooting unprivileged operations and for manually clearing storage and other data related to images and containers.
+
+   It is also useful to use the podman mount command.  If an unprivileged user wants to mount and work with a container, then they need to execute podman unshare.  Executing podman mount
+   fails for unprivileged users unless the user is running inside a podman unshare session.
+
+   The unshare session defines two environment variables:
+
+          • CONTAINERS_GRAPHROOT: the path to the persistent container&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">CONTAINERS_RUNROOT</span><span class="p">:</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">volatile</span><span class="w"> </span><span class="n">container</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">IMPORTANT</span><span class="p">:</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="nc">Podman</span><span class="w"> </span><span class="n">client</span><span class="o">.</span></code></pre><p>OPTIONS
+   --help, -h</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Print</span><span class="w"> </span><span class="n">usage</span><span class="w"> </span><span class="n">statement</span></code></pre><p>   --rootless-netns</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Join</span><span class="w">  </span><span class="n">the</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">netavark</span><span class="w"> </span><span class="n">networking</span><span class="o">.</span><span class="w"> </span><span class="nc">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="nc">IP</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p" data-group-id="3843061626-1">(</span><span class="n">bridge</span><span class="w"> </span><span class="n">networking</span><span class="p" data-group-id="3843061626-1">)</span><span class="o">.</span><span class="w"> </span><span class="nc">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">possible</span><span class="w">
+   </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="n">namespace</span><span class="o">.</span></code></pre><p>Exit Codes</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">The</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">gives</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">why</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">why</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">exited</span><span class="o">.</span><span class="w">  </span><span class="nc">When</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">zero</span><span class="w">  </span><span class="n">code</span><span class="p">,</span><span class="w">  </span><span class="n">the</span><span class="w">  </span><span class="n">exit</span><span class="w">  </span><span class="n">codes</span><span class="w">
+   </span><span class="n">follow</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chroot</span><span class="w"> </span><span class="n">standard</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="ss">below</span><span class="p">:</span><span class="w">
+
+   </span><span class="mi">125</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">itself</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="o">--</span><span class="n">foo</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="err">$</span><span class="sc">?
+</span><span class="w">   </span><span class="ss">Error</span><span class="p">:</span><span class="w"> </span><span class="n">unknown</span><span class="w"> </span><span class="ss">flag</span><span class="p">:</span><span class="w"> </span><span class="o">--</span><span class="n">foo</span><span class="w">
+   </span><span class="mi">125</span><span class="w">
+
+   </span><span class="mi">126</span><span class="w"> </span><span class="nc">Executing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">invoked</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="err">$</span><span class="sc">?
+</span><span class="w">   </span><span class="ss">Error</span><span class="p">:</span><span class="w"> </span><span class="n">fork</span><span class="o">/</span><span class="n">exec</span><span class="w"> </span><span class="o">/</span><span class="ss">etc</span><span class="p">:</span><span class="w"> </span><span class="n">permission</span><span class="w"> </span><span class="n">denied</span><span class="w">
+   </span><span class="mi">126</span><span class="w">
+
+   </span><span class="mi">127</span><span class="w"> </span><span class="nc">Executing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">found</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="err">$</span><span class="sc">?
+</span><span class="w">   </span><span class="ss">Error</span><span class="p">:</span><span class="w"> </span><span class="n">fork</span><span class="o">/</span><span class="n">exec</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="ss">bogus</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">directory</span><span class="w">
+   </span><span class="mi">127</span><span class="w">
+
+   </span><span class="nc">Exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">contained</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="sc">&#39;exit 3&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="err">$</span><span class="sc">?
+</span><span class="w">   </span><span class="mi">3</span></code></pre><p>EXAMPLE</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Execute</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ss">namespace</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">id</span><span class="w">
+   </span><span class="n">uid</span><span class="o">=</span><span class="mi">0</span><span class="p" data-group-id="8232125482-1">(</span><span class="n">root</span><span class="p" data-group-id="8232125482-1">)</span><span class="w"> </span><span class="n">gid</span><span class="o">=</span><span class="mi">0</span><span class="p" data-group-id="8232125482-2">(</span><span class="n">root</span><span class="p" data-group-id="8232125482-2">)</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="mi">0</span><span class="p" data-group-id="8232125482-3">(</span><span class="n">root</span><span class="p" data-group-id="8232125482-3">)</span><span class="p">,</span><span class="mi">65534</span><span class="p" data-group-id="8232125482-4">(</span><span class="n">nobody</span><span class="p" data-group-id="8232125482-4">)</span><span class="w">
+
+   </span><span class="nc">Show</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="n">mappings</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">self</span><span class="o">/</span><span class="n">uid_map</span><span class="w"> </span><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">self</span><span class="o">/</span><span class="n">gid_map</span><span class="w">
+            </span><span class="mi">0</span><span class="w">       </span><span class="mi">1000</span><span class="w">          </span><span class="mi">1</span><span class="w">
+            </span><span class="mi">1</span><span class="w">      </span><span class="mi">10000</span><span class="w">      </span><span class="mi">65536</span><span class="w">
+            </span><span class="mi">0</span><span class="w">       </span><span class="mi">1000</span><span class="w">          </span><span class="mi">1</span><span class="w">
+            </span><span class="mi">1</span><span class="w">      </span><span class="mi">10000</span><span class="w">      </span><span class="mi">65536</span><span class="w">
+
+   </span><span class="nc">Show</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="n">netns</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rootless</span><span class="w"> </span><span class="ss">containers</span><span class="p">:</span><span class="w">
+
+   </span><span class="err">$</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">unshare</span><span class="w"> </span><span class="o">--</span><span class="n">rootless</span><span class="o">-</span><span class="n">netns</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="n">addr</span><span class="w">
+   </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="ss">lo</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">LOOPBACK</span><span class="p">,</span><span class="nc">UP</span><span class="p">,</span><span class="nc">LOWER_UP</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mtu</span><span class="w"> </span><span class="mi">65536</span><span class="w"> </span><span class="n">qdisc</span><span class="w"> </span><span class="n">noqueue</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="nc">UNKNOWN</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">qlen</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+       </span><span class="n">link</span><span class="o">/</span><span class="n">loopback</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"> </span><span class="n">brd</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w">
+       </span><span class="n">inet</span><span class="w"> </span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="n">lo</span><span class="w">
+          </span><span class="n">valid_lft</span><span class="w"> </span><span class="n">forever</span><span class="w"> </span><span class="n">preferred_lft</span><span class="w"> </span><span class="n">forever</span><span class="w">
+       </span><span class="n">inet6</span><span class="w"> </span><span class="o">::</span><span class="mi">1</span><span class="o">/</span><span class="mi">128</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">host</span><span class="w">
+          </span><span class="n">valid_lft</span><span class="w"> </span><span class="n">forever</span><span class="w"> </span><span class="n">preferred_lft</span><span class="w"> </span><span class="n">forever</span><span class="w">
+   </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="ss">tap0</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nc">BROADCAST</span><span class="p">,</span><span class="nc">UP</span><span class="p">,</span><span class="nc">LOWER_UP</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mtu</span><span class="w"> </span><span class="mi">65520</span><span class="w"> </span><span class="n">qdisc</span><span class="w"> </span><span class="n">fq_codel</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="nc">UNKNOWN</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">qlen</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+       </span><span class="n">link</span><span class="o">/</span><span class="n">ether</span><span class="w"> </span><span class="n">aa</span><span class="p">:</span><span class="mi">8</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">73</span><span class="p">:</span><span class="mi">98</span><span class="ss">:f6</span><span class="w"> </span><span class="n">brd</span><span class="w"> </span><span class="n">ff</span><span class="ss">:ff</span><span class="ss">:ff</span><span class="ss">:ff</span><span class="ss">:ff</span><span class="ss">:ff</span><span class="w">
+       </span><span class="n">inet</span><span class="w"> </span><span class="mf">10.0</span><span class="o">.</span><span class="mf">2.100</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="n">brd</span><span class="w"> </span><span class="mf">10.0</span><span class="o">.</span><span class="mf">2.255</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">tap0</span><span class="w">
+          </span><span class="n">valid_lft</span><span class="w"> </span><span class="n">forever</span><span class="w"> </span><span class="n">preferred_lft</span><span class="w"> </span><span class="n">forever</span><span class="w">
+       </span><span class="n">inet6</span><span class="w"> </span><span class="n">fd00</span><span class="o">::</span><span class="n">a88c</span><span class="ss">:bff</span><span class="ss">:fe73</span><span class="p">:</span><span class="mi">98</span><span class="n">f6</span><span class="o">/</span><span class="mi">64</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">dynamic</span><span class="w"> </span><span class="n">mngtmpaddr</span><span class="w">
+          </span><span class="n">valid_lft</span><span class="w"> </span><span class="mi">86389</span><span class="n">sec</span><span class="w"> </span><span class="n">preferred_lft</span><span class="w"> </span><span class="mi">14389</span><span class="n">sec</span><span class="w">
+       </span><span class="n">inet6</span><span class="w"> </span><span class="n">fe80</span><span class="o">::</span><span class="n">a88c</span><span class="ss">:bff</span><span class="ss">:fe73</span><span class="p">:</span><span class="mi">98</span><span class="n">f6</span><span class="o">/</span><span class="mi">64</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="n">link</span><span class="w">
+          </span><span class="n">valid_lft</span><span class="w"> </span><span class="n">forever</span><span class="w"> </span><span class="n">preferred_lft</span><span class="w"> </span><span class="n">forever</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">podman</span><span class="p" data-group-id="3169055540-1">(</span><span class="mi">1</span><span class="p" data-group-id="3169055540-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="o">-</span><span class="n">mount</span><span class="p" data-group-id="3169055540-2">(</span><span class="mi">1</span><span class="p" data-group-id="3169055540-2">)</span><span class="p">,</span><span class="w"> </span><span class="n">namespaces</span><span class="p" data-group-id="3169055540-3">(</span><span class="mi">7</span><span class="p" data-group-id="3169055540-3">)</span><span class="p">,</span><span class="w"> </span><span class="n">newuidmap</span><span class="p" data-group-id="3169055540-4">(</span><span class="mi">1</span><span class="p" data-group-id="3169055540-4">)</span><span class="p">,</span><span class="w"> </span><span class="n">newgidmap</span><span class="p" data-group-id="3169055540-5">(</span><span class="mi">1</span><span class="p" data-group-id="3169055540-5">)</span><span class="p">,</span><span class="w"> </span><span class="n">user_namespaces</span><span class="p" data-group-id="3169055540-6">(</span><span class="mi">7</span><span class="p" data-group-id="3169055540-6">)</span><span class="w">
+
+                                                                                                                                                                         </span><span class="n">podman</span><span class="o">-</span><span class="n">unshare</span><span class="p" data-group-id="3169055540-7">(</span><span class="mi">1</span><span class="p" data-group-id="3169055540-7">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="podman-unpause.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+podman-unpause
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="podman-update.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+podman-update
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>containers-sigstore-signing-params.yaml — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-23381D40.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>containers-sigstore-signing-params.yaml</h1>
+
+
+  </div>
+
+
+<p>CONTAINERS-SIGSTORE-SIGNING-PARAMS.YAML(5)                                                parameters                                                CONTAINERS-SIGSTORE-SIGNING-PARAMS.YAML(5)</p><p>Miloslav Trmač January 2023</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">containers</span><span class="o">-</span><span class="n">sigstore</span><span class="o">-</span><span class="n">signing</span><span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">yaml</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">syntax</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sigstore</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">file</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Sigstore</span><span class="w">  </span><span class="n">signing</span><span class="w">  </span><span class="n">parameter</span><span class="w">  </span><span class="n">files</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">sigstore</span><span class="w"> </span><span class="n">signatures</span><span class="o">.</span><span class="w">  </span><span class="nc">There</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">files</span><span class="p">;</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">user</span><span class="o">-</span><span class="n">managed</span><span class="p">,</span><span class="w">
+   </span><span class="ow">and</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">container</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">operation</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="w"> </span><span class="n">skopeo</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="o">--</span><span class="n">sign</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">sigstore</span><span class="o">=</span><span class="n">param</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">yaml</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">podman</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">--</span><span class="n">sign</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">sigstore</span><span class="o">=</span><span class="n">param</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">yaml</span><span class="w"> </span><span class="o">.</span></code></pre><p>FORMAT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Sigstore</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="nc">YAML</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Many</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">optional</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">enough</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signature</span><span class="p">;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">Fulcio</span><span class="o">.</span></code></pre><p>   Signing with Private Keys</p><pre><code class="makeup elixir" translate="no"><span class="w">          </span><span class="err">•</span><span class="w"> </span><span class="ss">privateKeyFile</span><span class="p">:</span><span class="w"> </span><span class="n">path</span><span class="w">
+
+   </span><span class="nc">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">signature</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">path</span><span class="o">.</span><span class="w">
+      </span><span class="nc">Existence</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="n">triggers</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">privateKeyPassphraseFile</span><span class="p">:</span><span class="w"> </span><span class="n">passphrasePath</span><span class="w">
+
+   </span><span class="nc">Read</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="w"> </span><span class="n">privateKeyFile</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">passphrasePath</span><span class="o">.</span><span class="w">
+      </span><span class="ss">Optional</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">set</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="n">interactively</span><span class="o">.</span></code></pre><p>   Signing with Fulcio-generated Certificates</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Instead</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">generates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">short</span><span class="o">-</span><span class="n">lived</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Fulcio</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">issue</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">pair</span><span class="p">,</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w">  </span><span class="n">authen</span><span class="err">‐</span><span class="w">
+   </span><span class="n">ticating</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">OpenID</span><span class="w"> </span><span class="nc">Connect</span><span class="w"> </span><span class="n">provider</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">To</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="nc">Fulcio</span><span class="p">,</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fulcio</span><span class="w"> </span><span class="n">sub</span><span class="o">-</span><span class="n">object</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">keys</span><span class="o">.</span><span class="w">  </span><span class="nc">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Rekor</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">specified</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">well</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">fulcioURL</span><span class="p">:</span><span class="w"> </span><span class="nc">URL</span><span class="w">
+
+   </span><span class="nc">Required</span><span class="o">.</span><span class="w"> </span><span class="nc">URL</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Fulcio</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">deviceGrant</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">staticToken</span><span class="w">
+
+   </span><span class="nc">Required</span><span class="o">.</span><span class="w"> </span><span class="nc">Specifies</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">obtain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="nc">OpenID</span><span class="w"> </span><span class="nc">Connect</span><span class="w"> </span><span class="n">credential</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">interactive</span><span class="w"> </span><span class="n">opens</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">browser</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">machine</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w">
+     </span><span class="n">asks</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">browser</span><span class="w"> </span><span class="n">manually</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">code</span><span class="o">.</span><span class="w">
+     </span><span class="nc">It</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="n">interact</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">process</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">deviceGrant</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">authorization</span><span class="w"> </span><span class="n">grant</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="p" data-group-id="5230414773-1">(</span><span class="nc">RFC</span><span class="w"> </span><span class="mi">8628</span><span class="p" data-group-id="5230414773-1">)</span><span class="o">.</span><span class="w">
+     </span><span class="nc">It</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">able</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">printed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">signing</span><span class="w"> </span><span class="n">process</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">reasonably</span><span class="w"> </span><span class="n">promptly</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">staticToken</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">existing</span><span class="w"> </span><span class="nc">OpenID</span><span class="w"> </span><span class="nc">Connect</span><span class="w"> </span><span class="err">“</span><span class="nc">ID</span><span class="w"> </span><span class="n">token</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">obtained</span><span class="w"> </span><span class="n">separately</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">oidcIssuerURL</span><span class="p">:</span><span class="w"> </span><span class="nc">URL</span><span class="w">
+
+   </span><span class="nc">Required</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">deviceGrant</span><span class="o">.</span><span class="w"> </span><span class="nc">URL</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">OpenID</span><span class="w"> </span><span class="nc">Connect</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="k">with</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">oidcClientID</span><span class="p">:</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="nc">ID</span><span class="w">
+
+   </span><span class="nc">Used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">deviceGrant</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">identify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">contacting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">issuer</span><span class="o">.</span><span class="w">
+     </span><span class="nc">Optional</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">likely</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">cases</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">oidcClientSecret</span><span class="p">:</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">secret</span><span class="w">
+
+   </span><span class="nc">Used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="n">interactive</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">deviceGrant</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">authenticate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">contacting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">issuer</span><span class="o">.</span><span class="w">
+     </span><span class="nc">Optional</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">oidcIDToken</span><span class="p">:</span><span class="w"> </span><span class="n">token</span><span class="w">
+
+   </span><span class="nc">Required</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="n">staticToken</span><span class="o">.</span><span class="w">
+     </span><span class="nc">An</span><span class="w"> </span><span class="nc">OpenID</span><span class="w"> </span><span class="nc">Connect</span><span class="w"> </span><span class="nc">ID</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">identifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="p" data-group-id="5230414773-2">(</span><span class="ow">and</span><span class="w"> </span><span class="n">authorizes</span><span class="w"> </span><span class="n">certificate</span><span class="w"> </span><span class="n">issuance</span><span class="p" data-group-id="5230414773-2">)</span><span class="o">.</span></code></pre><p>   Recording the Signature to a Rekor Transparency Server</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">combined</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">Fulcio</span><span class="o">.</span><span class="w">  </span><span class="nc">It</span><span class="w"> </span><span class="n">is</span><span class="p">,</span><span class="w"> </span><span class="n">practically</span><span class="w"> </span><span class="n">speaking</span><span class="p">,</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">Fulcio</span><span class="p">;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="ow">when</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">used</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">inter</span><span class="err">‐</span><span class="w">
+   </span><span class="n">operability</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">cosign</span><span class="o">.</span><span class="w">
+
+          </span><span class="err">•</span><span class="w"> </span><span class="ss">rekorURL</span><span class="p">:</span><span class="w"> </span><span class="nc">URL</span><span class="w">
+
+   </span><span class="nc">URL</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Rekor</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="kn">use</span><span class="o">.</span></code></pre><p>EXAMPLES
+   Sign Using a Pre-existing Private Key</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">”</span><span class="n">community</span><span class="w"> </span><span class="n">infrastructure</span><span class="err">”</span><span class="w"> </span><span class="nc">Rekor</span><span class="w"> </span><span class="n">server</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">privateKeyFile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/user/sigstore/private-key.key&quot;</span><span class="w">
+   </span><span class="ss">privateKeyPassphraseFile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/mnt/user/sigstore-private-key&quot;</span><span class="w">
+   </span><span class="ss">rekorURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rekor.sigstore.dev&quot;</span></code></pre><p>   Sign Using a Fulcio-Issued Certificate</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">”</span><span class="n">community</span><span class="w"> </span><span class="n">infrastructure</span><span class="err">”</span><span class="w"> </span><span class="nc">Fulcio</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Rekor</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Dex</span><span class="w"> </span><span class="nc">OIDC</span><span class="w"> </span><span class="n">issuer</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">delegates</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="n">issuers</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="nc">Google</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">GitHub</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">Other</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">likely</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="nc">OIDC</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">secret</span><span class="o">.</span><span class="w">
+
+   </span><span class="ss">fulcio</span><span class="p">:</span><span class="w">
+     </span><span class="ss">fulcioURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://fulcio.sigstore.dev&quot;</span><span class="w">
+     </span><span class="ss">oidcMode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;interactive&quot;</span><span class="w">
+     </span><span class="ss">oidcIssuerURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://oauth2.sigstore.dev/auth&quot;</span><span class="w">
+     </span><span class="ss">oidcClientID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sigstore&quot;</span><span class="w">
+   </span><span class="ss">rekorURL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rekor.sigstore.dev&quot;</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">skopeo</span><span class="p" data-group-id="2839587519-1">(</span><span class="mi">1</span><span class="p" data-group-id="2839587519-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">podman</span><span class="p" data-group-id="2839587519-2">(</span><span class="mi">1</span><span class="p" data-group-id="2839587519-2">)</span></code></pre><p>signing                                                                                    sigstore                                                 CONTAINERS-SIGSTORE-SIGNING-PARAMS.YAML(5)</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="containers-signature.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+containers-signature
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="containers-storage-conf.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+containers-storage.conf
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

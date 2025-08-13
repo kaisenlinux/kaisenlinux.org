@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.2">
+    <meta name="project" content="Manpages v3.0.0">
+
+
+    <title>rdiff-backup-fs — Manpages v3.0.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-KV3YOVJ3.css" />
+
+    <script defer src="dist/sidebar_items-C9959D41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-DPJLHKSM.js"></script>
+<link rel="stylesheet" href="assets/doc.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Manpages" />
+        </a>
+
+      <div>
+        <a href="https://kaisenlinux.org/manpages/" class="sidebar-projectName" translate="no">
+Manpages
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v3.0.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="MANUALS"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Manpages</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>rdiff-backup-fs</h1>
+
+
+  </div>
+
+
+<p>RDIFF-BACKUP-FS(1)                                                                  General Commands Manual                                                                 RDIFF-BACKUP-FS(1)</p><p>NAME</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">Filesystem</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">accessing</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="w"> </span><span class="n">archives</span><span class="o">.</span></code></pre><p>SYNOPSIS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="o">&lt;</span><span class="n">mount_point</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="8424775430-1">[</span><span class="n">repositories</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="8424775430-1">]</span><span class="w"> </span><span class="p" data-group-id="8424775430-2">[</span><span class="o">-</span><span class="n">option</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="8424775430-2">]</span></code></pre><p>DESCRIPTION</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">filesystem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">userspace</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="w"> </span><span class="n">archives</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">convenient</span><span class="w"> </span><span class="n">access</span><span class="o">.</span></code></pre><p>OPTIONS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="o">--</span><span class="n">debug</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">0</span><span class="o">-</span><span class="mi">4</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Run</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">foreground</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">verbosity</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">debug</span><span class="w"> </span><span class="n">messages</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">full</span><span class="w">
+          </span><span class="nc">Store</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">revisions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span><span class="w"> </span><span class="ss">CAUTION</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">lot</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">revisions</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">last</span><span class="w">
+          </span><span class="nc">Displays</span><span class="w">  </span><span class="n">files</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">directories</span><span class="p">,</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">holding</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="w"> </span><span class="ss">CAUTION</span><span class="p">:</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">stores</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">revisions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">there</span><span class="err">‐</span><span class="w">
+          </span><span class="n">fore</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">lot</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">revisions</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">caching</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">retrieved</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">filesystem</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">caching</span><span class="w">
+          </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">done</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">revisions</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">revisions</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">demand</span><span class="w"> </span><span class="n">revision</span><span class="w"> </span><span class="n">retrieval</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">revisions</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">directory</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span><span class="w">
+          </span><span class="nc">Set</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">temporary</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="nc">By</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">.</span><span class="w">
+
+   </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="w">
+          </span><span class="nc">Print</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span></code></pre><p>SEE ALSO</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="p" data-group-id="6660937182-1">(</span><span class="mi">1</span><span class="p" data-group-id="6660937182-1">)</span></code></pre><p>COPYRIGHT</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nc">Copyright</span><span class="w"> </span><span class="p" data-group-id="8725166703-1">(</span><span class="n">c</span><span class="p" data-group-id="8725166703-1">)</span><span class="w"> </span><span class="mi">2007</span><span class="o">-</span><span class="mi">2011</span><span class="w"> </span><span class="nc">Filip</span><span class="w"> </span><span class="nc">Gruszczy</span><span class="n">ński</span><span class="o">.</span><span class="w">
+
+   </span><span class="n">rdiff</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">fs</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">free</span><span class="w"> </span><span class="ss">software</span><span class="p">:</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">redistribute</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">published</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Free</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="nc">Foundation</span><span class="p">,</span><span class="w"> </span><span class="n">either</span><span class="w">  </span><span class="n">ver</span><span class="err">‐</span><span class="w">
+   </span><span class="n">sion</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p" data-group-id="8725166703-2">(</span><span class="n">at</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">option</span><span class="p" data-group-id="8725166703-2">)</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">version</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">This</span><span class="w">  </span><span class="n">program</span><span class="w">  </span><span class="n">is</span><span class="w">  </span><span class="n">distributed</span><span class="w">  </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">hope</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">useful</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="nc">WITHOUT</span><span class="w"> </span><span class="nc">ANY</span><span class="w"> </span><span class="nc">WARRANTY</span><span class="p">;</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">implied</span><span class="w"> </span><span class="n">warranty</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nc">MERCHANTABILITY</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nc">FITNESS</span><span class="w"> </span><span class="nc">FOR</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="nc">PARTICULAR</span><span class="w"> </span><span class="nc">PURPOSE</span><span class="o">.</span><span class="w">
+   </span><span class="nc">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w">
+
+   </span><span class="nc">You</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">received</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">program</span><span class="o">.</span><span class="w">  </span><span class="nc">If</span><span class="w"> </span><span class="ow">not</span><span class="p">,</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="o">&lt;</span><span class="n">http</span><span class="ss">://</span><span class="n">www</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="o">&gt;</span><span class="o">.</span></code></pre><p>AUTHORS</p><pre><code class="makeup elixir" translate="no"><span class="w">   </span><span class="nc">Filip</span><span class="w"> </span><span class="nc">Gruszczy</span><span class="n">ński</span><span class="w"> </span><span class="o">&lt;</span><span class="n">gruszczy</span><span class="na">@gmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span><span class="w">
+
+                                                                                                                                                                        </span><span class="nc">RDIFF</span><span class="o">-</span><span class="nc">BACKUP</span><span class="o">-</span><span class="nc">FS</span><span class="p" data-group-id="0989422383-1">(</span><span class="mi">1</span><span class="p" data-group-id="0989422383-1">)</span></code></pre>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="rdiff-backup-delete.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+rdiff-backup-delete
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="rdiff-backup.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+rdiff-backup
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.2) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
